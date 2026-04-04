@@ -385,11 +385,25 @@ document.querySelectorAll('[data-filter]').forEach(btn=>{
   });
 });
 
+function getPreviewUrl(gdocsUrl){
+  if(!gdocsUrl||gdocsUrl==='#')return null;
+  const docMatch=gdocsUrl.match(/docs\.google\.com\/document\/d\/([^/?]+)/);
+  if(docMatch)return`https://docs.google.com/document/d/${docMatch[1]}/preview`;
+  const sheetMatch=gdocsUrl.match(/docs\.google\.com\/spreadsheets\/d\/([^/?]+)/);
+  if(sheetMatch)return`https://docs.google.com/spreadsheets/d/${sheetMatch[1]}/preview`;
+  return null;
+}
+
 function openModal(id){
   const doc=DOCS.find(d=>d.id===id);if(!doc)return;
   // Dashboard and Visual items with a local file open inline
   if(doc.dashboardFile&&(doc.format==='Dashboard'||doc.format==='Visual')){
     openViewer(doc.dashboardFile,doc.title);return;
+  }
+  // Briefing & Paper and Data items with a Google Docs/Sheets URL open as preview
+  if((doc.format==='Briefing & Paper'||doc.format==='Data')&&doc.gdocs){
+    const previewUrl=getPreviewUrl(doc.gdocs);
+    if(previewUrl){openViewer(previewUrl,doc.title);return;}
   }
   document.getElementById('modal-id').textContent=doc.id;
   document.getElementById('modal-title').textContent=doc.title;
