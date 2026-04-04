@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian Guardianship Programme — TOT Insight Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--bg2:#131e2e;--bg3:#1a2840;--border:#243552;--text:#cdd8e6;--muted:#6e8aaa;--accent:#c4992a;--acl:#e0b94a;--del:#4ade80;--par:#fbbf24;--fail:#f87171;--unc:#94a3b8;--serif:'Crimson Pro',Georgia,serif;--mono:'Space Mono',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;min-height:100vh;}
+.header{border-bottom:1px solid var(--border);padding:1.6rem 2.5rem 1.3rem;position:relative;}
+.header::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);}
+.hlabel{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem;}
+.htitle{font-size:1.7rem;font-weight:600;letter-spacing:-.02em;color:#e8f0f8;margin-bottom:.2rem;}
+.hsub{font-size:.95rem;color:var(--muted);font-style:italic;}
+.stats{display:flex;gap:2rem;margin-top:1.1rem;flex-wrap:wrap;}
+.stat{display:flex;flex-direction:column;}
+.sv{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:var(--acl);}
+.sl{font-size:.65rem;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.05em;}
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 2.5rem;overflow-x:auto;}
+.tab{padding:.7rem 1rem;cursor:pointer;font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
+.tab:hover{color:var(--text);}.tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.panel{display:none;}.panel.active{display:block;}
+.pcontent{padding:2rem 2.5rem;}
+.ptitle{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:1.4rem;}
+/* MAP */
+.map-outer{position:relative;overflow:hidden;user-select:none;}
+#mapSvg{width:100%;background:#0a1018;display:block;}
+.map-legend{position:absolute;bottom:40px;right:12px;background:rgba(10,16,24,.95);border:1px solid var(--border);padding:.65rem .9rem;border-radius:4px;}
+.leg-title{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.35rem;}
+.leg-item{display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem;font-size:.74rem;color:var(--text);}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+#mapTip{position:absolute;pointer-events:none;background:rgba(13,21,33,.97);border:1px solid var(--border);border-radius:4px;padding:.5rem .7rem;font-family:var(--mono);font-size:.68rem;color:var(--text);max-width:230px;display:none;z-index:50;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.5);}
+.map-note{background:var(--bg2);border-top:1px solid var(--border);padding:.5rem 1rem;font-size:.69rem;color:var(--muted);font-family:var(--mono);}
+/* DELIVERY */
+.sumrow{display:flex;gap:.9rem;margin-bottom:1.8rem;flex-wrap:wrap;}
+.sbox{display:flex;align-items:center;gap:.7rem;background:var(--bg2);border:1px solid var(--border);padding:.7rem 1.1rem;border-radius:4px;flex:1;min-width:105px;}
+.sicon{font-size:1.3rem;}.scount{font-family:var(--mono);font-size:1.4rem;font-weight:700;}.sdesc{font-size:.7rem;color:var(--muted);line-height:1.3;}
+.sd .scount{color:var(--del);}.sp .scount{color:var(--par);}.sf .scount{color:var(--fail);}.su .scount{color:var(--unc);}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:.8rem;}
+.dc{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:.85rem .85rem .85rem 1rem;position:relative;overflow:hidden;}
+.dc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.dc.d::before{background:var(--del);}.dc.p::before{background:var(--par);}.dc.f::before{background:var(--fail);}.dc.u::before{background:var(--unc);}
+.dcs{font-family:var(--mono);font-size:.95rem;font-weight:700;float:right;margin-left:.4rem;}
+.dc.d .dcs{color:var(--del);}.dc.p .dcs{color:var(--par);}.dc.f .dcs{color:var(--fail);}.dc.u .dcs{color:var(--unc);}
+.dcdonor{font-weight:600;font-size:.88rem;color:#e8f0f8;margin-bottom:.12rem;}
+.dcterr{font-size:.8rem;color:var(--muted);margin-bottom:.28rem;}
+.dcsec{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+/* TIMELINE */
+.tlwrap{position:relative;padding-left:1.9rem;}
+.tlwrap::before{content:'';position:absolute;top:0;left:7px;width:2px;height:100%;background:var(--border);}
+.plabel{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.9rem;margin-left:-1.75rem;}
+.pl-pre{background:rgba(148,163,184,.1);color:var(--unc);}.pl-1{background:rgba(74,158,255,.1);color:#4a9eff;}.pl-2{background:rgba(196,153,42,.1);color:var(--accent);}.pl-3{background:rgba(251,191,36,.1);color:var(--par);}.pl-4{background:rgba(248,113,113,.1);color:var(--fail);}
+.tli{position:relative;margin-bottom:1.3rem;}
+.tldot{position:absolute;left:-1.68rem;top:.42rem;width:10px;height:10px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);}
+.ph-pre .tldot{border-color:var(--unc);}.ph-1 .tldot{border-color:#4a9eff;}.ph-2 .tldot{border-color:var(--accent);}.ph-3 .tldot{border-color:var(--par);}.ph-4 .tldot{border-color:var(--fail);}
+.tldate{font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-bottom:.12rem;}
+.tlevent{font-size:.9rem;color:var(--text);margin-bottom:.22rem;}
+.tlnote{font-size:.78rem;color:var(--muted);font-style:italic;}
+/* CORRUPTION */
+.ccards{display:flex;flex-direction:column;gap:.85rem;}
+.cc{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1rem;}
+.cch{display:flex;justify-content:space-between;align-items:flex-start;gap:.9rem;margin-bottom:.45rem;}
+.cctitle{font-weight:600;font-size:.92rem;color:#e8f0f8;}
+.cctype{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;padding:.18rem .42rem;border-radius:2px;white-space:nowrap;flex-shrink:0;}
+.t-op{background:rgba(248,113,113,.1);color:#f87171;}.t-vat{background:rgba(251,191,36,.1);color:#fbbf24;}.t-as{background:rgba(196,153,42,.1);color:var(--accent);}.t-em{background:rgba(248,113,113,.18);color:#fca5a5;}.t-pt{background:rgba(167,139,250,.1);color:#a78bfa;}.t-wt{background:rgba(94,234,212,.1);color:#5eead4;}.t-sc{background:rgba(248,113,113,.22);color:#f87171;}
+.ccscale{font-family:var(--mono);font-size:.7rem;color:var(--accent);margin-bottom:.35rem;}
+.ccdesc{font-size:.83rem;color:var(--muted);line-height:1.52;}
+/* NOTE */
+.nwrap{max-width:730px;}.nsec{margin-bottom:1.9rem;}
+.nh{font-family:var(--mono);font-size:.63rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:.75rem;padding-bottom:.35rem;border-bottom:1px solid var(--border);}
+.np{font-size:1rem;line-height:1.78;margin-bottom:.7rem;color:var(--text);}
+.npull{background:rgba(196,153,42,.09);border-left:3px solid var(--accent);padding:.75rem .95rem;margin:.9rem 0;font-style:italic;font-size:.93rem;color:#c8d8e8;line-height:1.65;}
+::-webkit-scrollbar{width:5px;height:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="hlabel">TOT Insight Hub · Analytical Overview</div>
+  <div class="htitle">Russian Regional Guardianship Programme (Шефство)</div>
+  <div class="hsub">Structural overview of Russia's occupied territory reconstruction apparatus, 2022–present</div>
+  <div class="stats">
+    <div class="stat"><span class="sv">44+</span><span class="sl">Donor–Territory Pairings</span></div>
+    <div class="stat"><span class="sv">60+</span><span class="sl">Russian Regions Involved</span></div>
+    <div class="stat"><span class="sv">~₽2tn</span><span class="sl">Est. Budget 2024–30</span></div>
+    <div class="stat"><span class="sv">May 2022</span><span class="sl">Programme Launch</span></div>
+    <div class="stat"><span class="sv">4</span><span class="sl">Occupied Territories</span></div>
+  </div>
+</div>
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('map')">Map</div>
+  <div class="tab" onclick="switchTab('delivery')">Delivery Scorecard</div>
+  <div class="tab" onclick="switchTab('timeline')">Programme Timeline</div>
+  <div class="tab" onclick="switchTab('corruption')">Corruption Tracker</div>
+  <div class="tab" onclick="switchTab('note')">Analytical Note</div>
+</div>
+
+<!-- MAP -->
+<div id="panel-map" class="panel active">
+  <div class="map-outer">
+    <svg id="mapSvg" viewBox="0 0 1100 460"></svg>
+    <div class="map-legend">
+      <div class="leg-title">Delivery Status</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4ade80"></div>Confirmed Delivered</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#fbbf24"></div>Partial / Disputed</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#f87171"></div>Not Delivered</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#94a3b8"></div>Status Unclear</div>
+      <div style="margin:.35rem 0 .28rem;border-top:1px solid #243552;padding-top:.3rem;">
+      <div class="leg-item"><div class="leg-dot" style="background:#e07b3a"></div>Occupied Territory</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4a9eff"></div>Russian Donor Region</div>
+      </div>
+    </div>
+    <div id="mapTip"></div>
+  </div>
+  <div class="map-note">Arcs connect Russian donor regions to assigned occupied Ukrainian territories, colour-coded by delivery status. Far East donors (Amur ✓, Khabarovsk ✓, Yakutia ✓, Sakhalin ✓) are off-screen east — all confirmed delivered as part of the ₽12bn Far East bloc. Hover over any marker for detail.</div>
+</div>
+
+<!-- DELIVERY -->
+<div id="panel-delivery" class="panel">
+  <div class="pcontent">
+    <div class="ptitle">Donor Region Delivery Assessment — 19 Regions with Documentary Record</div>
+    <div class="sumrow">
+      <div class="sbox sd"><div class="sicon">✓</div><div><div class="scount">4</div><div class="sdesc">Confirmed<br>Delivered</div></div></div>
+      <div class="sbox sp"><div class="sicon">~</div><div><div class="scount">7</div><div class="sdesc">Partial or<br>Disputed</div></div></div>
+      <div class="sbox sf"><div class="sicon">✗</div><div><div class="scount">4</div><div class="sdesc">Not Delivered /<br>No Evidence</div></div></div>
+      <div class="sbox su"><div class="sicon">?</div><div><div class="scount">4</div><div class="sdesc">Unclear /<br>Unconfirmed</div></div></div>
+    </div>
+    <div class="dgrid" id="deliveryGrid"></div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div id="panel-timeline" class="panel">
+  <div class="pcontent">
+    <div class="ptitle">Programme Longitudinal Timeline: Launch → Retrenchment</div>
+    <div class="tlwrap" id="tlEl"></div>
+  </div>
+</div>
+
+<!-- CORRUPTION -->
+<div id="panel-corruption" class="panel">
+  <div class="pcontent">
+    <div class="ptitle">Documented Corruption &amp; Financial Misconduct</div>
+    <div class="ccards" id="ccEl"></div>
+  </div>
+</div>
+
+<!-- NOTE -->
+<div id="panel-note" class="panel">
+  <div class="pcontent">
+    <div class="nwrap">
+      <div class="nsec">
+        <div class="nh">What Is the Guardianship Programme?</div>
+        <p class="np">Russia's Regional Guardianship (<em>Шефство</em>) Programme is a formal mechanism through which Russian federal regions are assigned responsibility for the reconstruction and administration of occupied Ukrainian territories. Announced in May 2022 by Sergei Kirienko — First Deputy Head of the Presidential Administration — it was framed as voluntary fraternal assistance, though no presidential decree was published and participation was effectively mandated by Kremlin signal.</p>
+        <p class="np">At its peak, more than 60 Russian regions had been paired with cities, districts, or oblasts in the Donetsk People's Republic (DNR), Luhansk People's Republic (LNR), Zaporizhzhia Oblast, and Kherson Oblast. The programme drew directly on a 2014 precedent, when 16 Russian regions acted as curators for newly occupied Crimean territory — the same structural logic, replicated at much larger scale.</p>
+      </div>
+      <div class="nsec">
+        <div class="nh">What Does the Data Show?</div>
+        <div class="npull">Of 19 donor regions with a documentary delivery record, only 4 (21%) show confirmed delivery. The remainder show partial, disputed, or absent evidence — despite significant budget allocations. The gap between announcement and delivery is the programme's defining feature.</div>
+        <p class="np">The best-performing cluster is the <strong>Far East Federal District</strong>, coordinated by Yuri Trutnev as plenipotentiary. By September 2025, Far East regions had collectively spent ₽12bn across 26 settlements and 1,000+ social objects. This performance is structurally explained by Trutnev's centralising federal role: where direct federal oversight supplements regional initiative, delivery improves. Where the programme relies on regional initiative alone — particularly in financially stressed regions — it deteriorates sharply.</p>
+        <p class="np">Donor regions under acute financial stress — Kemerovo Oblast (34% budget deficit by Q1 2025), Komi Republic, Arkhangelsk Oblast, Vologda Oblast — show the worst delivery records. But even solvent donors such as St Petersburg and Moscow show only partial delivery, complicated by procurement opacity that makes independent verification structurally impossible.</p>
+      </div>
+      <div class="nsec">
+        <div class="nh">Corruption as Structural Feature</div>
+        <p class="np">The programme's corruption profile is not incidental — it is architectural. Reconstruction was assigned without public tender, coordinated through a Ministry of Construction bypassing normal procurement, and financed through opaque regional funds. St Petersburg's 'Pobeda' fund collected ₽11.8bn but disclosed only ₽880m in expenditure (7%). The remaining 93% is publicly unaccounted for.</p>
+        <p class="np">Asset-stripping operates alongside, and often displaces, reconstruction. Kadyrov-linked Akhmat groups stripped Mariupol's Azovstal and Ilyich steel plants; 88+ coal wagons and multiple metal trainloads were transported to Russian ports in 2024 alone. A Luhansk Oblast gold deposit estimated at $260m was auctioned for $9.7m (3.7% of value) in March 2026.</p>
+        <div class="npull">In March 2026, a Russian court confirmed that the head of Military Construction Department No. 8 admitted guilt in stealing ₽9bn across 14 MoD contracts, with a DNR co-conspirator — a Russian prosecution, not a Ukrainian allegation.</div>
+      </div>
+      <div class="nsec">
+        <div class="nh">Why This Matters for the Hub</div>
+        <p class="np">The guardianship programme intersects with multiple Hub analytical dimensions. Under <em>Economic Dependency</em>: extraction and financial integration of occupied territories into the Russian economy, wage suppression, and asset stripping. Under <em>Legal Architecture</em>: property seizure via 'ownerless property' designations, procurement bypass, and regulatory frameworks including Putin's March 2025 decree restricting property registration for citizens of 'unfriendly countries.' Under <em>Identity Replacement</em>: workers brought from Russia, housing marketed to Russian buyers, institutions renamed.</p>
+        <p class="np">Methodologically, the dataset challenges use of budget allocations as proxies for actual delivery. The road cited by Reuters as evidence of $214m+ Russian investment in occupied territories has documented wage delays for its own construction workers, reported in Russian regional press. Allocated money is not delivered reconstruction — a methodological rebuttal that applies to much Western analytical coverage.</p>
+        <p class="np">The pattern replicates earlier Russian state infrastructure programmes without exception: Sochi Olympics ($50bn, documented corruption), the Crimean Bridge (Rotenberg-linked, no tender), Vostochny Cosmodrome (multiple prosecutions), Crimea post-2014 (same curator model, same opacity). Corruption in occupied territory reconstruction is not war-specific. It is the operating mode. Any settlement mechanism involving Russian-managed reconstruction funds would replicate these structural conditions.</p>
+      </div>
+      <div class="nsec">
+        <div class="nh">Data Limitations &amp; Source Note</div>
+        <p class="np">Dataset covers pairings as announced mid-to-late 2022, with delivery evidence through early 2026. Zaporizhzhia and Kherson pairings are less fully documented in open sources than DNR/LNR. Delivery assessment draws on Russian-language investigative press (iStories, Mediazona, Zona.media, Bumaga, Bloknot) and official statements (TASS/Trutnev). Russian official figures — particularly Far East bloc totals — are plausible but best-case. All status assessments should be read as minimum thresholds, not delivery ceilings.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// TAB SWITCHING
+function switchTab(n){
+  const ns=['map','delivery','timeline','corruption','note'];
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',ns[i]===n));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+n).classList.add('active');
+}
+
+// DELIVERY CARDS
+const deliveries=[
+  {donor:'Moscow (city)',terr:'Donetsk (DNR) + Luhansk (LNR)',s:'~',sec:'Infrastructure, housing, utilities'},
+  {donor:'St Petersburg (city)',terr:'Mariupol (DNR)',s:'~',sec:'Housing, civic, cultural'},
+  {donor:'Sverdlovsk Oblast',terr:'Makiivka (DNR)',s:'?',sec:'Social infrastructure'},
+  {donor:'Kemerovo Oblast (Kuzbass)',terr:'Horlivka (DNR)',s:'✗',sec:'Social infrastructure'},
+  {donor:'Leningrad Oblast',terr:'Yenakiieve (DNR)',s:'?',sec:'Education'},
+  {donor:'Chelyabinsk Oblast',terr:'Yasynuvata (DNR)',s:'?',sec:'Infrastructure'},
+  {donor:'Amur Oblast',terr:'Amvrosiivka district (DNR)',s:'✓',sec:'Social infrastructure, roads, water'},
+  {donor:'Khabarovsk Krai',terr:'Debaltseve (DNR)',s:'✓',sec:'Social infrastructure'},
+  {donor:'Yakutia (Republic of Sakha)',terr:'Kirovske (DNR)',s:'✓',sec:'Social infrastructure'},
+  {donor:'Sakhalin Oblast',terr:'Far East bloc (DNR)',s:'✓',sec:'Social infrastructure'},
+  {donor:'Kursk Oblast',terr:'Pervomaysk / Manhush (DNR)',s:'~',sec:'Roads, social infrastructure'},
+  {donor:'Bryansk Oblast',terr:'Brianka (LNR)',s:'~',sec:'Utilities, social'},
+  {donor:'Perm Krai',terr:'Severodonetsk + districts (LNR)',s:'~',sec:'Infrastructure, social'},
+  {donor:'Arkhangelsk Oblast',terr:'Melitopol (Zaporizhzhia)',s:'✗',sec:'Infrastructure, utilities, cultural'},
+  {donor:'Komi Republic',terr:'Rovenky (LNR)',s:'✗',sec:'Social infrastructure'},
+  {donor:'Vologda Oblast',terr:'Alchevsk (LNR)',s:'✗',sec:'Social infrastructure'},
+  {donor:'Volgograd Oblast',terr:'Stanychno-Luhanska (LNR)',s:'?',sec:'Social infrastructure'},
+  {donor:'Primorsky Krai',terr:'Chistyakove / Torez (DNR)',s:'~',sec:'Social infrastructure, water'},
+  {donor:'Krasnodar Krai',terr:'Kupyansk area (Kharkiv Oblast)',s:'~',sec:'Humanitarian, administrative'},
+];
+const scls={'✓':'d','~':'p','✗':'f','?':'u'};
+const dg=document.getElementById('deliveryGrid');
+deliveries.forEach(d=>{
+  const c=scls[d.s]||'u';
+  dg.innerHTML+=`<div class="dc ${c}"><div class="dcs">${d.s}</div><div class="dcdonor">${d.donor}</div><div class="dcterr">→ ${d.terr}</div><div class="dcsec">${d.sec}</div></div>`;
+});
+
+// TIMELINE
+const tlData=[
+  {date:'2014',ph:'ph-pre',lbl:'Precursor',ev:'16 Russian regions act as curators for 14 districts and 2 cities of Crimea following annexation.',note:'Established the template for post-annexation guardianship.'},
+  {date:'19 May 2022',ph:'ph-1',lbl:'Phase I — Launch',ev:'Kirienko announces at Znanie marathon that Russian regions will take guardianship over DNR and LNR. States this is a presidential decision.',note:'No presidential decree published. Framing: regions voluntarily helping \'liberated\' Donbass.'},
+  {date:'May–Jun 2022',ph:'ph-1',ev:'First pairings announced by governors. Moscow, St Petersburg, Sverdlovsk, Kemerovo, Amur, Khabarovsk among first.'},
+  {date:'Jun 2022',ph:'ph-1',ev:'Far East Federal District (7 regions) formally joins under Trutnev. All 11 Far East subjects eventually enrolled.',note:'Far East bloc becomes best-managed cluster due to Trutnev\'s centralising role.'},
+  {date:'2 Aug 2022',ph:'ph-1',ev:'RBC infographic documents 40+ regions with pairings. Programme now covers all four occupied oblast-level territories.'},
+  {date:'30 Sep 2022',ph:'ph-2',lbl:'Phase II — Expansion',ev:'Russia formally annexes DNR, LNR, Zaporizhzhia, Kherson oblasts. Ukraine liberates Kherson city and most of Kharkiv Oblast (Nov 2022).',note:'Legal status shifts from \'assistance\' to internal Russian regional development.'},
+  {date:'2022 (full year)',ph:'ph-2',ev:'Far East bloc works on 320 social objects in 24 DNR settlements at cost of ₽2.3bn.',note:'Most documented delivery phase; peak programme activity.'},
+  {date:'2023',ph:'ph-2',ev:'iStories and Zona.media document zero public tenders in Mariupol reconstruction. St Petersburg Pobeda fund opacity exposed.',note:'93% of ₽11.8bn fund publicly unaccounted for.'},
+  {date:'2024',ph:'ph-3',lbl:'Phase III — Stress & Retrenchment',ev:'Multiple donor regions face acute budget pressure. Kemerovo 34% deficit; Chelyabinsk cutting expenditure. Kursk Oblast under cross-border military attack from Aug 2024.'},
+  {date:'2024 (confirmed)',ph:'ph-3',ev:'Kadyrovite asset-stripping of Mariupol steel plants confirmed: 88+ coal wagons, multiple metal trainloads transported to Russian ports.'},
+  {date:'Oct 2025',ph:'ph-4',lbl:'Phase IV — Federal Shift',ev:'Trutnev confirms Far East bloc totals: ₽12bn, 1,000+ objects across 26 settlements by Sep 2025.'},
+  {date:'Nov 2025',ph:'ph-4',ev:'Telegraf investigation documents systemic wage delays across reconstruction projects. Bloknot confirms non-payment on Reuters-cited road project.'},
+  {date:'Mar 2025',ph:'ph-4',ev:'Putin signs decree barring citizens of \'unfriendly countries\' (incl. Ukraine) from registering property in occupied territories.'},
+  {date:'Mar 2026',ph:'ph-4',ev:'Vygulyarny (Military Construction Dept No. 8) admits guilt in ₽9bn fraud across 14 MoD contracts; DNR co-conspirator identified.',note:'Russian prosecution — not Ukrainian allegation — confirms MoD construction as fraud vector.'},
+];
+const tlEl=document.getElementById('tlEl');
+let lastLbl=null;
+tlData.forEach(item=>{
+  if(item.lbl&&item.lbl!==lastLbl){lastLbl=item.lbl;const pn=item.ph==='ph-pre'?'pre':item.ph.replace('ph-','');tlEl.innerHTML+=`<div class="plabel pl-${pn}">${item.lbl}</div>`;}
+  tlEl.innerHTML+=`<div class="tli ${item.ph}"><div class="tldot"></div><div class="tldate">${item.date}</div><div class="tlevent">${item.ev}</div>${item.note?`<div class="tlnote">${item.note}</div>`:''}</div>`;
+});
+
+// CORRUPTION
+const ccData=[
+  {t:'Mariupol reconstruction — no public tender',type:'OPACITY / NO TENDER',tc:'t-op',scale:'₽11.8bn Pobeda fund collected; ₽880m disclosed (7%)',desc:'Zero tenders found on state procurement portal (iStories). VSK appointed as general contractor directly by Ministry of Construction, bypassing procurement. VSK\'s predecessor had been disbanded following prior corruption cases.'},
+  {t:'St Petersburg \'Pobeda\' fund — 93% of funds unaccounted for',type:'OPACITY / NO TENDER',tc:'t-op',scale:'₽10.9bn of ₽11.8bn collected with no public breakdown (Apr 2023)',desc:'Fund formed from St Petersburg city reserve budget. First partial disclosure April 2023: ₽880m with no object breakdown. No criminal case opened in Russia — suggesting state tolerance of opacity as design, not oversight failure.'},
+  {t:'VAT fraud — Mariupol construction companies',type:'VAT/TAX FRAUD',tc:'t-vat',scale:'Unquantified; described as contributing to Russia-wide VAT revenue shortfall',desc:'Before annexation, Russian companies treated Mariupol deliveries as \'international transportation\' (VAT-exempt). Fraud embedded into operations before the Federal Tax Service ended the exemption post-annexation.'},
+  {t:'Kadyrovite looting of Mariupol steel plants',type:'ASSET STRIPPING',tc:'t-as',scale:'88+ coal wagons; multiple metal trainloads via port in 2024 alone',desc:'Akhmat groups obtained control over scrap metal from Azovstal and Ilyich steel works; transported to Rostov, Krasnodar, Taganrog and resold. SOC ACE: 1,200+ Russian private companies integrated into Mariupol economy. Azovmash converted to construction rubble dump.'},
+  {t:'Military construction fraud — 14 MoD contracts, DNR co-conspirator',type:'EMBEZZLEMENT',tc:'t-em',scale:'₽9 billion (admitted guilt, Mar 2026)',desc:'Former head of Main Military Construction Department No. 8 admitted full guilt across 14 state contracts. DNR co-conspirator identified — Russian prosecution, not Ukrainian allegation. Directly links MoD construction programme in occupied territories to systemic fraud.'},
+  {t:'Mariupol housing — \'ownerless\' property seizure',type:'PROPERTY THEFT',tc:'t-pt',scale:'5,700+ homes designated; 2,200 at advanced seizure stage (Apr 2025)',desc:'Occupation authorities designating Ukrainian-owned homes as \'ownerless\' when owners fled. Court proceedings without owner participation. Owners must travel in person to occupied Mariupol to contest. Compensation set ~₽30k/sqm vs new-build prices ₽100k+/sqm.'},
+  {t:'Mariupol construction workers paid half promised wages',type:'WAGE THEFT',tc:'t-wt',scale:'Systemic — multiple contractors incl. Reuters-cited road project',desc:'Workers received at best 50% of promised wages (Mediazona, Jan 2024). Pattern documented on the Novorossiya Road project cited by Reuters as evidence of $214m+ Russian investment. Wage delays reported in Russian regional press (Bloknot, Mar 2026) — a methodological rebuttal to investment narratives.'},
+  {t:'General: absence of public procurement across the entire programme',type:'STRUCTURAL CORRUPTION',tc:'t-sc',scale:'Est. ₽2.3tn reconstruction budget 2024–30; near-zero proportion subject to public tender',desc:'Reconstruction architecture bypasses all standard procurement mechanisms. No independent oversight, no free press, no functioning courts in occupied territories. Pattern replicates: Sochi Olympics ($50bn, documented corruption), Crimean Bridge (Rotenberg, no tender), Vostochny Cosmodrome (multiple prosecutions).'},
+];
+const ccEl=document.getElementById('ccEl');
+ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class="cctitle">${c.t}</div><span class="cctype ${c.tc}">${c.type}</span></div><div class="ccscale">${c.scale}</div><div class="ccdesc">${c.desc}</div></div>`;});
+
+// ── SELF-CONTAINED SVG MAP ──────────────────────────────────────────────────
+(function(){
+  const svg=document.getElementById('mapSvg');
+  const W=1100,H=460,LON0=18,LON1=96,LAT0=39,LAT1=73;
+
+  function proj(lon,lat){
+    return[+((lon-LON0)/(LON1-LON0)*W).toFixed(1),+((LAT1-lat)/(LAT1-LAT0)*H).toFixed(1)];
+  }
+  function ns(tag,attrs,par){
+    const e=document.createElementNS('http://www.w3.org/2000/svg',tag);
+    for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);
+    if(par)par.appendChild(e);
+    return e;
+  }
+  function polyPath(pts){return pts.map((p,i)=>`${i?'L':'M'}${proj(p[0],p[1]).join(',')}`).join('')+' Z';}
+  function arcPath(lon1,lat1,lon2,lat2){
+    const[x1,y1]=proj(lon1,lat1),[x2,y2]=proj(lon2,lat2);
+    const mx=(x1+x2)/2,my=(y1+y2)/2,dist=Math.hypot(x2-x1,y2-y1);
+    return `M${x1},${y1} Q${mx},${(my-dist*0.2).toFixed(1)} ${x2},${y2}`;
+  }
+
+  // Simplified geographic polygons [lon,lat]
+  const RUS=[[27.5,69.5],[33,70.5],[37,68.4],[40.5,67.9],[44,68.3],[50,69],[55,69],[60,68.5],[65,68],[70,66],[73.5,67],[73.5,54.5],[68,56],[62,57.5],[60,57],[59,56],[55,55],[53,54.5],[51,53.5],[49,52],[47.5,51],[46,47.5],[44.5,45.5],[44,44],[42,43.5],[41,42],[40.5,41.5],[38,42],[37,41.5],[36,42],[34.5,43.5],[34,44.5],[33.5,45],[35.5,46.2],[37.3,47.2],[38,47.8],[38.4,49],[38.9,49.8],[38.3,51],[37,51.4],[40,52],[40,53],[37,54.5],[34,57.5],[30,58.5],[28,59.5],[27.4,60.5],[26.5,65]];
+  const UKR=[[22.1,52.3],[22.9,51.6],[23.3,51.7],[24,52.1],[24.5,51.9],[26,51.9],[27,51.5],[28.6,52.1],[30.2,52.1],[31.6,52.1],[33,52.3],[34.3,51.9],[35.4,51.7],[37,51.4],[37.5,50.9],[38.3,51],[38.9,49.8],[38.4,49],[38,47.8],[37.3,47.2],[36.5,46.9],[35.5,46.2],[34.5,45.3],[33.5,45],[32.5,45.4],[31.5,46.1],[30,46.5],[28.2,46.9],[26.5,47.6],[24.5,47.9],[24,47.9],[23.2,48],[22.5,48.4],[22.1,49.2]];
+  const BLR=[[24,52.1],[24,51.5],[24.5,51.9],[26,51.9],[27,51.5],[28.6,52.1],[31.6,52],[32,53.5],[31,54],[30,55],[28,55.5],[26,55.5],[24.5,54.5]];
+  const ROM=[[22.1,48.5],[24,47.9],[26.5,47.6],[27.7,45.5],[29.5,45.5],[30,45.3],[29.5,44],[28,43.5],[26,43.5],[23,44],[22,44.5],[22.5,46]];
+  const BSea=[[28.5,46],[30,45.7],[31.5,46],[33,46],[36,45.1],[36.5,45.5],[37.5,45.5],[39,46],[40,44],[40.5,43.5],[41.5,42],[41,41],[39.5,41],[37,41.5],[35,43],[33,44],[30,45.5]];
+  const CSea=[[50,38.5],[51,39.5],[52,41],[51.5,42],[50.5,43],[49.5,44],[50,46],[51.5,47],[53,47],[54,43],[52,40]];
+
+  // Graticule
+  const gr=ns('g',{},svg);
+  for(let lon=20;lon<=90;lon+=10){const[x]=proj(lon,LAT0);ns('line',{x1:x,y1:0,x2:x,y2:H,stroke:'#182840','stroke-width':'0.5'},gr);}
+  for(let lat=40;lat<=70;lat+=10){const[,y]=proj(LON0,lat);ns('line',{x1:0,y1:y,x2:W,y2:y,stroke:'#182840','stroke-width':'0.5'},gr);}
+
+  // Country fills
+  ns('path',{d:polyPath(RUS),fill:'#111d2e',stroke:'#1d3050','stroke-width':'0.8'},svg);
+  ns('path',{d:polyPath(BLR),fill:'#111d2e',stroke:'#1d3050','stroke-width':'0.5'},svg);
+  ns('path',{d:polyPath(ROM),fill:'#111d2e',stroke:'#1d3050','stroke-width':'0.5'},svg);
+  ns('path',{d:polyPath(UKR),fill:'#152035',stroke:'#233566','stroke-width':'1.4'},svg);
+  ns('path',{d:polyPath(BSea),fill:'#0a1018',stroke:'none'},svg);
+  ns('path',{d:polyPath(CSea),fill:'#0a1018',stroke:'none'},svg);
+
+  // Geo text labels
+  function geoTxt(content,lon,lat,opts={}){
+    const[x,y]=proj(lon,lat);
+    const t=ns('text',{x,y,fill:opts.fill||'#263d58','font-family':'Space Mono,monospace','font-size':opts.sz||'9','text-anchor':opts.a||'middle','font-weight':opts.b?'700':'400'},svg);
+    t.textContent=content;
+  }
+  geoTxt('RUSSIA',50,62,{sz:'13',b:true});
+  geoTxt('SIBERIA',80,59,{sz:'10'});
+  geoTxt('UKRAINE',32,49.5,{sz:'10',fill:'#344f7a',b:true});
+  geoTxt('BELARUS',28,53.5,{sz:'8'});
+  geoTxt('ROMANIA',25.5,46,{sz:'8'});
+  geoTxt('BLACK SEA',34,43.8,{sz:'8',fill:'#182636'});
+  geoTxt('CASPIAN',52,43.5,{sz:'7',fill:'#182636'});
+  [30,40,50,60,70,80,90].forEach(lo=>geoTxt(lo+'°',lo,40.3,{sz:'7',fill:'#1e3050',a:'middle'}));
+  [45,55,65].forEach(la=>geoTxt(la+'°N',19,la+0.2,{sz:'7',fill:'#1e3050',a:'start'}));
+
+  // Pairings [lon,lat]
+  const SC={'✓':'#4ade80','~':'#fbbf24','✗':'#f87171','?':'#94a3b8'};
+  const SL={'✓':'Confirmed Delivered','~':'Partial / Disputed','✗':'Not Delivered','?':'Status Unclear'};
+  const P=[
+    {u:'Donetsk',uC:[37.8,48.01],d:'Moscow (city)',dC:[37.62,55.75],r:'DNR',s:'~'},
+    {u:'Luhansk',uC:[39.33,48.57],d:'Moscow (city)',dC:[37.62,55.75],r:'LNR',s:'~'},
+    {u:'Mariupol',uC:[37.54,47.09],d:'St Petersburg',dC:[30.32,59.95],r:'DNR',s:'~'},
+    {u:'Makiivka',uC:[37.96,48.05],d:'Sverdlovsk Oblast',dC:[60.6,56.84],r:'DNR',s:'?'},
+    {u:'Horlivka',uC:[38.07,48.33],d:'Kemerovo Oblast',dC:[86.09,55.35],r:'DNR',s:'✗'},
+    {u:'Yenakiieve',uC:[38.22,48.22],d:'Leningrad Oblast',dC:[30.77,59.94],r:'DNR',s:'?'},
+    {u:'Khartsyzk',uC:[38.17,47.99],d:'Nizhny Novgorod Oblast',dC:[44,56.32],r:'DNR',s:'?'},
+    {u:'Snizhne',uC:[38.77,48.01],d:'Samara Oblast',dC:[50.14,53.19],r:'DNR',s:'?'},
+    {u:'Yasynuvata',uC:[37.97,48.14],d:'Chelyabinsk Oblast',dC:[61.4,55.16],r:'DNR',s:'?'},
+    {u:'Dokuchaievsk',uC:[37.72,47.75],d:'Vladimir Oblast',dC:[40.41,56.13],r:'DNR',s:'?'},
+    {u:'Volnovakha',uC:[37.5,47.6],d:'YANAO',dC:[73.37,66.53],r:'DNR',s:'?'},
+    {u:'Volodarske',uC:[37.75,47.33],d:'Lipetsk Oblast',dC:[39.59,52.61],r:'DNR',s:'?'},
+    {u:'Novoazovsk / Telmanove',uC:[38.09,47.1],d:'Moscow Oblast',dC:[37.41,55.74],r:'DNR',s:'?'},
+    {u:'Pervomaysk / Manhush',uC:[37.29,47.05],d:'Kursk Oblast',dC:[36.19,51.73],r:'DNR',s:'~'},
+    {u:'Alchevsk',uC:[38.78,48.48],d:'Vologda Oblast',dC:[39.88,59.22],r:'LNR',s:'✗'},
+    {u:'Krasnodon',uC:[39.72,48.28],d:'Tyumen Oblast',dC:[68.97,57.15],r:'LNR',s:'?'},
+    {u:'Sverdlovsk (LNR)',uC:[39.67,48.05],d:'Krasnoyarsk Krai',dC:[92.87,56.01],r:'LNR',s:'?'},
+    {u:'Rovenky',uC:[39.36,48.08],d:'Komi Republic',dC:[50.84,61.67],r:'LNR',s:'✗'},
+    {u:'Brianka',uC:[38.65,48.51],d:'Bryansk Oblast',dC:[34.37,53.25],r:'LNR',s:'~'},
+    {u:'Pervomaysk (LNR)',uC:[38.57,48.63],d:'Kaluga Oblast',dC:[36.26,54.51],r:'LNR',s:'?'},
+    {u:'Stanytsia Luhanska',uC:[39.48,48.65],d:'Volgograd Oblast',dC:[44.41,48.52],r:'LNR',s:'?'},
+    {u:'Starobilsk',uC:[38.91,49.27],d:'Sevastopol',dC:[33.53,44.61],r:'LNR',s:'?'},
+    {u:'Melitopol',uC:[35.37,46.84],d:'Arkhangelsk Oblast',dC:[40.54,64.54],r:'Zaporizhzhia',s:'✗'},
+    {u:'Berdyansk',uC:[36.79,46.75],d:'Novgorod Oblast',dC:[31.28,58.52],r:'Zaporizhzhia',s:'?'},
+    {u:'Kupyansk',uC:[37.62,49.68],d:'Krasnodar Krai',dC:[38.99,45.04],r:'Kharkiv Oblast',s:'~'},
+  ];
+
+  // Draw arcs
+  const arcG=ns('g',{},svg);
+  P.forEach(p=>{
+    ns('path',{d:arcPath(p.dC[0],p.dC[1],p.uC[0],p.uC[1]),fill:'none',stroke:SC[p.s]||'#94a3b8','stroke-width':'1.5',opacity:'0.45','stroke-linecap':'round'},arcG);
+  });
+
+  // Collect unique markers
+  const ukM={},ruM={};
+  P.forEach(p=>{
+    if(!ukM[p.u])ukM[p.u]={c:p.uC,pairs:[],r:p.r};ukM[p.u].pairs.push(p);
+    if(!ruM[p.d])ruM[p.d]={c:p.dC,pairs:[]};ruM[p.d].pairs.push(p);
+  });
+
+  const tip=document.getElementById('mapTip');
+  const mapOuter=document.querySelector('.map-outer');
+
+  function addMark(lon,lat,fill,r,title,lines,group){
+    const[x,y]=proj(lon,lat);
+    const c=ns('circle',{cx:x,cy:y,r,fill,stroke:'rgba(255,255,255,0.7)','stroke-width':'1',style:'cursor:pointer;transition:r 0.1s'},group);
+    c.addEventListener('mouseenter',()=>{
+      c.setAttribute('r',r+2);
+      let h=`<div style="color:#e8f0f8;font-weight:700;margin-bottom:3px;font-size:.72rem">${title}</div>`;
+      lines.forEach(l=>{h+=`<div style="color:${l.c||'#94a3b8'}">${l.t}</div>`;});
+      tip.innerHTML=h;tip.style.display='block';
+    });
+    c.addEventListener('mousemove',e=>{
+      const rect=mapOuter.getBoundingClientRect();
+      let tx=e.clientX-rect.left+14;
+      let ty=e.clientY-rect.top-10;
+      if(tx+230>rect.width)tx=e.clientX-rect.left-230;
+      if(ty+tip.offsetHeight>rect.height)ty=e.clientY-rect.top-tip.offsetHeight-5;
+      tip.style.left=tx+'px';tip.style.top=ty+'px';
+    });
+    c.addEventListener('mouseleave',()=>{c.setAttribute('r',r);tip.style.display='none';});
+  }
+
+  // Territory markers (orange)
+  const ukG=ns('g',{},svg);
+  Object.entries(ukM).forEach(([name,d])=>{
+    const lines=[{t:d.r,c:'#6e8aaa'}];
+    d.pairs.forEach(p=>lines.push({t:`${p.s} ← ${p.d}`,c:SC[p.s]}));
+    addMark(d.c[0],d.c[1],'#e07b3a',5,name,lines,ukG);
+  });
+
+  // Donor markers (blue)
+  const ruG=ns('g',{},svg);
+  Object.entries(ruM).forEach(([name,d])=>{
+    const lines=[{t:'Russian donor region',c:'#6e8aaa'}];
+    d.pairs.forEach(p=>lines.push({t:`${p.s} → ${p.u}`,c:SC[p.s]}));
+    addMark(d.c[0],d.c[1],'#4a9eff',4,name,lines,ruG);
+  });
+
+  // Far East inset box
+  const box=ns('g',{transform:'translate(852,12)'},svg);
+  ns('rect',{x:0,y:0,width:238,height:94,rx:'3',fill:'rgba(10,16,24,0.93)',stroke:'#243552','stroke-width':'1'},box);
+  const bh=ns('text',{x:8,y:16,fill:'#c4992a','font-family':'Space Mono,monospace','font-size':'7.5','font-weight':'700'},box);
+  bh.textContent='FAR EAST BLOC (off-screen east)';
+  [['Amur Oblast','→ Amvrosiivka district'],['Khabarovsk Krai','→ Debaltseve'],['Yakutia','→ Kirovske'],['Sakhalin Oblast','→ Far East (various)']].forEach(([dn,tr],i)=>{
+    const row=ns('text',{x:8,y:30+i*14,fill:'#4ade80','font-family':'Space Mono,monospace','font-size':'7.5'},box);
+    row.textContent=`✓  ${dn}  ${tr}`;
+  });
+  const tot=ns('text',{x:8,y:88,fill:'#6e8aaa','font-family':'Space Mono,monospace','font-size':'6.8'},box);
+  tot.textContent='₽12bn · 1,000+ objects · 26 settlements (Sep 2025)';
+})();
+</script>
+</body>
+</html>

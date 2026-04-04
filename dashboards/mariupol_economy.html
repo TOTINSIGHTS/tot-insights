@@ -1,0 +1,191 @@
+
+<style>
+.dash { padding: 1rem 0; }
+.chart-block { margin-bottom: 2.5rem; }
+.chart-note { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-top: 10px; border-left: 2px solid var(--color-border-secondary); padding-left: 12px; }
+.section-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 6px; }
+.chart-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 14px; }
+.stat-row { display: flex; gap: 12px; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.stat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 16px; flex: 1; min-width: 100px; }
+.stat-val { font-size: 22px; font-weight: 500; color: var(--color-text-primary); }
+.stat-lbl { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+hr.divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 2rem 0; }
+</style>
+
+<div class="dash">
+
+<div class="stat-row">
+  <div class="stat-card"><div class="stat-val">1,448</div><div class="stat-lbl">Registered entities</div></div>
+  <div class="stat-card"><div class="stat-val">100%</div><div class="stat-lbl">Listed as active</div></div>
+  <div class="stat-card"><div class="stat-val">3.5%</div><div class="stat-lbl">Filed financial data</div></div>
+  <div class="stat-card"><div class="stat-val">52</div><div class="stat-lbl">State/municipal bodies</div></div>
+</div>
+
+<hr class="divider">
+
+<div class="chart-block">
+  <div class="section-label">Chart 1</div>
+  <div class="chart-title">Organisation type breakdown</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;font-size:12px;color:var(--color-text-secondary);">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#3266ad;"></span>Private (ООО)</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#73726c;"></span>Unclassified</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#5a8a5e;"></span>Dachas/allotments (СНТ)</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#c0632a;"></span>Municipal (МБУ/ГБУ/МУП)</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#9b5ea2;"></span>Other</span>
+  </div>
+  <div style="position:relative;width:100%;height:260px;"><canvas id="c1"></canvas></div>
+  <div class="chart-note">ООО (limited liability company) dominates at 73% — the standard vehicle for Russian small business. The 264 "unclassified" entries likely include sole traders and informal structures not yet fully integrated into the Russian registry system. The 54 СНТ (dacha/allotment associations) are a distinctive Russian legal form with no Ukrainian equivalent, suggesting the registry is importing pre-existing Russian land-use governance structures wholesale into Mariupol.</div>
+</div>
+
+<hr class="divider">
+
+<div class="chart-block">
+  <div class="section-label">Chart 2</div>
+  <div class="chart-title">Revenue distribution (log scale, thousand RUB)</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary);">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#3266ad;"></span>Number of firms (out of 50 that reported)</span>
+  </div>
+  <div style="position:relative;width:100%;height:240px;"><canvas id="c2"></canvas></div>
+  <div class="chart-note">Of the 50 firms that filed any revenue data, the distribution is highly skewed: the majority turn over under 10 million RUB (~£85,000), while a handful of outliers — likely larger Soviet-era industrial enterprises — report revenues up to 480 million RUB. The concentration at the lower end is consistent with a post-conflict economy dominated by survival-level microenterprises rather than productive economic activity. The near-absence of mid-tier firms suggests the intermediate business layer — the backbone of any functioning urban economy — has not reformed.</div>
+</div>
+
+<hr class="divider">
+
+<div class="chart-block">
+  <div class="section-label">Chart 3</div>
+  <div class="chart-title">Financial reporting transparency by organisation type</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary);">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#3266ad;"></span>Filed data</span>
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#d4d3cc;"></span>No data filed</span>
+  </div>
+  <div style="position:relative;width:100%;height:320px;"><canvas id="c3"></canvas></div>
+  <div class="chart-note">The single most striking finding in this dataset. Across all 1,448 registered entities, only 50 (3.5%) have filed any financial data — and every single municipal and state entity (МБУ, ГБУ, МУП, АНО, ТСЖ, СНТ) has filed nothing. This is not a data gap: it reflects a deliberate opacity in how the occupation economy operates. Russian-backed administrations are registering legal entities at scale while producing no accountability trail. This has direct implications for tracking war crimes, asset seizure, and post-liberation restitution.</div>
+</div>
+
+<hr class="divider">
+
+<div class="chart-block">
+  <div class="section-label">Chart 4</div>
+  <div class="chart-title">Top 10 streets by registered entity count</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary);">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#5a8a5e;"></span>Number of registered addresses</span>
+  </div>
+  <div style="position:relative;width:100%;height:440px;"><canvas id="c4"></canvas></div>
+  <div class="chart-note">The concentration on Metallurgov and Stroitelei streets — both in Mariupol's heavy industrial district — reflects the partial reactivation of Soviet-era enterprise addresses. Notably, three of the top ten streets bear Soviet ideological names (Lenina, Engelsa, Ilicha) that Ukraine had officially renamed under its 2015 decommunisation law; their appearance here confirms Russia has actively reversed Ukrainian toponymic policy as part of occupation administration. The geographic clustering also enables cross-referencing with satellite imagery of reconstruction and repopulation activity.</div>
+</div>
+
+<hr class="divider">
+
+<div class="chart-block">
+  <div class="section-label">Chart 5</div>
+  <div class="chart-title">State and municipal entity types</div>
+  <div style="display:flex;gap:8px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary);">
+    <span style="display:flex;align-items:center;gap:4px;"><span style="width:10px;height:10px;border-radius:2px;background:#c0632a;"></span>Count of entities</span>
+  </div>
+  <div style="position:relative;width:100%;height:200px;"><canvas id="c5"></canvas></div>
+  <div class="chart-note">The 52 state and municipal entities fall into three Russian legal forms: МБУ (municipal budgetary institutions — schools, cultural centres, social services), ГБУ (state budgetary institutions — healthcare, regional-level services), and МУП (municipal unitary enterprises — utilities, infrastructure). Their presence in this registry constitutes direct evidence of Russian civilian governance infrastructure in Mariupol: these are not commercial actors but arms of the occupation administration. Individually naming and mapping these entities is analytically valuable for documenting the architecture of annexation.</div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gridC = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const tickC = isDark ? '#888' : '#999';
+const baseOpts = (axis='x') => ({
+  responsive: true, maintainAspectRatio: false,
+  plugins: { legend: { display: false }, tooltip: { callbacks: {} } },
+  scales: {
+    x: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } },
+    y: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } }
+  }
+});
+
+new Chart(document.getElementById('c1'), {
+  type: 'bar',
+  data: {
+    labels: ['ООО', 'Unclassified', 'СНТ', 'МБУ', 'ГБУ', 'ПК', 'МУП', 'АНО', 'ТСЖ', 'КФХ'],
+    datasets: [{
+      data: [1052, 264, 54, 29, 16, 11, 7, 7, 7, 1],
+      backgroundColor: ['#3266ad','#73726c','#5a8a5e','#c0632a','#c0632a','#9b5ea2','#c0632a','#9b5ea2','#9b5ea2','#9b5ea2'],
+      borderRadius: 3, borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts(), plugins: { legend: { display: false } }, scales: { x: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } }, y: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } } } }
+});
+
+new Chart(document.getElementById('c2'), {
+  type: 'bar',
+  data: {
+    labels: ['< 100', '100–999', '1,000–9,999', '10,000–99,999', '100,000+'],
+    datasets: [{
+      data: [2, 15, 18, 11, 4],
+      backgroundColor: '#3266ad',
+      borderRadius: 3, borderSkipped: false
+    }]
+  },
+  options: { ...baseOpts(), plugins: { legend: { display: false } }, scales: { x: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } }, y: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 }, stepSize: 2 } } } }
+});
+
+new Chart(document.getElementById('c3'), {
+  type: 'bar',
+  data: {
+    labels: ['ООО', 'Unclassified', 'СНТ', 'МБУ', 'ГБУ', 'МУП', 'АНО', 'ТСЖ'],
+    datasets: [
+      { label: 'Filed data', data: [48, 2, 0, 0, 0, 0, 0, 0], backgroundColor: '#3266ad', borderRadius: 3 },
+      { label: 'No data', data: [1004, 262, 54, 29, 16, 7, 7, 7], backgroundColor: isDark ? '#444441' : '#d4d3cc', borderRadius: 3 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { mode: 'index' } },
+    scales: {
+      x: { stacked: true, grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } },
+      y: { stacked: true, grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('c4'), {
+  type: 'bar',
+  data: {
+    labels: ['Metallurgov', 'Stroitelei', 'Lenina', 'Nakhimova', 'Engelsa', 'Ilicha', 'Pobedy', 'Olimpiiskaya', 'Krasnoflotskaya', 'Uritskogo'],
+    datasets: [{
+      data: [116, 86, 72, 42, 36, 35, 33, 30, 29, 28],
+      backgroundColor: '#5a8a5e',
+      borderRadius: 3, borderSkipped: false
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } },
+      y: { grid: { color: 'transparent' }, ticks: { color: tickC, font: { size: 11 } } }
+    }
+  }
+});
+
+new Chart(document.getElementById('c5'), {
+  type: 'bar',
+  data: {
+    labels: ['МБУ — Municipal budgetary\ninstitutions', 'ГБУ — State budgetary\ninstitutions', 'МУП — Municipal unitary\nenterprises'],
+    datasets: [{
+      data: [29, 16, 7],
+      backgroundColor: ['#c0632a', '#c0632a', '#c0632a'],
+      borderRadius: 3, borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } },
+      y: { grid: { color: gridC }, ticks: { color: tickC, font: { size: 11 } } }
+    }
+  }
+});
+</script>

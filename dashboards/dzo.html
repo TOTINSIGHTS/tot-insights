@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DZO Research Dashboard — Occupied Territories Insight Hub</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --navy: #1a2744; --blue: #2a4a8a; --mid: #3a6fc4; --light: #e8edf5;
+    --accent: #c0392b; --warn: #e67e22; --green: #27ae60;
+    --text: #1a1a2e; --muted: #5a6a8a; --border: #d0d8e8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f3f8; color: var(--text); font-size: 13px; }
+
+  .header { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: white; padding: 20px 32px; border-bottom: 3px solid var(--accent); }
+  .header h1 { font-size: 20px; font-weight: 700; }
+  .header .sub { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+  .header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; }
+
+  .tabs { display: flex; background: var(--navy); padding: 0 32px; overflow-x: auto; }
+  .tab { padding: 11px 18px; cursor: pointer; color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
+  .tab:hover { color: rgba(255,255,255,0.9); }
+  .tab.active { color: white; border-bottom-color: #5b9bd5; }
+
+  .panel { display: none; padding: 24px 32px; }
+  .panel.active { display: block; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); border-left: 4px solid var(--mid); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .card.red { border-left-color: var(--accent); }
+  .card.warn { border-left-color: var(--warn); }
+  .card .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
+  .card .value { font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .card .value.red { color: var(--accent); }
+  .card .value.warn { color: var(--warn); }
+  .card .note { font-size: 10px; color: var(--muted); margin-top: 4px; }
+
+  h2 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--light); }
+  h3 { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+  .box { background: white; border-radius: 8px; padding: 18px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 20px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: var(--navy); color: white; padding: 8px 10px; text-align: left; font-size: 11px; font-weight: 600; }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: #f8f9fc; }
+  tr:hover td { background: #edf2fb; }
+
+  .flag { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+  .flag.red { background: #fde8e8; color: var(--accent); }
+  .flag.blue { background: #e8edf8; color: var(--blue); }
+  .flag.warn { background: #fef3e2; color: var(--warn); }
+  .flag.dark { background: #333; color: white; }
+  .flag.green { background: #e8f5ee; color: var(--green); }
+
+  .alert { background: #fef3e2; border: 1px solid #f0a040; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; }
+  .alert.red { background: #fde8e8; border-color: #e07070; }
+
+  .org { overflow-x: auto; padding: 10px 0; }
+  .org-tree { display: flex; flex-direction: column; align-items: center; }
+  .org-level { display: flex; justify-content: center; gap: 12px; margin: 6px 0; flex-wrap: wrap; }
+  .org-node { background: white; border: 2px solid var(--border); border-radius: 8px; padding: 10px 14px; min-width: 160px; max-width: 210px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .org-node .name { font-weight: 700; font-size: 11.5px; color: var(--navy); line-height: 1.3; }
+  .org-node .role { font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .org-node .dob { font-size: 9px; color: #888; margin-top: 2px; }
+  .org-node .tag { display: inline-block; margin-top: 5px; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; }
+  .apex { border-color: var(--accent) !important; background: #fff5f5 !important; }
+  .apex .name { color: var(--accent) !important; }
+  .current { border-color: var(--mid); background: #f0f5ff; }
+  .former { border-color: #bbb; background: #f8f8f8; }
+  .former .name { color: #888; }
+  .ministry-node { border-color: var(--warn); background: #fffaf0; }
+  .security-node { border-color: #333; background: #f5f5f5; }
+  .org-connector { width: 2px; height: 20px; background: var(--border); margin: 0 auto; }
+
+  input.search { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; width: 100%; max-width: 320px; margin-bottom: 14px; outline: none; }
+  input.search:focus { border-color: var(--mid); box-shadow: 0 0 0 2px rgba(58,111,196,0.15); }
+
+  .chart-wrap { position: relative; height: 280px; }
+  .chart-wrap-sm { position: relative; height: 220px; }
+  .section-gap { margin-top: 28px; }
+  .fn { font-size: 10px; color: var(--muted); margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>State Grain Operator (DZO) — Research Dashboard</h1>
+  <div class="sub">Occupied Territories Insight Hub &middot; Zaporizhzhia Oblast &middot; Compiled April 2026</div>
+  <div class="badges">
+    <span class="badge">Centre for the Study of Occupation reports (Sep&ndash;Oct 2025)</span>
+    <span class="badge">Confidential analytical assessment [2025]</span>
+    <span class="badge">Open-source corroboration</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(this,'overview')">Overview</div>
+  <div class="tab" onclick="showTab(this,'org')">Leadership &amp; Structure</div>
+  <div class="tab" onclick="showTab(this,'finance')">Financial Analysis</div>
+  <div class="tab" onclick="showTab(this,'counterparties')">Counterparties</div>
+  <div class="tab" onclick="showTab(this,'branches')">Branch Network</div>
+</div>
+
+<!-- ═══ OVERVIEW ═══ -->
+<div class="panel active" id="tab-overview">
+  <div class="cards">
+    <div class="card"><div class="label">Established</div><div class="value">15 May 2022</div><div class="note">By Balytsky decree</div></div>
+    <div class="card warn"><div class="label">Land nationalised</div><div class="value warn">~250,000 ha</div><div class="note">Only 25% cultivated in 2025</div></div>
+    <div class="card red"><div class="label">2024 Revenue decline</div><div class="value red">&minus;59%</div><div class="note">Despite larger harvest</div></div>
+    <div class="card red"><div class="label">2024 Net loss (official)</div><div class="value red">&minus;1.13bn &#8381;</div><div class="note">Assessed as artificially constructed</div></div>
+    <div class="card"><div class="label">Branches</div><div class="value">20+</div><div class="note">With additional sub-units</div></div>
+    <div class="card"><div class="label">Verified counterparties</div><div class="value">25</div><div class="note">May&ndash;December 2022</div></div>
+    <div class="card warn"><div class="label">Tax + court debt</div><div class="value warn">&gt;1.9bn &#8381;</div><div class="note">1bn tax + 911m court judgments</div></div>
+    <div class="card"><div class="label">Initial capitalisation</div><div class="value">5.8bn &#8381;</div><div class="note">Federal + Balytsky + Promsvyazbank</div></div>
+  </div>
+
+  <div class="alert red">
+    <strong>Harvest paradox:</strong> Grain harvests in occupied Zaporizhzhia increased by 560,000 tonnes in 2024 versus 2023, yet official DZO revenue fell 59% and the enterprise recorded a net loss of 1.13 billion roubles. Analysis concludes this reflects artificially-constructed losses concealing real profit extraction through shadow schemes &mdash; not genuine commercial underperformance.
+  </div>
+
+  <div class="grid-2">
+    <div class="box">
+      <h3>Legal registration</h3>
+      <table>
+        <tr><td><strong>Full name (RU)</strong></td><td>&#1043;&#1059;&#1055; &laquo;&#1043;&#1086;&#1089;&#1091;&#1076;&#1072;&#1088;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1081; &#1079;&#1077;&#1088;&#1085;&#1086;&#1074;&#1086;&#1081; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&raquo;</td></tr>
+        <tr><td><strong>Full name (UA)</strong></td><td>&#1044;&#1059;&#1055; &laquo;&#1044;&#1077;&#1088;&#1078;&#1072;&#1074;&#1085;&#1080;&#1081; &#1079;&#1077;&#1088;&#1085;&#1086;&#1074;&#1080;&#1081; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&raquo;</td></tr>
+        <tr><td><strong>INN / KPP</strong></td><td>9001011019 / 900101001</td></tr>
+        <tr><td><strong>OGRN</strong></td><td>1229000019346</td></tr>
+        <tr><td><strong>OKPO</strong></td><td>49745792</td></tr>
+        <tr><td><strong>Registered address</strong></td><td>Melitopol, pl. Peremohy 4 / Vakulenchuka 99</td></tr>
+        <tr><td><strong>Operational address</strong></td><td>Melitopol, Hetmana Sahaidachnoho 51</td></tr>
+        <tr><td><strong>Bank</strong></td><td>Promsvyazbank (additional office &ldquo;Zaporizhzhia&rdquo;)</td></tr>
+        <tr><td><strong>Website / Telegram</strong></td><td>gzomelitopol.ru / t.me/@gupgzo</td></tr>
+        <tr><td><strong>Sanctioned (US OFAC)</strong></td><td>24 February 2023</td></tr>
+        <tr><td><strong>Sanctioned (EU FSF)</strong></td><td>22 May 2025</td></tr>
+      </table>
+    </div>
+    <div class="box">
+      <h3>Founding &amp; capitalisation</h3>
+      <table>
+        <tr><td><strong>Founding decree</strong></td><td>Balytsky decree &numero;08/1-&#1088; &#1053;&#1047;&#1059; 40220001234</td></tr>
+        <tr><td><strong>Founded</strong></td><td>15 May 2022</td></tr>
+        <tr><td><strong>Russian state register entry</strong></td><td>December 2022 (operated informally May&ndash;Dec 2022)</td></tr>
+        <tr><td><strong>Federal budget injection</strong></td><td>800 million roubles (from September 2022)</td></tr>
+        <tr><td><strong>Balytsky personal loan</strong></td><td>1 billion roubles</td></tr>
+        <tr><td><strong>Promsvyazbank credit</strong></td><td>4 billion roubles</td></tr>
+        <tr><td><strong>Total initial capitalisation</strong></td><td>~5.8 billion roubles</td></tr>
+        <tr><td><strong>Initial staff</strong></td><td>~400 (stable through June 2025)</td></tr>
+        <tr><td><strong>Legal subordination</strong></td><td>Ministry of Agro-Industrial Complex, Zaporizhzhia VCA</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>Export volume by commodity &mdash; verified counterparty data, May&ndash;December 2022</h3>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:12px">~200,000 tonnes total removed from DZO facilities in this period. Chart shows commodity breakdown from verified counterparty data.</p>
+    <div class="chart-wrap-sm"><canvas id="cropChart"></canvas></div>
+  </div>
+  <div class="fn">Sources: Confidential analytical assessment [2025] (on file with author); Centre for the Study of Occupation, Zaporizhzhia reports September&ndash;October 2025; EU Financial Sanctions Files, 22 May 2025; OpenSanctions.</div>
+</div>
+
+<!-- ═══ ORG ═══ -->
+<div class="panel" id="tab-org">
+  <div class="alert">Personnel data from confidential analytical assessment [2025] (on file with author). All named individuals function as officials of the DZO, an illegally created occupation entity. Dates of birth and tax identification numbers are included where relevant for accountability and sanctions purposes.</div>
+
+  <h2>Organisational Hierarchy</h2>
+  <div class="org"><div class="org-tree">
+
+    <div class="org-level">
+      <div class="org-node apex">
+        <div class="name">Balytsky Yevhen Vitaliyovych</div>
+        <div class="role">Head of Occupation Administration, Zaporizhzhia</div>
+        <div class="dob">b. 10.12.1969, Melitopol &middot; IPN 2554609355</div>
+        <div class="tag" style="background:#fde8e8;color:var(--accent)">APEX BENEFICIARY &middot; SANCTIONED EU/US/UK</div>
+      </div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node ministry-node">
+        <div class="name">Shevchenko (Lyshkova) Svitlana Yuriivna</div>
+        <div class="role">Minister, Agro-Industrial Complex &amp; Food Policy, Zaporizhzhia VCA</div>
+        <div class="dob">b. 07.02.1982, Vurnary, Chuvash Republic RF</div>
+        <div class="tag" style="background:#fef3e2;color:var(--warn)">MINISTRY OVERSIGHT</div>
+      </div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node former">
+        <div class="name">Busel Mykyta Petrovych</div>
+        <div class="role">Director General (until 18.06.2024)</div>
+        <div class="dob">b. 11.12.1982, Kuibyshev &middot; RF citizen</div>
+        <div class="tag" style="background:#eee;color:#666">FORMER &middot; US SANCTIONED 24/02/2023</div>
+      </div>
+      <div class="org-node current" style="border-color:var(--accent)">
+        <div class="name">Yefremov Oleksiy Mykhailovych</div>
+        <div class="role">Acting Director General (from 18.06.2024)</div>
+        <div class="dob">b. 26.03.1972, Makiivka, Donetsk Oblast &middot; Obtained RF citizenship</div>
+        <div class="tag" style="background:#e8edf8;color:var(--blue)">CURRENT DIRECTOR</div>
+      </div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node current">
+        <div class="name">Shchepin Oleksandr Viktorovych</div>
+        <div class="role">Deputy Director General, Commercial Affairs</div>
+        <div class="dob">b. 27.08.1985, Simferopol &middot; RF citizen</div>
+      </div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node current"><div class="name">Semyriak Denys Oleksandrovych</div><div class="role">Director, Commercial Dept</div><div class="dob">b. 23.06.1988, Krasnovardiiske, Crimea</div></div>
+      <div class="org-node current"><div class="name">Mykhailovskyi Dmytro Leonidovych</div><div class="role">Director, Economics &amp; Finance</div><div class="dob">b. 24.12.1973, Donetsk</div></div>
+      <div class="org-node current"><div class="name">Dzhurkín Oleksiy Serhiyovych</div><div class="role">Director, Logistics Operations</div><div class="dob">b. 28.10.1979, RF &middot; St. Petersburg</div><div class="tag" style="background:#fef3e2;color:var(--warn)">Also runs Agrogroup intermediary</div></div>
+      <div class="org-node current"><div class="name">Verkhaturov Yuriy Yuriyovych</div><div class="role">Director, Logistics Operations</div><div class="dob">b. 16.01.1985, Nerchinsk, Chita Oblast</div></div>
+      <div class="org-node current"><div class="name">Hrynko Taras Viktorovych</div><div class="role">Director, Plant Growing</div><div class="dob">b. 26.03.1983, Hola Prystan, Kherson Oblast</div></div>
+      <div class="org-node current"><div class="name">Kavtaradze Nana Hochaivna</div><div class="role">Director, Protocol</div><div class="dob">b. 29.08.1989, RF &middot; Moscow</div></div>
+      <div class="org-node security-node"><div class="name">Burtsev Oleh Volodymyrovych</div><div class="role">Director, Security Dept</div><div class="dob">[Partially identified] &middot; RF citizen</div></div>
+      <div class="org-node current"><div class="name">Tatiosova Evheniia Olehivna</div><div class="role">Director, Internal Audit &amp; Control</div><div class="dob">[Partially identified] &middot; RF citizen</div></div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node current"><div class="name">Riesin Viacheslav Leonidovych</div><div class="role">Director, Operations &amp; Production Planning</div><div class="dob">b. 21.11.1972, RF &middot; Yekaterinburg</div></div>
+      <div class="org-node current"><div class="name">Ryabukhin Serhiy Oleksandrovych</div><div class="role">Director, Operations &amp; Production Planning</div><div class="dob">b. 20.10.1970 &middot; Ex-MVS RF officer</div></div>
+    </div>
+    <div class="org-connector"></div>
+
+    <div class="org-level">
+      <div class="org-node current"><div class="name">Mukhin Andriy Valeriiovych</div><div class="role">Territorial Deputy &mdash; Branches 5, 12, 13, 14, 15, 16</div><div class="dob">Controls Berdyansk cluster loading/dispatch</div></div>
+      <div class="org-node current"><div class="name">Horban Valerii Ivanovych</div><div class="role">Territorial Deputy &mdash; Branches 1, 8, 9, 10</div><div class="dob">b. 17.06.1974, Kostiantynivka, Melitopol district</div></div>
+      <div class="org-node current"><div class="name">Pysanets Maksym Volodymyrovych</div><div class="role">Territorial Deputy &mdash; Branches 2, 3, 4, 6, 7, 11</div><div class="dob">b. 23.02.1984, Voznesenka, Melitopol district</div></div>
+    </div>
+
+  </div></div>
+
+  <div class="section-gap"></div>
+  <h2>Branch Directors</h2>
+  <table>
+    <thead><tr><th>Branch</th><th>Director</th><th>DOB / Origin</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Branch 1</strong> &mdash; Yakymivka</td><td>Mukhin Oleksandr Anatoliyovych</td><td>b. 22.03.1962, Yakymivka, Zaporizhzhia Oblast</td></tr>
+      <tr><td><strong>Branch 2</strong> &mdash; Tokmak</td><td>Ruhaiov Oleksandr Ivanovych</td><td>b. 06.04.1963, Zavitne, Crimea</td></tr>
+      <tr><td><strong>Branch 3</strong> &mdash; Vasylivka</td><td>Shevchenko Valerii Oleksiiovych</td><td>b. 15.04.1954, Novooleksandrivka, Zaporizhzhia Oblast</td></tr>
+      <tr><td><strong>Branches 5/12/13</strong> &mdash; Berdyansk</td><td>Bekariuchenko Oleh Viktorovych</td><td>b. 03.05.1971, RF &mdash; controls all Berdyansk port facilities</td></tr>
+      <tr><td><strong>Branch 6</strong> &mdash; Kamianka-Dniprovska</td><td>Shvets Oleh Valeriiovych</td><td>b. 22.09.1992, Kamianka-Dniprovska</td></tr>
+      <tr><td><strong>Branch 8</strong> &mdash; Verkhniy Tokmak</td><td>Yeremenko Andriy Oleksandrovych</td><td>b. 05.02.1983, Dmytrivka, Polohy district</td></tr>
+      <tr><td><strong>Branch 9</strong> &mdash; Rozivka</td><td>Chalyi Ivan Ivanovych</td><td>b. 19.01.1985, Marianivka, Kuibyshev district</td></tr>
+      <tr><td><strong>Branch 10</strong> &mdash; Troiany</td><td>Zholudiev Serhiy Oleksandrovych</td><td>b. 19.05.1975, Prymorsk, Zaporizhzhia Oblast</td></tr>
+      <tr><td><strong>Branch 11</strong> &mdash; Pryshyb</td><td>Kramarenko Vasyl Mykolaiovych</td><td>b. 04.09.1963, Pryshyb, Mykhailivka district</td></tr>
+    </tbody>
+  </table>
+  <div class="fn">Source: Confidential analytical assessment [2025] (on file with author).</div>
+</div>
+
+<!-- ═══ FINANCE ═══ -->
+<div class="panel" id="tab-finance">
+  <div class="alert red">
+    <strong>Harvest paradox:</strong> Official results show revenue falling 59% and a 1.13 billion rouble net loss in 2024 &mdash; yet the harvest was 560,000 tonnes larger than 2023. The occupation administration attributed the decline to the Kakhovka dam destruction; this is directly contradicted by harvest data. Analysis concludes losses are artificially constructed to conceal real profit extraction.
+  </div>
+  <div class="grid-2">
+    <div class="box">
+      <h3>Revenue vs Harvest (2023&ndash;2024)</h3>
+      <div class="chart-wrap"><canvas id="finChart"></canvas></div>
+    </div>
+    <div class="box">
+      <h3>Initial capitalisation structure</h3>
+      <div class="chart-wrap"><canvas id="capChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="box">
+      <h3>Key financial indicators</h3>
+      <table>
+        <thead><tr><th>Indicator</th><th>2023</th><th>2024</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue (bn &#8381;)</td><td style="text-align:right;font-family:monospace">5.90</td><td style="text-align:right;font-family:monospace">2.43</td><td style="color:var(--accent);font-family:monospace">&minus;59%</td></tr>
+          <tr><td>Net profit / (loss) (m &#8381;)</td><td style="text-align:right;color:var(--green);font-family:monospace">+322</td><td style="text-align:right;color:var(--accent);font-family:monospace">&minus;1,131</td><td style="color:var(--accent);font-family:monospace">swing &minus;1,453m</td></tr>
+          <tr><td>Harvest (m tonnes, region)</td><td style="text-align:right;font-family:monospace">5.70</td><td style="text-align:right;font-family:monospace">6.26</td><td style="color:var(--green);font-family:monospace">+9.8%</td></tr>
+          <tr><td>Balance sheet (bn &#8381;)</td><td>&mdash;</td><td style="color:var(--accent);font-family:monospace">&minus;2.50</td><td></td></tr>
+          <tr><td>Accounts payable (bn &#8381;)</td><td>&mdash;</td><td style="font-family:monospace">1.56</td><td></td></tr>
+          <tr><td>Accounts receivable (bn &#8381;)</td><td>&mdash;</td><td style="font-family:monospace">1.27</td><td></td></tr>
+          <tr><td>Tax debt (bn &#8381;)</td><td>&mdash;</td><td style="font-family:monospace">&gt;1.00</td><td></td></tr>
+          <tr><td>Court judgments outstanding (m &#8381;)</td><td>&mdash;</td><td style="font-family:monospace">845</td><td>of 911m total; ~45 proceedings</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box">
+      <h3>Probable trajectories (source assessment)</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+        <div style="padding:12px;border-radius:6px;background:#fef3e2;border-left:3px solid var(--warn)">
+          <div style="font-weight:700;font-size:12px;color:var(--warn)">Most probable &mdash; Subsidised extraction</div>
+          <div style="font-size:11px;margin-top:4px;line-height:1.6">DZO continues as a federal budget recipient, with costs socialised to the Russian state while real profits are channelled through shadow schemes. Official losses legitimise continued subsidy while Balytsky and associates extract value.</div>
+        </div>
+        <div style="padding:12px;border-radius:6px;background:#fde8e8;border-left:3px solid var(--accent)">
+          <div style="font-weight:700;font-size:12px;color:var(--accent)">Alternative &mdash; Controlled bankruptcy</div>
+          <div style="font-size:11px;margin-top:4px;line-height:1.6">Formal bankruptcy, debt write-off, asset transfer to a successor entity under a new name &mdash; restarting the cycle with legacy liabilities extinguished.</div>
+        </div>
+        <div style="padding:12px;border-radius:6px;background:#f0f5ff;border-left:3px solid var(--mid)">
+          <div style="font-weight:700;font-size:12px;color:var(--blue)">Alternative &mdash; Reorganisation</div>
+          <div style="font-size:11px;margin-top:4px;line-height:1.6">Restructured under a new corporate identity, preserving operational assets while paper losses remain with the defunct entity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fn">Financial data: Confidential analytical assessment [2025]; Rusprofile (court proceedings). Harvest data per occupation administration official figures as cited in primary source.</div>
+</div>
+
+<!-- ═══ COUNTERPARTIES ═══ -->
+<div class="panel" id="tab-counterparties">
+  <div class="alert">
+    <strong>Source:</strong> The following 25 counterparties are verified from a confidential analytical assessment [2025] (on file with author). They received DZO agricultural product during May&ndash;December 2022. Total removal in this period: approximately 200,000 tonnes.
+  </div>
+  <div class="cards">
+    <div class="card"><div class="label">Total wheat shipped</div><div class="value">~95,000 t</div></div>
+    <div class="card"><div class="label">Total sunflower shipped</div><div class="value">~34,900 t</div></div>
+    <div class="card"><div class="label">Total rapeseed shipped</div><div class="value">~9,700 t</div></div>
+    <div class="card"><div class="label">Total corn shipped</div><div class="value">~4,400 t</div></div>
+    <div class="card"><div class="label">Largest single buyer</div><div class="value" style="font-size:14px">Kuban-Forward</div><div class="note">44,858 t wheat</div></div>
+  </div>
+  <div class="grid-2" style="margin-bottom:20px">
+    <div class="box"><h3>Volume by commodity</h3><div class="chart-wrap-sm"><canvas id="commodityChart"></canvas></div></div>
+    <div class="box"><h3>Geographic distribution (companies)</h3><div class="chart-wrap-sm"><canvas id="geoChart"></canvas></div></div>
+  </div>
+  <div class="box"><h3>Top buyers by volume</h3><div class="chart-wrap" style="height:300px"><canvas id="buyerChart"></canvas></div></div>
+  <div class="box">
+    <h3>All verified counterparties</h3>
+    <input class="search" id="cpSearch" placeholder="Search by name, location, commodity&hellip;" oninput="filterTable('cpTable', this.value)">
+    <table id="cpTable">
+      <thead><tr><th>#</th><th>Company</th><th>Location</th><th>INN</th><th>Commodity / Volume</th><th>Flag</th></tr></thead>
+      <tbody id="cpBody"></tbody>
+    </table>
+  </div>
+  <div class="fn">Note: Inviktus Treyd LLC (INN 9002000806) is registered in occupied Berdyansk &mdash; an occupied-territory entity, not a mainland Russian company. Elevator Oktyabrskoye LLC (INN 9105000847) is registered in occupied Crimea.</div>
+</div>
+
+<!-- ═══ BRANCHES ═══ -->
+<div class="panel" id="tab-branches">
+  <div class="alert">All branches represent seized Ukrainian enterprises or state research facilities. Pre-occupation ownership details and EDRPOU codes sourced from confidential analytical assessment [2025], appendix on structural subdivisions.</div>
+  <div class="cards">
+    <div class="card"><div class="label">Named branches</div><div class="value">17+</div><div class="note">With additional sub-units</div></div>
+    <div class="card warn"><div class="label">Agricultural land (identified sub-units)</div><div class="value warn">~85,000 ha</div></div>
+    <div class="card"><div class="label">Port facilities seized</div><div class="value">3+</div><div class="note">Berdyansk commercial + grain terminals</div></div>
+    <div class="card"><div class="label">Research stations seized</div><div class="value">6+</div><div class="note">NAAS Ukraine institutes</div></div>
+  </div>
+  <div class="box">
+    <input class="search" id="brSearch" placeholder="Search branches&hellip;" oninput="filterTable('brTable', this.value)">
+    <table id="brTable">
+      <thead><tr><th>Branch</th><th>Location</th><th>Pre-occupation Ukrainian owner</th><th>EDRPOU</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Branch 1</strong></td><td>Yakymivka, Melitopol district</td><td>Yakymivske PSP / Optimusagro Treyd LLC</td><td>41161689</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 2</strong></td><td>Tokmak, Polohy district</td><td>Tokmak-Agro LLC</td><td>31845237</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 3</strong></td><td>Vasylivka</td><td>Vasylivka-Agro LLC</td><td>32017811</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 4</strong></td><td>Polohy</td><td>Polohivskyi MEZ PJSC (oil extraction plant)</td><td>00384147</td><td>Elevator / processing</td></tr>
+        <tr><td><strong>Branch 5/12/13</strong> (merged)</td><td>Berdyansk &mdash; all port grain facilities</td><td>Berdyansk Crane Equipment Plant PJSC / &ldquo;Agriia&rdquo; Private Marine Grain Terminal; Politechnika LLC; Berdyansk Prylyv Plant LLC; Nova Khortytsia LLC</td><td>01124980 / 34217047 / 36141719 / 30545888</td><td>Primary export node</td></tr>
+        <tr><td><strong>Branch 6</strong></td><td>Kamianka-Dniprovska</td><td>Nibulon LLC (Kamianka-Dniprovska branch)</td><td>14291113</td><td>Ex-Nibulon elevator</td></tr>
+        <tr><td><strong>Branch 7</strong></td><td>Tokmak (second facility)</td><td>Tokmak-Agro LLC</td><td>31845237</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 8</strong></td><td>Verkhniy Tokmak, Berdyansk district</td><td>Verkhnotokmatske PSP / Optimusagro Treyd LLC</td><td>41161689</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 9</strong></td><td>Rozivka, Polohy district</td><td>Rozivske PSP / Optimusagro Treyd LLC</td><td>41161689</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 10</strong></td><td>Troiany, Berdyansk district</td><td>Troianivske PSP / Optimusagro Treyd LLC</td><td>41161689</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 11</strong></td><td>Pryshyb, Vasylivka district</td><td>Firm Advers LLC</td><td>40387906</td><td>Elevator</td></tr>
+        <tr><td><strong>Branch 12 &mdash; Sub-unit 1</strong></td><td>Rozivka</td><td>Rozivska Research Station, State Institute of Grain Crops (NAAU)</td><td>00496722</td><td>4,500 ha</td></tr>
+        <tr><td><strong>Branch 12 &mdash; Sub-unit 3</strong></td><td>Solodkovodne, Polohy district</td><td>Agrofirma Solodkovodne LLC</td><td>35815811</td><td>2,662 ha</td></tr>
+        <tr><td><strong>Branch 12 &mdash; Sub-unit 4</strong></td><td>Vyshnuvate, Polohy district</td><td>Agrofirma Vyshnuvate LLC</td><td>40921623</td><td>3,320 ha</td></tr>
+        <tr><td><strong>Branch 13</strong></td><td>Berdyansk</td><td>Berdyanskyi Khlibkombinat PJSC</td><td>00378218</td><td>Bread plant</td></tr>
+        <tr><td><strong>Branch 14</strong></td><td>Obilne, Melitopol district</td><td>Agrokhimservis LLC</td><td>31522332</td><td>Fertiliser warehouse</td></tr>
+        <tr><td><strong>Branch 15</strong></td><td>Melitopol</td><td>Dozh LLC</td><td>40000980</td><td>Fertiliser warehouse + freight station</td></tr>
+        <tr><td><strong>Branch 16</strong></td><td>Berdyansk</td><td>Asket Shipping Road Transport LLC</td><td>42354326</td><td>Transport / logistics base</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 1</strong></td><td>Vysoke, Melitopol district</td><td>Freedom Farm Terra LLC</td><td>31585444</td><td>5,000 ha</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 2</strong></td><td>Romashky, Melitopol district</td><td>Mahistral-Servis LLC</td><td>30542138</td><td>3,248 ha</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 3</strong></td><td>Melitopol, Vakulenchuka 99</td><td>Melitopol Research Station of Horticulture (M.F. Sydorenko), Institute of Horticulture NAAS Ukraine</td><td>00415451</td><td>235.5 ha &mdash; state research station</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 4</strong></td><td>Fruktove, Melitopol district</td><td>State Enterprise &ldquo;Melitopolske&rdquo; (Horticulture Research Station NAAS)</td><td>19269779</td><td>1,500 ha</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 5</strong></td><td>Yakymivka</td><td>State Enterprise &ldquo;Yakymivske&rdquo; (Research Station of Essential Oils Crops NAAS)</td><td>00496739</td><td>1,100 ha</td></tr>
+        <tr><td><strong>Branch 17 &mdash; Sub-unit 6</strong></td><td>Kamianka-Dniprovska, Vasylivka district</td><td>Khors-Agro LLC</td><td>40938996</td><td>2,700 ha</td></tr>
+        <tr><td><strong>Branch 18 &mdash; Sub-unit 1</strong></td><td>Zaporizhzhia village, Polohy district</td><td>Heolan-Agro LLC</td><td>36496721</td><td>3,897 ha</td></tr>
+        <tr><td><strong>Branch 18 &mdash; Sub-unit 2</strong></td><td>Ostrykivka, Polohy district</td><td>Iksprom Agro LLC</td><td>40995597</td><td>604 ha</td></tr>
+        <tr><td><strong>Branch 18 &mdash; Sub-unit 4</strong></td><td>Voskresenka, Polohy district</td><td>Agrofirma Batkivshchyna LLC</td><td>30791236</td><td>15,000 ha &mdash; largest single farming unit</td></tr>
+        <tr><td><strong>Branch 19 &mdash; Sub-unit 1</strong></td><td>Lantsevy, Polohy district</td><td>SFH Viktor</td><td>30952248</td><td>5,430 ha</td></tr>
+        <tr><td><strong>Branch 19 &mdash; Sub-unit 3</strong></td><td>Shevchenkivske, Bilmak district</td><td>Prydonetske LLC</td><td>00853286</td><td>4,951 ha</td></tr>
+        <tr><td><strong>Branch 20 &mdash; Sub-unit 1</strong></td><td>Shyroke, Veselivka district</td><td>State Enterprise &ldquo;Shyroke&rdquo; (Donetsk State Agricultural Research Station NAAS)</td><td>00853317</td><td>7,150 ha</td></tr>
+        <tr><td><strong>Branch 20 &mdash; Sub-unit 2</strong></td><td>Tavriia, Veselivka district</td><td>State Enterprise &ldquo;Tavriia&rdquo; (Donetsk State Agricultural Research Station NAAS)</td><td>00853323</td><td>3,785.7 ha</td></tr>
+        <tr><td><strong>Branch 20 &mdash; Sub-unit 3</strong></td><td>Vidrodzhennia, Melitopol district</td><td>State Enterprise &ldquo;Vidrodzhennia&rdquo; (Donetsk State Agricultural Research Station NAAS)</td><td>00724838</td><td>4,090 ha</td></tr>
+        <tr><td><strong>GUP Berdyansk Port</strong></td><td>Berdyansk, Horkoho 13/7</td><td>State Enterprise &ldquo;Berdyansk Commercial Sea Port&rdquo;</td><td>INN 9002008361 / OGRN 1229000019984</td><td>Nationalised; primary export terminal</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fn">Note: Optimusagro Treyd LLC (EDRPOU 41161689) appears across Branches 1, 8, 9, and 10 &mdash; targeted seizure of a major regional agro-operator. The seizure of multiple NAAS Ukraine research stations (Branches 12, 17, 20) represents the expropriation of publicly-funded Ukrainian scientific infrastructure.</div>
+</div>
+
+<script>
+function showTab(el, id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  el.classList.add('active');
+}
+
+function filterTable(tableId, query) {
+  const q = query.toLowerCase();
+  document.querySelectorAll('#' + tableId + ' tbody tr').forEach(tr => {
+    tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+const cpData = [
+  {n:1,name:"Grin-Layn LLC",loc:"St. Petersburg",inn:"7813443890",vol:"6,932 t wheat",geo:"St. Petersburg"},
+  {n:2,name:"Agroeksport-Yug LLC",loc:"Pyatigorsk, Stavropol Krai",inn:"7714461659",vol:"94.8 t peas",geo:"South RF"},
+  {n:3,name:"Kuban-Forward LLC",loc:"Krasnodar",inn:"2308103230",vol:"44,858 t wheat",geo:"Krasnodar"},
+  {n:4,name:"Vidan LLC",loc:"Moscow",inn:"7715588288",vol:"766.7 t sunflower",geo:"Moscow"},
+  {n:5,name:"TD Agroprom-Impeks LLC",loc:"Taganrog, Rostov Oblast",inn:"6154160647",vol:"1,217 t sunflower",geo:"Rostov Oblast"},
+  {n:6,name:"TD Fregat LLC",loc:"Moscow",inn:"7704388784",vol:"3,816 t wheat + 1,126 t barley",geo:"Moscow"},
+  {n:7,name:"Krona LLC",loc:"Krasnodar",inn:"2310217254",vol:"836 t sunflower",geo:"Krasnodar"},
+  {n:8,name:"Agro-Trading LLC",loc:"St. Petersburg",inn:"7805754388",vol:"130 t sunflower + 3,204 t wheat",geo:"St. Petersburg"},
+  {n:9,name:"Elevator Oktyabrskoye LLC",loc:"Oktyabrskoye, Crimea (occupied)",inn:"9105000847",vol:"[volume not listed]",geo:"Crimea (occupied)"},
+  {n:10,name:"NAYM LLC",loc:"St. Petersburg",inn:"7813640426",vol:"16,298 t sunflower + 337 t wheat",geo:"St. Petersburg"},
+  {n:11,name:"Flagman-Yug LLC",loc:"Simferopol, Crimea (occupied)",inn:"9102224616",vol:"2,842 t sunflower + 1,153 t rapeseed",geo:"Crimea (occupied)"},
+  {n:12,name:"Inviktus Treyd LLC",loc:"Berdyansk (OCCUPIED TERRITORY)",inn:"9002000806",vol:"2,092 t wheat",geo:"Occupied territory"},
+  {n:13,name:"Aval LLC",loc:"Moscow",inn:"7720314451",vol:"29,883 t wheat",geo:"Moscow"},
+  {n:14,name:"Dukush-2 LLC",loc:"Avtury, Shali district, Chechnya",inn:"2012009876",vol:"4,526 t rapeseed",geo:"North Caucasus"},
+  {n:15,name:"Kolibri LLC",loc:"Nazran, Ingushetia",inn:"0608054507",vol:"780 t sunflower",geo:"North Caucasus"},
+  {n:16,name:"TD Agro-Premium LLC",loc:"Krasnodar",inn:"2311245600",vol:"351 t sunflower + 1,108 t rapeseed",geo:"Krasnodar"},
+  {n:17,name:"AgroKapital LLC",loc:"Bataysk, Rostov Oblast",inn:"6164138351",vol:"490 t sunflower",geo:"Rostov Oblast"},
+  {n:18,name:"Novaya Niva LLC",loc:"Novokrasnovka, Donetsk Oblast (occupied)",inn:"9305005916",vol:"1,924 t wheat",geo:"Occupied territory"},
+  {n:19,name:"Agropraym LLC",loc:"Taganrog, Rostov Oblast",inn:"6154139589",vol:"236 t rapeseed",geo:"Rostov Oblast"},
+  {n:20,name:"Voskhod-R LLC",loc:"Rostov-na-Donu",inn:"6166092504",vol:"1,064 t rapeseed",geo:"Rostov Oblast"},
+  {n:21,name:"AgroResurs LLC",loc:"Moscow",inn:"7730269046",vol:"270 t rapeseed + 210 t sunflower",geo:"Moscow"},
+  {n:22,name:"Milyev LLC",loc:"Donetsk (occupied)",inn:"9309024740",vol:"9,053 t sunflower",geo:"Occupied territory"},
+  {n:23,name:"Nika LLC",loc:"Rostov-na-Donu",inn:"6168091111",vol:"973 t sunflower + 1,696 t wheat",geo:"Rostov Oblast"},
+  {n:24,name:"IP Dmitrienko S.P.",loc:"Krasnodar",inn:"233900448980",vol:"994 t sunflower + 1,371 t rapeseed",geo:"Krasnodar"},
+  {n:25,name:"Global Treyd LLC",loc:"[Not listed]",inn:"\u2014",vol:"1,312 t barley + 4,418 t corn",geo:"Unknown"},
+];
+
+const geoClass = {
+  "Moscow":"blue","St. Petersburg":"blue","Krasnodar":"warn","Rostov Oblast":"warn",
+  "South RF":"warn","Crimea (occupied)":"red","North Caucasus":"dark",
+  "Occupied territory":"red","Unknown":"green"
+};
+
+const tbody = document.getElementById('cpBody');
+cpData.forEach(d => {
+  const cls = geoClass[d.geo] || 'green';
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${d.n}</td><td><strong>${d.name}</strong></td><td>${d.loc}</td><td style="font-family:monospace;font-size:11px">${d.inn}</td><td>${d.vol}</td><td><span class="flag ${cls}">${d.geo}</span></td>`;
+  tbody.appendChild(tr);
+});
+
+// Charts — each canvas ID used exactly once
+new Chart(document.getElementById('cropChart'), {
+  type:'doughnut',
+  data:{labels:['Wheat (~95k t)','Sunflower (~35k t)','Rapeseed (~10k t)','Corn (~4.4k t)','Barley (~2.4k t)','Peas (~0.1k t)'],
+    datasets:[{data:[95000,34940,9728,4418,2438,95],backgroundColor:['#2a4a8a','#e67e22','#27ae60','#3a6fc4','#9b59b6','#e74c3c'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}}}}
+});
+
+new Chart(document.getElementById('finChart'), {
+  type:'bar',
+  data:{labels:['2023','2024'],datasets:[
+    {label:'Revenue (bn \u20bd)',data:[5.9,2.427],backgroundColor:['#2a4a8a','#c0392b'],yAxisID:'y'},
+    {label:'Harvest (m tonnes)',data:[5.7,6.26],type:'line',borderColor:'#27ae60',backgroundColor:'transparent',pointBackgroundColor:'#27ae60',pointRadius:6,yAxisID:'y2'}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{font:{size:11}}}},
+    scales:{y:{title:{display:true,text:'Revenue (bn \u20bd)',font:{size:10}},position:'left'},y2:{title:{display:true,text:'Harvest (m tonnes)',font:{size:10}},position:'right',grid:{drawOnChartArea:false}}}}
+});
+
+new Chart(document.getElementById('capChart'), {
+  type:'pie',
+  data:{labels:['Promsvyazbank credit (4bn \u20bd)','Balytsky personal loan (1bn \u20bd)','Federal budget injection (0.8bn \u20bd)'],
+    datasets:[{data:[4,1,0.8],backgroundColor:['#1a2744','#c0392b','#e67e22'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}
+});
+
+new Chart(document.getElementById('commodityChart'), {
+  type:'bar',
+  data:{labels:['Wheat','Sunflower','Rapeseed','Corn','Barley','Peas'],
+    datasets:[{label:'Tonnes',data:[95000,34940,9728,4418,2438,95],backgroundColor:['#2a4a8a','#e67e22','#27ae60','#3a6fc4','#9b59b6','#e74c3c']}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Tonnes'}}}}
+});
+
+new Chart(document.getElementById('geoChart'), {
+  type:'doughnut',
+  data:{labels:['Moscow (4)','St. Petersburg (3)','Krasnodar (4)','Rostov Oblast (5)','Crimea occupied (2)','North Caucasus (2)','Occupied territories (3)','Unknown (1)'],
+    datasets:[{data:[4,3,4,5,2,2,3,1],backgroundColor:['#1a2744','#2a4a8a','#e67e22','#e0a020','#c0392b','#333','#8e44ad','#7f8c8d'],borderWidth:2,borderColor:'#fff'}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:10},boxWidth:12}}}}
+});
+
+const topBuyers = [
+  {name:'Kuban-Forward LLC',vol:44858,color:'#2a4a8a'},
+  {name:'Aval LLC',vol:29883,color:'#2a4a8a'},
+  {name:'NAYM LLC',vol:16635,color:'#e67e22'},
+  {name:'TD Fregat LLC',vol:4942,color:'#2a4a8a'},
+  {name:'Dukush-2 LLC (Chechnya)',vol:4526,color:'#555'},
+  {name:'Global Treyd LLC',vol:5730,color:'#9b59b6'},
+  {name:'Flagman-Yug (Crimea, occ.)',vol:3995,color:'#c0392b'},
+  {name:'Milyev LLC (Donetsk, occ.)',vol:9053,color:'#8e44ad'},
+  {name:'Agro-Trading LLC',vol:3334,color:'#3a6fc4'},
+  {name:'Inviktus Treyd (Berdyansk, occ.)',vol:2092,color:'#c0392b'},
+].sort((a,b)=>b.vol-a.vol);
+
+new Chart(document.getElementById('buyerChart'), {
+  type:'bar',
+  data:{labels:topBuyers.map(b=>b.name),datasets:[{label:'Tonnes shipped',data:topBuyers.map(b=>b.vol),backgroundColor:topBuyers.map(b=>b.color)}]},
+  options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Tonnes'}}}}
+});
+</script>
+</body>
+</html>

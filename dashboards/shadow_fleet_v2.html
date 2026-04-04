@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadow Fleet & Port-Based Sanctions Evasion — TOT Insights</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body style="margin:0;padding:0;">
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const GOLD = "#C4964A";
+const NAVY = "#0F1F3D";
+const RED = "#7C1F1F";
+const TEAL = "#134E4A";
+const SLATE = "#1E3A5F";
+
+const portTimeline = [
+  {
+    period: "Autumn 2024",
+    event: "Port reoriented to bulk cargo only",
+    vessels: "10–20/month",
+    tonnage: "Up to 8,000t/vessel",
+    detail: "Main channel blocked by military vessel 'Donbass'. Port reoriented exclusively to bulk cargo: coal, ore, kaolin. Volume: 10–20 vessels/month, up to 8,000 tons per vessel.",
+    type: "ops",
+  },
+  {
+    period: "Nov 2025",
+    event: "Official customs post established",
+    vessels: "—",
+    tonnage: "—",
+    detail: "RF Government order establishes customs post at Mariupol port for the first time — enabling direct customs clearance without Temryuk intermediary. Agreed by all Kremlin power centres.",
+    type: "admin",
+  },
+  {
+    period: "Jan 2026",
+    event: "First direct customs clearance",
+    vessels: "3 vessels",
+    tonnage: "Not specified",
+    detail: "Three vessels processed: (1) military equipment by rail/road; (2) coking coal to Turkey; (3) wheat to Egypt. First-ever direct customs clearance in Mariupol — significant reduction in cost and transit times. Port frozen mid-January due to ice.",
+    type: "ops",
+  },
+  {
+    period: "Feb 2026",
+    event: "Ukrainian strike on fuel storage",
+    vessels: "3–4 patrol boats",
+    tonnage: "Military (Border Guard class)",
+    detail: "Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Night of Feb 21–22: Ukrainian strike reportedly hit newly constructed fuel and lubricants storage.",
+    type: "strike",
+  },
+  {
+    period: "Mar 18, 2026",
+    event: "First grain shipment via Temryuk",
+    vessels: "1 vessel",
+    tonnage: "Not specified",
+    detail: "First vessel loaded with grain departed Mariupol port. Route: Mariupol → Temryuk (Krasnodar Krai, RF) for cargo re-registration → Turkish ports. Hub assessment: 'consistent with mechanisms used to obscure origin of goods exported from occupied Ukrainian territories.'",
+    type: "sanctions",
+  },
+  {
+    period: "Mar 2026 (tender)",
+    event: "Coal Harbor dredging: 400,000 m³, >441m rubles",
+    vessels: "Enables larger vessels",
+    tonnage: ">8,000t/vessel (post-dredge)",
+    detail: "Tender for dredging Coal Harbor approach channel. ~400,000 cubic metres removed; increases depth for larger vessels. Cost: >441 million rubles. Works: May–October 2026. Signals strategic reorientation toward large-scale export.",
+    type: "infra",
+  },
+];
+
+const cargoTypes = [
+  { type: "Grain", destination: "Turkey (via Temryuk)", vessels: "1", tonnage: "Not specified", evasion: true, note: "March 18 — re-registered at Temryuk to obscure occupied-territory origin" },
+  { type: "Coking coal", destination: "Turkey", vessels: "2 (Jan 2026)", tonnage: "Up to 8,000t/vessel", evasion: false, note: "Direct export from Jan 2026 customs post" },
+  { type: "Wheat", destination: "Egypt", vessels: "1 (Jan 2026)", tonnage: "Not specified", evasion: false, note: "Direct export from Jan 2026 customs post" },
+  { type: "Coal / ore / kaolin", destination: "Domestic Russia (relay)", vessels: "10–20/month", tonnage: "Up to 8,000t/vessel", evasion: false, note: "Autumn 2024–ongoing bulk cargo pipeline" },
+  { type: "Military equipment", destination: "Frontline (rail/road)", vessels: "1 (Jan 2026)", tonnage: "Not specified", evasion: false, note: "Military logistics alongside commercial cargo" },
+];
+
+const typeStyle = {
+  ops: { label: "Operations", bg: "#DBEAFE", text: SLATE },
+  admin: { label: "Admin", bg: "#F3E8FF", text: "#4B0082" },
+  strike: { label: "Strike", bg: "#FEE2E2", text: RED },
+  sanctions: { label: "Sanctions evasion", bg: "#FEF9C3", text: "#7C5A00" },
+  infra: { label: "Infrastructure", bg: "#CCFBF1", text: TEAL },
+};
+
+function App() {
+  const [subtab, setSubtab] = useState(0);
+  const [expanded, setExpanded] = useState(null);
+
+  return (
+    <div style={{ fontFamily: "'Georgia', serif", background: "#F8F6F1", minHeight: "100vh" }}>
+      <div style={{ background: NAVY, color: "#E8E0D0", padding: "22px 32px 16px", borderBottom: `3px solid ${GOLD}` }}>
+        <div style={{ fontSize: 11, letterSpacing: 3, color: GOLD, fontFamily: "monospace", marginBottom: 4, textTransform: "uppercase" }}>
+          Occupied Territories Insight Hub · Mariupol · Hub v4
+        </div>
+        <div style={{ fontSize: 21, fontWeight: 700 }}>Shadow Fleet & Port-Based Sanctions Evasion</div>
+        <div style={{ fontSize: 13, color: "#9CA3AF", marginTop: 4 }}>Vessel numbers · Tonnage · Cargo routing · Policy audience · April 2026</div>
+      </div>
+
+      <div style={{ background: "#1A2D4A", display: "flex" }}>
+        {[
+          { label: "Peak monthly vessel volume", value: "10–20", sub: "Autumn 2024 onwards, bulk cargo" },
+          { label: "Peak cargo per vessel", value: "8,000t", sub: "Coal / ore / kaolin" },
+          { label: "Vessels Jan 2026", value: "3", sub: "First direct customs clearance" },
+          { label: "Military patrol boats (planned)", value: "3–4", sub: "Border Guard class, spring 2026" },
+          { label: "Temryuk evasion route", value: "1+", sub: "First documented Mar 18, 2026" },
+        ].map((s, i) => (
+          <div key={i} style={{ flex: 1, padding: "14px 16px", borderRight: "1px solid #2A3D5A" }}>
+            <div style={{ fontFamily: "monospace", fontSize: 20, fontWeight: 700, color: GOLD }}>{s.value}</div>
+            <div style={{ fontSize: 11, color: "#E8E0D0", fontWeight: 600, marginTop: 2, lineHeight: 1.4 }}>{s.label}</div>
+            <div style={{ fontSize: 10, color: "#6B7280", marginTop: 2 }}>{s.sub}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ background: "#243854", display: "flex", padding: "0 32px" }}>
+        {["Port Timeline", "Cargo & Routing", "Temryuk Mechanism"].map((t, i) => (
+          <button key={i} onClick={() => { setSubtab(i); setExpanded(null); }}
+            style={{ background: "none", border: "none", borderBottom: subtab === i ? `3px solid ${GOLD}` : "3px solid transparent",
+              color: subtab === i ? "#E8E0D0" : "#6B7280", fontFamily: "monospace", fontSize: 11, fontWeight: 700,
+              letterSpacing: 1, padding: "11px 18px 8px", cursor: "pointer", textTransform: "uppercase" }}>
+            {`0${i+1} · ${t}`}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ padding: "24px 32px" }}>
+
+        {subtab === 0 && (
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Mariupol Port: Operational Timeline</div>
+            <div style={{ fontSize: 13, color: "#555", marginBottom: 16, maxWidth: 660, lineHeight: 1.7 }}>
+              From bulk cargo relay point to direct-export hub and military facility. Vessel numbers and tonnage shown for each period.
+            </div>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
+              {Object.entries(typeStyle).map(([k, v]) => (
+                <span key={k} style={{ background: v.bg, color: v.text, fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 3, fontFamily: "monospace" }}>{v.label}</span>
+              ))}
+            </div>
+            <div style={{ position: "relative" }}>
+              <div style={{ position: "absolute", left: 110, top: 0, bottom: 0, width: 2, background: "#DDD" }} />
+              {portTimeline.map((ev, i) => {
+                const ts = typeStyle[ev.type];
+                return (
+                  <div key={i} style={{ display: "flex", marginBottom: 8, position: "relative" }}>
+                    <div style={{ width: 110, paddingRight: 14, textAlign: "right", paddingTop: 12, flexShrink: 0 }}>
+                      <span style={{ fontFamily: "monospace", fontSize: 10, color: "#888" }}>{ev.period}</span>
+                    </div>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: ts.text, flexShrink: 0, marginTop: 15, marginLeft: -7, zIndex: 1 }} />
+                    <div onClick={() => setExpanded(expanded === i ? null : i)}
+                      style={{ flex: 1, marginLeft: 12, background: "#fff", border: `1.5px solid ${expanded === i ? ts.text : "#DDD"}`,
+                        borderLeft: `4px solid ${ts.text}`, borderRadius: 4, padding: "10px 14px", cursor: "pointer",
+                        boxShadow: expanded === i ? "0 2px 10px rgba(0,0,0,0.07)" : "none" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+                        <span style={{ fontSize: 14, fontWeight: 700, color: ts.text, flex: 1 }}>{ev.event}</span>
+                        <div style={{ display: "flex", gap: 8, flexShrink: 0, alignItems: "center" }}>
+                          {ev.vessels !== "—" && (
+                            <span style={{ background: NAVY, color: GOLD, fontFamily: "monospace", fontSize: 11, fontWeight: 700, padding: "2px 8px", borderRadius: 3 }}>
+                              ⛵ {ev.vessels}
+                            </span>
+                          )}
+                          {ev.tonnage !== "—" && ev.tonnage !== "Not specified" && (
+                            <span style={{ background: "#F8F6F1", color: "#555", fontFamily: "monospace", fontSize: 11, padding: "2px 8px", borderRadius: 3, border: "1px solid #DDD" }}>
+                              ⚖ {ev.tonnage}
+                            </span>
+                          )}
+                          <span style={{ background: ts.bg, color: ts.text, fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 3, fontFamily: "monospace" }}>{ts.label}</span>
+                        </div>
+                      </div>
+                      {expanded === i && (
+                        <div style={{ marginTop: 8, fontSize: 13, color: "#333", lineHeight: 1.7, borderTop: "1px solid #EEE", paddingTop: 8 }}>{ev.detail}</div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {subtab === 1 && (
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Documented Cargo Flows, Vessel Numbers and Tonnage</div>
+            <div style={{ fontSize: 13, color: "#555", marginBottom: 18, lineHeight: 1.7 }}>
+              All cargo flows documented in Hub v4 entries from Q1 2025 through March 2026.
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1.6fr 1fr 1fr 0.8fr 2fr", gap: 0, marginBottom: 2 }}>
+              {["Cargo type", "Destination", "Vessels", "Tonnage", "Evasion?", "Notes"].map((h, i) => (
+                <div key={i} style={{ background: NAVY, color: "#fff", fontFamily: "monospace", fontSize: 10, fontWeight: 700, padding: "8px 12px",
+                  borderRight: i < 5 ? "1px solid #2A3D5A" : "none", letterSpacing: 0.5, textTransform: "uppercase" }}>
+                  {h}
+                </div>
+              ))}
+            </div>
+            {cargoTypes.map((c, i) => (
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "1.4fr 1.6fr 1fr 1fr 0.8fr 2fr",
+                background: i % 2 === 0 ? "#fff" : "#F8F6F1",
+                borderLeft: `4px solid ${c.evasion ? GOLD : SLATE}`,
+                borderBottom: "1px solid #EEE", gap: 0 }}>
+                <div style={{ padding: "10px 12px", fontWeight: 700, color: NAVY, fontSize: 13, borderRight: "1px solid #EEE" }}>{c.type}</div>
+                <div style={{ padding: "10px 12px", fontSize: 13, color: "#333", borderRight: "1px solid #EEE" }}>{c.destination}</div>
+                <div style={{ padding: "10px 12px", fontFamily: "monospace", fontSize: 13, fontWeight: 700, color: GOLD, borderRight: "1px solid #EEE" }}>{c.vessels}</div>
+                <div style={{ padding: "10px 12px", fontFamily: "monospace", fontSize: 12, color: "#555", borderRight: "1px solid #EEE" }}>{c.tonnage}</div>
+                <div style={{ padding: "10px 12px", borderRight: "1px solid #EEE", display: "flex", alignItems: "center" }}>
+                  {c.evasion
+                    ? <span style={{ background: "#FEF9C3", color: "#7C5A00", fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 3, fontFamily: "monospace" }}>YES</span>
+                    : <span style={{ color: "#AAA", fontSize: 12 }}>No</span>}
+                </div>
+                <div style={{ padding: "10px 12px", fontSize: 12, color: "#555", fontStyle: "italic" }}>{c.note}</div>
+              </div>
+            ))}
+            <div style={{ marginTop: 20, background: NAVY, color: "#E8E0D0", borderRadius: 4, padding: "14px 18px", fontSize: 13, lineHeight: 1.8 }}>
+              <span style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: GOLD }}>TONNAGE NOTE · </span>
+              The 8,000t/vessel figure applies to documented bulk cargo (coal, ore, kaolin) under the Autumn 2024 operational model. At 10–20 vessels/month this implies a monthly throughput of <strong style={{ color: GOLD }}>80,000–160,000 tonnes</strong>. The Coal Harbor dredging tender (May–October 2026) is designed to increase vessel capacity beyond this ceiling.
+            </div>
+          </div>
+        )}
+
+        {subtab === 2 && (
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>The Temryuk Re-Registration Mechanism</div>
+            <div style={{ fontSize: 13, color: "#555", marginBottom: 20, maxWidth: 660, lineHeight: 1.7 }}>
+              The March 18 shipment is the first explicitly documented instance in Hub v4. One vessel, cargo unspecified in tonnage.
+            </div>
+            {[
+              { node: "Mariupol Port", sub: "Cargo loaded under Russian occupation administration. Origin: occupied Ukrainian territory. Vessel count: 1 (Mar 18 grain shipment); 10–20/month for bulk cargo via relay.", color: NAVY, bg: "#DBEAFE", badge: null },
+              { node: "Temryuk Port, Krasnodar Krai (RF)", sub: "Cargo re-registered as Russian-domestic goods — occupied-territory origin obscured. Temryuk is within Russia proper and outside direct sanctions scrutiny for port-of-origin tracking.", color: "#7C5A00", bg: "#FEF9C3", badge: "⚠ Evasion point" },
+              { node: "Turkish Ports", sub: "Onward shipment. Turkey has not joined Western sanctions regime — effective terminal destination for goods that cannot be openly exported from occupied territory.", color: TEAL, bg: "#CCFBF1", badge: null },
+            ].map((n, i, arr) => (
+              <div key={i}>
+                <div style={{ background: n.bg, border: `2px solid ${n.color}`, borderRadius: 6, padding: "16px 20px", position: "relative" }}>
+                  {n.badge && <div style={{ position: "absolute", top: 12, right: 16, fontFamily: "monospace", fontSize: 11, fontWeight: 700, color: "#7C5A00", background: "#FEF9C3", padding: "2px 8px", borderRadius: 3 }}>{n.badge}</div>}
+                  <div style={{ fontSize: 16, fontWeight: 700, color: n.color }}>{n.node}</div>
+                  <div style={{ fontSize: 13, color: "#444", marginTop: 6, lineHeight: 1.6, maxWidth: 600 }}>{n.sub}</div>
+                </div>
+                {i < arr.length - 1 && <div style={{ textAlign: "center", fontSize: 26, color: GOLD, margin: "6px 0" }}>↓</div>}
+              </div>
+            ))}
+            <div style={{ marginTop: 20, background: "#FFF8E7", border: "1px solid #F5CBA7", borderRadius: 4, padding: "12px 16px", fontSize: 12.5, color: "#7D5A1E", lineHeight: 1.7 }}>
+              <strong>Dual-track capacity note:</strong> The November 2025 direct customs post enables clearance without Temryuk — for cargo that can be openly declared (coking coal to Turkey, wheat to Egypt). The Temryuk route handles cargo whose occupied-territory origin must be concealed. These are complementary mechanisms, not alternatives.
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div style={{ padding: "12px 32px", borderTop: "1px solid #DDD", fontSize: 11, color: "#AAA", fontFamily: "monospace" }}>
+        OCCUPIED TERRITORIES INSIGHT HUB · UKRAINE &amp; RUSSIA PROGRAMME, CSNS / KCL
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

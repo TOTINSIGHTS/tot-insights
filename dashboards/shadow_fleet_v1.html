@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanctions Evasion & Financial Extraction — TOT Insights</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body style="margin:0;padding:0;">
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+
+const GOLD = "#C4964A";
+const NAVY = "#0F1F3D";
+const RED = "#7C1F1F";
+const TEAL = "#134E4A";
+const SLATE = "#1E3A5F";
+
+const portTimeline = [
+  {
+    period: "Autumn 2024",
+    event: "Port reoriented to bulk cargo only",
+    detail: "Main channel blocked by military vessel 'Donbass'. Port reoriented exclusively to bulk cargo: coal, ore, kaolin. Volume: 10–20 vessels/month, up to 8,000 tons per vessel.",
+    type: "ops",
+  },
+  {
+    period: "Nov 2025",
+    event: "Official customs post established",
+    detail: "RF Government order establishes customs post at Mariupol port for the first time — enabling direct customs clearance without Temryuk intermediary. Agreed by all Kremlin power centres, demonstrating Mariupol's privileged status.",
+    type: "admin",
+  },
+  {
+    period: "Jan 2026",
+    event: "First direct customs clearance",
+    detail: "Three vessels processed: (1) military equipment by rail/road; (2) coking coal to Turkey; (3) wheat to Egypt. First customs clearance performed directly in Mariupol — 'significant reduction in cost and transit times.' Port then frozen mid-January due to ice.",
+    type: "ops",
+  },
+  {
+    period: "Feb 2026",
+    event: "Ukrainian strike on fuel storage",
+    detail: "Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Night of Feb 21–22: Ukrainian strike reportedly hitting newly constructed fuel and lubricants storage. Port conversion to military facility continues despite delay.",
+    type: "strike",
+  },
+  {
+    period: "Mar 18, 2026",
+    event: "First grain shipment routed via Temryuk",
+    detail: "First vessel loaded with grain departed Mariupol port. Route: Mariupol → Temryuk (Krasnodar Krai) for cargo re-registration → Turkish ports. Temryuk routing serves re-registration and sanctions evasion functions. Hub assessment: 'consistent with mechanisms used to obscure origin of goods exported from occupied Ukrainian territories.'",
+    type: "sanctions",
+  },
+  {
+    period: "Mar 2026 (tender)",
+    event: "Coal Harbor dredging tender",
+    detail: "Tender for dredging Coal Harbor approach channel: ~400,000 cubic metres removed; increases depth for larger vessels. Cost: >441 million rubles. Applications closed April 2, results April 10. Work: May–October 2026. Signals strategic reorientation toward large-scale coal and agricultural commodity export.",
+    type: "infra",
+  },
+];
+
+const cargoTypes = [
+  { type: "Grain", destination: "Turkey (via Temryuk re-registration)", flag: "🇹🇷", evasion: true, note: "Re-registered at Temryuk to obscure occupied-territory origin" },
+  { type: "Coking coal", destination: "Turkey", flag: "🇹🇷", evasion: false, note: "Direct export from Jan 2026 customs post" },
+  { type: "Wheat", destination: "Egypt", flag: "🇪🇬", evasion: false, note: "Direct export from Jan 2026 customs post" },
+  { type: "Coal / ore / kaolin", destination: "Domestic Russia (relay)", flag: "🇷🇺", evasion: false, note: "Autumn 2024–ongoing bulk cargo pipeline" },
+  { type: "Military equipment", destination: "Frontline (rail/road)", flag: "⚔️", evasion: false, note: "Military logistics function alongside commercial cargo" },
+];
+
+const typeStyle = {
+  ops: { label: "Operations", bg: "#DBEAFE", text: SLATE },
+  admin: { label: "Admin", bg: "#F3E8FF", text: "#4B0082" },
+  strike: { label: "Strike", bg: "#FEE2E2", text: RED },
+  sanctions: { label: "Sanctions evasion", bg: "#FEF9C3", text: "#7C5A00" },
+  infra: { label: "Infrastructure", bg: "#CCFBF1", text: TEAL },
+};
+
+const pensionData = [
+  { label: "Official DNR-wide pension recipients", value: 930000, color: "#3B5998", note: "Per Russian PFR RF and 'MinPraci DNR' official statistics" },
+  { label: "Mariupol official share (20–22%)", value: 204600, color: "#5B7DB8", note: "Implied figure based on Mariupol's population share of DNR" },
+  { label: "Internal estimate: actual pensioners present", value: 70000, color: TEAL, note: "Maximum estimate based on HUMINT and population analysis" },
+  { label: "Pre-war registered pensioners (2021)", value: 160000, color: SLATE, note: "Ukrainian census/municipal records baseline" },
+  { label: "Ghost pensioners (fraud discrepancy)", value: 134600, color: RED, note: "204,600 official minus 70,000 actual = 134,600 'dead souls'" },
+];
+
+const pensionTimeline = [
+  { period: "2022–ongoing", event: "Ghost pensioner scheme established", detail: "Occupation authorities claim ~930,000 DNR pension recipients. Mariupol's implied share: ~204,600. Internal estimate of actual present population: maximum 70,000. Discrepancy of ~134,600 'dead souls' generating 1.68 billion rubles/month (~$18.7 million). Money extracted through 'DNR banks' ensuring complete opacity from federal treasury oversight." },
+  { period: "Oct 2025", event: "Pensioner deportation panic", detail: "RF 2026–2030 Migration Policy Concept (Oct 2, 2025) allows stripping Russian citizenship from anyone who verified obligations to Ukraine — specifically targeting pensioners who confirmed pension status with Ukrainian state. Occupation administration deliberately activated a pensioner deportation information panic through local bloggers. At least 10% of pensioners actively sought departure. Instrument of psychological coercion rather than actual deportation." },
+  { period: "Mar 2026", event: "140 apartments to 80+ cohort", detail: "Occupation authorities distributed 140 municipal apartments to residents aged 80 and older, framed as social care. Hub assessment: 'manual allocation of scarce housing resources in a city experiencing systemic housing collapse.' Confirms presence of elderly Ukrainian resident stratum that remained through siege and occupation." },
+];
+
+function App() {
+  const [tab, setTab] = useState(0);
+  const [expanded, setExpanded] = useState(null);
+  const [expandedP, setExpandedP] = useState(null);
+  const [subtab, setSubtab] = useState(0);
+  const tabs = ["Shadow Fleet & Port", "Pension Fraud"];
+
+  const maxPension = 930000;
+
+  return (
+    <div style={{ fontFamily: "'Georgia', serif", background: "#F8F6F1", minHeight: "100vh" }}>
+      <div style={{ background: NAVY, color: "#E8E0D0", padding: "22px 32px 16px", borderBottom: `3px solid ${GOLD}` }}>
+        <div style={{ fontSize: 11, letterSpacing: 3, color: GOLD, fontFamily: "monospace", marginBottom: 4, textTransform: "uppercase" }}>
+          Occupied Territories Insight Hub · Mariupol · Hub v4
+        </div>
+        <div style={{ fontSize: 21, fontWeight: 700 }}>Sanctions Evasion & Financial Extraction</div>
+        <div style={{ fontSize: 13, color: "#9CA3AF", marginTop: 4 }}>Shadow fleet routing · Pension fraud · Policy audience · April 2026</div>
+      </div>
+
+      <div style={{ background: "#1A2D4A", display: "flex", padding: "0 32px" }}>
+        {tabs.map((t, i) => (
+          <button key={i} onClick={() => { setTab(i); setExpanded(null); setExpandedP(null); setSubtab(0); }}
+            style={{ background: "none", border: "none", borderBottom: tab === i ? `3px solid ${GOLD}` : "3px solid transparent",
+              color: tab === i ? "#E8E0D0" : "#6B7280", fontFamily: "monospace", fontSize: 11, fontWeight: 700,
+              letterSpacing: 1, padding: "12px 20px 9px", cursor: "pointer", textTransform: "uppercase" }}>
+            {`0${i + 1} · ${t}`}
+          </button>
+        ))}
+      </div>
+
+      {tab === 0 && (
+        <div style={{ padding: "24px 32px" }}>
+          <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            {["Port Timeline", "Cargo & Routing", "Sanctions Evasion Mechanism"].map((t, i) => (
+              <button key={i} onClick={() => setSubtab(i)}
+                style={{ background: subtab === i ? NAVY : "#fff", color: subtab === i ? "#fff" : NAVY,
+                  border: `1.5px solid ${NAVY}`, borderRadius: 3, padding: "6px 14px",
+                  fontFamily: "monospace", fontSize: 11, fontWeight: 700, cursor: "pointer", letterSpacing: 0.5 }}>
+                {t}
+              </button>
+            ))}
+          </div>
+
+          {subtab === 0 && (
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Mariupol Port: Operational Timeline</div>
+              <div style={{ fontSize: 13, color: "#555", marginBottom: 18, maxWidth: 660, lineHeight: 1.7 }}>
+                From bulk cargo relay point to direct-export hub and military facility. Click events to expand.
+              </div>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 18 }}>
+                {Object.entries(typeStyle).map(([k, v]) => (
+                  <span key={k} style={{ background: v.bg, color: v.text, fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 3, fontFamily: "monospace" }}>{v.label}</span>
+                ))}
+              </div>
+              <div style={{ position: "relative" }}>
+                <div style={{ position: "absolute", left: 110, top: 0, bottom: 0, width: 2, background: "#DDD" }} />
+                {portTimeline.map((ev, i) => {
+                  const ts = typeStyle[ev.type];
+                  return (
+                    <div key={i} style={{ display: "flex", marginBottom: 8, position: "relative" }}>
+                      <div style={{ width: 110, paddingRight: 14, textAlign: "right", paddingTop: 12, flexShrink: 0 }}>
+                        <span style={{ fontFamily: "monospace", fontSize: 10, color: "#888" }}>{ev.period}</span>
+                      </div>
+                      <div style={{ width: 12, height: 12, borderRadius: "50%", background: ts.text, flexShrink: 0, marginTop: 15, marginLeft: -7, zIndex: 1 }} />
+                      <div onClick={() => setExpanded(expanded === i ? null : i)}
+                        style={{ flex: 1, marginLeft: 12, background: "#fff", border: `1.5px solid ${expanded === i ? ts.text : "#DDD"}`,
+                          borderLeft: `4px solid ${ts.text}`, borderRadius: 4, padding: "10px 14px", cursor: "pointer",
+                          boxShadow: expanded === i ? "0 2px 10px rgba(0,0,0,0.07)" : "none" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <span style={{ fontSize: 14, fontWeight: 700, color: ts.text }}>{ev.event}</span>
+                          <span style={{ background: ts.bg, color: ts.text, fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 3, fontFamily: "monospace", flexShrink: 0, marginLeft: 8 }}>{ts.label}</span>
+                        </div>
+                        {expanded === i && <div style={{ marginTop: 8, fontSize: 13, color: "#333", lineHeight: 1.7, borderTop: "1px solid #EEE", paddingTop: 8 }}>{ev.detail}</div>}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {subtab === 1 && (
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Documented Cargo Types and Destinations</div>
+              <div style={{ fontSize: 13, color: "#555", marginBottom: 18, lineHeight: 1.7 }}>All cargo flows documented in Hub v4 entries from Q1 2025 through March 2026.</div>
+              {cargoTypes.map((c, i) => (
+                <div key={i} style={{ background: "#fff", border: `1.5px solid ${c.evasion ? "#F5CBA7" : "#DDD"}`,
+                  borderLeft: `5px solid ${c.evasion ? GOLD : SLATE}`, borderRadius: 4,
+                  padding: "12px 16px", marginBottom: 8, display: "flex", gap: 16, alignItems: "flex-start" }}>
+                  <div style={{ fontSize: 28, flexShrink: 0 }}>{c.flag}</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 4 }}>
+                      <span style={{ fontSize: 15, fontWeight: 700, color: NAVY }}>{c.type}</span>
+                      {c.evasion && <span style={{ background: "#FEF9C3", color: "#7C5A00", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 3, fontFamily: "monospace" }}>EVASION ROUTE</span>}
+                    </div>
+                    <div style={{ fontSize: 13, color: "#555" }}>→ {c.destination}</div>
+                    <div style={{ fontSize: 12, color: "#888", marginTop: 4, fontStyle: "italic" }}>{c.note}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {subtab === 2 && (
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>The Temryuk Re-Registration Mechanism</div>
+              <div style={{ fontSize: 13, color: "#555", marginBottom: 20, maxWidth: 660, lineHeight: 1.7 }}>
+                The March 18 grain shipment is the first documented instance of the Temryuk routing in Hub v4.
+              </div>
+              {[
+                { node: "Mariupol Port", sub: "Cargo loaded under Russian occupation administration", color: NAVY, bg: "#DBEAFE" },
+                { node: "Temryuk Port, Krasnodar Krai", sub: "Cargo re-registered — occupied-territory origin obscured. Russian Federation domestic port, outside sanctions scrutiny.", color: "#7C5A00", bg: "#FEF9C3", flag: "⚠️ Evasion point" },
+                { node: "Turkish Ports", sub: "Onward shipment. Turkey has not joined Western sanctions regime — effective final destination for sanctioned goods.", color: TEAL, bg: "#CCFBF1" },
+              ].map((n, i, arr) => (
+                <div key={i}>
+                  <div style={{ background: n.bg, border: `2px solid ${n.color}`, borderRadius: 6, padding: "16px 20px", position: "relative" }}>
+                    {n.flag && <div style={{ position: "absolute", top: 10, right: 14, fontFamily: "monospace", fontSize: 11, fontWeight: 700, color: "#7C5A00" }}>{n.flag}</div>}
+                    <div style={{ fontSize: 16, fontWeight: 700, color: n.color }}>{n.node}</div>
+                    <div style={{ fontSize: 13, color: "#444", marginTop: 4, lineHeight: 1.6 }}>{n.sub}</div>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div style={{ textAlign: "center", fontSize: 24, color: GOLD, margin: "6px 0" }}>↓</div>
+                  )}
+                </div>
+              ))}
+              <div style={{ marginTop: 20, background: "#FFF8E7", border: "1px solid #F5CBA7", borderRadius: 4, padding: "12px 16px", fontSize: 12.5, color: "#7D5A1E", lineHeight: 1.7 }}>
+                <strong>Hub assessment:</strong> "This routing pattern is consistent with mechanisms used to obscure origin of goods exported from occupied Ukrainian territories and circumvent trade restrictions."
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {tab === 1 && (
+        <div style={{ padding: "24px 32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 24 }}>
+            {[
+              { val: "134,600", label: "'Dead souls' pensioners", sub: "Official minus actual present", color: RED },
+              { val: "1.68bn₽", label: "Per month fraud value", sub: "~$18.7 million/month", color: GOLD },
+              { val: "$224m+", label: "Annual extraction estimate", sub: "~$18.7m × 12 months", color: GOLD },
+            ].map((s, i) => (
+              <div key={i} style={{ background: NAVY, borderRadius: 4, padding: "16px 18px" }}>
+                <div style={{ fontFamily: "monospace", fontSize: 26, fontWeight: 700, color: s.color }}>{s.val}</div>
+                <div style={{ fontSize: 12, color: "#E8E0D0", marginTop: 4, fontWeight: 600 }}>{s.label}</div>
+                <div style={{ fontSize: 11, color: "#6B7280", marginTop: 2 }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 14 }}>Pensioner Population: Official vs Actual</div>
+          {pensionData.map((p, i) => (
+            <div key={i} style={{ marginBottom: 14 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
+                <div style={{ width: 220, fontSize: 12, color: "#333", lineHeight: 1.4, flexShrink: 0 }}>{p.label}</div>
+                <div style={{ flex: 1, height: 28, background: "#EEE", borderRadius: 4, overflow: "hidden" }}>
+                  <div style={{ width: `${(p.value / maxPension) * 100}%`, height: "100%", background: p.color, borderRadius: 4,
+                    display: "flex", alignItems: "center", paddingLeft: 8 }}>
+                    <span style={{ color: "#fff", fontFamily: "monospace", fontSize: 12, fontWeight: 700, whiteSpace: "nowrap" }}>
+                      {p.value.toLocaleString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div style={{ marginLeft: 232, fontSize: 11, color: "#888", fontStyle: "italic" }}>{p.note}</div>
+            </div>
+          ))}
+
+          <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginTop: 28, marginBottom: 14 }}>Key Events</div>
+          <div style={{ position: "relative" }}>
+            <div style={{ position: "absolute", left: 90, top: 0, bottom: 0, width: 2, background: "#DDD" }} />
+            {pensionTimeline.map((ev, i) => (
+              <div key={i} style={{ display: "flex", marginBottom: 8 }}>
+                <div style={{ width: 90, paddingRight: 14, textAlign: "right", paddingTop: 12, flexShrink: 0 }}>
+                  <span style={{ fontFamily: "monospace", fontSize: 10, color: "#888" }}>{ev.period}</span>
+                </div>
+                <div style={{ width: 12, height: 12, borderRadius: "50%", background: GOLD, flexShrink: 0, marginTop: 15, marginLeft: -7, zIndex: 1, border: `2px solid ${NAVY}` }} />
+                <div onClick={() => setExpandedP(expandedP === i ? null : i)}
+                  style={{ flex: 1, marginLeft: 12, background: "#fff", border: `1.5px solid ${expandedP === i ? GOLD : "#DDD"}`,
+                    borderLeft: `4px solid ${GOLD}`, borderRadius: 4, padding: "10px 14px", cursor: "pointer" }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: NAVY }}>{ev.event}</div>
+                  {expandedP === i && <div style={{ marginTop: 8, fontSize: 13, color: "#333", lineHeight: 1.7, borderTop: "1px solid #EEE", paddingTop: 8 }}>{ev.detail}</div>}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 20, background: "#0F1F3D", color: "#E8E0D0", borderRadius: 4, padding: "16px 20px", fontSize: 13, lineHeight: 1.8 }}>
+            <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: GOLD, marginBottom: 8, textTransform: "uppercase" }}>Dual accountability dimension</div>
+            <p style={{ margin: "0 0 8px" }}>The ghost pensioner scheme operates simultaneously as <strong style={{ color: GOLD }}>fraud against the Russian federal budget</strong> (1.68bn rubles/month extracted through DNR banks) and as <strong style={{ color: GOLD }}>theft of resources designated for civilian welfare</strong> — both potential accountability vectors.</p>
+            <p style={{ margin: 0 }}>The October 2025 deportation panic was triggered deliberately by the occupation administration to destabilise the elderly population — instrumentalising pensioners' citizenship precarity as a tool of social control even while their pension payments are being fraudulently claimed.</p>
+          </div>
+        </div>
+      )}
+
+      <div style={{ padding: "12px 32px", borderTop: "1px solid #DDD", fontSize: 11, color: "#AAA", fontFamily: "monospace" }}>
+        OCCUPIED TERRITORIES INSIGHT HUB · UKRAINE &amp; RUSSIA PROGRAMME, CSNS / KCL
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

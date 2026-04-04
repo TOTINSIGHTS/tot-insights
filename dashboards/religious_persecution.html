@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Religious Persecution in Occupied Ukraine — TOT Insights</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+</head>
+<body style="margin:0;padding:0;">
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  ResponsiveContainer, Cell, PieChart, Pie, LineChart, Line,
+  ReferenceLine, LabelList } = Recharts;
+
+const CRIMSON  = "#8B1A1A";
+const GOLD     = "#C4960A";
+const STEEL    = "#2E5B8A";
+const MID      = "#999";
+const LIGHT_BG = "#FDF9F5";
+const DARK_TXT = "#1A1A1A";
+const BORDER   = "#D4C9C0";
+
+const tick = { fill: DARK_TXT, fontSize: 12, fontFamily: "Georgia, serif" };
+const axisLabel = { fill: MID, fontSize: 11, fontFamily: "Arial, sans-serif" };
+
+const suppressionData = [
+  { name: "Ukrainian\nOrthodox (OCU)", before: 86,  after: 0,  pct: 100 },
+  { name: "Greek\nCatholics (UGCC)", before: 49,  after: 0,  pct: 100 },
+  { name: "Jehovah's\nWitnesses",    before: 83,  after: 0,  pct: 100 },
+  { name: "Pentecostals /\nCharismatic", before: 366, after: 18, pct: 95 },
+  { name: "Baptists",                before: 186, after: 9,  pct: 95 },
+  { name: "Adventists",              before: 36,  after: 4,  pct: 90 },
+];
+
+const flatSuppression = suppressionData.map(d => ({
+  ...d,
+  name: d.name.replace(/\n/g, " "),
+}));
+
+const clergyData = [
+  { name: "Killed / tortured\nto death",    value: 70,  color: CRIMSON },
+  { name: "Abducted &\ntortured",            value: 200, color: "#B04040" },
+  { name: "Kidnapped —\nfate unknown",       value: 20,  color: "#C07070" },
+  { name: "Kidnapped,\nlater released",      value: 45,  color: "#D09090" },
+  { name: "Killed in\nbombing / shelling",   value: 5,   color: "#A04020" },
+];
+
+const flatClergy = clergyData.map(d => ({ ...d, name: d.name.replace(/\n/g, " ") }));
+
+const timelineData = [
+  { year: "2014", events: 2,  label: "Crimea / Donbas occupied; first raids on Protestant churches; 50+ clergy affected" },
+  { year: "2015", events: 4,  label: "DPR recognises only 4 denominations; Baptists, Pentecostals classified as 'sects'" },
+  { year: "2016", events: 3,  label: "DPR Law on Religion: forced re-registration, lists of believers demanded" },
+  { year: "2017", events: 4,  label: "Russia bans Jehovah's Witnesses nationally (Supreme Court); raids expand" },
+  { year: "2018", events: 4,  label: "LPR stricter law; last UGCC church closed in occupied Donetsk; 200+ raids 2019–21" },
+  { year: "2019–21", events: 5, label: "200+ documented raids on religious communities in this period alone" },
+  { year: "Feb 2022", events: 9, label: "Full-scale invasion: repression becomes absolute. All denominations face ultimatum" },
+  { year: "Dec 2022", events: 8, label: "UGCC formally banned in Zaporizhzhia Oblast; 630 structures destroyed / damaged" },
+  { year: "May 2023", events: 7, label: "ROC annexes Berdyansk diocese; Fr Maksymov arrested, later sentenced to 14 years" },
+  { year: "Summer 2023", events: 9, label: "All non-ROC religious activity effectively banned in Zaporizhzhia & Kherson oblasts" },
+  { year: "2024–25", events: 10, label: "871 ROC structures registered in occupied territory; 67 clergy killed in total" },
+];
+
+const rocExpansion = [
+  { year: "2014", roc: 762, protestant: 552, ugcc: 36, other: 120 },
+  { year: "2018", roc: 700, protestant: 80,  ugcc: 0,  other: 20 },
+  { year: "2022", roc: 650, protestant: 30,  ugcc: 0,  other: 5 },
+  { year: "2025", roc: 836, protestant: 10,  ugcc: 0,  other: 0 },
+];
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload?.length) return null;
+  return (
+    <div style={{ background: "#fff", border: `1px solid ${BORDER}`, padding: "10px 14px", fontFamily: "Arial, sans-serif", fontSize: 12, maxWidth: 260 }}>
+      <p style={{ fontWeight: "bold", marginBottom: 4, color: DARK_TXT }}>{label}</p>
+      {payload.map((p, i) => (
+        <p key={i} style={{ color: p.color || DARK_TXT, margin: "2px 0" }}>
+          {p.name}: <strong>{p.value?.toLocaleString()}</strong>
+        </p>
+      ))}
+    </div>
+  );
+};
+
+const TimelineTooltip = ({ active, payload, label }) => {
+  if (!active || !payload?.length) return null;
+  const d = timelineData.find(t => t.year === label);
+  return (
+    <div style={{ background: "#fff", border: `1px solid ${BORDER}`, padding: "10px 14px", fontFamily: "Arial, sans-serif", fontSize: 11, maxWidth: 300 }}>
+      <p style={{ fontWeight: "bold", color: CRIMSON, marginBottom: 4 }}>{label}</p>
+      <p style={{ color: DARK_TXT, lineHeight: 1.5 }}>{d?.label}</p>
+    </div>
+  );
+};
+
+function SectionHeader({ n, title, sub }) {
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 6 }}>
+        <div style={{ width: 36, height: 36, borderRadius: "50%", background: CRIMSON, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 16, flexShrink: 0 }}>
+          {n}
+        </div>
+        <h2 style={{ margin: 0, fontFamily: "Georgia, serif", fontSize: 20, color: DARK_TXT }}>{title}</h2>
+      </div>
+      {sub && <p style={{ margin: "0 0 0 48px", color: MID, fontSize: 13, fontFamily: "Arial, sans-serif", lineHeight: 1.5 }}>{sub}</p>}
+    </div>
+  );
+}
+
+function StatBadge({ n, label, color = CRIMSON }) {
+  return (
+    <div style={{ textAlign: "center", flex: 1, padding: "16px 8px", background: "#FFF5F5", borderRadius: 8, border: `1px solid ${BORDER}` }}>
+      <div style={{ fontFamily: "Georgia, serif", fontSize: 28, fontWeight: "bold", color, lineHeight: 1 }}>{n}</div>
+      <div style={{ fontFamily: "Arial, sans-serif", fontSize: 11, color: MID, marginTop: 6, lineHeight: 1.4 }}>{label}</div>
+    </div>
+  );
+}
+
+function App() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabs = ["Suppression by Denomination", "Clergy Casualties", "Escalation Timeline", "Replacement Dynamic", "If This Were America"];
+
+  return (
+    <div style={{ background: LIGHT_BG, minHeight: "100vh", fontFamily: "Arial, sans-serif", color: DARK_TXT }}>
+
+      <div style={{ background: CRIMSON, color: "#fff", padding: "24px 32px", marginBottom: 24 }}>
+        <div style={{ fontSize: 11, letterSpacing: 2, opacity: 0.7, textTransform: "uppercase", marginBottom: 6, fontFamily: "Arial, sans-serif" }}>
+          Occupied Territories Insight Hub · Analytical Visualisations
+        </div>
+        <h1 style={{ margin: 0, fontFamily: "Georgia, serif", fontSize: 24, fontWeight: "normal", lineHeight: 1.3 }}>
+          Controlling Faith by Force: The Scale of Russia's Religious Persecution in Occupied Ukraine
+        </h1>
+        <p style={{ margin: "8px 0 0", opacity: 0.8, fontSize: 12, fontFamily: "Arial, sans-serif" }}>
+          Sources: Eastern Human Rights Group & ISRS, <em>Religion as a Weapon</em> (Nov. 2025); V. Havrylov, <em>Controlling Faith by Force</em> (MIPL, 2026); Occupied Territories Hub v4 (Mar. 2026)
+        </p>
+      </div>
+
+      <div style={{ display: "flex", gap: 12, margin: "0 32px 24px", flexWrap: "wrap" }}>
+        <StatBadge n="600+" label="Religious structures damaged or destroyed (2014–2025)" />
+        <StatBadge n="70+" label="Clergy killed or tortured to death" />
+        <StatBadge n="200+" label="Clergy abducted and tortured" />
+        <StatBadge n="~1,000" label="Christian communities closed or driven underground" />
+        <StatBadge n="871"  label="ROC structures now registered in occupied territory" color={STEEL} />
+      </div>
+
+      <div style={{ display: "flex", gap: 0, margin: "0 32px 0", borderBottom: `2px solid ${BORDER}`, overflowX: "auto" }}>
+        {tabs.map((t, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTab(i)}
+            style={{
+              padding: "10px 16px", border: "none", borderBottom: i === activeTab ? `3px solid ${CRIMSON}` : "3px solid transparent",
+              background: "none", cursor: "pointer", fontFamily: "Arial, sans-serif", fontSize: 13,
+              color: i === activeTab ? CRIMSON : MID, fontWeight: i === activeTab ? "bold" : "normal",
+              whiteSpace: "nowrap", marginBottom: -2
+            }}
+          >
+            {t}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ margin: "24px 32px" }}>
+
+        {activeTab === 0 && (
+          <div>
+            <SectionHeader
+              n="1"
+              title="Suppression by Denomination: Before and After Occupation"
+              sub="Number of registered communities in occupied Donetsk Oblast (the best-documented case). Every non-ROC denomination has been eliminated or reduced by 90–100%."
+            />
+            <ResponsiveContainer width="100%" height={380}>
+              <BarChart data={flatSuppression} layout="vertical" margin={{ left: 160, right: 60, top: 10, bottom: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#EEE" />
+                <XAxis type="number" tick={axisLabel} label={{ value: "Communities", position: "insideBottom", offset: -2, style: axisLabel }} />
+                <YAxis type="category" dataKey="name" width={155} tick={{ ...tick, fontSize: 11, textAnchor: "end" }} interval={0} />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend wrapperStyle={{ fontFamily: "Arial, sans-serif", fontSize: 12, paddingTop: 12 }} />
+                <Bar dataKey="before" name="Before occupation" fill={STEEL} radius={[0, 4, 4, 0]} barSize={12}>
+                  <LabelList dataKey="before" position="right" style={{ fontSize: 11, fill: STEEL, fontWeight: "bold" }} />
+                </Bar>
+                <Bar dataKey="after" name="Remaining under occupation" fill={CRIMSON} radius={[0, 4, 4, 0]} barSize={12}>
+                  <LabelList dataKey="after" position="right" style={{ fontSize: 11, fill: CRIMSON, fontWeight: "bold" }}
+                    formatter={v => v === 0 ? "0 ✕" : v}
+                  />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+            <div style={{ display: "flex", gap: 12, marginTop: 20, flexWrap: "wrap" }}>
+              {[
+                { label: "Three denominations", value: "completely eliminated (0 communities remaining): OCU, UGCC, Jehovah's Witnesses" },
+                { label: "Baptists & Pentecostals", value: "95% of congregations destroyed — the largest Protestant groupings in the region" },
+                { label: "Adventists", value: "90% reduction; the handful of remaining communities operate underground" },
+              ].map((d, i) => (
+                <div key={i} style={{ flex: 1, minWidth: 200, background: "#FFF0F0", border: `1px solid ${BORDER}`, borderRadius: 6, padding: "10px 14px" }}>
+                  <div style={{ fontWeight: "bold", color: CRIMSON, fontSize: 13 }}>{d.label}</div>
+                  <div style={{ color: DARK_TXT, fontSize: 12, marginTop: 4 }}>{d.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 1 && (
+          <div>
+            <SectionHeader
+              n="2"
+              title="What Happened to Pastors and Priests"
+              sub="Documented casualties among clergy across all denominations, occupied territories, 2014–2025."
+            />
+            <div style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "flex-start" }}>
+              <div style={{ flex: "0 0 340px" }}>
+                <ResponsiveContainer width="100%" height={300}>
+                  <PieChart>
+                    <Pie data={flatClergy} dataKey="value" nameKey="name" cx="50%" cy="50%"
+                      outerRadius={120} innerRadius={60} paddingAngle={3}
+                      label={({ name, value }) => `${value}`} labelLine={false}
+                    >
+                      {flatClergy.map((d, i) => <Cell key={i} fill={d.color} />)}
+                    </Pie>
+                    <Tooltip formatter={(v, n) => [v, n]} contentStyle={{ fontFamily: "Arial, sans-serif", fontSize: 12 }} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div style={{ flex: 1, minWidth: 260 }}>
+                {flatClergy.map((d, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, padding: "10px 14px", background: "#FFF", border: `1px solid ${BORDER}`, borderLeft: `4px solid ${d.color}`, borderRadius: 4 }}>
+                    <div style={{ fontFamily: "Georgia, serif", fontSize: 28, fontWeight: "bold", color: d.color, width: 52, textAlign: "right", flexShrink: 0 }}>
+                      {d.value}{d.value === 70 ? "+" : d.value === 200 ? "+" : ""}
+                    </div>
+                    <div style={{ fontSize: 13, color: DARK_TXT, lineHeight: 1.4 }}>{d.name}</div>
+                  </div>
+                ))}
+                <div style={{ marginTop: 16, padding: "10px 14px", background: "#F5F0F0", borderRadius: 6, fontSize: 12, color: MID, lineHeight: 1.6 }}>
+                  Note: 6 confirmed cases of intentional killing by Russian forces (excluding shelling), 2022–2025. Five victims from the Orthodox Church of Ukraine; one from the Ukrainian Evangelical Christians.
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 2 && (
+          <div>
+            <SectionHeader
+              n="3"
+              title="The Escalation: 2014 to 2025"
+              sub="Severity index constructed from documented events, raids, legal prohibitions, and killings. Hover each point for detail."
+            />
+            <ResponsiveContainer width="100%" height={340}>
+              <LineChart data={timelineData} margin={{ left: 20, right: 30, top: 20, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#EEE" />
+                <XAxis dataKey="year" tick={{ ...tick, fontSize: 11 }} angle={-25} textAnchor="end" height={50} />
+                <YAxis tick={axisLabel} label={{ value: "Documented severity", angle: -90, position: "insideLeft", style: { ...axisLabel, fontSize: 11 }, offset: 10 }} domain={[0, 11]} />
+                <Tooltip content={<TimelineTooltip />} />
+                <ReferenceLine x="Feb 2022" stroke={CRIMSON} strokeDasharray="4 2"
+                  label={{ value: "Full-scale invasion", position: "top", fill: CRIMSON, fontSize: 11, fontFamily: "Arial, sans-serif" }} />
+                <Line type="monotone" dataKey="events" stroke={CRIMSON} strokeWidth={2.5}
+                  dot={{ fill: CRIMSON, r: 5, strokeWidth: 0 }}
+                  activeDot={{ fill: CRIMSON, r: 8, stroke: "#fff", strokeWidth: 2 }} />
+              </LineChart>
+            </ResponsiveContainer>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 16 }}>
+              {[
+                { year: "2014–2015", text: "First raids on Adventist and Protestant churches; DPR officially classifies evangelical denominations as 'sects'" },
+                { year: "2017", text: "Russia's Supreme Court bans Jehovah's Witnesses — applied to all occupied territory. Templated suppression framework deployed." },
+                { year: "Feb 2022", text: "Absolute repression begins. Ultimatum issued to every non-ROC community: join Moscow or be destroyed." },
+                { year: "2023–2025", text: "ROC formally absorbs Ukrainian dioceses; individual clergy sentenced to 12–14 years; 871 ROC structures registered." },
+              ].map((d, i) => (
+                <div key={i} style={{ background: "#FFF", border: `1px solid ${BORDER}`, borderRadius: 6, padding: "10px 14px" }}>
+                  <div style={{ fontWeight: "bold", color: CRIMSON, fontSize: 12, marginBottom: 4 }}>{d.year}</div>
+                  <div style={{ fontSize: 12, color: DARK_TXT, lineHeight: 1.5 }}>{d.text}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {activeTab === 3 && (
+          <div>
+            <SectionHeader
+              n="4"
+              title="The Replacement Dynamic: ROC Monopoly Construction"
+              sub="Estimated registered communities in occupied Donetsk Oblast by affiliation, 2014–2025. The suppression of other denominations is not incidental: it is the mechanism by which ROC monopoly is built."
+            />
+            <ResponsiveContainer width="100%" height={360}>
+              <BarChart data={rocExpansion} margin={{ left: 20, right: 30, top: 20, bottom: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#EEE" />
+                <XAxis dataKey="year" tick={tick} />
+                <YAxis tick={axisLabel} label={{ value: "Communities", angle: -90, position: "insideLeft", style: axisLabel, offset: 10 }} />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend wrapperStyle={{ fontFamily: "Arial, sans-serif", fontSize: 12, paddingTop: 12 }} />
+                <Bar dataKey="roc"       name="Russian Orthodox Church (ROC)" fill={STEEL}  radius={[4,4,0,0]} />
+                <Bar dataKey="protestant" name="Protestant denominations"       fill={GOLD}   radius={[4,4,0,0]} />
+                <Bar dataKey="ugcc"      name="Greek Catholics (UGCC)"         fill="#7A9E7E" radius={[4,4,0,0]} />
+                <Bar dataKey="other"     name="Other Christian (OCU, Adventist, Catholic)" fill="#BBBBBB" radius={[4,4,0,0]} />
+              </BarChart>
+            </ResponsiveContainer>
+            <div style={{ marginTop: 16, padding: "12px 16px", background: "#EEF4FB", border: `1px solid #BCD`, borderRadius: 6 }}>
+              <div style={{ fontWeight: "bold", color: STEEL, fontSize: 13, marginBottom: 6 }}>As of October 2025, in occupied territories Russia has registered:</div>
+              <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+                {[["836", "ROC parishes"], ["16", "ROC monasteries"], ["8", "ROC dioceses"], ["0", "UGCC churches"], ["0", "OCU churches"], ["0", "Baptist communities"], ["0", "Pentecostal communities"]].map(([n, l]) => (
+                  <div key={l} style={{ textAlign: "center" }}>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 22, color: n === "0" ? CRIMSON : STEEL }}>{n}</div>
+                    <div style={{ fontSize: 11, color: MID }}>{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 4 && (
+          <div>
+            <SectionHeader
+              n="5"
+              title="If This Were America: A Frame for Understanding Scale"
+              sub="The occupied Donbas region had a religious landscape comparable in diversity to a mid-sized American metropolitan area. The suppression Russia applied, if translated to the United States, would mean the following."
+            />
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
+
+              <div style={{ background: "#FFF", border: `2px solid ${CRIMSON}`, borderRadius: 8, padding: 20 }}>
+                <div style={{ fontSize: 12, color: MID, marginBottom: 8, fontFamily: "Arial, sans-serif", textTransform: "uppercase", letterSpacing: 1 }}>Baptist churches (SBC equivalent)</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 12 }}>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: STEEL }}>47,456</div>
+                    <div style={{ fontSize: 12, color: MID }}>SBC churches in the US</div>
+                  </div>
+                  <div style={{ fontSize: 28, color: CRIMSON }}>→</div>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: CRIMSON }}>2,373</div>
+                    <div style={{ fontSize: 12, color: MID }}>remaining after 95% suppression</div>
+                  </div>
+                </div>
+                <div style={{ height: 16, background: "#EEE", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ width: "5%", height: "100%", background: CRIMSON, borderRadius: 8 }} />
+                </div>
+                <div style={{ marginTop: 8, fontSize: 12, color: DARK_TXT, lineHeight: 1.5 }}>
+                  The equivalent: 45,083 Southern Baptist churches forcibly closed, their buildings seized or converted to government offices. Their pastors given a choice — submit to state-sanctioned Orthodoxy or face prison.
+                </div>
+              </div>
+
+              <div style={{ background: "#FFF", border: `2px solid ${CRIMSON}`, borderRadius: 8, padding: 20 }}>
+                <div style={{ fontSize: 12, color: MID, marginBottom: 8, fontFamily: "Arial, sans-serif", textTransform: "uppercase", letterSpacing: 1 }}>Pentecostal / Charismatic churches</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 12 }}>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: STEEL }}>~36,000</div>
+                    <div style={{ fontSize: 12, color: MID }}>Assemblies of God + COGIC churches</div>
+                  </div>
+                  <div style={{ fontSize: 28, color: CRIMSON }}>→</div>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: CRIMSON }}>1,800</div>
+                    <div style={{ fontSize: 12, color: MID }}>remaining after 95% suppression</div>
+                  </div>
+                </div>
+                <div style={{ height: 16, background: "#EEE", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ width: "5%", height: "100%", background: CRIMSON, borderRadius: 8 }} />
+                </div>
+                <div style={{ marginTop: 8, fontSize: 12, color: DARK_TXT, lineHeight: 1.5 }}>
+                  34,200 Pentecostal and charismatic churches shuttered. Pastors labelled "American agents" and "extremists." Congregants told they can worship only in a government-aligned denomination.
+                </div>
+              </div>
+
+              <div style={{ background: "#FFF", border: `2px solid ${GOLD}`, borderRadius: 8, padding: 20 }}>
+                <div style={{ fontSize: 12, color: MID, marginBottom: 8, fontFamily: "Arial, sans-serif", textTransform: "uppercase", letterSpacing: 1 }}>Seventh-day Adventist churches</div>
+                <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 12 }}>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: STEEL }}>5,400</div>
+                    <div style={{ fontSize: 12, color: MID }}>SDA churches in the US</div>
+                  </div>
+                  <div style={{ fontSize: 28, color: GOLD }}>→</div>
+                  <div>
+                    <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 32, color: GOLD }}>540</div>
+                    <div style={{ fontSize: 12, color: MID }}>remaining after 90% suppression</div>
+                  </div>
+                </div>
+                <div style={{ height: 16, background: "#EEE", borderRadius: 8, overflow: "hidden" }}>
+                  <div style={{ width: "10%", height: "100%", background: GOLD, borderRadius: 8 }} />
+                </div>
+                <div style={{ marginTop: 8, fontSize: 12, color: DARK_TXT, lineHeight: 1.5 }}>
+                  4,860 Adventist congregations erased. An Adventist pastor from Horlivka was kidnapped during a worship service by armed militants — he survived. Many didn't.
+                </div>
+              </div>
+
+              <div style={{ background: "#FFF", border: `2px solid #333`, borderRadius: 8, padding: 20 }}>
+                <div style={{ fontSize: 12, color: MID, marginBottom: 8, fontFamily: "Arial, sans-serif", textTransform: "uppercase", letterSpacing: 1 }}>Jehovah's Witnesses — complete prohibition</div>
+                <div style={{ textAlign: "center", padding: "12px 0", marginBottom: 12 }}>
+                  <div style={{ fontFamily: "Georgia, serif", fontWeight: "bold", fontSize: 40, color: "#333" }}>BANNED</div>
+                  <div style={{ fontSize: 13, color: MID, marginTop: 4 }}>All 83 communities in occupied Donbas; Russia's 2017 Supreme Court ruling applied to all occupied territories</div>
+                </div>
+                <div style={{ fontSize: 12, color: DARK_TXT, lineHeight: 1.5 }}>
+                  The US equivalent: 13,000+ Kingdom Halls closed by federal court order. Attendance at any meeting criminalised. Members face prosecution under "extremism" laws carrying up to 15 years' imprisonment.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ background: "#FFF8E8", border: `1px solid ${GOLD}`, borderRadius: 8, padding: 16, fontSize: 12, color: DARK_TXT, lineHeight: 1.7 }}>
+              <strong style={{ color: CRIMSON }}>Note on scale:</strong> The occupied Donetsk Oblast before 2014 had approximately 1,797 religious communities for a population of roughly 4 million — a density similar to many US states. Russia did not destroy a few marginal sects. It systematically eliminated a mature, decades-old Christian landscape. The distinguishing criterion for survival was one: institutional submission to the Moscow Patriarchate.
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div style={{ margin: "32px", paddingTop: 16, borderTop: `1px solid ${BORDER}`, fontSize: 11, color: MID, fontFamily: "Arial, sans-serif", lineHeight: 1.7 }}>
+        <strong>Sources:</strong> Eastern Human Rights Group and ISRS, <em>Religion as a Weapon</em> (Kyiv: EHRG, November 2025); Vladyslav Havrylov, <em>Controlling Faith by Force</em> (Kyiv: MIPL, 2026); Occupied Territories Hub v4 field intelligence (March 2026).
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

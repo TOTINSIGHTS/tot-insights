@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariupol Property Seizure Programme — Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 14px; color: #222; background: #f5f5f2; padding: 32px 24px; }
+  .page { max-width: 960px; margin: 0 auto; background: #fff; border: 1px solid #ddd; padding: 40px; }
+
+  .header { border-bottom: 1px solid #ddd; padding-bottom: 12px; margin-bottom: 6px; }
+  .header-label { font-size: 11px; font-weight: bold; color: #888; letter-spacing: .08em; text-transform: uppercase; }
+
+  h1 { font-size: 26px; font-weight: bold; color: #1F3A6E; margin: 20px 0 4px; line-height: 1.2; }
+  .subtitle { font-size: 15px; color: #555; font-style: italic; margin-bottom: 18px; }
+  .accent-rule { height: 4px; background: #1F3A6E; margin-bottom: 24px; }
+
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; margin-bottom: 24px; font-size: 13px; }
+  .meta-row span:first-child { font-weight: bold; color: #444; }
+  .meta-row span:last-child { color: #555; }
+
+  .key-box { border: 1.5px solid #1F3A6E; border-left-width: 4px; background: #EEF2F8; padding: 16px 20px; margin-bottom: 20px; }
+  .key-box-label { font-size: 11px; font-weight: bold; color: #1F3A6E; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .key-item { font-size: 13px; color: #222; margin-bottom: 7px; line-height: 1.5; }
+  .key-item strong { color: #1F3A6E; }
+
+  .caveat-box { border-left: 4px solid #854F0B; background: #FAEEDA; padding: 12px 16px; margin-bottom: 24px; font-size: 12px; color: #633806; line-height: 1.6; }
+  .caveat-label { font-size: 11px; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; color: #854F0B; }
+
+  .section-head { font-size: 11px; font-weight: bold; color: #1F3A6E; letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid #D0D8E8; padding-bottom: 6px; margin: 28px 0 14px; }
+
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+  .metric { background: #f0f0ec; border-radius: 6px; padding: 14px 16px; }
+  .metric-label { font-size: 11px; color: #666; margin-bottom: 4px; }
+  .metric-value { font-size: 22px; font-weight: bold; color: #1F3A6E; line-height: 1.1; }
+  .metric-sub { font-size: 11px; color: #888; margin-top: 3px; }
+
+  .chart-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+  .chart-block { }
+  .chart-label { font-size: 11px; font-weight: bold; color: #555; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: #555; }
+  .legend-item { display: flex; align-items: center; gap: 4px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
+  table.data-table th { background: #1F3A6E; color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 11px; }
+  table.data-table td { padding: 6px 10px; border-bottom: 1px solid #e8e8e4; color: #333; }
+  table.data-table tr:nth-child(even) td { background: #EEF2F8; }
+  table.data-table td:nth-child(2), table.data-table td:nth-child(3) { text-align: right; }
+
+  .footer { margin-top: 32px; border-top: 1px solid #ddd; padding-top: 12px; font-size: 11px; color: #999; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { border: none; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <span class="header-label">Occupied Territories Insight Hub &nbsp;|&nbsp; Analytical Note &nbsp;|&nbsp; Legal Architecture · Economic Dependency</span>
+  </div>
+
+  <h1>Mariupol Property Seizure Programme</h1>
+  <p class="subtitle">Evidence from Russian Occupation Administrative Records, October 2024 – June 2025</p>
+  <div class="accent-rule"></div>
+
+  <div class="meta-grid">
+    <div class="meta-row"><span>Classification: </span><span>Unclassified — Hub Internal</span></div>
+    <div class="meta-row"><span>Date: </span><span>April 2026</span></div>
+    <div class="meta-row"><span>Data coverage: </span><span>October 2024 – June 2025 (20 snapshots)</span></div>
+    <div class="meta-row"><span>Source access: </span><span>Petro Andriushchenko / Mariupol monitoring networks</span></div>
+  </div>
+
+  <div class="key-box">
+    <div class="key-box-label">Key findings</div>
+    <div class="key-item"><strong>8,526</strong> residential properties registered as ownerless across four Mariupol districts (January 2025 snapshot)</div>
+    <div class="key-item"><strong>90.7%</strong> of residential registry classified as exhibiting full signs of бесхозяйность (ownerlessness)</div>
+    <div class="key-item"><strong>2,220</strong> owners successfully reclaimed properties by submitting title documents (November 2024) — a 20.6% reclamation rate</div>
+    <div class="key-item"><strong>~460</strong> unique commercial properties in the parallel non-residential seizure registry, tracked across 20 monthly snapshots (Oct 2024 – Jun 2025)</div>
+    <div class="key-item"><strong>Median commercial property: 70 sqm</strong> — predominantly small retail; shops, hairdressers, pharmacies, cafés</div>
+  </div>
+
+  <div class="caveat-box">
+    <div class="caveat-label">Methodological notes</div>
+    Address format changes between commercial snapshots (abbreviated vs. full street names) inflate apparent new-entry counts; unique property figures use most-recent-snapshot deduplication. Port City shopping centre (90,000 sqm) is excluded from all area calculations — it is 1,286× the median property size. The residential and commercial registries are separate administrative instruments and are not aggregated.
+  </div>
+
+  <div class="section-head">Summary statistics</div>
+  <div class="metric-grid">
+    <div class="metric"><div class="metric-label">Residential registry</div><div class="metric-value">8,526</div><div class="metric-sub">Jan 2025 snapshot</div></div>
+    <div class="metric"><div class="metric-label">Classified ownerless</div><div class="metric-value">7,737</div><div class="metric-sub">90.7% of registry</div></div>
+    <div class="metric"><div class="metric-label">Owners reclaimed</div><div class="metric-value">2,220</div><div class="metric-sub">20.6% reclamation rate</div></div>
+    <div class="metric"><div class="metric-label">Commercial registry</div><div class="metric-value">~460</div><div class="metric-sub">Unique properties per snapshot</div></div>
+  </div>
+
+  <div class="section-head">Residential programme — status and district breakdown</div>
+  <div class="chart-row-2">
+    <div class="chart-block">
+      <div class="chart-label">Status breakdown — Jan 2025</div>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Ownerless (7,737 / 90.7%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#185FA5;"></span>Contested (574 / 6.7%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Heirs (145 / 1.7%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#888780;"></span>Municipal (70 / 0.8%)</span>
+      </div>
+      <div style="position:relative;width:100%;height:220px;"><canvas id="c1"></canvas></div>
+    </div>
+    <div class="chart-block">
+      <div class="chart-label">Properties by district</div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Properties in registry</span></div>
+      <div style="position:relative;width:100%;height:220px;"><canvas id="c2"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-head">Reclamation — seized vs. reclaimed</div>
+  <div class="legend" style="margin-bottom:8px;">
+    <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Seized / ownerless (8,526)</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Reclaimed by owners (2,220)</span>
+  </div>
+  <div style="position:relative;width:100%;height:80px;margin-bottom:28px;"><canvas id="c3"></canvas></div>
+
+  <div class="section-head">Commercial programme — registry size over time</div>
+  <div class="legend" style="margin-bottom:8px;"><span class="legend-item"><span class="legend-dot" style="background:#D85A30;"></span>Unique properties per snapshot</span></div>
+  <div style="position:relative;width:100%;height:200px;margin-bottom:28px;"><canvas id="c4"></canvas></div>
+
+  <div class="chart-row-2">
+    <div class="chart-block">
+      <div class="chart-label">Top previous uses — commercial seizures</div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Unique properties</span></div>
+      <div style="position:relative;width:100%;height:360px;"><canvas id="c5"></canvas></div>
+    </div>
+    <div class="chart-block">
+      <div class="chart-label">Notable large seizures (sqm, Port City excluded)</div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Floor area (sqm)</span></div>
+      <div style="position:relative;width:100%;height:360px;"><canvas id="c6"></canvas></div>
+    </div>
+  </div>
+
+  <div class="section-head">Notable commercial seizures</div>
+  <table class="data-table">
+    <thead><tr><th>Property / address</th><th>Area (sqm)</th><th>Previous use</th></tr></thead>
+    <tbody>
+      <tr><td>Port City — Володарское шоссе, 2</td><td>90,000</td><td>Shopping centre — EXCLUDED from area stats</td></tr>
+      <tr><td>Гостиница Азовсталь — пр. Победы, 16</td><td>8,386</td><td>Hotel</td></tr>
+      <tr><td>Банк ПУМБ — пр. Ильича, 136</td><td>7,265</td><td>Bank headquarters</td></tr>
+      <tr><td>ДК Искра — пр. Ильича, 143</td><td>5,643</td><td>Cultural centre</td></tr>
+      <tr><td>Мариупольское АТП — ул. Зелинского, 89</td><td>5,100</td><td>Bus transport enterprise</td></tr>
+      <tr><td>Кинотеатр Буревесник — пр. Лунина, 65</td><td>2,708</td><td>Cinema</td></tr>
+      <tr><td>Детский благотворительный центр — ул. Трудовая, 21</td><td>1,300 / 1,260</td><td>Children's charity (two entries)</td></tr>
+      <tr><td>Протестантская церковь — пр. Металлургов, 137А</td><td>839</td><td>Protestant church</td></tr>
+      <tr><td>ATB supermarket locations</td><td>Various</td><td>Ukrainian supermarket chain (58 entries across dataset)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-head">Primary sources</div>
+  <table class="data-table">
+    <thead><tr><th>File</th><th>Date</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Sobstvenniki_na_13.01.2025_god.xlsx</td><td>Jan 2025</td><td>Residential registry; 8,526 entries across four districts</td></tr>
+      <tr><td>22_11_2024_Sobstvenniki_..._dokumenty.xlsx</td><td>Nov 2024</td><td>Reclamation register; 2,220 owners who submitted title documents</td></tr>
+      <tr><td>Postanovlenie_Administratsii_336_ot_20_08_2024.pdf</td><td>Aug 2024</td><td>Decree №336 — operative legal instrument</td></tr>
+      <tr><td>Publikatsiya series (20 files)</td><td>Oct 2024 – Jun 2025</td><td>Commercial registry snapshots; ~420–660 non-residential properties per snapshot</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    Sources via Petro Andriushchenko / Mariupol city monitoring networks &nbsp;·&nbsp; Archived: TOT Insight Hub → Housing &nbsp;·&nbsp; Generated April 2026
+  </div>
+
+</div>
+
+<script>
+const lc = '#73726c';
+const gc = 'rgba(0,0,0,0.07)';
+
+new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Ownerless','Contested','Heirs','Municipalised'],datasets:[{data:[7737,574,145,70],backgroundColor:['#A32D2D','#185FA5','#0F6E56','#888780'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed.toLocaleString()} (${Math.round(ctx.parsed/8526*100)}%)`}}}}});
+
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['Zhovtnevyi','Prymorskyi','Ordzhonikidzevshy','Ilyichevsky'],datasets:[{data:[2454,843,756,714],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y.toLocaleString()} properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11}}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}}}}}});
+
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Total documented'],datasets:[{label:'Seized',data:[8526],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0},{label:'Reclaimed',data:[2220],backgroundColor:'#0F6E56',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.x.toLocaleString()}`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
+
+new Chart(document.getElementById('c4'),{type:'line',data:{labels:['Oct 7','Oct 28','Nov 7','Nov 26','Dec 13','Dec 23','Dec 28','Jan 21','Feb 5','Feb 17','Mar 10','Apr 7','May 5','Jun 3'],datasets:[{data:[391,428,425,424,628,656,440,458,457,469,460,458,431,419],borderColor:'#D85A30',backgroundColor:'rgba(216,90,48,0.06)',tension:0.3,pointRadius:4,pointBackgroundColor:'#D85A30',fill:true,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y} unique properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11},maxRotation:45,autoSkip:false}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}},min:300,max:700}}}});
+
+new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Shop (магазин)','Café','Hairdresser','Garage','Pharmacy','Food shop','Legal services','Commercial space','Pet shop','Beauty salon','ATB (chain)','Tailor'],datasets:[{data:[145,20,16,15,13,11,9,8,8,7,6,6],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} unique properties`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
+
+new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['Azovsteel hotel','PUMB bank','ДК Искра','Leninskyi 89A','Burevesnik cinema','Siltpo (Kyivska)','Zelelinskyi 89 (ATP)','Olympic sports','Primorska 1','Aquamarin'],datasets:[{data:[8386,7265,5643,4500,2708,2100,5100,2891,2891,1200],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x.toLocaleString()} sqm`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11},callback:v=>v.toLocaleString()}},y:{grid:{display:false},ticks:{color:lc,font:{size:10}}}}}});
+</script>
+</body>
+</html>
