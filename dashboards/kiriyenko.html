@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiriyenko and Russia's Occupied Territories — TOT Insights</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0;}body{background:#f7f9fc;}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState } = React;
+const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, Cell } = Recharts;
+
+
+const NAVY = "#1F3864";
+const GOLD = "#C9A84C";
+const RED = "#C0392B";
+const LIGHT = "#EAF0F8";
+const GREY = "#888888";
+
+// ── DATA ──────────────────────────────────────────────────────────────────────
+
+const federalTransfers2024 = [
+  { region: "Donetsk (DNR)", rub: 101.8, gbp: 870, color: "#1F3864" },
+  { region: "Luhansk (LNR)", rub: 70.7, gbp: 600, color: "#2E4D7B" },
+  { region: "Kherson", rub: 26.8, gbp: 230, color: "#C9A84C" },
+  { region: "Zaporizhzhia", rub: 23.7, gbp: 200, color: "#D4A849" },
+];
+
+const educationBudget = [
+  { year: "2022", billion_rub: 11.5 },
+  { year: "2023", billion_rub: 22 },
+  { year: "2024", billion_rub: 45.8 },
+];
+
+const unifiedCustomerProjects = [
+  { region: "Luhansk", total: 1900, completed: 650 },
+  { region: "Donetsk", total: 1200, completed: 620 },
+  { region: "Zaporizhzhia", total: 1000, completed: 720 },
+  { region: "Kherson", total: 900, completed: 630 },
+];
+
+const timeline = [
+  { year: "1998", event: "Prime Minister under Yeltsin (\"Kinder Surprise\")", type: "career" },
+  { year: "2000", event: "Putin appoints Kiriyenko Presidential Envoy, Volga FD", type: "career" },
+  { year: "2005", event: "Head of Rosatom — nuclear industry transformation", type: "career" },
+  { year: "2016", event: "First Deputy Chief of Staff — domestic politics portfolio", type: "career" },
+  { year: "Apr 2022", event: "Appointed Kremlin curator of occupied territories (replaces Kozak)", type: "tot" },
+  { year: "May 2022", event: "Launches regional patronage scheme; tours Mariupol, Donetsk, Luhansk", type: "tot" },
+  { year: "Jun 2022", event: "Opens United Russia office in Kherson; visits Melitopol — referenda preparation begins", type: "tot" },
+  { year: "Sep 2022", event: "Sham referenda (23–27 Sep); formal annexation declared 30 Sep", type: "tot" },
+  { year: "Nov 2022", event: "Passportisation drives; Russian curriculum imposed in schools", type: "russification" },
+  { year: "Sep 2023", event: "First Russian-managed regional elections in occupied territories", type: "elections" },
+  { year: "Nov 2023", event: "Kiriyenko orders 85% passportisation target before 2024 presidential election", type: "russification" },
+  { year: "2024", event: "Patriotic education budget: ₽45.8bn — fourfold increase since 2022", type: "russification" },
+  { year: "Aug 2025", event: "Kozak's departments abolished; Kiriyenko acquires cross-border cooperation remit", type: "power" },
+  { year: "Sep 2025", event: "Ukrainian-language instruction banned in occupied schools", type: "russification" },
+  { year: "Nov 2025", event: "Kiriyenko visits Donetsk with Gerasimov; inaugurates Mius-Front memorial", type: "tot" },
+];
+
+const youthData = [
+  { label: "Movement of the First\nchapters ordered in schools", value: "100%", note: "All occupied schools ordered to establish chapters" },
+  { label: "Children in Yunarmiya\n(Ukrainian govt estimate)", value: "5,000+", note: "Paramilitary training programme" },
+  { label: "Patriotic education\nbudget increase 2022–24", value: "4×", note: "₽45.8bn in 2024" },
+  { label: "Movement of the First\nfunding alone", value: "₽20bn+", note: "Federal budget allocation 2024" },
+];
+
+const powerDomains = [
+  { domain: "Political integration", control: 95, notes: "Full authority: referenda, elections, cadre appointments" },
+  { domain: "Ideological / propaganda", control: 90, notes: "Directs all media, youth, education policy in TOTs" },
+  { domain: "Administrative appointments", control: 85, notes: "Vets and installs occupation governors and premiers" },
+  { domain: "'Reconstruction' oversight", control: 65, notes: "Political oversight; Khusnullin holds economic levers" },
+  { domain: "Security / FSB operations", control: 25, notes: "Coordination only; FSB operates parallel to Kiriyenko" },
+  { domain: "Military decisions", control: 10, notes: "Adapts political calendar to MoD; no command authority" },
+];
+
+// ── TABS ──────────────────────────────────────────────────────────────────────
+const TABS = [
+  { id: "timeline", label: "Career & TOT Timeline" },
+  { id: "budget", label: "Federal Transfers" },
+  { id: "power", label: "Domains of Control" },
+  { id: "reconstruction", label: "Reconstruction" },
+  { id: "youth", label: "Youth & Russification" },
+];
+
+const typeColors = {
+  career: NAVY,
+  tot: "#2980b9",
+  russification: RED,
+  elections: GOLD,
+  power: "#8e44ad",
+};
+
+const typeLabels = {
+  career: "Career milestone",
+  tot: "TOT governance",
+  russification: "Russification",
+  elections: "Managed elections",
+  power: "Power expansion",
+};
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div style={{ background: "white", border: `1px solid ${GOLD}`, padding: "10px 14px", borderRadius: 4, maxWidth: 220, fontSize: 13 }}>
+        <p style={{ fontWeight: 700, color: NAVY, marginBottom: 4 }}>{label}</p>
+        {payload.map((p, i) => (
+          <p key={i} style={{ color: p.color || NAVY, margin: "2px 0" }}>
+            {p.name}: <strong>{p.value}</strong>
+          </p>
+        ))}
+      </div>
+    );
+  }
+  return null;
+};
+
+function App() {
+  const [activeTab, setActiveTab] = useState("timeline");
+  const [filterType, setFilterType] = useState("all");
+
+  const filteredTimeline = filterType === "all"
+    ? timeline
+    : timeline.filter(e => e.type === filterType);
+
+  return (
+    <div style={{ fontFamily: "Georgia, serif", background: "#f7f9fc", minHeight: "100vh", padding: 0 }}>
+      {/* Header */}
+      <div style={{ background: NAVY, color: "white", padding: "28px 36px 20px", borderBottom: `4px solid ${GOLD}` }}>
+        <div style={{ fontSize: 11, color: GOLD, letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>
+          CSNS / KCL War Studies · Analytical Visualisation · April 2026
+        </div>
+        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 700, lineHeight: 1.2 }}>
+          Sergey Kiriyenko and Russia's Occupied Territories
+        </h1>
+        <p style={{ margin: "8px 0 0", fontSize: 14, color: "#b0c4de", fontStyle: "italic" }}>
+          Architecture of Absorption: Data and Timelines
+        </p>
+      </div>
+
+      {/* Tab bar */}
+      <div style={{ background: "white", borderBottom: `2px solid ${LIGHT}`, display: "flex", overflowX: "auto", padding: "0 24px" }}>
+        {TABS.map(tab => (
+          <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+            style={{
+              background: "none", border: "none", cursor: "pointer",
+              padding: "14px 18px", fontSize: 13.5, fontFamily: "Georgia, serif",
+              color: activeTab === tab.id ? NAVY : GREY,
+              fontWeight: activeTab === tab.id ? 700 : 400,
+              borderBottom: activeTab === tab.id ? `3px solid ${GOLD}` : "3px solid transparent",
+              whiteSpace: "nowrap",
+            }}>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ padding: "28px 36px", maxWidth: 980, margin: "0 auto" }}>
+
+        {/* ── TIMELINE ─────────────────────────────────────────────────── */}
+        {activeTab === "timeline" && (
+          <div>
+            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Kiriyenko: Career Trajectory and TOT Milestones</h2>
+            <p style={{ color: GREY, fontSize: 13, marginBottom: 20, fontStyle: "italic" }}>
+              From Yeltsin's technocrat to Putin's proconsul in occupied Ukraine
+            </p>
+
+            {/* Filter */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
+              {["all", ...Object.keys(typeColors)].map(t => (
+                <button key={t} onClick={() => setFilterType(t)}
+                  style={{
+                    padding: "5px 12px", borderRadius: 20, fontSize: 12, cursor: "pointer",
+                    fontFamily: "Georgia, serif",
+                    background: filterType === t ? (t === "all" ? NAVY : typeColors[t]) : "white",
+                    color: filterType === t ? "white" : GREY,
+                    border: `1px solid ${t === "all" ? NAVY : (typeColors[t] || GREY)}`,
+                    fontWeight: filterType === t ? 700 : 400,
+                  }}>
+                  {t === "all" ? "All" : typeLabels[t]}
+                </button>
+              ))}
+            </div>
+
+            {/* Timeline items */}
+            <div style={{ position: "relative" }}>
+              <div style={{ position: "absolute", left: 100, top: 0, bottom: 0, width: 2, background: LIGHT }} />
+              {filteredTimeline.map((item, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", marginBottom: 16, position: "relative" }}>
+                  <div style={{ width: 90, textAlign: "right", paddingRight: 16, paddingTop: 2, fontSize: 12, color: GREY, flexShrink: 0, fontWeight: 600 }}>
+                    {item.year}
+                  </div>
+                  <div style={{ position: "absolute", left: 94, top: 6, width: 12, height: 12, borderRadius: "50%", background: typeColors[item.type] || NAVY, border: "2px solid white", boxShadow: "0 0 0 2px " + (typeColors[item.type] || NAVY) }} />
+                  <div style={{ marginLeft: 32, background: "white", border: `1px solid ${LIGHT}`, borderLeft: `3px solid ${typeColors[item.type] || NAVY}`, borderRadius: 4, padding: "8px 14px", flex: 1, fontSize: 13.5 }}>
+                    <span style={{ display: "inline-block", fontSize: 10, color: "white", background: typeColors[item.type] || NAVY, borderRadius: 3, padding: "1px 6px", marginBottom: 4, fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: 0.5 }}>
+                      {typeLabels[item.type]}
+                    </span>
+                    <p style={{ margin: 0, color: "#222" }}>{item.event}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── FEDERAL TRANSFERS ────────────────────────────────────────── */}
+        {activeTab === "budget" && (
+          <div>
+            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Federal Transfers to Occupied Regions</h2>
+            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
+              Inter-budget transfers by region (Jan–Sep 2024, ₽bn). Total 2023 transfers: ₽483bn. Projected 2025–27 spend: over ₽1 trillion.
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 30 }}>
+              {federalTransfers2024.map((d, i) => (
+                <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderTop: `3px solid ${d.color}`, borderRadius: 6, padding: "16px 20px" }}>
+                  <div style={{ fontSize: 12, color: GREY, marginBottom: 4 }}>{d.region}</div>
+                  <div style={{ fontSize: 32, fontWeight: 700, color: d.color }}>₽{d.rub}bn</div>
+                  <div style={{ fontSize: 13, color: GREY, marginTop: 4 }}>≈ £{d.gbp}m (Jan–Sep 2024)</div>
+                </div>
+              ))}
+            </div>
+
+            <ResponsiveContainer width="100%" height={260}>
+              <BarChart data={federalTransfers2024} margin={{ top: 10, right: 20, bottom: 20, left: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
+                <XAxis dataKey="region" tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} />
+                <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "₽ billion", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
+                <Tooltip content={<CustomTooltip />} />
+                <Bar dataKey="rub" name="₽ billion" radius={[3, 3, 0, 0]}>
+                  {federalTransfers2024.map((d, i) => <Cell key={i} fill={d.color} />)}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+
+            <div style={{ background: "#fff8e8", border: `1px solid ${GOLD}`, borderRadius: 6, padding: "14px 18px", marginTop: 20, fontSize: 13 }}>
+              <strong style={{ color: NAVY }}>Analytical note:</strong> These figures represent only the publicly visible slice of federal support. The true cost of occupation \u2014 including military expenditure, off-budget transfers, and state enterprise subsidies \u2014 runs at many multiples of these amounts. The per-capita subsidy rate for these regions exceeds most Russian oblasts, generating domestic political friction that Kiriyenko must manage.
+            </div>
+          </div>
+        )}
+
+        {/* ── DOMAINS OF CONTROL ───────────────────────────────────────── */}
+        {activeTab === "power" && (
+          <div>
+            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Kiriyenko's Domains of Control in the TOT</h2>
+            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
+              Estimated authority index by domain. Power is broad in politics and ideology; bounded by military and security primacy in wartime.
+            </p>
+
+            {powerDomains.map((d, i) => (
+              <div key={i} style={{ marginBottom: 18 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 5 }}>
+                  <span style={{ fontWeight: 700, color: NAVY, fontSize: 14 }}>{d.domain}</span>
+                  <span style={{ color: GREY, fontSize: 13 }}>{d.control}%</span>
+                </div>
+                <div style={{ background: LIGHT, borderRadius: 4, height: 16, overflow: "hidden", marginBottom: 4 }}>
+                  <div style={{
+                    width: `${d.control}%`, height: "100%", borderRadius: 4,
+                    background: d.control > 70 ? NAVY : d.control > 40 ? GOLD : "#ccc",
+                    transition: "width 0.6s ease",
+                  }} />
+                </div>
+                <div style={{ fontSize: 12, color: GREY, fontStyle: "italic" }}>{d.notes}</div>
+              </div>
+            ))}
+
+            <div style={{ marginTop: 30, background: "white", border: `1px solid ${LIGHT}`, borderRadius: 8, padding: "20px 24px" }}>
+              <h3 style={{ color: NAVY, fontSize: 15, marginTop: 0 }}>Key Kremlin Relationships</h3>
+              {[
+                { actor: "Putin", rel: "Trust and efficiency. Kiriyenko delivers political legitimisation for the war. This trust has driven consistent expansion of his remit.", color: NAVY },
+                { actor: "Khusnullin (Deputy PM)", rel: "Partner on reconstruction. Kiriyenko holds political oversight; Khusnullin manages economic integration. They frequently tour TOTs together.", color: "#2980b9" },
+                { actor: "Kozak", rel: "Systematically outmanoeuvred. Two of Kozak's departments were abolished in August 2025 and their functions transferred to Kiriyenko.", color: GOLD },
+                { actor: "FSB / MoD", rel: "Coordination rather than command. Kiriyenko sets the political frame; security services execute coercion. Underlying tensions with Pushilin/FSB networks persist.", color: GREY },
+              ].map((r, i) => (
+                <div key={i} style={{ display: "flex", gap: 14, marginBottom: 12, alignItems: "flex-start" }}>
+                  <div style={{ width: 130, flexShrink: 0, fontWeight: 700, color: r.color, fontSize: 13 }}>{r.actor}</div>
+                  <div style={{ fontSize: 13, color: "#333", lineHeight: 1.5 }}>{r.rel}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── RECONSTRUCTION ───────────────────────────────────────────── */}
+        {activeTab === "reconstruction" && (
+          <div>
+            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>"Reconstruction" Under Kiriyenko's Unified Customer System</h2>
+            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
+              By early 2025: 5,000+ projects across all four regions (est. ₽840bn), 2,600+ completed. Kiriyenko's Presidential Administration holds political oversight of all procurement.
+            </p>
+
+            <ResponsiveContainer width="100%" height={270}>
+              <BarChart data={unifiedCustomerProjects} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
+                <XAxis dataKey="region" tick={{ fontSize: 13, fontFamily: "Georgia, serif", fill: GREY }} />
+                <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "Projects", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend wrapperStyle={{ fontFamily: "Georgia, serif", fontSize: 13 }} />
+                <Bar dataKey="total" name="Total assigned" fill={NAVY} radius={[3, 3, 0, 0]} />
+                <Bar dataKey="completed" name="Completed" fill={GOLD} radius={[3, 3, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+
+            <div style={{ marginTop: 28 }}>
+              <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 14 }}>Structural Vulnerabilities in the Model</h3>
+              {[
+                {
+                  label: "Showcase vs. substance gap",
+                  desc: "Mariupol's flagship \"Nevsky\" apartment facades began crumbling within months. Sewage infrastructure omitted from rapid builds. Resources shuffled toward propaganda sites at the expense of functional recovery.",
+                  severity: "high",
+                },
+                {
+                  label: "Systemic corruption",
+                  desc: "Standard procurement safeguards suspended. Contracts awarded without competition; no-bid deals; contract notices published same-day or not at all. Timur Ivanov (Deputy Defence Minister) siphoned an estimated ₽17bn before arrest in 2024.",
+                  severity: "high",
+                },
+                {
+                  label: "Donetsk water crisis",
+                  desc: "A confluence of drought, damaged dams, and mine flooding has produced what experts describe as 'administrative collapse' — cities rationing water to a few hours per day. Donetsk schoolchildren filmed appealing directly to Putin.",
+                  severity: "critical",
+                },
+                {
+                  label: "Kherson electricity",
+                  desc: "Thousands subsist without stable electricity as overburdened grids buckle. Each utility failure contradicts the Kremlin narrative of restored normal life.",
+                  severity: "high",
+                },
+              ].map((v, i) => (
+                <div key={i} style={{
+                  background: "white", border: `1px solid ${LIGHT}`,
+                  borderLeft: `4px solid ${v.severity === "critical" ? RED : GOLD}`,
+                  borderRadius: 4, padding: "12px 16px", marginBottom: 12
+                }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+                    <span style={{ fontWeight: 700, color: NAVY, fontSize: 13.5 }}>{v.label}</span>
+                    <span style={{ fontSize: 11, color: v.severity === "critical" ? RED : "#b8860b", background: v.severity === "critical" ? "#fff0ed" : "#fff8e8", padding: "2px 8px", borderRadius: 3 }}>
+                      {v.severity === "critical" ? "Critical" : "High"}
+                    </span>
+                  </div>
+                  <p style={{ margin: 0, fontSize: 13, color: "#444", lineHeight: 1.5 }}>{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── YOUTH & RUSSIFICATION ─────────────────────────────────────── */}
+        {activeTab === "youth" && (
+          <div>
+            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Russification and Youth Militarisation</h2>
+            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
+              Kiriyenko directly oversees the "Movement of the First" and described youth as the "primary battleground" in August 2022.
+            </p>
+
+            {/* Patriotic education budget chart */}
+            <div style={{ marginBottom: 28 }}>
+              <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 8 }}>Patriotic Education Budget (Russia-wide, ₽bn)</h3>
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={educationBudget} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
+                  <XAxis dataKey="year" tick={{ fontSize: 13, fontFamily: "Georgia, serif", fill: GREY }} />
+                  <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "₽ billion", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Bar dataKey="billion_rub" name="₽ billion" fill={NAVY} radius={[4, 4, 0, 0]}>
+                    {educationBudget.map((d, i) => <Cell key={i} fill={i === 2 ? RED : NAVY} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <p style={{ fontSize: 12, color: GREY, fontStyle: "italic", textAlign: "center" }}>
+                2024 allocation (₽45.8bn) is a fourfold increase from 2022. Over ₽20bn earmarked for the Movement of the First alone.
+              </p>
+            </div>
+
+            {/* Key metrics */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 28 }}>
+              {youthData.map((d, i) => (
+                <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderTop: `3px solid ${i < 2 ? NAVY : RED}`, borderRadius: 6, padding: "16px 18px" }}>
+                  <div style={{ fontSize: 32, fontWeight: 700, color: i < 2 ? NAVY : RED }}>{d.value}</div>
+                  <div style={{ fontSize: 12.5, fontWeight: 600, color: NAVY, marginTop: 4, whiteSpace: "pre-line" }}>{d.label}</div>
+                  <div style={{ fontSize: 12, color: GREY, marginTop: 6, fontStyle: "italic" }}>{d.note}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Russification mechanisms */}
+            <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 14 }}>Russification Mechanisms Under Kiriyenko's Direction</h3>
+            {[
+              {
+                title: "Passportisation",
+                when: "2022–present; 85% target set Nov 2023",
+                detail: "Residents without Russian documents denied employment, healthcare and SIM cards. Kiriyenko personally issued targets to occupation heads, tying the campaign to the 2024 presidential election.",
+                icc: false,
+              },
+              {
+                title: "Language erasure",
+                when: "Effective September 2025",
+                detail: "Ukrainian-language instruction banned in all occupied schools. History curricula rewritten to deny Ukrainian statehood. Teachers who refused compliance replaced with Russian staff.",
+                icc: false,
+              },
+              {
+                title: "Youth deportation and re-education",
+                when: "2022–present",
+                detail: "Ukrainian minors relocated to Russian camps and families under state programmes coordinated by Kiriyenko's Presidential Administration. Kiriyenko has publicly endorsed these as 'humanitarian.' Relevant to ICC definitions of unlawful deportation and re-education of children.",
+                icc: true,
+              },
+              {
+                title: "Soviet nostalgia and memorialisation",
+                when: "2022–present",
+                detail: "Soviet-era victory celebrations amplified; Lenin monuments restored; Mius-Front memorial inaugurated by Kiriyenko (November 2025) embedding current war in WWII patriotic canon.",
+                icc: false,
+              },
+            ].map((m, i) => (
+              <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderRadius: 6, padding: "14px 18px", marginBottom: 12, position: "relative" }}>
+                {m.icc && (
+                  <div style={{ position: "absolute", top: 12, right: 14, fontSize: 11, color: RED, background: "#fff0ed", padding: "2px 8px", borderRadius: 3, fontWeight: 700 }}>
+                    ICC relevance
+                  </div>
+                )}
+                <div style={{ fontWeight: 700, color: NAVY, fontSize: 14, marginBottom: 2 }}>{m.title}</div>
+                <div style={{ fontSize: 12, color: GOLD, marginBottom: 6, fontStyle: "italic" }}>{m.when}</div>
+                <div style={{ fontSize: 13, color: "#333", lineHeight: 1.5 }}>{m.detail}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div>
+
+      {/* Footer */}
+      <div style={{ background: NAVY, color: "#b0c4de", fontSize: 12, padding: "14px 36px", marginTop: 40, borderTop: `3px solid ${GOLD}` }}>
+        CSNS / KCL War Studies · TOT Insights · April 2026
+      </div>
+    </div>
+  );
+}
+
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+</script>
+</body>
+</html>
