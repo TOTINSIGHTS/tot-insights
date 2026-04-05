@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariupol City Administration: Citizen Appeals Reports — TOT Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0D2B4E;--gold:#C9961A;--cream:#FAFBF2;--muted:#617080;--border:#D4DCE6;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--cream);color:#1A1A1A;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+.page-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:14px 24px;flex-shrink:0;}
+.page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
+.page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em;}
+.caveat-bar{background:#FFF8E8;border-bottom:1px solid #E8D89A;padding:8px 24px;font-size:11.5px;color:#5C4A00;line-height:1.5;flex-shrink:0;}
+.caveat-bar strong{color:#3A2E00;}
+.tab-bar{background:#fff;border-bottom:2px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 16px;}
+.tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 16px;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.tab-btn:hover{color:var(--navy);}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.pdf-frame{flex:1;display:none;width:100%;border:none;}
+.pdf-frame.active{display:block;}
+.open-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 12px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background 0.12s;float:right;margin-top:-2px;}
+.open-btn:hover{background:#1C567A;}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+    <div>
+      <h1>Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)</h1>
+      <p>DOC-G2 · Social Conditions · Primary Sources · TOT Insights</p>
+    </div>
+  </div>
+</div>
+<div class="caveat-bar">
+  <strong>Source note:</strong> These reports were produced by the occupation city administration of Mariupol and are primary sources from within the occupation apparatus. They reflect how the occupation administration chose to categorise and represent civilian demand. The most analytically significant feature is the reclassification of housing claims across the series — the drop from 66% to 7% between the first and second reports does not reflect resolved demand but a deliberate shift in reporting taxonomy. Read critically and against independent sources.
+</div>
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab(0)">AG: Jan–Jul 2023</button>
+  <button class="tab-btn" onclick="showTab(1)">AG: Aug–Dec 2023</button>
+  <button class="tab-btn" onclick="showTab(2)">AG: Jan–Jun 2024</button>
+  <button class="tab-btn" onclick="showTab(3)">AGO: Jan–Jun 2024</button>
+  <div style="margin-left:auto;display:flex;align-items:center;padding:6px 0;">
+    <a id="open-link" href="../data/otchyet_mariupol_jan_jul_2023.pdf" target="_blank" class="open-btn">Open in new tab ↗</a>
+  </div>
+</div>
+<iframe class="pdf-frame active" src="../data/otchyet_mariupol_jan_jul_2023.pdf" id="frame-0"></iframe>
+<iframe class="pdf-frame" src="" id="frame-1" data-src="../data/otchyet_mariupol_aug_dec_2023.pdf"></iframe>
+<iframe class="pdf-frame" src="" id="frame-2" data-src="../data/otchyet_mariupol_jan_jun_2024_ag.pdf"></iframe>
+<iframe class="pdf-frame" src="" id="frame-3" data-src="../data/otchyet_mariupol_jan_jun_2024_ago.pdf"></iframe>
+<script>
+const pdfs = [
+  '../data/otchyet_mariupol_jan_jul_2023.pdf',
+  '../data/otchyet_mariupol_aug_dec_2023.pdf',
+  '../data/otchyet_mariupol_jan_jun_2024_ag.pdf',
+  '../data/otchyet_mariupol_jan_jun_2024_ago.pdf'
+];
+const tabs = document.querySelectorAll('.tab-btn');
+const frames = document.querySelectorAll('.pdf-frame');
+const openLink = document.getElementById('open-link');
+
+function showTab(i) {
+  tabs.forEach((t,j) => t.classList.toggle('active', j===i));
+  frames.forEach((f,j) => {
+    f.classList.toggle('active', j===i);
+    if (j===i && f.src === '' && f.dataset.src) {
+      f.src = f.dataset.src;
+    }
+  });
+  openLink.href = pdfs[i];
+}
+</script>
+</body>
+</html>
