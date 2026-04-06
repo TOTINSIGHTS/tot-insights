@@ -111,6 +111,32 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .team-list{display:flex;flex-direction:column;gap:10px;}
 .team-member{border-left:2px solid #D4DCE6;padding-left:14px;}
 .team-name{font-size:13px;font-weight:600;color:#0D2B4E;font-family:var(--font-sans);}
+.media-section{padding:36px 40px 60px;background:#F7F9FC;border-top:1px solid #D4DCE6;}
+.media-inner{max-width:1200px;margin:0 auto;}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:1000px){.media-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.media-grid{grid-template-columns:1fr;}}
+.media-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:16px 18px 14px;display:flex;flex-direction:column;transition:box-shadow 0.15s,transform 0.15s;}
+.media-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.media-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;}
+.media-fmt{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
+.media-fmt-podcast{background:#DFF0F8;color:#1C567A;}
+.media-fmt-video{background:#E2EEF5;color:#1A4F6E;}
+.media-fmt-article{background:#F5EDD0;color:#7A5C0D;}
+.media-fmt-blog{background:#E2F0E8;color:#1A5C35;}
+.media-fmt-report{background:#E8EAF0;color:#0D2B4E;}
+.media-fmt-journal{background:#EDE8F5;color:#4A3080;}
+.media-date{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.06em;white-space:nowrap;}
+.media-title{font-family:var(--font-serif);font-size:13px;font-weight:700;color:#0D2B4E;line-height:1.35;margin-bottom:5px;}
+.media-outlet{font-family:var(--font-mono);font-size:9px;color:#C9961A;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+.media-desc{font-size:11px;color:#617080;line-height:1.6;flex:1;margin-bottom:12px;}
+.media-card-footer{margin-top:auto;padding-top:9px;border-top:1px solid #D4DCE6;}
+.media-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11px;font-weight:500;color:#1C567A;text-decoration:none;transition:color 0.12s;}
+.media-link:hover{color:#0D2B4E;}
+.media-link-arrow{transition:transform 0.12s;}
+.media-link:hover .media-link-arrow{transform:translateX(3px);}
+.media-no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:#617080;font-size:13px;}
+.media-no-results.visible{display:block;}
 .site-footer{background:#0D2B4E;border-top:2px solid #C9961A;padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -162,6 +188,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <nav class="header-nav">
       <a href="#featured" class="active">Featured</a>
       <a href="#browse">Browse</a>
+      <a href="#media">Media</a>
       <a href="#partners">Partners</a>
       <a href="#about">About</a>
     </nav>
@@ -240,6 +267,37 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <div class="results-count"><span id="count-num">25</span> documents</div>
     <div class="doc-grid" id="doc-grid">
       <div class="no-results" id="no-results">No documents match the selected filters.</div>
+    </div>
+  </div>
+</section>
+
+<section class="media-section" id="media">
+  <div class="media-inner">
+    <div class="section-label">Media &amp; Public Engagement</div>
+    <div class="filter-block">
+      <div class="filter-row-label">Format</div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-mfilter="format" data-mvalue="all">All formats</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Podcast">Podcast</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Video">Video</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Article">Article</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Blog">Blog</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Report">Report</button>
+        <button class="filter-btn" data-mfilter="format" data-mvalue="Journal Article">Journal Article</button>
+      </div>
+    </div>
+    <div class="filter-block">
+      <div class="filter-row-label">Year</div>
+      <div class="filter-row">
+        <button class="filter-btn active" data-mfilter="year" data-mvalue="all">All years</button>
+        <button class="filter-btn" data-mfilter="year" data-mvalue="2026">2026</button>
+        <button class="filter-btn" data-mfilter="year" data-mvalue="2025">2025</button>
+        <button class="filter-btn" data-mfilter="year" data-mvalue="2024">2024</button>
+      </div>
+    </div>
+    <div class="results-count"><span id="media-count-num">49</span> items</div>
+    <div class="media-grid" id="media-grid">
+      <div class="media-no-results" id="media-no-results">No items match the selected filters.</div>
     </div>
   </div>
 </section>
@@ -468,6 +526,84 @@ function closeModalDirect(){
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModalDirect();closeViewer();}});
+
+// ── MEDIA DATA ────────────────────────────────────────────────────────────────
+const MEDIA_DATA = [
+  {t:"A State-Engineered Architecture of Persecution: Russia\u2019s Systematic Campaign Against Ukrainian Civilians in Occupied Territories",d:"29 Mar 2026",y:"2026",o:"Forsvarets h\u00f8gskole",f:"Report",desc:"An analysis of Russian state-led repression of Ukrainian civilians since 2022, examining surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as part of a coordinated system aimed at erasing Ukrainian civic identity and constituting potential crimes against humanity under international law.",url:"https://nva.sikt.no/registration/019ce67ba74d-9b569b1f-a62d-4c89-b9cc-659e27a3f456"},
+  {t:"Trump lifts sanctions on Russian oil as energy prices surge & the \u2018leaner, more professional\u2019 partisans in the occupied territories",d:"13 Mar 2026",y:"2026",o:"Telegraph",f:"Podcast",desc:"An overview of resistance efforts in occupied areas, including partisan activity in Luhansk, alongside reports on deported children, forced mobilisation, ideological indoctrination, and wider disruption in energy markets.",url:"https://podcasts.apple.com/cz/podcast/trump-lifts-sanctions-on-russian-oil-as-energy-prices/id1612424182?i=1000755134732"},
+  {t:"Capturing the minds: The role of child deportation in maintaining Russian authority over Ukraine\u2019s occupied territories",d:"9 Mar 2026",y:"2026",o:"European Journal of International Security",f:"Journal Article",desc:"An academic article analysing Russia\u2019s deportation of Ukrainian children from occupied territories as a form of politicised captivity, focusing on how it functions as a tool of biopolitical control to coerce families, disrupt Ukrainian identity, and shape future generations.",url:"https://www.cambridge.org/core/services/aop-cambridge-core/content/view/752354B4F5AB0983F4CE5A489FA10391/S205756372610056Xa.pdf/capturing-the-minds-the-role-of-child-deportation-in-maintaining-russian-authority-over-ukraines-occupied-territories.pdf"},
+  {t:"Kremlin insider: \u2018we don\u2019t plan to win the war\u2019 & FSB claims 150,000 Russians used special \u2018helplines\u2019 to denounce fellow citizens",d:"27 Feb 2026",y:"2026",o:"Telegraph",f:"Podcast",desc:"A look at resistance activity in southern Ukraine and Crimea, focusing on sabotage operations targeting transport and logistics networks.",url:"https://podcasts.apple.com/cz/podcast/kremlin-insider-we-dont-plan-to-win-the-war-fsb/id1612424182?i=1000751961554"},
+  {t:"On the frontline in Ukraine: \u2018It\u2019s under constant attack\u2019 | Ukraine: The Latest",d:"27 Feb 2026",y:"2026",o:"Telegraph",f:"Video",desc:"A TV report describing stories from now-freed Ukrainian territories that were occupied by Russian forces.",url:"https://www.youtube.com/watch?v=oBdgGjJYVt0"},
+  {t:"Russia\u2019s empire of ruins",d:"23 Feb 2026",y:"2026",o:"Engelsberg Ideas",f:"Article",desc:"An analysis of life under Russian occupation in Ukraine, examining governance failures, destruction of infrastructure, water and energy crises, forced identity and property changes, grain expropriation, and how these conditions contrast with Ukrainian-controlled areas.",url:"https://engelsbergideas.com/notebook/russias-empire-of-ruins/"},
+  {t:"Russia has crushed open defiance in occupied Ukraine. Scholar Jade McGlynn explains how the resistance went underground to survive.",d:"12 Feb 2026",y:"2026",o:"Meduza",f:"Podcast",desc:"A discussion on how Ukrainian resistance in occupied territories has evolved over five years of war, explaining how early visible protests have shifted into more covert, underground forms of resistance under intensified Russian control.",url:"https://meduza.io/en/episodes/2026/02/12/russia-has-crushed-open-defiance-in-occupied-ukraine-scholar-jade-mcglynn-explains-how-the-resistance-went-underground-to-survive"},
+  {t:"Civilians killed as Trump announces \u2018energy ceasefire\u2019 ahead of resumed peace talks",d:"30 Jan 2026",y:"2026",o:"Telegraph",f:"Podcast",desc:"Coverage of a Kyiv blackout, ongoing discussions around peace talks involving occupied territories, resistance operations across Kherson, Donetsk, and Crimea, and developments around the mortgage system in Mariupol.",url:"https://podcasts.apple.com/cz/podcast/civilians-killed-as-trump-announces-energy-ceasefire/id1612424182?i=1000747378620"},
+  {t:"Thresholds of Survival: The Latest Report on Ukrainian Resistance to Russian Occupation by Jade McGlynn",d:"22 Jan 2026",y:"2026",o:"CSIS",f:"Podcast",desc:"A conversation about the CSIS report \u201cThresholds of Survival: The Resistance in Occupied Ukraine\u201d (January 2026), focusing on how Ukrainian resistance in occupied territories has evolved under intensified Russian control.",url:"https://www.csis.org/podcasts/russian-roulette/thresholds-survival-latest-report-ukrainian-resistance-russian-occupation"},
+  {t:"Resistance in occupied Ukraine \u2018under constant surveillance\u2019",d:"22 Jan 2026",y:"2026",o:"France 24 English",f:"Video",desc:"An interview discussing a report on resistance in occupied Ukraine, highlighting how local networks operate under intense surveillance and severe repression, including high risks of detention and enforced disappearances.",url:"https://www.youtube.com/watch?v=103yEC0G79Y"},
+  {t:"Europe overtakes US intelligence support for Kyiv & Trump \u2018gifted\u2019 a Nobel Peace Prize",d:"16 Jan 2026",y:"2026",o:"Telegraph",f:"Podcast",desc:"An overview of resistance activity in occupied territories, including how it is taught and communicated in Western narratives, information control and flow inside those areas, recent resistance operations, and mobilisation patterns within Russia.",url:"https://podcasts.apple.com/cz/podcast/europe-overtakes-us-intelligence-support-for-kyiv-trump/id1612424182?i=1000745455661"},
+  {t:"Thresholds of Survival: The Resistance in Occupied Ukraine",d:"14 Jan 2026",y:"2026",o:"CSIS",f:"Report",desc:"An update on Ukrainian resistance in occupied territories from 2024 to 2025, examining how intensified surveillance has pushed activity underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility.",url:"https://www.csis.org/analysis/thresholds-survival-resistance-occupied-ukraine"},
+  {t:"Jade McGlynn: Ukrainian Intelligence in the Occupied Regions",d:"9 Jan 2026",y:"2026",o:"Axess Television",f:"Video",desc:"A conversation exploring civilian-led intelligence networks in Russian-occupied Ukraine, the risks of decentralised resistance under surveillance and coercion, and how digital tools and historic resistance models are reshaping intelligence and sovereignty.",url:"https://www.youtube.com/watch?v=xJQuscyHlV4"},
+  {t:"Russia\u2019s Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Occupied Ukraine",d:"31 Dec 2025",y:"2025",o:"CSNS (through Substack)",f:"Report",desc:"An academic paper on civilian detention in Russian-occupied Ukraine, focusing on illegal detentions and enforced disappearances and analysing them as interlocking crimes against humanity.",url:"https://smalldeedsbigwar.substack.com/p/2025"},
+  {t:"Jade McGlynn \u2014 Ukrainian Intelligence in the Occupied Regions",d:"9 Dec 2025",y:"2025",o:"The Engelsberg Seminars",f:"Video",desc:"A lecture on how Ukrainian civilians in occupied territories have become a decentralised intelligence network, examining the shift from hierarchical resistance models to fragile \u201cpuzzle\u201d networks, the risks of surveillance and repression, and implications for sovereignty and modern warfare.",url:"https://www.youtube.com/watch?v=GpbLBLJV6rA"},
+  {t:"Russian seaport near Kerch bridge \u2018explodes\u2019 & war drones fly towards Zelensky\u2019s plane",d:"5 Dec 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"A look at resistance operations in Zaporizhzhia, the Kherson left bank, and Crimea with a focus on disrupting logistics and supply lines, alongside analysis of Ukrainian trust in the US as an ally.",url:"https://podcasts.apple.com/cz/podcast/russian-seaport-near-kerch-bridge-explodes-war-drones/id1612424182?i=1000739881046"},
+  {t:"Russian-occupied Ukrainian resistance forces \u2018consistently slowing\u2019 Putin\u2019s advances",d:"4 Dec 2025",y:"2025",o:"The Trump Report",f:"Video",desc:"A TV report noting that Ukrainian resistance fighters operating behind Russian lines are having a consistent impact on occupying forces, and that support from within occupied territories is especially valuable to Ukraine\u2019s war effort.",url:"https://www.youtube.com/watch?v=C_nlhLgi194"},
+  {t:"Trump tells Zelensky: Sign peace deal \u2018by Thursday\u2019 or have weapons cut off",d:"21 Nov 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An overview of reactions to a proposed peace plan, communication challenges and safety for people in occupied territories, the role of citizen intelligence and Telegram coordination, and updates on ongoing resistance operations.",url:"https://podcasts.apple.com/cz/podcast/trump-tells-zelensky-sign-peace-deal-by-thursday-or/id1612424182?i=1000737807874"},
+  {t:"Moscow slams Ukraine with new glide bombs as Lavrov\u2019s future in doubt",d:"7 Nov 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"A look at healthcare conditions in Russia and occupied territories, the influence of the Moscow Patriarchate, and the latest updates on resistance operations.",url:"https://podcasts.apple.com/cz/podcast/moscow-slams-ukraine-with-new-glide-bombs-as-lavrovs/id1612424182?i=1000735755835"},
+  {t:"\u2018Massive\u2019 Russian attack knocks out Kyiv energy grid & what Gaza ceasefire means for Ukraine",d:"10 Oct 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations in occupied territories alongside analysis of Russian architecture projects and mortgage policy in those areas.",url:"https://podcasts.apple.com/cz/podcast/massive-russian-attack-knocks-out-kyiv-energy-grid/id1612424182?i=1000731178846"},
+  {t:"Ukraine ravage Russian aircraft and radar stations in occupied Crimea & Denmark reports \u2018hybrid attack\u2019 on major airport",d:"25 Sep 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"A discussion of the Lyman case involving alleged war crimes and civilian detentions, reactions within occupied territories to talk of possible liberation, and the latest updates on resistance operations.",url:"https://podcasts.apple.com/cz/podcast/ukraine-ravage-russian-aircraft-and-radar-stations-in/id1612424182?i=1000728409684"},
+  {t:"Explosions put 3 Russian pipelines \u2018out of action\u2019 & headless corpse of Russian CEO discovered",d:"9 Sep 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An overview of the water crisis in occupied territories alongside the latest updates on resistance operations.",url:"https://podcasts.apple.com/cz/podcast/explosions-put-3-russian-pipelines-out-of-action/id1612424182?i=1000725729999"},
+  {t:"Jade McGlynn with an Update from Ukraine",d:"4 Sep 2025",y:"2025",o:"CSIS",f:"Podcast",desc:"A conversation covering the Ukrainian war effort, conditions in Russian-occupied territories, and recent protests in Ukraine over perceived moves to constrain the independence of domestic anti-corruption agencies.",url:"https://www.csis.org/podcasts/russian-roulette/jade-mcglynn-update-ukraine"},
+  {t:"Putin \u2018to test nuclear missiles\u2019 ahead of Trump Alaska summit",d:"15 Aug 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"A look at the Alaska summit, control of ports in occupied territories, the expropriation of grain including methods, scale, and destinations, and the latest updates on resistance operations.",url:"https://podcasts.apple.com/cz/podcast/putin-to-test-nuclear-missiles-ahead-of-trump-alaska-summit/id1612424182?i=1000722100248"},
+  {t:"\u2018Disgusting\u2019 attack on Kyiv deadliest of 2025 & Russia\u2019s nuclear submarine base \u2018damaged by tsunami\u2019",d:"1 Aug 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An overview of new messaging tools and communication control in occupied territories, including surveillance, tracking, and propaganda systems, alongside the latest updates on resistance operations.",url:"https://podcasts.apple.com/cz/podcast/disgusting-attack-on-kyiv-deadliest-of-2025-russias/id1612424182?i=1000720237187"},
+  {t:"Massive attack hits Kyiv as Putin tells Trump diplomacy is \u2018not possible\u2019",d:"4 Jul 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations with a focus on disrupting transportation and communication networks.",url:"https://podcasts.apple.com/cz/podcast/massive-attack-hits-kyiv-as-putin-tells-trump-diplomacy/id1612424182?i=1000715740026"},
+  {t:"\u2018Weak\u2019 Putin pressured to declare \u2018full war\u2019 & Russia accidentally admits to huge troop losses",d:"20 Jun 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations, the threat level facing civilians and partisans in occupied territories, and the role of Russian teachers in those areas.",url:"https://podcasts.apple.com/cz/podcast/weak-putin-pressured-to-declare-full-war-russia-accidentally/id1612424182?i=1000713847347"},
+  {t:"Putin forced to slash budgets after oil price fall & precision strikes batter Russian infrastructure",d:"23 May 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations, digital psychological operations and influence campaigns, and how ongoing negotiation talks are affecting resistance dynamics.",url:"https://podcasts.apple.com/cz/podcast/putin-forced-to-slash-budgets-after-oil-price-fall/id1612424182?i=1000709591206"},
+  {t:"Chinese troops march in Putin\u2019s Victory Day parade as Xi joins Putin to spite Trump",d:"9 May 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on ongoing resistance operations in occupied territories.",url:"https://podcasts.apple.com/cz/podcast/chinese-troops-march-in-putins-victory-day-parade-as/id1612424182?i=1000706987875"},
+  {t:"Bomb in Moscow kills senior Russian general & Trump tells Putin \u2018Vladimir, stop\u2019 after Kyiv strike",d:"25 Apr 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on ongoing resistance operations in occupied territories.",url:"https://podcasts.apple.com/cz/podcast/bomb-in-moscow-kills-senior-russian-general-trump-tells/id1612424182?i=1000704919514"},
+  {t:"Exclusive: Europe plans to deploy troops to Ukraine for 5 years & resistance in occupied territories accelerates",d:"11 Apr 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations, including activity inside Russia itself, alongside Russian internal resistance, media consumption patterns in occupied territories, and ongoing grain theft.",url:"https://podcasts.apple.com/cz/podcast/exclusive-europe-plans-to-deploy-troops-to-ukraine/id1612424182?i=1000703172054"},
+  {t:"Revealed: Trump\u2019s plan to force Ukraine to restore Putin\u2019s gas empire",d:"28 Mar 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations and reported losses within resistance networks.",url:"https://podcasts.apple.com/cz/podcast/revealed-trumps-plan-to-force-ukraine-to-restore-putins/id1612424182?i=1000701264392"},
+  {t:"Fierce fighting in Russia as Ukrainian troops \u2018hold on\u2019 & Trump asks Putin to \u2018spare surrounded forces\u2019",d:"14 Mar 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations, alongside insights into everyday life in occupied territories, education systems, and the integration between Russian military forces and local civilian structures.",url:"https://podcasts.apple.com/gb/podcast/fierce-fighting-in-russia-as-ukrainian-troops-hold/id1612424182?i=1000699208980"},
+  {t:"How nuclear-armed Ukraine could become \u2018Europe\u2019s Israel\u2019 & assassinations in occupied territories \u2018accelerate\u2019",d:"28 Feb 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An update on resistance operations, and an assessment of utilities and healthcare in occupied territories based on investment coming from Russia.",url:"https://podcasts.apple.com/cz/podcast/how-nuclear-armed-ukraine-could-become-europes-israel/id1612424182?i=1000696839850"},
+  {t:"Nuclear fears as \u2018high explosive warhead\u2019 hits Chernobyl & Europe pledges high-tech arms at Munich",d:"14 Feb 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"A look at resistance operations, increasing Russian efforts to tighten control over occupied territories, foreign interest in Ukraine\u2019s post-war industrial prospects, and how ongoing negotiation talks are affecting morale.",url:"https://podcasts.apple.com/cz/podcast/nuclear-fears-as-high-explosive-warhead-hits-chernobyl/id1612424182?i=1000692297555"},
+  {t:"Extraction: Wealth extraction, property confiscation, and living in the occupied territories",d:"11 Feb 2025",y:"2025",o:"Substack",f:"Blog",desc:"A blog post examining Russian-occupied Ukraine, focusing on propaganda narratives of \u201cnormality\u201d and contrasting them with infrastructure collapse, corruption, forced mobilisation, Russification, home confiscation, and wider systems of repression and resource extraction.",url:"https://smalldeedsbigwar.substack.com/p/extraction"},
+  {t:"Explosion \u2018rips open\u2019 oil refinery in former Stalingrad & revolt in occupied territories",d:"31 Jan 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An overview of resistance operations, noting a decline in violent activity due to forced passportization, and an examination of patterns of non-violent resistance.",url:"https://podcasts.apple.com/cz/podcast/explosion-rips-open-oil-refinery-in-former-stalingrad/id1612424182?i=1000687536758"},
+  {t:"Massive fireball as Russian thermal power plant explodes & rebellion in the occupied territories",d:"24 Jan 2025",y:"2025",o:"Telegraph",f:"Podcast",desc:"An introduction to 2025 resistance strategic goals, a look at current resistance activity, and a discussion on the benefits of covering resistance in the media along with ways to support it.",url:"https://podcasts.apple.com/cz/podcast/massive-fireball-as-russian-thermal-power-plant-explodes/id1612424182?i=1000685332894"},
+  {t:"We Can\u2019t Condemn the People of Occupied Ukraine to the Reality of Russian Occupation",d:"17 Jan 2025",y:"2025",o:"Moscow Times",f:"Article",desc:"An article about Russian occupation in Ukraine, focusing on systematic cultural erasure, repression, deportations of children, and economic exploitation, while highlighting ongoing partisan resistance and warning that overlooking the realities of occupied territories distorts understanding of the war.",url:"https://www.themoscowtimes.com/2025/01/17/we-cant-condemn-the-people-of-occupied-ukraine-to-the-reality-of-russian-occupation-a87629"},
+  {t:"Pushkin at the Mass Grave",d:"22 Dec 2024",y:"2024",o:"Substack",f:"Blog",desc:"A blog post about Russian cultural symbols in occupied Ukraine and their role as tools of imperial domination, focusing on cultural repression in occupied territories and situating Ukrainian responses within the context of war and occupation.",url:"https://smalldeedsbigwar.substack.com/p/pushkin-at-the-mass-grave"},
+  {t:"Decolonisation: Jade McGlynn on how memory politics shapes Russia\u2019s war and the perceptions of Ukraine",d:"1 Nov 2024",y:"2024",o:"Ukra\u00efner",f:"Podcast",desc:"A discussion on memory politics, historical narratives, and identity construction in Russia and the West, exploring how these shape the war in Ukraine, Putin\u2019s imperial rhetoric, Western academic blind spots on Eastern Europe, and whether Russia\u2019s decolonisation is possible.",url:"https://www.ukrainer.net/en/decolonisation-taras-kuzio-on-decolonising-perceptions-of-ukraine-in-western-academia/"},
+  {t:"Russian occupation: Occupation, resistance, mobilisation",d:"14 Oct 2024",y:"2024",o:"Substack",f:"Blog",desc:"A blog post based on field visits to eastern Ukraine and Kharkiv, covering life under war, conditions in Russian-occupied territories, civilian evacuation, and forms of resistance. Discusses mobilisation, surveillance, propaganda, and broader reflections on the course of the war.",url:"https://smalldeedsbigwar.substack.com/p/post-1"},
+  {t:"Ukraine\u2019s resistance movement from Dr Jade McGlynn on Russian occupation",d:"8 Sep 2024",y:"2024",o:"Ukrainian Jenny meets\u2026",f:"Video",desc:"A podcast interview exploring Ukrainian life under Russian occupation, focusing on resistance movements, the risks that push civilians to become partisans, Russian propaganda and identity suppression efforts, and broader historical and social context.",url:"https://www.youtube.com/watch?v=c2eCuu3WY24"},
+  {t:"Ukrainian Resistance in the Occupied Territories with Jade McGlynn",d:"29 Jul 2024",y:"2024",o:"CSIS",f:"Podcast",desc:"A conversation about the CSIS report \u201cCrossing Thresholds: Ukrainian Resistance to Russian Occupation\u201d and its findings on resistance under Russian occupation.",url:"https://www.csis.org/podcasts/russian-roulette/ukrainian-resistance-occupied-territories-jade-mcglynn"},
+  {t:"What does resistance in occupied Ukraine look like? \u2014 Ukraine: The Latest",d:"2 Jul 2024",y:"2024",o:"Telegraph",f:"Podcast",desc:"An overview of resistance in occupied Ukraine, focusing on sabotage operations and armed struggle against Russian occupation forces.",url:"https://www.telegraph.co.uk/world-news/2024/07/02/russia-ukraine-occupation-resistance/"},
+  {t:"The Ukrainian resistance is torching Putin\u2019s dreams of conquest",d:"21 Jun 2024",y:"2024",o:"Telegraph",f:"Article",desc:"An analysis arguing that Ukrainian resistance in occupied territories is actively undermining Russia\u2019s control through ongoing partisan activity, framing the occupied regions not as static losses but as active fronts in a continuing struggle for liberation.",url:"https://www.telegraph.co.uk/news/2024/06/21/the-ukrainian-resistance-is-torching-vladimir-putins-dreams/"},
+  {t:"Crossing Thresholds: Ukrainian Resistance to Russian Occupation",d:"18 Jun 2024",y:"2024",o:"CSIS",f:"Report",desc:"A fieldwork-based report on Ukrainian resistance in de-occupied territories, examining its role in undermining Russia\u2019s war effort, the realities faced by participants, personal testimonies, and recommendations for Ukraine and Western supporters.",url:"https://www.csis.org/analysis/crossing-thresholds-ukrainian-resistance-russian-occupation"},
+  {t:"Russian Propaganda Tactics in Ukraine\u2019s Newly Occupied Territories",d:"21 May 2024",y:"2024",o:"Russian Analytical Digest (2024) 313",f:"Journal Article",desc:"An analysis of Russian propaganda in occupied Ukrainian territories after 2022, examining its evolution from Crimea-style information control to a two-tier messaging system, its reliance on fear-based narratives, and potential counter-strategies.",url:"https://www.ssoar.info/ssoar/bitstream/handle/document/101373/ssoar-russanald-2024-313-mcglynn-Russian_Propaganda_Tactics_in_Ukraines.pdf?sequence=1"},
+  {t:"Russia Is Committing Cultural Genocide in Ukraine",d:"23 Apr 2024",y:"2024",o:"Foreign Policy Magazine",f:"Article",desc:"An analysis focusing on Russian occupation in Ukraine as a systematic campaign to erase Ukrainian national identity through historical propaganda, Russification, education control, cultural destruction, and child indoctrination, while highlighting continued cultural and civic resistance.",url:"https://foreignpolicy.com/2024/04/23/russia-ukraine-cultural-genocide-looting-indoctrination-deporatation/"}
+];
+
+const MEDIA_FMT_CLASS={'Podcast':'media-fmt-podcast','Video':'media-fmt-video','Article':'media-fmt-article','Blog':'media-fmt-blog','Report':'media-fmt-report','Journal Article':'media-fmt-journal'};
+let mediaFmtFilter='all',mediaYearFilter='all';
+
+function renderMedia(){
+  const grid=document.getElementById('media-grid');
+  const noRes=document.getElementById('media-no-results');
+  const filtered=MEDIA_DATA.filter(m=>(mediaFmtFilter==='all'||m.f===mediaFmtFilter)&&(mediaYearFilter==='all'||m.y===mediaYearFilter));
+  document.getElementById('media-count-num').textContent=filtered.length;
+  const cards=filtered.map(m=>`<div class="media-card"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`).join('');
+  [...grid.children].forEach(c=>{if(c.id!=='media-no-results')c.remove();});
+  grid.insertAdjacentHTML('afterbegin',cards);
+  noRes.classList.toggle('visible',filtered.length===0);
+}
+document.querySelectorAll('[data-mfilter]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const f=btn.dataset.mfilter,v=btn.dataset.mvalue;
+    document.querySelectorAll(`[data-mfilter="${f}"]`).forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    if(f==='format')mediaFmtFilter=v;
+    if(f==='year')mediaYearFilter=v;
+    renderMedia();
+  });
+});
+renderMedia();
 
 renderCards();
 </script>
