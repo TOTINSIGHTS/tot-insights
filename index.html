@@ -241,7 +241,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 
 <section class="browse" id="browse">
   <div class="browse-inner">
-    <div class="section-label">Browse all documents</div>
+    <div class="section-label">Browse all outputs</div>
     <div class="filter-block">
       <div class="filter-row-label">Theme</div>
       <div class="filter-row">
@@ -266,9 +266,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
         <button class="filter-btn" data-filter="format" data-value="Primary Sources">Primary Sources</button>
       </div>
     </div>
-    <div class="results-count"><span id="count-num">25</span> documents</div>
+    <div class="results-count"><span id="count-num">44</span> outputs</div>
     <div class="doc-grid" id="doc-grid">
-      <div class="no-results" id="no-results">No documents match the selected filters.</div>
+      <div class="no-results" id="no-results">No outputs match the selected filters.</div>
     </div>
     <div class="browse-show-more-wrap" id="browse-show-more-wrap" style="display:none;">
       <button class="browse-show-more" id="browse-show-more-btn" onclick="expandBrowse()"></button>
@@ -303,6 +303,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <div class="results-count"><span id="media-count-num">49</span> items</div>
     <div class="media-grid" id="media-grid">
       <div class="media-no-results" id="media-no-results">No items match the selected filters.</div>
+    </div>
+    <div class="browse-show-more-wrap" id="media-show-more-wrap" style="display:none;">
+      <button class="browse-show-more" id="media-show-more-btn" onclick="expandMedia()"></button>
     </div>
   </div>
 </section>
@@ -468,7 +471,7 @@ function renderCards(){
   const btn=document.getElementById('browse-show-more-btn');
   if(!browseExpanded&&filtered.length>BROWSE_DEFAULT){
     wrap.style.display='block';
-    btn.textContent=`Show all ${filtered.length} documents →`;
+    btn.textContent=`Show all ${filtered.length} outputs →`;
   } else {
     wrap.style.display='none';
   }
@@ -608,18 +611,29 @@ const MEDIA_DATA = [
 ];
 
 const MEDIA_FMT_CLASS={'Podcast':'media-fmt-podcast','Video':'media-fmt-video','Article':'media-fmt-article','Blog':'media-fmt-blog','Report':'media-fmt-report','Journal Article':'media-fmt-journal'};
-let mediaFmtFilter='all',mediaYearFilter='all';
+const MEDIA_DEFAULT=6;
+let mediaFmtFilter='all',mediaYearFilter='all',mediaExpanded=false;
 
 function renderMedia(){
   const grid=document.getElementById('media-grid');
   const noRes=document.getElementById('media-no-results');
   const filtered=MEDIA_DATA.filter(m=>(mediaFmtFilter==='all'||m.f===mediaFmtFilter)&&(mediaYearFilter==='all'||m.y===mediaYearFilter));
   document.getElementById('media-count-num').textContent=filtered.length;
-  const cards=filtered.map(m=>`<div class="media-card"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`).join('');
+  const visible=mediaExpanded?filtered:filtered.slice(0,MEDIA_DEFAULT);
+  const cards=visible.map(m=>`<div class="media-card"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`).join('');
   [...grid.children].forEach(c=>{if(c.id!=='media-no-results')c.remove();});
   grid.insertAdjacentHTML('afterbegin',cards);
   noRes.classList.toggle('visible',filtered.length===0);
+  const wrap=document.getElementById('media-show-more-wrap');
+  const btn=document.getElementById('media-show-more-btn');
+  if(!mediaExpanded&&filtered.length>MEDIA_DEFAULT){
+    wrap.style.display='block';
+    btn.textContent=`Show all ${filtered.length} items →`;
+  } else {
+    wrap.style.display='none';
+  }
 }
+function expandMedia(){mediaExpanded=true;renderMedia();}
 document.querySelectorAll('[data-mfilter]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const f=btn.dataset.mfilter,v=btn.dataset.mvalue;
@@ -627,6 +641,7 @@ document.querySelectorAll('[data-mfilter]').forEach(btn=>{
     btn.classList.add('active');
     if(f==='format')mediaFmtFilter=v;
     if(f==='year')mediaYearFilter=v;
+    mediaExpanded=false;
     renderMedia();
   });
 });
