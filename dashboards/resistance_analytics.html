@@ -9,13 +9,13 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
 <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+<script src="resistance_data.js"></script>
 </head>
 <body style="margin:0;padding:0;">
 <div id="root"></div>
 <script type="text/babel">
 const { useState } = React;
 const { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } = Recharts;
-
 
 const NAVY = "#1a2744";
 const NAVY_LIGHT = "#243560";
@@ -30,72 +30,44 @@ const GREEN_MID = "#4a8b6f";
 const TEAL = "#3a7a8b";
 const ORANGE = "#b5652a";
 
-// --- DATA ---
-
-const periods = [
-  "Dec '24", "Jan '25a", "Jan '25b", "Feb '25a", "Feb '25b",
-  "Mar '25a", "Mar '25b", "Apr '25a", "Apr '25b", "May '25a",
-  "May '25b", "Jun '25a", "Jun '25b", "Jul '25a", "Jul '25b",
-  "Aug '25a", "Aug '25b", "Sep '25a", "Sep '25b", "Oct '25a",
-  "Oct '25b", "Nov '25a", "Nov '25b", "Dec '25a", "Dec '25b",
-  "Dec '25c", "Jan '26a", "Jan '26b", "Feb '26a", "Feb '26b",
-];
-
-const periodLabels = [
-  "25.12.24–13.01.25","14.01.25–30.01.25","31.01.25–13.02.25","13.02.25–27.02.25","28.02.25–13.03.25",
-  "14.03.25–27.03.25","28.03.25–10.04.25","11.04.25–24.04.25","25.04.25–08.05.25","09.05.25–22.05.25",
-  "22.05.25–05.06.25","05.06.25–18.06.25","18.06.25–02.07.25","03.07.25–16.07.25","17.07.25–30.07.25",
-  "31.07.25–13.08.25","14.08.25–27.08.25","28.08.25–11.09.25","11.09.25–24.09.25","25.09.25–09.10.25",
-  "10.10.25–23.10.25","23.10.25–06.11.25","06.11.25–19.11.25","19.11.25–04.12.25","04.12.25–18.12.25",
-  "18.12.25–31.12.25","31.12.25–14.01.26","14.01.26–28.01.26","29.01.26–12.02.26","12.02.26–25.02.26",
-];
-
-// TOT (occupied territory) per period
-const totCounts = [11,5,4,9,7,13,12,7,6,8,10,8,12,8,4,12,14,10,8,12,11,7,8,7,9,7,4,4,4,5];
-// RF territory per period
-const rfCounts  = [0,0,0,0,0,0,0,2,8,2,4,4,2,3,2,3,9,2,5,4,6,5,10,10,10,8,12,12,12,10];
+// --- DATA (from shared resistance_data.js) ---
+const { periods, periodLabels, totCounts, rfCounts, totTotal, rfTotal } = RDATA;
+const grandTotal = totTotal + rfTotal;
 
 const timeSeries = periods.map((p, i) => ({
-  period: p,
-  label: periodLabels[i],
-  tot: totCounts[i],
-  rf: rfCounts[i],
-  total: totCounts[i] + rfCounts[i],
+  period: p, label: periodLabels[i],
+  tot: totCounts[i], rf: rfCounts[i], total: totCounts[i] + rfCounts[i],
 }));
 
 const totCategories = [
-  { name: "Vehicle attack", value: 64, color: GOLD },
-  { name: "Other / sabotage", value: 87, color: SLATE },
-  { name: "Railway / transport infra", value: 36, color: BLUE_MID },
-  { name: "Critical infra / comms", value: 26, color: TEAL },
-  { name: "Targeted killing", value: 24, color: RED_MUTED },
-  { name: "Armed raid / personnel", value: 5, color: GREEN_MID },
-  { name: "Intel / targeting support", value: 4, color: ORANGE },
+  { name: "Vehicle attack",          value: 64, color: GOLD     },
+  { name: "Other / sabotage",        value: 87, color: SLATE    },
+  { name: "Railway / transport infra",value:36, color: BLUE_MID },
+  { name: "Critical infra / comms",  value: 26, color: TEAL     },
+  { name: "Targeted killing",        value: 24, color: RED_MUTED},
+  { name: "Armed raid / personnel",  value: 5,  color: GREEN_MID},
+  { name: "Intel / targeting support",value:4,  color: ORANGE   },
 ];
 
 const rfCategories = [
-  { name: "Railway sabotage", value: 47, color: BLUE_MID },
-  { name: "Other / sabotage", value: 40, color: SLATE },
-  { name: "Power / electrical infra", value: 18, color: TEAL },
-  { name: "Vehicle / transport", value: 17, color: GOLD },
-  { name: "Fuel / munitions supply", value: 8, color: ORANGE },
-  { name: "Defence industry", value: 5, color: GREEN_MID },
-  { name: "Targeted killing", value: 4, color: RED_MUTED },
-  { name: "Comms tower / signals", value: 2, color: NAVY_LIGHT },
+  { name: "Railway sabotage",        value: 47, color: BLUE_MID  },
+  { name: "Other / sabotage",        value: 40, color: SLATE     },
+  { name: "Power / electrical infra",value: 18, color: TEAL      },
+  { name: "Vehicle / transport",     value: 17, color: GOLD      },
+  { name: "Fuel / munitions supply", value: 8,  color: ORANGE    },
+  { name: "Defence industry",        value: 5,  color: GREEN_MID },
+  { name: "Targeted killing",        value: 4,  color: RED_MUTED },
+  { name: "Comms tower / signals",   value: 2,  color: NAVY_LIGHT},
 ];
 
 const geoData = [
-  { name: "Zaporizhzhia oblast", value: 65, color: GOLD },
-  { name: "Kherson oblast", value: 58, color: BLUE_MID },
-  { name: "Crimea", value: 37, color: TEAL },
-  { name: "Donetsk oblast", value: 35, color: RED_MUTED },
-  { name: "Unknown / unspecified", value: 30, color: SLATE },
-  { name: "Luhansk oblast", value: 6, color: GREEN_MID },
+  { name: "Zaporizhzhia oblast",    value: 65, color: GOLD     },
+  { name: "Kherson oblast",         value: 58, color: BLUE_MID },
+  { name: "Crimea",                 value: 37, color: TEAL     },
+  { name: "Donetsk oblast",         value: 35, color: RED_MUTED},
+  { name: "Unknown / unspecified",  value: 30, color: SLATE    },
+  { name: "Luhansk oblast",         value: 6,  color: GREEN_MID},
 ];
-
-const totTotal = 246;
-const rfTotal = 141;
-const grandTotal = totTotal + rfTotal;
 
 const RADIAN = Math.PI / 180;
 const renderPctLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
