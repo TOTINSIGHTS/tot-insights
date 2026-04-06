@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Population Movement — Occupied Zaporizhzhia Oblast</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #fafaf8; color: #1a1a1a; padding: 40px 24px 48px; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  .label-bar {
+    display: flex; align-items: center;
+    font-family: 'Georgia', serif; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #888; border-bottom: 1px solid #e0ddd8;
+    padding-bottom: 8px; margin-bottom: 24px; gap: 8px;
+  }
+  .label-bar span { display: inline-block; width: 24px; height: 1px; background: #b0aa9e; }
+  h1 {
+    font-family: 'Georgia', serif; font-size: 22px; font-weight: normal;
+    color: #1a1a1a; line-height: 1.3; margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 14px; color: #5a5a5a; margin-bottom: 32px; line-height: 1.5;
+    font-style: italic;
+  }
+  .chart-area { position: relative; width: 100%; height: 280px; margin-bottom: 24px; }
+  .annotation {
+    font-size: 12px; color: #888; border-top: 1px solid #e0ddd8;
+    padding-top: 14px; margin-top: 8px; line-height: 1.6;
+  }
+  .annotation strong { color: #444; font-weight: normal; font-style: italic; }
+  .source {
+    font-size: 11px; color: #aaa; margin-top: 20px;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label-bar"><span></span> Social Conditions &nbsp;·&nbsp; Zaporizhzhia Oblast</div>
+  <h1>Departure and return from occupied Zaporizhzhia Oblast, 2022 – spring 2025</h1>
+  <p class="subtitle">Shares of total recorded population displacement flows, by destination</p>
+  <div class="chart-area">
+    <canvas id="chart"></canvas>
+  </div>
+  <p class="annotation">
+    The data captures displacement across three phases: mass evacuation in 2022–23 as the occupation consolidated; 
+    onward migration to the EU, primarily through Russia or Belarus; departure to Russia (including forced or 
+    semi-coerced relocation); and a small return movement in spring 2025.
+    <strong>Return flows remain minimal at 5% of total movement</strong>, consistent with entrapment dynamics 
+    documented across occupied territories.
+  </p>
+  <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · Data: 2025</p>
+</div>
+<script>
+const ctx = document.getElementById('chart').getContext('2d');
+
+const labels = [
+  'Evacuation to Ukrainian-controlled territory (2022–23)',
+  'Migration to EU',
+  'Departure to Russia',
+  'Return (spring 2025)'
+];
+
+const values = [40, 30, 25, 5];
+
+const colors = {
+  bg: ['#3366cc', '#5c7abf', '#c0392b', '#27ae60'],
+  border: ['#2255bb', '#4a69ae', '#a93226', '#1e8449']
+};
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [{
+      data: values,
+      backgroundColor: colors.bg,
+      borderColor: colors.border,
+      borderWidth: 1.5,
+      borderRadius: 3,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => `  ${ctx.parsed.x}% of total displacement`
+        },
+        backgroundColor: '#1a1a1a',
+        titleColor: '#fff',
+        bodyColor: '#ccc',
+        padding: 10,
+        titleFont: { family: 'Georgia', size: 12 },
+        bodyFont: { family: 'Georgia', size: 12 }
+      }
+    },
+    scales: {
+      x: {
+        min: 0,
+        max: 50,
+        ticks: {
+          callback: v => v + '%',
+          font: { family: 'Georgia', size: 12 },
+          color: '#888'
+        },
+        grid: { color: '#ebe8e0', lineWidth: 0.8 },
+        border: { dash: [4, 4], color: '#d0ccc4' }
+      },
+      y: {
+        ticks: {
+          font: { family: 'Georgia', size: 13 },
+          color: '#2a2a2a',
+          padding: 10
+        },
+        grid: { display: false },
+        border: { display: false }
+      }
+    },
+    layout: { padding: { right: 40 } }
+  },
+  plugins: [{
+    afterDatasetDraw(chart) {
+      const { ctx, data } = chart;
+      const meta = chart.getDatasetMeta(0);
+      meta.data.forEach((bar, i) => {
+        const val = data.datasets[0].data[i];
+        ctx.save();
+        ctx.font = 'bold 13px Georgia';
+        ctx.fillStyle = '#1a1a1a';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(val + '%', bar.x + 8, bar.y);
+        ctx.restore();
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Map — Mariupol Port (2023–2025)</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #fafaf8; color: #1a1a1a; }
+  .header { max-width: 940px; margin: 0 auto; padding: 40px 24px 0; }
+  .label-bar {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: #888; border-bottom: 1px solid #e0ddd8;
+    padding-bottom: 8px; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;
+  }
+  .label-bar span { display: inline-block; width: 24px; height: 1px; background: #b0aa9e; }
+  h1 { font-size: 22px; font-weight: normal; line-height: 1.3; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #5a5a5a; margin-bottom: 18px; font-style: italic; }
+  .controls {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
+    margin-bottom: 16px; font-size: 12px; color: #555;
+  }
+  .filter-btn {
+    padding: 5px 12px; border: 1px solid #ccc; border-radius: 3px;
+    background: white; cursor: pointer; font-size: 12px; font-family: Georgia;
+    color: #333; transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: #666; }
+  .filter-btn.active { border-color: #1a1a1a; background: #1a1a1a; color: white; }
+  .hint { font-size: 12px; color: #999; font-style: italic; }
+  #network { width: 100%; height: 580px; display: block; border-top: 1px solid #e0ddd8; }
+  .legend {
+    max-width: 940px; margin: 0 auto; padding: 0 24px;
+    display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 12px; color: #444;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .footer { max-width: 940px; margin: 0 auto; padding: 16px 24px 40px; }
+  .annotation { font-size: 12px; color: #888; border-top: 1px solid #e0ddd8; padding-top: 14px; line-height: 1.6; margin-top: 14px; }
+  .source { font-size: 11px; color: #aaa; margin-top: 12px; letter-spacing: 0.03em; }
+  .tooltip {
+    position: absolute; background: #1a1a1a; color: #f0ede6;
+    padding: 10px 14px; border-radius: 4px; font-size: 12px; font-family: Georgia;
+    pointer-events: none; opacity: 0; transition: opacity 0.15s; max-width: 220px;
+    line-height: 1.5; z-index: 100;
+  }
+  .tooltip .tt-name { font-weight: bold; font-size: 13px; margin-bottom: 4px; color: #fff; }
+  .tooltip .tt-cat  { color: #aaa; font-style: italic; font-size: 11px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="label-bar"><span></span> Economics &nbsp;·&nbsp; Mariupol Port</div>
+  <h1>Connections around Mariupol Port, 2023–2025</h1>
+  <p class="subtitle">Commercial, administrative, and personal networks operating in and around the occupied port</p>
+  <div class="controls">
+    <span>Filter:</span>
+    <button class="filter-btn active" data-cat="all">All entities</button>
+    <button class="filter-btn" data-cat="port">Port &amp; shipping</button>
+    <button class="filter-btn" data-cat="trade">Trading</button>
+    <button class="filter-btn" data-cat="construction">Construction</button>
+    <button class="filter-btn" data-cat="person">Individuals</button>
+    <span class="hint">Click a node to highlight connections</span>
+  </div>
+</div>
+
+<svg id="network"></svg>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1E3A8A"></div>Port &amp; shipping</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#C2540A"></div>Trading / commercial</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#15803D"></div>Construction</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1E6E6E"></div>Individuals</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7C2D2D"></div>Individuals (federal)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#555"></div>Administrative</div>
+</div>
+
+<div class="footer">
+  <p class="annotation">
+    Node size indicates connectivity (number of documented links). ZAT PETROTRANS and Yulia Maksimova (Pakreeva) 
+    emerge as the primary hubs. The Sanagro–Pakreeva link suggests grain trade routing through the port network; 
+    the RosKapStroy cluster indicates post-capture reconstruction financing structures. Adriamediteran Ltd 
+    represents documented international commercial exposure. Network reconstructed from open-source corporate, 
+    sanctions, and administrative records.
+  </p>
+  <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · 2023–2025</p>
+</div>
+
+<div class="tooltip" id="tooltip">
+  <div class="tt-name"></div>
+  <div class="tt-cat"></div>
+</div>
+
+<script>
+const catColors = {
+  port:         '#1E3A8A',
+  trade:        '#C2540A',
+  construction: '#15803D',
+  person:       '#1E6E6E',
+  federal:      '#7C2D2D',
+  admin:        '#555555'
+};
+
+const catLabels = {
+  port:         'Port / shipping',
+  trade:        'Trading / commercial',
+  construction: 'Construction',
+  person:       'Individual',
+  federal:      'Individual (federal)',
+  admin:        'Administrative'
+};
+
+const nodes = [
+  { id: 'PETROTRANS',   label: 'ZAT PETROTRANS',           cat: 'port' },
+  { id: 'REKA',         label: 'UK Reka-More',              cat: 'port' },
+  { id: 'TERMINAL',     label: 'Udalenny Morskoy Terminal', cat: 'port' },
+  { id: 'ASTON',        label: 'ASTON SHIPTRADE CORP',      cat: 'port' },
+  { id: 'SANAGRO',      label: 'Sanagro',                   cat: 'trade' },
+  { id: 'KRECHET',      label: 'KRECHET LLC',               cat: 'trade' },
+  { id: 'NIKA',         label: 'OOO Nika Treyd Invest',     cat: 'trade' },
+  { id: 'ADRIA',        label: 'Adriamediteran Ltd',        cat: 'trade' },
+  { id: 'IMPEKS',       label: 'OOO IMPEKS-DON',            cat: 'trade' },
+  { id: 'IMPERIAL',     label: 'AT Imperial',               cat: 'trade' },
+  { id: 'SIBMARKET',    label: 'PKF SIBMARKET',             cat: 'trade' },
+  { id: 'ROSKAPSTROY',  label: 'FAU RosKapStroy',           cat: 'construction' },
+  { id: 'SIBIR',        label: 'AO Russkaya Sibir',         cat: 'construction' },
+  { id: 'NOVOROSS',     label: 'RosKapStroy Novorossiya',   cat: 'construction' },
+  { id: 'REGIONKAP',    label: 'TOV RegionKapStroy',        cat: 'construction' },
+  { id: 'DNR',          label: 'DNR (nationalisation)',     cat: 'admin' },
+  { id: 'ARUSTAMOV',    label: 'Gennady Arustamov',         cat: 'person' },
+  { id: 'BONDARENKO',   label: 'Yuriy Bondarenko',          cat: 'person' },
+  { id: 'KHARLAMOV',    label: 'Oleg Kharlamov',            cat: 'person' },
+  { id: 'URUSOV',       label: 'Timur Urusov',              cat: 'person' },
+  { id: 'MAKSIMOVA',    label: 'Yulia Maksimova (Pakreeva)',cat: 'person' },
+  { id: 'PAKREEV',      label: 'Volodymyr Pakreev',         cat: 'person' },
+  { id: 'MISHCHUK',     label: 'Mykola Mishchuk',           cat: 'person' },
+  { id: 'VORONKOV',     label: 'Voronkov A.V.',             cat: 'person' },
+  { id: 'MIKHAILOVA',   label: 'Elena Mikhailova',          cat: 'person' },
+  { id: 'KHUSNULLIN',   label: 'Marat Khusnullin',         cat: 'federal' }
+];
+
+const edges = [
+  { source: 'ARUSTAMOV',  target: 'PETROTRANS' },
+  { source: 'BONDARENKO', target: 'PETROTRANS' },
+  { source: 'KHARLAMOV',  target: 'SIBMARKET' },
+  { source: 'SIBMARKET',  target: 'PETROTRANS' },
+  { source: 'URUSOV',     target: 'ASTON' },
+  { source: 'ASTON',      target: 'KRECHET' },
+  { source: 'KRECHET',    target: 'MAKSIMOVA' },
+  { source: 'PETROTRANS', target: 'REKA' },
+  { source: 'PETROTRANS', target: 'TERMINAL' },
+  { source: 'PETROTRANS', target: 'SANAGRO' },
+  { source: 'VORONKOV',   target: 'NIKA' },
+  { source: 'NIKA',       target: 'ROSKAPSTROY' },
+  { source: 'ROSKAPSTROY',target: 'MIKHAILOVA' },
+  { source: 'MIKHAILOVA', target: 'SIBIR' },
+  { source: 'SIBIR',      target: 'NOVOROSS' },
+  { source: 'SANAGRO',    target: 'MAKSIMOVA' },
+  { source: 'MAKSIMOVA',  target: 'ADRIA' },
+  { source: 'MAKSIMOVA',  target: 'DNR' },
+  { source: 'MAKSIMOVA',  target: 'KHUSNULLIN' },
+  { source: 'MAKSIMOVA',  target: 'PAKREEV' },
+  { source: 'MAKSIMOVA',  target: 'MISHCHUK' },
+  { source: 'PAKREEV',    target: 'IMPERIAL' },
+  { source: 'IMPERIAL',   target: 'IMPEKS' },
+  { source: 'IMPERIAL',   target: 'REGIONKAP' }
+];
+
+const degreeMap = {};
+nodes.forEach(n => { degreeMap[n.id] = 0; });
+edges.forEach(e => {
+  degreeMap[e.source] = (degreeMap[e.source] || 0) + 1;
+  degreeMap[e.target] = (degreeMap[e.target] || 0) + 1;
+});
+
+const svg = d3.select('#network');
+const el  = document.getElementById('network');
+const W   = el.parentElement.offsetWidth || 940;
+const H   = 580;
+svg.attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`);
+
+const sim = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(edges).id(d => d.id).distance(90).strength(0.6))
+  .force('charge', d3.forceManyBody().strength(-280))
+  .force('center', d3.forceCenter(W / 2, H / 2))
+  .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 18));
+
+function nodeRadius(d) {
+  const deg = degreeMap[d.id] || 0;
+  return 7 + deg * 2.5;
+}
+
+const g = svg.append('g');
+
+svg.call(d3.zoom()
+  .scaleExtent([0.4, 2.5])
+  .on('zoom', e => g.attr('transform', e.transform))
+);
+
+const link = g.append('g')
+  .selectAll('line')
+  .data(edges)
+  .join('line')
+  .attr('stroke', '#c8c2b8')
+  .attr('stroke-width', 1.2)
+  .attr('stroke-opacity', 0.7)
+  .attr('marker-end', 'url(#arrowhead)');
+
+svg.append('defs').append('marker')
+  .attr('id', 'arrowhead')
+  .attr('viewBox', '0 0 8 8')
+  .attr('refX', 8).attr('refY', 4)
+  .attr('markerWidth', 5).attr('markerHeight', 5)
+  .attr('orient', 'auto')
+  .append('path')
+  .attr('d', 'M0,0 L8,4 L0,8 Z')
+  .attr('fill', '#b8b0a4');
+
+const node = g.append('g')
+  .selectAll('g')
+  .data(nodes)
+  .join('g')
+  .attr('cursor', 'pointer')
+  .call(d3.drag()
+    .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('end',   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+  );
+
+node.append('circle')
+  .attr('r', d => nodeRadius(d))
+  .attr('fill', d => catColors[d.cat])
+  .attr('fill-opacity', 0.85)
+  .attr('stroke', d => catColors[d.cat])
+  .attr('stroke-width', 1.5)
+  .attr('stroke-opacity', 0.4);
+
+node.append('text')
+  .text(d => d.label)
+  .attr('font-size', '10.5px')
+  .attr('font-family', 'Georgia')
+  .attr('fill', '#2a2a2a')
+  .attr('text-anchor', 'middle')
+  .attr('dy', d => nodeRadius(d) + 12)
+  .style('pointer-events', 'none')
+  .style('user-select', 'none');
+
+const tooltip = document.getElementById('tooltip');
+
+node.on('mouseenter', (event, d) => {
+  const connected = new Set(
+    edges
+      .filter(e => e.source.id === d.id || e.target.id === d.id)
+      .flatMap(e => [e.source.id, e.target.id])
+  );
+  link.attr('stroke-opacity', e =>
+    (e.source.id === d.id || e.target.id === d.id) ? 1 : 0.1
+  ).attr('stroke', e =>
+    (e.source.id === d.id || e.target.id === d.id) ? '#555' : '#c8c2b8'
+  );
+  node.select('circle').attr('fill-opacity', n =>
+    connected.has(n.id) || n.id === d.id ? 1 : 0.2
+  );
+
+  tooltip.querySelector('.tt-name').textContent = d.label;
+  tooltip.querySelector('.tt-cat').textContent  = catLabels[d.cat];
+  tooltip.style.opacity = '1';
+})
+.on('mousemove', event => {
+  const rect = document.getElementById('network').getBoundingClientRect();
+  let x = event.clientX - rect.left + 14;
+  let y = event.clientY - rect.top  - 10;
+  if (x + 230 > rect.width)  x = event.clientX - rect.left - 230;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top  = y + 'px';
+})
+.on('mouseleave', () => {
+  link.attr('stroke-opacity', 0.7).attr('stroke', '#c8c2b8');
+  node.select('circle').attr('fill-opacity', 0.85);
+  tooltip.style.opacity = '0';
+});
+
+node.on('click', (event, d) => {
+  const connected = new Set(
+    edges
+      .filter(e => e.source.id === d.id || e.target.id === d.id)
+      .flatMap(e => [e.source.id, e.target.id])
+  );
+  link.attr('stroke', e =>
+    (e.source.id === d.id || e.target.id === d.id) ? catColors[d.cat] : '#c8c2b8'
+  ).attr('stroke-opacity', e =>
+    (e.source.id === d.id || e.target.id === d.id) ? 1 : 0.2
+  ).attr('stroke-width', e =>
+    (e.source.id === d.id || e.target.id === d.id) ? 2 : 1.2
+  );
+  node.select('circle')
+    .attr('fill-opacity', n => connected.has(n.id) || n.id === d.id ? 1 : 0.15)
+    .attr('stroke-width', n => n.id === d.id ? 3 : 1.5);
+  event.stopPropagation();
+});
+
+svg.on('click', () => {
+  link.attr('stroke', '#c8c2b8').attr('stroke-opacity', 0.7).attr('stroke-width', 1.2);
+  node.select('circle').attr('fill-opacity', 0.85).attr('stroke-width', 1.5);
+});
+
+sim.on('tick', () => {
+  link
+    .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+    .attr('x2', d => {
+      const dx = d.target.x - d.source.x;
+      const dy = d.target.y - d.source.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      return d.target.x - (dx / dist) * (nodeRadius(d.target) + 8);
+    })
+    .attr('y2', d => {
+      const dx = d.target.x - d.source.x;
+      const dy = d.target.y - d.source.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      return d.target.y - (dy / dist) * (nodeRadius(d.target) + 8);
+    });
+  node.attr('transform', d => `translate(${d.x},${d.y})`);
+});
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const cat = this.dataset.cat;
+    if (cat === 'all') {
+      node.style('display', 'inline');
+      link.style('display', 'inline');
+    } else {
+      const visibleIds = new Set(nodes.filter(n => n.cat === cat).map(n => n.id));
+      const visibleEdgeIds = new Set(
+        edges
+          .filter(e => visibleIds.has(e.source.id) || visibleIds.has(e.target.id))
+          .flatMap(e => [e.source.id, e.target.id])
+      );
+      node.style('display', d => visibleEdgeIds.has(d.id) ? 'inline' : 'none');
+      link.style('display', e =>
+        visibleIds.has(e.source.id) || visibleIds.has(e.target.id) ? 'inline' : 'none'
+      );
+    }
+  });
+});
+</script>
+</body>
+</html>
