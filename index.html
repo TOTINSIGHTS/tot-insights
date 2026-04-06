@@ -6,6 +6,8 @@
 <title>TOT Insights — Research, data, and primary sources on Russian-occupied Ukraine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -39,7 +41,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .featured-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#617080;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:#D4DCE6;}
-.featured-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 @media(max-width:900px){.featured-grid{grid-template-columns:1fr;}}
 .featured-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:22px;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .featured-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.09);transform:translateY(-2px);}
@@ -53,7 +55,10 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
 .card-format-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:#FAFBF2;color:#617080;border:1px solid #D4DCE6;}
 .card-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
-.browse{padding:36px 40px 60px;}
+.browse{padding:64px 40px 60px;border-top:1px solid #D4DCE6;}
+.browse-show-more-wrap{margin-top:20px;text-align:center;}
+.browse-show-more{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#617080;background:none;border:1px solid #D4DCE6;border-radius:2px;padding:9px 24px;cursor:pointer;transition:border-color 0.12s,color 0.12s;}
+.browse-show-more:hover{border-color:#1C567A;color:#1C567A;}
 .browse-inner{max-width:1200px;margin:0 auto;}
 .filter-block{margin-bottom:20px;}
 .filter-row-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#617080;margin-bottom:8px;}
@@ -93,12 +98,12 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .partners-inner{max-width:1200px;margin:0 auto;}
 .partners-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#617080;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .partners-label::after{content:'';flex:1;height:1px;background:#D4DCE6;}
-.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-@media(max-width:800px){.partners-grid{grid-template-columns:repeat(2,1fr);}}
-.partner-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:14px 16px;}
-.partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#C9961A;margin-bottom:5px;}
-.partner-name{font-family:var(--font-sans);font-size:12px;font-weight:600;color:#0D2B4E;line-height:1.35;}
-.partner-role{font-size:11px;color:#617080;margin-top:4px;line-height:1.5;}
+.partners-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.partner-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:10px 14px;flex:1;min-width:180px;position:relative;cursor:default;}
+.partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#C9961A;margin-bottom:3px;}
+.partner-name{font-family:var(--font-sans);font-size:12px;font-weight:600;color:#0D2B4E;line-height:1.3;}
+.partner-role{display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:10px 12px;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,0.1);font-size:11px;color:#617080;line-height:1.55;white-space:normal;min-width:220px;}
+.partner-card:hover .partner-role{display:block;}
 .about-section{background:#fff;border-top:1px solid #D4DCE6;padding:36px 40px 48px;}
 .about-inner{max-width:1200px;margin:0 auto;}
 .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:8px;}
@@ -137,6 +142,15 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .media-link:hover .media-link-arrow{transform:translateX(3px);}
 .media-no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:#617080;font-size:13px;}
 .media-no-results.visible{display:block;}
+.map-section{background:#0D2B4E;padding:36px 40px 32px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.map-section-inner{max-width:1200px;margin:0 auto;}
+.map-svg-wrap{position:relative;width:100%;max-width:860px;margin:0 auto;}
+.map-svg-wrap svg{display:block;width:100%;height:auto;}
+.map-legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:14px;justify-content:center;}
+.map-legend-item{display:flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.map-legend-swatch{width:14px;height:14px;border-radius:2px;flex-shrink:0;}
+.map-legend-line{width:20px;height:2px;flex-shrink:0;border-top:2px dashed #C0392B;}
+.map-caption{text-align:center;margin-top:12px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:rgba(255,255,255,0.22);}
 .site-footer{background:#0D2B4E;border-top:2px solid #C9961A;padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -155,6 +169,8 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .modal-tags{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
 .modal-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;border-radius:2px;}
 .modal-section-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#617080;margin-bottom:6px;margin-top:16px;}
+#modal-locator-map{width:100%;height:160px;border-radius:3px;border:1px solid #D4DCE6;margin-bottom:4px;overflow:hidden;background:#E8EBF0;}
+.modal-region-label{font-family:var(--font-mono);font-size:9px;color:#617080;letter-spacing:0.08em;margin-bottom:14px;}
 .modal-descriptor{font-size:13px;font-style:italic;color:#1C567A;line-height:1.65;border-left:3px solid #F0E0A8;padding-left:14px;}
 .modal-summary{font-size:13px;line-height:1.75;color:#1A1A1A;}
 .modal-file{font-family:var(--font-mono);font-size:11px;color:#617080;background:#FAFBF2;padding:8px 12px;border-radius:2px;border:1px solid #D4DCE6;}
@@ -200,13 +216,93 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
     <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
     <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
-    <div class="hero-stats">
-      <div><div class="hero-stat-val">43</div><div class="hero-stat-lbl">Documents</div></div>
-      <div><div class="hero-stat-val">5</div><div class="hero-stat-lbl">Themes</div></div>
-      <div><div class="hero-stat-val">7</div><div class="hero-stat-lbl">Formats</div></div>
-      <div><div class="hero-stat-val">30</div><div class="hero-stat-lbl">Primary Sources</div></div>
-      <div><div class="hero-stat-val">Apr 2026</div><div class="hero-stat-lbl">Last updated</div></div>
+  </div>
+</section>
+
+<section class="map-section">
+  <div class="map-section-inner">
+    <div class="map-svg-wrap">
+      <!--
+        Coordinate mapping (approximate):
+        x = (lng - 22) / (40 - 22) * 860  →  lng 22°E = x 0, lng 40°E = x 860
+        y = (52 - lat) / (52 - 44) * 480  →  lat 52°N = y 0, lat 44°N = y 480
+        Paths are simplified but geographically coherent.
+      -->
+      <svg viewBox="0 0 860 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of Ukraine showing Russian-occupied territories">
+
+        <!-- Ukraine full outline -->
+        <path id="ukraine-outline" fill="#E8EBF0" stroke="#C4CDD8" stroke-width="1.2"
+          d="M 118,52 L 132,44 L 148,38 L 168,30 L 190,22 L 210,18 L 228,14 L 250,12 L 270,14 L 290,10 L 312,8 L 332,10 L 352,6 L 372,10 L 392,8 L 412,12 L 430,10 L 452,14 L 472,18 L 490,22 L 508,20 L 524,26 L 540,30 L 552,28 L 568,32 L 582,36 L 598,32 L 612,36 L 626,40 L 640,38 L 654,44 L 668,42 L 682,48 L 694,52 L 706,58 L 716,66 L 724,76 L 730,88 L 738,98 L 742,110 L 744,122 L 740,134 L 736,146 L 734,158 L 736,168 L 738,180 L 734,192 L 728,202 L 720,210 L 712,218 L 704,224 L 698,232 L 692,240 L 688,250 L 684,260 L 680,270 L 676,278 L 668,284 L 658,288 L 648,290 L 636,294 L 624,296 L 612,294 L 600,290 L 588,286 L 576,284 L 564,282 L 552,286 L 540,292 L 528,298 L 518,306 L 510,318 L 506,330 L 508,342 L 514,352 L 522,360 L 524,372 L 518,382 L 508,390 L 494,396 L 478,400 L 462,402 L 446,400 L 430,394 L 416,386 L 408,376 L 406,364 L 404,354 L 398,344 L 388,336 L 376,332 L 364,334 L 352,338 L 340,344 L 330,352 L 320,362 L 310,372 L 300,382 L 288,390 L 276,396 L 264,402 L 250,406 L 236,410 L 222,412 L 208,408 L 196,402 L 186,394 L 178,384 L 174,372 L 172,360 L 170,348 L 164,338 L 154,330 L 142,326 L 130,326 L 118,328 L 106,330 L 94,326 L 84,318 L 76,308 L 72,296 L 70,282 L 68,268 L 64,254 L 58,240 L 52,226 L 48,212 L 46,198 L 48,184 L 52,170 L 58,158 L 66,146 L 72,136 L 78,124 L 84,112 L 90,100 L 98,88 L 106,78 L 112,66 Z" />
+
+        <!-- Luhansk oblast (occupied) -->
+        <path id="luhansk" fill="#C9A84C" fill-opacity="0.8" stroke="#a07a20" stroke-width="0.8"
+          d="M 634,96 L 654,90 L 672,86 L 688,84 L 702,82 L 716,84 L 728,90 L 738,98 L 742,110 L 744,122 L 740,134 L 736,146 L 730,154 L 722,160 L 712,164 L 700,166 L 688,164 L 676,160 L 664,154 L 652,148 L 642,140 L 634,130 L 628,120 L 626,110 L 628,100 Z" />
+
+        <!-- Donetsk oblast (partially occupied — occupied eastern portion) -->
+        <path id="donetsk" fill="#C9A84C" fill-opacity="0.8" stroke="#a07a20" stroke-width="0.8"
+          d="M 604,166 L 622,160 L 638,154 L 652,148 L 664,154 L 676,160 L 688,164 L 700,166 L 712,164 L 722,160 L 730,154 L 736,146 L 736,158 L 734,170 L 730,180 L 724,190 L 716,198 L 706,206 L 696,212 L 684,218 L 672,222 L 660,224 L 648,224 L 636,220 L 624,214 L 614,206 L 606,196 L 600,186 L 600,176 Z" />
+
+        <!-- Zaporizhzhia oblast (partially occupied — occupied southern portion) -->
+        <path id="zaporizhzhia" fill="#C9A84C" fill-opacity="0.8" stroke="#a07a20" stroke-width="0.8"
+          d="M 510,222 L 526,218 L 542,216 L 558,216 L 574,218 L 588,220 L 602,222 L 614,228 L 622,236 L 626,246 L 624,258 L 618,268 L 608,276 L 596,282 L 582,286 L 568,286 L 554,284 L 540,282 L 526,282 L 514,284 L 504,280 L 496,272 L 492,260 L 492,248 L 496,236 L 504,228 Z" />
+
+        <!-- Kherson oblast (occupied) -->
+        <path id="kherson" fill="#C9A84C" fill-opacity="0.8" stroke="#a07a20" stroke-width="0.8"
+          d="M 420,282 L 440,278 L 458,276 L 476,276 L 492,278 L 504,282 L 514,288 L 518,298 L 516,310 L 510,320 L 500,328 L 488,334 L 474,338 L 460,338 L 446,336 L 434,330 L 424,322 L 416,312 L 412,300 L 414,290 Z" />
+
+        <!-- Crimea (occupied since 2014) -->
+        <path id="crimea" fill="#C9A84C" fill-opacity="0.8" stroke="#a07a20" stroke-width="0.8"
+          d="M 430,352 L 448,346 L 466,342 L 484,340 L 502,340 L 518,344 L 530,352 L 536,362 L 534,374 L 526,384 L 514,392 L 500,398 L 484,400 L 468,400 L 452,396 L 440,388 L 432,378 L 428,366 Z" />
+
+        <!-- Frontline (approximate, early 2026 — runs roughly from Kharkiv south through Zaporizhzhia) -->
+        <polyline id="frontline" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="6,5" stroke-opacity="0.85"
+          points="
+            638,72
+            628,86
+            618,100
+            608,116
+            600,132
+            596,148
+            594,162
+            594,176
+            598,188
+            604,200
+            610,212
+            614,222
+            612,234
+            606,244
+            598,252
+            588,258
+            576,264
+            562,268
+            548,270
+            534,270
+            520,272
+            510,278
+            504,286
+            500,296
+            498,308
+            498,320
+            502,332
+            510,340
+            520,346
+            530,352
+          " />
+
+        <!-- Territory labels -->
+        <text x="694" y="128" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="600">LUHANSK</text>
+        <text x="668" y="196" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="600">DONETSK</text>
+        <text x="565" y="256" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="600">ZAPORIZHZHIA</text>
+        <text x="466" y="314" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="600">KHERSON</text>
+        <text x="482" y="374" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" font-weight="600">CRIMEA</text>
+
+      </svg>
     </div>
+    <div class="map-legend">
+      <div class="map-legend-item"><div class="map-legend-swatch" style="background:#C9A84C;opacity:0.8;"></div>Russian-occupied territory</div>
+      <div class="map-legend-item"><div class="map-legend-line"></div>Frontline (approximate)</div>
+    </div>
+    <div class="map-caption">Territory status as of early 2026. Frontline approximate.</div>
   </div>
 </section>
 
@@ -267,6 +363,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <div class="results-count"><span id="count-num">25</span> documents</div>
     <div class="doc-grid" id="doc-grid">
       <div class="no-results" id="no-results">No documents match the selected filters.</div>
+    </div>
+    <div class="browse-show-more-wrap" id="browse-show-more-wrap" style="display:none;">
+      <button class="browse-show-more" id="browse-show-more-btn" onclick="expandBrowse()"></button>
     </div>
   </div>
 </section>
@@ -358,6 +457,8 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     </div>
     <div class="modal-body">
       <div class="modal-tags" id="modal-tags"></div>
+      <div id="modal-locator-map"></div>
+      <div class="modal-region-label" id="modal-region-label"></div>
       <div class="modal-section-label">Platform descriptor</div>
       <div class="modal-descriptor" id="modal-descriptor"></div>
       <div class="modal-section-label">Summary</div>
@@ -434,12 +535,14 @@ const DOCS = [
   {id:"DOC-091",theme:"Economics",format:"Visual",title:"Budget Dynamics of Occupied Mariupol, 2024–Q1 2025",desc:"Multi-series line chart of total income, own-source income, expenditure, and federal transfers across five cumulative reporting periods (Q1 2024–Q1 2025). Own-source income covers ~29% of total budget; 71% derives from Russian federal transfers.",descriptor:"Own-source revenue at 29%, federal transfers at 71% — the fiscal dependency that makes Mariupol's administrative autonomy functionally impossible.",summary:"TOT Insights visual tracking total income, own-source income, expenditure, and federal transfers in occupied Mariupol across five cumulative reporting periods (Q1 2024 through Q1 2025), values in million roubles. Periods are cumulative within the 2024 financial year; Q1 2025 resets to a new annual cycle. Own-source income accounts for approximately 29% of total budget income in full-year 2024; the remaining 71% derives from Russian federal transfers. This structural dependency locks Mariupol's administration into the Russian budgetary system and makes genuine fiscal autonomy functionally impossible. Derived from occupation administration budget reports (primary source). Note: values read from source chart and are approximate (±20–50m RUB); verify against underlying budget documents before citing. April 2025.",file:"TOT Insights Visual, April 2025",gdocs:"",dashboardFile:"dashboards/mariupol_budget_dynamics.html"},
   {id:"DOC-092",theme:"Economics",format:"Visual",title:"Corporate and Personal Connections Around Mariupol Port, 2023–2025",desc:"Interactive D3 force-directed network map of 26 entities operating in or around Mariupol Port with 24 documented links. ZAT PETROTRANS and Yulia Maksimova (Pakreeva) emerge as primary hubs. Filterable by category.",descriptor:"26 entities, 24 links, one port — the corporate and personal network through which Russia has integrated Mariupol's port into its sanctions-adjacent economy.",summary:"TOT Insights interactive network visualisation mapping 26 entities (companies, individuals, administrative bodies) operating in or around Mariupol Port, with 24 documented links. Nodes categorised as: port/shipping, trading/commercial, construction, individuals, federal officials, administrative. ZAT PETROTRANS and Yulia Maksimova (Pakreeva) emerge as primary network hubs. The Sanagro–Pakreeva link suggests grain trade routing through the port structure. The RosKapStroy cluster (FAU RosKapStroy → AO Russkaya Sibir → RosKapStroy Novorossiya) indicates post-capture reconstruction financing tied to RF federal construction bodies. Adriamediteran Ltd represents documented international commercial exposure in the network. Derived analysis from open-source corporate, sanctions, and administrative records, April 2025. Note: edge list reconstructed from source image; verify against primary corporate records before citing specific links.",file:"TOT Insights Visual, April 2025",gdocs:"",dashboardFile:"dashboards/mariupol_port_network.html"},
   {id:"DOC-093",theme:"Social Conditions",format:"Visual",title:"Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026",desc:"Interactive Leaflet map of 387 verified resistance incidents: 246 in occupied Ukrainian territories (Zaporizhzhia, Kherson, Crimea, Donetsk, Luhansk oblasts) and 141 in Russian Federation territory. Filterable by territory, incident type, and reporting period.",descriptor:"387 incidents, two theatres, 15 months — an interactive geographic view of resistance operations across occupied Ukraine and the Russian Federation.",summary:"TOT Insights interactive map visualising 387 verified resistance and sabotage incidents from December 2024 to February 2026. Incidents are split between occupied Ukrainian territories (246 incidents across Zaporizhzhia, Kherson, Crimea, Donetsk, and Luhansk oblasts) and operations in Russian Federation territory (141 incidents, primarily Bryansk, Kursk, and Belgorod regions). Circle markers are scaled proportionally to incident counts. Filters allow isolation by territory (occupied territories / RF), incident type (vehicle attacks, railway/transport, critical infrastructure, targeted killings, armed raids, intelligence operations, and sabotage), and 14-day reporting period. Shares the same verified dataset as the Resistance Monitoring Analytics dashboard (DOC-076). Note: per-period and per-type oblast breakdowns are not available in the source data; geographic estimates for filtered views use overall proportional allocation.",file:"TOT Insights Visual, April 2025",gdocs:"",dashboardFile:"dashboards/resistance_map.html"},
+  {id:"DOC-094",theme:"Economics",format:"Visual",title:"Market Prices, Occupied DPR Territory — April 2026, First Decade",desc:"Fieldwork-collected supermarket price survey from occupied DPR territory, 6 April 2026: 150+ items across six categories (produce, staples, cereals, dairy, canned goods, condiments), denominated in Russian roubles. Includes a district heating invoice from Donbassteploenergo.",descriptor:"Shelf prices and a heating bill — fieldwork data from a supermarket in occupied DPR territory, April 2026, capturing what occupation-economy prices look like at the point of sale.",summary:"Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026 (first decade of April). 150+ goods across six categories: fresh produce and eggs; staples (flour, bread, sugar, salt); cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents provided at rates current at time of collection. Sale prices (акция) reflect loyalty-card or promotional discounts where indicated. Also includes a district heating invoice from GUP DNR Donbassteploenergo, providing a primary source data point on utility billing in Russian-occupied Donetsk. First instalment of a quarterly price-monitoring series, to be updated where fieldwork permits.",file:"Fieldwork data, 6 April 2026",gdocs:"",dashboardFile:"dashboards/prices_april_2026.html"},
   {id:"DOC-088",theme:"Propaganda",format:"Journal Article",title:"Russian Propaganda Tactics in Ukraine's Newly Occupied Territories",desc:"Evolution of Russian propaganda in occupied Ukraine after 2022: from Crimea-style information control to a two-tier messaging system for Russian and occupied Ukrainian audiences, relying on fear-based narratives.",descriptor:"How Russian propaganda adapted to newly occupied Ukrainian territory — from Crimea templates to fear-based dual-audience messaging, and what counter-strategies are available.",summary:"Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russian propaganda tactics in Ukrainian territories occupied after 2022. Argues that Russia moved from the Crimea-style information control model to a two-tier messaging system targeting Russian and occupied Ukrainian audiences differently, with a heavier reliance on fear-based narratives and threat construction. Includes analysis of potential counter-strategies. Published May 2024.",file:"Russian Analytical Digest 313, 21 May 2024",gdocs:"https://www.ssoar.info/ssoar/bitstream/handle/document/101373/ssoar-russanald-2024-313-mcglynn-Russian_Propaganda_Tactics_in_Ukraines.pdf?sequence=1"},
   {id:"DOC-G2",theme:"Social Conditions",format:"Primary Sources",title:"Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)",desc:"Four infographic-format reports on civilian appeals to the occupation city administration — 9,031 appeals (Jan–Jul 2023) falling to 4,524 (Jan–Jun 2024). Housing dominates at 66% in early 2023, drops to 7% by late 2023: a reclassification shift, not resolved demand.",descriptor:"Primary sources from the occupation administration — quarterly civilian appeals data revealing housing reclassification, bureaucratic dependency, and the shift from emergency reconstruction to normalised occupation governance.",summary:"Four official reports from the Mariupol occupation city administration (AG) and city district administration (AGO) covering citizen appeals from January 2023 through June 2024. Total appeals decline from 9,031 (Jan–Jul 2023) to 4,524 (Jan–Jun 2024). Housing dominates at 66% in the post-siege period, drops to 7% by Aug–Dec 2023 — a reporting reclassification rather than resolved demand, as housing claims are absorbed into the expanded social entitlements category. The Jan–Jun 2024 AG report explicitly names commission disputes (несогласие с решением комиссии) as a sub-category, making it the most analytically significant document in the series for understanding civilian navigation of and resistance to occupation administrative structures. The coexistence of parallel AG and AGO reports for H1 2024 reflects the layered administrative architecture Russia has imposed on occupied Mariupol.",file:"otchyot.zip",gdocs:"",dashboardFile:"dashboards/otchyet_mariupol.html"}
 ];
 
 const THEME_CLASS={"Economics":"t-econ","Social Conditions":"t-soc","Governance":"t-gov","Education":"t-edu","Propaganda":"t-prop"};
-let activeTheme="all",activeFormat="all";
+const BROWSE_DEFAULT=6;
+let activeTheme="all",activeFormat="all",browseExpanded=false;
 
 function renderCards(){
   const grid=document.getElementById('doc-grid');
@@ -447,20 +550,32 @@ function renderCards(){
   const filtered=DOCS.filter(d=>(activeTheme==="all"||d.theme===activeTheme)&&(activeFormat==="all"||d.format===activeFormat));
   document.getElementById('count-num').textContent=filtered.length;
   document.getElementById('no-results').classList.toggle('visible',filtered.length===0);
-  filtered.forEach(doc=>{
+  const visible=browseExpanded?filtered:filtered.slice(0,BROWSE_DEFAULT);
+  visible.forEach(doc=>{
     const card=document.createElement('div');
     card.className='doc-card';
     card.onclick=()=>openModal(doc.id);
     card.innerHTML=`<div class="doc-card-top"><span class="doc-theme-pill ${THEME_CLASS[doc.theme]}">${doc.theme}</span><span class="doc-id">${doc.id}</span></div><div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">→</span></div>`;
     grid.insertBefore(card,document.getElementById('no-results'));
   });
+  const wrap=document.getElementById('browse-show-more-wrap');
+  const btn=document.getElementById('browse-show-more-btn');
+  if(!browseExpanded&&filtered.length>BROWSE_DEFAULT){
+    wrap.style.display='block';
+    btn.textContent=`Show all ${filtered.length} documents →`;
+  } else {
+    wrap.style.display='none';
+  }
 }
+
+function expandBrowse(){browseExpanded=true;renderCards();}
 
 document.querySelectorAll('[data-filter]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const type=btn.dataset.filter,val=btn.dataset.value;
     if(type==='theme'){activeTheme=val;document.querySelectorAll('[data-filter="theme"]').forEach(b=>b.classList.remove('active'));}
     else{activeFormat=val;document.querySelectorAll('[data-filter="format"]').forEach(b=>b.classList.remove('active'));}
+    browseExpanded=false;
     btn.classList.add('active');renderCards();
   });
 });
@@ -510,6 +625,7 @@ function openModal(id){
   document.getElementById('modal-actions').innerHTML=actionsHtml;
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
+  setTimeout(()=>buildLocatorMap(REGIONS[doc.id]),50);
 }
 
 function openViewer(url,title){
@@ -609,8 +725,85 @@ document.querySelectorAll('[data-mfilter]').forEach(btn=>{
   });
 });
 renderMedia();
-
 renderCards();
+
+// ── LOCATOR MAP ───────────────────────────────────────────────────────────────
+const REGIONS = {
+  "DOC-A1":"Donetsk","DOC-A2":"Donetsk","DOC-A3":"Zaporizhzhia",
+  "DOC-A4":"Zaporizhzhia","DOC-A5":"Zaporizhzhia","DOC-A6":"Donetsk",
+  "DOC-A7":"Donetsk","DOC-A8":"Zaporizhzhia","DOC-B1":"Multiple",
+  "DOC-B2":"All OT","DOC-B3":"All OT","DOC-B4":"All OT",
+  "DOC-B5":"Donetsk","DOC-B6":"Donetsk","DOC-B7":"All OT",
+  "DOC-C2":"All OT","DOC-C3":"All OT","DOC-C4":"Donetsk",
+  "DOC-C5":"All OT","DOC-C6":"Donetsk","DOC-C7":"All OT",
+  "DOC-D2":"All OT","DOC-D3":"Donetsk","DOC-D4":"All OT",
+  "DOC-E1":"Luhansk","DOC-E2":"All OT","DOC-F1":"All OT",
+  "DOC-F2":"All OT","DOC-F3":"Multiple","DOC-H1":"All OT",
+  "DOC-H2":"All OT","DOC-G1":"Donetsk","DOC-G2":"Donetsk",
+  "DOC-083":"All OT","DOC-084":"All OT","DOC-085":"All OT",
+  "DOC-087":"All OT","DOC-088":"All OT","DOC-089":"Zaporizhzhia",
+  "DOC-090":"Donetsk","DOC-091":"Donetsk","DOC-092":"Donetsk",
+  "DOC-093":"Multiple",
+  "DOC-094":"Donetsk"
+};
+
+const LOC_UKRAINE = [
+  [52.3,22.5],[52.2,24.5],[51.7,26.5],[51.9,29.0],[51.3,31.5],[51.5,33.5],
+  [51.2,34.5],[50.5,34.5],[50.0,35.5],[49.5,36.5],[49.0,38.0],[48.5,39.5],
+  [47.5,40.0],[47.0,39.5],[46.5,40.0],[46.2,39.0],[46.0,37.5],[46.0,36.0],
+  [45.5,35.0],[45.0,34.5],[45.5,33.5],[46.0,32.5],[45.5,31.5],[45.5,30.0],
+  [46.0,29.5],[45.5,28.5],[45.5,27.0],[46.0,25.5],[47.0,24.0],[48.5,22.5],
+  [50.0,22.0],[51.0,22.0],[51.5,22.5],[52.0,22.5]
+];
+
+const LOC_OBLASTS = {
+  "Donetsk":    [[49.5,37.5],[49.5,39.5],[48.0,40.0],[47.0,39.0],[47.0,37.0],[48.0,36.5]],
+  "Luhansk":    [[50.0,38.0],[50.0,40.2],[48.5,40.2],[48.5,39.0],[49.0,37.5]],
+  "Zaporizhzhia":[[48.5,33.5],[48.5,36.5],[47.0,37.0],[46.0,36.0],[46.0,34.0],[46.5,33.0],[47.5,33.0]],
+  "Kherson":    [[47.5,33.0],[47.5,35.0],[46.0,35.0],[45.5,34.5],[45.5,32.5],[46.0,32.0]],
+  "Crimea":     [[45.5,32.5],[46.0,34.0],[45.5,35.5],[44.5,35.5],[44.0,34.0],[44.3,33.0],[44.8,32.5]]
+};
+
+const REGION_LABELS = {
+  "Donetsk":"Donetsk oblast","Luhansk":"Luhansk oblast",
+  "Zaporizhzhia":"Zaporizhzhia oblast","Kherson":"Kherson oblast",
+  "Crimea":"Crimea","Multiple":"Multiple occupied territories",
+  "All OT":"All occupied territories"
+};
+
+let _locatorMap = null;
+
+function buildLocatorMap(region) {
+  const el = document.getElementById('modal-locator-map');
+  const lbl = document.getElementById('modal-region-label');
+  if (!el || typeof L === 'undefined') return;
+  if (_locatorMap) { try{_locatorMap.remove();}catch(e){} _locatorMap=null; }
+  el.innerHTML = '';
+
+  const map = L.map(el, {
+    zoomControl:false, scrollWheelZoom:false, dragging:false,
+    touchZoom:false, doubleClickZoom:false, boxZoom:false,
+    keyboard:false, attributionControl:false
+  });
+  _locatorMap = map;
+
+  // Ukraine background
+  L.polygon(LOC_UKRAINE, {fillColor:'#E8EBF0',fillOpacity:1,color:'#B0BAC8',weight:1}).addTo(map);
+
+  // Highlighted regions
+  const toHighlight = (!region || region==='All OT' || region==='Multiple')
+    ? Object.keys(LOC_OBLASTS)
+    : (LOC_OBLASTS[region] ? [region] : Object.keys(LOC_OBLASTS));
+
+  toHighlight.forEach(r => {
+    L.polygon(LOC_OBLASTS[r], {fillColor:'#C9A84C',fillOpacity:0.8,color:'#a07a20',weight:1}).addTo(map);
+  });
+
+  const bounds = L.latLngBounds(LOC_UKRAINE);
+  map.fitBounds(bounds, {padding:[6,6]});
+
+  if (lbl) lbl.textContent = 'Region: ' + (REGION_LABELS[region] || 'All occupied territories');
+}
 </script>
 </body>
 </html>
