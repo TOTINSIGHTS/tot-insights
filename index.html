@@ -35,12 +35,14 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C9961A;opacity:0.8;margin-bottom:14px;}
 .hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;max-width:580px;margin-bottom:14px;}
 .hero-desc{font-size:13px;color:rgba(255,255,255,0.48);max-width:500px;line-height:1.78;margin-bottom:32px;}
-.hero-layout{display:flex;align-items:center;justify-content:space-between;gap:48px;}
-.hero-left{flex:1;}
-.hero-right{display:flex;flex-direction:column;gap:32px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);padding-left:48px;}
-.hero-stat-val{font-family:var(--font-serif);font-size:28px;font-weight:700;color:#fff;line-height:1;margin-bottom:5px;}
-.hero-stat-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.32);}
-@media(max-width:800px){.hero-layout{flex-direction:column;gap:28px;}.hero-right{flex-direction:row;gap:28px;padding-left:0;border-left:none;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;flex-wrap:wrap;}}
+.hero-layout{display:flex;align-items:center;justify-content:space-between;gap:56px;}
+.hero-left{flex:1;min-width:0;}
+.hero-right{flex-shrink:0;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,0.08);padding-left:56px;}
+.hero-logo-stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;}
+.hero-logo-item{display:block;}
+.hero-logo-item img{display:block;width:148px;height:auto;opacity:0.88;}
+.hero-logo-boxed img{padding:6px 10px;background:rgba(0,0,0,0.22);border-radius:3px;}
+@media(max-width:900px){.hero-layout{flex-direction:column;gap:32px;}.hero-right{border-left:none;border-top:1px solid rgba(255,255,255,0.08);padding-left:0;padding-top:28px;align-self:flex-start;}.hero-logo-stack{flex-direction:row;flex-wrap:wrap;gap:18px;align-items:center;}}
 .featured{background:#FAFBF2;border-bottom:1px solid #D4DCE6;padding:36px 40px 40px;}
 .featured-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#617080;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
@@ -216,9 +218,26 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
-    <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-    <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
+        <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+        <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-logo-stack">
+          <div class="hero-logo-item">
+            <img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security">
+          </div>
+          <div class="hero-logo-item hero-logo-boxed">
+            <img src="assets/logos/kcl-logo.svg" alt="King's College London">
+          </div>
+          <div class="hero-logo-item hero-logo-boxed">
+            <img src="assets/logos/slavery-in-war-logo.jpg" alt="Leverhulme Centre for Research on Slavery in War">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
