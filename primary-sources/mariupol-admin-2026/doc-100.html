@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,55 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Complete auction documentation package for the electronic tender of two Mariupol municipal properties. Conducted via the Russian federal RTS-Tender platform under FAS Order No. 147/23. Application window 15 April–5 May 2026; auction date 7 May 2026. Documentation references Russian Civil Code, Russian federal competition law, and DNR municipal regulations. Demonstrates full procedural integration into Russian federal procurement infrastructure.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.766.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.766.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.766.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.766.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>Please note this is a summary rather than full translation</p>
+<p>Decree No. 766, 14 April 2026 — Approval of Auction Documentation</p>
+<h2>DECREES:</h2>
+<p>To approve the auction documentation for the electronic auction for the right to conclude a lease agreement for immovable property owned by the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic (attached).</p>
+<p>To designate as the electronic platform for conducting electronic tenders for the right to conclude lease agreements, gratuitous use agreements, trust management agreements, and other agreements involving the transfer of rights in respect of municipal treasury property of the City District of Mariupol — LIMITED LIABILITY COMPANY "RTS-TENDER."</p>
+<p>The Documentation Support and Control Department shall place this Decree on the official website (https://mariupol.gosuslugi.ru).</p>
+<p>This Decree shall enter into force on the date of its signing.</p>
+<p>Supervision assigned to Deputy Head Yaremchuk I.I.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+<p>Key auction parameters from attached documentation:</p>
+<table>
+<thead><tr><th>Parameter</th><th>Lot 1 (Lenin Prospekt 153)</th><th>Lot 2 (Metallurgov Prospekt 235)</th></tr></thead>
+<tbody>
+<tr><td>Starting price</td><td>1,053,650.40 rubles/year</td><td>1,887,209.94 rubles/year</td></tr>
+<tr><td>Deposit</td><td>210,730.08 rubles</td><td>377,441.99 rubles</td></tr>
+<tr><td>Application period</td><td colspan="2">15 April – 5 May 2026</td></tr>
+<tr><td>Auction date</td><td colspan="2">7 May 2026</td></tr>
+<tr><td>Platform</td><td colspan="2">RTS-Tender (https://www.rts-tender.ru)</td></tr>
+<tr><td>Lease term</td><td colspan="2">5 years</td></tr>
+<tr><td>Subletting permitted</td><td colspan="2">Yes</td></tr>
+<tr><td>Legal basis</td><td colspan="2">FAS Order No. 147/23 of 21.03.2023</td></tr>
+</tbody></table>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +174,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>

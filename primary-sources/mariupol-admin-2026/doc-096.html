@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,63 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Decree authorising the electronic auction of two non-residential municipal properties in Mariupol — Lenin Prospekt 153 (74.6 sq m) and Metallurgov Prospekt 235 (165.8 sq m) — for five-year lease contracts under Russian federal competition law. Auction conducted by LLC "Kalmius" (INN 9311026463) via the RTS-Tender platform. Starting prices 1.05 and 1.89 million rubles per year respectively. Documents the application of Russian municipal property law to formerly Ukrainian city assets.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.722.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.722.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.722.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.722.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>Please note this is a summary translation, not a full translation.</p>
+<p>Auction Decree No. 722, 6 April 2026 — Key Operative Clauses</p>
+<h2>DECREES:</h2>
+<p>To conduct an electronic auction for the right to conclude a lease agreement for immovable property owned by the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic, open as to participant composition and form of price submission (hereinafter — the Auction), in accordance with Appendix 1 to this Decree.</p>
+<p>To set the initial (minimum) price of the immovable property lease agreement (lot price) as the amount of the annual payment for the right to use the immovable property (excluding VAT, land plot charges, communal and operational services), determined in accordance with the valuation report, for each lot separately.</p>
+<p>To set the increment of the initial minimum price ("auction step") at 5 percent of the initial minimum lease price of the object.</p>
+<p>To set the deposit amount at 20 percent of the initial (minimum) lease price of the object.</p>
+<p>To instruct LIMITED LIABILITY COMPANY "KALMIUS" (INN 9311026463) to act as organiser of the Auction.</p>
+<p>The Property and Land Relations Department of the Administration of the City District of Mariupol shall notify LLC "Kalmius" of the adopted Decree and forward market valuation reports and other necessary documentation for organising and conducting the Auction.</p>
+<p>LLC "Kalmius" shall conduct the Auction in accordance with this Decree and applicable legislation.</p>
+<p>The Documentation Support and Control Department shall place this Decree on the official website (https://mariupol.gosuslugi.ru).</p>
+<p>This Decree shall enter into force on the date of its signing.</p>
+<p>Supervision of implementation shall be assigned to Deputy Head of Administration Yaremchuk I.I.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+<p>Appendix 1 — Properties Listed for Auction</p>
+<table>
+<thead><tr><th>No.</th><th>Property</th><th>Area (sq m)</th><th>Permitted use</th><th>Lease term</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Lot 1 — Non-residential premises, Lenin Prospekt 153, apt. 1/3, Mariupol. Cadastral number: 93:37:0010128:634</td><td>74.6</td><td>Activity not prohibited by the legislation of the Russian Federation</td><td>5 years</td></tr>
+<tr><td>2</td><td>Lot 2 — Non-residential premises, Metallurgov Prospekt 235, Mariupol. Cadastral number: 93:37:0010207:1113</td><td>165.8</td><td>Activity not prohibited by the legislation of the Russian Federation</td><td>5 years</td></tr>
+</tbody></table>
+<p>Appendix 2 — Auction Parameters</p>
+<table>
+<thead><tr><th>Parameter</th><th>Lot 1</th><th>Lot 2</th></tr></thead>
+<tbody>
+<tr><td>Starting price</td><td>1,053,650.40 rubles/year</td><td>1,887,209.94 rubles/year</td></tr>
+<tr><td>Deposit</td><td>210,730.08 rubles</td><td>377,441.99 rubles</td></tr>
+<tr><td>Lease term</td><td>5 years</td><td>5 years</td></tr>
+<tr><td>Subletting permitted</td><td>Yes</td><td>Yes</td></tr>
+</tbody></table>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +182,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>

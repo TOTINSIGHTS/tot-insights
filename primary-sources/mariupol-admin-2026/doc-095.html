@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,47 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles on the primary market and 80,695 rubles on the secondary market. The secondary rate is designated for use in municipal services calculations. Documents the full integration of Mariupol's housing market into the Russian ruble-denominated system.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.721.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.721.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.721.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.721.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>On Establishing the Indicator of Average Market Value per Square Metre of Residential Floor Space in the Municipal Formation of the City District of Mariupol, Donetsk People's Republic, for 2026</p>
+<p>Decree No. 721, 6 April 2026. Administration of the City District of Mariupol, Donetsk People's Republic.</p>
+<p>In accordance with the Housing Code of the Russian Federation; Federal Law No. 131-FZ of 06.10.2003 "On the General Principles of Organisation of Local Self-Government in the Russian Federation" (as amended); Federal Law No. 33-FZ of 20.03.2025 "On the General Principles of Organisation of Local Self-Government within the Unified System of Public Authority"; the Law of the Donetsk People's Republic No. 78-RZ of 04.06.2024 "On the Procedure for Maintaining Records of Citizens in Need of Residential Premises Provided under Social Tenancy Agreements, and for Providing Such Citizens with Residential Premises under Social Tenancy Agreements in the Territory of the Donetsk People's Republic, and on Amendments to Article 9 of the Law of the Donetsk People's Republic 'On the Procedure for Providing Housing to Citizens Residing in the Donetsk People's Republic'" (as amended); the Procedure for Determining the Average Market Value per Square Metre of Residential Floor Space in the Territory of the Municipal Formation of the City District of Mariupol, approved on 23.07.2025 No. 1164; and guided by the Charter of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic, adopted by decision of the Mariupol City Council of the Donetsk People's Republic No. I/5-1 of 10.11.2023, and the Regulation on the Administration of the City District of Mariupol, approved by decision of the Mariupol City Council of the Donetsk People's Republic No. I/6-3 of 15.11.2023 —</p>
+<p>the Administration of the City District of Mariupol of the Donetsk People's Republic</p>
+<h2>DECREES:</h2>
+<p>To establish the indicator of average market value per square metre of residential floor space on the primary housing market in the territory of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic at 146,212 rubles 00 kopecks (one hundred and forty-six thousand two hundred and twelve rubles) in accordance with the calculation of average market value per square metre of residential floor space on the primary housing market in the territory of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic for 2026.</p>
+<p>To establish the indicator of average market value per square metre of residential floor space on the secondary housing market in the territory of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic at 80,695 rubles 00 kopecks (eighty thousand six hundred and ninety-five rubles) in accordance with the calculation of average market value per square metre of residential floor space on the secondary housing market in the territory of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic for 2026.</p>
+<p>Taking into account the transitional period provided for by Federal Constitutional Law No. 5-FKZ of 04.10.2022 "On the Admission of the Donetsk People's Republic into the Russian Federation and the Formation of a New Subject within the Russian Federation," to establish — for the purposes of providing municipal services by local self-government bodies of the City District of Mariupol — the indicator of average market value per square metre of residential floor space in the territory of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic for 2026 based on the calculation of average market value per square metre on the secondary housing market, at 80,695 rubles 00 kopecks (eighty thousand six hundred and ninety-five rubles).</p>
+<p>The Department for Citizen Registration and Housing Provision of the Administration of the City District of Mariupol of the Donetsk People's Republic shall use the indicator of average market value per square metre of residential floor space established by clause 3 of this Decree when calculating income threshold values per family member or sole resident, and property values held by each family member or sole resident, and when determining the estimated market value indicator for residential premises acquisition according to provision norms, for the purposes of recognising citizens as low-income and providing them with residential premises under social tenancy agreements from the municipal housing fund of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic.</p>
+<p>The Information Technology Department of the Administration of the City District of Mariupol of the Donetsk People's Republic (Khizhniak A.Yu.) shall publish this Decree in the State Information System of Regulatory Legal Acts of the Donetsk People's Republic (https://gisnpa-dnr.ru).</p>
+<p>The Documentation Support and Control Department of the Administration of the City District of Mariupol of the Donetsk People's Republic (Lysenko M.G.) shall place this Decree on the official website of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic (https://mariupol.gosuslugi.ru).</p>
+<p>This Decree shall enter into force on the date of its official publication.</p>
+<p>Supervision of the implementation of this Decree shall be assigned to the Deputy Head of the Administration of the City District of Mariupol Kalacheva V.V.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +166,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>

@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,90 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Decree amending a co-financed municipal programme for capital repair of residential apartments damaged in what the occupation administration terms "military actions." Lists 21 specific apartment addresses across Mariupol streets receiving state-subsidised repair funded partly by residents. Documents the occupation administration framing war damage as a routine municipal housing maintenance matter, with residents required to co-finance repair of damage caused by Russia's own military.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.770.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.770.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.770.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.770.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>On Amendments to the Municipal Programme "Repair of Damaged Housing of Citizens Who Have Received Social Support Measures for the Purpose of Carrying Out Capital Repairs of Residential Premises in an Amount Insufficient to Carry Out Such Repairs Due to Significant Housing Damage, on Co-Financing Conditions at the Expense of the District Budget"</p>
+<p>Decree No. 770, 15 April 2026. Administration of the City District of Mariupol, Donetsk People's Republic.</p>
+<p>For the purpose of carrying out capital repairs of residential premises damaged as a result of military operations, to meet citizens' housing needs, in accordance with the Budget Code of the Russian Federation; Federal Law No. 131-FZ of 06.10.2003; Federal Law No. 33-FZ of 20.03.2025; Government of the Russian Federation Decree No. 2377 of 22.12.2022 "On the Specifics of Drafting, Reviewing, and Approving Budget Projects of the Donetsk People's Republic, Luhansk People's Republic, Zaporizhzhia Oblast, and Kherson Oblast"; Decree of the Administration of the City District of Mariupol No. 829 of 17.12.2024 "On Approval of the Procedure for Use of Reserve Fund Budget Appropriations of the Administration of the City District of Mariupol of the Donetsk People's Republic and on Establishment of a Commission on Matters of Allocating Funds from the Reserve Fund"; and guided by the Charter and Regulation on the Administration of the City District of Mariupol —</p>
+<p>the Administration of the City District of Mariupol of the Donetsk People's Republic</p>
+<h2>DECREES:</h2>
+<p>To amend the Municipal Programme "Repair of Damaged Housing of Citizens Who Have Received Social Support Measures for the Purpose of Carrying Out Capital Repairs of Residential Premises in an Amount Insufficient to Carry Out Such Repairs Due to Significant Housing Damage, on Co-Financing Conditions at the Expense of the District Budget," approved by Decree of the Administration of the City District of Mariupol No. 213 of 26.02.2026, by setting out Appendices 6 and 7 in a new edition (attached).</p>
+<p>The Information Technology Department (Khizhniak A.Yu.) shall publish this Decree in the State Information System of Regulatory Legal Acts of the Donetsk People's Republic (https://gisnpa-dnr.ru).</p>
+<p>The Documentation Support and Control Department shall place this Decree on the official website (https://mariupol.gosuslugi.ru).</p>
+<p>This Decree shall enter into force on the date of its official publication.</p>
+<p>Supervision of implementation shall be assigned to Deputy Head of Administration Kalacheva V.V.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+<p>Appendix 6 — List of Properties Under the Municipal Programme Receiving Capital Repairs on Co-Financing Conditions from the City District Budget of Mariupol</p>
+<table>
+<thead><tr><th>No.</th><th>Address</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Stroiteley Prospekt, building 136, apt. 101</td></tr>
+<tr><td>2</td><td>Stroiteley Prospekt, building 82, apt. 76</td></tr>
+<tr><td>3</td><td>Stroiteley Prospekt, building 160, apt. 102</td></tr>
+<tr><td>4</td><td>Stroiteley Prospekt, building 121, apt. 26</td></tr>
+<tr><td>5</td><td>Stroiteley Prospekt, building 121, apt. 97</td></tr>
+<tr><td>6</td><td>Zelinskoho Street, building 33, apt. 192</td></tr>
+<tr><td>7</td><td>Metallurgov Prospekt, building 27, apt. 131</td></tr>
+<tr><td>8</td><td>Dundycha Street, building 59A, apt. 31</td></tr>
+<tr><td>9</td><td>Dundycha Street, building 59B, apt. 83</td></tr>
+<tr><td>10</td><td>Ilyicha Prospekt, building 135, apt. 104</td></tr>
+<tr><td>11</td><td>Ilyicha Prospekt, building 142A, apt. 22</td></tr>
+<tr><td>12</td><td>Mamina-Sibiryaka Street, building 39, apt. 102</td></tr>
+<tr><td>13</td><td>Karpinskogo Street, building 37B, apt. 70</td></tr>
+<tr><td>14</td><td>Mamina-Sibiryaka Street, building 39, apt. 22</td></tr>
+<tr><td>15</td><td>Metallurgov Prospekt, building 141, apt. 3</td></tr>
+<tr><td>16</td><td>Metallurgov Prospekt, building 141, apt. 5</td></tr>
+<tr><td>17</td><td>Metallurgov Prospekt, building 206A, apt. 99</td></tr>
+<tr><td>18</td><td>Metallurgov Prospekt, building 206A, apt. 122</td></tr>
+<tr><td>19</td><td>Pokryshkina Street, building 13, apt. 43</td></tr>
+<tr><td>20</td><td>Pokryshkina Street, building 20, apt. 17</td></tr>
+<tr><td>21</td><td>Metallurgov Prospekt, building 206A, apt. 93</td></tr>
+</tbody></table>
+<p>Appendix 7 — Payment Details for Transfer to the Revenue Budget of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic of Funds Paid by Citizens for Participation in the Municipal Co-Financing Programme for Repair of Damaged Housing</p>
+<table>
+<thead><tr><th>Field</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Full organisation name</td><td>Department of Capital Construction of the Administration of the City District of Mariupol of the Donetsk People's Republic</td></tr>
+<tr><td>OGRN</td><td>1249300000290</td></tr>
+<tr><td>INN</td><td>9310011866</td></tr>
+<tr><td>KPP</td><td>931001001</td></tr>
+<tr><td>OKPO</td><td>60693630</td></tr>
+<tr><td>OKTMO</td><td>21721000001</td></tr>
+<tr><td>Consolidated register code</td><td>213NLI38</td></tr>
+<tr><td>Personal account</td><td>04823NLI990</td></tr>
+<tr><td>Unified treasury account</td><td>40102810745370000095</td></tr>
+<tr><td>Treasury account</td><td>03100643000000018200</td></tr>
+<tr><td>Bank of Russia</td><td>OKC No. 5 YuGU Bank of Russia/UFK for the Donetsk People's Republic</td></tr>
+<tr><td>BIK UFK for the DNR, Donetsk</td><td>042157901</td></tr>
+<tr><td>BIK of the Donetsk branch of the Bank of Russia</td><td>042157001</td></tr>
+<tr><td>KBK</td><td>902 1 17 05040 04 0103 180</td></tr>
+<tr><td>Payment purpose</td><td>F.I.O. other non-tax revenues of city district budgets (funds paid by citizens for participation in the municipal co-financing programme for repair of damaged housing)</td></tr>
+</tbody></table>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +209,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>

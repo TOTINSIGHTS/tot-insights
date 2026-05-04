@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,110 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Full text of the occupation administration's three-year education programme for Mariupol. Total budget 8.76 billion rubles, funded jointly by the DNR republican budget, Russian federal budget, and Mariupol city budget. Programme objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values" alongside access to education. Targets full integration into Russian federal curriculum standards (FGOS). Documents the systematic Russification of Mariupol's education system as a state programme with measurable targets and multi-year federal funding.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.757.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.757.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.757.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.757.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>"Development of Education in the City District of Mariupol" Municipal Programme</p>
+<p>Decree No. 757, 10 April 2026. Administration of the City District of Mariupol, Donetsk People's Republic.</p>
+<p>In accordance with the Budget Code of the Russian Federation; Federal Law No. 131-FZ of 06.10.2003 "On the General Principles of Organisation of Local Self-Government in the Russian Federation"; Federal Law No. 33-FZ of 20.03.2025 "On the General Principles of Organisation of Local Self-Government within the Unified System of Public Authority"; Decrees of the Administration of the City District of Mariupol of the Donetsk People's Republic No. 73 of 17.04.2024 "On Approval of Methodological Recommendations for the Development and Implementation of Municipal Programmes of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic"; No. 75 of 17.04.2024 "On Approval of the List of Municipal Programmes of the City District of Mariupol of the Donetsk People's Republic"; No. 81 of 18.04.2024 "On Approval of the Procedure for Development, Implementation and Evaluation of the Effectiveness of Municipal Programmes of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic"; and guided by the Charter of the Municipal Formation of the City District of Mariupol and the Regulation on the Administration of the City District of Mariupol —</p>
+<p>the Administration of the City District of Mariupol of the Donetsk People's Republic</p>
+<h2>DECREES:</h2>
+<p>To approve the Municipal Programme of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic "Development of Education in the City District of Mariupol."</p>
+<p>The Information Technology Department of the Administration of the City District of Mariupol of the Donetsk People's Republic (Khizhniak A.Yu.) shall publish this Decree in the State Information System of Regulatory Legal Acts of the Donetsk People's Republic (https://gisnpa-dnr.ru).</p>
+<p>The Documentation Support and Control Department of the Administration of the City District of Mariupol of the Donetsk People's Republic shall place this Decree on the official website of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic (https://mariupol.gosuslugi.ru).</p>
+<p>Supervision of the implementation of this Decree shall be assigned to the Deputy Head of the Administration of the City District of Mariupol Kalacheva V.V.</p>
+<p>This Decree shall enter into force on the date of its official publication.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+<h2>MUNICIPAL PROGRAMME</h2>
+<p>"Development of Education in the City District of Mariupol"</p>
+<p>Approved by Decree of the Administration of the City District of Mariupol of the Donetsk People's Republic, 10 April 2026, No. 757</p>
+<h2>PROGRAMME PASSPORT</h2>
+<p><strong>Implementation period:</strong> 2026–2028</p>
+<p><strong>Responsible executor:</strong> Department of Education of the Administration of the City District of Mariupol of the Donetsk People's Republic</p>
+<p><strong>Co-executors:</strong> Preschool, general education, and supplementary education institutions of the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic</p>
+<p><strong>Programme objective:</strong> Development of access to quality education for all sections of the population in the interests of the socio-economic development of the Municipal Formation of the City District of Mariupol, as well as realisation of each person's potential, development of their talents, and the upbringing of a patriotic and socially responsible younger generation</p>
+<p><strong>Programme tasks:</strong></p>
+<ol>
+<li>Ensuring that children have the opportunity to receive quality and accessible preschool, primary general, basic general, secondary general, and supplementary education under conditions meeting contemporary requirements, regardless of the child's place of residence.</li>
+<li>Strengthening the health of students and supporting families with children by organising free hot meals.</li>
+<li>Modernisation of the systems and technologies of preschool, general school, and supplementary education, including within the framework of the municipal project "Teachers and Mentors."</li>
+<li>Improvement of conditions for receiving general and supplementary education, as well as for the successful socialisation and special support of individual categories of students.</li>
+<li>Development of the pedagogical potential of the district's education system by forming moral and material incentives to motivate teachers to improve the quality of their work and engage in continuous professional development.</li>
+<li>Ensuring security in educational organisations.</li>
+<li>Formation of an effective system for identifying, supporting, and developing the abilities and talents of children and young people, based on the principles of fairness and universality, and directed at the self-determination and professional orientation of all students.</li>
+<li>Creating organisational conditions for the functioning of the Department of Education of the Administration of the City District of Mariupol, as well as preschool, general secondary, and supplementary education institutions.</li>
+</ol>
+<p><strong>Expected outcomes by 2028:</strong></p>
+<ol>
+<li>Infrastructure and learning conditions: Share of educational organisation buildings in which restoration and repair works have been carried out: 76%. Provision of anti-terrorist protection and safe learning conditions in educational organisations: 100%.</li>
+<li>Access to education: Coverage of children of preschool age by preschool education: 100%. Coverage of children by general secondary education: 100%. Coverage of children aged 5–18 by supplementary education: 63%.</li>
+<li>Health and nutrition: Coverage of primary school students by free hot meals: 100%. Coverage of preschool institution pupils by hot meals: 100%.</li>
+<li>Staffing: Staffing of general education institutions with teaching staff: 92%. Share of teaching staff who have undergone professional development training in the past 3 years: 100%.</li>
+<li>Career guidance and talent development: Share of students in grades 6–11 covered by career guidance activities: 100%.</li>
+</ol>
+<p><strong>Projects implemented under the programme:</strong> Municipal project "Teachers and Mentors"</p>
+<p><strong>Financial provision:</strong> Total programme funding: 8,756,839,839.92 rubles, of which: 2026 — 3,983,698,420.75 rubles; 2027 — 2,383,006,528.26 rubles; 2028 — 2,390,134,890.91 rubles. Including: DNR republican budget — 7,991,453,563.68 rubles; Federal budget — 499,853,396.24 rubles; City district budget of Mariupol — 265,532,880.00 rubles.</p>
+<h2>Section 1. General Characteristics, Key Challenges, and Development Forecast</h2>
+<p>As of 1 January 2025, 60 preschool, general, and supplementary education organisations are operating in the Municipal Formation of the City District of Mariupol, with 19,364 children enrolled and educated in them. A stable upward trend in student enrolment is observed. Coverage of children aged 0–7 by all forms of preschool education in the district is 100%.</p>
+<p>Results of the Unified State Examination show that the average level of preparation of Mariupol schoolchildren across all subjects corresponds to the average Russian level.</p>
+<p>Gifted schoolchildren demonstrate good results in olympiads and creative competitions. The Administration of the City District of Mariupol has organised participation of winners of municipal-stage olympiads, competitions, and sporting events in republican and all-Russian stages. Based on the results of 2024, students who demonstrated high results in study, creativity, and sport were awarded Letters of Commendation from the Head of the Municipal Formation of the City District of Mariupol and gifts.</p>
+<p>The number of students in grades 9–11 selecting specialised education programmes in accordance with their inclinations and abilities continues to grow. Schools have opened classes in engineering and technology, medicine, psychology and pedagogy, and social and humanitarian profiles. Within the framework of the "School–University–Enterprise" programme, collaboration has been established with universities of the Donetsk People's Republic and Rostov Oblast.</p>
+<p>To ensure equal opportunities for access to quality education, restoration and repair works in education institutions are being carried out simultaneously in all districts of the city.</p>
+<p>In recent years, the content of general education has been substantially updated: federal state requirements for the structure of the basic general education programme of preschool education and the federal state educational standard of primary, basic, and full general education are being introduced in stages. Nevertheless, creating conditions for the introduction of new federal state educational standards, above all at the basic and senior levels of schooling, remains a pressing task.</p>
+<p>Conditions are being created for the development of the individual abilities and talents of children. To organise supplementary education, the Municipal Budgetary Institution of Supplementary Education "Mariupol Palace of Children's and Youth Creativity of the Administration of the City District of Mariupol" and the structural subdivision "Centre for Children's Supplementary Education 'Nevskaya'" have been established and are operating, with an enrolment of 2,107 children.</p>
+<p>Development forecast for the education sector: Among matters of local significance to be addressed by municipal formations are: the organisation of access to free primary general, basic general, secondary (full) general education under basic general education programmes; the organisation of free preschool education in the territory of the municipal formation; and the organisation of children's recreation during school holidays.</p>
+<p>The development and implementation of the education sector development programme will contribute to creating conditions for supporting the educational environment, updating equipment and teaching materials, and developing the educational infrastructure of the district.</p>
+<h2>Section 2. Strategic Priorities and Objectives of Local Self-Government Bodies in the Implementation of the Programme</h2>
+<p>The strategic priority directions for the development of education in the Municipal Formation of the City District of Mariupol of the Donetsk People's Republic are:</p>
+<p>Restoration and development of educational organisations of the city district of Mariupol, as well as restoration of the material and technical base of education institutions</p>
+<p>Creating conditions for the continuous professional growth and development of the pedagogical potential of teaching staff, including support for young specialists</p>
+<p>Ensuring high quality, accessibility, and continuity of education</p>
+<p>Development of a career guidance system for schoolchildren</p>
+<p>Development among students of traditional Russian spiritual and moral values</p>
+<p>Creating conditions for the development of students' talents</p>
+<h2>Section 3. Projects and Process Activity Complexes of the Municipal Programme</h2>
+<p>The municipal programme includes 1 municipal project and 4 complexes of process activities.</p>
+<p>Achievement of the stated objective and resolution of the programme's tasks will be carried out through implementation of the municipal project "Teachers and Mentors" and a series of process activity complexes.</p>
+<p>The municipal project is directed at ensuring that children have the opportunity to receive quality and accessible preschool, primary general, basic general, secondary general education under conditions meeting contemporary requirements, regardless of the child's place of residence.</p>
+<p>The process component includes the following complexes of process activities:</p>
+<p>Process activity complex "Provision of accessible and free preschool education in preschool educational institutions" — includes funding for the operational activities (service provision) of state budgetary preschool education institutions of the city district of Mariupol of the Donetsk People's Republic.</p>
+<p>Process activity complex "Provision of accessible and free preschool education, primary general, basic general, secondary (full) general education in general education institutions" — provides funding for the operational activities (service provision) of state budgetary institutions of primary general, basic general, secondary general education in general education institutions of the city district of Mariupol of the Donetsk People's Republic, as well as organisation of free hot meals for students receiving primary general education in state educational organisations.</p>
+<p>Process activity complex "Provision of supplementary education to children" — directed at ensuring the operational activities (service provision) of the municipal budgetary institution of supplementary education "Palace of Children's and Youth Creativity of the City of Mariupol."</p>
+<p>Process activity complex "Ensuring the performance of functions of the Department of Education of the Administration of the City District of Mariupol of the Donetsk People's Republic and the centralised accounting office of education institutions" — provides funding for the functioning of the Department of Education of the Administration of the City District of Mariupol and the centralised accounting office of education institutions, including to ensure remuneration of staff of the Department of Education of the Administration of the City District of Mariupol and the centralised accounting office of education institutions, and procurement of goods, works, and services for state (municipal) needs.</p>
+<h2>Section 4. Methodology for Evaluating the Effectiveness of the Municipal Programme</h2>
+<p>The methodology provides for evaluation of the effectiveness of the municipal programme no less than once per year during implementation and upon completion of the municipal programme.</p>
+<p>Evaluation of the effectiveness of implementation is carried out taking into account the following components:</p>
+<p>Degree of achievement of indicators; Degree of implementation of activities; Budgetary efficiency (expenditure of funds)</p>
+<ol>
+<li>Level of degree of achievement of indicators: This indicator characterises the extent to which actual values of programme target indicators correspond to planned values: I = Planned value / Actual value × 100%. Achievement levels: 100% and above — indicator achieved (exceeded); 95–99.9% — indicator achieved with minor deviation; 80–94.9% — indicator partially achieved; below 80% — indicator not achieved.</li>
+<li>Assessment of the degree of implementation of activities: CR = ΣI/n, where ΣI is the sum of achievement indices of all indicators (in %); n is the number of indicators. Implementation levels: 95–100% — high level; 80–94.9% — medium level; below 80% — low level.</li>
+<li>Assessment of budgetary efficiency: BE = Funds actually expended / Planned funding volume × 100%. Budgetary efficiency levels: 95–100% — high; 85–94.9% — medium; below 85% — low.</li>
+<li>Overall level of effectiveness of programme implementation: E = CR + BE/2, where E is the overall effectiveness indicator (%), CR and BE are results calculated by the above formulas. Overall effectiveness levels: 95–100% — programme is being implemented successfully, no adjustment required; 80–94.9% — analysis of causes of deviations required, possible adjustment of individual activities; below 80% — programme revision required, adjustment of objectives, indicators, or implementation mechanisms.</li>
+</ol>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +229,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>

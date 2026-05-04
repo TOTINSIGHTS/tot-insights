@@ -41,6 +41,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .pdf-embed-wrap{margin-bottom:12px;}
 .pdf-fallback{font-size:12px;color:var(--muted);}
 .pdf-fallback a{color:var(--steel);}
+.doc-tab-bar{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.doc-tab-btn{background:none;border:none;border-bottom:3px solid transparent;padding:10px 20px;font-family:var(--font-sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color 0.12s;margin-bottom:-2px;}
+.doc-tab-btn:hover{color:var(--navy);}
+.doc-tab-btn.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600;}
+.doc-tab-panel{display:none;}
+.doc-tab-panel.active{display:block;}
+.translation-notice{background:#FFF8E8;border:1px solid #E8D89A;border-left:3px solid var(--gold);border-radius:3px;padding:12px 16px;font-size:12px;color:#5C4A00;line-height:1.6;margin-bottom:24px;}
+.translation-body{font-size:13px;line-height:1.78;color:var(--text);}
+.translation-body h2{font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);margin:20px 0 8px;}
+.translation-body p{margin-bottom:10px;}
+.translation-body ol{padding-left:22px;margin-bottom:12px;}
+.translation-body ol li{margin-bottom:6px;}
+.translation-body table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.translation-body th{background:var(--navy);color:#fff;padding:8px 12px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.translation-body td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.translation-body tr:nth-child(even) td{background:#F4F7FA;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -100,16 +116,55 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="meta-label">Source</div>
       <div class="meta-value">Administration of the City District of Mariupol, DNR</div>
     </div>
+    <div class="meta-item">
+      <div class="meta-label">Translation Status</div>
+      <div class="meta-value">Machine translation available</div>
+    </div>
   </div>
 
   <p class="source-note">Original Russian-language document. Issued by the Administration of the City District of Mariupol, Donetsk People's Republic, April 2026. Obtained via partner monitoring.</p>
 
   <p class="summary">Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums ("Olimp" and "Zapadny"). Rates range from 2,500 rubles per hour for full-size football pitches to 150 rubles per hour for running track use. Documents the functioning of Russian-administered leisure infrastructure in occupied Mariupol.</p>
 
-  <div class="pdf-embed-wrap">
-    <embed src="p.768.pdf" type="application/pdf" width="100%" height="850px" />
+  <div class="doc-tab-bar">
+    <button class="doc-tab-btn active" data-tab="original" onclick="showDocTab('original')">Original document</button>
+    <button class="doc-tab-btn" data-tab="translation" onclick="showDocTab('translation')">English translation</button>
   </div>
-  <p class="pdf-fallback">If the document does not display in your browser, <a href="p.768.pdf">click here to open the PDF directly</a>.</p>
+
+  <div class="doc-tab-panel active" id="tab-original">
+    <div class="pdf-embed-wrap">
+      <embed src="p.768.pdf" type="application/pdf" width="100%" height="850px" />
+    </div>
+    <p class="pdf-fallback">If the document does not display in your browser, <a href="p.768.pdf">click here to open the PDF directly</a>.</p>
+  </div>
+
+  <div class="doc-tab-panel" id="tab-translation">
+    <div class="translation-notice"><strong>Machine translation.</strong> This translation was produced by AI and has not yet been human verified. For the authoritative text, refer to the original Russian-language document.</div>
+    <div class="translation-body">
+<p>On Approval of the Price Schedule (Tariffs) for Paid Services Provided by the Municipal Budgetary Institution Sports Complex "Lider" of the Administration of the City District of Mariupol, Donetsk People's Republic</p>
+<p>Decree No. 768, 14 April 2026. Administration of the City District of Mariupol, Donetsk People's Republic.</p>
+<p>In accordance with the Civil Code of the Russian Federation; the Budget Code of the Russian Federation; Federal Law No. 131-FZ of 06.10.2003 "On the General Principles of Organisation of Local Self-Government in the Russian Federation"; Federal Law No. 33-FZ of 20.03.2025; Federal Law No. 7-FZ of 12.01.1996 "On Non-Commercial Organisations"; Federal Law No. 329-FZ of 04.12.2007 "On Physical Culture and Sport in the Russian Federation"; Government of the Russian Federation Decree No. 129 of 30.01.2023 "On Approval of Rules for the Provision of Physical Culture and Health Services"; Decree of the Administration of the City District of Mariupol No. 1216 of 04.08.2025 "On Approval of the Regulation on the Provision of Paid Services by the Municipal Budgetary Institution Sports Complex 'Lider'"; and guided by the Charter and Regulation on the Administration of the City District of Mariupol —</p>
+<p>the Administration of the City District of Mariupol of the Donetsk People's Republic</p>
+<h2>DECREES:</h2>
+<p>To approve the Price Schedule (Tariffs) for paid services provided by the Municipal Budgetary Institution Sports Complex "Lider" of the Administration of the City District of Mariupol of the Donetsk People's Republic (attached).</p>
+<p>The Documentation Support and Control Department shall place this Decree on the official website (https://mariupol.gosuslugi.ru).</p>
+<p>This Decree shall enter into force on the date of its signing.</p>
+<p>Supervision of implementation shall be assigned to Deputy Head of Administration Kalacheva V.V.</p>
+<p>Head of the Municipal Formation of the City District of Mariupol — A.V. Koltsov</p>
+<p>PRICE SCHEDULE (TARIFFS) for paid services provided by the Municipal Budgetary Institution Sports Complex "Lider" of the Administration of the City District of Mariupol, Donetsk People's Republic</p>
+<p>Stadium "Olimp," Mariupol, ul. Sechenova, 71a &nbsp;|&nbsp; Stadium "Zapadny," Mariupol, ul. 60 let SSSR, 13</p>
+<table>
+<thead><tr><th>No.</th><th>Service</th><th>Unit</th><th>Price (rubles)</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Use of football pitch, 96 × 57 metres</td><td>1 hour</td><td>2,500.00</td></tr>
+<tr><td>2</td><td>Use of football pitch, 48 × 57 metres</td><td>1 hour</td><td>1,250.00</td></tr>
+<tr><td>3</td><td>Use of football pitch, 20 × 40 metres</td><td>1 hour</td><td>280.00</td></tr>
+<tr><td>4</td><td>Use of volleyball court</td><td>1 hour</td><td>270.00</td></tr>
+<tr><td>5</td><td>Use of streetball (basketball) court</td><td>1 hour</td><td>220.00</td></tr>
+<tr><td>6</td><td>Running track</td><td>1 hour</td><td>150.00</td></tr>
+</tbody></table>
+    </div>
+  </div>
 </div>
 
 <footer class="site-footer">
@@ -119,5 +174,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+function showDocTab(id){
+  document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('[data-tab="'+id+'"]').classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+</script>
 </body>
 </html>
