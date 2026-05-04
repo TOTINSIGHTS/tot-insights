@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:14px;line-height:1.6;}
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:40px 40px 32px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;}
+.main-content{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;margin-top:0;}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr;gap:40px;}.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
+.contact-block{margin-bottom:32px;}
+.contact-block:last-child{margin-bottom:0;}
+.block-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+.block-text{font-size:13px;color:var(--text);line-height:1.78;}
+.block-text p{margin-bottom:10px;}
+.block-text p:last-child{margin-bottom:0;}
+.contact-link{font-family:var(--font-mono);font-size:13px;color:var(--steel);text-decoration:none;display:inline-block;margin-top:4px;}
+.contact-link:hover{color:var(--navy);}
+.contact-link-small{font-family:var(--font-mono);font-size:11px;color:var(--steel);text-decoration:none;}
+.contact-link-small:hover{color:var(--navy);}
+.team-list{display:flex;flex-direction:column;gap:10px;}
+.team-member{border-left:2px solid var(--border);padding-left:14px;}
+.team-name{font-size:13px;font-weight:600;color:#0D2B4E;font-family:var(--font-sans);}
+.submission-box{background:#FAFBF2;border:1px solid var(--border);border-left:3px solid var(--gold-lt);border-radius:3px;padding:18px 20px;margin-top:8px;}
+.submission-box p{font-size:13px;color:var(--text);line-height:1.75;margin-bottom:8px;}
+.submission-box p:last-child{margin-bottom:0;}
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#featured">Featured</a>
+      <a href="index.html#browse">Browse</a>
+      <a href="index.html#media">Media</a>
+      <a href="index.html#partners">Partners</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights</div>
+    <h1 class="page-title">Contact</h1>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="contact-grid">
+    <div>
+      <div class="contact-block">
+        <div class="block-label">General enquiries</div>
+        <div class="block-text">
+          <p>For research enquiries, collaboration proposals, or questions about the platform:</p>
+          <a class="contact-link" href="mailto:jade.mcglynn@kcl.ac.uk">jade.mcglynn@kcl.ac.uk</a>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="block-label">Database submissions &amp; corrections</div>
+        <div class="submission-box">
+          <p>To submit an entry for the Officials or Sanctions databases, report an error, or propose a correction:</p>
+          <a class="contact-link-small" href="mailto:totinsights@proton.me?subject=TOT%20Insights%20%E2%80%94%20Database%20submission">totinsights@proton.me</a>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <div class="block-label">Institution</div>
+        <div class="block-text">
+          <p>TOT Insights is a platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London.</p>
+          <p><a class="contact-link-small" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener">kcl.ac.uk/csns ↗</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="contact-block">
+        <div class="block-label">Research team</div>
+        <div class="team-list">
+          <div class="team-member"><div class="team-name">Dr Jade McGlynn</div></div>
+          <div class="team-member"><div class="team-name">Oleksandr Kachmar</div></div>
+          <div class="team-member"><div class="team-name">Dr Liza Monastyrova</div></div>
+          <div class="team-member"><div class="team-name">Dr Maeve Ryan</div></div>
+          <div class="team-member"><div class="team-name">Kimberly Metcalf</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

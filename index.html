@@ -35,15 +35,19 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C9961A;opacity:0.8;margin-bottom:14px;}
 .hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;max-width:580px;margin-bottom:14px;}
 .hero-desc{font-size:13px;color:rgba(255,255,255,0.48);max-width:500px;line-height:1.78;margin-bottom:32px;}
-.hero-stats{display:flex;gap:36px;flex-wrap:wrap;}
-.hero-stat-val{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1;margin-bottom:4px;}
+.hero-layout{display:flex;align-items:center;justify-content:space-between;gap:48px;}
+.hero-left{flex:1;}
+.hero-right{display:flex;flex-direction:column;gap:32px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);padding-left:48px;}
+.hero-stat-val{font-family:var(--font-serif);font-size:28px;font-weight:700;color:#fff;line-height:1;margin-bottom:5px;}
 .hero-stat-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.32);}
+@media(max-width:800px){.hero-layout{flex-direction:column;gap:28px;}.hero-right{flex-direction:row;gap:28px;padding-left:0;border-left:none;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;flex-wrap:wrap;}}
 .featured{background:#FAFBF2;border-bottom:1px solid #D4DCE6;padding:36px 40px 40px;}
 .featured-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#617080;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:#D4DCE6;}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-@media(max-width:900px){.featured-grid{grid-template-columns:1fr;}}
+.featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:1100px){.featured-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:580px){.featured-grid{grid-template-columns:1fr;}}
 .featured-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:22px;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .featured-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.09);transform:translateY(-2px);}
 .featured-card.primary{border-left:3px solid #C9961A;}
@@ -57,6 +61,10 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .card-format-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:#FAFBF2;color:#617080;border:1px solid #D4DCE6;}
 .card-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
 .browse{padding:64px 40px 60px;border-top:1px solid #D4DCE6;}
+.browse-search-wrap{margin-bottom:20px;}
+.browse-search{width:100%;font-family:var(--font-sans);font-size:13px;color:#142235;background:#fff;border:1px solid #D4DCE6;border-radius:2px;padding:8px 14px;outline:none;transition:border-color 0.12s;}
+.browse-search:focus{border-color:#1C567A;}
+.browse-search::placeholder{color:#B0BAC8;}
 .browse-show-more-wrap{margin-top:20px;text-align:center;}
 .browse-show-more{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#617080;background:none;border:1px solid #D4DCE6;border-radius:2px;padding:9px 24px;cursor:pointer;transition:border-color 0.12s,color 0.12s;}
 .browse-show-more:hover{border-color:#1C567A;color:#1C567A;}
@@ -100,11 +108,12 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .partners-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#617080;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .partners-label::after{content:'';flex:1;height:1px;background:#D4DCE6;}
 .partners-grid{display:flex;flex-wrap:wrap;gap:8px;}
-.partner-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:10px 14px;flex:1;min-width:180px;position:relative;cursor:default;}
-.partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#C9961A;margin-bottom:3px;}
-.partner-name{font-family:var(--font-sans);font-size:12px;font-weight:600;color:#0D2B4E;line-height:1.3;}
-.partner-role{display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:10px 12px;z-index:20;box-shadow:0 4px 14px rgba(0,0,0,0.1);font-size:11px;color:#617080;line-height:1.55;white-space:normal;min-width:220px;}
-.partner-card:hover .partner-role{display:block;}
+.partner-card{background:#fff;border:1px solid #D4DCE6;border-radius:3px;padding:14px 18px;flex:1;min-width:200px;cursor:default;}
+.partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:#C9961A;margin-bottom:4px;}
+.partner-name{font-family:var(--font-sans);font-size:12px;font-weight:600;color:#0D2B4E;line-height:1.3;margin-bottom:5px;}
+.partner-role{font-size:11px;color:#617080;line-height:1.6;}
+.partner-link{font-family:var(--font-mono);font-size:9px;color:#1C567A;text-decoration:none;letter-spacing:0.06em;display:inline-block;margin-top:6px;transition:color 0.12s;}
+.partner-link:hover{color:#0D2B4E;}
 .about-section{background:#fff;border-top:1px solid #D4DCE6;padding:36px 40px 48px;}
 .about-inner{max-width:1200px;margin:0 auto;}
 .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;margin-top:8px;}
@@ -200,17 +209,34 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
       <a href="#media">Media</a>
       <a href="#partners">Partners</a>
       <a href="#about">About</a>
-      <a href="sanctions.html">Sanctions</a>
-      <a href="officials.html">Officials</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
-    <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-    <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
+        <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+        <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
+      </div>
+      <div class="hero-right">
+        <div>
+          <div class="hero-stat-val">46</div>
+          <div class="hero-stat-lbl">Research outputs</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">2,306</div>
+          <div class="hero-stat-lbl">Sanctioned entries</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">5</div>
+          <div class="hero-stat-lbl">Occupied territories</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -220,7 +246,6 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
     <div class="section-label">Featured outputs</div>
     <div class="featured-grid">
       <div class="featured-card primary" onclick="openModal('DOC-D3')">
-        <div class="featured-badge">Featured</div>
         <div class="card-theme"><span class="card-theme-dot" style="background:#1A5C35"></span><span style="color:#1A5C35">Social Conditions</span></div>
         <div class="card-title">Russia Is Ethnically Cleansing Mariupol</div>
         <div class="card-desc">At current attrition rates, Mariupol's pre-war Ukrainian population will fall below 5,000 within twelve years. The numbers, the mechanisms, and the federal infrastructure behind the plan.</div>
@@ -238,6 +263,12 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
         <div class="card-desc">What 1,001 IDPs from Russian-occupied territories think about Russian rule, hidden resistance, and which support actions are worth the risk.</div>
         <div class="card-meta"><span class="card-format-tag">Dashboard</span><span class="card-id">DOC-C7</span></div>
       </div>
+      <div class="featured-card" onclick="window.location.href='officials.html'">
+        <div class="card-theme"><span class="card-theme-dot" style="background:#1C567A"></span><span style="color:#1C567A">Governance</span></div>
+        <div class="card-title">Occupation Officials Database</div>
+        <div class="card-desc">1,198 individuals serving in administrative roles across Russian-occupied Ukrainian territories. Searchable by name, territory, and status.</div>
+        <div class="card-meta"><span class="card-format-tag">Database</span><span class="card-id">DB-OFF</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -245,6 +276,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 <section class="browse" id="browse">
   <div class="browse-inner">
     <div class="section-label">Browse all outputs</div>
+    <div class="browse-search-wrap">
+      <input type="search" class="browse-search" id="browse-search" placeholder="Search titles and summaries…" autocomplete="off">
+    </div>
     <div class="filter-block">
       <div class="filter-row-label">Theme</div>
       <div class="filter-row">
@@ -267,9 +301,10 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
         <button class="filter-btn" data-filter="format" data-value="Visual">Visuals</button>
         <button class="filter-btn" data-filter="format" data-value="Data">Data</button>
         <button class="filter-btn" data-filter="format" data-value="Primary Sources">Primary Sources</button>
+        <button class="filter-btn" data-filter="format" data-value="Database">Databases</button>
       </div>
     </div>
-    <div class="results-count"><span id="count-num">44</span> outputs</div>
+    <div class="results-count"><span id="count-num">46</span> outputs</div>
     <div class="doc-grid" id="doc-grid">
       <div class="no-results" id="no-results">No outputs match the selected filters.</div>
     </div>
@@ -317,10 +352,29 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
   <div class="partners-inner">
     <div class="partners-label">Research partners</div>
     <div class="partners-grid">
-      <div class="partner-card"><div class="partner-inst">King's College London</div><div class="partner-name">Centre for Statecraft and National Security</div><div class="partner-role">Lead institution. Ukraine and Russia Programme.</div></div>
-      <div class="partner-card"><div class="partner-inst">Partner</div><div class="partner-name">Centre for Occupation Studies</div><div class="partner-role">Primary sources and analysis of Mariupol and the temporarily occupied territories.</div></div>
-      <div class="partner-card"><div class="partner-inst">Partner</div><div class="partner-name">CURIA Lab</div><div class="partner-role">Cultural Resilience Informatics and Analysis Lab.</div></div>
-      <div class="partner-card"><div class="partner-inst">King's College London</div><div class="partner-name">Leverhulme Centre for Research on Slavery in War</div><div class="partner-role">Research on coercion, forced labour, and civilian entrapment.</div></div>
+      <div class="partner-card">
+        <div class="partner-inst">King's College London</div>
+        <div class="partner-name">Centre for Statecraft and National Security</div>
+        <div class="partner-role">Lead institution. TOT Insights is a platform of the Ukraine and Russia Programme.</div>
+        <a class="partner-link" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener">kcl.ac.uk/csns ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-inst">Partner</div>
+        <div class="partner-name">Centre for Occupation Studies</div>
+        <div class="partner-role">Primary sources and analysis of Mariupol and the temporarily occupied territories.</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-inst">Partner</div>
+        <div class="partner-name">CURIA Lab</div>
+        <div class="partner-role">Cultural Resilience Informatics and Analysis Lab — computational approaches to occupation and resistance.</div>
+        <a class="partner-link" href="https://curialab.org/" target="_blank" rel="noopener">curialab.org ↗</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-inst">King's College London</div>
+        <div class="partner-name">Leverhulme Centre for Research on Slavery in War</div>
+        <div class="partner-role">Lead and founding institution. Research on coercion, forced labour, and civilian entrapment under occupation.</div>
+        <a class="partner-link" href="https://www.kcl.ac.uk/research/leverhulme-centre-for-the-study-of-slavery-and-coercion-in-war" target="_blank" rel="noopener">kcl.ac.uk ↗</a>
+      </div>
     </div>
   </div>
 </section>
@@ -333,8 +387,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
         <div class="about-text">
           <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
           <p>The platform draws on original fieldwork, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners working on the temporarily occupied territories.</p>
-          <p>For enquiries, collaboration, or data access requests, please contact:</p>
-          <div class="about-contact">jade.mcglynn@kcl.ac.uk</div>
+          <p>For enquiries, collaboration, or data access requests, please <a href="contact.html" class="about-contact">get in touch</a>.</p>
         </div>
       </div>
       <div>
@@ -354,7 +407,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 <footer class="site-footer">
   <div class="footer-inner">
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
-    <span><a href="#about">Contact</a></span>
+    <span><a href="contact.html">Contact</a></span>
   </div>
 </footer>
 
@@ -449,17 +502,25 @@ const DOCS = [
   {id:"DOC-093",theme:"Social Conditions",format:"Visual",title:"Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026",desc:"Interactive Leaflet map of 387 verified resistance incidents: 246 in occupied Ukrainian territories (Zaporizhzhia, Kherson, Crimea, Donetsk, Luhansk oblasts) and 141 in Russian Federation territory. Filterable by territory, incident type, and reporting period.",descriptor:"387 incidents, two theatres, 15 months — an interactive geographic view of resistance operations across occupied Ukraine and the Russian Federation.",summary:"TOT Insights interactive map visualising 387 verified resistance and sabotage incidents from December 2024 to February 2026. Incidents are split between occupied Ukrainian territories (246 incidents across Zaporizhzhia, Kherson, Crimea, Donetsk, and Luhansk oblasts) and operations in Russian Federation territory (141 incidents, primarily Bryansk, Kursk, and Belgorod regions). Circle markers are scaled proportionally to incident counts. Filters allow isolation by territory (occupied territories / RF), incident type (vehicle attacks, railway/transport, critical infrastructure, targeted killings, armed raids, intelligence operations, and sabotage), and 14-day reporting period. Shares the same verified dataset as the Resistance Monitoring Analytics dashboard (DOC-076). Note: per-period and per-type oblast breakdowns are not available in the source data; geographic estimates for filtered views use overall proportional allocation.",file:"TOT Insights Visual, April 2025",gdocs:"",dashboardFile:"dashboards/resistance_map.html"},
   {id:"DOC-094",theme:"Economics",format:"Visual",title:"Market Prices, Occupied DPR Territory — April 2026, First Decade",desc:"Fieldwork-collected supermarket price survey from occupied DPR territory, 6 April 2026: 150+ items across six categories (produce, staples, cereals, dairy, canned goods, condiments), denominated in Russian roubles. Includes a district heating invoice from Donbassteploenergo.",descriptor:"Shelf prices and a heating bill — fieldwork data from a supermarket in occupied DPR territory, April 2026, capturing what occupation-economy prices look like at the point of sale.",summary:"Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026 (first decade of April). 150+ goods across six categories: fresh produce and eggs; staples (flour, bread, sugar, salt); cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents provided at rates current at time of collection. Sale prices (акция) reflect loyalty-card or promotional discounts where indicated. Also includes a district heating invoice from GUP DNR Donbassteploenergo, providing a primary source data point on utility billing in Russian-occupied Donetsk. First instalment of a quarterly price-monitoring series, to be updated where fieldwork permits.",file:"Fieldwork data, 6 April 2026",gdocs:"",dashboardFile:"dashboards/prices_april_2026.html"},
   {id:"DOC-088",theme:"Propaganda",format:"Journal Article",title:"Russian Propaganda Tactics in Ukraine's Newly Occupied Territories",desc:"Evolution of Russian propaganda in occupied Ukraine after 2022: from Crimea-style information control to a two-tier messaging system for Russian and occupied Ukrainian audiences, relying on fear-based narratives.",descriptor:"How Russian propaganda adapted to newly occupied Ukrainian territory — from Crimea templates to fear-based dual-audience messaging, and what counter-strategies are available.",summary:"Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russian propaganda tactics in Ukrainian territories occupied after 2022. Argues that Russia moved from the Crimea-style information control model to a two-tier messaging system targeting Russian and occupied Ukrainian audiences differently, with a heavier reliance on fear-based narratives and threat construction. Includes analysis of potential counter-strategies. Published May 2024.",file:"Russian Analytical Digest 313, 21 May 2024",gdocs:"https://www.ssoar.info/ssoar/bitstream/handle/document/101373/ssoar-russanald-2024-313-mcglynn-Russian_Propaganda_Tactics_in_Ukraines.pdf?sequence=1"},
+  {id:"DB-SAN",theme:"Governance",format:"Database",title:"Sanctions Database",desc:"2,306 sanctioned individuals and entities across 7 jurisdictions. Searchable by name, territory, and jurisdiction.",descriptor:"A cross-jurisdiction database of individuals and entities sanctioned in connection with Russian-occupied Ukrainian territories.",summary:"2,306 sanctioned individuals and entities across 7 jurisdictions (Australia, EU, Japan, Switzerland, UK, US, Ukraine). Searchable and filterable by name, type, territory, and jurisdiction. Compiled by TOT Insights at King's College London.",externalUrl:"sanctions.html"},
+  {id:"DB-OFF",theme:"Governance",format:"Database",title:"Occupation Officials Database",desc:"1,198 individuals serving in administrative roles across Russian-occupied Ukrainian territories. Searchable by name, territory, and status.",descriptor:"A structured database of individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories.",summary:"1,198 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories. Searchable and filterable by name, territory, level, status, and origin. Compiled by TOT Insights at King's College London from open sources and primary documentation.",externalUrl:"officials.html"},
   {id:"DOC-G2",theme:"Social Conditions",format:"Primary Sources",title:"Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)",desc:"Four infographic-format reports on civilian appeals to the occupation city administration — 9,031 appeals (Jan–Jul 2023) falling to 4,524 (Jan–Jun 2024). Housing dominates at 66% in early 2023, drops to 7% by late 2023: a reclassification shift, not resolved demand.",descriptor:"Primary sources from the occupation administration — quarterly civilian appeals data revealing housing reclassification, bureaucratic dependency, and the shift from emergency reconstruction to normalised occupation governance.",summary:"Four official reports from the Mariupol occupation city administration (AG) and city district administration (AGO) covering citizen appeals from January 2023 through June 2024. Total appeals decline from 9,031 (Jan–Jul 2023) to 4,524 (Jan–Jun 2024). Housing dominates at 66% in the post-siege period, drops to 7% by Aug–Dec 2023 — a reporting reclassification rather than resolved demand, as housing claims are absorbed into the expanded social entitlements category. The Jan–Jun 2024 AG report explicitly names commission disputes (несогласие с решением комиссии) as a sub-category, making it the most analytically significant document in the series for understanding civilian navigation of and resistance to occupation administrative structures. The coexistence of parallel AG and AGO reports for H1 2024 reflects the layered administrative architecture Russia has imposed on occupied Mariupol.",file:"otchyot.zip",gdocs:"",dashboardFile:"dashboards/otchyet_mariupol.html"}
 ];
 
 const THEME_CLASS={"Economics":"t-econ","Social Conditions":"t-soc","Governance":"t-gov","Education":"t-edu","Propaganda":"t-prop"};
 const BROWSE_DEFAULT=6;
-let activeTheme="all",activeFormat="all",browseExpanded=false;
+let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
 
 function renderCards(){
   const grid=document.getElementById('doc-grid');
   grid.querySelectorAll('.doc-card').forEach(el=>el.remove());
-  const filtered=DOCS.filter(d=>(activeTheme==="all"||d.theme===activeTheme)&&(activeFormat==="all"||d.format===activeFormat));
+  const q=browseSearch.toLowerCase();
+  const filtered=DOCS.filter(d=>{
+    if(activeTheme!=="all"&&d.theme!==activeTheme)return false;
+    if(activeFormat!=="all"&&d.format!==activeFormat)return false;
+    if(q&&!(d.title.toLowerCase().includes(q)||(d.summary&&d.summary.toLowerCase().includes(q))))return false;
+    return true;
+  });
   document.getElementById('count-num').textContent=filtered.length;
   document.getElementById('no-results').classList.toggle('visible',filtered.length===0);
   const visible=browseExpanded?filtered:filtered.slice(0,BROWSE_DEFAULT);
@@ -479,6 +540,12 @@ function renderCards(){
     wrap.style.display='none';
   }
 }
+
+document.getElementById('browse-search').addEventListener('input',function(){
+  browseSearch=this.value.trim();
+  browseExpanded=false;
+  renderCards();
+});
 
 function expandBrowse(){browseExpanded=true;renderCards();}
 
@@ -503,6 +570,8 @@ function getPreviewUrl(gdocsUrl){
 
 function openModal(id){
   const doc=DOCS.find(d=>d.id===id);if(!doc)return;
+  // Database entries with an external URL navigate directly
+  if(doc.externalUrl){window.location.href=doc.externalUrl;return;}
   // Any item with a dashboardFile opens inline in the viewer
   if(doc.dashboardFile){
     openViewer(doc.dashboardFile,doc.title);return;
@@ -668,7 +737,8 @@ const REGIONS = {
   "DOC-087":"All OT","DOC-088":"All OT","DOC-089":"Zaporizhzhia",
   "DOC-090":"Donetsk","DOC-091":"Donetsk","DOC-092":"Donetsk",
   "DOC-093":"Multiple",
-  "DOC-094":"Donetsk"
+  "DOC-094":"Donetsk",
+  "DB-SAN":"All OT","DB-OFF":"All OT"
 };
 
 const LOC_UKRAINE = [
