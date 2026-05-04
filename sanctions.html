@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanctions Database — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;--paper:#FCFCFA;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:14px;line-height:1.6;}
+
+/* ── Header ── */
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+
+/* ── Page header ── */
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 32px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:12px;}
+.page-desc{font-size:13px;color:rgba(255,255,255,0.5);max-width:680px;line-height:1.75;border-left:3px solid var(--gold);padding-left:14px;}
+
+/* ── Stat cards ── */
+.stats-strip{background:#F4F7FA;border-bottom:1px solid var(--border);padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:16px 22px;flex:1;min-width:160px;}
+.stat-val{font-family:var(--font-serif);font-size:26px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+
+/* ── Main content ── */
+.main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
+@media(max-width:700px){.main-content{padding:20px 16px 60px;}.page-hero{padding:24px 16px 20px;}.stats-strip{padding:16px;}}
+
+/* ── Controls ── */
+.controls-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px;}
+.control-group{display:flex;flex-direction:column;gap:4px;}
+.control-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+.search-input{font-family:var(--font-sans);font-size:13px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:2px;padding:7px 12px;width:260px;transition:border-color 0.12s;outline:none;}
+.search-input:focus{border-color:var(--steel);}
+.search-input::placeholder{color:#B0BAC8;}
+select.filter-select{font-family:var(--font-sans);font-size:12px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
+select.filter-select:focus{border-color:var(--steel);}
+.clear-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--muted);background:none;border:none;cursor:pointer;padding:7px 0;text-decoration:underline;white-space:nowrap;transition:color 0.12s;align-self:flex-end;}
+.clear-btn:hover{color:var(--steel);}
+.results-info{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;}
+.results-info strong{color:var(--navy);font-weight:500;}
+
+/* ── Table ── */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{position:sticky;top:61px;z-index:10;}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;cursor:pointer;user-select:none;}
+th:hover{background:#1a3d5e;}
+th .sort-arrow{margin-left:4px;opacity:0.5;font-size:10px;}
+th.sorted .sort-arrow{opacity:1;}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.45;color:var(--text);}
+tr:last-child td{border-bottom:none;}
+tbody tr{cursor:pointer;transition:background 0.1s;}
+tbody tr:hover td{background:#F0F5FA;}
+tbody tr.active-row td{background:#EBF2F9;}
+tr:nth-child(even) td{background:#FAFBFC;}
+tr:nth-child(even):hover td{background:#F0F5FA;}
+
+/* ── Type badges ── */
+.type-badge{font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
+.badge-individual{background:#E0EEF8;color:#0D4A7A;}
+.badge-entity{background:#F5EDD0;color:#7A5C0D;}
+.badge-organisation{background:#E2F0E8;color:#1A5C35;}
+
+/* ── Position cell ── */
+.pos-cell{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);}
+
+/* ── Pagination ── */
+.pagination{display:flex;align-items:center;gap:6px;margin-top:16px;flex-wrap:wrap;}
+.page-btn{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border:1px solid var(--border);border-radius:2px;background:#fff;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
+.page-btn:hover:not(:disabled){border-color:var(--steel);color:var(--steel);}
+.page-btn.current{background:var(--navy);border-color:var(--navy);color:#fff;cursor:default;}
+.page-btn:disabled{opacity:0.35;cursor:not-allowed;}
+.page-info{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-left:6px;}
+
+/* ── Loading / error ── */
+.state-msg{padding:48px 0;text-align:center;color:var(--muted);font-size:13px;}
+.state-msg.error{color:#a02020;}
+
+/* ── Detail panel ── */
+.detail-overlay{display:none;position:fixed;inset:0;background:rgba(8,18,32,0.5);z-index:300;align-items:flex-start;justify-content:flex-end;}
+.detail-overlay.open{display:flex;}
+.detail-panel{background:#fff;width:440px;max-width:100vw;height:100vh;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;}
+.detail-header{background:var(--navy);padding:18px 20px;display:flex;align-items:flex-start;gap:12px;position:sticky;top:0;border-bottom:2px solid var(--gold);}
+.detail-header-text{flex:1;min-width:0;}
+.detail-name{font-family:var(--font-serif);font-size:16px;font-weight:700;color:#fff;line-height:1.3;word-wrap:break-word;}
+.detail-close{background:none;border:none;color:rgba(255,255,255,0.45);font-size:22px;cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
+.detail-close:hover{color:#fff;}
+.detail-body{padding:20px;flex:1;}
+.detail-type-row{margin-bottom:16px;}
+.detail-field{margin-bottom:14px;}
+.detail-field-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
+.detail-field-value{font-size:13px;color:var(--text);line-height:1.6;word-wrap:break-word;}
+.detail-field-value.mono{font-family:var(--font-mono);font-size:11px;}
+.detail-divider{height:1px;background:var(--border);margin:16px 0;}
+.detail-notes{background:#FAFBF2;border:1px solid var(--border);border-left:3px solid var(--gold-lt);border-radius:2px;padding:12px 14px;font-size:12px;line-height:1.7;color:#3A4A56;word-wrap:break-word;}
+
+/* ── Footer ── */
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+
+@media(max-width:640px){
+  .controls-row{flex-direction:column;align-items:stretch;}
+  .search-input{width:100%;}
+  .detail-panel{width:100vw;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#featured">Featured</a>
+      <a href="index.html#browse">Browse</a>
+      <a href="index.html#media">Media</a>
+      <a href="index.html#partners">Partners</a>
+      <a href="index.html#about">About</a>
+      <a href="sanctions.html" class="active">Sanctions</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability</div>
+    <h1 class="page-title">Sanctions Database</h1>
+    <p class="page-desc">A cross-jurisdiction database of individuals and entities sanctioned in connection with Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London. Covers designations by Australia (DFAT), the EU, Japan, Switzerland, the UK, the United States, and Ukraine.</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <div class="stat-val" id="stat-total">—</div>
+      <div class="stat-lbl">Total entries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-individuals">—</div>
+      <div class="stat-lbl">Individuals</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-entities">—</div>
+      <div class="stat-lbl">Entities &amp; Organisations</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-jurisdictions">—</div>
+      <div class="stat-lbl">Jurisdictions</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="controls-row">
+    <div class="control-group" style="flex:1;min-width:200px;">
+      <div class="control-label">Search</div>
+      <input type="search" class="search-input" id="search-input" placeholder="Search name or position…" autocomplete="off">
+    </div>
+    <div class="control-group">
+      <div class="control-label">Type</div>
+      <select class="filter-select" id="filter-type">
+        <option value="">All types</option>
+        <option value="Individual">Individual</option>
+        <option value="Entity">Entity</option>
+        <option value="Organisation">Organisation</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Jurisdiction</div>
+      <select class="filter-select" id="filter-jurisdiction">
+        <option value="">All jurisdictions</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Territory</div>
+      <select class="filter-select" id="filter-territory">
+        <option value="">All territories</option>
+      </select>
+    </div>
+    <button class="clear-btn" id="clear-btn">Clear filters</button>
+  </div>
+
+  <div class="results-info" id="results-info">Loading…</div>
+
+  <div id="table-container">
+    <div class="state-msg" id="loading-msg">Loading sanctions data…</div>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="index.html#about">Contact</a></span>
+  </div>
+</footer>
+
+<!-- Detail panel -->
+<div class="detail-overlay" id="detail-overlay" onclick="handleOverlayClick(event)">
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-header">
+      <div class="detail-header-text">
+        <div class="detail-name" id="detail-name"></div>
+      </div>
+      <button class="detail-close" onclick="closeDetail()" aria-label="Close">&times;</button>
+    </div>
+    <div class="detail-body" id="detail-body"></div>
+  </div>
+</div>
+
+<script>
+const PAGE_SIZE = 50;
+let DATA = [];
+let filtered = [];
+let currentPage = 1;
+let activeRowIndex = -1;
+
+function typeBadge(type) {
+  const cls = type === 'Individual' ? 'badge-individual'
+    : type === 'Entity' ? 'badge-entity'
+    : type === 'Organisation' ? 'badge-organisation'
+    : 'badge-entity';
+  return `<span class="type-badge ${cls}">${type}</span>`;
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  // ISO: 2023-08-27
+  let m = d.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) return `${parseInt(m[3])} ${months[parseInt(m[2])-1]} ${m[1]}`;
+  // DD/MM/YYYY
+  m = d.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (m) return `${parseInt(m[1])} ${months[parseInt(m[2])-1]} ${m[3]}`;
+  return d;
+}
+
+function truncate(str, n) {
+  if (!str) return '';
+  return str.length > n ? str.slice(0, n) + '…' : str;
+}
+
+function applyFilters() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const type = document.getElementById('filter-type').value;
+  const jur = document.getElementById('filter-jurisdiction').value;
+  const ter = document.getElementById('filter-territory').value;
+
+  filtered = DATA.filter(r => {
+    if (q && !(r.Name.toLowerCase().includes(q) || r.Position.toLowerCase().includes(q))) return false;
+    if (type && r.Type !== type) return false;
+    if (jur && r.Jurisdiction !== jur) return false;
+    if (ter && r.Territory !== ter) return false;
+    return true;
+  });
+  currentPage = 1;
+  activeRowIndex = -1;
+  render();
+}
+
+function render() {
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageRows = filtered.slice(start, start + PAGE_SIZE);
+
+  document.getElementById('results-info').innerHTML =
+    `Showing <strong>${total.toLocaleString()}</strong> of <strong>${DATA.length.toLocaleString()}</strong> entries`;
+
+  const container = document.getElementById('table-container');
+
+  if (total === 0) {
+    container.innerHTML = '<div class="state-msg">No entries match the selected filters.</div>';
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  const rows = pageRows.map((r, i) => {
+    const idx = start + i;
+    const pos = truncate(r.Position, 65);
+    return `<tr onclick="openDetail(${idx})" ${activeRowIndex === idx ? 'class="active-row"' : ''}>
+      <td>${r.Name || '—'}</td>
+      <td>${typeBadge(r.Type)}</td>
+      <td class="pos-cell" title="${r.Position.replace(/"/g,'&quot;')}">${pos || '—'}</td>
+      <td>${r.Territory || '—'}</td>
+      <td>${r.Jurisdiction || '—'}</td>
+      <td style="white-space:nowrap">${formatDate(r['Date Designated']) || '—'}</td>
+    </tr>`;
+  }).join('');
+
+  container.innerHTML = `<div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Position</th>
+          <th>Territory</th>
+          <th>Jurisdiction</th>
+          <th>Date Designated</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages) {
+  const el = document.getElementById('pagination');
+  if (totalPages <= 1) { el.innerHTML = ''; return; }
+
+  let html = '';
+  html += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>&#8592;</button>`;
+
+  // Show first, last, and window around current
+  const pages = new Set();
+  pages.add(1);
+  pages.add(totalPages);
+  for (let p = Math.max(1, currentPage-2); p <= Math.min(totalPages, currentPage+2); p++) pages.add(p);
+  const sorted = [...pages].sort((a,b)=>a-b);
+
+  let prev = 0;
+  for (const p of sorted) {
+    if (prev && p - prev > 1) html += `<span class="page-btn" style="border:none;cursor:default;color:var(--muted)">…</span>`;
+    html += `<button class="page-btn ${p===currentPage?'current':''}" onclick="goPage(${p})">${p}</button>`;
+    prev = p;
+  }
+
+  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>&#8594;</button>`;
+  html += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  currentPage = p;
+  activeRowIndex = -1;
+  render();
+  document.querySelector('.main-content').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function openDetail(idx) {
+  const r = filtered[idx];
+  if (!r) return;
+  activeRowIndex = idx;
+
+  document.getElementById('detail-name').textContent = r.Name || '—';
+
+  const fields = [
+    {label:'Type', key:'Type', render: v => typeBadge(v)},
+    {label:'Position', key:'Position'},
+    {label:'Date of Birth', key:'D.O.B'},
+    {label:'Nationality', key:'Nationality'},
+    {label:'Date Designated', key:'Date Designated', render: v => formatDate(v)},
+    {label:'Territory', key:'Territory'},
+    {label:'Jurisdiction', key:'Jurisdiction'},
+    {label:'Programme / Authority', key:'Programme / Authority'},
+    {label:'Reference ID', key:'Reference ID', mono:true},
+  ];
+
+  let html = '<div class="detail-type-row">' + typeBadge(r.Type) + '</div>';
+  html += '<div class="detail-divider"></div>';
+
+  for (const f of fields) {
+    if (f.label === 'Type') continue; // shown above
+    const val = r[f.key];
+    if (!val) continue;
+    const display = f.render ? f.render(val) : (f.mono ? `<span class="mono">${val}</span>` : val);
+    html += `<div class="detail-field">
+      <div class="detail-field-label">${f.label}</div>
+      <div class="detail-field-value${f.mono?' mono':''}">${display}</div>
+    </div>`;
+  }
+
+  if (r.Notes) {
+    html += `<div class="detail-divider"></div>
+    <div class="detail-field-label" style="margin-bottom:6px;">Notes</div>
+    <div class="detail-notes">${r.Notes}</div>`;
+  }
+
+  document.getElementById('detail-body').innerHTML = html;
+  document.getElementById('detail-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  // Highlight row
+  render();
+}
+
+function closeDetail() {
+  document.getElementById('detail-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  activeRowIndex = -1;
+  render();
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('detail-overlay')) closeDetail();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+function populateDropdown(id, values) {
+  const sel = document.getElementById(id);
+  values.forEach(v => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+}
+
+document.getElementById('search-input').addEventListener('input', applyFilters);
+document.getElementById('filter-type').addEventListener('change', applyFilters);
+document.getElementById('filter-jurisdiction').addEventListener('change', applyFilters);
+document.getElementById('filter-territory').addEventListener('change', applyFilters);
+
+document.getElementById('clear-btn').addEventListener('click', () => {
+  document.getElementById('search-input').value = '';
+  document.getElementById('filter-type').value = '';
+  document.getElementById('filter-jurisdiction').value = '';
+  document.getElementById('filter-territory').value = '';
+  applyFilters();
+});
+
+fetch('data/sanctions-data.json')
+  .then(r => { if (!r.ok) throw new Error('Failed to load data'); return r.json(); })
+  .then(data => {
+    DATA = data;
+    filtered = data;
+
+    // Stat cards
+    const indiv = data.filter(r => r.Type === 'Individual').length;
+    const entOrg = data.filter(r => r.Type === 'Entity' || r.Type === 'Organisation').length;
+    const jurs = new Set(data.map(r => r.Jurisdiction).filter(Boolean)).size;
+    document.getElementById('stat-total').textContent = data.length.toLocaleString();
+    document.getElementById('stat-individuals').textContent = indiv.toLocaleString();
+    document.getElementById('stat-entities').textContent = entOrg.toLocaleString();
+    document.getElementById('stat-jurisdictions').textContent = jurs;
+
+    // Populate dropdowns
+    const jurisdictions = [...new Set(data.map(r=>r.Jurisdiction).filter(Boolean))].sort();
+    const territories = [...new Set(data.map(r=>r.Territory).filter(Boolean))].sort();
+    populateDropdown('filter-jurisdiction', jurisdictions);
+    populateDropdown('filter-territory', territories);
+
+    document.getElementById('loading-msg') && (document.getElementById('loading-msg').style.display='none');
+    render();
+  })
+  .catch(err => {
+    const c = document.getElementById('table-container');
+    c.innerHTML = `<div class="state-msg error">Error loading data: ${err.message}</div>`;
+    document.getElementById('results-info').textContent = '';
+  });
+</script>
+</body>
+</html>
