@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Occupation Officials Database — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:14px;line-height:1.6;}
+
+/* ── Header ── */
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:22px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+
+/* ── Page hero ── */
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 28px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:12px;}
+.page-desc{font-size:13px;color:rgba(255,255,255,0.5);max-width:700px;line-height:1.75;border-left:3px solid var(--gold);padding-left:14px;margin-bottom:14px;}
+.submit-callout{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,26,0.12);border:1px solid rgba(201,150,26,0.3);border-radius:2px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5;max-width:620px;}
+.submit-callout::before{content:'✎';font-size:13px;color:var(--gold);flex-shrink:0;}
+.submit-callout a{color:var(--gold);text-decoration:underline;}
+.submit-callout a:hover{color:#F0C840;}
+
+/* ── Stat cards ── */
+.stats-strip{background:#F4F7FA;border-bottom:1px solid var(--border);padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:14px 20px;flex:1;min-width:140px;}
+.stat-val{font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);}
+
+/* ── Main ── */
+.main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
+@media(max-width:700px){.main-content{padding:16px 14px 60px;}.page-hero{padding:22px 16px 20px;}.stats-strip{padding:14px 16px;}}
+
+/* ── Controls ── */
+.controls-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px;}
+.control-group{display:flex;flex-direction:column;gap:4px;}
+.control-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+.search-input{font-family:var(--font-sans);font-size:13px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:2px;padding:7px 12px;width:240px;transition:border-color 0.12s;outline:none;}
+.search-input:focus{border-color:var(--steel);}
+.search-input::placeholder{color:#B0BAC8;}
+select.filter-select{font-family:var(--font-sans);font-size:12px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
+select.filter-select:focus{border-color:var(--steel);}
+.clear-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--muted);background:none;border:none;cursor:pointer;padding:7px 0;text-decoration:underline;white-space:nowrap;transition:color 0.12s;align-self:flex-end;}
+.clear-btn:hover{color:var(--steel);}
+.results-info{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;}
+.results-info strong{color:var(--navy);font-weight:500;}
+
+/* ── Table ── */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;}
+td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.4;}
+tr:last-child td{border-bottom:none;}
+tbody tr{cursor:pointer;transition:background 0.1s;}
+tbody tr:hover td{background:#F0F5FA;}
+tbody tr.row-active td{background:#EBF2F9;}
+tr:nth-child(even) td{background:#FAFBFC;}
+tr:nth-child(even):hover td{background:#F0F5FA;}
+tr:nth-child(even).row-active td{background:#EBF2F9;}
+.name-primary{font-weight:600;color:var(--navy);font-size:13px;}
+.name-cyrillic{font-size:11px;color:var(--muted);margin-top:2px;font-family:var(--font-sans);}
+.role-cell{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:12px;}
+
+/* ── Status badges ── */
+.status-badge{font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
+.badge-yes{background:#E2F0E8;color:#1A5C35;}
+.badge-no{background:#EAEDF0;color:#4A5A68;}
+.badge-unknown{background:#FDF3DC;color:#8A6010;}
+
+/* ── Origin coloured text ── */
+.origin-local{color:#1C567A;font-size:12px;}
+.origin-russian{color:#A04A10;font-size:12px;}
+.origin-other{color:var(--muted);font-size:12px;}
+
+/* ── Pagination ── */
+.pagination{display:flex;align-items:center;gap:6px;margin-top:16px;flex-wrap:wrap;}
+.page-btn{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border:1px solid var(--border);border-radius:2px;background:#fff;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
+.page-btn:hover:not(:disabled){border-color:var(--steel);color:var(--steel);}
+.page-btn.current{background:var(--navy);border-color:var(--navy);color:#fff;cursor:default;}
+.page-btn:disabled{opacity:0.35;cursor:not-allowed;}
+.page-info{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-left:6px;}
+
+/* ── State messages ── */
+.state-msg{padding:48px 0;text-align:center;color:var(--muted);font-size:13px;}
+.state-msg.error{color:#a02020;}
+
+/* ── Detail panel ── */
+.detail-panel{background:#fff;border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:3px;margin-top:20px;display:none;}
+.detail-panel.open{display:block;}
+.detail-panel-header{background:var(--navy);padding:16px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.detail-panel-name{font-family:var(--font-serif);font-size:17px;font-weight:700;color:#fff;line-height:1.3;}
+.detail-panel-cyrillic{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,0.45);margin-top:3px;}
+.detail-close{background:none;border:none;color:rgba(255,255,255,0.45);font-size:22px;cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
+.detail-close:hover{color:#fff;}
+.detail-body{padding:22px 24px;}
+.detail-sections{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:700px){.detail-sections{grid-template-columns:1fr;}}
+.detail-section{min-width:0;}
+.detail-section-title{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid var(--border);}
+.detail-field{margin-bottom:12px;}
+.detail-field:last-child{margin-bottom:0;}
+.detail-field-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#A0B0BE;margin-bottom:3px;}
+.detail-field-value{font-size:13px;color:var(--text);line-height:1.6;word-wrap:break-word;}
+.detail-field-value.muted{color:var(--muted);}
+.detail-footer{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:10px;color:#A0B0BE;letter-spacing:0.05em;}
+.detail-footer a{color:#A0B0BE;text-decoration:underline;}
+.detail-footer a:hover{color:var(--steel);}
+
+/* ── Footer ── */
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+
+@media(max-width:640px){.controls-row{flex-direction:column;align-items:stretch;}.search-input{width:100%;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#featured">Featured</a>
+      <a href="index.html#browse">Browse</a>
+      <a href="index.html#media">Media</a>
+      <a href="index.html#partners">Partners</a>
+      <a href="index.html#about">About</a>
+      <a href="sanctions.html">Sanctions</a>
+      <a href="officials.html" class="active">Officials</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability</div>
+    <h1 class="page-title">Occupation Officials Database</h1>
+    <p class="page-desc">A structured database of individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London, from open sources and primary documentation. The database is updated regularly and is not exhaustive.</p>
+    <div class="submit-callout">
+      Have we missed someone? <a href="mailto:totinsights@proton.me?subject=TOT%20Insights%20%E2%80%94%20Officials%20Database%20submission">Let us know</a> — we update this database regularly and welcome corrections and additions.
+    </div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <div class="stat-val" id="stat-total">—</div>
+      <div class="stat-lbl">Total entries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-inpost">—</div>
+      <div class="stat-lbl">Currently in post</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-dpr">—</div>
+      <div class="stat-lbl">DPR entries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-lnr">—</div>
+      <div class="stat-lbl">LNR entries</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="stat-crimea">—</div>
+      <div class="stat-lbl">Crimea entries</div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="controls-row">
+    <div class="control-group" style="flex:1;min-width:200px;">
+      <div class="control-label">Search</div>
+      <input type="search" class="search-input" id="search-input" placeholder="Name or role / position…" autocomplete="off">
+    </div>
+    <div class="control-group">
+      <div class="control-label">Territory</div>
+      <select class="filter-select" id="filter-territory">
+        <option value="">All territories</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Level</div>
+      <select class="filter-select" id="filter-level">
+        <option value="">All levels</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Status</div>
+      <select class="filter-select" id="filter-status">
+        <option value="">All statuses</option>
+        <option value="Yes">In post</option>
+        <option value="No">Departed</option>
+        <option value="Unknown">Unknown</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <div class="control-label">Origin</div>
+      <select class="filter-select" id="filter-origin">
+        <option value="">All origins</option>
+      </select>
+    </div>
+    <button class="clear-btn" id="clear-btn">Clear filters</button>
+  </div>
+
+  <div class="results-info" id="results-info">Loading…</div>
+
+  <div id="table-container">
+    <div class="state-msg" id="loading-msg">Loading officials data…</div>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+
+  <div class="detail-panel" id="detail-panel">
+    <div class="detail-panel-header">
+      <div>
+        <div class="detail-panel-name" id="dp-name"></div>
+        <div class="detail-panel-cyrillic" id="dp-cyrillic"></div>
+      </div>
+      <button class="detail-close" onclick="closeDetail()" aria-label="Close">&times;</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-sections" id="dp-sections"></div>
+      <div class="detail-footer" id="dp-footer"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="index.html#about">Contact</a></span>
+  </div>
+</footer>
+
+<script>
+const PAGE_SIZE = 50;
+let DATA = [];
+let filtered = [];
+let currentPage = 1;
+let activeIdx = -1;
+
+// ── Formatters ──
+
+function statusBadge(v) {
+  if (v === 'Yes') return '<span class="status-badge badge-yes">In post</span>';
+  if (v === 'No')  return '<span class="status-badge badge-no">Departed</span>';
+  return '<span class="status-badge badge-unknown">Unknown</span>';
+}
+
+function originText(v) {
+  if (!v) return '<span class="origin-other">—</span>';
+  if (v === 'Local collaborator') return `<span class="origin-local">${v}</span>`;
+  if (v === 'Russian appointee')  return `<span class="origin-russian">${v}</span>`;
+  return `<span class="origin-other">${v}</span>`;
+}
+
+function yr(v) {
+  // Strip trailing .0 from year fields
+  return v ? v.replace(/\.0$/, '') : '';
+}
+
+function truncate(s, n) {
+  if (!s) return '';
+  return s.length > n ? s.slice(0, n) + '…' : s;
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Filters ──
+
+function applyFilters() {
+  const q   = document.getElementById('search-input').value.trim().toLowerCase();
+  const ter = document.getElementById('filter-territory').value;
+  const lvl = document.getElementById('filter-level').value;
+  const sts = document.getElementById('filter-status').value;
+  const ori = document.getElementById('filter-origin').value;
+
+  filtered = DATA.filter(r => {
+    if (q && !(
+      r['Name (Latin)'].toLowerCase().includes(q) ||
+      r['Name (Cyrillic)'].toLowerCase().includes(q) ||
+      r['Role / Position'].toLowerCase().includes(q)
+    )) return false;
+    if (ter && r['Territory'] !== ter) return false;
+    if (lvl && r['Level'] !== lvl) return false;
+    if (sts && r['Still in Post?'] !== sts) return false;
+    if (ori && r['Origin (standardised)'] !== ori) return false;
+    return true;
+  });
+  currentPage = 1;
+  activeIdx = -1;
+  closeDetail(false);
+  render();
+}
+
+// ── Render table ──
+
+function render() {
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageRows = filtered.slice(start, start + PAGE_SIZE);
+
+  document.getElementById('results-info').innerHTML =
+    `Showing <strong>${total.toLocaleString()}</strong> of <strong>${DATA.length.toLocaleString()}</strong> entries`;
+
+  const container = document.getElementById('table-container');
+  if (total === 0) {
+    container.innerHTML = '<div class="state-msg">No entries match the selected filters.</div>';
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  const rows = pageRows.map((r, i) => {
+    const idx = start + i;
+    const cyrillic = r['Name (Cyrillic)'] ? `<div class="name-cyrillic">${esc(r['Name (Cyrillic)'])}</div>` : '';
+    const role = truncate(r['Role / Position'], 70);
+    const active = (activeIdx === idx) ? ' class="row-active"' : '';
+    return `<tr${active} onclick="openDetail(${idx})">
+      <td><div class="name-primary">${esc(r['Name (Latin)'] || '—')}</div>${cyrillic}</td>
+      <td class="role-cell" title="${esc(r['Role / Position'])}">${esc(role) || '—'}</td>
+      <td>${esc(r['Territory']) || '—'}</td>
+      <td>${esc(r['Level']) || '—'}</td>
+      <td>${originText(r['Origin (standardised)'])}</td>
+      <td>${statusBadge(r['Still in Post?'])}</td>
+    </tr>`;
+  }).join('');
+
+  container.innerHTML = `<div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th>Name</th><th>Role / Position</th><th>Territory</th><th>Level</th><th>Origin</th><th>Status</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages) {
+  const el = document.getElementById('pagination');
+  if (totalPages <= 1) { el.innerHTML = ''; return; }
+  let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>&#8592;</button>`;
+  const pages = new Set([1, totalPages]);
+  for (let p = Math.max(1, currentPage-2); p <= Math.min(totalPages, currentPage+2); p++) pages.add(p);
+  let prev = 0;
+  for (const p of [...pages].sort((a,b)=>a-b)) {
+    if (prev && p-prev > 1) html += `<span style="padding:0 4px;color:var(--muted)">…</span>`;
+    html += `<button class="page-btn${p===currentPage?' current':''}" onclick="goPage(${p})">${p}</button>`;
+    prev = p;
+  }
+  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>&#8594;</button>`;
+  html += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  currentPage = p;
+  render();
+  document.querySelector('.main-content').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ── Detail panel ──
+
+function field(label, value, muted) {
+  if (!value) return '';
+  return `<div class="detail-field">
+    <div class="detail-field-label">${label}</div>
+    <div class="detail-field-value${muted?' muted':''}">${esc(value)}</div>
+  </div>`;
+}
+
+function section(title, fieldsHtml) {
+  if (!fieldsHtml.trim()) return '';
+  return `<div class="detail-section">
+    <div class="detail-section-title">${title}</div>
+    ${fieldsHtml}
+  </div>`;
+}
+
+function openDetail(idx) {
+  const r = filtered[idx];
+  if (!r) return;
+  activeIdx = idx;
+
+  document.getElementById('dp-name').textContent = r['Name (Latin)'] || '—';
+  document.getElementById('dp-cyrillic').textContent = r['Name (Cyrillic)'] || '';
+
+  // Status display label
+  const statusLabel = r['Still in Post?'] === 'Yes' ? 'In post'
+    : r['Still in Post?'] === 'No' ? 'Departed'
+    : 'Unknown';
+
+  // Year range
+  const yStart = yr(r['Year Start']);
+  const yEnd   = yr(r['Year End']);
+  const yearRange = yStart && yEnd ? `${yStart}–${yEnd}` : (yStart || yEnd || '');
+
+  const sec1 = section('Basic Information',
+    field('Territory', r['Territory']) +
+    field('Level', r['Level']) +
+    field('Status', statusLabel) +
+    field('Origin', r['Origin (standardised)']) +
+    field('Years in role', yearRange) +
+    field('Location', r['Location'])
+  );
+
+  const sec2 = section('Career',
+    field('Career before', r['Career Before'], true) +
+    field('Career after', r['Career After'], true)
+  );
+
+  const sec3 = section('Notes on Role',
+    field('Notes', r['Notes on Role'], true)
+  );
+
+  const sec4 = section('Connections',
+    field('Links to other officials', r['Links to Other Officials'], true) +
+    field('Links to Russian state bodies', r['Links to Russian State Bodies'], true) +
+    field('Business / economic connections', r['Business / Economic Connections'], true) +
+    field('Military connections', r['Military Connections'], true)
+  );
+
+  const sectionsHtml = [sec1, sec2, sec3, sec4].filter(Boolean).join('');
+  document.getElementById('dp-sections').innerHTML = sectionsHtml;
+
+  const id = r['Official ID'] || '';
+  document.getElementById('dp-footer').innerHTML =
+    `Compiled from open sources. Entry ID: ${esc(id)}. If this entry contains an error, please <a href="mailto:totinsights@proton.me?subject=TOT%20Insights%20%E2%80%94%20Officials%20correction%20${esc(id)}">contact us</a>.`;
+
+  const panel = document.getElementById('detail-panel');
+  panel.classList.add('open');
+  panel.scrollIntoView({behavior:'smooth', block:'start'});
+
+  render(); // refresh active row highlight
+}
+
+function closeDetail(scroll) {
+  document.getElementById('detail-panel').classList.remove('open');
+  activeIdx = -1;
+  if (scroll !== false) render();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+// ── Populate dropdowns ──
+
+function populateDropdown(id, values) {
+  const sel = document.getElementById(id);
+  values.forEach(v => {
+    const o = document.createElement('option');
+    o.value = v; o.textContent = v;
+    sel.appendChild(o);
+  });
+}
+
+// ── Event listeners ──
+
+document.getElementById('search-input').addEventListener('input', applyFilters);
+document.getElementById('filter-territory').addEventListener('change', applyFilters);
+document.getElementById('filter-level').addEventListener('change', applyFilters);
+document.getElementById('filter-status').addEventListener('change', applyFilters);
+document.getElementById('filter-origin').addEventListener('change', applyFilters);
+document.getElementById('clear-btn').addEventListener('click', () => {
+  document.getElementById('search-input').value = '';
+  document.getElementById('filter-territory').value = '';
+  document.getElementById('filter-level').value = '';
+  document.getElementById('filter-status').value = '';
+  document.getElementById('filter-origin').value = '';
+  applyFilters();
+});
+
+// ── Load data ──
+
+fetch('data/officials-data.json')
+  .then(r => { if (!r.ok) throw new Error('Failed to load data'); return r.json(); })
+  .then(data => {
+    DATA = data;
+    filtered = data;
+
+    // Stat cards (global, not filtered)
+    const inPost  = data.filter(r => r['Still in Post?'] === 'Yes').length;
+    const dpr     = data.filter(r => r['Territory'] === 'DPR').length;
+    const lnr     = data.filter(r => r['Territory'] === 'LNR').length;
+    const crimea  = data.filter(r => r['Territory'] === 'Crimea').length;
+    document.getElementById('stat-total').textContent   = data.length.toLocaleString();
+    document.getElementById('stat-inpost').textContent  = inPost.toLocaleString();
+    document.getElementById('stat-dpr').textContent     = dpr.toLocaleString();
+    document.getElementById('stat-lnr').textContent     = lnr.toLocaleString();
+    document.getElementById('stat-crimea').textContent  = crimea.toLocaleString();
+
+    // Dropdowns
+    const territories = [...new Set(data.map(r=>r['Territory']).filter(Boolean))].sort();
+    const levels      = [...new Set(data.map(r=>r['Level']).filter(Boolean))].sort();
+    const origins     = [...new Set(data.map(r=>r['Origin (standardised)']).filter(Boolean))].sort();
+    populateDropdown('filter-territory', territories);
+    populateDropdown('filter-level', levels);
+    populateDropdown('filter-origin', origins);
+
+    const lm = document.getElementById('loading-msg');
+    if (lm) lm.style.display = 'none';
+    render();
+  })
+  .catch(err => {
+    document.getElementById('table-container').innerHTML =
+      `<div class="state-msg error">Error loading data: ${err.message}</div>`;
+    document.getElementById('results-info').textContent = '';
+  });
+</script>
+</body>
+</html>
