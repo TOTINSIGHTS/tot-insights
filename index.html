@@ -38,10 +38,10 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
 .hero-layout{display:flex;align-items:center;justify-content:space-between;gap:56px;}
 .hero-left{flex:1;min-width:0;}
 .hero-right{flex-shrink:0;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,0.08);padding-left:56px;}
-.hero-logo-stack{display:flex;flex-direction:column;gap:22px;align-items:flex-start;}
-.hero-logo-item{display:block;}
-.hero-logo-item img{display:block;width:148px;height:auto;opacity:0.88;}
-.hero-logo-boxed img{padding:6px 10px;background:rgba(0,0,0,0.22);border-radius:3px;}
+.hero-logo-stack{display:flex;flex-direction:column;gap:24px;align-items:flex-start;}
+.hero-logo-item{display:block;width:170px;}
+.hero-logo-item img{display:block;width:170px;height:auto;opacity:0.88;}
+.hero-logo-text{width:170px;color:rgba(255,255,255,0.88);font-family:var(--font-serif);font-size:13px;line-height:1.35;font-weight:400;}
 @media(max-width:900px){.hero-layout{flex-direction:column;gap:32px;}.hero-right{border-left:none;border-top:1px solid rgba(255,255,255,0.08);padding-left:0;padding-top:28px;align-self:flex-start;}.hero-logo-stack{flex-direction:row;flex-wrap:wrap;gap:18px;align-items:center;}}
 .featured{background:#FAFBF2;border-bottom:1px solid #D4DCE6;padding:36px 40px 40px;}
 .featured-inner{max-width:1200px;margin:0 auto;}
@@ -229,12 +229,10 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:14p
           <div class="hero-logo-item">
             <img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security">
           </div>
-          <div class="hero-logo-item hero-logo-boxed">
+          <div class="hero-logo-item">
             <img src="assets/logos/kcl-logo.svg" alt="King's College London">
           </div>
-          <div class="hero-logo-item hero-logo-boxed">
-            <img src="assets/logos/slavery-in-war-logo.jpg" alt="Leverhulme Centre for Research on Slavery in War">
-          </div>
+          <div class="hero-logo-text">Leverhulme Centre for Research on Slavery in War</div>
         </div>
       </div>
     </div>
