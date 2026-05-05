@@ -311,7 +311,7 @@ function applyFilters() {
     if (ter && r['Territory'] !== ter) return false;
     if (lvl && r['Level'] !== lvl) return false;
     if (sts && r['Still in Post?'] !== sts) return false;
-    if (ori && r['Origin (standardised)'] !== ori) return false;
+    if (ori && r['Origin'] !== ori) return false;
     return true;
   });
   currentPage = 1;
@@ -350,7 +350,7 @@ function render() {
       <td class="role-cell" title="${esc(r['Role / Position'])}">${esc(role) || '—'}</td>
       <td>${esc(r['Territory']) || '—'}</td>
       <td>${esc(r['Level']) || '—'}</td>
-      <td>${originText(r['Origin (standardised)'])}</td>
+      <td>${originText(r['Origin'])}</td>
       <td>${statusBadge(r['Still in Post?'])}</td>
     </tr>`;
   }).join('');
@@ -430,7 +430,7 @@ function openDetail(idx) {
     field('Territory', r['Territory']) +
     field('Level', r['Level']) +
     field('Status', statusLabel) +
-    field('Origin', r['Origin (standardised)']) +
+    field('Origin', r['Origin']) +
     field('Years in role', yearRange) +
     field('Location', r['Location'])
   );
@@ -522,7 +522,7 @@ fetch('data/officials-data.json')
     // Dropdowns
     const territories = [...new Set(data.map(r=>r['Territory']).filter(Boolean))].sort();
     const levels      = [...new Set(data.map(r=>r['Level']).filter(Boolean))].sort();
-    const origins     = [...new Set(data.map(r=>r['Origin (standardised)']).filter(Boolean))].sort();
+    const origins     = [...new Set(data.map(r=>r['Origin']).filter(Boolean))].sort();
     populateDropdown('filter-territory', territories);
     populateDropdown('filter-level', levels);
     populateDropdown('filter-origin', origins);
