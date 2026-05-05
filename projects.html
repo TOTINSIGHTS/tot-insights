@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 32px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;}
+.main-content{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
+@media(max-width:700px){.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
+.intro-text{font-size:15px;color:var(--text);line-height:1.78;max-width:720px;margin-bottom:40px;}
+.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:900px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:580px){.projects-grid{grid-template-columns:1fr;}}
+.project-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:22px;display:flex;flex-direction:column;transition:box-shadow 0.15s,transform 0.15s;}
+.project-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.09);transform:translateY(-2px);}
+.project-card a{text-decoration:none;color:inherit;display:flex;flex-direction:column;height:100%;}
+.project-card-placeholder{border-style:dashed;}
+.project-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.project-title{font-family:var(--font-serif);font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:10px;}
+.project-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:16px;}
+.project-card-footer{margin-top:auto;padding-top:10px;border-top:1px solid var(--border);}
+.project-link-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--steel);text-transform:uppercase;}
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="data.html">Data</a>
+      <a href="media.html">Media</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights</div>
+    <h1 class="page-title">Projects</h1>
+  </div>
+</div>
+
+<div class="main-content">
+  <p class="intro-text">TOT Insights hosts dedicated project pages for multi-output research projects and funded investigations. Each project page brings together all outputs, background, and team information for a specific research strand.</p>
+
+  <div class="section-label">Active projects</div>
+  <div class="projects-grid">
+
+    <div class="project-card project-card-placeholder">
+      <a href="contact.html">
+        <div class="project-eyebrow">Coming soon</div>
+        <div class="project-title">Projects coming soon</div>
+        <div class="project-desc">Dedicated project pages will be published here as projects are launched. If you are interested in collaboration or funding, please get in touch.</div>
+        <div class="project-card-footer">
+          <span class="project-link-label">Get in touch →</span>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

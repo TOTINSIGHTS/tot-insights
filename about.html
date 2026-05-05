@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 32px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;}
+.main-content{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
+@media(max-width:700px){.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
+.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;margin-bottom:56px;}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+.about-text{font-size:15px;color:var(--text);line-height:1.78;}
+.about-text p{margin-bottom:16px;}
+.about-text p:last-child{margin-bottom:0;}
+.about-contact{font-family:var(--font-mono);font-size:13px;color:var(--steel);}
+.team-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.team-list{display:flex;flex-direction:column;gap:10px;}
+.team-member{border-left:2px solid var(--border);padding-left:14px;}
+.team-name{font-size:14px;font-weight:600;color:var(--navy);font-family:var(--font-sans);}
+.partners-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.partner-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:18px 20px;flex:1;min-width:220px;}
+.partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.partner-name{font-family:var(--font-sans);font-size:13px;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:6px;}
+.partner-role{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:8px;}
+.partner-link{font-family:var(--font-mono);font-size:9px;color:var(--steel);text-decoration:none;letter-spacing:0.06em;display:inline-block;transition:color 0.12s;}
+.partner-link:hover{color:var(--navy);}
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="data.html">Data</a>
+      <a href="media.html">Media</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights</div>
+    <h1 class="page-title">About</h1>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="section-label">About TOT Insights</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-text">
+        <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
+        <p>TOT Insights draws on original fieldwork in Ukraine, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners working on the temporarily occupied territories. The platform is updated on a rolling basis as new research, data, and primary sources become available.</p>
+        <p>For enquiries, collaboration, or data access requests, please <a href="contact.html" class="about-contact">get in touch</a>.</p>
+      </div>
+    </div>
+    <div>
+      <div class="team-label">Research team</div>
+      <div class="team-list">
+        <div class="team-member"><div class="team-name">Dr Jade McGlynn</div></div>
+        <div class="team-member"><div class="team-name">Oleksandr Kachmar</div></div>
+        <div class="team-member"><div class="team-name">Dr Liza Monastyrova</div></div>
+        <div class="team-member"><div class="team-name">Dr Maeve Ryan</div></div>
+        <div class="team-member"><div class="team-name">Kimberly Metcalf</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Research partners</div>
+  <div class="partners-grid">
+    <div class="partner-card">
+      <div class="partner-inst">King's College London</div>
+      <div class="partner-name">Centre for Statecraft and National Security</div>
+      <div class="partner-role">Lead institution. TOT Insights is a platform of the Ukraine and Russia Programme at CSNS, bringing together analytical research, data tools, and primary source collections on Russian-occupied Ukrainian territories.</div>
+      <a class="partner-link" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener">kcl.ac.uk/csns ↗</a>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">Partner</div>
+      <div class="partner-name">Centre for Occupation Studies</div>
+      <div class="partner-role">Primary sources and analysis of Mariupol and the temporarily occupied territories. The Centre provides data and documentation on occupation administrative records underpinning several TOT Insights outputs.</div>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">Partner</div>
+      <div class="partner-name">CURIA Lab</div>
+      <div class="partner-role">Cultural Resilience Informatics and Analysis Lab — computational approaches to occupation and resistance. CURIA Lab contributes data analysis and visualisation tools to the platform.</div>
+      <a class="partner-link" href="https://curialab.org/" target="_blank" rel="noopener">curialab.org ↗</a>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">King's College London</div>
+      <div class="partner-name">Leverhulme Centre for Research on Slavery in War</div>
+      <div class="partner-role">Lead and founding institution. Research on coercion, forced labour, and civilian entrapment under occupation. The Centre's focus on civilian coercion in conflict underpins the platform's accountability-oriented outputs.</div>
+      <a class="partner-link" href="https://www.kcl.ac.uk/research/leverhulme-centre-for-the-study-of-slavery-and-coercion-in-war" target="_blank" rel="noopener">kcl.ac.uk ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

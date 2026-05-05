@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 32px;}
+.page-hero-inner{max-width:1200px;margin:0 auto;}
+.page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
+.page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:12px;}
+.page-desc{font-size:14px;color:rgba(255,255,255,0.5);max-width:680px;line-height:1.75;border-left:3px solid var(--gold);padding-left:14px;}
+.main-content{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
+@media(max-width:700px){.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
+.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-gap{margin-bottom:52px;}
+/* Database cards */
+.db-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:52px;}
+@media(max-width:640px){.db-grid{grid-template-columns:1fr;}}
+.db-card{background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:3px;padding:26px 28px;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;text-decoration:none;color:inherit;}
+.db-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.09);transform:translateY(-2px);}
+.db-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.db-title{font-family:var(--font-serif);font-size:19px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:10px;}
+.db-desc{font-size:14px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:18px;}
+.db-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border);}
+.db-stat{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;}
+.db-arrow{font-size:16px;color:var(--border);transition:color 0.12s,transform 0.12s;}
+.db-card:hover .db-arrow{color:var(--steel);transform:translateX(3px);}
+/* Primary source cards */
+.ps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(max-width:640px){.ps-grid{grid-template-columns:1fr;}}
+.ps-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:18px 20px;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;text-decoration:none;color:inherit;}
+.ps-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.ps-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px;}
+.ps-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
+.ps-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;background:#DFF0F8;color:#1C567A;white-space:nowrap;flex-shrink:0;}
+.ps-title{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:7px;}
+.ps-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:10px;}
+.ps-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid var(--border);}
+.ps-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+.ps-translation{font-family:var(--font-mono);font-size:9px;color:var(--gold);letter-spacing:0.06em;}
+.ps-arrow{font-size:14px;color:var(--border);transition:color 0.12s,transform 0.12s;}
+.ps-card:hover .ps-arrow{color:var(--steel);transform:translateX(3px);}
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="data.html" class="active">Data</a>
+      <a href="media.html">Media</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights</div>
+    <h1 class="page-title">Data</h1>
+    <p class="page-desc">Structured databases, primary source documents, and raw datasets compiled by the TOT Insights team. All primary source documents are published in their original language with machine translations where available.</p>
+  </div>
+</div>
+
+<div class="main-content">
+
+  <div class="section-label">Databases</div>
+  <div class="db-grid">
+
+    <a class="db-card" href="officials.html">
+      <div class="db-tag">Database &nbsp;·&nbsp; DB-OFF</div>
+      <div class="db-title">Occupation Officials Database</div>
+      <div class="db-desc">1,198 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, searchable by name, territory, level, status, and origin.</div>
+      <div class="db-card-footer">
+        <span class="db-stat">1,198 entries &nbsp;·&nbsp; Governance</span>
+        <span class="db-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="db-card" href="sanctions.html">
+      <div class="db-tag">Database &nbsp;·&nbsp; DB-SAN</div>
+      <div class="db-title">Sanctions Database</div>
+      <div class="db-desc">2,306 sanctioned individuals and entities across seven jurisdictions — Australia, EU, Japan, Switzerland, UK, US, and Ukraine — searchable by name, type, territory, and jurisdiction.</div>
+      <div class="db-card-footer">
+        <span class="db-stat">2,306 entries &nbsp;·&nbsp; 7 jurisdictions</span>
+        <span class="db-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="section-label">Primary sources — Mariupol city administration, 2026</div>
+  <div class="ps-grid">
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-095.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-095</span>
+      </div>
+      <div class="ps-title">Official Market Valuation of Residential Property in Mariupol, 2026</div>
+      <div class="ps-desc">Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Economics</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-096.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-096</span>
+      </div>
+      <div class="ps-title">Auction Decree: Municipal Property Lease, Lenin Prospekt &amp; Metallurgov Prospekt, Mariupol</div>
+      <div class="ps-desc">Decree authorising the electronic auction of two non-residential municipal properties on five-year leases under Russian federal competition law.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-097.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-097</span>
+      </div>
+      <div class="ps-title">Subsidy Amendment: MUP Mariupolzhilkompleks Wage Arrears, January–February 2026</div>
+      <div class="ps-desc">Decree amending a subsidy scheme to cover wage debt owed to employees of the municipal housing utility enterprise MUP "Mariupolzhilkompleks" for January–February 2026.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-098.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-098</span>
+      </div>
+      <div class="ps-title">Auction Decree: Municipal Property Lease, Stroiteley Prospekt &amp; Lenin Prospekt, Mariupol</div>
+      <div class="ps-desc">Decree authorising the electronic auction of two further non-residential municipal properties on five-year leases under Russian federal competition law.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-099.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-099</span>
+      </div>
+      <div class="ps-title">"Development of Education in Mariupol" Municipal Programme, 2026–2028</div>
+      <div class="ps-desc">Full text of the occupation administration's three-year education programme. Total budget 8.76 billion rubles. Objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values."</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Education</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-100.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-100</span>
+      </div>
+      <div class="ps-title">Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)</div>
+      <div class="ps-desc">Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-101.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-101</span>
+      </div>
+      <div class="ps-title">Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026</div>
+      <div class="ps-desc">Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Social Conditions</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-102.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-102</span>
+      </div>
+      <div class="ps-title">Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol</div>
+      <div class="ps-desc">Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Social Conditions</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
