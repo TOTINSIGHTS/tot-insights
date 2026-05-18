@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanctions in Plain Sight: Western Road Machinery in Occupied Zaporizhzhia — TOT Insights</title>
+<meta name="description" content="Two analytical visualisations from the TOT Insights OSINT/HUMINT investigation into JSC VAD road construction in occupied Zaporizhzhia: sanctioned Western machinery identification and the spare parts evasion routes keeping it operational.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,opsz,wght@0,9..46,400;0,9..46,600;1,9..46,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1F3864;
+  --blue:#2E5396;
+  --text:#1a1a2c;
+  --text-secondary:#5a5e7a;
+  --text-muted:#9090aa;
+  --bg:#ffffff;
+  --bg-surface:#f7f8fc;
+  --bg-section:#f2f4f9;
+  --border:#dde2ee;
+  --border-light:#eaecf4;
+  --red:#A32D2D;
+  --red-light:#FCEBEB;
+  --red-mid:#E24B4A;
+  --amber:#854F0B;
+  --amber-light:#FAEEDA;
+  --amber-mid:#BA7517;
+  --teal:#085041;
+  --teal-light:#E1F5EE;
+  --teal-mid:#0F6E56;
+  --gray-light:#F1EFE8;
+  --gray-mid:#888780;
+  --green-light:#EAF3DE;
+  --green-mid:#3B6D11;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:16px}
+
+.site-header{background:var(--navy);color:#fff;padding:2.5rem 2rem 2rem}
+.site-header .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-bottom:.75rem;font-weight:600}
+.site-header h1{font-family:'Libre Baskerville',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.25;max-width:820px;margin-bottom:.65rem}
+.site-header .subtitle{font-size:.975rem;opacity:.75;max-width:700px;line-height:1.55}
+.site-header .meta{margin-top:1.25rem;font-size:.82rem;opacity:.5;border-top:1px solid rgba(255,255,255,.15);padding-top:.85rem}
+
+.viz-nav{background:var(--navy);border-top:1px solid rgba(255,255,255,.12);display:flex;overflow-x:auto}
+.viz-nav a{color:rgba(255,255,255,.6);text-decoration:none;padding:.7rem 1.4rem;font-size:.85rem;font-weight:600;white-space:nowrap;border-right:1px solid rgba(255,255,255,.08);transition:color .15s,background .15s}
+.viz-nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.viz-nav a .num{opacity:.5;margin-right:.3rem}
+
+main{max-width:960px;margin:0 auto;padding:0 1.5rem 4rem}
+
+.viz-section{padding:3rem 0 2.5rem;border-bottom:1px solid var(--border-light)}
+.viz-section:last-of-type{border-bottom:none}
+.section-kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
+.section-kicker .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;border-radius:4px;flex-shrink:0}
+.section-kicker .tag{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.viz-section h2{font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
+.viz-section .description{font-size:.95rem;color:var(--text-secondary);max-width:780px;line-height:1.65;margin-bottom:1.6rem}
+
+/* ── MACHINERY CARDS ── */
+.machinery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:1rem}
+.machine-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--bg)}
+.machine-card-header{background:var(--navy);color:#fff;padding:1rem 1.1rem .85rem}
+.machine-card-header .sanction-badge{display:inline-flex;align-items:center;gap:.3rem;background:var(--red-mid);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px;margin-bottom:.5rem}
+.machine-card-header h3{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;line-height:1.25;margin-bottom:.2rem}
+.machine-card-header .maker{font-size:.82rem;opacity:.7}
+.machine-card-body{padding:1rem 1.1rem}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:.3rem 0;border-bottom:1px solid var(--border-light);font-size:.85rem;gap:.5rem}
+.spec-row:last-child{border-bottom:none}
+.spec-label{color:var(--text-muted);flex-shrink:0}
+.spec-value{color:var(--text);font-weight:600;text-align:right}
+.spec-value.warn{color:var(--amber)}
+.spec-value.ok{color:var(--teal)}
+.machine-card-footer{background:var(--amber-light);border-top:1px solid var(--border-light);padding:.75rem 1.1rem;font-size:.82rem;color:var(--amber);line-height:1.5}
+.machine-card-footer strong{color:var(--amber);font-weight:600}
+
+/* ── SVG WRAP ── */
+.svg-wrap{background:var(--bg-section);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1rem;overflow-x:auto}
+.svg-wrap svg{display:block;width:100%;height:auto}
+.caption{font-size:.8rem;color:var(--text-muted);margin-top:.75rem;font-style:italic}
+.interact-hint{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;display:flex;align-items:center;gap:.3rem}
+.interact-hint::before{content:'↖';font-style:normal}
+
+.desc-panel{display:none;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.3rem;margin-top:.75rem;position:relative}
+.desc-panel.active{display:block}
+.desc-panel h4{font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.45rem;padding-right:1.5rem;line-height:1.35}
+.desc-panel p{font-size:.88rem;color:var(--text-secondary);line-height:1.65}
+.close-btn{position:absolute;top:.75rem;right:.9rem;background:none;border:none;font-size:1.1rem;color:var(--text-muted);cursor:pointer;padding:0;line-height:1}
+.close-btn:hover{color:var(--text)}
+
+.clickable-node{cursor:pointer}
+.clickable-node:hover rect,.clickable-node:hover circle{opacity:.88}
+.clickable-node:focus{outline:2px solid var(--blue);outline-offset:2px}
+
+/* ── POLICY BOX ── */
+.policy-box{background:var(--navy);color:#fff;border-radius:8px;padding:1.25rem 1.4rem;margin-top:1rem}
+.policy-box h4{font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:700;margin-bottom:.6rem;opacity:.9}
+.policy-box ul{list-style:none;padding:0}
+.policy-box li{font-size:.88rem;opacity:.8;line-height:1.6;padding:.2rem 0 .2rem 1rem;position:relative}
+.policy-box li::before{content:'→';position:absolute;left:0;opacity:.6}
+
+footer{background:var(--bg-section);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:.82rem;color:var(--text-muted)}
+footer a{color:var(--blue);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer strong{color:var(--text-secondary);font-weight:600}
+
+@media print{.viz-nav,.interact-hint,.close-btn{display:none!important}.desc-panel{display:block!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="label">TOT Insights · Ukraine and Russia Programme · CSNS / King's College London</div>
+  <h1>Sanctions in Plain Sight: Western Road Machinery in Occupied Zaporizhzhia</h1>
+  <p class="subtitle">Two analytical visualisations from the TOT Insights OSINT and HUMINT investigation into JSC VAD road construction on the Azov military logistics corridor: sanctioned machinery identified in the field, and the spare parts evasion routes keeping it operational.</p>
+  <p class="meta">Source investigation: OSINT/HUMINT report on road construction in occupied Zaporizhzhia, TOT Insights Hub, 2026 &nbsp;·&nbsp; Click nodes in the second diagram for detail</p>
+</header>
+
+<nav class="viz-nav" aria-label="Visualisation sections">
+  <a href="#machinery"><span class="num">01</span>Sanctioned machinery identified</a>
+  <a href="#evasion"><span class="num">02</span>Spare parts evasion routes</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- VIZ 1: MACHINERY CARDS                                         -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section class="viz-section" id="machinery">
+  <div class="section-kicker"><span class="num">1</span><span class="tag">OSINT identification</span></div>
+  <h2>Three Pieces of Sanctioned Western Machinery Identified on Site</h2>
+  <p class="description">Photographs of road construction works on the Pryazovske–Shevchenko–Novokostiantynivka section in occupied Zaporizhzhia oblast document a complete road construction crew complex operated by JSC VAD. All three machines are manufactured by EU or NATO-member companies, all three of whose parent groups are now subject to sanctions on Russia. The specific maintenance schedules documented below identify the pressure points where sanctions could be made more effective.</p>
+
+  <div class="machinery-grid">
+
+    <!-- Card 1: Vögele -->
+    <div class="machine-card">
+      <div class="machine-card-header">
+        <div class="sanction-badge">EU · UK · UA sanctioned</div>
+        <h3>Vögele Super 1800-3</h3>
+        <div class="maker">Joseph Vögele AG · Wirtgen Group · Germany</div>
+      </div>
+      <div class="machine-card-body">
+        <div class="spec-row"><span class="spec-label">Function</span><span class="spec-value">Asphalt paver</span></div>
+        <div class="spec-row"><span class="spec-label">Introduced</span><span class="spec-value">2012, upgraded 2017</span></div>
+        <div class="spec-row"><span class="spec-label">Max output</span><span class="spec-value">700 t/hour</span></div>
+        <div class="spec-row"><span class="spec-label">Max paving width</span><span class="spec-value">10 metres</span></div>
+        <div class="spec-row"><span class="spec-label">Engine</span><span class="spec-value">Deutz diesel</span></div>
+        <div class="spec-row"><span class="spec-label">Service life</span><span class="spec-value ok">~25,000 op. hours</span></div>
+        <div class="spec-row"><span class="spec-label">Basic maintenance</span><span class="spec-value warn">every 250 hours</span></div>
+        <div class="spec-row"><span class="spec-label">Extended maintenance</span><span class="spec-value warn">every 1,000 hours</span></div>
+      </div>
+      <div class="machine-card-footer">
+        <strong>Sanctions pressure point:</strong> Deutz engine components and Wirtgen proprietary wear parts require regular supply. Without manufacturer access, sourced via China, Turkey, or Kazakhstan.
+      </div>
+    </div>
+
+    <!-- Card 2: Wirtgen -->
+    <div class="machine-card">
+      <div class="machine-card-header">
+        <div class="sanction-badge">EU · UK · UA sanctioned</div>
+        <h3>Wirtgen W200</h3>
+        <div class="maker">Wirtgen GmbH · Wirtgen Group · Germany</div>
+      </div>
+      <div class="machine-card-body">
+        <div class="spec-row"><span class="spec-label">Function</span><span class="spec-value">Road milling machine</span></div>
+        <div class="spec-row"><span class="spec-label">In production since</span><span class="spec-value">2008</span></div>
+        <div class="spec-row"><span class="spec-label">Milling width</span><span class="spec-value">~2 metres</span></div>
+        <div class="spec-row"><span class="spec-label">Max milling depth</span><span class="spec-value">32 cm</span></div>
+        <div class="spec-row"><span class="spec-label">Machine weight</span><span class="spec-value">~30 tonnes</span></div>
+        <div class="spec-row"><span class="spec-label">Service life</span><span class="spec-value ok">~20,000 op. hours</span></div>
+        <div class="spec-row"><span class="spec-label">Carbide milling teeth</span><span class="spec-value warn">replaced every 100–150 hours</span></div>
+      </div>
+      <div class="machine-card-footer">
+        <strong>Sanctions pressure point:</strong> Carbide milling teeth are high-turnover consumables — the single most frequent resupply requirement of any machine on site. Chinese manufacturers produce compatible teeth.
+      </div>
+    </div>
+
+    <!-- Card 3: Dynapac -->
+    <div class="machine-card">
+      <div class="machine-card-header">
+        <div class="sanction-badge">EU · UK · UA sanctioned</div>
+        <h3>Dynapac CP2700</h3>
+        <div class="maker">Dynapac · Fayat Group · Sweden / France</div>
+      </div>
+      <div class="machine-card-body">
+        <div class="spec-row"><span class="spec-label">Function</span><span class="spec-value">Pneumatic-tyre roller</span></div>
+        <div class="spec-row"><span class="spec-label">Introduced</span><span class="spec-value">2009, upgraded 2016</span></div>
+        <div class="spec-row"><span class="spec-label">Purpose</span><span class="spec-value">Final asphalt compaction</span></div>
+        <div class="spec-row"><span class="spec-label">Operating weight</span><span class="spec-value">8–10 tonnes</span></div>
+        <div class="spec-row"><span class="spec-label">Engine</span><span class="spec-value">Cummins</span></div>
+        <div class="spec-row"><span class="spec-label">Service life</span><span class="spec-value ok">~20,000 op. hours / 15 yrs</span></div>
+        <div class="spec-row"><span class="spec-label">Oil replacement</span><span class="spec-value warn">every 500 hours</span></div>
+        <div class="spec-row"><span class="spec-label">Hydraulic inspection</span><span class="spec-value warn">every 2,000 hours</span></div>
+      </div>
+      <div class="machine-card-footer">
+        <strong>Sanctions pressure point:</strong> Cummins engine filters and hydraulic seals are universally available. Pneumatic tyre compound is the specialist resupply requirement — compatible alternatives exist from Chinese manufacturers.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contractor context box -->
+  <div style="background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.3rem;margin-bottom:.75rem">
+    <p style="font-size:.88rem;color:var(--text-secondary);line-height:1.65"><strong style="color:var(--navy)">Contractor: JSC VAD (AO VAD), St Petersburg.</strong> One of Russia's largest federal road construction companies (OGRN 1027806860370). CEO: Valeriy Abramov. Built the federal Tavrida highway in occupied Crimea. Sanctioned by the EU, UK, and Ukraine for road construction in occupied territories — asset freeze, restrictions on financial operations, prohibition of cooperation with European counterparties. Licence plates on site vehicles bear regional code 78, corresponding to St Petersburg, confirming the contractor identity. The federal financing route: Ministry of Transport of the Russian Federation → Rosavtodor/Avtodor → JSC VAD. Estimated contract value for the ~13 km Prymorsk section: ₽400–650 million at standard Russian rates of ₽30–50 million per km.</p>
+  </div>
+
+  <p class="caption">Source: OSINT analysis of field photographs; manufacturer technical specifications (Joseph Vögele AG, Wirtgen GmbH, Dynapac/Fayat Group); JSC VAD corporate registration data. Sanctions status confirmed against EU Official Journal, UK OFSI register, and Ukrainian NACP/NSDC lists.</p>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- VIZ 2: SPARE PARTS EVASION ROUTES                              -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section class="viz-section" id="evasion">
+  <div class="section-kicker"><span class="num">2</span><span class="tag">Sanctions evasion</span></div>
+  <h2>How Sanctioned Western Machinery Stays Operational: The Spare Parts Evasion Network</h2>
+  <p class="description">Sanctions prohibit Western manufacturers from supplying spare parts or service to Russian operators. But the long service life of road construction machinery (15–25 years) means machines acquired before 2022 remain operational for years after sanctions were imposed — provided a parallel supply chain for maintenance components exists. That supply chain has been systematically built, primarily through China, Turkey, and Kazakhstan.</p>
+
+  <div class="svg-wrap">
+    <svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" aria-labelledby="ev-title ev-desc" role="img">
+      <title id="ev-title">Spare parts evasion routes keeping sanctioned Western road machinery operational in occupied Ukraine</title>
+      <desc id="ev-desc">Flow diagram: Western manufacturers (Wirtgen Group, Dynapac/Fayat) are blocked by EU and UK sanctions from supplying parts to Russia. Three bypass routes exist: China via XCMG, SANY, and LiuGong manufacturing compatible and analogue parts with Russian dealer networks; Turkey acting as grey market conduit for genuine Western components; Kazakhstan acting as parallel import channel. All three routes converge at JSC VAD operations on the Azov military logistics corridor in occupied Zaporizhzhia.</desc>
+      <defs>
+        <marker id="arr-ev" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#B8C0D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arr-block" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arr-grey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#0F6E56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#BA7517" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- ── ROW 1: Western manufacturers ── -->
+      <text x="200" y="22" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em" text-anchor="middle">WESTERN MANUFACTURERS</text>
+
+      <g class="clickable-node" tabindex="0" data-node="wirtgen" role="button" aria-label="Wirtgen Group - click for detail">
+        <rect x="40" y="30" width="160" height="52" rx="8" fill="#EAF1FB" stroke="#2255A0" stroke-width="1"/>
+        <text x="120" y="51" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#1a3870" text-anchor="middle" dominant-baseline="central">Wirtgen Group</text>
+        <text x="120" y="68" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#2255A0" text-anchor="middle" dominant-baseline="central">Vögele · Wirtgen · Germany</text>
+      </g>
+
+      <g class="clickable-node" tabindex="0" data-node="dynapac" role="button" aria-label="Dynapac/Fayat - click for detail">
+        <rect x="240" y="30" width="160" height="52" rx="8" fill="#EAF1FB" stroke="#2255A0" stroke-width="1"/>
+        <text x="320" y="51" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#1a3870" text-anchor="middle" dominant-baseline="central">Dynapac / Fayat</text>
+        <text x="320" y="68" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#2255A0" text-anchor="middle" dominant-baseline="central">Sweden / France</text>
+      </g>
+
+      <!-- Sanctions block label -->
+      <rect x="440" y="30" width="200" height="52" rx="8" fill="#FCEBEB" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="5 3"/>
+      <text x="540" y="51" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">EU · UK sanctions</text>
+      <text x="540" y="68" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#E24B4A" text-anchor="middle" dominant-baseline="central">Supply to Russia: prohibited</text>
+
+      <!-- Blocked arrows from manufacturers toward Russia (red, stopped) -->
+      <line x1="200" y1="82" x2="200" y2="118" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <line x1="200" y1="118" x2="430" y2="118" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="315" y="113" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#E24B4A" text-anchor="middle" dominant-baseline="central">✕ direct supply blocked</text>
+
+      <!-- ── ROW 2: Three bypass routes ── -->
+      <text x="120" y="148" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#085041" font-weight="600" letter-spacing=".08em" text-anchor="middle">CHINA ROUTE</text>
+      <text x="340" y="148" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#BA7517" font-weight="600" letter-spacing=".08em" text-anchor="middle">TURKEY ROUTE</text>
+      <text x="560" y="148" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#888780" font-weight="600" letter-spacing=".08em" text-anchor="middle">KAZAKHSTAN ROUTE</text>
+
+      <!-- China route box -->
+      <g class="clickable-node" tabindex="0" data-node="china" role="button" aria-label="China spare parts route - click for detail">
+        <rect x="40" y="158" width="160" height="90" rx="8" fill="#E1F5EE" stroke="#0D6B5A" stroke-width="1"/>
+        <text x="120" y="178" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#085041" text-anchor="middle" dominant-baseline="central">XCMG · SANY · LiuGong</text>
+        <text x="120" y="196" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#0D6B5A" text-anchor="middle" dominant-baseline="central">Manufacture compatible parts</text>
+        <text x="120" y="212" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#0D6B5A" text-anchor="middle" dominant-baseline="central">and direct analogues for</text>
+        <text x="120" y="228" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#0D6B5A" text-anchor="middle" dominant-baseline="central">Wirtgen and Dynapac lines</text>
+      </g>
+
+      <!-- China dealer network -->
+      <g class="clickable-node" tabindex="0" data-node="china-dealers" role="button" aria-label="Chinese dealer network in Russia - click for detail">
+        <rect x="40" y="268" width="160" height="52" rx="8" fill="#E1F5EE" stroke="#0D6B5A" stroke-width="1"/>
+        <text x="120" y="286" font-family="'Source Sans 3',sans-serif" font-size="11.5" font-weight="600" fill="#085041" text-anchor="middle" dominant-baseline="central">Russian dealer network</text>
+        <text x="120" y="304" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#0D6B5A" text-anchor="middle" dominant-baseline="central">Warehouses + service centers</text>
+      </g>
+      <line x1="120" y1="248" x2="120" y2="268" stroke="#0D6B5A" stroke-width="1.3" marker-end="url(#arr-teal)"/>
+
+      <!-- Turkey route box -->
+      <g class="clickable-node" tabindex="0" data-node="turkey" role="button" aria-label="Turkey grey market route - click for detail">
+        <rect x="250" y="158" width="180" height="72" rx="8" fill="#FAEEDA" stroke="#BA7517" stroke-width="1"/>
+        <text x="340" y="178" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Turkey</text>
+        <text x="340" y="196" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Grey market conduit for</text>
+        <text x="340" y="212" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">genuine Western components</text>
+      </g>
+
+      <!-- Kazakhstan route box -->
+      <g class="clickable-node" tabindex="0" data-node="kazakhstan" role="button" aria-label="Kazakhstan parallel import route - click for detail">
+        <rect x="470" y="158" width="170" height="72" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+        <text x="555" y="178" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">Kazakhstan</text>
+        <text x="555" y="196" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#888780" text-anchor="middle" dominant-baseline="central">Parallel import channel:</text>
+        <text x="555" y="212" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#888780" text-anchor="middle" dominant-baseline="central">nominally friendly state</text>
+      </g>
+
+      <!-- Arrows from bypass routes converging down -->
+      <path d="M120 320 L120 370 L340 370" fill="none" stroke="#0D6B5A" stroke-width="1.3" marker-end="url(#arr-teal)"/>
+      <path d="M340 230 L340 370" fill="none" stroke="#BA7517" stroke-width="1.3" marker-end="url(#arr-amber)"/>
+      <path d="M555 230 L555 370 L380 370" fill="none" stroke="#888780" stroke-width="1.3" marker-end="url(#arr-grey)"/>
+
+      <!-- ── VAD Russia ── -->
+      <g class="clickable-node" tabindex="0" data-node="vad-russia" role="button" aria-label="JSC VAD in Russia - click for detail">
+        <rect x="190" y="370" width="300" height="52" rx="8" fill="#F1EFE8" stroke="#888780" stroke-width="1"/>
+        <text x="340" y="390" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">JSC VAD — Russian operations</text>
+        <text x="340" y="408" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#888780" text-anchor="middle" dominant-baseline="central">Production bases, St Petersburg · spare parts warehoused in Russia</text>
+      </g>
+
+      <!-- Arrow to occupied territory -->
+      <line x1="340" y1="422" x2="340" y2="452" stroke="#888780" stroke-width="1.5" marker-end="url(#arr-ev)"/>
+
+      <!-- ── Occupied territory endpoint ── -->
+      <g class="clickable-node" tabindex="0" data-node="azov-road" role="button" aria-label="Azov military logistics corridor - click for detail">
+        <rect x="100" y="452" width="480" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1.5"/>
+        <text x="340" y="472" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">JSC VAD — occupied Zaporizhzhia</text>
+        <text x="340" y="490" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Azov Transport Ring · Pryazovske–Shevchenko–Novokostiantynivka section · military logistics corridor</text>
+      </g>
+
+    </svg>
+  </div>
+
+  <p class="interact-hint">Click any node to expand analytical detail</p>
+  <div class="desc-panel" id="desc-evasion">
+    <button class="close-btn" aria-label="Close" onclick="closePanel('desc-evasion')">×</button>
+    <h4 id="desc-evasion-title"></h4>
+    <p id="desc-evasion-text"></p>
+  </div>
+
+  <div class="policy-box">
+    <h4>Policy implications from the investigation</h4>
+    <ul>
+      <li>Current sanctions do not prevent operation of pre-2022 Western road machinery — long service lives (15–25 years) mean machines remain viable for years without direct manufacturer support.</li>
+      <li>Carbide milling teeth (Wirtgen W200) must be replaced every 100–150 operating hours — the highest-frequency resupply requirement on site. Tighter controls on Chinese-manufactured compatible teeth would impose the most immediate operational pressure.</li>
+      <li>Chinese manufacturers XCMG, SANY, and LiuGong have established dealer networks and spare-parts warehouses inside Russia — representing an institutionalised alternative supply system, not ad hoc grey-market sourcing. Consideration should be given to revoking Chinese manufacturer licences to produce analogues based on European designs.</li>
+      <li>Turkey and Kazakhstan function as parallel import corridors for genuine Western components. Stricter end-use verification requirements for construction machinery components transiting these states would reduce throughput.</li>
+      <li>Road construction in occupied territories feeds directly into military logistics infrastructure — the Azov Transport Ring functions as an alternative military supply corridor to the M14 highway. Sanctions effectiveness on this sector should be assessed through a military-logistics lens, not purely a commercial one.</li>
+    </ul>
+  </div>
+
+  <p class="caption">Source: OSINT analysis of field photographs; manufacturer technical specifications; Russian corporate registry data for JSC VAD; Chinese manufacturer corporate documentation (XCMG Shenzhen Stock Exchange filing 000425.SZ, SANY Shanghai Stock Exchange filing 600031, LiuGong Shenzhen 000528.SZ); LiuGong dealer network value confirmation (>₽3 billion spare-parts warehousing in Russia).</p>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>TOT Insights</strong> · Ukraine and Russia Programme · Centre for Statecraft and National Security / King's College London</p>
+  <p style="margin-top:.4rem"><a href="https://totinsights.github.io/tot-insights/">totinsights.github.io</a> &nbsp;·&nbsp; Visualisations derived from TOT Insights OSINT/HUMINT report on road construction in occupied Zaporizhzhia (2026)</p>
+</footer>
+
+<script>
+const nodeData = {
+  wirtgen:{
+    title:'Wirtgen Group — manufacturer of Vögele Super 1800-3 and Wirtgen W200',
+    text:'The Wirtgen Group is a German engineering group headquartered in Windhagen, acquired by John Deere in 2017. It manufactures road construction and mining machinery under the brands Wirtgen, Vögele, Hamm, Kleemann, and Benninghoven. Both machines identified on the Zaporizhzhia construction site — the Vögele Super 1800-3 asphalt paver and the Wirtgen W200 milling machine — are Wirtgen Group products. As the parent company is subject to EU and UK sanctions on Russia, official service, parts supply, and technical support to Russian operators are prohibited. The investigation documents that this prohibition has not prevented continued operation of the machines, which are being maintained through alternative supply chains.'
+  },
+  dynapac:{
+    title:'Dynapac / Fayat Group — manufacturer of Dynapac CP2700 roller',
+    text:'Dynapac is a Swedish road construction equipment manufacturer, part of the French Fayat Group. It manufactures rollers, pavers, and compactors. The Dynapac CP2700 pneumatic-tyre roller documented at the Zaporizhzhia site is a Dynapac product. The Fayat Group, as a European manufacturer, is subject to sanctions restricting supply to Russian operators. The CP2700 uses a Cummins engine — Cummins is an American manufacturer also subject to US export controls on Russia — meaning the engine components are subject to a dual-layer of restrictions from both European and US export regimes. In practice, Cummins engine components are widely available as compatible analogues from Chinese and other manufacturers.'
+  },
+  china:{
+    title:'China — compatible parts manufacturing and alternative machinery supply',
+    text:'After 2022, Chinese road construction equipment manufacturers entered the Russian market as the primary alternative to sanctioned Western brands. Three companies dominate this channel. XCMG Construction Machinery (Xuzhou, Jiangsu Province, Shenzhen Stock Exchange 000425.SZ) produces a wide range of road machinery including milling machines and asphalt pavers compatible with Wirtgen and Vögele specifications, distributed in Russia through the "Xugong Ru" structure and a dealer network. SANY Heavy Industry (Changsha, Shanghai Stock Exchange 600031) operates more than 900 service centres and warehouses worldwide and manufactures compatible road machinery and components. Guangxi LiuGong Machinery (Liuzhou, Shenzhen Stock Exchange 000528.SZ) maintains its own Russian dealer network — dealers confirm that LiuGong spare-parts warehouses in Russia exceed ₽3 billion in total value, representing a substantial committed inventory of compatible parts. These manufacturers produce both new Chinese-branded machinery and compatible components for European machines — meaning a Russian operator running a Wirtgen W200 can source carbide milling teeth, hydraulic components, and other wear parts from Chinese distributors already warehoused inside Russia.'
+  },
+  'china-dealers':{
+    title:'Chinese manufacturer dealer networks inside Russia',
+    text:'The presence of established dealer networks with physical spare-parts warehouses inside Russia is analytically distinct from grey-market sourcing or ad hoc procurement. XCMG operates through the "Xugong Ru" distributor with a network of regional dealers. LiuGong dealers confirm spare-parts warehousing exceeding ₽3 billion in value. SANY\'s 900+ global service centres include Russian operations. This institutionalised infrastructure means Russian road construction companies — including JSC VAD — do not need to conduct covert procurement operations to maintain their Western machinery. Compatible parts are available through routine commercial channels from Chinese distributors operating openly inside Russia. The policy implication is that effective sanctions pressure on this supply chain requires action against the Chinese manufacturers\' Russian distribution infrastructure, not merely controls on direct exports from Western countries.'
+  },
+  turkey:{
+    title:'Turkey — grey market conduit for genuine Western components',
+    text:'Turkey has functioned as one of the primary parallel import routes for sanctioned Western goods since 2022, including machinery components. Turkish companies import genuine Western components — including Wirtgen and Dynapac parts — through normal commercial channels, then resell them to Russian buyers without the end-use restrictions that apply to direct EU exports. Turkey is not subject to Western sanctions on Russia and has not adopted the EU\'s export control framework. The investigation identifies Turkey as one of the three primary routes through which spare parts for the documented machinery reach JSC VAD\'s Russian operations. Stricter end-use certification requirements imposed by the EU on exports to Turkish construction equipment distributors would reduce this conduit\'s throughput, though enforcement would require Turkish regulatory cooperation.'
+  },
+  kazakhstan:{
+    title:'Kazakhstan — parallel import channel via nominally friendly state',
+    text:'Kazakhstan is the third identified spare parts route. As a member of the Eurasian Economic Union (EAEU), Kazakhstan has deep trade integration with Russia and no obligation to adopt Western export controls. Components can be imported into Kazakhstan from any country without EU end-use restrictions, then moved into Russia under EAEU rules without border controls. Kazakhstan has explicitly positioned itself as a "parallel import" hub — the Russian government itself formalised parallel import rules in 2022 specifically to route sanctioned goods through third countries including Kazakhstan. For road construction components, the Kazakhstan route is particularly useful for items where the Chinese analogue supply is insufficient or where genuine Western components are specifically required. The investigation identifies China, Turkey, and Kazakhstan as the three primary channels — reflecting the broader documented pattern of Russian sanctions evasion across all sectors.'
+  },
+  'vad-russia':{
+    title:'JSC VAD — Russian operations and logistics base',
+    text:'JSC VAD (AO VAD, OGRN 1027806860370, INN 7813052925) is headquartered at 34 Petrogradskaya Embankment, St Petersburg. CEO: Valeriy Abramov. The company is one of Russia\'s largest federal road construction contractors, with its main production bases and equipment depots in St Petersburg. The St Petersburg regional vehicle licence code (78) on vehicles documented at the Zaporizhzhia site confirms the machines were deployed from the company\'s home base. VAD was sanctioned by the EU, UK, and Ukraine specifically for road construction in occupied territories. Its Russian operations serve as the staging and logistics base from which equipment, personnel, and materials — including spare parts procured through the evasion channels described — are deployed to occupied territory project sites.'
+  },
+  'azov-road':{
+    title:'Azov military logistics corridor — strategic significance of the road construction',
+    text:'The Pryazovske–Shevchenko–Novokostiantynivka section being repaired by JSC VAD forms part of the Azov Transport Ring — a coastal route connecting Berdiansk, Prymorsk, and Pryazovske, integrating into the Berdiansk–Melitopol route. In Russian planning documents, this corridor is identified as an alternative military supply channel to the main M14 Mariupol–Berdiansk–Melitopol highway. Since 2023, repair of such roads has been financed directly from the Russian federal budget — not regional budgets — reflecting their classification as strategic military infrastructure. The road functions as a logistics route for moving military equipment, ammunition, fuel, and rear support for Russian military groupings operating in the southern direction. The use of sanctioned Western machinery to build military logistics infrastructure in occupied territory is the core policy-relevant finding of the investigation: this is not commercial road construction but a military infrastructure programme funded by the Russian state and physically dependent on the continued operation of European equipment.'
+  }
+};
+
+const panelMap = {
+  wirtgen:'evasion', dynapac:'evasion', china:'evasion',
+  'china-dealers':'evasion', turkey:'evasion', kazakhstan:'evasion',
+  'vad-russia':'evasion', 'azov-road':'evasion'
+};
+
+function closePanel(id){
+  const p=document.getElementById(id);
+  if(p) p.classList.remove('active');
+}
+
+function activateNode(id){
+  const data=nodeData[id];
+  if(!data) return;
+  const suffix=panelMap[id];
+  if(!suffix) return;
+  const panelId='desc-'+suffix;
+  const panel=document.getElementById(panelId);
+  if(!panel) return;
+  document.querySelectorAll('.desc-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(panelId+'-title').textContent=data.title;
+  document.getElementById(panelId+'-text').textContent=data.text;
+  panel.classList.add('active');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+document.querySelectorAll('.clickable-node').forEach(el=>{
+  el.addEventListener('click',()=>activateNode(el.dataset.node));
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();activateNode(el.dataset.node);}
+  });
+});
+</script>
+</body>
+</html>
