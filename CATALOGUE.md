@@ -1,0 +1,364 @@
+# TOT Insights — Full Site Catalogue
+
+*All outputs, databases, primary sources, and media items published on the platform.*
+
+---
+
+## 1. Databases
+
+**DB-OFF — Occupation Officials Database**
+Interactive searchable database of 1,198 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories. Searchable by name, territory, level, status, and origin. Theme: Governance.
+
+**DB-SAN — Sanctions Database**
+Interactive searchable database of 2,306 sanctioned individuals and entities across seven jurisdictions — Australia, EU, Japan, Switzerland, UK, US, and Ukraine. Searchable by name, type, territory, and jurisdiction. Theme: Accountability and Legal.
+
+---
+
+## 2. Research Outputs
+
+### Economics
+
+**DOC-A2 — Shadow Fleet and Sanctions Evasion at Mariupol Port** *(Briefing & Paper)*
+Since Autumn 2024, Mariupol port has been reoriented to bulk cargo at 10–20 vessels per month. The November 2025 customs post enabled first direct export clearances in January 2026. A parallel evasion route via Temryuk re-registers cargo to obscure Russian-occupied territory origin. Coal Harbor dredging (May–October 2026) will increase vessel capacity beyond the current 8,000-tonne ceiling.
+
+**DOC-A4 — Grain Expropriation in Russian-occupied Ukraine: State Operators, Control Networks, and Beneficiary Structures** *(Briefing & Paper)*
+Russia has stolen over 4 million tonnes of Ukrainian grain (~$580 million) through the State Grain Operator (DZO) and parallel extraction networks. Documents DZO capitalisation, leadership, territorial operations, and a financial paradox: declared losses against a 9.8% harvest increase in 2024. Personnel identification, organisational hierarchy, and sanctioned individuals set out in full. The seizures constitute pillage under IHL.
+
+**DOC-A5 — State Grain Operator (DZO): Interactive Research Dashboard** *(Dashboard)*
+Interactive HTML dashboard aggregating key data on the DZO in Russian-occupied Zaporizhzhia. Tabbed navigation across organisational structure, financial data, export flows, personnel network, and accountability indicators, with charts, searchable personnel tables, and a visual org chart. Companion to DOC-A4.
+
+**DOC-A6 — Shadow Fleet at Mariupol Port: Interactive Timeline Visual (v1)** *(Visual)*
+Interactive React visualisation of shadow fleet operations and sanctions evasion at Mariupol port. Displays the operational timeline from Autumn 2024 to Spring 2026. Companion to DOC-A2.
+
+**DOC-A7 — Shadow Fleet at Mariupol Port: Interactive Visual (v2, with Vessel and Tonnage Data)** *(Visual)*
+Version 2 of the shadow fleet interactive React visualisation, adding vessel counts and tonnage columns to the operational timeline. Covers the same period and events as v1. Preferred version for platform display. Companion to DOC-A2.
+
+**DOC-C2 — Russia's Guardianship Programme: Interactive Research Dashboard** *(Dashboard)*
+Interactive dashboard documenting Russia's city-twinning programme assigning Russian cities as 'guardians' of Russian-occupied Ukrainian counterparts. Covers pairings, promised versus delivered commitments, programme timeline, corruption cases, and analytical patterns. Key finding: corruption is the operating mode, not an exception.
+
+**DOC-C3 — Russia's Guardianship Programme: Underlying Research Dataset** *(Data)*
+Six-sheet research dataset underpinning the guardianship programme dashboard (DOC-C2). Covers city-district pairings, promised vs delivered commitments, programme timeline, primary sources, individual corruption cases, and synthesised corruption analytical patterns with Hub dimension tagging.
+
+**DOC-C4 — Mariupol Occupation Economy: Registered Entity Dataset** *(Data)*
+Raw dataset of 1,448 legal entities registered in Mariupol under Russian occupation administration, sourced from the Russian commercial registry. Includes OGRN numbers, legal names, status, addresses, and financial data fields. Only 3.5% filed any financial data. Primary source for DOC-C6.
+
+**DOC-C6 — Mariupol Occupation Economy: Interactive Dashboard** *(Dashboard)*
+Interactive five-chart dashboard visualising Russian-occupied Mariupol's registered economy. Key findings: 73% ООО entities; only 3.5% filed financial data with zero state/municipal entities filing anything; three top streets bear Soviet names reversed from Ukraine's 2015 decommunisation law.
+
+**DOC-090 — Utility Tariff Increases in Occupied Mariupol, 2023–2025** *(Visual)*
+TOT Insights visual tracking cumulative percentage increases across 13 utility services in Mariupol under Russian occupation, from a 2023 baseline to the July 2025 tariff schedule. Sewerage costs rose 71.4% over two years; waste collection 65–68%; cold water 52.7%. Electricity increases comparatively modest (31–40%), consistent with subsidised RF domestic consumer rates. These cumulative increases compound on a population with collapsed independent income, deepening fiscal dependency on the occupation administration.
+
+**DOC-091 — Budget Dynamics of Occupied Mariupol, 2024–Q1 2025** *(Visual)*
+TOT Insights visual tracking total income, own-source income, expenditure, and federal transfers in occupied Mariupol across five cumulative reporting periods (Q1 2024 through Q1 2025). Own-source income accounts for approximately 29% of total budget income in full-year 2024; the remaining 71% derives from Russian federal transfers. This structural dependency locks Mariupol's administration into the Russian budgetary system and makes genuine fiscal autonomy functionally impossible.
+
+**DOC-092 — Corporate and Personal Connections Around Mariupol Port, 2023–2025** *(Visual)*
+Interactive D3 force-directed network map of 26 entities operating in or around Mariupol Port with 24 documented links. ZAT PETROTRANS and Yulia Maksimova (Pakreeva) emerge as primary hubs. The Sanagro–Pakreeva link suggests grain trade routing through the port structure. The RosKapStroy cluster indicates post-capture reconstruction financing tied to RF federal construction bodies.
+
+**DOC-094 — Market Prices, Occupied DPR Territory — April 2026, First Decade** *(Visual)*
+Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026. 150+ goods across six categories: fresh produce and eggs; staples; cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents. Also includes a district heating invoice. First instalment of a quarterly price-monitoring series.
+
+---
+
+### Governance
+
+**DOC-A3 — Zaporizhzhia Nuclear Power Plant: Tactical Exploitation Under Occupation** *(Briefing & Paper)*
+Russia has licensed two ZNPP reactors under Russian nuclear law while simultaneously excluding the plant from its 25-year national energy plan. Three exploitation tracks: grid extraction for Mariupol's industrial base, a cryptocurrency mining project under Presidential Administration oversight, and US-Russia negotiations over four American-fuel reactors. All six reactors remain in cold shutdown. Two critical power supply disconnections in November 2025 and March 2026.
+
+**DOC-A8 — ZNPP Under Occupation: Interactive Safety and Licensing Visual** *(Visual)*
+Interactive React visualisation covering the Rostekhnadzor licensing trajectory and the safety incident log from September 2025 to March 2026, including the two critical Dniprovska line disconnections. Colour-coded severity indicators and expandable detail panels. Companion to DOC-A3.
+
+**DOC-B7 — Documentation, Identity, and Return: A Policy Road Map for Ukraine's Citizens in Russian-occupied Territory** *(Briefing & Paper)*
+Identifies three structural failures in Ukraine's return framework: institutional fragmentation, absence of consular identification infrastructure, and Russia's deliberate documentary erasure. Drawing on European precedents (UK BN(O) scheme, COVID-era remote verification), recommends designating the MFA as lead body for remote identity verification and reconstituting a single coordinating institution for the return pipeline.
+
+**DOC-D2 — Russia's Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Russian-occupied Ukraine** *(Briefing & Paper)*
+Argues that Russia's treatment of Ukrainian civilians constitutes a pipeline of seven interlocking crimes against humanity under the Rome Statute. Scale: over 20,000 civilians estimated in Russian custody, 168 released by September 2025. Five categories of recommendation including a UK-initiated UN Contact Group. Co-authored with Scott Martin (international criminal law).
+
+**DOC-E2 — Russian Mobilisation Documentation: Field Photography Collection (2024–2026)** *(Primary Sources)*
+Ten photographs documenting Russian mobilisation-related materials in Russian-occupied Ukrainian territory, gathered across field visits 2024–2026. Includes advertising materials from Russian regions (including Yakutia) competing to attract contract soldiers against regional quotas. Relevant to research on passportisation, administrative entrapment, and the legal architecture of occupation.
+
+**DOC-F1 — Sergey Kiriyenko and Russia's Occupation of Ukrainian Territories: Architecture of Absorption** *(Briefing & Paper)*
+Comprehensive analytical profile of Sergey Kiriyenko, First Deputy Chief of Staff and Kremlin's de facto proconsul for occupied Ukraine since spring 2022. Documents the evolution of the Kremlin's occupation management model (Surkov → Kozak → Kiriyenko), the referenda as manufactured mandate, the cadre pipeline via 'Leaders of Russia', regional patronage, russification mechanisms (passportisation, language erasure, youth militarisation), reconstruction as governance, and Kiriyenko's 2025 remit expansion to other post-Soviet territories.
+
+**DOC-F2 — Kiriyenko and Russia's Occupation of Ukrainian Territories: Interactive Data Visualisation** *(Visual)*
+Interactive React visualisation accompanying the Kiriyenko analytical briefing. Five tabs: career and TOT milestone timeline with filter-by-category; federal transfers by region (Jan–Sep 2024, DNR ₽101.8bn); domains-of-control authority index; Unified Customer reconstruction project counts by region; youth militarisation budget (₽45.8bn in 2024) and russification mechanisms with ICC implications.
+
+**DOC-083 — A State-Engineered Architecture of Persecution: Russia's Systematic Campaign Against Ukrainian Civilians in Occupied Territories** *(Report)*
+Sole-authored report examining Russian state-led repression of Ukrainian civilians in occupied territories since 2022. Analyses surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as components of a coordinated system rather than isolated incidents. Makes the legal case that the conduct constitutes potential crimes against humanity. Published by Forsvarets høgskole / CSNS, March 2026. Companion to DOC-D2.
+
+---
+
+### Accountability and Legal
+
+**DOC-084 — Capturing the Minds: The Role of Child Deportation in Maintaining Russian Authority over Ukraine's Occupied Territories** *(Journal Article)* *(also: Education and Militarisation)*
+Co-authored with Anastasia Romaniuk. Analyses Russia's deportation of Ukrainian children from occupied territories as a form of biopolitical control. Examines how filtration systems, adoption pathways, and ideological indoctrination in Russian institutions coerce families, disrupt Ukrainian identity transmission, and project Russian authority across generations. Published in the European Journal of International Security (Cambridge University Press), March 2026.
+
+---
+
+### Civilian Life
+
+**DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)*
+Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DNR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
+
+**DOC-B3 — Controlling Faith by Force: Russia's Systematic Religious Persecution in Russian-occupied Ukrainian Territories** *(Briefing & Paper)*
+Between 2014 and 2025, Russia eliminated the plural religious landscape of Russian-occupied Ukraine. Documents five interlocking mechanisms of persecution and the structural role of the ROC as an instrument of state power. Argues the conduct meets Rome Statute thresholds for religious persecution. 800–900 communities closed or underground; 70 clergymen killed or tortured; 95–100% suppression across major denominations.
+
+**DOC-B4 — Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation** *(Visual)*
+Interactive React/Recharts visualisation presenting quantitative data from the religious persecution analytical paper. Covers denomination-level suppression rates, destruction of religious structures, displacement figures, and ROC expansion. Companion to DOC-B3.
+
+**DOC-B5 — Mariupol Property Seizure Programme: Interactive Dashboard** *(Dashboard)*
+Interactive HTML dashboard presenting occupation administrative records on property seizure in Mariupol. Residential programme: 8,526 properties, 90.7% ownerless. Commercial programme: ~460 unique properties across 20 monthly snapshots, October 2024–June 2025. Companion to DOC-B6.
+
+**DOC-B6 — Mariupol Property Seizure Programme: Evidence from Occupation Administrative Records** *(Briefing & Paper)*
+Uses occupation administration's own registry data to document systematic property classification and transfer under the Russian beskhozyanost (ownerlessness) mechanism. Residential programme: 8,526 properties, 90.7% ownerless, 2,220 reclaimed. Commercial programme: ~460 unique properties, including systematic targeting of Ukrainian chain brands.
+
+**DOC-C5 — IDP Attitudes Survey: Raw Dataset (n=1,001)** *(Data)*
+Full cleaned dataset from a survey of 1,001 IDPs from Russian-occupied Ukrainian territories. Variables cover displacement status, IDP self-identification, demographics, institutional effectiveness ratings, contact with Russian-occupied territories, attitudes toward Russian rule, and assessments of non-violent resistance actions. Data in Ukrainian. Source for DOC-C7.
+
+**DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)*
+Interactive dashboard presenting findings from a survey of 1,001 IDPs from Russian-occupied territories. Key findings: 76.4% rate Ukrainian government ineffective vs 48.9% for international humanitarian organisations; 58.5% disagree that people who stayed are satisfied with Russian rule; 61.6% believe hidden resistance exists. Top resistance actions: evacuation (46.5%), medicine (42.8%), essential goods (41.5%).
+
+**DOC-D3 — Russia Is Ethnically Cleansing Mariupol** *(Briefing & Paper)*
+Data-driven analytical essay making the explicit case for ethnic cleansing in Mariupol. Combined attrition of 710 pre-war residents/month through death, departure, and collapsed birth rates. Russian settler inflows ~2,200/month, with Russians projected to outnumber pre-war residents before end of 2026. Documents the federal Zemsky resettlement infrastructure and ISW assessment of a ten-year repopulation plan. Pre-war population: 450,000. Remaining: ~100,000, of whom 70% are pensioners over 60.
+
+**DOC-F3 — Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)** *(Dashboard)*
+Interactive monitoring dashboard for verified violent resistance incidents in Russian-occupied Ukrainian territory and Russian Federation territory, December 2024 to February 2026. 387 total incidents across 30 biweekly periods. Occupied territory breakdown: 246 incidents (vehicle attacks 26%, sabotage 35%); RF-territory breakdown: 141 incidents (railway sabotage 33%). Documents escalation of RF-territory operations from Q4 2025.
+
+**DOC-G1 — DNR Ombudswoman: Social-Humanitarian Situation Reports (Primary Source Collection)** *(Primary Sources)*
+Collection of five socio-humanitarian situation reports produced by the Ombudswoman of the self-proclaimed Donetsk People's Republic. These are primary sources from within the occupation administration and should not be treated as reliable independent accounts of conditions in Russian-occupied Donetsk. Their analytical value lies in what they acknowledge: the complaints and social problems the DNR apparatus considered acceptable to record and address.
+
+**DOC-G2 — Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)** *(Primary Sources)*
+Four official reports from the Mariupol occupation city administration covering citizen appeals from January 2023 through June 2024. Total appeals decline from 9,031 (Jan–Jul 2023) to 4,524 (Jan–Jun 2024). Housing dominates at 66% in the post-siege period, drops to 7% by Aug–Dec 2023 — a reporting reclassification rather than resolved demand, reflecting the occupation's transition from emergency reconstruction to normalised bureaucratic dependency.
+
+**DOC-H1 — Russia's Settler Colonial Programme in Occupied Ukrainian Territories** *(Briefing & Paper)*
+Analytical briefing applying settler colonial theory (Wolfe, Veracini) to Russia's civilian relocation programme in occupied Ukrainian territories. Documents interlocking mechanisms: Zemsky relocation programmes (budget doubled year-on-year through at least 2027), civil administrator co-option, Rosatom and federal ministry placements, and organic migration. Over 80 named Russian civilian settlers identified through open-source data. Companion to DOC-H2.
+
+**DOC-H2 — Who Moves to Occupied Ukraine? Settler Profiles from Russian Civilians** *(Briefing & Paper)*
+Compilation of settler profiles based on publicly available sources. Profiles grouped by primary motivation typology: Economic (Zemsky programme — 2 million rubles for five-year relocation; 2% mortgages in Mariupol); Ideological; Family proximity; Career/professional; Mixed. Motivation coding based on participants' own statements where available. Companion to DOC-H1.
+
+**DOC-085 — Thresholds of Survival: The Resistance in Occupied Ukraine** *(Report)*
+CSIS report documenting the evolution of Ukrainian resistance activity in occupied territories through 2024–25. Finds that intensified Russian surveillance and control have pushed resistance further underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility. Based on field research, interviews across free Ukraine, and open-source analysis. Companion to DOC-087.
+
+**DOC-087 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** *(Report)*
+CSIS report presenting fieldwork and interview-based research on Ukrainian resistance activity in territories subsequently de-occupied. Examines the operational role of resistance in undermining Russia's war effort, documents the personal realities faced by participants, and draws on testimony to assess the costs and achievements of resistance under occupation. Includes policy recommendations for Ukraine and Western supporters.
+
+**DOC-089 — Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025** *(Visual)*
+TOT Insights visual showing the distribution of recorded population displacement flows from occupied Zaporizhzhia Oblast: evacuation to Ukrainian-controlled territory (40%), EU migration (30%), departure to Russia (25%), return in spring 2025 (5%). The low return share is consistent with entrapment dynamics. Russia-bound departures exceeding EU migration suggests coerced or semi-coerced relocation as a significant displacement component.
+
+**DOC-093 — Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026** *(Visual)*
+Interactive Leaflet map visualising 387 verified resistance and sabotage incidents from December 2024 to February 2026. Split between occupied Ukrainian territories (246 incidents across Zaporizhzhia, Kherson, Crimea, Donetsk, and Luhansk oblasts) and operations in Russian Federation territory (141 incidents, primarily Bryansk, Kursk, and Belgorod regions). Circle markers scaled proportionally to incident counts. Filterable by territory, incident type, and reporting period.
+
+---
+
+### Education and Militarisation
+
+**DOC-B1 — Voin: The Architecture of Child Soldier Training in Russian-occupied Ukrainian Territories** *(Briefing & Paper)*
+Analytical note documenting Voin (ВОІН), Russia's most centralised and explicitly military youth programme. Exclusively federally funded, applied coercively via forced passportisation. In Mariupol, a Voin complex is under construction on a former Ukrainian children's camp, with capacity for 300 children. Russian state projections: 200,000+ trained personnel under 25 by 2030. Cross-references 14 platform documents.
+
+**DOC-B2 — The Voin Generation: Russia's Militarisation of Children in Russian-occupied Ukraine and the Coming Strategic Threat** *(Briefing & Paper)*
+An estimated 600,000–650,000 children in Russian-occupied Ukrainian territories have undergone military training in some form, with youth enrolment in militarist organisations rising 26-fold since 2015. Maps a five-tier militarisation architecture from preschool indoctrination through Voin training centres. 45.8 billion rubles directed to youth militarisation in 2024 alone. The cohort reaches conscription age between 2028 and 2034.
+
+---
+
+### Information Space
+
+**DOC-D4 — Russian Occupation Education and Propaganda Manuals: Source Document Collection** *(Primary Sources)*
+Ten Russian-language documents comprising working materials produced by or for the Russian occupation administration. Includes Ministry of Education curriculum lists, Year of the Family methodological manuals, a document titled 'Ukrainian Crimes (2022–2023)', and a manual on the Methods of TsIPSO (Centre for Information and Psychological Operations). Relevant to research on identity replacement, education capture, and the administrative architecture of annexation.
+
+**DOC-E1 — Lysychansk Vestnik: Occupation Newspaper Archive (Issues 1–30, 2023–2026)** *(Primary Sources)*
+Eleven issues of Лисичанський Вісник, the occupation administration's local gazette for Lysychansk in Russian-occupied Luhansk oblast. Covers municipal services, governance, commercial activity, alongside consistent framing of the occupation as liberation. Includes reporting on Tatarstan produce under the guardian-city relationship and LNR leadership coverage. Relevant to research on occupation media architecture, normalisation, and settler integration.
+
+**DOC-088 — Russian Propaganda Tactics in Ukraine's Newly Occupied Territories** *(Journal Article)*
+Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russian propaganda tactics in Ukrainian territories occupied after 2022. Argues that Russia moved from the Crimea-style information control model to a two-tier messaging system targeting Russian and occupied Ukrainian audiences differently, with a heavier reliance on fear-based narratives and threat construction. Includes analysis of potential counter-strategies. Published May 2024.
+
+---
+
+## 3. Primary Source Documents — Mariupol Administration (2026)
+
+Standalone primary source documents from the Mariupol occupation administration, published in original Russian with machine translations.
+
+**DOC-095 — Official Market Valuation of Residential Property in Mariupol, 2026** *(Economics)*
+Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).
+
+**DOC-096 — Auction Decree: Municipal Property Lease, Lenin Prospekt & Metallurgov Prospekt, Mariupol** *(Governance)*
+Decree authorising the electronic auction of two non-residential municipal properties on five-year leases under Russian federal competition law.
+
+**DOC-097 — Subsidy Amendment: MUP Mariupolzhilkompleks Wage Arrears, January–February 2026** *(Governance)*
+Decree amending a subsidy scheme to cover wage debt owed to employees of the municipal housing utility enterprise MUP "Mariupolzhilkompleks" for January–February 2026.
+
+**DOC-098 — Auction Decree: Municipal Property Lease, Stroiteley Prospekt & Lenin Prospekt, Mariupol** *(Governance)*
+Decree authorising the electronic auction of two further non-residential municipal properties on five-year leases under Russian federal competition law.
+
+**DOC-099 — "Development of Education in Mariupol" Municipal Programme, 2026–2028** *(Education and Militarisation)*
+Full text of the occupation administration's three-year education programme. Total budget 8.76 billion rubles. Objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values."
+
+**DOC-100 — Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)** *(Governance)*
+Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.
+
+**DOC-101 — Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026** *(Civilian Life)*
+Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.
+
+**DOC-102 — Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol** *(Civilian Life)*
+Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.
+
+---
+
+## 4. Media & Public Engagement
+
+*49 items. Sorted by date, most recent first.*
+
+### 2026
+
+**29 Mar 2026 — A State-Engineered Architecture of Persecution** | Forsvarets høgskole | Report
+An analysis of Russian state-led repression of Ukrainian civilians since 2022, examining surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as part of a coordinated system constituting potential crimes against humanity.
+
+**13 Mar 2026 — Trump lifts sanctions on Russian oil as energy prices surge & the 'leaner, more professional' partisans in the occupied territories** | Telegraph | Podcast
+An overview of resistance efforts in occupied areas, including partisan activity in Luhansk, alongside reports on deported children, forced mobilisation, ideological indoctrination, and wider disruption in energy markets.
+
+**9 Mar 2026 — Capturing the minds: The role of child deportation in maintaining Russian authority over Ukraine's occupied territories** | European Journal of International Security | Journal Article
+An academic article analysing Russia's deportation of Ukrainian children from occupied territories as a form of biopolitical control, focusing on how it functions as a tool to coerce families, disrupt Ukrainian identity, and shape future generations.
+
+**27 Feb 2026 — Kremlin insider: 'we don't plan to win the war' & FSB claims 150,000 Russians used special 'helplines' to denounce fellow citizens** | Telegraph | Podcast
+A look at resistance activity in southern Ukraine and Crimea, focusing on sabotage operations targeting transport and logistics networks.
+
+**27 Feb 2026 — On the frontline in Ukraine: 'It's under constant attack' | Ukraine: The Latest** | Telegraph | Video
+A TV report describing stories from now-freed Ukrainian territories that were occupied by Russian forces.
+
+**23 Feb 2026 — Russia's empire of ruins** | Engelsberg Ideas | Article
+An analysis of life under Russian occupation in Ukraine, examining governance failures, destruction of infrastructure, water and energy crises, forced identity and property changes, grain expropriation, and how these conditions contrast with Ukrainian-controlled areas.
+
+**12 Feb 2026 — Russia has crushed open defiance in occupied Ukraine. Scholar Jade McGlynn explains how the resistance went underground to survive.** | Meduza | Podcast
+A discussion on how Ukrainian resistance in occupied territories has evolved over five years of war, explaining how early visible protests have shifted into more covert, underground forms under intensified Russian control.
+
+**30 Jan 2026 — Civilians killed as Trump announces 'energy ceasefire' ahead of resumed peace talks** | Telegraph | Podcast
+Coverage of a Kyiv blackout, ongoing discussions around peace talks involving occupied territories, resistance operations across Kherson, Donetsk, and Crimea, and developments around the mortgage system in Mariupol.
+
+**22 Jan 2026 — Thresholds of Survival: The Latest Report on Ukrainian Resistance to Russian Occupation by Jade McGlynn** | CSIS | Podcast
+A conversation about the CSIS report "Thresholds of Survival" (January 2026), focusing on how Ukrainian resistance in occupied territories has evolved under intensified Russian control.
+
+**22 Jan 2026 — Resistance in occupied Ukraine 'under constant surveillance'** | France 24 English | Video
+An interview discussing a report on resistance in occupied Ukraine, highlighting how local networks operate under intense surveillance and severe repression, including high risks of detention and enforced disappearances.
+
+**16 Jan 2026 — Europe overtakes US intelligence support for Kyiv & Trump 'gifted' a Nobel Peace Prize** | Telegraph | Podcast
+An overview of resistance activity in occupied territories, including information control and flow inside those areas, recent resistance operations, and mobilisation patterns within Russia.
+
+**14 Jan 2026 — Thresholds of Survival: The Resistance in Occupied Ukraine** | CSIS | Report
+An update on Ukrainian resistance in occupied territories from 2024 to 2025, examining how intensified surveillance has pushed activity underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility.
+
+**9 Jan 2026 — Jade McGlynn: Ukrainian Intelligence in the Occupied Regions** | Axess Television | Video
+A conversation exploring civilian-led intelligence networks in Russian-occupied Ukraine, the risks of decentralised resistance under surveillance and coercion, and how digital tools and historic resistance models are reshaping intelligence and sovereignty.
+
+### 2025
+
+**31 Dec 2025 — Russia's Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Occupied Ukraine** | CSNS (through Substack) | Report
+An academic paper on civilian detention in Russian-occupied Ukraine, focusing on illegal detentions and enforced disappearances and analysing them as interlocking crimes against humanity.
+
+**9 Dec 2025 — Jade McGlynn — Ukrainian Intelligence in the Occupied Regions** | The Engelsberg Seminars | Video
+A lecture on how Ukrainian civilians in occupied territories have become a decentralised intelligence network, examining the shift from hierarchical resistance models to fragile "puzzle" networks, the risks of surveillance and repression, and implications for sovereignty and modern warfare.
+
+**5 Dec 2025 — Russian seaport near Kerch bridge 'explodes' & war drones fly towards Zelensky's plane** | Telegraph | Podcast
+A look at resistance operations in Zaporizhzhia, the Kherson left bank, and Crimea with a focus on disrupting logistics and supply lines, alongside analysis of Ukrainian trust in the US as an ally.
+
+**4 Dec 2025 — Russian-occupied Ukrainian resistance forces 'consistently slowing' Putin's advances** | The Trump Report | Video
+A TV report noting that Ukrainian resistance fighters operating behind Russian lines are having a consistent impact on occupying forces, and that support from within occupied territories is especially valuable to Ukraine's war effort.
+
+**21 Nov 2025 — Trump tells Zelensky: Sign peace deal 'by Thursday' or have weapons cut off** | Telegraph | Podcast
+An overview of reactions to a proposed peace plan, communication challenges and safety for people in occupied territories, the role of citizen intelligence and Telegram coordination, and updates on ongoing resistance operations.
+
+**7 Nov 2025 — Moscow slams Ukraine with new glide bombs as Lavrov's future in doubt** | Telegraph | Podcast
+A look at healthcare conditions in Russia and occupied territories, the influence of the Moscow Patriarchate, and the latest updates on resistance operations.
+
+**10 Oct 2025 — 'Massive' Russian attack knocks out Kyiv energy grid & what Gaza ceasefire means for Ukraine** | Telegraph | Podcast
+An update on resistance operations in occupied territories alongside analysis of Russian architecture projects and mortgage policy in those areas.
+
+**25 Sep 2025 — Ukraine ravage Russian aircraft and radar stations in occupied Crimea & Denmark reports 'hybrid attack' on major airport** | Telegraph | Podcast
+A discussion of the Lyman case involving alleged war crimes and civilian detentions, reactions within occupied territories to talk of possible liberation, and the latest updates on resistance operations.
+
+**9 Sep 2025 — Explosions put 3 Russian pipelines 'out of action' & headless corpse of Russian CEO discovered** | Telegraph | Podcast
+An overview of the water crisis in occupied territories alongside the latest updates on resistance operations.
+
+**4 Sep 2025 — Jade McGlynn with an Update from Ukraine** | CSIS | Podcast
+A conversation covering the Ukrainian war effort, conditions in Russian-occupied territories, and recent protests in Ukraine over perceived moves to constrain the independence of domestic anti-corruption agencies.
+
+**15 Aug 2025 — Putin 'to test nuclear missiles' ahead of Trump Alaska summit** | Telegraph | Podcast
+A look at the Alaska summit, control of ports in occupied territories, the expropriation of grain including methods, scale, and destinations, and the latest updates on resistance operations.
+
+**1 Aug 2025 — 'Disgusting' attack on Kyiv deadliest of 2025 & Russia's nuclear submarine base 'damaged by tsunami'** | Telegraph | Podcast
+An overview of new messaging tools and communication control in occupied territories, including surveillance, tracking, and propaganda systems, alongside the latest updates on resistance operations.
+
+**4 Jul 2025 — Massive attack hits Kyiv as Putin tells Trump diplomacy is 'not possible'** | Telegraph | Podcast
+An update on resistance operations with a focus on disrupting transportation and communication networks.
+
+**20 Jun 2025 — 'Weak' Putin pressured to declare 'full war' & Russia accidentally admits to huge troop losses** | Telegraph | Podcast
+An update on resistance operations, the threat level facing civilians and partisans in occupied territories, and the role of Russian teachers in those areas.
+
+**23 May 2025 — Putin forced to slash budgets after oil price fall & precision strikes batter Russian infrastructure** | Telegraph | Podcast
+An update on resistance operations, digital psychological operations and influence campaigns, and how ongoing negotiation talks are affecting resistance dynamics.
+
+**9 May 2025 — Chinese troops march in Putin's Victory Day parade as Xi joins Putin to spite Trump** | Telegraph | Podcast
+An update on ongoing resistance operations in occupied territories.
+
+**25 Apr 2025 — Bomb in Moscow kills senior Russian general & Trump tells Putin 'Vladimir, stop' after Kyiv strike** | Telegraph | Podcast
+An update on ongoing resistance operations in occupied territories.
+
+**11 Apr 2025 — Exclusive: Europe plans to deploy troops to Ukraine for 5 years & resistance in occupied territories accelerates** | Telegraph | Podcast
+An update on resistance operations, including activity inside Russia itself, alongside Russian internal resistance, media consumption patterns in occupied territories, and ongoing grain theft.
+
+**28 Mar 2025 — Revealed: Trump's plan to force Ukraine to restore Putin's gas empire** | Telegraph | Podcast
+An update on resistance operations and reported losses within resistance networks.
+
+**14 Mar 2025 — Fierce fighting in Russia as Ukrainian troops 'hold on' & Trump asks Putin to 'spare surrounded forces'** | Telegraph | Podcast
+An update on resistance operations, alongside insights into everyday life in occupied territories, education systems, and the integration between Russian military forces and local civilian structures.
+
+**28 Feb 2025 — How nuclear-armed Ukraine could become 'Europe's Israel' & assassinations in occupied territories 'accelerate'** | Telegraph | Podcast
+An update on resistance operations, and an assessment of utilities and healthcare in occupied territories based on investment coming from Russia.
+
+**14 Feb 2025 — Nuclear fears as 'high explosive warhead' hits Chernobyl & Europe pledges high-tech arms at Munich** | Telegraph | Podcast
+A look at resistance operations, increasing Russian efforts to tighten control over occupied territories, foreign interest in Ukraine's post-war industrial prospects, and how ongoing negotiation talks are affecting morale.
+
+**11 Feb 2025 — Extraction: Wealth extraction, property confiscation, and living in the occupied territories** | Substack | Blog
+A blog post examining Russian-occupied Ukraine, focusing on propaganda narratives of "normality" and contrasting them with infrastructure collapse, corruption, forced mobilisation, Russification, home confiscation, and wider systems of repression and resource extraction.
+
+**31 Jan 2025 — Explosion 'rips open' oil refinery in former Stalingrad & revolt in occupied territories** | Telegraph | Podcast
+An overview of resistance operations, noting a decline in violent activity due to forced passportization, and an examination of patterns of non-violent resistance.
+
+**24 Jan 2025 — Massive fireball as Russian thermal power plant explodes & rebellion in the occupied territories** | Telegraph | Podcast
+An introduction to 2025 resistance strategic goals, a look at current resistance activity, and a discussion on the benefits of covering resistance in the media along with ways to support it.
+
+**17 Jan 2025 — We Can't Condemn the People of Occupied Ukraine to the Reality of Russian Occupation** | Moscow Times | Article
+An article focusing on systematic cultural erasure, repression, deportations of children, and economic exploitation under Russian occupation, while highlighting ongoing partisan resistance and warning that overlooking the realities of occupied territories distorts understanding of the war.
+
+### 2024
+
+**22 Dec 2024 — Pushkin at the Mass Grave** | Substack | Blog
+A blog post about Russian cultural symbols in occupied Ukraine and their role as tools of imperial domination, focusing on cultural repression in occupied territories and situating Ukrainian responses within the context of war and occupation.
+
+**1 Nov 2024 — Decolonisation: Jade McGlynn on how memory politics shapes Russia's war and the perceptions of Ukraine** | Ukraïner | Podcast
+A discussion on memory politics, historical narratives, and identity construction in Russia and the West, exploring how these shape the war in Ukraine, Putin's imperial rhetoric, Western academic blind spots on Eastern Europe, and whether Russia's decolonisation is possible.
+
+**14 Oct 2024 — Russian occupation: Occupation, resistance, mobilisation** | Substack | Blog
+A blog post based on field visits to eastern Ukraine and Kharkiv, covering life under war, conditions in Russian-occupied territories, civilian evacuation, and forms of resistance. Discusses mobilisation, surveillance, propaganda, and broader reflections on the course of the war.
+
+**8 Sep 2024 — Ukraine's resistance movement from Dr Jade McGlynn on Russian occupation** | Ukrainian Jenny meets… | Video
+A podcast interview exploring Ukrainian life under Russian occupation, focusing on resistance movements, the risks that push civilians to become partisans, Russian propaganda and identity suppression efforts, and broader historical and social context.
+
+**29 Jul 2024 — Ukrainian Resistance in the Occupied Territories with Jade McGlynn** | CSIS | Podcast
+A conversation about the CSIS report "Crossing Thresholds: Ukrainian Resistance to Russian Occupation" and its findings on resistance under Russian occupation.
+
+**2 Jul 2024 — What does resistance in occupied Ukraine look like? — Ukraine: The Latest** | Telegraph | Podcast
+An overview of resistance in occupied Ukraine, focusing on sabotage operations and armed struggle against Russian occupation forces.
+
+**21 Jun 2024 — The Ukrainian resistance is torching Putin's dreams of conquest** | Telegraph | Article
+An analysis arguing that Ukrainian resistance in occupied territories is actively undermining Russia's control through ongoing partisan activity, framing the occupied regions not as static losses but as active fronts in a continuing struggle for liberation.
+
+**18 Jun 2024 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** | CSIS | Report
+A fieldwork-based report on Ukrainian resistance in de-occupied territories, examining its role in undermining Russia's war effort, the realities faced by participants, personal testimonies, and recommendations for Ukraine and Western supporters.
+
+**21 May 2024 — Russian Propaganda Tactics in Ukraine's Newly Occupied Territories** | Russian Analytical Digest 313 | Journal Article
+An analysis of Russian propaganda in occupied Ukrainian territories after 2022, examining its evolution from Crimea-style information control to a two-tier messaging system, its reliance on fear-based narratives, and potential counter-strategies.
+
+**23 Apr 2024 — Russia Is Committing Cultural Genocide in Ukraine** | Foreign Policy Magazine | Article
+An analysis focusing on Russian occupation in Ukraine as a systematic campaign to erase Ukrainian national identity through historical propaganda, Russification, education control, cultural destruction, and child indoctrination, while highlighting continued cultural and civic resistance.
+
+---
+
+*Last updated: May 2026. Platform: https://totinsights.github.io/tot-insights/*
