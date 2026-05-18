@@ -28,25 +28,25 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
 .header-nav a:hover,.header-nav a.active{color:#fff;}
 @media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
-/* Hero / Intro */
-.hero{background:var(--navy);padding:5rem 3.5rem;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:0;right:0;width:38%;bottom:0;background:linear-gradient(135deg,transparent 0%,rgba(201,150,26,0.06) 100%);pointer-events:none;}
-.hero-inner{max-width:1200px;margin:0 auto;position:relative;}
-.hero-content{max-width:760px;}
-.hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
-.hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:14px;}
-.hero-desc{font-size:13px;color:rgba(255,255,255,0.48);line-height:1.78;}
+/* Static hero */
+.static-hero{position:relative;width:100%;height:85vh;background-image:url('images/photo_2026-04-23_15.00.35.jpeg');background-size:cover;background-position:center 40%;display:flex;flex-direction:column;justify-content:flex-end;}
+.static-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,40,0.72) 0%,rgba(8,18,40,0.35) 100%);pointer-events:none;}
+.static-hero-content{position:relative;z-index:1;max-width:680px;padding:0 3.5rem 4rem;}
+.static-hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:14px;}
+.static-hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:14px;}
+.static-hero-desc{font-size:13px;color:rgba(255,255,255,0.52);line-height:1.78;}
+.static-hero-caption{position:absolute;bottom:1.25rem;right:2rem;font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:0.75rem;color:rgba(255,255,255,0.45);z-index:1;}
 /* Accreditation strip */
 .accred-strip{background:var(--navy);padding:1.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .accred-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
-.accred-logo{max-height:36px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.55);flex-shrink:0;}
+.accred-logo{max-height:36px;max-width:180px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.55);flex-shrink:0;}
 .accred-rule{width:1px;height:28px;background:rgba(255,255,255,0.12);margin:0 2rem;flex-shrink:0;}
 .accred-text-logo{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;}
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 /* About strip */
-.about-strip{background:#FAFBF2;border-bottom:1px solid var(--border);padding:36px 40px;}
+.about-strip{background:#FAFBF2;border-bottom:1px solid var(--border);padding:5rem 40px;}
 .about-strip-inner{max-width:1200px;margin:0 auto;}
 .about-text{font-size:15px;color:var(--text);line-height:1.78;max-width:820px;}
 .about-text p{margin-bottom:14px;}
@@ -55,7 +55,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .about-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.12s;}
 .about-link:hover{color:var(--navy);}
 /* Featured */
-.featured{padding:36px 40px 40px;background:#fff;border-bottom:1px solid var(--border);}
+.featured{padding:5rem 40px;background:#fff;border-bottom:1px solid var(--border);}
 .featured-inner{max-width:1200px;margin:0 auto;}
 .featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 @media(max-width:1100px){.featured-grid{grid-template-columns:repeat(2,1fr);}}
@@ -75,7 +75,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .section-cta a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.12s;}
 .section-cta a:hover{color:var(--navy);}
 /* Databases section */
-.databases-section{padding:36px 40px 40px;background:#FAFBF2;border-bottom:1px solid var(--border);}
+.databases-section{padding:5rem 40px;background:#FAFBF2;border-bottom:1px solid var(--border);}
 .databases-inner{max-width:1200px;margin:0 auto;}
 .db-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 @media(max-width:640px){.db-grid{grid-template-columns:1fr;}}
@@ -89,7 +89,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .db-arrow{font-size:15px;color:var(--border);transition:color 0.12s,transform 0.12s;}
 .db-card:hover .db-arrow{color:var(--steel);transform:translateX(3px);}
 /* Media section */
-.media-section{padding:36px 40px 48px;background:#fff;border-bottom:1px solid var(--border);}
+.media-section{padding:5rem 40px;background:#fff;border-bottom:1px solid var(--border);}
 .media-inner{max-width:1200px;margin:0 auto;}
 .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 @media(max-width:1000px){.media-grid{grid-template-columns:repeat(2,1fr);}}
@@ -114,26 +114,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
 .footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .footer-inner a:hover{color:rgba(255,255,255,0.7);}
-@media(max-width:700px){.hero{padding:3rem 1.25rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;}}
-/* Photo carousel */
-.photo-carousel{background:#0a0a0a;position:relative;}
-.carousel-viewport{overflow:hidden;}
-.carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;}
-.carousel-slide{min-width:100%;position:relative;height:400px;overflow:hidden;flex-shrink:0;}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.88);}
-.carousel-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent 0%,rgba(0,0,0,0.72) 100%);padding:44px 44px 22px;}
-.carousel-caption-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#c8a96e;margin-bottom:5px;}
-.carousel-caption{font-family:'Source Serif 4',Georgia,serif;font-size:13px;color:rgba(255,255,255,0.78);line-height:1.5;max-width:580px;}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.42);border:1px solid rgba(200,169,110,0.28);color:#c8a96e;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background 0.15s,border-color 0.15s;z-index:10;padding:0;}
-.carousel-btn:hover{background:rgba(200,169,110,0.18);border-color:rgba(200,169,110,0.6);}
-.carousel-btn-prev{left:16px;}
-.carousel-btn-next{right:16px;}
-.carousel-footer{display:flex;align-items:center;justify-content:space-between;padding:9px 44px;background:#0a0a0a;border-bottom:1px solid #1a2535;}
-.carousel-dots{display:flex;gap:5px;align-items:center;}
-.carousel-dot{width:5px;height:5px;border-radius:50%;background:rgba(200,169,110,0.2);cursor:pointer;transition:background 0.2s,width 0.2s;border:none;padding:0;}
-.carousel-dot.active{background:#c8a96e;width:14px;border-radius:3px;}
-.carousel-counter{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.22);letter-spacing:0.12em;}
-@media(max-width:700px){.carousel-overlay{padding:32px 20px 16px;}.carousel-footer{padding:9px 20px;}.carousel-slide{height:280px;}}
+@media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;padding-top:3rem;padding-bottom:3rem;}}
 </style>
 </head>
 <body>
@@ -173,26 +154,13 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </header>
 
-<div class="photo-carousel" id="photoCarousel">
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="carouselTrack"></div>
+<section class="static-hero">
+  <div class="static-hero-content">
+    <div class="static-hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
+    <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+    <p class="static-hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
   </div>
-  <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">&#8249;</button>
-  <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">&#8250;</button>
-</div>
-<div class="carousel-footer">
-  <div class="carousel-dots" id="carouselDots"></div>
-  <span class="carousel-counter" id="carouselCounter">1 / 14</span>
-</div>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
-      <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-      <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
-    </div>
-  </div>
+  <span class="static-hero-caption">Mariupol, April 2026 — fieldwork documentation</span>
 </section>
 
 <div class="accred-strip">
@@ -336,58 +304,6 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
-<script>
-(function(){
-var SLIDES=[
-  {src:'images/photo_2026-03-27_06.27.56.jpeg',label:'Field Documentation',caption:'Occupied territory, March 2026'},
-  {src:'images/photo_2026-03-27_06.29.28_1.jpeg',label:'Field Documentation',caption:'Occupied territory, March 2026'},
-  {src:'images/photo_2026-04-14_07.51.07.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-14_07.51.16.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-16_13.08.10.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-17_09.32.48.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-18_08.31.26.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-18_08.31.29.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-23_15.00.35.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-24_13.10.12.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/photo_2026-04-29_09.56.58.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
-  {src:'images/at_port.jpeg',label:'Field Documentation',caption:'Mariupol port, 2026'},
-  {src:'images/260114_McGlynn_Thresholds_Survival_Img2.jpeg',label:'Thresholds of Survival',caption:'Fieldwork documentation, January 2026'},
-  {src:'images/260114_McGlynn_Thresholds_Survival_Img5.jpeg',label:'Thresholds of Survival',caption:'Fieldwork documentation, January 2026'}
-];
-var cur=0,timer;
-var track=document.getElementById('carouselTrack');
-var dotsEl=document.getElementById('carouselDots');
-var counter=document.getElementById('carouselCounter');
-SLIDES.forEach(function(s,i){
-  var slide=document.createElement('div');
-  slide.className='carousel-slide';
-  slide.innerHTML='<img src="'+s.src+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'">'
-    +'<div class="carousel-overlay">'
-    +'<div class="carousel-caption-label">'+s.label+'</div>'
-    +'<div class="carousel-caption">'+s.caption+'</div>'
-    +'</div>';
-  track.appendChild(slide);
-  var dot=document.createElement('button');
-  dot.className='carousel-dot'+(i===0?' active':'');
-  dot.setAttribute('aria-label','Slide '+(i+1));
-  dot.addEventListener('click',function(){goTo(i);});
-  dotsEl.appendChild(dot);
-});
-function goTo(n){
-  cur=(n+SLIDES.length)%SLIDES.length;
-  track.style.transform='translateX(-'+cur+'00%)';
-  document.querySelectorAll('.carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});
-  counter.textContent=(cur+1)+' / '+SLIDES.length;
-}
-function startTimer(){timer=setInterval(function(){goTo(cur+1);},5000);}
-function stopTimer(){clearInterval(timer);}
-document.getElementById('carouselPrev').addEventListener('click',function(){stopTimer();goTo(cur-1);startTimer();});
-document.getElementById('carouselNext').addEventListener('click',function(){stopTimer();goTo(cur+1);startTimer();});
-document.getElementById('photoCarousel').addEventListener('mouseenter',stopTimer);
-document.getElementById('photoCarousel').addEventListener('mouseleave',startTimer);
-startTimer();
-})();
-</script>
 <script src="navigation.js"></script>
 </body>
 </html>
