@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propaganda — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0D2B4E;--steel:#1C567A;--gold:#C9961A;--cream:#FAFBF2;
+  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --font-serif:'Libre Baskerville',Georgia,serif;
+  --font-sans:'IBM Plex Sans',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-source:'Source Serif 4',Georgia,serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
+.site-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:0 40px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.site-logo{display:flex;align-items:baseline;gap:12px;text-decoration:none;}
+.logo-main{font-family:var(--font-serif);font-size:20px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+.logo-sub{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;}
+.header-nav{display:flex;gap:28px;align-items:center;}
+.header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
+.header-nav a:hover,.header-nav a.active{color:#fff;}
+@media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
+/* Theme hero */
+.theme-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.2);padding:52px 40px 44px;}
+.theme-hero-inner{max-width:1200px;margin:0 auto;}
+.theme-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:12px;}
+.theme-title{font-family:var(--font-display);font-size:40px;font-weight:700;color:#fff;line-height:1.14;margin-bottom:20px;max-width:640px;}
+.theme-framing{font-size:14px;color:rgba(255,255,255,0.52);line-height:1.84;max-width:660px;margin-bottom:20px;}
+.theme-stat{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(200,169,110,0.7);}
+/* Field docs */
+.field-docs{background:#12181f;padding:48px 40px;}
+.field-docs-inner{max-width:1200px;margin:0 auto;}
+.field-docs-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#c8a96e;margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.field-docs-label::after{content:'';flex:1;height:1px;background:rgba(200,169,110,0.16);}
+.embed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+@media(max-width:700px){.embed-grid{grid-template-columns:1fr;}}
+.doc-image-embed{margin:0;overflow:hidden;}
+.doc-image-embed img{width:100%;height:230px;object-fit:cover;display:block;border-radius:2px;}
+.doc-image-embed figcaption{padding:9px 0 0;}
+.embed-label{display:block;font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#c8a96e;margin-bottom:3px;}
+.embed-caption{display:block;font-family:var(--font-source);font-size:12px;color:rgba(255,255,255,0.42);line-height:1.5;}
+.doc-image-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;grid-column:span 2;}
+@media(max-width:700px){.doc-image-pair{grid-template-columns:1fr;grid-column:span 1;}}
+/* Briefings */
+.theme-briefings{background:var(--cream);padding:48px 40px 56px;}
+.theme-briefings-inner{max-width:1200px;margin:0 auto;}
+.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.briefings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:1000px){.briefings-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.briefings-grid{grid-template-columns:1fr;}}
+.brief-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:18px 20px 16px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow 0.15s,transform 0.15s;}
+.brief-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.brief-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+.brief-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
+.brief-format{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.brief-title{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--navy);line-height:1.32;margin-bottom:8px;}
+.brief-desc{font-size:12px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:12px;}
+.brief-arrow{margin-top:auto;font-size:13px;color:var(--border);transition:color 0.12s,transform 0.12s;display:block;}
+.brief-card:hover .brief-arrow{color:var(--steel);transform:translateX(3px);}
+.section-cta{margin-top:20px;text-align:right;}
+.section-cta a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.12s;}
+.section-cta a:hover{color:var(--navy);}
+/* Footer */
+.site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
+.footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
+.footer-inner a:hover{color:rgba(255,255,255,0.7);}
+@media(max-width:700px){.theme-hero{padding:32px 20px 30px;}.field-docs,.theme-briefings{padding-left:20px;padding-right:20px;}}
+</style>
+</head>
+<body>
+<div style="background:#f59e0b;color:#0D2B4E;font-size:14px;font-weight:700;text-align:center;padding:11px 20px;width:100%;letter-spacing:0.02em;font-family:'IBM Plex Sans',sans-serif;line-height:1.4;">Prototype only — subject to KCL ethics review.</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-logo" href="index.html">
+      <span class="logo-main">TOT Insights</span>
+      <span class="logo-sub">Russian-occupied Ukraine</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="economics.html">Economics</a>
+      <a href="propaganda.html" class="active">Propaganda</a>
+      <a href="social-conditions.html">Social Conditions</a>
+      <a href="data.html">Data</a>
+      <a href="media.html">Media</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="theme-hero">
+  <div class="theme-hero-inner">
+    <div class="theme-eyebrow">Theme overview</div>
+    <h1 class="theme-title">Information and Indoctrination</h1>
+    <p class="theme-framing">Russia has constructed a comprehensive information architecture across Russian-occupied Ukrainian territories — state media, educational indoctrination, and militarised youth programming deployed to reshape identity, neutralise dissent, and manufacture consent for permanent occupation. TOT Insights documents the institutions, personnel, and mechanisms driving this system.</p>
+    <div class="theme-stat">6 analytical outputs</div>
+  </div>
+</section>
+
+<section class="field-docs">
+  <div class="field-docs-inner">
+    <div class="field-docs-label">Field Documentation</div>
+    <div class="embed-grid">
+      <div class="doc-image-pair">
+        <figure class="doc-image-embed">
+          <img src="images/photo_2026-03-27_06.27.56.jpeg" alt="Information environment documentation, occupied territory, March 2026" loading="lazy">
+          <figcaption>
+            <span class="embed-label">Field Documentation</span>
+            <span class="embed-caption">Information environment, occupied territory, March 2026</span>
+          </figcaption>
+        </figure>
+        <figure class="doc-image-embed">
+          <img src="images/photo_2026-03-27_06.29.28_1.jpeg" alt="Information environment documentation, occupied territory, March 2026" loading="lazy">
+          <figcaption>
+            <span class="embed-label">Field Documentation</span>
+            <span class="embed-caption">Information environment, occupied territory, March 2026</span>
+          </figcaption>
+        </figure>
+      </div>
+      <figure class="doc-image-embed">
+        <img src="images/260114_McGlynn_Thresholds_Survival_Img2.jpeg" alt="Thresholds of Survival fieldwork documentation, January 2026" loading="lazy">
+        <figcaption>
+          <span class="embed-label">Thresholds of Survival</span>
+          <span class="embed-caption">Fieldwork documentation, January 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="doc-image-embed">
+        <img src="images/photo_2026-04-24_13.10.12.jpeg" alt="Field documentation, occupied territory, April 2026" loading="lazy">
+        <figcaption>
+          <span class="embed-label">Field Documentation</span>
+          <span class="embed-caption">Occupied territory, April 2026</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="theme-briefings">
+  <div class="theme-briefings-inner">
+    <div class="section-label">Research outputs — Information and Indoctrination</div>
+    <div class="briefings-grid">
+      <a class="brief-card" href="briefings/kiriyenko_brief.html">
+        <div class="brief-card-top">
+          <span class="brief-id">DOC-F1</span>
+          <span class="brief-format">Briefing &amp; Paper</span>
+        </div>
+        <div class="brief-title">Sergey Kiriyenko and Russia's Occupation of Ukrainian Territories: Architecture of Absorption</div>
+        <div class="brief-desc">From Yeltsin's technocrat to Putin's proconsul. Kiriyenko's mandate, cadre network, russification programme, and the fragilities in his occupation model.</div>
+        <span class="brief-arrow">→</span>
+      </a>
+      <a class="brief-card" href="briefings/voin_generation.html">
+        <div class="brief-card-top">
+          <span class="brief-id">DOC-B2</span>
+          <span class="brief-format">Briefing &amp; Paper</span>
+        </div>
+        <div class="brief-title">The Voin Generation: Russia's Militarisation of Children in Russian-occupied Ukraine and the Coming Strategic Threat</div>
+        <div class="brief-desc">600,000–650,000 children in a five-tier militarisation pipeline. The cohort reaches conscription age between 2028 and 2034.</div>
+        <span class="brief-arrow">→</span>
+      </a>
+      <a class="brief-card" href="briefings/voyin.html">
+        <div class="brief-card-top">
+          <span class="brief-id">DOC-B1</span>
+          <span class="brief-format">Briefing &amp; Paper</span>
+        </div>
+        <div class="brief-title">Voin: The Architecture of Child Soldier Training in Russian-occupied Ukrainian Territories</div>
+        <div class="brief-desc">Inside Voin: how Russia's federally funded child soldier programme operates across Russian-occupied Ukraine — and what it is building toward.</div>
+        <span class="brief-arrow">→</span>
+      </a>
+    </div>
+    <div class="section-cta"><a href="research.html">Browse all research outputs →</a></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
+    <span><a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

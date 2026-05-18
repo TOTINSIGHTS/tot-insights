@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOT Insights — Research, data, and primary sources on Russian-occupied Ukraine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -115,6 +115,25 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .footer-inner a:hover{color:rgba(255,255,255,0.7);}
 @media(max-width:700px){.hero{padding:32px 20px 30px;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;}}
+/* Photo carousel */
+.photo-carousel{background:#0a0a0a;position:relative;}
+.carousel-viewport{overflow:hidden;}
+.carousel-track{display:flex;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;}
+.carousel-slide{min-width:100%;position:relative;height:400px;overflow:hidden;flex-shrink:0;}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.88);}
+.carousel-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent 0%,rgba(0,0,0,0.72) 100%);padding:44px 44px 22px;}
+.carousel-caption-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#c8a96e;margin-bottom:5px;}
+.carousel-caption{font-family:'Source Serif 4',Georgia,serif;font-size:13px;color:rgba(255,255,255,0.78);line-height:1.5;max-width:580px;}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.42);border:1px solid rgba(200,169,110,0.28);color:#c8a96e;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background 0.15s,border-color 0.15s;z-index:10;padding:0;}
+.carousel-btn:hover{background:rgba(200,169,110,0.18);border-color:rgba(200,169,110,0.6);}
+.carousel-btn-prev{left:16px;}
+.carousel-btn-next{right:16px;}
+.carousel-footer{display:flex;align-items:center;justify-content:space-between;padding:9px 44px;background:#0a0a0a;border-bottom:1px solid #1a2535;}
+.carousel-dots{display:flex;gap:5px;align-items:center;}
+.carousel-dot{width:5px;height:5px;border-radius:50%;background:rgba(200,169,110,0.2);cursor:pointer;transition:background 0.2s,width 0.2s;border:none;padding:0;}
+.carousel-dot.active{background:#c8a96e;width:14px;border-radius:3px;}
+.carousel-counter{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.22);letter-spacing:0.12em;}
+@media(max-width:700px){.carousel-overlay{padding:32px 20px 16px;}.carousel-footer{padding:9px 20px;}.carousel-slide{height:280px;}}
 </style>
 </head>
 <body>
@@ -129,6 +148,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
     <nav class="header-nav">
       <a href="index.html" class="active">Home</a>
       <a href="research.html">Research</a>
+      <a href="economics.html">Economics</a>
+      <a href="propaganda.html">Propaganda</a>
+      <a href="social-conditions.html">Social Conditions</a>
       <a href="data.html">Data</a>
       <a href="media.html">Media</a>
       <a href="projects.html">Projects</a>
@@ -137,6 +159,18 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
     </nav>
   </div>
 </header>
+
+<div class="photo-carousel" id="photoCarousel">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="carouselTrack"></div>
+  </div>
+  <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">&#8249;</button>
+  <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">&#8250;</button>
+</div>
+<div class="carousel-footer">
+  <div class="carousel-dots" id="carouselDots"></div>
+  <span class="carousel-counter" id="carouselCounter">1 / 14</span>
+</div>
 
 <section class="hero">
   <div class="hero-inner">
@@ -292,5 +326,57 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script>
+(function(){
+var SLIDES=[
+  {src:'images/photo_2026-03-27_06.27.56.jpeg',label:'Field Documentation',caption:'Occupied territory, March 2026'},
+  {src:'images/photo_2026-03-27_06.29.28_1.jpeg',label:'Field Documentation',caption:'Occupied territory, March 2026'},
+  {src:'images/photo_2026-04-14_07.51.07.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-14_07.51.16.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-16_13.08.10.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-17_09.32.48.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-18_08.31.26.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-18_08.31.29.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-23_15.00.35.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-24_13.10.12.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/photo_2026-04-29_09.56.58.jpeg',label:'Field Documentation',caption:'Occupied territory, April 2026'},
+  {src:'images/at_port.jpeg',label:'Field Documentation',caption:'Mariupol port, 2026'},
+  {src:'images/260114_McGlynn_Thresholds_Survival_Img2.jpeg',label:'Thresholds of Survival',caption:'Fieldwork documentation, January 2026'},
+  {src:'images/260114_McGlynn_Thresholds_Survival_Img5.jpeg',label:'Thresholds of Survival',caption:'Fieldwork documentation, January 2026'}
+];
+var cur=0,timer;
+var track=document.getElementById('carouselTrack');
+var dotsEl=document.getElementById('carouselDots');
+var counter=document.getElementById('carouselCounter');
+SLIDES.forEach(function(s,i){
+  var slide=document.createElement('div');
+  slide.className='carousel-slide';
+  slide.innerHTML='<img src="'+s.src+'" alt="'+s.caption+'" loading="'+(i===0?'eager':'lazy')+'">'
+    +'<div class="carousel-overlay">'
+    +'<div class="carousel-caption-label">'+s.label+'</div>'
+    +'<div class="carousel-caption">'+s.caption+'</div>'
+    +'</div>';
+  track.appendChild(slide);
+  var dot=document.createElement('button');
+  dot.className='carousel-dot'+(i===0?' active':'');
+  dot.setAttribute('aria-label','Slide '+(i+1));
+  dot.addEventListener('click',function(){goTo(i);});
+  dotsEl.appendChild(dot);
+});
+function goTo(n){
+  cur=(n+SLIDES.length)%SLIDES.length;
+  track.style.transform='translateX(-'+cur+'00%)';
+  document.querySelectorAll('.carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});
+  counter.textContent=(cur+1)+' / '+SLIDES.length;
+}
+function startTimer(){timer=setInterval(function(){goTo(cur+1);},5000);}
+function stopTimer(){clearInterval(timer);}
+document.getElementById('carouselPrev').addEventListener('click',function(){stopTimer();goTo(cur-1);startTimer();});
+document.getElementById('carouselNext').addEventListener('click',function(){stopTimer();goTo(cur+1);startTimer();});
+document.getElementById('photoCarousel').addEventListener('mouseenter',stopTimer);
+document.getElementById('photoCarousel').addEventListener('mouseleave',startTimer);
+startTimer();
+})();
+</script>
 </body>
 </html>
