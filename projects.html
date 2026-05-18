@@ -6,6 +6,7 @@
 <title>Projects — TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="navigation.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -65,11 +66,24 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
     </a>
     <nav class="header-nav">
       <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="economics.html">Economics</a>
-      <a href="propaganda.html">Propaganda</a>
-      <a href="social-conditions.html">Social Conditions</a>
-      <a href="data.html">Data</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">Research <span class="nav-chevron">&#9662;</span></button>
+        <div class="nav-dropdown-panel">
+          <a href="research.html">All Research</a>
+          <a href="economics.html">Economics</a>
+          <a href="propaganda.html">Propaganda</a>
+          <a href="social-conditions.html">Social Conditions</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-btn" aria-expanded="false">Data <span class="nav-chevron">&#9662;</span></button>
+        <div class="nav-dropdown-panel">
+          <a href="data.html">All Data</a>
+          <a href="research.html">Visualisations</a>
+          <a href="officials.html">Officials Database</a>
+          <a href="sanctions.html">Sanctions Database</a>
+        </div>
+      </div>
       <a href="media.html">Media</a>
       <a href="projects.html" class="active">Projects</a>
       <a href="about.html">About</a>
@@ -112,5 +126,6 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   </div>
 </footer>
 
+<script src="navigation.js"></script>
 </body>
 </html>
