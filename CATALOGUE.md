@@ -57,6 +57,9 @@ Interactive D3 force-directed network map of 26 entities operating in or around 
 **DOC-094 — Market Prices, Occupied DPR Territory — April 2026, First Decade** *(Visual)*
 Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026. 150+ goods across six categories: fresh produce and eggs; staples; cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents. Also includes a district heating invoice. First instalment of a quarterly price-monitoring series.
 
+**DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
+Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DNR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
+
 ---
 
 ### Governance
@@ -70,10 +73,7 @@ Interactive React visualisation covering the Rostekhnadzor licensing trajectory 
 **DOC-B7 — Documentation, Identity, and Return: A Policy Road Map for Ukraine's Citizens in Russian-occupied Territory** *(Briefing & Paper)*
 Identifies three structural failures in Ukraine's return framework: institutional fragmentation, absence of consular identification infrastructure, and Russia's deliberate documentary erasure. Drawing on European precedents (UK BN(O) scheme, COVID-era remote verification), recommends designating the MFA as lead body for remote identity verification and reconstituting a single coordinating institution for the return pipeline.
 
-**DOC-D2 — Russia's Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Russian-occupied Ukraine** *(Briefing & Paper)*
-Argues that Russia's treatment of Ukrainian civilians constitutes a pipeline of seven interlocking crimes against humanity under the Rome Statute. Scale: over 20,000 civilians estimated in Russian custody, 168 released by September 2025. Five categories of recommendation including a UK-initiated UN Contact Group. Co-authored with Scott Martin (international criminal law).
-
-**DOC-E2 — Russian Mobilisation Documentation: Field Photography Collection (2024–2026)** *(Primary Sources)*
+**DOC-E2 — Russian Mobilisation Documentation: Field Photography Collection (2024–2026)** *(Primary Sources)* *(also: Accountability and Legal)*
 Ten photographs documenting Russian mobilisation-related materials in Russian-occupied Ukrainian territory, gathered across field visits 2024–2026. Includes advertising materials from Russian regions (including Yakutia) competing to attract contract soldiers against regional quotas. Relevant to research on passportisation, administrative entrapment, and the legal architecture of occupation.
 
 **DOC-F1 — Sergey Kiriyenko and Russia's Occupation of Ukrainian Territories: Architecture of Absorption** *(Briefing & Paper)*
@@ -82,12 +82,15 @@ Comprehensive analytical profile of Sergey Kiriyenko, First Deputy Chief of Staf
 **DOC-F2 — Kiriyenko and Russia's Occupation of Ukrainian Territories: Interactive Data Visualisation** *(Visual)*
 Interactive React visualisation accompanying the Kiriyenko analytical briefing. Five tabs: career and TOT milestone timeline with filter-by-category; federal transfers by region (Jan–Sep 2024, DNR ₽101.8bn); domains-of-control authority index; Unified Customer reconstruction project counts by region; youth militarisation budget (₽45.8bn in 2024) and russification mechanisms with ICC implications.
 
-**DOC-083 — A State-Engineered Architecture of Persecution: Russia's Systematic Campaign Against Ukrainian Civilians in Occupied Territories** *(Report)*
-Sole-authored report examining Russian state-led repression of Ukrainian civilians in occupied territories since 2022. Analyses surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as components of a coordinated system rather than isolated incidents. Makes the legal case that the conduct constitutes potential crimes against humanity. Published by Forsvarets høgskole / CSNS, March 2026. Companion to DOC-D2.
-
 ---
 
 ### Accountability and Legal
+
+**DOC-D2 — Russia's Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Russian-occupied Ukraine** *(Briefing & Paper)*
+Argues that Russia's treatment of Ukrainian civilians constitutes a pipeline of seven interlocking crimes against humanity under the Rome Statute. Scale: over 20,000 civilians estimated in Russian custody, 168 released by September 2025. Five categories of recommendation including a UK-initiated UN Contact Group. Co-authored with Scott Martin (international criminal law).
+
+**DOC-083 — A State-Engineered Architecture of Persecution: Russia's Systematic Campaign Against Ukrainian Civilians in Occupied Territories** *(Report)*
+Sole-authored report examining Russian state-led repression of Ukrainian civilians in occupied territories since 2022. Analyses surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as components of a coordinated system rather than isolated incidents. Makes the legal case that the conduct constitutes potential crimes against humanity. Published by Forsvarets høgskole / CSNS, March 2026. Companion to DOC-D2.
 
 **DOC-084 — Capturing the Minds: The Role of Child Deportation in Maintaining Russian Authority over Ukraine's Occupied Territories** *(Journal Article)* *(also: Education and Militarisation)*
 Co-authored with Anastasia Romaniuk. Analyses Russia's deportation of Ukrainian children from occupied territories as a form of biopolitical control. Examines how filtration systems, adoption pathways, and ideological indoctrination in Russian institutions coerce families, disrupt Ukrainian identity transmission, and project Russian authority across generations. Published in the European Journal of International Security (Cambridge University Press), March 2026.
@@ -96,32 +99,17 @@ Co-authored with Anastasia Romaniuk. Analyses Russia's deportation of Ukrainian 
 
 ### Civilian Life
 
-**DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)*
-Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DNR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
-
-**DOC-B3 — Controlling Faith by Force: Russia's Systematic Religious Persecution in Russian-occupied Ukrainian Territories** *(Briefing & Paper)*
-Between 2014 and 2025, Russia eliminated the plural religious landscape of Russian-occupied Ukraine. Documents five interlocking mechanisms of persecution and the structural role of the ROC as an instrument of state power. Argues the conduct meets Rome Statute thresholds for religious persecution. 800–900 communities closed or underground; 70 clergymen killed or tortured; 95–100% suppression across major denominations.
-
-**DOC-B4 — Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation** *(Visual)*
-Interactive React/Recharts visualisation presenting quantitative data from the religious persecution analytical paper. Covers denomination-level suppression rates, destruction of religious structures, displacement figures, and ROC expansion. Companion to DOC-B3.
-
-**DOC-B5 — Mariupol Property Seizure Programme: Interactive Dashboard** *(Dashboard)*
+**DOC-B5 — Mariupol Property Seizure Programme: Interactive Dashboard** *(Dashboard)* *(also: Coercion, Resistance and Security)*
 Interactive HTML dashboard presenting occupation administrative records on property seizure in Mariupol. Residential programme: 8,526 properties, 90.7% ownerless. Commercial programme: ~460 unique properties across 20 monthly snapshots, October 2024–June 2025. Companion to DOC-B6.
 
-**DOC-B6 — Mariupol Property Seizure Programme: Evidence from Occupation Administrative Records** *(Briefing & Paper)*
+**DOC-B6 — Mariupol Property Seizure Programme: Evidence from Occupation Administrative Records** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
 Uses occupation administration's own registry data to document systematic property classification and transfer under the Russian beskhozyanost (ownerlessness) mechanism. Residential programme: 8,526 properties, 90.7% ownerless, 2,220 reclaimed. Commercial programme: ~460 unique properties, including systematic targeting of Ukrainian chain brands.
 
-**DOC-C5 — IDP Attitudes Survey: Raw Dataset (n=1,001)** *(Data)*
+**DOC-C5 — IDP Attitudes Survey: Raw Dataset (n=1,001)** *(Data)* *(also: Coercion, Resistance and Security)*
 Full cleaned dataset from a survey of 1,001 IDPs from Russian-occupied Ukrainian territories. Variables cover displacement status, IDP self-identification, demographics, institutional effectiveness ratings, contact with Russian-occupied territories, attitudes toward Russian rule, and assessments of non-violent resistance actions. Data in Ukrainian. Source for DOC-C7.
 
-**DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)*
+**DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)* *(also: Coercion, Resistance and Security)*
 Interactive dashboard presenting findings from a survey of 1,001 IDPs from Russian-occupied territories. Key findings: 76.4% rate Ukrainian government ineffective vs 48.9% for international humanitarian organisations; 58.5% disagree that people who stayed are satisfied with Russian rule; 61.6% believe hidden resistance exists. Top resistance actions: evacuation (46.5%), medicine (42.8%), essential goods (41.5%).
-
-**DOC-D3 — Russia Is Ethnically Cleansing Mariupol** *(Briefing & Paper)*
-Data-driven analytical essay making the explicit case for ethnic cleansing in Mariupol. Combined attrition of 710 pre-war residents/month through death, departure, and collapsed birth rates. Russian settler inflows ~2,200/month, with Russians projected to outnumber pre-war residents before end of 2026. Documents the federal Zemsky resettlement infrastructure and ISW assessment of a ten-year repopulation plan. Pre-war population: 450,000. Remaining: ~100,000, of whom 70% are pensioners over 60.
-
-**DOC-F3 — Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)** *(Dashboard)*
-Interactive monitoring dashboard for verified violent resistance incidents in Russian-occupied Ukrainian territory and Russian Federation territory, December 2024 to February 2026. 387 total incidents across 30 biweekly periods. Occupied territory breakdown: 246 incidents (vehicle attacks 26%, sabotage 35%); RF-territory breakdown: 141 incidents (railway sabotage 33%). Documents escalation of RF-territory operations from Q4 2025.
 
 **DOC-G1 — DNR Ombudswoman: Social-Humanitarian Situation Reports (Primary Source Collection)** *(Primary Sources)*
 Collection of five socio-humanitarian situation reports produced by the Ombudswoman of the self-proclaimed Donetsk People's Republic. These are primary sources from within the occupation administration and should not be treated as reliable independent accounts of conditions in Russian-occupied Donetsk. Their analytical value lies in what they acknowledge: the complaints and social problems the DNR apparatus considered acceptable to record and address.
@@ -129,20 +117,40 @@ Collection of five socio-humanitarian situation reports produced by the Ombudswo
 **DOC-G2 — Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)** *(Primary Sources)*
 Four official reports from the Mariupol occupation city administration covering citizen appeals from January 2023 through June 2024. Total appeals decline from 9,031 (Jan–Jul 2023) to 4,524 (Jan–Jun 2024). Housing dominates at 66% in the post-siege period, drops to 7% by Aug–Dec 2023 — a reporting reclassification rather than resolved demand, reflecting the occupation's transition from emergency reconstruction to normalised bureaucratic dependency.
 
+**DOC-089 — Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025** *(Visual)*
+TOT Insights visual showing the distribution of recorded population displacement flows from occupied Zaporizhzhia Oblast: evacuation to Ukrainian-controlled territory (40%), EU migration (30%), departure to Russia (25%), return in spring 2025 (5%). The low return share is consistent with entrapment dynamics. Russia-bound departures exceeding EU migration suggests coerced or semi-coerced relocation as a significant displacement component.
+
+---
+
+### Identity, Culture and Religion
+
+**DOC-B3 — Controlling Faith by Force: Russia's Systematic Religious Persecution in Russian-occupied Ukrainian Territories** *(Briefing & Paper)*
+Between 2014 and 2025, Russia eliminated the plural religious landscape of Russian-occupied Ukraine. Documents five interlocking mechanisms of persecution and the structural role of the ROC as an instrument of state power. Argues the conduct meets Rome Statute thresholds for religious persecution. 800–900 communities closed or underground; 70 clergymen killed or tortured; 95–100% suppression across major denominations.
+
+**DOC-B4 — Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation** *(Visual)*
+Interactive React/Recharts visualisation presenting quantitative data from the religious persecution analytical paper. Covers denomination-level suppression rates, destruction of religious structures, displacement figures, and ROC expansion. Companion to DOC-B3.
+
+**DOC-D3 — Russia Is Ethnically Cleansing Mariupol** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
+Data-driven analytical essay making the explicit case for ethnic cleansing in Mariupol. Combined attrition of 710 pre-war residents/month through death, departure, and collapsed birth rates. Russian settler inflows ~2,200/month, with Russians projected to outnumber pre-war residents before end of 2026. Documents the federal Zemsky resettlement infrastructure and ISW assessment of a ten-year repopulation plan. Pre-war population: 450,000. Remaining: ~100,000, of whom 70% are pensioners over 60.
+
 **DOC-H1 — Russia's Settler Colonial Programme in Occupied Ukrainian Territories** *(Briefing & Paper)*
 Analytical briefing applying settler colonial theory (Wolfe, Veracini) to Russia's civilian relocation programme in occupied Ukrainian territories. Documents interlocking mechanisms: Zemsky relocation programmes (budget doubled year-on-year through at least 2027), civil administrator co-option, Rosatom and federal ministry placements, and organic migration. Over 80 named Russian civilian settlers identified through open-source data. Companion to DOC-H2.
 
 **DOC-H2 — Who Moves to Occupied Ukraine? Settler Profiles from Russian Civilians** *(Briefing & Paper)*
 Compilation of settler profiles based on publicly available sources. Profiles grouped by primary motivation typology: Economic (Zemsky programme — 2 million rubles for five-year relocation; 2% mortgages in Mariupol); Ideological; Family proximity; Career/professional; Mixed. Motivation coding based on participants' own statements where available. Companion to DOC-H1.
 
+---
+
+### Coercion, Resistance and Security
+
+**DOC-F3 — Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)** *(Dashboard)*
+Interactive monitoring dashboard for verified violent resistance incidents in Russian-occupied Ukrainian territory and Russian Federation territory, December 2024 to February 2026. 387 total incidents across 30 biweekly periods. Occupied territory breakdown: 246 incidents (vehicle attacks 26%, sabotage 35%); RF-territory breakdown: 141 incidents (railway sabotage 33%). Documents escalation of RF-territory operations from Q4 2025.
+
 **DOC-085 — Thresholds of Survival: The Resistance in Occupied Ukraine** *(Report)*
 CSIS report documenting the evolution of Ukrainian resistance activity in occupied territories through 2024–25. Finds that intensified Russian surveillance and control have pushed resistance further underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility. Based on field research, interviews across free Ukraine, and open-source analysis. Companion to DOC-087.
 
 **DOC-087 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** *(Report)*
 CSIS report presenting fieldwork and interview-based research on Ukrainian resistance activity in territories subsequently de-occupied. Examines the operational role of resistance in undermining Russia's war effort, documents the personal realities faced by participants, and draws on testimony to assess the costs and achievements of resistance under occupation. Includes policy recommendations for Ukraine and Western supporters.
-
-**DOC-089 — Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025** *(Visual)*
-TOT Insights visual showing the distribution of recorded population displacement flows from occupied Zaporizhzhia Oblast: evacuation to Ukrainian-controlled territory (40%), EU migration (30%), departure to Russia (25%), return in spring 2025 (5%). The low return share is consistent with entrapment dynamics. Russia-bound departures exceeding EU migration suggests coerced or semi-coerced relocation as a significant displacement component.
 
 **DOC-093 — Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026** *(Visual)*
 Interactive Leaflet map visualising 387 verified resistance and sabotage incidents from December 2024 to February 2026. Split between occupied Ukrainian territories (246 incidents across Zaporizhzhia, Kherson, Crimea, Donetsk, and Luhansk oblasts) and operations in Russian Federation territory (141 incidents, primarily Bryansk, Kursk, and Belgorod regions). Circle markers scaled proportionally to incident counts. Filterable by territory, incident type, and reporting period.
