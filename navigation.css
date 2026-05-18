@@ -106,3 +106,8 @@
     min-width: 160px;
   }
 }
+
+/* Amber accent line at the very top of every page — higher specificity than inline .site-header */
+header.site-header {
+  border-top: 3px solid #c8a96e;
+}
