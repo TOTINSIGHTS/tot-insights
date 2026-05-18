@@ -28,21 +28,20 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
 .header-nav a:hover,.header-nav a.active{color:#fff;}
 @media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
-/* Hero */
-.hero{background:var(--navy);padding:50px 40px 44px;position:relative;overflow:hidden;}
+/* Hero / Intro */
+.hero{background:var(--navy);padding:5rem 3.5rem;border-bottom:1px solid rgba(255,255,255,0.08);position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:0;right:0;width:38%;bottom:0;background:linear-gradient(135deg,transparent 0%,rgba(201,150,26,0.06) 100%);pointer-events:none;}
 .hero-inner{max-width:1200px;margin:0 auto;position:relative;}
+.hero-content{max-width:760px;}
 .hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:14px;}
-.hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;max-width:580px;margin-bottom:14px;}
-.hero-desc{font-size:13px;color:rgba(255,255,255,0.48);max-width:500px;line-height:1.78;margin-bottom:32px;}
-.hero-layout{display:flex;align-items:center;justify-content:space-between;gap:56px;}
-.hero-left{flex:1;min-width:0;}
-.hero-right{flex-shrink:0;display:flex;align-items:center;border-left:1px solid rgba(255,255,255,0.08);padding-left:56px;}
-.hero-logo-stack{display:flex;flex-direction:column;gap:24px;align-items:flex-start;}
-.hero-logo-item{display:block;width:170px;}
-.hero-logo-item img{display:block;width:170px;height:auto;opacity:0.88;}
-.hero-logo-text{width:170px;color:rgba(255,255,255,0.88);font-family:var(--font-serif);font-size:13px;line-height:1.35;font-weight:400;}
-@media(max-width:900px){.hero-layout{flex-direction:column;gap:32px;}.hero-right{border-left:none;border-top:1px solid rgba(255,255,255,0.08);padding-left:0;padding-top:28px;align-self:flex-start;}.hero-logo-stack{flex-direction:row;flex-wrap:wrap;gap:18px;align-items:center;}}
+.hero-title{font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:14px;}
+.hero-desc{font-size:13px;color:rgba(255,255,255,0.48);line-height:1.78;}
+/* Accreditation strip */
+.accred-strip{background:var(--navy);padding:1.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.accred-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
+.accred-logo{max-height:36px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.55);flex-shrink:0;}
+.accred-rule{width:1px;height:28px;background:rgba(255,255,255,0.12);margin:0 2rem;flex-shrink:0;}
+.accred-text-logo{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;}
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -115,7 +114,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
 .footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .footer-inner a:hover{color:rgba(255,255,255,0.7);}
-@media(max-width:700px){.hero{padding:32px 20px 30px;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;}}
+@media(max-width:700px){.hero{padding:3rem 1.25rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;}}
 /* Photo carousel */
 .photo-carousel{background:#0a0a0a;position:relative;}
 .carousel-viewport{overflow:hidden;}
@@ -188,26 +187,23 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-layout">
-      <div class="hero-left">
-        <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
-        <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-        <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
-      </div>
-      <div class="hero-right">
-        <div class="hero-logo-stack">
-          <div class="hero-logo-item">
-            <img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security">
-          </div>
-          <div class="hero-logo-item">
-            <img src="assets/logos/kcl-logo.svg" alt="King's College London">
-          </div>
-          <div class="hero-logo-text">Leverhulme Centre for Research on Slavery in War</div>
-        </div>
-      </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Ukraine &amp; Russia Programme &nbsp;·&nbsp; CSNS / King's College London</div>
+      <h1 class="hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+      <p class="hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
     </div>
   </div>
 </section>
+
+<div class="accred-strip">
+  <div class="accred-inner">
+    <img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security" class="accred-logo">
+    <div class="accred-rule"></div>
+    <img src="assets/logos/kcl-logo.svg" alt="King's College London" class="accred-logo">
+    <div class="accred-rule"></div>
+    <span class="accred-text-logo">Leverhulme Centre for Research on Slavery in War</span>
+  </div>
+</div>
 
 <section class="about-strip">
   <div class="about-strip-inner">
