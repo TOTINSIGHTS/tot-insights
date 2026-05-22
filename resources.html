@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects — TOT Insights</title>
+<title>Resources — TOT Insights</title>
+<meta name="description" content="Further resources on Russian-occupied Ukraine — background reading, organisations, and related platforms.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -31,30 +32,23 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .header-nav a{font-family:var(--font-sans);font-size:12px;font-weight:500;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.15s;}
 .header-nav a:hover,.header-nav a.active{color:#fff;}
 @media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
-.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 32px;}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:40px 40px 32px;}
 .page-hero-inner{max-width:1200px;margin:0 auto;}
 .page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
 .page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;}
+.page-desc{font-family:var(--font-source);font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.62);line-height:1.72;max-width:600px;margin-top:0.9rem;}
 .main-content{max-width:1200px;margin:0 auto;padding:48px 40px 80px;}
 @media(max-width:700px){.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
-.intro-text{font-family:var(--font-source);font-size:0.95rem;font-weight:300;color:rgba(26,26,26,0.72);line-height:1.78;max-width:720px;margin-bottom:40px;}
-.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-@media(max-width:700px){.projects-grid{grid-template-columns:1fr;}}
-.project-card{background:var(--navy);border-top:3px solid var(--gold);border-radius:3px;padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;min-height:280px;}
-@media(max-width:700px){.project-card{min-height:240px;}}
-.project-meta{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem;}
-.project-status{font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
-.status-active{background:rgba(201,150,26,0.18);color:var(--gold);}
-.status-advisory{background:rgba(28,86,122,0.4);color:rgba(255,255,255,0.55);}
-.status-completed{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.25);}
-.project-year{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;}
-.project-title{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:#fff;line-height:1.3;margin-bottom:0.75rem;}
-.project-desc{font-family:var(--font-source);font-size:0.84rem;font-weight:300;color:rgba(232,228,220,0.68);line-height:1.68;flex:1;margin-bottom:1.25rem;}
-.project-partners{border-top:1px solid rgba(255,255,255,0.1);padding-top:0.85rem;}
-.project-partner-label{font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:0.35rem;}
-.project-partner-name{font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:0.04em;line-height:1.5;}
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:52px;}
+@media(max-width:900px){.resource-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:580px){.resource-grid{grid-template-columns:1fr;}}
+.resource-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:1.25rem 1.5rem;}
+.resource-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.resource-title{font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;line-height:1.35;}
+.resource-desc{font-family:var(--font-source);font-size:0.8rem;font-weight:300;color:rgba(26,26,26,0.65);line-height:1.6;}
+.placeholder-note{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;padding:2rem 0;text-align:center;border:1px dashed var(--border);border-radius:3px;margin-bottom:52px;}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -91,8 +85,8 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
         </div>
       </div>
       <a href="media.html">Media</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="resources.html">Resources</a>
+      <a href="projects.html">Projects</a>
+      <a href="resources.html" class="active">Resources</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -102,65 +96,22 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="page-eyebrow">TOT Insights</div>
-    <h1 class="page-title">Projects</h1>
+    <h1 class="page-title">Resources</h1>
+    <p class="page-desc">Further reading, related organisations, and external platforms for research on Russian-occupied Ukrainian territories.</p>
   </div>
 </div>
 
 <div class="main-content">
-  <p class="intro-text">TOT Insights hosts dedicated project pages for multi-output research strands, funded investigations, and advisory engagements. Each project brings together analytical outputs, datasets, and team information for a specific research line.</p>
 
-  <div class="section-label">Active projects and engagements</div>
-  <div class="projects-grid">
+  <div class="section-label">Background reading</div>
+  <div class="placeholder-note">Content to be added</div>
 
-    <div class="project-card">
-      <div class="project-meta">
-        <span class="project-status status-active">Active</span>
-        <span class="project-year">2026 –</span>
-      </div>
-      <div class="project-title">Youth Militarisation in Russian-Occupied Ukraine</div>
-      <div class="project-partners">
-        <div class="project-partner-label">Partner</div>
-        <div class="project-partner-name">Leverhulme Centre for Research on Slavery in War, King's College London</div>
-      </div>
-    </div>
+  <div class="section-label">Organisations &amp; networks</div>
+  <div class="placeholder-note">Content to be added</div>
 
-    <div class="project-card">
-      <div class="project-meta">
-        <span class="project-status status-active">Active</span>
-        <span class="project-year">2026 –</span>
-      </div>
-      <div class="project-title">Forms of Militarisation in Russian-Occupied Ukraine</div>
-      <div class="project-partners">
-        <div class="project-partner-label">Funder</div>
-        <div class="project-partner-name">Funded by the Russia Strategic Initiative (RSI), U.S. Department of Defense</div>
-      </div>
-    </div>
+  <div class="section-label">Reporting &amp; journalism</div>
+  <div class="placeholder-note">Content to be added</div>
 
-    <div class="project-card">
-      <div class="project-meta">
-        <span class="project-status status-active">Active</span>
-        <span class="project-year">2026 –</span>
-      </div>
-      <div class="project-title">Settler Colonialism in Russian-Occupied Ukraine</div>
-      <div class="project-partners">
-        <div class="project-partner-label">Partner</div>
-        <div class="project-partner-name">Centre for Statecraft and National Security, King's College London</div>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-meta">
-        <span class="project-status status-completed">Completed</span>
-        <span class="project-year">2025–2026</span>
-      </div>
-      <div class="project-title">Lessons from Ukrainian Resistance</div>
-      <div class="project-partners">
-        <div class="project-partner-label">Advisory engagement</div>
-        <div class="project-partner-name">SONAC, Ministry of Defence</div>
-      </div>
-    </div>
-
-  </div>
 </div>
 
 <footer class="site-footer">

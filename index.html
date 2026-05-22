@@ -70,20 +70,21 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .impact-body p:last-child{margin-bottom:0;}
 .impact-outlets{font-family:var(--font-mono);font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;margin-top:1rem;padding:0.75rem 0;line-height:1.6;}
 /* Stats strip */
-.stats-strip{background:#0e1c2f;border-top:1px solid rgba(200,169,110,0.15);border-bottom:1px solid rgba(200,169,110,0.15);padding:2rem 3rem;}
+.stats-strip{background:#f7f5f1;border-top:1px solid rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.08);padding:2rem 3rem;}
 .stats-inner{max-width:1200px;margin:0 auto;}
-.stats-strip .section-label{color:rgba(255,255,255,0.35);}
-.stats-strip .section-label::after{background:rgba(255,255,255,0.1);}
+.stats-strip .section-label{color:#c8a96e;}
+.stats-strip .section-label::after{background:rgba(0,0,0,0.1);}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.25rem;}
 @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:580px){.stats-grid{grid-template-columns:1fr;}}
 .stat-block{text-decoration:none;display:block;padding:1.5rem;transition:background 0.2s;border-radius:2px;}
-.stat-block:hover{background:rgba(255,255,255,0.02);}
-.stat-number{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#ffffff;line-height:1;}
+.stat-block:hover{background:rgba(0,0,0,0.02);}
+.stat-number{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#0d1828;line-height:1;}
 .stat-underline{width:24px;height:2px;background:#c8a96e;margin:0.4rem 0 0.5rem;}
-.stat-label{font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(232,228,220,0.65);line-height:1.45;max-width:180px;}
+.stat-label{font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(13,24,40,0.6);line-height:1.45;max-width:180px;}
 .stat-cta{display:inline-block;font-family:var(--font-mono);font-size:0.58rem;color:#c8a96e;text-decoration:none;margin-top:0.5rem;letter-spacing:0.06em;}
 .stat-block:hover .stat-cta{text-decoration:underline;}
+.stats-strip .stat-block:hover .stat-cta{color:#a8893e;}
 /* Featured */
 .featured{padding:2.5rem 3rem;background:#0D1624;border-bottom:1px solid rgba(255,255,255,0.06);}
 .featured-inner{max-width:1200px;margin:0 auto;}
@@ -143,12 +144,36 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .media-card-footer{margin-top:auto;padding-top:9px;border-top:1px solid var(--border);}
 .media-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11px;font-weight:500;color:var(--steel);text-decoration:none;transition:color 0.12s;}
 .media-link:hover{color:var(--navy);}
+/* Platform strip */
+.platform-strip{background:#0d1828;border-bottom:1px solid rgba(255,255,255,0.06);height:56px;display:flex;align-items:center;}
+.platform-strip-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;align-items:center;width:100%;}
+.platform-tile{display:flex;align-items:center;gap:8px;text-decoration:none;padding:0 20px;flex:1;justify-content:center;}
+.platform-tile-num{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:#fff;transition:color 0.15s;}
+.platform-tile-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);transition:color 0.15s;}
+.platform-tile:hover .platform-tile-num{color:#c8a96e;}
+.platform-tile:hover .platform-tile-label{color:rgba(255,255,255,0.7);}
+.platform-sep{width:1px;height:24px;background:rgba(255,255,255,0.1);flex-shrink:0;}
 /* Footer */
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
 .footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .footer-inner a:hover{color:rgba(255,255,255,0.7);}
+@media(max-width:767px){
+  .platform-strip{display:none;}
+  .static-hero{height:60vh;}
+  .static-hero-title{font-size:clamp(1.4rem,5vw,1.8rem);}
+  .static-hero-desc,.static-hero-caption{display:none;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .stat-number{font-size:1.4rem;}
+  .stat-label{font-size:0.6rem;}
+  .stat-cta{display:none;}
+  .impact-body p:nth-child(n+2){display:none;}
+  .impact-outlets{display:none;}
+  .about-links{display:none;}
+  .featured-card:nth-child(n+5){display:none;}
+  .partners-section{display:none;}
+}
 @media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
 /* Partners */
 .partners-section{background:#1a1a1a;border-top:1px solid #2a2a2a;padding:2.5rem 3rem;}
@@ -198,8 +223,8 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
       </div>
       <a href="media.html">Media</a>
       <a href="projects.html">Projects</a>
+      <a href="resources.html">Resources</a>
       <a href="about.html">About</a>
-      <a href="support.html">Support</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -217,6 +242,20 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
 <div class="accred-strip">
   <div class="accred-inner">
     <img src="assets/logos/kcl-logo.svg" alt="King's College London" class="accred-logo">
+  </div>
+</div>
+
+<div class="platform-strip">
+  <div class="platform-strip-inner">
+    <a class="platform-tile" href="research.html"><span class="platform-tile-num">48</span><span class="platform-tile-label">Research outputs</span></a>
+    <span class="platform-sep"></span>
+    <a class="platform-tile" href="data.html"><span class="platform-tile-num">2</span><span class="platform-tile-label">Databases</span></a>
+    <span class="platform-sep"></span>
+    <a class="platform-tile" href="resources.html"><span class="platform-tile-num">+</span><span class="platform-tile-label">Further resources</span></a>
+    <span class="platform-sep"></span>
+    <a class="platform-tile" href="data.html#visualisations"><span class="platform-tile-num">8</span><span class="platform-tile-label">Interactive tools</span></a>
+    <span class="platform-sep"></span>
+    <a class="platform-tile" href="data.html"><span class="platform-tile-num">82</span><span class="platform-tile-label">Primary source documents</span></a>
   </div>
 </div>
 
