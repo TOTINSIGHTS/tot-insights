@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 <title>TOT Insights — Research, data, and primary sources on Russian-occupied Ukraine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="navigation.css">
 <style>
@@ -50,35 +50,39 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-/* About strip */
-.about-strip{background:#FAFBF2;border-bottom:1px solid var(--border);padding:5rem 40px;}
-.about-strip-inner{max-width:1200px;margin:0 auto;}
-.about-text{font-family:var(--font-source);font-size:15px;color:var(--text);line-height:1.78;max-width:820px;}
-.about-text p{margin-bottom:14px;}
-.about-text p:last-child{margin-bottom:0;}
-.about-links{margin-top:18px;display:flex;gap:20px;flex-wrap:wrap;}
-.about-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.12s;}
-.about-link:hover{color:var(--navy);}
+/* About platform */
+.about-platform{background:#111d30;padding:4rem 3.5rem;}
+.about-platform-inner{max-width:1200px;margin:0 auto;}
+.about-platform-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#c8a96e;opacity:0.85;margin-bottom:1.25rem;}
+.about-platform-text{font-family:var(--font-source);font-size:15px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.78;max-width:720px;}
+.about-links{margin-top:1.5rem;display:flex;gap:20px;flex-wrap:wrap;}
+.about-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.12s;}
+.about-link:hover{color:rgba(255,255,255,0.85);}
 /* Featured */
-.featured{padding:5rem 40px;background:#fff;border-bottom:1px solid var(--border);}
+.featured{padding:5rem 40px;background:#0D1624;border-bottom:1px solid rgba(255,255,255,0.06);}
 .featured-inner{max-width:1200px;margin:0 auto;}
+.featured-inner .section-label{color:rgba(255,255,255,0.35);}
+.featured-inner .section-label::after{background:rgba(255,255,255,0.1);}
 .featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 @media(max-width:1100px){.featured-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:580px){.featured-grid{grid-template-columns:1fr;}}
-.featured-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:22px;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
-.featured-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.09);transform:translateY(-2px);}
+.featured-card{background:transparent;border:1px solid rgba(255,255,255,0.07);border-radius:3px;padding:1.5rem;cursor:pointer;transition:background 0.2s ease,transform 0.15s;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.featured-card:hover{background:rgba(255,255,255,0.03);transform:translateY(-2px);}
 .featured-card.primary{border-left:3px solid var(--gold);}
 .card-theme{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.card-theme span:last-child{color:#c8a96e !important;font-size:0.62rem;letter-spacing:0.16em;}
 .card-theme-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-.card-title{font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:10px;}
-.featured-card.primary .card-title{font-size:19px;}
-.card-desc{font-size:12px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:16px;}
-.card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
-.card-format-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:#FAFBF2;color:var(--muted);border:1px solid var(--border);}
-.card-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
+.card-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#ffffff;line-height:1.3;margin-bottom:10px;}
+.featured-card.primary .card-title{font-size:1.2rem;}
+.card-desc{font-family:var(--font-source);font-weight:300;font-size:0.82rem;color:rgba(232,228,220,0.7);line-height:1.55;flex:1;margin-bottom:16px;}
+.card-meta{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:auto;}
+.card-format-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:transparent;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.15);}
+.card-id{font-family:var(--font-mono);font-size:0.6rem;color:rgba(255,255,255,0.25);letter-spacing:0.08em;}
 .section-cta{margin-top:18px;text-align:right;}
 .section-cta a{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--steel);text-decoration:none;transition:color 0.12s;}
 .section-cta a:hover{color:var(--navy);}
+.featured .section-cta a{color:rgba(255,255,255,0.45);}
+.featured .section-cta a:hover{color:rgba(255,255,255,0.9);}
 /* Databases section */
 .databases-section{padding:5rem 40px;background:#FAFBF2;border-bottom:1px solid var(--border);}
 .databases-inner{max-width:1200px;margin:0 auto;}
@@ -119,28 +123,28 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
 .footer-inner a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .footer-inner a:hover{color:rgba(255,255,255,0.7);}
-@media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.about-strip{padding-left:20px;padding-right:20px;padding-top:3rem;padding-bottom:3rem;}}
+@media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section{padding-left:20px;padding-right:20px;padding-top:3rem;padding-bottom:3rem;}.about-platform{padding:2.5rem 1.25rem;}}
 /* Partners */
 .partners-section{background:#1a1a1a;border-top:1px solid #2a2a2a;padding:4rem 40px 4.5rem;}
 .partners-inner{max-width:1200px;margin:0 auto;}
 .partners-heading{font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#c8a96e;margin-bottom:3rem;}
 .partners-group{margin-bottom:3rem;}
 .partners-group:last-child{margin-bottom:0;}
-.partners-sub-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#7a7670;margin-bottom:1.75rem;padding-bottom:0.6rem;border-bottom:1px solid #2a2a2a;}
-.partners-row{display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem 4rem;}
-.partner-item{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#c8c4bc;transition:color 0.15s;flex-shrink:0;gap:4px;}
+.partners-sub-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.5rem;}
+.partners-row{display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;}
+.partner-item{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#c8c4bc;transition:color 0.15s;flex-shrink:0;gap:4px;position:relative;}
 a.partner-item:hover{color:#fff;}
-.partner-logo{max-width:120px;max-height:44px;width:auto;height:auto;display:block;opacity:0.6;transition:opacity 0.15s;}
-a.partner-item:hover .partner-logo{opacity:1;}
-.partner-logo-filter{filter:brightness(0) invert(1);}
+.partner-item:not(:last-child)::after{content:'';position:absolute;right:-1.35rem;top:50%;transform:translateY(-50%);width:1px;height:24px;background:rgba(255,255,255,0.1);}
+.partner-logo{height:32px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.7);transition:filter 0.2s ease;}
+a.partner-item:hover .partner-logo{filter:brightness(0) invert(1) opacity(1);}
 .partner-text-fallback{font-family:var(--font-sans);font-size:12px;font-weight:500;color:inherit;letter-spacing:0.02em;}
-.partner-text-name{font-family:var(--font-sans);font-size:12px;font-weight:500;color:inherit;line-height:1.3;}
-.partner-text-sub{font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:#7a7670;}
-@media(max-width:700px){.partners-section{padding:3rem 20px 3.5rem;}.partners-row{gap:2rem 2.5rem;}.partner-logo{max-width:100px;}}
+.partner-text-name{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);line-height:1.4;}
+a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
+.partner-text-sub{font-size:0.6rem;color:rgba(255,255,255,0.3);}
+@media(max-width:700px){.partners-section{padding:3rem 20px 3.5rem;}.partners-row{gap:1.5rem;}.partner-logo{height:28px;}.partner-item:not(:last-child)::after{right:-0.85rem;}}
 </style>
 </head>
 <body>
-<div style="background:#f59e0b;color:#0D2B4E;font-size:14px;font-weight:700;text-align:center;padding:11px 20px;width:100%;letter-spacing:0.02em;font-family:'IBM Plex Sans',sans-serif;line-height:1.4;">Prototype only — subject to KCL ethics review.</div>
 
 <header class="site-header">
   <div class="header-inner">
@@ -191,13 +195,10 @@ a.partner-item:hover .partner-logo{opacity:1;}
   </div>
 </div>
 
-<section class="about-strip">
-  <div class="about-strip-inner">
-    <div class="section-label">What is TOT Insights</div>
-    <div class="about-text">
-      <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
-      <p>TOT Insights draws on original fieldwork in Ukraine, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners working on the temporarily occupied territories. The platform is updated on a rolling basis as new research, data, and primary sources become available.</p>
-    </div>
+<section class="about-platform">
+  <div class="about-platform-inner">
+    <div class="about-platform-label">About the platform</div>
+    <p class="about-platform-text">TOT Insights draws on original fieldwork inside occupied territory, occupation administrative records, and systematic open-source monitoring. It is the only platform combining peer-reviewed analysis, primary source documentation, and interactive data tools focused specifically on Russia's occupation mechanisms and civilian entrapment across Donetsk, Luhansk, Zaporizhzhia, Kherson, and Crimea.</p>
     <div class="about-links">
       <a class="about-link" href="research.html">Research outputs →</a>
       <a class="about-link" href="data.html">Data &amp; primary sources →</a>
@@ -324,7 +325,7 @@ a.partner-item:hover .partner-logo{opacity:1;}
       <div class="partners-row">
 
         <a class="partner-item" href="https://www.kcl.ac.uk" target="_blank" rel="noopener noreferrer">
-          <img src="assets/logos/kcl-logo.svg" alt="King's College London" class="partner-logo partner-logo-filter"
+          <img src="assets/logos/kcl-logo.svg" alt="King's College London" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
           <span class="partner-text-fallback" style="display:none;">King's College London</span>
         </a>
@@ -347,7 +348,7 @@ a.partner-item:hover .partner-logo{opacity:1;}
       <div class="partners-row">
 
         <a class="partner-item" href="https://curialab.org" target="_blank" rel="noopener noreferrer">
-          <img src="https://curialab.org/wp-content/uploads/2021/08/CURIALAB_logo_white.png" alt="CURIA Lab" class="partner-logo"
+          <img src="assets/logos/curialab-logo.png" alt="CURIA Lab" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
           <span class="partner-text-fallback" style="display:none;">CURIA Lab</span>
         </a>
@@ -358,13 +359,13 @@ a.partner-item:hover .partner-logo{opacity:1;}
         </div>
 
         <a class="partner-item" href="https://www.statesofexception.org" target="_blank" rel="noopener noreferrer">
-          <img src="https://images.squarespace-cdn.com/content/v1/675a33be43b90a5bb2030d25/b1ba39f0-1dac-41fd-b3ae-9da29b3a6d2a/Primary+Logo_Reversed.png?format=300w" alt="Institute for the Study of States of Exception" class="partner-logo"
+          <img src="assets/logos/isse-logo.png" alt="Institute for the Study of States of Exception" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
           <span class="partner-text-fallback" style="display:none;">Institute for the Study<br>of States of Exception</span>
         </a>
 
         <a class="partner-item" href="https://ikar-thinktank.org/en" target="_blank" rel="noopener noreferrer">
-          <img src="https://ikar-thinktank.org/images/whiteMonochromeEN.svg" alt="Institute for Conflict Studies and Analysis of Russia" class="partner-logo"
+          <img src="assets/logos/ikar-logo.svg" alt="Institute for Conflict Studies and Analysis of Russia" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
           <span class="partner-text-fallback" style="display:none;">IKAR</span>
         </a>
