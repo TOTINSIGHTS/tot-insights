@@ -136,6 +136,17 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:15p
 .viewer-close:hover{color:#fff;}
 #viewer-iframe{flex:1;width:100%;border:none;background:#fff;}
 @media(max-width:700px){.browse{padding:28px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
+.breakout-row{display:flex;align-items:center;gap:2rem;background:linear-gradient(135deg,rgba(200,169,110,0.08) 0%,rgba(200,169,110,0.03) 100%) #111d30;border-left:3px solid #c8a96e;padding:1.5rem 2rem;text-decoration:none;margin:0;transition:background 0.2s;cursor:pointer;}
+.breakout-row:hover{background:linear-gradient(135deg,rgba(200,169,110,0.13) 0%,rgba(200,169,110,0.06) 100%) #111d30;}
+.breakout-number-block{min-width:200px;flex-shrink:0;}
+.breakout-number{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#ffffff;line-height:1;}
+.breakout-underline{width:24px;height:2px;background:#c8a96e;margin:0.4rem 0 0.5rem;}
+.breakout-text-block{flex:1;}
+.breakout-finding{font-family:'Source Serif 4',Georgia,serif;font-weight:300;font-size:0.88rem;color:rgba(232,228,220,0.85);line-height:1.4;max-width:560px;margin-bottom:0.35rem;}
+.breakout-source{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(200,169,110,0.7);}
+.breakout-arrow{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;color:#c8a96e;opacity:0.5;margin-left:auto;flex-shrink:0;transition:opacity 0.2s;}
+.breakout-row:hover .breakout-arrow{opacity:1;}
+@media(max-width:768px){.breakout-row{flex-direction:column;align-items:flex-start;gap:0.75rem;padding:1.25rem;}.breakout-number-block{min-width:0;}.breakout-number{font-size:clamp(2rem,8vw,2.8rem);}.breakout-arrow{display:none;}}
 </style>
 </head>
 <body>
@@ -213,8 +224,45 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:#1A1A1A;font-size:15p
         <button class="filter-btn" data-filter="format" data-value="Visual">Visuals</button>
       </div>
     </div>
-    <div class="results-count"><span id="count-num">44</span> outputs</div>
-    <div class="doc-grid" id="doc-grid">
+    <div class="results-count"><span id="count-num">48</span> outputs</div>
+    <div id="browse-segments">
+      <div class="cards-segment doc-grid" id="doc-grid-1"></div>
+      <a class="breakout-row" href="briefings/ghost_pensioners.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">134,600</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">ghost pensioners generating 1.68 billion rubles per month in fraudulent payments, used as a dual-use coercion tool against residents who remain</div>
+          <div class="breakout-source">From: Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-2"></div>
+      <a class="breakout-row" href="briefings/voin_generation.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">600,000–650,000</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">children enrolled in Russia’s military pipeline across occupied Ukrainian territories, designed to produce deployable personnel between 2028 and 2034</div>
+          <div class="breakout-source">From: The Voin Generation: Russia’s Militarisation of Children →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-3"></div>
+      <a class="breakout-row" href="briefings/voyin.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">8.76bn rubles</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">Mariupol’s occupation education budget for 2026–2028, with objectives explicitly including “patriotic upbringing” and “formation of traditional Russian spiritual-moral values”</div>
+          <div class="breakout-source">From: Development of Education in Mariupol Municipal Programme, 2026–2028 →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-4"></div>
       <div class="no-results" id="no-results">No outputs match the selected filters.</div>
     </div>
     <div class="browse-show-more-wrap" id="browse-show-more-wrap" style="display:none;">
@@ -331,44 +379,50 @@ const THEME_CLASS={"Economics":"t-econ","Social Conditions":"t-soc","Governance"
 const BROWSE_DEFAULT=100;
 let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
 
-function renderCards(){
-  const grid=document.getElementById('doc-grid');
-  grid.querySelectorAll('.doc-card').forEach(el=>el.remove());
+function buildCards(){
+  const SEG=[{id:'doc-grid-1',s:0,e:3},{id:'doc-grid-2',s:3,e:9},{id:'doc-grid-3',s:9,e:15},{id:'doc-grid-4',s:15,e:DOCS.length}];
+  SEG.forEach(seg=>{
+    const grid=document.getElementById(seg.id);
+    DOCS.slice(seg.s,seg.e).forEach(doc=>{
+      const card=document.createElement('div');
+      card.className='doc-card';
+      card.dataset.docId=doc.id;
+      card.onclick=()=>openModal(doc.id);
+      const th=Array.isArray(doc.theme)?doc.theme:[doc.theme];
+      const pills=th.map(t=>`<span class="doc-theme-pill ${THEME_CLASS[t]||''}">${t}</span>`).join('');
+      card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>`;
+      grid.appendChild(card);
+    });
+  });
+}
+function applyFilters(){
   const q=browseSearch.toLowerCase();
-  const filtered=DOCS.filter(d=>{
-    if(activeTheme!=="all"&&(Array.isArray(d.theme)?!d.theme.includes(activeTheme):d.theme!==activeTheme))return false;
-    if(activeFormat!=="all"){const df=d.format.toLowerCase().trim(),af=activeFormat.toLowerCase().trim();if(df!==af&&df+'s'!==af&&df!==af+'s')return false;}
-    if(q&&!(d.title.toLowerCase().includes(q)||(d.summary&&d.summary.toLowerCase().includes(q))))return false;
-    return true;
+  let count=0;
+  document.querySelectorAll('.doc-card').forEach(card=>{
+    const id=card.dataset.docId;
+    const doc=DOCS.find(d=>d.id===id);
+    if(!doc)return;
+    let show=true;
+    if(activeTheme!=="all"&&(Array.isArray(doc.theme)?!doc.theme.includes(activeTheme):doc.theme!==activeTheme))show=false;
+    if(activeFormat!=='all'){const df=doc.format.toLowerCase().trim(),af=activeFormat.toLowerCase().trim();if(df!==af&&df+'s'!==af&&df!==af+'s')show=false;}
+    if(q&&!(doc.title.toLowerCase().includes(q)||(doc.summary&&doc.summary.toLowerCase().includes(q))))show=false;
+    card.style.display=show?'':'none';
+    if(show)count++;
   });
-  document.getElementById('count-num').textContent=filtered.length;
-  document.getElementById('no-results').classList.toggle('visible',filtered.length===0);
-  const visible=browseExpanded?filtered:filtered.slice(0,BROWSE_DEFAULT);
-  visible.forEach(doc=>{
-    const card=document.createElement('div');
-    card.className='doc-card';
-    card.onclick=()=>openModal(doc.id);
-    const th=Array.isArray(doc.theme)?doc.theme:[doc.theme];
-    const pills=th.map(t=>`<span class="doc-theme-pill ${THEME_CLASS[t]||''}">${t}</span>`).join('');
-    card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>`;
-    grid.insertBefore(card,document.getElementById('no-results'));
-  });
-  const wrap=document.getElementById('browse-show-more-wrap');
-  const btn=document.getElementById('browse-show-more-btn');
-  if(!browseExpanded&&filtered.length>BROWSE_DEFAULT){wrap.style.display='block';btn.textContent=`Show all ${filtered.length} outputs →`;}
-  else{wrap.style.display='none';}
+  document.getElementById('count-num').textContent=count;
+  document.getElementById('no-results').classList.toggle('visible',count===0);
 }
 
 document.getElementById('browse-search').addEventListener('input',function(){
-  browseSearch=this.value.trim();browseExpanded=false;renderCards();
+  browseSearch=this.value.trim();applyFilters();
 });
-function expandBrowse(){browseExpanded=true;renderCards();}
+function expandBrowse(){applyFilters();}
 document.querySelectorAll('[data-filter]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const type=btn.dataset.filter,val=btn.dataset.value;
     if(type==='theme'){activeTheme=val;document.querySelectorAll('[data-filter="theme"]').forEach(b=>b.classList.remove('active'));}
     else{activeFormat=val;document.querySelectorAll('[data-filter="format"]').forEach(b=>b.classList.remove('active'));}
-    browseExpanded=false;btn.classList.add('active');renderCards();
+    btn.classList.add('active');applyFilters();
   });
 });
 
@@ -486,7 +540,7 @@ function buildLocatorMap(region){
   if(lbl)lbl.textContent='Region: '+(REGION_LABELS[region]||'All occupied territories');
 }
 
-renderCards();
+buildCards();applyFilters();
 </script>
 <script src="navigation.js"></script>
 </body>
