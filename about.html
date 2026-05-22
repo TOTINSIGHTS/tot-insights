@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — TOT Insights</title>
+<meta name="description" content="About TOT Insights — a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="navigation.css">
 <style>
@@ -17,6 +18,8 @@
   --font-serif:'Libre Baskerville',Georgia,serif;
   --font-sans:'IBM Plex Sans',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-source:'Source Serif 4',Georgia,serif;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
@@ -37,16 +40,18 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 @media(max-width:700px){.main-content{padding:32px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;margin-bottom:56px;}
-@media(max-width:800px){.about-grid{grid-template-columns:1fr;gap:36px;}}
-.about-text{font-size:15px;color:var(--text);line-height:1.78;}
-.about-text p{margin-bottom:16px;}
-.about-text p:last-child{margin-bottom:0;}
+.about-text-block{font-size:15px;color:var(--text);line-height:1.78;max-width:820px;margin-bottom:52px;}
+.about-text-block p{margin-bottom:16px;}
+.about-text-block p:last-child{margin-bottom:0;}
 .about-contact{font-family:var(--font-mono);font-size:13px;color:var(--steel);}
-.team-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
-.team-list{display:flex;flex-direction:column;gap:10px;}
-.team-member{border-left:2px solid var(--border);padding-left:14px;}
-.team-name{font-size:14px;font-weight:600;color:var(--navy);font-family:var(--font-sans);}
+.profile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-bottom:52px;}
+@media(max-width:700px){.profile-grid{grid-template-columns:1fr;}}
+.profile-card{background:rgba(13,43,78,0.04);border-radius:3px;padding:1.5rem;}
+.profile-name{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:0.35rem;}
+.profile-title{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;}
+.profile-bio{font-family:var(--font-source);font-size:0.82rem;font-weight:300;color:rgba(26,26,26,0.75);line-height:1.6;margin-bottom:0.6rem;}
+.profile-link{font-family:var(--font-mono);font-size:0.7rem;color:var(--steel);text-decoration:none;letter-spacing:0.05em;}
+.profile-link:hover{text-decoration:underline;color:var(--navy);}
 .partners-grid{display:flex;flex-wrap:wrap;gap:10px;}
 .partner-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:18px 20px;flex:1;min-width:220px;}
 .partner-inst{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
@@ -92,6 +97,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <a href="media.html">Media</a>
       <a href="projects.html">Projects</a>
       <a href="about.html" class="active">About</a>
+      <a href="support.html">Support</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -107,26 +113,60 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 <div class="main-content">
 
   <div class="section-label">About TOT Insights</div>
-  <div class="about-grid">
-    <div>
-      <div class="about-text">
-        <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, in cooperation with the Leverhulme Centre for Research on Slavery in War, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
-        <p>The platform's purpose is to define and develop occupation studies as a field of scholarly inquiry, using the Russian occupation of Ukrainian territories as the primary empirical case. Its work is organised around three core research questions: what is the structure and logic of Russian occupation governance, and how does Russia control civilian populations through legal, economic, identity, and digital mechanisms? How do civilian populations navigate and resist coercive rule under conditions of entrapment, and what forms of agency and circumvention exist? And what are the long-term consequences of this model of occupation — for the territories and their populations, for Ukrainian sovereignty, and for international norms around occupation governance?</p>
-        <p>TOT Insights is a research platform, not an advocacy tool or operational programme. Its outputs are analytical: briefings, dashboards, datasets, and peer-reviewed scholarship. It draws on original fieldwork in Ukraine, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners. The platform is updated on a rolling basis as new research, data, and primary sources become available. Its longer-term ambition is to establish occupation studies as a recognised academic field, anchored in rigorous empirical work on the Russian occupation of Ukraine and with relevance to comparative cases globally.</p>
-        <p>Our platform is designed for researchers and academics working on occupation, conflict, and international law; policymakers and practitioners engaged with the occupied territories; and interested publics seeking to understand what is happening in Russian-occupied Ukraine. We are a collaborative platform and are always open to discussing ways of working together, whether through joint research, data sharing, or other forms of partnership. If you would like to get in touch, please visit our <a href="contact.html" class="about-contact">Contact page</a>.</p>
-      </div>
+  <div class="about-text-block">
+    <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, in cooperation with the Leverhulme Centre for Research on Slavery in War, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
+    <p>The platform's purpose is to define and develop occupation studies as a field of scholarly inquiry, using the Russian occupation of Ukrainian territories as the primary empirical case. Its work is organised around three core research questions: what is the structure and logic of Russian occupation governance, and how does Russia control civilian populations through legal, economic, identity, and digital mechanisms? How do civilian populations navigate and resist coercive rule under conditions of entrapment, and what forms of agency and circumvention exist? And what are the long-term consequences of this model of occupation — for the territories and their populations, for Ukrainian sovereignty, and for international norms around occupation governance?</p>
+    <p>TOT Insights is a research platform, not an advocacy tool or operational programme. Its outputs are analytical: briefings, dashboards, datasets, and peer-reviewed scholarship. It draws on original fieldwork in Ukraine, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners. The platform is updated on a rolling basis as new research, data, and primary sources become available.</p>
+    <p>We are a collaborative platform and are always open to discussing ways of working together, whether through joint research, data sharing, or other forms of partnership. If you would like to get in touch, please visit our <a href="contact.html" class="about-contact">Contact page</a>.</p>
+  </div>
+
+  <div class="section-label">Research team</div>
+  <div class="profile-grid">
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Dr Jade McGlynn</div>
+      <div class="profile-title">Head of Ukraine &amp; Russia Programme; Senior Research Fellow, CSNS, King's College London</div>
+      <p class="profile-bio">Leverhulme Early Career Fellow and specialist in Russian information operations, memory politics, and occupation mechanisms. Author of Memory Makers (Bloomsbury, 2023) and Russia's War (Polity, 2023). Holds non-resident fellowships at CSIS Washington DC, ICDS Tallinn, and the Kennan Institute. Regular fieldwork in eastern Ukraine.</p>
+      <a class="profile-link" href="https://www.kcl.ac.uk/people/jade-mcglynn" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
     </div>
-    <div>
-      <div class="team-label">Research team</div>
-      <div class="team-list">
-        <div class="team-member"><div class="team-name">Dr Jade McGlynn</div></div>
-        <div class="team-member"><div class="team-name">Dr Maeve Ryan</div></div>
-        <div class="team-member"><div class="team-name">Dr Lisa Monastyrova</div></div>
-        <div class="team-member"><div class="team-name">Petro Andriushchenko</div></div>
-        <div class="team-member"><div class="team-name">Kimberly Metcalf</div></div>
-        <div class="team-member"><div class="team-name">Oleksandr Kachmar</div></div>
-      </div>
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Dr Maeve Ryan</div>
+      <div class="profile-title">Head of Centre; Co-Investigator</div>
+      <p class="profile-bio">Historian of international order, human rights, and British foreign policy. Co-Investigator on the platform's strategic stability research programme.</p>
+      <a class="profile-link" href="https://www.kcl.ac.uk/people/maeve-ryan" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
     </div>
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Dr Liza Monastyrova</div>
+      <div class="profile-title">Research Fellow — Legal Frameworks</div>
+      <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Leads the platform's work on property seizure, administrative integration, and accountability documentation.</p>
+    </div>
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Petro Andriushchenko</div>
+      <div class="profile-title">Mariupol Monitoring Lead</div>
+      <p class="profile-bio">Former adviser to the Mayor of Mariupol. Leads systematic monitoring of occupation administration, civilian conditions, and demographic change in Mariupol and the southern occupied territories.</p>
+    </div>
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Kimberly Metcalfe</div>
+      <div class="profile-title">Research Assistant — Policy Engagement</div>
+      <p class="profile-bio">Supports policy translation, research communication, and stakeholder engagement across the platform's outputs.</p>
+    </div>
+
+    <div class="profile-card">
+      <!-- Photo placeholder: add <img> here when available -->
+      <div class="profile-name">Oleksandr Kachmar</div>
+      <div class="profile-title">Research Assistant</div>
+      <p class="profile-bio">Contributes to primary source collection, database maintenance, and analytical support across the platform.</p>
+    </div>
+
   </div>
 
   <div class="section-label">Research partners</div>
@@ -135,24 +175,24 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <div class="partner-inst">King's College London</div>
       <div class="partner-name">Centre for Statecraft and National Security</div>
       <div class="partner-role">Lead institution. TOT Insights is a platform of the Ukraine and Russia Programme at CSNS, bringing together analytical research, data tools, and primary source collections on Russian-occupied Ukrainian territories.</div>
-      <a class="partner-link" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener">kcl.ac.uk/csns ↗</a>
-    </div>
-    <div class="partner-card">
-      <div class="partner-inst">Partner</div>
-      <div class="partner-name">Centre for Occupation Studies</div>
-      <div class="partner-role">Primary sources and analysis of Mariupol and the temporarily occupied territories. The Centre provides data and documentation on occupation administrative records underpinning several TOT Insights outputs.</div>
-    </div>
-    <div class="partner-card">
-      <div class="partner-inst">Partner</div>
-      <div class="partner-name">CURIA Lab</div>
-      <div class="partner-role">Cultural Resilience Informatics and Analysis Lab — computational approaches to occupation and resistance. CURIA Lab contributes data analysis and visualisation tools to the platform.</div>
-      <a class="partner-link" href="https://curialab.org/" target="_blank" rel="noopener">curialab.org ↗</a>
+      <a class="partner-link" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener noreferrer">kcl.ac.uk/csns ↗</a>
     </div>
     <div class="partner-card">
       <div class="partner-inst">King's College London</div>
       <div class="partner-name">Leverhulme Centre for Research on Slavery in War</div>
       <div class="partner-role">Lead and founding institution. Research on coercion, forced labour, and civilian entrapment under occupation. The Centre's focus on civilian coercion in conflict underpins the platform's accountability-oriented outputs.</div>
-      <a class="partner-link" href="https://www.kcl.ac.uk/research/leverhulme-centre-for-the-study-of-slavery-and-coercion-in-war" target="_blank" rel="noopener">kcl.ac.uk ↗</a>
+      <a class="partner-link" href="https://www.kcl.ac.uk/research/leverhulme-centre-for-the-study-of-slavery-and-coercion-in-war" target="_blank" rel="noopener noreferrer">kcl.ac.uk ↗</a>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">Partner</div>
+      <div class="partner-name">CURIA Lab</div>
+      <div class="partner-role">Cultural Resilience Informatics and Analysis Lab — computational approaches to occupation and resistance. CURIA Lab contributes data analysis and visualisation tools to the platform.</div>
+      <a class="partner-link" href="https://curialab.org/" target="_blank" rel="noopener noreferrer">curialab.org ↗</a>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">Partner</div>
+      <div class="partner-name">Centre for Occupation Studies</div>
+      <div class="partner-role">Primary sources and analysis of Mariupol and the temporarily occupied territories. The Centre provides data and documentation on occupation administrative records underpinning several TOT Insights outputs.</div>
     </div>
   </div>
 
@@ -163,6 +203,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
     <span><a href="contact.html">Contact</a></span>
   </div>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
 </footer>
 
 <script src="navigation.js"></script>

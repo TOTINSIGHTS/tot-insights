@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data — TOT Insights</title>
+<meta name="description" content="Data from TOT Insights — searchable databases, interactive visualisations, dashboards, and primary source documents on Russian-occupied Ukrainian territories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -17,6 +18,8 @@
   --font-serif:'Libre Baskerville',Georgia,serif;
   --font-sans:'IBM Plex Sans',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-source:'Source Serif 4',Georgia,serif;
 }
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size:15px;line-height:1.6;}
@@ -66,6 +69,21 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .ps-translation{font-family:var(--font-mono);font-size:9px;color:var(--gold);letter-spacing:0.06em;}
 .ps-arrow{font-size:14px;color:var(--border);transition:color 0.12s,transform 0.12s;}
 .ps-card:hover .ps-arrow{color:var(--steel);transform:translateX(3px);}
+/* Vis cards */
+.vis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:52px;}
+@media(max-width:900px){.vis-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:580px){.vis-grid{grid-template-columns:1fr;}}
+.vis-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:16px 18px 14px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow 0.15s,transform 0.15s;}
+.vis-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.vis-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px;}
+.vis-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;background:#F5EDD0;color:#7A5C0D;white-space:nowrap;}
+.vis-id{font-family:var(--font-mono);font-size:9px;color:#C8D4DE;letter-spacing:0.08em;}
+.vis-title{font-family:var(--font-serif);font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:7px;}
+.vis-desc{font-size:12px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:10px;}
+.vis-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid var(--border);}
+.vis-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.vis-arrow{font-size:14px;color:var(--border);transition:color 0.12s,transform 0.12s;}
+.vis-card:hover .vis-arrow{color:var(--steel);transform:translateX(3px);}
 .site-footer{background:var(--navy);border-top:2px solid var(--gold);padding:22px 40px;}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
 .footer-inner span{font-size:11px;color:rgba(255,255,255,0.28);}
@@ -104,6 +122,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
       <a href="media.html">Media</a>
       <a href="projects.html">Projects</a>
       <a href="about.html">About</a>
+      <a href="support.html">Support</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -118,6 +137,11 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 </div>
 
 <div class="main-content">
+
+  <div style="max-width:820px;margin-bottom:40px;">
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.35rem;font-weight:600;color:var(--navy);margin-bottom:0.7rem;">Structured data from the occupied territories.</h2>
+    <p style="font-family:'Source Serif 4',Georgia,serif;font-size:0.92rem;font-weight:300;color:rgba(26,26,26,0.72);line-height:1.75;">TOT Insights publishes interactive databases, analytical visualisations, and primary source documents drawn from occupation administrative records, original fieldwork, and open-source research. Databases are searchable and updated on a rolling basis. Visualisations and dashboards are companion tools to published analytical outputs. Primary source documents are published in their original language with machine translations where available.</p>
+  </div>
 
   <div class="section-label">Databases</div>
   <div class="db-grid">
@@ -144,22 +168,160 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 
   </div>
 
-  <div class="section-label" id="visualisations">Visualisations</div>
-  <div class="db-grid">
+  <div class="section-label" id="visualisations">Visualisations &amp; Dashboards</div>
+  <div class="vis-grid">
 
-    <a class="db-card" href="dashboards/developer_network_visualisations.html">
-      <div class="db-tag">Visual &nbsp;·&nbsp; DOC-L1 &nbsp;·&nbsp; Economics &amp; Governance</div>
-      <div class="db-title">Russian Developer Networks in Occupied Ukraine: Corporate Ownership Map</div>
-      <div class="db-desc">Interactive OSINT investigation tracing construction companies in occupied Donetsk and Zaporizhzhia to their beneficial owners. Four ownership clusters identified; Etalon Group's covert subsidiary structure is the analytical centrepiece.</div>
-      <div class="db-card-footer">
-        <span class="db-stat">OSINT investigation &nbsp;·&nbsp; 2025–2026</span>
-        <span class="db-arrow">→</span>
-      </div>
+    <a class="vis-card" href="dashboards/dzo.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A5</span></div>
+      <div class="vis-title">State Grain Operator (DZO): Interactive Research Dashboard</div>
+      <p class="vis-desc">DZO structure, finances, export flows, personnel network, and accountability indicators in a tabbed dashboard. Companion to the grain expropriation briefing.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/shadow_fleet_v2.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A7</span></div>
+      <div class="vis-title">Shadow Fleet at Mariupol Port: Interactive Visual (v2)</div>
+      <p class="vis-desc">Operational timeline with vessel counts and tonnage, Autumn 2024 to Spring 2026. Preferred version for platform display. Companion to the shadow fleet briefing.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/shadow_fleet_v1.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A6</span></div>
+      <div class="vis-title">Shadow Fleet at Mariupol Port: Interactive Timeline Visual (v1)</div>
+      <p class="vis-desc">Interactive timeline of shadow fleet operations and sanctions evasion at Mariupol port, Autumn 2024 to Spring 2026.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/znpp.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A8</span></div>
+      <div class="vis-title">ZNPP Under Occupation: Interactive Safety and Licensing Visual</div>
+      <p class="vis-desc">Rostekhnadzor licensing trajectory and safety incident log, including the two critical Dniprovska line disconnections, with severity indicators and expandable details.</p>
+      <div class="vis-card-footer"><span class="vis-label">Governance</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/religious_persecution.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-B4</span></div>
+      <div class="vis-title">Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation</div>
+      <p class="vis-desc">Denomination-level suppression rates, structural destruction, displacement figures, and ROC expansion data. Companion to the religious persecution briefing.</p>
+      <div class="vis-card-footer"><span class="vis-label">Identity, Culture and Religion</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/mariupol_property.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-B5</span></div>
+      <div class="vis-title">Mariupol Property Seizure Programme: Interactive Dashboard</div>
+      <p class="vis-desc">8,526 residential and ~460 commercial properties drawn from occupation administrative records. 20 monthly snapshots. Companion to the property seizure briefing.</p>
+      <div class="vis-card-footer"><span class="vis-label">Civilian Life &nbsp;·&nbsp; Coercion</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/guardianship.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C2</span></div>
+      <div class="vis-title">Russia's Guardianship Programme: Interactive Research Dashboard</div>
+      <p class="vis-desc">City-twinning pairings, promised versus delivered commitments, corruption cases, and analytical patterns. Key finding: corruption is the operating mode, not an exception.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/mariupol_economy.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C6</span></div>
+      <div class="vis-title">Mariupol Occupation Economy: Interactive Dashboard</div>
+      <p class="vis-desc">Five charts on the structure of Mariupol's registered economy — 73% ООО entities, zero state/municipal entities filed financial data.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/idp_polling.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C7</span></div>
+      <div class="vis-title">IDP Attitudes Survey: Interactive Dashboard (v2)</div>
+      <p class="vis-desc">Findings from 1,001 IDPs: 76.4% rate Ukrainian government ineffective; 61.6% believe hidden resistance exists. Top resistance actions: evacuation, medicine, essential goods.</p>
+      <div class="vis-card-footer"><span class="vis-label">Civilian Life &nbsp;·&nbsp; Coercion</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/kiriyenko.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-F2</span></div>
+      <div class="vis-title">Kiriyenko and Russia's Occupation: Interactive Data Visualisation</div>
+      <p class="vis-desc">Five tabs: career and TOT timeline, federal transfers by region (₽223bn by Sep 2024), domains of control, reconstruction projects, youth and russification budget.</p>
+      <div class="vis-card-footer"><span class="vis-label">Governance</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/resistance_analytics.html">
+      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-F3</span></div>
+      <div class="vis-title">Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)</div>
+      <p class="vis-desc">387 verified incidents across 30 biweekly periods. Occupied territories and Russian Federation. Five tabs with stacked area charts, territorial breakdown, and oblast geography.</p>
+      <div class="vis-card-footer"><span class="vis-label">Coercion, Resistance and Security</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/zaporizhzhia_movement_trends.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-089</span></div>
+      <div class="vis-title">Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025</div>
+      <p class="vis-desc">Population displacement flows: 40% evacuation to Ukrainian-controlled territory, 30% EU migration, 25% departure to Russia, 5% return in spring 2025.</p>
+      <div class="vis-card-footer"><span class="vis-label">Civilian Life</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/mariupol_utility_tariffs.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-090</span></div>
+      <div class="vis-title">Utility Tariff Increases in Occupied Mariupol, 2023–2025</div>
+      <p class="vis-desc">Cumulative percentage increases across 13 utility services from 2023 baseline to July 2025. Sewerage up 71.4%; waste collection 65–68%; cold water 52.7%.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/mariupol_budget_dynamics.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-091</span></div>
+      <div class="vis-title">Budget Dynamics of Occupied Mariupol, 2024–Q1 2025</div>
+      <p class="vis-desc">Multi-series line chart of total income, own-source income, expenditure, and federal transfers. Own-source income covers ~29%; 71% derives from Russian federal transfers.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/mariupol_port_network.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-092</span></div>
+      <div class="vis-title">Corporate and Personal Connections Around Mariupol Port, 2023–2025</div>
+      <p class="vis-desc">D3 force-directed network map of 26 entities and 24 links. ZAT PETROTRANS and Yulia Maksimova (Pakreeva) as primary hubs. Filterable by category.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/resistance_map.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-093</span></div>
+      <div class="vis-title">Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026</div>
+      <p class="vis-desc">Interactive Leaflet map of 387 verified incidents — 246 in occupied Ukrainian territories, 141 in Russian Federation territory. Filterable by territory, type, and period.</p>
+      <div class="vis-card-footer"><span class="vis-label">Coercion, Resistance and Security</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/prices_april_2026.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-094</span></div>
+      <div class="vis-title">Market Prices, Occupied DPR Territory — April 2026, First Decade</div>
+      <p class="vis-desc">Fieldwork-collected supermarket price survey from occupied DPR territory, 6 April 2026: 150+ items across six categories, denominated in Russian roubles.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/china_road_visualisations.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-K1</span></div>
+      <div class="vis-title">Sanctions in Plain Sight: Western Road Machinery in Occupied Zaporizhzhia</div>
+      <p class="vis-desc">Three sanctioned EU/NATO machines identified on site, and the spare parts evasion network — China, Turkey, Kazakhstan — keeping them operational on the Azov military corridor.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Accountability</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/george_oil_visualisations.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-J1</span></div>
+      <div class="vis-title">Looting Donbas: The Mariupol Coal Export Scheme — George Oil Visualisations</div>
+      <p class="vis-desc">The George Oil deal sequence, Mariupol port transformation into a bulk export terminal, and the sanctions circumvention scheme routing looted coal through a Georgian intermediary.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Accountability</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/bri_visualisations.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-I1</span></div>
+      <div class="vis-title">Chinese Belt and Road Expansion into Occupied Ukraine: Network Analysis Visualisations</div>
+      <p class="vis-desc">BRI paradiplomacy architecture reaching Mariupol State University (March 2026), engagement timeline 2018–2026, and the Karansky quarry supply chain to Russian military logistics.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Governance</span><span class="vis-arrow">→</span></div>
+    </a>
+
+    <a class="vis-card" href="dashboards/developer_network_visualisations.html">
+      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-L1</span></div>
+      <div class="vis-title">Russian Developer Networks in Occupied Ukraine: Corporate Ownership Map</div>
+      <p class="vis-desc">Four ownership clusters linking construction companies in occupied Donetsk and Zaporizhzhia to their beneficial owners. Etalon Group's covert subsidiary structure is the analytical centrepiece.</p>
+      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Governance</span><span class="vis-arrow">→</span></div>
     </a>
 
   </div>
 
   <div class="section-label">Primary sources — Mariupol city administration, 2026</div>
+  <p style="font-size:14px;color:var(--muted);line-height:1.65;max-width:820px;margin-bottom:28px;">Russian-language administrative documents issued by the occupation authorities in Mariupol, obtained and published for research, accountability, and documentation purposes. Original documents are published alongside machine translations.</p>
   <div class="ps-grid">
 
     <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-095.html">
@@ -283,6 +445,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
     <span><a href="contact.html">Contact</a></span>
   </div>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
 </footer>
 
 <script src="navigation.js"></script>
