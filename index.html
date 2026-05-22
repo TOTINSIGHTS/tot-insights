@@ -34,8 +34,9 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 @media(max-width:700px){.header-nav{gap:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
 /* Static hero */
 .static-hero{position:relative;width:100%;height:85vh;background-image:url('images/photo_2026-04-23_15.00.35.jpeg');background-size:cover;background-position:center 40%;display:flex;flex-direction:column;justify-content:flex-end;}
-.static-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,40,0.72) 0%,rgba(8,18,40,0.35) 100%);pointer-events:none;}
-.static-hero-content{position:relative;z-index:1;max-width:680px;padding:0 3.5rem 4rem;}
+.static-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 45%,rgba(8,18,40,0.82) 0%,rgba(8,18,40,0.4) 45%,rgba(8,18,40,0.15) 100%);pointer-events:none;}
+.static-hero-content{position:absolute;bottom:48%;left:0;z-index:1;max-width:680px;padding:0 3.5rem;}
+@media(max-width:700px){.static-hero-content{position:relative;bottom:auto;padding:0 1.5rem 2rem;}}
 .static-hero-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:14px;}
 .static-hero-title{font-family:var(--font-display);font-size:32px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:14px;}
 .static-hero-desc{font-size:13px;color:rgba(255,255,255,0.52);line-height:1.78;}
@@ -43,7 +44,7 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 /* Accreditation strip */
 .accred-strip{background:var(--navy);padding:1.75rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
 .accred-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;}
-.accred-logo{max-height:36px;max-width:180px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.55);flex-shrink:0;}
+.accred-logo{max-height:40px;max-width:180px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.6);flex-shrink:0;}
 .accred-rule{width:1px;height:28px;background:rgba(255,255,255,0.12);margin:0 2rem;flex-shrink:0;}
 .accred-text-logo{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;}
 /* Section label */
@@ -181,16 +182,12 @@ a.partner-item:hover .partner-logo{opacity:1;}
     <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
     <p class="static-hero-desc">Analytical briefings, interactive data tools, datasets, and primary source collections for researchers and policymakers working on Russian occupation mechanisms, civilian entrapment, and accountability.</p>
   </div>
-
+  <span class="static-hero-caption">Mariupol, April 2026 — fieldwork documentation</span>
 </section>
 
 <div class="accred-strip">
   <div class="accred-inner">
-    <img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security" class="accred-logo">
-    <div class="accred-rule"></div>
     <img src="assets/logos/kcl-logo.svg" alt="King's College London" class="accred-logo">
-    <div class="accred-rule"></div>
-    <span class="accred-text-logo">Leverhulme Centre for Research on Slavery in War</span>
   </div>
 </div>
 
@@ -338,7 +335,7 @@ a.partner-item:hover .partner-logo{opacity:1;}
         </a>
 
         <div class="partner-item">
-          <span class="partner-text-name">Centre for Research<br>on Slavery in War</span>
+          <span class="partner-text-name">Leverhulme Centre for Research<br>on Slavery in War</span>
           <span class="partner-text-sub">King's College London</span>
         </div>
 
