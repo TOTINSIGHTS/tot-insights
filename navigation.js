@@ -2,13 +2,13 @@
   function closeAll() {
     document.querySelectorAll('.nav-dropdown.open').forEach(function (el) {
       el.classList.remove('open');
-      var btn = el.querySelector('.nav-dropdown-btn');
+      var btn = el.querySelector('.nav-chevron-btn');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.nav-dropdown-btn').forEach(function (btn) {
+    document.querySelectorAll('.nav-chevron-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var dropdown = btn.closest('.nav-dropdown');
