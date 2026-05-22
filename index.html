@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOT Insights — Research, data, and primary sources on Russian-occupied Ukraine</title>
+<meta name="description" content="TOT Insights — research platform publishing analytical briefings, interactive data tools, datasets, and primary sources on Russian occupation mechanisms in Russian-occupied Ukrainian territories.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -51,13 +52,38 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 /* About platform */
-.about-platform{background:#111d30;padding:4rem 3.5rem;}
+.about-platform{background:#111d30;padding:4rem 3.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
 .about-platform-inner{max-width:1200px;margin:0 auto;}
-.about-platform-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#c8a96e;opacity:0.85;margin-bottom:1.25rem;}
+.about-platform-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#c8a96e;margin-bottom:1.25rem;}
 .about-platform-text{font-family:var(--font-source);font-size:15px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.78;max-width:720px;}
 .about-links{margin-top:1.5rem;display:flex;gap:20px;flex-wrap:wrap;}
 .about-link{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.12s;}
 .about-link:hover{color:rgba(255,255,255,0.85);}
+/* Impact section */
+.impact-section{background:#0a1628;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:4rem 3.5rem;}
+.impact-inner{max-width:1200px;margin:0 auto;}
+.impact-section .section-label{color:rgba(255,255,255,0.35);}
+.impact-section .section-label::after{background:rgba(255,255,255,0.1);}
+.impact-heading{font-family:var(--font-display);font-size:1.6rem;font-weight:400;color:#fff;margin-bottom:1.25rem;}
+.impact-body{font-family:var(--font-source);font-weight:300;font-size:0.95rem;color:rgba(232,228,220,0.75);line-height:1.7;max-width:720px;}
+.impact-body p{margin-bottom:1rem;}
+.impact-body p:last-child{margin-bottom:0;}
+.impact-outlets{font-family:var(--font-mono);font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:0.04em;margin-top:1.5rem;line-height:1.6;}
+/* Stats strip */
+.stats-strip{background:#0e1c2f;border-top:1px solid rgba(200,169,110,0.15);border-bottom:1px solid rgba(200,169,110,0.15);padding:4rem 3.5rem;}
+.stats-inner{max-width:1200px;margin:0 auto;}
+.stats-strip .section-label{color:rgba(255,255,255,0.35);}
+.stats-strip .section-label::after{background:rgba(255,255,255,0.1);}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;}
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:580px){.stats-grid{grid-template-columns:1fr;}}
+.stat-block{text-decoration:none;display:block;padding:1.5rem;transition:background 0.2s;border-radius:2px;}
+.stat-block:hover{background:rgba(255,255,255,0.02);}
+.stat-number{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;color:#ffffff;line-height:1;}
+.stat-underline{width:32px;height:2px;background:#c8a96e;margin:0.6rem 0;}
+.stat-label{font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(232,228,220,0.65);line-height:1.45;max-width:220px;}
+.stat-cta{display:inline-block;font-family:var(--font-mono);font-size:0.6rem;color:#c8a96e;text-decoration:none;margin-top:0.75rem;letter-spacing:0.06em;}
+.stat-block:hover .stat-cta{text-decoration:underline;}
 /* Featured */
 .featured{padding:5rem 40px;background:#0D1624;border-bottom:1px solid rgba(255,255,255,0.06);}
 .featured-inner{max-width:1200px;margin:0 auto;}
@@ -131,17 +157,15 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .partners-group{margin-bottom:3rem;}
 .partners-group:last-child{margin-bottom:0;}
 .partners-sub-label{font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.5rem;}
-.partners-row{display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;}
-.partner-item{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#c8c4bc;transition:color 0.15s;flex-shrink:0;gap:4px;position:relative;}
-a.partner-item:hover{color:#fff;}
-.partner-item:not(:last-child)::after{content:'';position:absolute;right:-1.35rem;top:50%;transform:translateY(-50%);width:1px;height:24px;background:rgba(255,255,255,0.1);}
-.partner-logo{height:32px;width:auto;display:block;filter:brightness(0) invert(1) opacity(0.7);transition:filter 0.2s ease;}
+.partners-row{display:flex;flex-direction:row;align-items:center;justify-content:space-between;flex-wrap:nowrap;width:100%;gap:0;}
+.partner-item{display:flex;flex-direction:row;align-items:center;text-decoration:none;flex-shrink:0;}
+.partner-logo{height:28px;width:auto;max-width:120px;object-fit:contain;filter:brightness(0) invert(1) opacity(0.65);display:block;transition:filter 0.2s ease;}
 a.partner-item:hover .partner-logo{filter:brightness(0) invert(1) opacity(1);}
-.partner-text-fallback{font-family:var(--font-sans);font-size:12px;font-weight:500;color:inherit;letter-spacing:0.02em;}
-.partner-text-name{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);line-height:1.4;}
+.partner-text-fallback{font-family:var(--font-mono);font-size:0.68rem;color:rgba(255,255,255,0.55);letter-spacing:0.08em;}
+.partner-text-name{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.55);line-height:1.3;white-space:nowrap;}
 a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
-.partner-text-sub{font-size:0.6rem;color:rgba(255,255,255,0.3);}
-@media(max-width:700px){.partners-section{padding:3rem 20px 3.5rem;}.partners-row{gap:1.5rem;}.partner-logo{height:28px;}.partner-item:not(:last-child)::after{right:-0.85rem;}}
+.partner-sep{display:inline-block;width:1px;height:24px;background:rgba(255,255,255,0.12);flex-shrink:0;align-self:center;}
+@media(max-width:767px){.partners-section{padding:3rem 20px 3.5rem;}.partners-row{flex-wrap:wrap;justify-content:center;gap:1.25rem;}.partner-sep{display:none;}}
 </style>
 </head>
 <body>
@@ -175,6 +199,7 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
       <a href="media.html">Media</a>
       <a href="projects.html">Projects</a>
       <a href="about.html">About</a>
+      <a href="support.html">Support</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -203,6 +228,70 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
       <a class="about-link" href="research.html">Research outputs →</a>
       <a class="about-link" href="data.html">Data &amp; primary sources →</a>
       <a class="about-link" href="about.html">About the platform →</a>
+    </div>
+  </div>
+</section>
+
+<section class="impact-section">
+  <div class="impact-inner">
+    <div class="section-label">Impact &amp; Reach</div>
+    <h2 class="impact-heading">Shaping policy. Informing accountability.</h2>
+    <div class="impact-body">
+      <p>Research by the TOT Insights team has informed parliamentary debate — cited in Hansard — and contributed directly to the work of the UN Commission of Inquiry on Ukraine. Findings have been briefed to policymakers and legislators in the United Kingdom, Norway, Sweden, Estonia, and the United States.</p>
+      <p>This research has reached international audiences through The Telegraph, the Daily Mail, DR (Danish Broadcasting Corporation), Sveriges Radio and SVT (Swedish public radio and television), SRF (Swiss public broadcasting), ORF (Austrian public radio), and other national outlets.</p>
+      <p>TOT Insights was established with seed funding from the Leverhulme Centre for Research on Slavery in War, King's College London.</p>
+    </div>
+    <div class="impact-outlets">Hansard &nbsp;·&nbsp; UN Commission of Inquiry &nbsp;·&nbsp; The Telegraph &nbsp;·&nbsp; Daily Mail &nbsp;·&nbsp; DR &nbsp;·&nbsp; Sveriges Radio &nbsp;·&nbsp; SVT &nbsp;·&nbsp; SRF &nbsp;·&nbsp; ORF</div>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <div class="stats-inner">
+    <div class="section-label">Research findings</div>
+    <div class="stats-grid">
+
+      <a class="stat-block" href="briefings/ghost_pensioners.html">
+        <div class="stat-number" data-count="134600" data-format="comma">134,600</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">ghost pensioners generating 1.68bn rubles per month in fraudulent payments — a dual-use coercion tool</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
+      <a class="stat-block" href="briefings/voin_generation.html">
+        <div class="stat-number" data-count="600000" data-suffix="–650,000" data-format="comma">600,000–650,000</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">children enrolled in Russia's military pipeline, designed to produce deployable personnel by 2028–2034</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
+      <a class="stat-block" href="officials.html">
+        <div class="stat-number" data-count="1198" data-format="comma">1,198</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">occupation officials tracked across five Russian-occupied territories</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
+      <a class="stat-block" href="sanctions.html">
+        <div class="stat-number" data-count="2306" data-format="comma">2,306</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">sanctioned individuals and entities across seven jurisdictions, searchable by name and territory</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
+      <a class="stat-block" href="briefings/shadow_fleet_briefing.html">
+        <div class="stat-number">10–20</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">vessels per month through Mariupol port's sanctions evasion route, carrying up to 160,000 tonnes</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
+      <a class="stat-block" href="primary-sources/mariupol-admin-2026/doc-099.html">
+        <div class="stat-number" data-count="8.76" data-suffix="bn rubles" data-format="decimal">8.76bn rubles</div>
+        <div class="stat-underline"></div>
+        <div class="stat-label">Mariupol's occupation education budget 2026–2028, explicitly targeting "patriotic upbringing" and "traditional Russian spiritual-moral values"</div>
+        <span class="stat-cta">View research →</span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -330,14 +419,22 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
           <span class="partner-text-fallback" style="display:none;">King's College London</span>
         </a>
 
+        <span class="partner-sep"></span>
+
         <a class="partner-item" href="https://www.kcl.ac.uk/csns" target="_blank" rel="noopener noreferrer">
-          <span class="partner-text-name">Centre for Statecraft<br>and National Security</span>
-          <span class="partner-text-sub">King's College London</span>
+          <span class="partner-text-name">Centre for Statecraft and National Security</span>
         </a>
 
+        <span class="partner-sep"></span>
+
+        <a class="partner-item" href="https://www.kcl.ac.uk/research/leverhulme-centre-for-the-study-of-slavery-and-coercion-in-war" target="_blank" rel="noopener noreferrer">
+          <span class="partner-text-name">Leverhulme Centre for Research on Slavery in War</span>
+        </a>
+
+        <span class="partner-sep"></span>
+
         <div class="partner-item">
-          <span class="partner-text-name">Leverhulme Centre for Research<br>on Slavery in War</span>
-          <span class="partner-text-sub">King's College London</span>
+          <span class="partner-text-name">Centre for Research on Slavery in War</span>
         </div>
 
       </div>
@@ -353,22 +450,33 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
           <span class="partner-text-fallback" style="display:none;">CURIA Lab</span>
         </a>
 
+        <span class="partner-sep"></span>
+
         <div class="partner-item">
           <span class="partner-text-name">Центр вивчення війни</span>
-          <span class="partner-text-sub">Centre for the Study of War</span>
         </div>
+
+        <span class="partner-sep"></span>
 
         <a class="partner-item" href="https://www.statesofexception.org" target="_blank" rel="noopener noreferrer">
           <img src="assets/logos/isse-logo.png" alt="Institute for the Study of States of Exception" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-          <span class="partner-text-fallback" style="display:none;">Institute for the Study<br>of States of Exception</span>
+          <span class="partner-text-fallback" style="display:none;">Institute for the Study of States of Exception</span>
         </a>
+
+        <span class="partner-sep"></span>
 
         <a class="partner-item" href="https://ikar-thinktank.org/en" target="_blank" rel="noopener noreferrer">
           <img src="assets/logos/ikar-logo.svg" alt="Institute for Conflict Studies and Analysis of Russia" class="partner-logo"
                onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
           <span class="partner-text-fallback" style="display:none;">IKAR</span>
         </a>
+
+        <span class="partner-sep"></span>
+
+        <div class="partner-item">
+          <span class="partner-text-name">Centre for Occupation Studies</span>
+        </div>
 
       </div>
     </div>
@@ -380,8 +488,10 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
     <span><a href="contact.html">Contact</a></span>
   </div>
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
 </footer>
 
+<script src="assets/js/counters.js"></script>
 <script src="navigation.js"></script>
 </body>
 </html>
