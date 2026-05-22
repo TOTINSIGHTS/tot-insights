@@ -63,13 +63,25 @@
   z-index: 300;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.12s ease;
+  transition: opacity 0.12s ease 0.2s; /* delay hide so cursor can reach panel */
+}
+
+/* Invisible bridge fills the 14px gap between nav bar and panel */
+.nav-dropdown-panel::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
 }
 
 @media (min-width: 701px) {
   .nav-dropdown:hover > .nav-dropdown-panel {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 0.12s ease 0s; /* show immediately, no delay */
   }
   .nav-dropdown:hover .nav-dropdown-link,
   .nav-dropdown:hover .nav-chevron-btn {
