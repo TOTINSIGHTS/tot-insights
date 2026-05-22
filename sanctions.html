@@ -131,6 +131,11 @@ tr:nth-child(even):hover td{background:#F0F5FA;}
   .search-input{width:100%;}
   .detail-panel{width:100vw;}
 }
+/* ── Download button ── */
+.db-download-wrap{margin-bottom:20px;}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#c8a96e;border:1px solid #c8a96e;background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
+.db-download-btn:hover{background:rgba(200,169,110,0.1);}
+.db-download-sub{font-family:var(--font-mono);font-size:0.6rem;color:rgba(26,26,26,0.4);margin-top:0.4rem;letter-spacing:0.04em;}
 </style>
 </head>
 <body>
@@ -200,6 +205,10 @@ tr:nth-child(even):hover td{background:#F0F5FA;}
 </div>
 
 <div class="main-content">
+  <div class="db-download-wrap">
+    <a class="db-download-btn" href="assets/downloads/tot-sanctions-database-may2026.csv" download>Download full database (CSV)</a>
+    <div class="db-download-sub">2,306 entries · 7 jurisdictions · Last updated May 2026</div>
+  </div>
   <div class="controls-row">
     <div class="control-group" style="flex:1;min-width:200px;">
       <div class="control-label">Search</div>

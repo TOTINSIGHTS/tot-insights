@@ -54,6 +54,8 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
 .db-stat{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;}
 .db-arrow{font-size:16px;color:var(--border);transition:color 0.12s,transform 0.12s;}
 .db-card:hover .db-arrow{color:var(--steel);transform:translateX(3px);}
+.db-dl-link{display:inline-block;font-family:var(--font-mono);font-size:0.62rem;color:#c8a96e;text-decoration:none;margin-top:8px;letter-spacing:0.04em;transition:opacity 0.12s;}
+.db-dl-link:hover{opacity:0.75;}
 /* Primary source cards */
 .ps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(max-width:640px){.ps-grid{grid-template-columns:1fr;}}
@@ -146,25 +148,31 @@ body{font-family:var(--font-sans);background:#FCFCFA;color:var(--text);font-size
   <div class="section-label">Databases</div>
   <div class="db-grid">
 
-    <a class="db-card" href="officials.html">
-      <div class="db-tag">Database &nbsp;·&nbsp; DB-OFF</div>
-      <div class="db-title">Occupation Officials Database</div>
-      <div class="db-desc">1,198 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, searchable by name, territory, level, status, and origin.</div>
-      <div class="db-card-footer">
-        <span class="db-stat">1,198 entries &nbsp;·&nbsp; Governance</span>
-        <span class="db-arrow">→</span>
-      </div>
-    </a>
+    <div>
+      <a class="db-card" href="officials.html">
+        <div class="db-tag">Database &nbsp;·&nbsp; DB-OFF</div>
+        <div class="db-title">Occupation Officials Database</div>
+        <div class="db-desc">1,198 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, searchable by name, territory, level, status, and origin.</div>
+        <div class="db-card-footer">
+          <span class="db-stat">1,198 entries &nbsp;·&nbsp; Governance</span>
+          <span class="db-arrow">→</span>
+        </div>
+      </a>
+      <a class="db-dl-link" href="assets/downloads/tot-officials-database-may2026.csv" download>↓ Download CSV — May 2026</a>
+    </div>
 
-    <a class="db-card" href="sanctions.html">
-      <div class="db-tag">Database &nbsp;·&nbsp; DB-SAN</div>
-      <div class="db-title">Sanctions Database</div>
-      <div class="db-desc">2,306 sanctioned individuals and entities across seven jurisdictions — Australia, EU, Japan, Switzerland, UK, US, and Ukraine — searchable by name, type, territory, and jurisdiction.</div>
-      <div class="db-card-footer">
-        <span class="db-stat">2,306 entries &nbsp;·&nbsp; 7 jurisdictions</span>
-        <span class="db-arrow">→</span>
-      </div>
-    </a>
+    <div>
+      <a class="db-card" href="sanctions.html">
+        <div class="db-tag">Database &nbsp;·&nbsp; DB-SAN</div>
+        <div class="db-title">Sanctions Database</div>
+        <div class="db-desc">2,306 sanctioned individuals and entities across seven jurisdictions — Australia, EU, Japan, Switzerland, UK, US, and Ukraine — searchable by name, type, territory, and jurisdiction.</div>
+        <div class="db-card-footer">
+          <span class="db-stat">2,306 entries &nbsp;·&nbsp; 7 jurisdictions</span>
+          <span class="db-arrow">→</span>
+        </div>
+      </a>
+      <a class="db-dl-link" href="assets/downloads/tot-sanctions-database-may2026.csv" download>↓ Download CSV — May 2026</a>
+    </div>
 
   </div>
 
