@@ -315,32 +315,7 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
 <section class="featured">
   <div class="featured-inner">
     <div class="section-label">Featured outputs</div>
-    <div class="featured-grid">
-      <div class="featured-card primary" onclick="window.location.href='officials.html'">
-        <div class="card-theme"><span class="card-theme-dot" style="background:#1C567A"></span><span style="color:#1C567A">Governance</span></div>
-        <div class="card-title">Occupation Officials Database</div>
-        <div class="card-desc">1,198 individuals serving in administrative roles across Russian-occupied Ukrainian territories. Searchable by name, territory, and status.</div>
-        <div class="card-meta"><span class="card-format-tag">Database</span><span class="card-id">DB-OFF</span></div>
-      </div>
-      <div class="featured-card" onclick="window.location.href='briefings/ethnic_cleansing.html'">
-        <div class="card-theme"><span class="card-theme-dot" style="background:#1A5C35"></span><span style="color:#1A5C35">Civilian Life</span></div>
-        <div class="card-title">Russia Is Ethnically Cleansing Mariupol</div>
-        <div class="card-desc">At current attrition rates, Mariupol's pre-war Ukrainian population will fall below 5,000 within twelve years. The numbers, the mechanisms, and the federal infrastructure behind the plan.</div>
-        <div class="card-meta"><span class="card-format-tag">Briefing &amp; Paper</span><span class="card-id">DOC-D3</span></div>
-      </div>
-      <div class="featured-card" onclick="window.location.href='briefings/voin_generation.html'">
-        <div class="card-theme"><span class="card-theme-dot" style="background:#7A5C0D"></span><span style="color:#7A5C0D">Education and Militarisation</span></div>
-        <div class="card-title">The Voin Generation: Russia's Militarisation of Children in Russian-occupied Ukraine</div>
-        <div class="card-desc">600,000–650,000 children in a military pipeline designed to produce deployable personnel by 2028–2034.</div>
-        <div class="card-meta"><span class="card-format-tag">Briefing &amp; Paper</span><span class="card-id">DOC-B2</span></div>
-      </div>
-      <div class="featured-card" onclick="window.location.href='dashboards/idp_polling.html'">
-        <div class="card-theme"><span class="card-theme-dot" style="background:#1A5C35"></span><span style="color:#1A5C35">Civilian Life</span></div>
-        <div class="card-title">IDP Attitudes Survey: Interactive Dashboard</div>
-        <div class="card-desc">What 1,001 IDPs from Russian-occupied territories think about Russian rule, hidden resistance, and which support actions are worth the risk.</div>
-        <div class="card-meta"><span class="card-format-tag">Dashboard</span><span class="card-id">DOC-C7</span></div>
-      </div>
-    </div>
+    <div class="featured-grid" id="featured-grid"></div>
     <div class="section-cta"><a href="research.html">View all research outputs →</a></div>
   </div>
 </section>
@@ -497,7 +472,26 @@ a.partner-item:hover .partner-text-name{color:rgba(255,255,255,0.9);}
   <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
 </footer>
 
+<script src="data/documents.js"></script>
 <script src="assets/js/counters.js"></script>
 <script src="navigation.js"></script>
+<script>
+(function(){
+  var sorted=DOCS.slice().sort(function(a,b){return parseDateOrdinal(b.date)-parseDateOrdinal(a.date);});
+  var grid=document.getElementById('featured-grid');
+  if(!grid)return;
+  sorted.slice(0,4).forEach(function(doc,i){
+    var th=Array.isArray(doc.theme)?doc.theme[0]:doc.theme;
+    var col=THEME_COLOR[th]||'#1C567A';
+    var url=doc.dashboardFile||doc.briefingFile||(doc.gdocs&&doc.gdocs!==''&&doc.gdocs!=='#'?doc.gdocs:'research.html');
+    var card=document.createElement('div');
+    card.className=i===0?'featured-card primary':'featured-card';
+    card.onclick=function(){window.location.href=url;};
+    var fmt=doc.format.replace(/&/g,'&amp;');
+    card.innerHTML='<div class="card-theme"><span class="card-theme-dot" style="background:'+col+'"></span><span style="color:'+col+'">'+th+'</span></div><div class="card-title">'+doc.title+'</div><div class="card-desc">'+doc.desc+'</div><div class="card-meta"><span class="card-format-tag">'+fmt+'</span><span class="card-id">'+doc.id+'</span></div>';
+    grid.appendChild(card);
+  });
+})();
+</script>
 </body>
 </html>
