@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,10 +8,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --navy:#0D2B4E;--steel:#1C567A;--gold:#B5923A;--cream:#FAFBF2;--paper:#FCFCFA;
-  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
-  --col-reading:#7A5C0D;--bg-reading:#F5EDD0;--border-reading:#E8D89A;
-  --col-method:#1C567A;--bg-method:#DFF0F8;--border-method:#B8D8EA;
+  --navy:#253545;--steel:#3D6678;--gold:#E8B84B;--cream:#D8EBF1;--paper:#FCFCFA;
+  --text:#1A1A1A;--muted:#617080;--border:#7AACBE;
+  --col-reading:#7A5C0D;--bg-reading:#FBE9A8;--border-reading:#E8D89A;
+  --col-method:#3D6678;--bg-method:#DFF0F8;--border-method:#B8D8EA;
   --col-anti:#6B2D0D;--bg-anti:#F5EBE0;--border-anti:#E8C8B0;
 }
 html,body{height:100%;margin:0;}
@@ -21,12 +21,12 @@ body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--text);f
 .page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
 .page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em;}
 /* ─── Stats bar ─── */
-.stats-bar{background:#0D2B4E;border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 28px;display:flex;gap:36px;flex-shrink:0;}
+.stats-bar{background:#253545;border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 28px;display:flex;gap:36px;flex-shrink:0;}
 .stat-item{display:flex;flex-direction:column;}
 .stat-val{font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700;color:#fff;line-height:1;margin-bottom:2px;}
 .stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.32);}
 /* ─── Caveat bar ─── */
-.caveat-bar{background:#FFF8E8;border-bottom:1px solid var(--border-reading);padding:8px 28px;font-size:11.5px;color:#5C4A00;line-height:1.5;flex-shrink:0;}
+.caveat-bar{background:#FBE9A8;border-bottom:1px solid var(--border-reading);padding:8px 28px;font-size:11.5px;color:#5C4A00;line-height:1.5;flex-shrink:0;}
 .caveat-bar strong{color:#3A2E00;}
 /* ─── Filter strip ─── */
 .filter-bar{background:#fff;border-bottom:2px solid var(--border);padding:0 20px;display:flex;gap:2px;flex-shrink:0;}
@@ -91,9 +91,9 @@ body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--text);f
 <div class="page-header">
   <h1>Russian Occupation Education and Propaganda Manuals</h1>
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(200,169,110,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308490" target="_blank" rel="noopener noreferrer" style="color:#B5923A;text-decoration:none;">https://doi.org/10.5281/zenodo.20308490</a></div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308490" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20308490</a></div>
   <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20308490');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p>DOC-D4 · Propaganda · Primary Sources · TOT Insights</p>

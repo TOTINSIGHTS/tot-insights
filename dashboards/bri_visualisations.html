@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,7 +12,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --navy:#1F3864;
+  --navy:#253545;
   --blue:#2E5396;
   --blue-mid:#4A6FA5;
   --text:#1a1a2c;
@@ -23,9 +23,9 @@
   --bg-section:#f2f4f9;
   --border:#dde2ee;
   --border-light:#eaecf4;
-  --accent:#C4860A;
-  --nb-bg:#EAF1FB;
-  --nb-border:#2255A0;
+  --accent:#E8B84B;
+  --nb-bg:#D8EBF1;
+  --nb-border:#3D6678;
   --nb-text:#1a3870;
   --tb-bg:#E0F5EE;
   --tb-border:#0D6B5A;
@@ -36,10 +36,10 @@
   --gb-bg:#F1EFE8;
   --gb-border:#888780;
   --gb-text:#3a3a36;
-  --ab-bg:#FFF3CC;
-  --ab-border:#C4860A;
+  --ab-bg:#FBE9A8;
+  --ab-border:#E8B84B;
   --ab-text:#7A5000;
-  --conn:#B8C0D4;
+  --conn:#7AACBE;
 }
 
 html{scroll-behavior:smooth}
@@ -130,7 +130,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <desc id="net-desc">Four-level network: ANSO at core, branching through Silk Road University Alliance and BRI Enterprise Alliance, channelled via Silk Road Dialogue Committee to Russian universities, Union of Women of Russia, and ultimately occupied Mariupol State University in March 2026.</desc>
       <defs>
         <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#B8C0D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#7AACBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
 
@@ -142,9 +142,9 @@ footer strong{color:var(--text-secondary);font-weight:600}
 
       <!-- L1: ANSO -->
       <g class="clickable-node" tabindex="0" data-node="anso" role="button" aria-label="ANSO - click for detail">
-        <rect x="200" y="30" width="280" height="60" rx="8" fill="#EAF1FB" stroke="#2255A0" stroke-width="1"/>
+        <rect x="200" y="30" width="280" height="60" rx="8" fill="#D8EBF1" stroke="#3D6678" stroke-width="1"/>
         <text x="340" y="53" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1a3870" text-anchor="middle" dominant-baseline="central">ANSO</text>
-        <text x="340" y="72" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2255A0" text-anchor="middle" dominant-baseline="central">Belt and Road science network core</text>
+        <text x="340" y="72" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#3D6678" text-anchor="middle" dominant-baseline="central">Belt and Road science network core</text>
       </g>
 
       <!-- L2a: UASR -->
@@ -184,26 +184,26 @@ footer strong{color:var(--text-secondary);font-weight:600}
 
       <!-- L4c: Occupied territories -->
       <g class="clickable-node" tabindex="0" data-node="occupied" role="button" aria-label="Occupied territories - click for detail">
-        <rect x="460" y="386" width="190" height="52" rx="8" fill="#FFF3CC" stroke="#C4860A" stroke-width="1.5"/>
+        <rect x="460" y="386" width="190" height="52" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1.5"/>
         <text x="555" y="407" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#7A5000" text-anchor="middle" dominant-baseline="central">Occupied territories</text>
-        <text x="555" y="424" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#C4860A" text-anchor="middle" dominant-baseline="central">Mariupol Univ., March 2026</text>
+        <text x="555" y="424" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#E8B84B" text-anchor="middle" dominant-baseline="central">Mariupol Univ., March 2026</text>
       </g>
 
       <!-- Connectors -->
       <!-- ANSO → UASR -->
-      <line x1="285" y1="90" x2="196" y2="150" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <line x1="285" y1="90" x2="196" y2="150" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- ANSO → Enterprise -->
-      <line x1="395" y1="90" x2="484" y2="150" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <line x1="395" y1="90" x2="484" y2="150" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- UASR → SRD L-bend -->
-      <path d="M160 202 L160 234 L272 234 L272 268" fill="none" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <path d="M160 202 L160 234 L272 234 L272 268" fill="none" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- Enterprise → SRD L-bend -->
-      <path d="M520 202 L520 234 L408 234 L408 268" fill="none" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <path d="M520 202 L520 234 L408 234 L408 268" fill="none" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- SRD → Russian unis L-bend -->
-      <path d="M272 320 L272 358 L125 358 L125 386" fill="none" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <path d="M272 320 L272 358 L125 358 L125 386" fill="none" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- SRD → Union of Women straight -->
-      <line x1="340" y1="320" x2="340" y2="386" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <line x1="340" y1="320" x2="340" y2="386" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
       <!-- SRD → Occupied L-bend -->
-      <path d="M408 320 L408 358 L555 358 L555 386" fill="none" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <path d="M408 320 L408 358 L555 358 L555 386" fill="none" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr1)"/>
     </svg>
   </div>
 
@@ -240,21 +240,21 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <rect x="32" y="228" width="620" height="172" rx="4" fill="#f7f8fc" stroke="none"/>
       <text x="42" y="244" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">DEEPENING PHASE</text>
 
-      <rect x="32" y="418" width="620" height="146" rx="4" fill="#FFF8E8" stroke="none"/>
-      <text x="42" y="434" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C4860A" font-weight="600" letter-spacing=".08em">OCCUPIED TERRITORY ENTRY</text>
+      <rect x="32" y="418" width="620" height="146" rx="4" fill="#FBE9A8" stroke="none"/>
+      <text x="42" y="434" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#E8B84B" font-weight="600" letter-spacing=".08em">OCCUPIED TERRITORY ENTRY</text>
 
       <!-- 2018 -->
       <g class="clickable-node" tabindex="0" data-node="tl2018" role="button" aria-label="2018 events - click for detail">
-        <circle cx="196" cy="72" r="8" fill="#2255A0" stroke="#EAF1FB" stroke-width="2.5"/>
-        <text x="218" y="60" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1F3864" dominant-baseline="central">2018</text>
+        <circle cx="196" cy="72" r="8" fill="#3D6678" stroke="#D8EBF1" stroke-width="2.5"/>
+        <text x="218" y="60" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#253545" dominant-baseline="central">2018</text>
         <text x="218" y="76" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">ANSO founded — Russian Academy of Sciences joins; Sergeev elected ANSO VP</text>
         <text x="218" y="92" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Chang'an–St Petersburg dialogue launched by Silk Road Dialogue founder Cui Yiting</text>
       </g>
 
       <!-- 2019 -->
       <g class="clickable-node" tabindex="0" data-node="tl2019" role="button" aria-label="2019 events - click for detail">
-        <circle cx="196" cy="140" r="8" fill="#2255A0" stroke="#EAF1FB" stroke-width="2.5"/>
-        <text x="218" y="130" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1F3864" dominant-baseline="central">2019</text>
+        <circle cx="196" cy="140" r="8" fill="#3D6678" stroke="#D8EBF1" stroke-width="2.5"/>
+        <text x="218" y="130" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#253545" dominant-baseline="central">2019</text>
         <text x="218" y="148" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Silk Road Dialogue enters SPIEF (St Petersburg International Economic Forum)</text>
         <text x="218" y="164" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Cooperation memorandum signed with structures linked to Russian presidential vertical</text>
       </g>
@@ -262,7 +262,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <!-- 2020–2021 -->
       <g class="clickable-node" tabindex="0" data-node="tl2021" role="button" aria-label="2020-2021 events - click for detail">
         <circle cx="196" cy="268" r="8" fill="#0D6B5A" stroke="#E0F5EE" stroke-width="2.5"/>
-        <text x="218" y="258" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1F3864" dominant-baseline="central">2020–2021</text>
+        <text x="218" y="258" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#253545" dominant-baseline="central">2020–2021</text>
         <text x="218" y="276" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">SPbGEU academic recruited to Silk Road Dialogue think tank (2020)</text>
         <text x="218" y="292" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Kurgan region: Silk Road Dialogue becomes sole student recruiter</text>
         <text x="218" y="308" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Network demonstrated control over Russia–China education channels</text>
@@ -271,7 +271,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <!-- 2024 -->
       <g class="clickable-node" tabindex="0" data-node="tl2024" role="button" aria-label="2024 events - click for detail">
         <circle cx="196" cy="362" r="9" fill="#5048BB" stroke="#EEEDFE" stroke-width="2.5"/>
-        <text x="218" y="350" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1F3864" dominant-baseline="central">2024</text>
+        <text x="218" y="350" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#253545" dominant-baseline="central">2024</text>
         <text x="218" y="367" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">BRICS Women's Leadership Forum — Cui Yiting appears in BRI network</text>
         <text x="218" y="383" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">SPbGEU visits Silk Road Dialogue; All-Russian university contact</text>
         <text x="218" y="399" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">BRI Enterprise Alliance established in Chengdu; Karansky quarry agreements</text>
@@ -279,7 +279,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 
       <!-- 2026 -->
       <g class="clickable-node" tabindex="0" data-node="tl2026" role="button" aria-label="2026 occupied territory entry - click for detail">
-        <circle cx="196" cy="494" r="11" fill="#C4860A" stroke="#FFF3CC" stroke-width="3"/>
+        <circle cx="196" cy="494" r="11" fill="#E8B84B" stroke="#FBE9A8" stroke-width="3"/>
         <text x="218" y="479" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="700" fill="#7A5000" dominant-baseline="central">March 2026</text>
         <text x="218" y="497" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Mariupol State University rector travels to China via Union of Women of Russia</text>
         <text x="218" y="513" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Receives BRI Enterprise Alliance certificate at Silk Road Dialogue event</text>
@@ -291,7 +291,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <text x="185" y="140" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" text-anchor="end" dominant-baseline="central">2019</text>
       <text x="185" y="268" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" text-anchor="end" dominant-baseline="central">2020–21</text>
       <text x="185" y="362" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" text-anchor="end" dominant-baseline="central">2024</text>
-      <text x="185" y="494" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C4860A" text-anchor="end" dominant-baseline="central" font-weight="600">2026</text>
+      <text x="185" y="494" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#E8B84B" text-anchor="end" dominant-baseline="central" font-weight="600">2026</text>
     </svg>
   </div>
 
@@ -319,7 +319,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
       <desc id="sc-desc">Flow diagram: Chinese equipment manufacturers (Amma Construction, Zhongxin Heavy Industry) supply the Karansky quarry registered July 2022 in occupied Donetsk, enabling full processing cycle outputs (crushed stone, mineral powder, asphalt mix, concrete) that feed into LLC Mostovik's road construction projects on the R-280 Novorossiya highway and Azov military logistics corridor.</desc>
       <defs>
         <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#B8C0D4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#7AACBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
 
@@ -348,25 +348,25 @@ footer strong{color:var(--text-secondary);font-weight:600}
       </g>
 
       <!-- Arrows to quarry (L-bends through shared horizontal at y=112) -->
-      <line x1="121" y1="86" x2="121" y2="112" stroke="#B8C0D4" stroke-width="1.2"/>
-      <line x1="340" y1="86" x2="340" y2="112" stroke="#B8C0D4" stroke-width="1.2"/>
-      <line x1="559" y1="86" x2="559" y2="112" stroke="#B8C0D4" stroke-width="1.2"/>
-      <line x1="121" y1="112" x2="559" y2="112" stroke="#B8C0D4" stroke-width="1.2"/>
-      <line x1="340" y1="112" x2="340" y2="130" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr3)"/>
+      <line x1="121" y1="86" x2="121" y2="112" stroke="#7AACBE" stroke-width="1.2"/>
+      <line x1="340" y1="86" x2="340" y2="112" stroke="#7AACBE" stroke-width="1.2"/>
+      <line x1="559" y1="86" x2="559" y2="112" stroke="#7AACBE" stroke-width="1.2"/>
+      <line x1="121" y1="112" x2="559" y2="112" stroke="#7AACBE" stroke-width="1.2"/>
+      <line x1="340" y1="112" x2="340" y2="130" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr3)"/>
 
       <!-- Row label: Quarry -->
       <text x="36" y="124" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">PRODUCTION HUB</text>
 
       <!-- Karansky quarry -->
       <g class="clickable-node" tabindex="0" data-node="quarry" role="button" aria-label="LLC Karansky Quarry - click for detail">
-        <rect x="130" y="130" width="420" height="72" rx="8" fill="#EAF1FB" stroke="#2255A0" stroke-width="1.5"/>
+        <rect x="130" y="130" width="420" height="72" rx="8" fill="#D8EBF1" stroke="#3D6678" stroke-width="1.5"/>
         <text x="340" y="153" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#1a3870" text-anchor="middle" dominant-baseline="central">LLC Karansky Quarry</text>
-        <text x="340" y="170" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2255A0" text-anchor="middle" dominant-baseline="central">Registered July 2022, occupied Donetsk · ₽3.5 billion revenue 2024 · 310 employees</text>
-        <text x="340" y="186" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2255A0" text-anchor="middle" dominant-baseline="central">Full cycle: granite extraction → crushed stone · mineral powder · asphalt mix · concrete</text>
+        <text x="340" y="170" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#3D6678" text-anchor="middle" dominant-baseline="central">Registered July 2022, occupied Donetsk · ₽3.5 billion revenue 2024 · 310 employees</text>
+        <text x="340" y="186" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#3D6678" text-anchor="middle" dominant-baseline="central">Full cycle: granite extraction → crushed stone · mineral powder · asphalt mix · concrete</text>
       </g>
 
       <!-- Arrow to products -->
-      <line x1="340" y1="202" x2="340" y2="232" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr3)"/>
+      <line x1="340" y1="202" x2="340" y2="232" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr3)"/>
 
       <!-- Row label: Outputs -->
       <text x="36" y="226" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">ROAD CONSTRUCTION OUTPUTS</text>
@@ -390,12 +390,12 @@ footer strong{color:var(--text-secondary);font-weight:600}
       </g>
 
       <!-- Arrows from products to contractor (gather at y=288, arrow at centre) -->
-      <line x1="104" y1="272" x2="104" y2="292" stroke="#B8C0D4" stroke-width="1.1"/>
-      <line x1="252" y1="272" x2="252" y2="292" stroke="#B8C0D4" stroke-width="1.1"/>
-      <line x1="400" y1="272" x2="400" y2="292" stroke="#B8C0D4" stroke-width="1.1"/>
-      <line x1="562" y1="272" x2="562" y2="292" stroke="#B8C0D4" stroke-width="1.1"/>
-      <line x1="104" y1="292" x2="562" y2="292" stroke="#B8C0D4" stroke-width="1.1"/>
-      <line x1="340" y1="292" x2="340" y2="312" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr3)"/>
+      <line x1="104" y1="272" x2="104" y2="292" stroke="#7AACBE" stroke-width="1.1"/>
+      <line x1="252" y1="272" x2="252" y2="292" stroke="#7AACBE" stroke-width="1.1"/>
+      <line x1="400" y1="272" x2="400" y2="292" stroke="#7AACBE" stroke-width="1.1"/>
+      <line x1="562" y1="272" x2="562" y2="292" stroke="#7AACBE" stroke-width="1.1"/>
+      <line x1="104" y1="292" x2="562" y2="292" stroke="#7AACBE" stroke-width="1.1"/>
+      <line x1="340" y1="292" x2="340" y2="312" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr3)"/>
 
       <!-- Row label: Contractor -->
       <text x="36" y="306" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">FEDERAL ROAD CONTRACTOR</text>
@@ -408,15 +408,15 @@ footer strong{color:var(--text-secondary);font-weight:600}
       </g>
 
       <!-- Arrow to road projects -->
-      <line x1="340" y1="364" x2="340" y2="384" stroke="#B8C0D4" stroke-width="1.2" marker-end="url(#arr3)"/>
+      <line x1="340" y1="364" x2="340" y2="384" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr3)"/>
 
       <!-- Row label: Military logistics -->
-      <text x="36" y="378" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#C4860A" font-weight="600" letter-spacing=".08em">MILITARY LOGISTICS INFRASTRUCTURE</text>
+      <text x="36" y="378" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#E8B84B" font-weight="600" letter-spacing=".08em">MILITARY LOGISTICS INFRASTRUCTURE</text>
 
       <!-- Road projects strip -->
-      <rect x="36" y="384" width="608" height="40" rx="6" fill="#FFF8E8" stroke="#C4860A" stroke-width="0.8"/>
+      <rect x="36" y="384" width="608" height="40" rx="6" fill="#FBE9A8" stroke="#E8B84B" stroke-width="0.8"/>
       <text x="340" y="394" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#7A5000" text-anchor="middle" dominant-baseline="hanging">R-280 Novorossiya highway (Mariupol–Melitopol)  ·  Mariupol bypass (32 km)  ·  Kalmius bridge  ·  Azov coastal corridor</text>
-      <text x="340" y="412" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#C4860A" text-anchor="middle" dominant-baseline="hanging">→ military logistics corridor: Rostov-on-Don — Mariupol — Melitopol — Crimea</text>
+      <text x="340" y="412" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#E8B84B" text-anchor="middle" dominant-baseline="hanging">→ military logistics corridor: Rostov-on-Don — Mariupol — Melitopol — Crimea</text>
     </svg>
   </div>
 

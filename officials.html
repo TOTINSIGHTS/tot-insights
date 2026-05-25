@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,8 +12,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --navy:#0D2B4E;--steel:#1C567A;--gold:#B5923A;--gold-lt:#F0E0A8;--cream:#FAFBF2;
-  --text:#1A1A1A;--muted:#617080;--border:#D4DCE6;
+  --navy:#253545;--steel:#3D6678;--gold:#E8B84B;--gold-lt:#FBE9A8;--cream:#D8EBF1;
+  --text:#1A1A1A;--muted:#617080;--border:#7AACBE;
   --font-serif:'Libre Baskerville',Georgia,serif;
   --font-sans:'IBM Plex Sans',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
@@ -33,18 +33,18 @@ body{font-family:'EB Garamond',serif;background:#FCFCFA;color:var(--text);font-s
 @media(max-width:700px){.header-nav{gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;}.header-nav a{font-size:10px;white-space:nowrap;}}
 
 /* ── Page hero ── */
-.page-hero{background:var(--navy);border-bottom:1px solid rgba(201,150,26,0.25);padding:36px 40px 28px;}
+.page-hero{background:var(--navy);border-bottom:1px solid rgba(232,184,75,0.25);padding:36px 40px 28px;}
 .page-hero-inner{max-width:1200px;margin:0 auto;}
 .page-eyebrow{font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:10px;}
 .page-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:12px;}
 .page-desc{font-size:13px;color:rgba(255,255,255,0.5);max-width:700px;line-height:1.75;border-left:3px solid var(--gold);padding-left:14px;margin-bottom:14px;}
-.submit-callout{display:inline-flex;align-items:center;gap:8px;background:rgba(201,150,26,0.12);border:1px solid rgba(201,150,26,0.3);border-radius:2px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5;max-width:620px;}
+.submit-callout{display:inline-flex;align-items:center;gap:8px;background:rgba(232,184,75,0.12);border:1px solid rgba(232,184,75,0.3);border-radius:2px;padding:10px 14px;font-size:12px;color:rgba(255,255,255,0.65);line-height:1.5;max-width:620px;}
 .submit-callout::before{content:'✎';font-size:13px;color:var(--gold);flex-shrink:0;}
 .submit-callout a{color:var(--gold);text-decoration:underline;}
 .submit-callout a:hover{color:#F0C840;}
 
 /* ── Stat cards ── */
-.stats-strip{background:#F4F7FA;border-bottom:1px solid var(--border);padding:20px 40px;}
+.stats-strip{background:#D8EBF1;border-bottom:1px solid var(--border);padding:20px 40px;}
 .stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
 .stat-card{background:#fff;border:1px solid var(--border);border-radius:3px;padding:14px 20px;flex:1;min-width:140px;}
 .stat-val{font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px;}
@@ -91,7 +91,7 @@ tr:nth-child(even).row-active td{background:#EBF2F9;}
 .badge-unknown{background:#FDF3DC;color:#8A6010;}
 
 /* ── Origin coloured text ── */
-.origin-local{color:#1C567A;font-size:12px;}
+.origin-local{color:#3D6678;font-size:12px;}
 .origin-russian{color:#A04A10;font-size:12px;}
 .origin-other{color:var(--muted);font-size:12px;}
 
@@ -139,8 +139,8 @@ tr:nth-child(even).row-active td{background:#EBF2F9;}
 @media(max-width:640px){.controls-row{flex-direction:column;align-items:stretch;}.search-input{width:100%;}}
 /* ── Download button ── */
 .db-download-wrap{margin-bottom:20px;}
-.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#B5923A;border:1px solid #B5923A;background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
-.db-download-btn:hover{background:rgba(200,169,110,0.1);}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:#E8B84B;border:1px solid #E8B84B;background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
+.db-download-btn:hover{background:rgba(232,184,75,0.1);}
 .db-download-sub{font-family:var(--font-mono);font-size:0.6rem;color:rgba(26,26,26,0.4);margin-top:0.4rem;letter-spacing:0.04em;}
 </style>
 </head>
@@ -186,9 +186,9 @@ tr:nth-child(even).row-active td{background:#EBF2F9;}
     <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability</div>
     <h1 class="page-title">Occupation Officials Database</h1>
     <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(200,169,110,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20283034" target="_blank" rel="noopener noreferrer" style="color:#B5923A;text-decoration:none;">https://doi.org/10.5281/zenodo.20283034</a></div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20283034" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20283034</a></div>
   <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20283034');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
     <p class="page-desc">A structured database of individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London, from open sources and primary documentation. The database is updated regularly and is not exhaustive.</p>

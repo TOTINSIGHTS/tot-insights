@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,8 +16,8 @@
   --color-background: #FCFCFA;
   --color-background-secondary: #F4F6F8;
   --border-radius-md: 4px;
-  --navy: #0D2B4E;
-  --gold: #B5923A;
+  --navy: #253545;
+  --gold: #E8B84B;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-sans); background: var(--color-background); color: var(--color-text-primary); font-size: 14px; }
@@ -30,20 +30,20 @@ body { font-family: var(--font-sans); background: var(--color-background); color
 .section { margin: 2rem 0; }
 .sec-title { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; font-family: var(--font-mono); }
 .metric-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
-.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; border: 1px solid #D4DCE6; }
+.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; border: 1px solid #7AACBE; }
 .metric-label { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
 .metric-val { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0; line-height: 1.2; }
 .metric-sub { font-size: 11px; color: var(--color-text-tertiary); margin: 2px 0 0; }
 .chart-wrap { position: relative; width: 100%; }
 .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.chart-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; border: 1px solid #D4DCE6; }
+.chart-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; border: 1px solid #7AACBE; }
 .chart-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
 .chart-sub { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 14px; }
 .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 0; }
 .legend span { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
 .legend-sq { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
-.finding { background: var(--color-background-secondary); border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 12px 14px; margin: 8px 0; font-size: 13px; color: var(--color-text-primary); line-height: 1.5; border: 1px solid #D4DCE6; border-left: 3px solid #378ADD; }
-.finding strong { font-weight: 600; color: #0D2B4E; }
+.finding { background: var(--color-background-secondary); border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 12px 14px; margin: 8px 0; font-size: 13px; color: var(--color-text-primary); line-height: 1.5; border: 1px solid #7AACBE; border-left: 3px solid #378ADD; }
+.finding strong { font-weight: 600; color: #253545; }
 @media(max-width:700px){.metric-row{grid-template-columns:1fr 1fr}.chart-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -51,9 +51,9 @@ body { font-family: var(--font-sans); background: var(--color-background); color
 <div class="page-header">
   <h1>IDP Attitudes Survey: Interactive Dashboard (v2)</h1>
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(200,169,110,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). IDP Polling Dashboard v2. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20199360" target="_blank" rel="noopener noreferrer" style="color:#B5923A;text-decoration:none;">https://doi.org/10.5281/zenodo.20199360</a></div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.65);line-height:1.5;">McGlynn, J. et al. (2026). IDP Polling Dashboard v2. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20199360" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20199360</a></div>
   <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). IDP Polling Dashboard v2. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20199360');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p>Social Conditions · Survey data · n=1,001 · TOT Insights · April 2026</p>
@@ -80,7 +80,7 @@ body { font-family: var(--font-sans); background: var(--color-background); color
     <p class="chart-sub">Q5 — n=1,001</p>
     <div class="chart-wrap" style="height:170px"><canvas id="c1"></canvas></div>
     <div class="legend">
-      <span><span class="legend-sq" style="background:#D85A30"></span>Completely ineffective 42.7%</span>
+      <span><span class="legend-sq" style="background:#E8B84B"></span>Completely ineffective 42.7%</span>
       <span><span class="legend-sq" style="background:#f0a882"></span>Rather ineffective 33.7%</span>
       <span><span class="legend-sq" style="background:#85B7EB"></span>Rather effective 14.8%</span>
       <span><span class="legend-sq" style="background:#185FA5"></span>Completely effective 4.9%</span>
@@ -91,7 +91,7 @@ body { font-family: var(--font-sans); background: var(--color-background); color
     <p class="chart-sub">Q6 — n=1,001</p>
     <div class="chart-wrap" style="height:170px"><canvas id="c2"></canvas></div>
     <div class="legend">
-      <span><span class="legend-sq" style="background:#D85A30"></span>Completely ineffective 17.3%</span>
+      <span><span class="legend-sq" style="background:#E8B84B"></span>Completely ineffective 17.3%</span>
       <span><span class="legend-sq" style="background:#f0a882"></span>Rather ineffective 31.6%</span>
       <span><span class="legend-sq" style="background:#85B7EB"></span>Rather effective 33.8%</span>
       <span><span class="legend-sq" style="background:#185FA5"></span>Completely effective 7.3%</span>
@@ -109,7 +109,7 @@ body { font-family: var(--font-sans); background: var(--color-background); color
     <div class="chart-wrap" style="height:160px"><canvas id="c3"></canvas></div>
     <div class="legend">
       <span><span class="legend-sq" style="background:#1D9E75"></span>Disagree 58.5%</span>
-      <span><span class="legend-sq" style="background:#D85A30"></span>Agree 27.4%</span>
+      <span><span class="legend-sq" style="background:#E8B84B"></span>Agree 27.4%</span>
       <span><span class="legend-sq" style="background:#888780"></span>Unsure 13.8%</span>
     </div>
   </div>
@@ -119,7 +119,7 @@ body { font-family: var(--font-sans); background: var(--color-background); color
     <div class="chart-wrap" style="height:160px"><canvas id="c4"></canvas></div>
     <div class="legend">
       <span><span class="legend-sq" style="background:#1D9E75"></span>Agree 61.6%</span>
-      <span><span class="legend-sq" style="background:#D85A30"></span>Disagree 17.9%</span>
+      <span><span class="legend-sq" style="background:#E8B84B"></span>Disagree 17.9%</span>
       <span><span class="legend-sq" style="background:#888780"></span>Unsure 20.4%</span>
     </div>
   </div>
@@ -153,7 +153,7 @@ body { font-family: var(--font-sans); background: var(--color-background); color
       <span><span class="legend-sq" style="background:#185FA5"></span>Definitely yes 33.4%</span>
       <span><span class="legend-sq" style="background:#85B7EB"></span>Rather yes 15.2%</span>
       <span><span class="legend-sq" style="background:#f0a882"></span>Rather no 12.6%</span>
-      <span><span class="legend-sq" style="background:#D85A30"></span>Definitely no 37.6%</span>
+      <span><span class="legend-sq" style="background:#E8B84B"></span>Definitely no 37.6%</span>
     </div>
   </div>
   <div style="display:flex;flex-direction:column;gap:8px;padding:4px 0">
@@ -189,13 +189,13 @@ const hbar = (id, labels, data, colors, max) => new Chart(document.getElementByI
 });
 
 hbar('c1', ['Completely ineffective','Rather ineffective','Rather effective','Completely effective'],
-  [0.427,0.337,0.148,0.049], ['#D85A30','#f0a882','#85B7EB','#185FA5'], 0.5);
+  [0.427,0.337,0.148,0.049], ['#E8B84B','#f0a882','#85B7EB','#185FA5'], 0.5);
 
 hbar('c2', ['Completely ineffective','Rather ineffective','Rather effective','Completely effective'],
-  [0.173,0.316,0.338,0.073], ['#D85A30','#f0a882','#85B7EB','#185FA5'], 0.5);
+  [0.173,0.316,0.338,0.073], ['#E8B84B','#f0a882','#85B7EB','#185FA5'], 0.5);
 
-donut('c3', ['Disagree','Agree','Unsure'], [58.5,27.4,13.8], ['#1D9E75','#D85A30','#888780']);
-donut('c4', ['Agree','Disagree','Unsure'], [61.6,17.9,20.4], ['#1D9E75','#D85A30','#888780']);
+donut('c3', ['Disagree','Agree','Unsure'], [58.5,27.4,13.8], ['#1D9E75','#E8B84B','#888780']);
+donut('c4', ['Agree','Disagree','Unsure'], [61.6,17.9,20.4], ['#1D9E75','#E8B84B','#888780']);
 
 hbar('c5',
   ['Subscribing to Ukrainian channels','Photographing / posting photos','Contact with Ukrainian-controlled territory','Using VPN','Using Telegram','Having two phones','Receiving money transfers from Ukraine'],
@@ -208,7 +208,7 @@ hbar('c6',
   Array(10).fill('#1D9E75'), 0.55);
 
 donut('c9', ['Definitely yes','Rather yes','Rather no','Definitely no'],
-  [33.4,15.2,12.6,37.6], ['#185FA5','#85B7EB','#f0a882','#D85A30']);
+  [33.4,15.2,12.6,37.6], ['#185FA5','#85B7EB','#f0a882','#E8B84B']);
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
