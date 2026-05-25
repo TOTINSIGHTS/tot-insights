@@ -93,6 +93,8 @@ body{font-family:var(--font-sans);background:#F4F8FA;color:#1A1A1A;font-size:15p
 .t-acc{background:#D8EBF1;color:#3D6678;}
 .no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:#617080;font-size:14px;}
 .no-results.visible{display:block;}
+.photo-card{border-radius:3px;overflow:hidden;max-width:420px;border:1px solid #7AACBE;}
+.photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 .browse-show-more-wrap{margin-top:20px;text-align:center;}
 .browse-show-more{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#617080;background:none;border:1px solid #7AACBE;border-radius:2px;padding:9px 24px;cursor:pointer;transition:border-color 0.12s,color 0.12s;}
 .browse-show-more:hover{border-color:#3D6678;color:#3D6678;}
@@ -225,6 +227,9 @@ body{font-family:var(--font-sans);background:#F4F8FA;color:#1A1A1A;font-size:15p
       </div>
     </div>
     <div class="results-count"><span id="count-num">48</span> outputs</div>
+    <div style="margin-bottom:20px;">
+      <div class="photo-card"><img src="images/photo_2026-04-16_13.08.10.jpeg" alt="" loading="lazy"></div>
+    </div>
     <div id="browse-segments">
       <div class="cards-segment doc-grid" id="doc-grid-1"></div>
       <a class="breakout-row" href="briefings/ghost_pensioners.html">
@@ -239,6 +244,9 @@ body{font-family:var(--font-sans);background:#F4F8FA;color:#1A1A1A;font-size:15p
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-2"></div>
+      <div style="padding:16px 0;">
+        <div class="photo-card"><img src="images/260114_McGlynn_Thresholds_Survival_Img5.jpeg" alt="" loading="lazy"></div>
+      </div>
       <a class="breakout-row" href="briefings/voin_generation.html">
         <div class="breakout-number-block">
           <div class="breakout-number">600,000–650,000</div>
@@ -270,6 +278,10 @@ body{font-family:var(--font-sans);background:#F4F8FA;color:#1A1A1A;font-size:15p
     </div>
   </div>
 </section>
+
+<div style="padding:0 40px 40px;max-width:1240px;margin:0 auto;">
+  <div class="photo-card"><img src="images/photo_2026-04-24_13.10.12.jpeg" alt="" loading="lazy"></div>
+</div>
 
 <footer class="site-footer">
   <div class="footer-inner">
