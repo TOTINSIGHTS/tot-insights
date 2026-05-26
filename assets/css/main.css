@@ -1,0 +1,211 @@
+/* TOT Insights — main.css
+   Shared stylesheet for all site pages.
+   Page-specific rules remain in per-page <style> blocks and override these defaults. */
+
+/* ─── Colour system ─────────────────────────────────────────────────────────── */
+
+:root {
+  --color-dark:        #1B2A38;   /* nav, footer, stat callout blocks */
+  --color-primary:     #2C5F7A;   /* buttons, links, active states, category dots */
+  --color-mid:         #5B9AB5;   /* borders, dividers, hover states */
+  --color-accent:      #E8B84B;   /* amber — tags, highlights, active indicators only */
+  --color-accent-pale: #FBE9A8;   /* pale amber — tag backgrounds */
+  --color-bg:          #FFFFFF;   /* page background — pure white */
+  --color-bg-alt:      #F5F5F5;   /* very light grey for alternating sections only */
+  --color-border:      #D0DCE4;   /* card and section borders */
+  --color-text:        #1A2830;   /* body text */
+  --color-text-muted:  #5A7080;   /* secondary/muted text */
+
+  /* Legacy aliases — keep inline blocks working without change */
+  --navy:    var(--color-dark);
+  --steel:   var(--color-primary);
+  --gold:    var(--color-accent);
+  --gold-lt: var(--color-accent-pale);
+  --cream:   var(--color-bg-alt);
+  --border:  var(--color-mid);
+  --text:    var(--color-text);
+  --muted:   var(--color-text-muted);
+  --paper:   #FCFCFA;
+
+  /* Typography */
+  --font-serif:   'Libre Baskerville', Georgia, serif;
+  --font-sans:    'IBM Plex Sans', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-source:  'Source Serif 4', Georgia, serif;
+
+  /* Briefing shorthand aliases */
+  --serif: var(--font-serif);
+  --sans:  var(--font-sans);
+  --mono:  var(--font-mono);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+
+body {
+  font-family: 'EB Garamond', serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ─── Site header ────────────────────────────────────────────────────────────── */
+
+.site-header {
+  background: var(--color-dark);
+  border-bottom: 3px solid var(--color-accent);
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 58px;
+}
+.site-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  text-decoration: none;
+}
+.logo-main {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+.logo-sub {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.header-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.header-nav a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+.header-nav a:hover,
+.header-nav a.active { color: #fff; }
+
+@media (max-width: 700px) {
+  .header-nav { gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .header-nav a { font-size: 10px; white-space: nowrap; }
+}
+
+/* ─── Page hero ──────────────────────────────────────────────────────────────── */
+
+.page-hero {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-mid);
+  padding: 36px 40px 32px;
+}
+.page-hero-inner { max-width: 1200px; margin: 0 auto; }
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+.page-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.22;
+}
+
+/* ─── Main content wrapper ───────────────────────────────────────────────────── */
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+@media (max-width: 700px) {
+  .main-content { padding: 32px 20px 60px; }
+  .page-hero { padding: 24px 20px 20px; }
+}
+
+/* ─── Section label ──────────────────────────────────────────────────────────── */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-mid);
+}
+
+/* ─── Filter buttons ─────────────────────────────────────────────────────────── */
+
+.filter-btn {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 2px;
+  border: 1px solid var(--color-mid);
+  background: #fff;
+  color: #142235;
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+/* ─── Site footer ────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  background: var(--color-dark);
+  border-top: 2px solid var(--color-accent);
+  padding: 22px 40px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-inner span { font-size: 11px; color: rgba(255,255,255,0.28); }
+.footer-inner a { color: rgba(255,255,255,0.38); text-decoration: none; }
+.footer-inner a:hover { color: rgba(255,255,255,0.7); }
