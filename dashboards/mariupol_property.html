@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,47 +8,47 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; font-size: 14px; color: #222; background: #f5f5f2; padding: 32px 24px; }
-  .page { max-width: 960px; margin: 0 auto; background: #fff; border: 1px solid #ddd; padding: 40px; }
+  body { font-family: Arial, sans-serif; font-size: 14px; color: rgba(232,228,220,0.88); background: #111d30; padding: 32px 24px; }
+  .page { max-width: 960px; margin: 0 auto; background: #0D1624; border: 1px solid rgba(255,255,255,0.07); padding: 40px; }
 
   .header { border-bottom: 1px solid #ddd; padding-bottom: 12px; margin-bottom: 6px; }
   .header-label { font-size: 11px; font-weight: bold; color: #888; letter-spacing: .08em; text-transform: uppercase; }
 
-  h1 { font-size: 26px; font-weight: bold; color: #1F3A6E; margin: 20px 0 4px; line-height: 1.2; }
-  .subtitle { font-size: 15px; color: #555; font-style: italic; margin-bottom: 18px; }
+  h1 { font-size: 26px; font-weight: bold; color: rgba(181,146,58,0.80); margin: 20px 0 4px; line-height: 1.2; }
+  .subtitle { font-size: 15px; color: rgba(232,228,220,0.65); font-style: italic; margin-bottom: 18px; }
   .accent-rule { height: 4px; background: #1F3A6E; margin-bottom: 24px; }
 
   .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; margin-bottom: 24px; font-size: 13px; }
-  .meta-row span:first-child { font-weight: bold; color: #444; }
-  .meta-row span:last-child { color: #555; }
+  .meta-row span:first-child { font-weight: bold; color: rgba(232,228,220,0.70); }
+  .meta-row span:last-child { color: rgba(232,228,220,0.65); }
 
-  .key-box { border: 1.5px solid #1F3A6E; border-left-width: 4px; background: #EEF2F8; padding: 16px 20px; margin-bottom: 20px; }
-  .key-box-label { font-size: 11px; font-weight: bold; color: #1F3A6E; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
-  .key-item { font-size: 13px; color: #222; margin-bottom: 7px; line-height: 1.5; }
-  .key-item strong { color: #1F3A6E; }
+  .key-box { border: 1.5px solid #1F3A6E; border-left-width: 4px; background: rgba(31,58,110,0.20); padding: 16px 20px; margin-bottom: 20px; }
+  .key-box-label { font-size: 11px; font-weight: bold; color: rgba(181,146,58,0.80); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .key-item { font-size: 13px; color: rgba(232,228,220,0.88); margin-bottom: 7px; line-height: 1.5; }
+  .key-item strong { color: rgba(181,146,58,0.80); }
 
   .caveat-box { border-left: 4px solid #854F0B; background: #FBE9A8; padding: 12px 16px; margin-bottom: 24px; font-size: 12px; color: #633806; line-height: 1.6; }
   .caveat-label { font-size: 11px; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; color: #854F0B; }
 
-  .section-head { font-size: 11px; font-weight: bold; color: #1F3A6E; letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid #D0D8E8; padding-bottom: 6px; margin: 28px 0 14px; }
+  .section-head { font-size: 11px; font-weight: bold; color: rgba(181,146,58,0.80); letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid #D0D8E8; padding-bottom: 6px; margin: 28px 0 14px; }
 
   .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
-  .metric { background: #f0f0ec; border-radius: 6px; padding: 14px 16px; }
-  .metric-label { font-size: 11px; color: #666; margin-bottom: 4px; }
-  .metric-value { font-size: 22px; font-weight: bold; color: #1F3A6E; line-height: 1.1; }
+  .metric { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 14px 16px; }
+  .metric-label { font-size: 11px; color: rgba(232,228,220,0.55); margin-bottom: 4px; }
+  .metric-value { font-size: 22px; font-weight: bold; color: rgba(181,146,58,0.80); line-height: 1.1; }
   .metric-sub { font-size: 11px; color: #888; margin-top: 3px; }
 
   .chart-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
   .chart-block { }
-  .chart-label { font-size: 11px; font-weight: bold; color: #555; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
-  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: #555; }
+  .chart-label { font-size: 11px; font-weight: bold; color: rgba(232,228,220,0.65); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: rgba(232,228,220,0.65); }
   .legend-item { display: flex; align-items: center; gap: 4px; }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
   table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
   table.data-table th { background: #1F3A6E; color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 11px; }
   table.data-table td { padding: 6px 10px; border-bottom: 1px solid #e8e8e4; color: #333; }
-  table.data-table tr:nth-child(even) td { background: #EEF2F8; }
+  table.data-table tr:nth-child(even) td { background: rgba(31,58,110,0.20); }
   table.data-table td:nth-child(2), table.data-table td:nth-child(3) { text-align: right; }
 
   .footer { margin-top: 32px; border-top: 1px solid #ddd; padding-top: 12px; font-size: 11px; color: #999; }

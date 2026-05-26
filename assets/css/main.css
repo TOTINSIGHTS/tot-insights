@@ -5,27 +5,32 @@
 /* ─── Colour system ─────────────────────────────────────────────────────────── */
 
 :root {
-  --color-dark:        #1B2A38;   /* nav, footer, stat callout blocks */
-  --color-primary:     #2C5F7A;   /* buttons, links, active states, category dots */
-  --color-mid:         #5B9AB5;   /* borders, dividers, hover states */
-  --color-accent:      #E8B84B;   /* amber — tags, highlights, active indicators only */
-  --color-accent-pale: #FBE9A8;   /* pale amber — tag backgrounds */
-  --color-bg:          #FFFFFF;   /* page background — pure white */
-  --color-bg-alt:      #F5F5F5;   /* very light grey for alternating sections only */
-  --color-border:      #D0DCE4;   /* card and section borders */
-  --color-text:        #1A2830;   /* body text */
-  --color-text-muted:  #5A7080;   /* secondary/muted text */
+  --navy:              #111d30;
+  --navy-deep:         #0a1628;
+  --navy-card:         #0D1624;
+  --gold:              #B5923A;
+  --gold-pale:         #E8D5A0;
+  --text:              rgba(232,228,220,0.90);
+  --text-muted:        rgba(232,228,220,0.55);
+  --border:            rgba(255,255,255,0.07);
+  --color-bg:          #111d30;
+  --color-dark:        #0a1628;
+  --color-primary:     #B5923A;
+  --color-mid:         rgba(255,255,255,0.15);
+  --color-accent:      #B5923A;
+  --color-accent-pale: rgba(181,146,58,0.15);
+  --color-border:      rgba(255,255,255,0.07);
+  --color-text:        rgba(232,228,220,0.90);
+  --color-text-muted:  rgba(232,228,220,0.55);
+  --color-bg-alt:      #0D1624;
+  --color-bg-stats:    #f7f5f1;
 
-  /* Legacy aliases — keep inline blocks working without change */
-  --navy:    var(--color-dark);
+  /* Legacy aliases */
   --steel:   var(--color-primary);
-  --gold:    var(--color-accent);
-  --gold-lt: var(--color-accent-pale);
+  --gold-lt: var(--gold-pale);
   --cream:   var(--color-bg-alt);
-  --border:  var(--color-mid);
-  --text:    var(--color-text);
-  --muted:   var(--color-text-muted);
-  --paper:   #FCFCFA;
+  --muted:   var(--text-muted);
+  --paper:   var(--navy-card);
 
   /* Typography */
   --font-serif:   'Libre Baskerville', Georgia, serif;
@@ -49,8 +54,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'EB Garamond', serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: #111d30;
+  color: rgba(232,228,220,0.90);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -136,7 +141,7 @@ body {
   font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;
-  color: var(--color-dark);
+  color: var(--color-text);
   line-height: 1.22;
 }
 
@@ -181,8 +186,8 @@ body {
   padding: 6px 14px;
   border-radius: 2px;
   border: 1px solid var(--color-mid);
-  background: #fff;
-  color: #142235;
+  background: transparent;
+  color: var(--color-text);
   cursor: pointer;
   transition: border-color 0.12s, background 0.12s, color 0.12s;
   white-space: nowrap;
