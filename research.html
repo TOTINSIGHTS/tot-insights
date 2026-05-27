@@ -51,10 +51,10 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
 .results-count span{color:rgba(181,146,58,0.85);font-weight:500;}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(232,228,220,0.75);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 
-.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch;}
 @media(max-width:1000px){.doc-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:640px){.doc-grid{grid-template-columns:1fr;}}
-.doc-card{background:#ffffff;border:1px solid rgba(26,26,46,0.12);border-radius:3px;padding:16px 18px 14px;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;}
+.doc-card{background:#ffffff;border:1px solid rgba(26,26,46,0.12);border-radius:3px;padding:16px 18px 14px;cursor:pointer;transition:box-shadow 0.15s,transform 0.15s;display:flex;flex-direction:column;height:100%;}
 .doc-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.12);transform:translateY(-1px);}
 .doc-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;gap:8px;}
 .doc-theme-pill{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
