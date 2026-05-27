@@ -17,8 +17,8 @@
 
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
 @media(max-width:700px){.projects-grid{grid-template-columns:1fr;}}
-.project-card{background:#ffffff;border:1px solid #e0e4ed;border-top:3px solid var(--gold);border-radius:3px;padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;min-height:280px;}
-@media(max-width:700px){.project-card{min-height:240px;}}
+.project-card{background:#ffffff;border:1px solid #e0e4ed;border-top:3px solid var(--gold);border-radius:3px;padding:2rem 2rem 1.75rem;display:flex;flex-direction:column;min-height:280px;transition:all 0.2s ease;}.project-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}
+@media(max-width:700px){.project-card{min-height:240px;}.project-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}}
 .project-meta{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem;}
 .project-status{font-family:var(--font-mono);font-size:8px;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
 .status-active{background:rgba(122,92,13,0.15);color:#7a5c0d;}
