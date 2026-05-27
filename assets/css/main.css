@@ -199,6 +199,29 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 .filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
 .filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
 
+/* ─── Desktop scaling (1024px+) ─────────────────────────────────────────────── */
+
+@media (min-width: 1024px) {
+  body { font-size: 18px; }
+
+  .site-header { padding: 0 48px; }
+
+  .header-inner,
+  .page-hero-inner,
+  .footer-inner { max-width: 1400px; }
+
+  .page-hero { padding: 48px 48px 40px; }
+
+  .main-content {
+    max-width: 1400px;
+    padding: 56px 48px 96px;
+  }
+
+  .page-title { font-size: 2rem; }
+
+  .site-footer { padding: 26px 48px; }
+}
+
 /* ─── Site footer ────────────────────────────────────────────────────────────── */
 
 .site-footer {
