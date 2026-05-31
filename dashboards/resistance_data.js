@@ -1,5 +1,5 @@
 // TOT Insights — Resistance Monitoring Dataset
-// Dec 2024–Feb 2026 · 387 verified incidents
+// Dec 2024–May 2026 · 464 verified incidents
 // Single shared data source for resistance_analytics.html and resistance_map.html
 // Do not edit data here without updating both dashboards.
 
@@ -11,7 +11,8 @@ var RDATA = (function () {
     "May '25b","Jun '25a","Jun '25b","Jul '25a","Jul '25b",
     "Aug '25a","Aug '25b","Sep '25a","Sep '25b","Oct '25a",
     "Oct '25b","Nov '25a","Nov '25b","Dec '25a","Dec '25b",
-    "Dec '25c","Jan '26a","Jan '26b","Feb '26a","Feb '26b"
+    "Dec '25c","Jan '26a","Jan '26b","Feb '26a","Feb '26b",
+    "Mar '26a","Mar '26b","Apr '26a","Apr '26b","May '26a","May '26b"
   ];
 
   var periodLabels = [
@@ -20,11 +21,12 @@ var RDATA = (function () {
     "22.05.25\u201305.06.25","05.06.25\u201318.06.25","18.06.25\u201302.07.25","03.07.25\u201316.07.25","17.07.25\u201330.07.25",
     "31.07.25\u201313.08.25","14.08.25\u201327.08.25","28.08.25\u201311.09.25","11.09.25\u201324.09.25","25.09.25\u201309.10.25",
     "10.10.25\u201323.10.25","23.10.25\u201306.11.25","06.11.25\u201319.11.25","19.11.25\u201304.12.25","04.12.25\u201318.12.25",
-    "18.12.25\u201331.12.25","31.12.25\u201314.01.26","14.01.26\u201328.01.26","29.01.26\u201312.02.26","12.02.26\u201325.02.26"
+    "18.12.25\u201331.12.25","31.12.25\u201314.01.26","14.01.26\u201328.01.26","29.01.26\u201312.02.26","12.02.26\u201325.02.26",
+    "25.02.26\u201312.03.26","12.03.26\u201325.03.26","25.03.26\u201309.04.26","09.04.26\u201322.04.26","22.04.26\u201307.05.26","07.05.26\u201321.05.26"
   ];
 
-  var totCounts = [11,5,4,9,7,13,12,7,6,8,10,8,12,8,4,12,14,10,8,12,11,7,8,7,9,7,4,4,4,5];
-  var rfCounts  = [0,0,0,0,0,0,0,2,8,2,4,4,2,3,2,3,9,2,5,4,6,5,10,10,10,8,12,12,12,10];
+  var totCounts = [11,5,4,9,7,13,12,7,6,8,10,8,12,8,4,12,14,10,8,12,11,7,8,7,9,7,4,4,4,5,4,6,3,6,4,2];
+  var rfCounts  = [0,0,0,0,0,0,0,2,8,2,4,4,2,3,2,3,9,2,5,4,6,5,10,10,10,8,12,12,12,10,7,7,11,8,10,9];
 
   var totCategories = [
     {name:"Other / sabotage",       value:87, color:"#6b7a99"},
@@ -59,11 +61,11 @@ var RDATA = (function () {
   ];
 
   // Representative centroid for RF-territory operations (Bryansk/Kursk/Belgorod corridor)
-  var rfRegion = {name:"Russian Federation (ops area)", value:141, color:"#8b3a3a", lat:52.00, lng:36.20};
+  var rfRegion = {name:"Russian Federation (ops area)", value:193, color:"#8b3a3a", lat:52.00, lng:36.20};
 
-  var totTotal   = 246;
-  var rfTotal    = 141;
-  var grandTotal = 387;
+  var totTotal   = 271;
+  var rfTotal    = 193;
+  var grandTotal = 464;
 
   return {
     periods:periods, periodLabels:periodLabels,
