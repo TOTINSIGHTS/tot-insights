@@ -16,7 +16,7 @@
   --col-anti:#6B2D0D;--bg-anti:#F5EBE0;--border-anti:#E8C8B0;
 }
 html,body{height:100%;margin:0;}
-body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--text);font-size:14px;line-height:1.6;display:flex;flex-direction:column;}
+body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-size:14px;line-height:1.6;display:flex;flex-direction:column;}
 /* ─── Header ─── */
 .page-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:14px 28px;flex-shrink:0;}
 .page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
@@ -52,7 +52,7 @@ body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--text);f
 .divider-anti{background:var(--bg-anti);}
 /* ─── Document cards grid ─── */
 .doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
-.doc-card{background:#ffffff;border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px;cursor:pointer;transition:all 0.2s ease;display:flex;flex-direction:column;gap:8px;}
+.doc-card{background:#ffffff;border:2px solid #1a2a3a;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px;cursor:pointer;transition:all 0.2s ease;display:flex;flex-direction:column;gap:8px;}
 .doc-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}
 .doc-card.reading{border-top:3px solid var(--col-reading);}
 .doc-card.method{border-top:3px solid var(--col-method);}
@@ -347,7 +347,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeViewer();close
 renderCards();
 </script>
 <div style="padding:0 2rem 1.5rem;">
-<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+<div style="position:relative;border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+  <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:20px;line-height:1;color:rgba(232,228,220,0.55);padding:2px 4px;">&times;</button>
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
   <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Russian%20Occupation%20Education%20and%20Propaganda%20Manuals%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/manuals.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
   <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>

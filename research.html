@@ -9,8 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <link rel="stylesheet" href="navigation.css">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
@@ -26,7 +24,7 @@
 
 body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90);font-size:15px;line-height:1.6;}
 
-.browse{padding:40px 40px 80px;}
+.browse{padding:40px 40px 80px;padding-top:40px;}
 .browse-inner{max-width:1200px;margin:0 auto;}
 .browse-search-wrap{margin-bottom:20px;}
 .browse-search{width:100%;font-family:var(--font-sans);font-size:14px;color:rgba(232,228,220,0.90);background:#0D1624;border:1px solid rgba(255,255,255,0.08);border-radius:2px;padding:8px 14px;outline:none;transition:border-color 0.12s;}
@@ -97,7 +95,6 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
 .modal-tags{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
 .modal-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;border-radius:2px;}
 .modal-section-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(232,228,220,0.75);margin-bottom:6px;margin-top:16px;}
-#modal-locator-map{width:100%;height:160px;border-radius:3px;border:1px solid rgba(255,255,255,0.08);margin-bottom:4px;overflow:hidden;background:#0D1624;}
 .modal-region-label{font-family:var(--font-mono);font-size:9px;color:rgba(232,228,220,0.75);letter-spacing:0.08em;margin-bottom:14px;}
 .modal-descriptor{font-size:13px;font-style:italic;color:rgba(181,146,58,0.80);line-height:1.65;border-left:3px solid #FBE9A8;padding-left:14px;}
 .modal-summary{font-size:13px;line-height:1.75;color:rgba(232,228,220,0.88);}
@@ -119,7 +116,7 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
 .viewer-close:hover{color:#fff;}
 #viewer-iframe{flex:1;width:100%;border:none;background:#fff;}
 @media(max-width:700px){.browse{padding:28px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
-.breakout-row{display:flex;align-items:center;gap:2rem;background:#0D1624;border-left:3px solid #E8B84B;padding:1.5rem 2rem;text-decoration:none;margin:0;transition:background 0.2s;cursor:pointer;}
+.breakout-row{display:flex;align-items:center;gap:2rem;background:#0D1624;border-left:3px solid #E8B84B;padding:1.5rem 2rem;text-decoration:none;margin:8px 0;transition:background 0.2s;cursor:pointer;}
 .breakout-row:hover{background:#142030;}
 .breakout-number-block{min-width:200px;flex-shrink:0;}
 .breakout-number{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#ffffff;line-height:1;}
@@ -245,7 +242,78 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         </div>
         <span class="breakout-arrow">→</span>
       </a>
-      <div class="cards-segment doc-grid" id="doc-grid-4"></div>
+      <div class="cards-segment doc-grid" id="doc-grid-4a"></div>
+      <a class="breakout-row" href="briefings/grain_briefing.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">4 million tonnes</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">Ukrainian grain stolen by Russia across all four occupied regions as of mid-2025, valued at approximately $580 million</div>
+          <div class="breakout-source">From: Grain Expropriation in Russian-occupied Ukraine →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-4b"></div>
+      <a class="breakout-row" href="briefings/pipeline_persecution.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">92%</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">of Ukrainian civilian ex-detainees reported torture or ill-treatment in Russian-run detention facilities</div>
+          <div class="breakout-source">From: Russia's Pipeline of Persecution →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-5"></div>
+      <a class="breakout-row" href="dashboards/guardianship.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">2 trillion ₽</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">estimated budget of Russia's Regional Guardianship Programme across 60+ Russian regions in occupied territories (2024–2030)</div>
+          <div class="breakout-source">From: Russia's Guardianship Programme →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-6a"></div>
+      <a class="breakout-row" href="briefings/voin_generation.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">600,000–650,000</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">children estimated to have undergone military training in occupied territories, in Voin centres, cadet classes, and drone training schools</div>
+          <div class="breakout-source">From: The Voin Generation →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-6b"></div>
+      <a class="breakout-row" href="briefings/ethnic_cleansing.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">80,000</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">increase in Russian citizens in Mariupol between 2023 and 2025, at approximately 2,200 per month</div>
+          <div class="breakout-source">From: Russia Is Ethnically Cleansing Mariupol →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
+      <div class="cards-segment doc-grid" id="doc-grid-6c"></div>
+      <a class="breakout-row" href="dashboards/idp_polling.html">
+        <div class="breakout-number-block">
+          <div class="breakout-number">76.4%</div>
+          <div class="breakout-underline"></div>
+        </div>
+        <div class="breakout-text-block">
+          <div class="breakout-finding">of 1,001 IDPs from occupied territories rate the Ukrainian government as ineffective at supporting them</div>
+          <div class="breakout-source">From: IDP Attitudes Survey →</div>
+        </div>
+        <span class="breakout-arrow">→</span>
+      </a>
       <div class="no-results" id="no-results">No outputs match the selected filters.</div>
     </div>
     <div class="browse-show-more-wrap" id="browse-show-more-wrap" style="display:none;">
@@ -273,7 +341,6 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
     </div>
     <div class="modal-body">
       <div class="modal-tags" id="modal-tags"></div>
-      <div id="modal-locator-map"></div>
       <div class="modal-region-label" id="modal-region-label"></div>
       <div class="modal-section-label">Platform descriptor</div>
       <div class="modal-descriptor" id="modal-descriptor"></div>
@@ -308,7 +375,12 @@ function buildCards(){
     {id:'doc-grid-1',s:0,e:2,photo:'images/photo_2026-04-16_13.08.10.jpeg'},
     {id:'doc-grid-2',s:2,e:7,photo:'images/260114_McGlynn_Thresholds_Survival_Img5.jpeg'},
     {id:'doc-grid-3',s:7,e:12},
-    {id:'doc-grid-4',s:12,e:DOCS.length}
+    {id:'doc-grid-4a',s:12,e:20},
+    {id:'doc-grid-4b',s:20,e:29},
+    {id:'doc-grid-5',s:29,e:31,photo:'images/260114_McGlynn_Thresholds_Survival_Img2.jpeg'},
+    {id:'doc-grid-6a',s:31,e:39},
+    {id:'doc-grid-6b',s:39,e:44},
+    {id:'doc-grid-6c',s:44,e:DOCS.length}
   ];
   SEG.forEach(seg=>{
     const grid=document.getElementById(seg.id);
@@ -327,6 +399,8 @@ function buildCards(){
 }
 function applyFilters(){
   const q=browseSearch.toLowerCase();
+  const filtersActive=activeTheme!=='all'||activeFormat!=='all';
+  document.querySelectorAll('.photo-grid-card').forEach(ph=>{ph.style.display=filtersActive?'none':'';});
   let count=0;
   document.querySelectorAll('.doc-card').forEach(card=>{
     const id=card.dataset.docId;
@@ -393,7 +467,7 @@ function openModal(id){
   document.getElementById('modal-actions').innerHTML=actionsHtml;
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
-  setTimeout(()=>buildLocatorMap(REGIONS[doc.id]),50);
+  (function(){const lbl=document.getElementById('modal-region-label');if(lbl)lbl.textContent='Region: '+(REGION_LABELS[REGIONS[doc.id]]||'All occupied territories');})();
 }
 function openViewer(url,title){
   document.getElementById('viewer-title').textContent=title;
@@ -432,43 +506,12 @@ const REGIONS = {
   "DOC-I1":"Donetsk","DOC-J1":"Donetsk","DOC-K1":"Zaporizhzhia"
 };
 
-const LOC_UKRAINE=[
-  [52.3,22.5],[52.2,24.5],[51.7,26.5],[51.9,29.0],[51.3,31.5],[51.5,33.5],
-  [51.2,34.5],[50.5,34.5],[50.0,35.5],[49.5,36.5],[49.0,38.0],[48.5,39.5],
-  [47.5,40.0],[47.0,39.5],[46.5,40.0],[46.2,39.0],[46.0,37.5],[46.0,36.0],
-  [45.5,35.0],[45.0,34.5],[45.5,33.5],[46.0,32.5],[45.5,31.5],[45.5,30.0],
-  [46.0,29.5],[45.5,28.5],[45.5,27.0],[46.0,25.5],[47.0,24.0],[48.5,22.5],
-  [50.0,22.0],[51.0,22.0],[51.5,22.5],[52.0,22.5]
-];
-const LOC_OBLASTS={
-  "Donetsk":[[49.5,37.5],[49.5,39.5],[48.0,40.0],[47.0,39.0],[47.0,37.0],[48.0,36.5]],
-  "Luhansk":[[50.0,38.0],[50.0,40.2],[48.5,40.2],[48.5,39.0],[49.0,37.5]],
-  "Zaporizhzhia":[[48.5,33.5],[48.5,36.5],[47.0,37.0],[46.0,36.0],[46.0,34.0],[46.5,33.0],[47.5,33.0]],
-  "Kherson":[[47.5,33.0],[47.5,35.0],[46.0,35.0],[45.5,34.5],[45.5,32.5],[46.0,32.0]],
-  "Crimea":[[45.5,32.5],[46.0,34.0],[45.5,35.5],[44.5,35.5],[44.0,34.0],[44.3,33.0],[44.8,32.5]]
-};
 const REGION_LABELS={
   "Donetsk":"Donetsk oblast","Luhansk":"Luhansk oblast",
   "Zaporizhzhia":"Zaporizhzhia oblast","Kherson":"Kherson oblast",
   "Crimea":"Crimea","Multiple":"Multiple occupied territories",
   "All OT":"All occupied territories"
 };
-let _locatorMap=null;
-function buildLocatorMap(region){
-  const el=document.getElementById('modal-locator-map');
-  const lbl=document.getElementById('modal-region-label');
-  if(!el||typeof L==='undefined')return;
-  if(_locatorMap){try{_locatorMap.remove();}catch(e){}_locatorMap=null;}
-  el.innerHTML='';
-  const map=L.map(el,{zoomControl:false,scrollWheelZoom:false,dragging:false,touchZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,attributionControl:false});
-  _locatorMap=map;
-  L.polygon(LOC_UKRAINE,{fillColor:'#E8EBF0',fillOpacity:1,color:'#B0BAC8',weight:1}).addTo(map);
-  const toHighlight=(!region||region==='All OT'||region==='Multiple')?Object.keys(LOC_OBLASTS):(LOC_OBLASTS[region]?[region]:Object.keys(LOC_OBLASTS));
-  toHighlight.forEach(r=>{L.polygon(LOC_OBLASTS[r],{fillColor:'#C9A84C',fillOpacity:0.8,color:'#a07a20',weight:1}).addTo(map);});
-  const bounds=L.latLngBounds(LOC_UKRAINE);
-  map.fitBounds(bounds,{padding:[6,6]});
-  if(lbl)lbl.textContent='Region: '+(REGION_LABELS[region]||'All occupied territories');
-}
 
 DOCS.sort((a,b)=>parseDateOrdinal(b.date)-parseDateOrdinal(a.date));
 buildCards();applyFilters();
