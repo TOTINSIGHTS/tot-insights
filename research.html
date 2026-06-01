@@ -197,7 +197,7 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
       <div class="filter-row-label">Format</div>
       <div class="filter-row">
         <button class="filter-btn active" data-filter="format" data-value="all">All formats</button>
-        <button class="filter-btn" data-filter="format" data-value="Briefing & Paper">Briefings &amp; Papers</button>
+        <button class="filter-btn" data-filter="format" data-value="Briefing">Briefings</button>
         <button class="filter-btn" data-filter="format" data-value="Report">Reports</button>
         <button class="filter-btn" data-filter="format" data-value="Journal Article">Journal Articles</button>
         <button class="filter-btn" data-filter="format" data-value="Dashboard">Dashboards</button>
@@ -443,7 +443,7 @@ function openModal(id){
   const doc=DOCS.find(d=>d.id===id);if(!doc)return;
   if(doc.externalUrl){window.location.href=doc.externalUrl;return;}
   if(doc.dashboardFile){openViewer(doc.dashboardFile,doc.title);return;}
-  if(doc.format==='Briefing & Paper'&&doc.briefingFile){openViewer(doc.briefingFile,doc.title);return;}
+  if(doc.format==='Briefing'&&doc.briefingFile){openViewer(doc.briefingFile,doc.title);return;}
   if(doc.format==='Data'&&doc.gdocs){const previewUrl=getPreviewUrl(doc.gdocs);if(previewUrl){openViewer(previewUrl,doc.title);return;}}
   document.getElementById('modal-id').textContent=doc.id;
   document.getElementById('modal-title').textContent=doc.title;
