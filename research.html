@@ -398,15 +398,15 @@ let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
 
 function buildCards(){
   const SEG=[
-    {id:'doc-grid-1',s:0,e:2},
-    {id:'doc-grid-2',s:2,e:7},
-    {id:'doc-grid-3',s:7,e:12},
-    {id:'doc-grid-4a',s:12,e:20},
-    {id:'doc-grid-4b',s:20,e:29},
-    {id:'doc-grid-5',s:29,e:31},
-    {id:'doc-grid-6a',s:31,e:39},
-    {id:'doc-grid-6b',s:39,e:44},
-    {id:'doc-grid-6c',s:44,e:DOCS.length}
+    {id:'doc-grid-1',s:0,e:3},
+    {id:'doc-grid-2',s:3,e:9},
+    {id:'doc-grid-3',s:9,e:15},
+    {id:'doc-grid-4a',s:15,e:24},
+    {id:'doc-grid-4b',s:24,e:33},
+    {id:'doc-grid-5',s:33,e:36},
+    {id:'doc-grid-6a',s:36,e:42},
+    {id:'doc-grid-6b',s:42,e:45},
+    {id:'doc-grid-6c',s:45,e:DOCS.length}
   ];
   SEG.forEach(seg=>{
     const grid=document.getElementById(seg.id);
