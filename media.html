@@ -205,8 +205,13 @@ function renderMedia(){
   document.getElementById('media-count-num').textContent=filtered.length;
   let cards='';
   filtered.forEach((m,i)=>{
+    if(i===6) cards+=`<div class="media-photo-card"><img src="images/IMG_4975.jpg" alt="" loading="lazy"></div>`;
     if(i===12)cards+=`<div class="media-photo-card"><img src="images/photo_2026-04-14_07.51.07.jpeg" alt="" loading="lazy"></div>`;
+    if(i===21)cards+=`<div class="media-photo-card"><img src="images/IMG_4977.jpg" alt="" loading="lazy"></div>`;
     if(i===30)cards+=`<div class="media-photo-card"><img src="images/photo_2026-04-29_09.56.58.jpeg" alt="" loading="lazy"></div>`;
+    if(i===41)cards+=`<div class="media-photo-card"><img src="images/IMG_4990.jpg" alt="" loading="lazy"></div>`;
+    if(i===48)cards+=`<div class="media-photo-card"><img src="images/IMG_5019.jpg" alt="" loading="lazy"></div>`;
+    if(i===54)cards+=`<div class="media-photo-card"><img src="images/IMG_5056.jpg" alt="" loading="lazy"></div>`;
     cards+=`<div class="media-card"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`;
   });
   [...grid.children].forEach(c=>{if(c.id!=='media-no-results')c.remove();});
