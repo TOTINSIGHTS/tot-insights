@@ -82,6 +82,8 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
 .browse-show-more-wrap{margin-top:20px;text-align:center;}
 .browse-show-more{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:rgba(232,228,220,0.75);background:none;border:1px solid rgba(255,255,255,0.12);border-radius:2px;padding:9px 24px;cursor:pointer;transition:border-color 0.12s,color 0.12s;}
 .browse-show-more:hover{border-color:rgba(181,146,58,0.60);color:rgba(181,146,58,0.85);}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin:12px 0;}
+.photo-strip img{width:100%;height:240px;object-fit:cover;object-position:center;display:block;}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,18,32,0.72);z-index:200;align-items:center;justify-content:center;padding:24px;}
 .modal-overlay.open{display:flex;}
 .modal{background:#111d30;border-radius:3px;max-width:660px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 28px 80px rgba(0,0,0,0.35);}
@@ -219,6 +221,11 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-2"></div>
+      <div class="photo-strip">
+        <img src="images/photo_2026-04-16_13.08.10.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_1379.jpg" alt="" loading="lazy">
+        <img src="images/photo_2026-04-17_09.32.48.jpeg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="briefings/voin_generation.html">
         <div class="breakout-number-block">
           <div class="breakout-number">600,000–650,000</div>
@@ -231,6 +238,11 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-3"></div>
+      <div class="photo-strip">
+        <img src="images/IMG_1394.jpg" alt="" loading="lazy">
+        <img src="images/photo_2026-04-18_08.31.29.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_2487.jpg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="briefings/voin.html">
         <div class="breakout-number-block">
           <div class="breakout-number">8.76bn rubles</div>
@@ -243,6 +255,11 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-4a"></div>
+      <div class="photo-strip">
+        <img src="images/photo_2026-04-23_15.00.35.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_2504.jpg" alt="" loading="lazy">
+        <img src="images/photo_2026-03-27_06.27.56.jpeg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="briefings/grain_briefing.html">
         <div class="breakout-number-block">
           <div class="breakout-number">4 million tonnes</div>
@@ -255,6 +272,11 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-4b"></div>
+      <div class="photo-strip">
+        <img src="images/IMG_3579.jpg" alt="" loading="lazy">
+        <img src="images/photo_2026-04-29_09.56.58.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_4975.jpg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="briefings/pipeline_persecution.html">
         <div class="breakout-number-block">
           <div class="breakout-number">92%</div>
@@ -279,7 +301,17 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-6a"></div>
+      <div class="photo-strip">
+        <img src="images/photo_2026-04-24_13.10.12.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_4977.jpg" alt="" loading="lazy">
+        <img src="images/at_port.jpeg" alt="" loading="lazy">
+      </div>
       <div class="cards-segment doc-grid" id="doc-grid-6b"></div>
+      <div class="photo-strip">
+        <img src="images/IMG_4990.jpg" alt="" loading="lazy">
+        <img src="images/photo_2026-04-14_07.51.16.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_5019.jpg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="briefings/ethnic_cleansing.html">
         <div class="breakout-number-block">
           <div class="breakout-number">80,000</div>
@@ -292,6 +324,11 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
         <span class="breakout-arrow">→</span>
       </a>
       <div class="cards-segment doc-grid" id="doc-grid-6c"></div>
+      <div class="photo-strip">
+        <img src="images/photo_2026-03-27_06.29.28_1.jpeg" alt="" loading="lazy">
+        <img src="images/IMG_5056.jpg" alt="" loading="lazy">
+        <img src="images/260114_McGlynn_Thresholds_Survival_Img2.jpeg" alt="" loading="lazy">
+      </div>
       <a class="breakout-row" href="dashboards/idp_polling.html">
         <div class="breakout-number-block">
           <div class="breakout-number">76.4%</div>
@@ -361,15 +398,15 @@ let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
 
 function buildCards(){
   const SEG=[
-    {id:'doc-grid-1',s:0,e:2,photo:'images/photo_2026-04-16_13.08.10.jpeg'},
-    {id:'doc-grid-2',s:2,e:7,photo:'images/260114_McGlynn_Thresholds_Survival_Img5.jpeg'},
-    {id:'doc-grid-3',s:7,e:12,photo:'images/IMG_1379.jpg'},
-    {id:'doc-grid-4a',s:12,e:20,photo:'images/IMG_1394.jpg'},
+    {id:'doc-grid-1',s:0,e:2},
+    {id:'doc-grid-2',s:2,e:7},
+    {id:'doc-grid-3',s:7,e:12},
+    {id:'doc-grid-4a',s:12,e:20},
     {id:'doc-grid-4b',s:20,e:29},
-    {id:'doc-grid-5',s:29,e:31,photo:'images/260114_McGlynn_Thresholds_Survival_Img2.jpeg'},
-    {id:'doc-grid-6a',s:31,e:39,photo:'images/IMG_2487.jpg'},
-    {id:'doc-grid-6b',s:39,e:44,photo:'images/IMG_2504.jpg'},
-    {id:'doc-grid-6c',s:44,e:DOCS.length,photo:'images/IMG_3579.jpg'}
+    {id:'doc-grid-5',s:29,e:31},
+    {id:'doc-grid-6a',s:31,e:39},
+    {id:'doc-grid-6b',s:39,e:44},
+    {id:'doc-grid-6c',s:44,e:DOCS.length}
   ];
   SEG.forEach(seg=>{
     const grid=document.getElementById(seg.id);
@@ -383,7 +420,6 @@ function buildCards(){
       card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>${doc.doi?('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:6px;padding-top:6px;border-top:1px solid rgba(26,26,46,0.10);">'+(doc.doi2?('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;margin-right:8px;">DOI (v1) &#8599;</a> <a href="'+doc.doi2+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">DOI (v2) &#8599;</a>'):('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+doc.doi.replace('https://doi.org/','')+' &#8599;</a>'))+'</div>'):''}`;
       grid.appendChild(card);
     });
-    if(seg.photo){const ph=document.createElement('div');ph.className='photo-grid-card';ph.innerHTML=`<img src="${seg.photo}" alt="" loading="lazy">`;grid.appendChild(ph);}
   });
 }
 function applyFilters(){
