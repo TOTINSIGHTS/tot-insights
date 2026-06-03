@@ -7,6 +7,9 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body style="margin:0;padding:0;">
@@ -106,10 +109,10 @@ function App() {
   const maxPension = 930000;
 
   return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#F8F6F1", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'EB Garamond', Georgia, serif", background: "#111d30", minHeight: "100vh" }}>
       <div style={{ background: NAVY, color: "#E8E0D0", padding: "22px 32px 16px", borderBottom: `3px solid ${GOLD}` }}>
         <div style={{ fontSize: 11, letterSpacing: 3, color: GOLD, fontFamily: "monospace", marginBottom: 4, textTransform: "uppercase" }}>
-          TOT Insights · Mariupol · Hub v4
+          TOT Insights · Mariupol · April 2026
         </div>
         <div style={{ fontSize: 21, fontWeight: 700 }}>Sanctions Evasion & Financial Extraction</div>
         <div style={{ fontSize: 13, color: "#9CA3AF", marginTop: 4 }}>Shadow fleet routing · Pension fraud · Policy audience · April 2026</div>
@@ -142,7 +145,7 @@ function App() {
           {subtab === 0 && (
             <div>
               <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Mariupol Port: Operational Timeline</div>
-              <div style={{ fontSize: 13, color: "#555", marginBottom: 18, maxWidth: 660, lineHeight: 1.7 }}>
+              <div style={{ fontSize: 13, color: "#e8eaf0", marginBottom: 18, maxWidth: 660, lineHeight: 1.7 }}>
                 From bulk cargo relay point to direct-export hub and military facility. Click events to expand.
               </div>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 18 }}>
@@ -180,7 +183,7 @@ function App() {
           {subtab === 1 && (
             <div>
               <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>Documented Cargo Types and Destinations</div>
-              <div style={{ fontSize: 13, color: "#555", marginBottom: 18, lineHeight: 1.7 }}>All cargo flows documented in Hub v4 entries from Q1 2025 through March 2026.</div>
+              <div style={{ fontSize: 13, color: "#e8eaf0", marginBottom: 18, lineHeight: 1.7 }}>All cargo flows documented from Q1 2025 through March 2026.</div>
               {cargoTypes.map((c, i) => (
                 <div key={i} style={{ background: "#fff", border: `1.5px solid ${c.evasion ? "#F5CBA7" : "#DDD"}`,
                   borderLeft: `5px solid ${c.evasion ? GOLD : SLATE}`, borderRadius: 4,
@@ -202,8 +205,8 @@ function App() {
           {subtab === 2 && (
             <div>
               <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, marginBottom: 6 }}>The Temryuk Re-Registration Mechanism</div>
-              <div style={{ fontSize: 13, color: "#555", marginBottom: 20, maxWidth: 660, lineHeight: 1.7 }}>
-                The March 18 grain shipment is the first documented instance of the Temryuk routing in Hub v4.
+              <div style={{ fontSize: 13, color: "#e8eaf0", marginBottom: 20, maxWidth: 660, lineHeight: 1.7 }}>
+                The March 18 grain shipment is the first documented instance of the Temryuk routing.
               </div>
               {[
                 { node: "Mariupol Port", sub: "Cargo loaded under Russian occupation administration", color: NAVY, bg: "#DBEAFE" },
@@ -249,7 +252,7 @@ function App() {
           {pensionData.map((p, i) => (
             <div key={i} style={{ marginBottom: 14 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 4 }}>
-                <div style={{ width: 220, fontSize: 12, color: "#333", lineHeight: 1.4, flexShrink: 0 }}>{p.label}</div>
+                <div style={{ width: 220, fontSize: 12, color: "#e8eaf0", lineHeight: 1.4, flexShrink: 0 }}>{p.label}</div>
                 <div style={{ flex: 1, height: 28, background: "#EEE", borderRadius: 4, overflow: "hidden" }}>
                   <div style={{ width: `${(p.value / maxPension) * 100}%`, height: "100%", background: p.color, borderRadius: 4,
                     display: "flex", alignItems: "center", paddingLeft: 8 }}>
@@ -291,7 +294,7 @@ function App() {
       )}
 
       <div style={{ padding: "12px 32px", borderTop: "1px solid #DDD", fontSize: 11, color: "#AAA", fontFamily: "monospace" }}>
-        TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME, CSNS / KCL
+        TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL
       </div>
     </div>
   );
