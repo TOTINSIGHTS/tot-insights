@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDP Attitudes Survey — TOT Insights</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
 :root {
   --font-sans: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
-  --color-text-primary: #1A1A1A;
+  --color-text-primary: #e8eaf0;
   --color-text-secondary: #617080;
   --color-text-tertiary: #9BA8B4;
   --color-background: #111d30;
@@ -21,29 +21,29 @@
   --gold: #E8B84B;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-sans); background: var(--color-background); color: var(--color-text-primary); font-size: 14px; }
+body { font-family: 'EB Garamond', Georgia, serif; background: var(--color-background); color: var(--color-text-primary); font-size: 14px; }
 .page-header { background: var(--navy); border-bottom: 3px solid var(--gold); padding: 20px 32px; }
 .page-header h1 { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 4px; }
 .page-header p { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-mono); letter-spacing: 0.08em; }
 .content { padding: 24px 32px; max-width: 1100px; }
 
-.dash { font-family: var(--font-sans); padding: 0 0 2rem; }
+.dash { padding: 0 0 2rem; }
 .section { margin: 2rem 0; }
 .sec-title { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .12em; margin: 0 0 12px; font-family: var(--font-mono); }
 .metric-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
-.metric { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; border: 1px solid #7AACBE; }
-.metric-label { font-size: 12px; color: var(--color-text-secondary); margin: 0 0 4px; }
-.metric-val { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0; line-height: 1.2; }
-.metric-sub { font-size: 11px; color: var(--color-text-tertiary); margin: 2px 0 0; }
+.metric { background: #1a2332; border-radius: var(--border-radius-md); padding: 14px 16px; }
+.metric-label { font-size: 12px; color: #e8eaf0; margin: 0 0 4px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; }
+.metric-val { font-size: 22px; font-weight: 700; color: #c9a84c; margin: 0; line-height: 1.2; font-family: 'IBM Plex Mono', monospace; }
+.metric-sub { font-size: 11px; color: #6B7280; margin: 2px 0 0; font-family: 'IBM Plex Mono', monospace; }
 .chart-wrap { position: relative; width: 100%; }
 .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .chart-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; border: 1px solid #7AACBE; }
-.chart-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+.chart-title { font-size: 13px; font-weight: 500; color: #1A1A1A; margin: 0 0 4px; }
 .chart-sub { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 14px; }
 .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 0; }
 .legend span { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
 .legend-sq { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
-.finding { background: var(--color-background-secondary); border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 12px 14px; margin: 8px 0; font-size: 13px; color: var(--color-text-primary); line-height: 1.5; border: 1px solid #7AACBE; border-left: 3px solid #378ADD; }
+.finding { background: var(--color-background-secondary); border-left: 3px solid #378ADD; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 12px 14px; margin: 8px 0; font-size: 13px; color: #1A1A1A; line-height: 1.5; border: 1px solid #7AACBE; border-left: 3px solid #378ADD; }
 .finding strong { font-weight: 600; color: #253545; }
 @media(max-width:700px){.metric-row{grid-template-columns:1fr 1fr}.chart-grid{grid-template-columns:1fr}}
 </style>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: #111d30;
+  color: #e8eaf0;
+  font-size: 17px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Page header ────────────────────────────────────────────── */
+.page-header {
+  background: #0F1F3D;
+  color: #E8E0D0;
+  padding: 14px 32px 18px;
+  border-bottom: 3px solid #C4964A;
+}
+.back-link {
+  display: inline-block;
+  color: #c9a84c;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-variant: small-caps;
+  text-decoration: none;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.back-link:hover { text-decoration: underline; }
+.page-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 6px;
+}
+.page-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #E8E0D0;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.page-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+/* ─── Content area ───────────────────────────────────────────── */
+.content {
+  padding: 24px 32px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .content { padding: 20px 16px 32px; }
+  .page-header { padding: 12px 16px 16px; }
+}
+
+/* ─── Stat cards ─────────────────────────────────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.stat-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.stat-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  color: #E8E0D0;
+  margin-top: 4px;
+  font-weight: 600;
+}
+.stat-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+hr.divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 24px 0;
+}
+
+.section-heading {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 14px;
+}
+
+/* ─── Bar chart ──────────────────────────────────────────────── */
+.bar-row { margin-bottom: 14px; }
+.bar-row-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.bar-label {
+  width: 220px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  color: #e8eaf0;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  transition: width 0.6s ease;
+}
+.bar-val {
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.bar-note {
+  margin-left: 232px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(232,234,240,0.55);
+  font-style: italic;
+}
+@media (max-width: 640px) {
+  .bar-label { width: 100%; margin-bottom: 4px; }
+  .bar-row-top { flex-direction: column; align-items: flex-start; }
+  .bar-note { margin-left: 0; }
+}
+
+/* ─── Timeline ───────────────────────────────────────────────── */
+.timeline { position: relative; margin-bottom: 8px; }
+.timeline-line {
+  position: absolute;
+  left: 90px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
+}
+.timeline-entry { display: flex; margin-bottom: 8px; }
+.timeline-period {
+  width: 90px;
+  padding-right: 14px;
+  text-align: right;
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+.timeline-period span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: rgba(232,234,240,0.55);
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #C4964A;
+  flex-shrink: 0;
+  margin-top: 15px;
+  margin-left: -7px;
+  z-index: 1;
+  border: 2px solid #0F1F3D;
+  position: relative;
+}
+.timeline-card {
+  flex: 1;
+  margin-left: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-left: 4px solid #C4964A;
+  border-radius: 4px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.timeline-card:hover { background: rgba(255,255,255,0.07); }
+.timeline-card.open { border-color: #C4964A; }
+.timeline-card-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #E8E0D0;
+}
+.timeline-detail {
+  display: none;
+  margin-top: 8px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px;
+  color: #e8eaf0;
+  line-height: 1.7;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 8px;
+}
+.timeline-card.open .timeline-detail { display: block; }
+
+/* ─── Callout box ────────────────────────────────────────────── */
+.callout {
+  background: #0F1F3D;
+  color: #E8E0D0;
+  border-radius: 4px;
+  padding: 16px 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 8px;
+}
+.callout p { margin: 0 0 8px; }
+.callout p:last-child { margin: 0; }
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+.page-footer {
+  padding: 12px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,234,240,0.40);
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a class="back-link" href="../research.html">&#8592; Back to Research</a>
+  <div class="page-eyebrow">TOT Insights · Mariupol · April 2026</div>
+  <div class="page-title">Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol</div>
+  <div class="page-subtitle">Interactive data visualisation · Mariupol · April 2026</div>
+</div>
+
+<div class="content">
+
+  <!-- Stat cards -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-val" style="color:#7C1F1F;">134,600</div>
+      <div class="stat-label">'Dead souls' pensioners</div>
+      <div class="stat-sub">Official minus actual present</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color:#C4964A;">1.68bn₽</div>
+      <div class="stat-label">Per month fraud value</div>
+      <div class="stat-sub">~$18.7 million/month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color:#C4964A;">$224m+</div>
+      <div class="stat-label">Annual extraction estimate</div>
+      <div class="stat-sub">~$18.7m × 12 months</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Bar chart -->
+  <div class="section-heading">Pensioner Population: Official vs Actual</div>
+  <div id="bar-chart"></div>
+
+  <hr class="divider">
+
+  <!-- Timeline -->
+  <div class="section-heading">Key Events</div>
+  <div class="timeline">
+    <div class="timeline-line"></div>
+    <div id="timeline-entries"></div>
+  </div>
+
+  <!-- Dual accountability callout -->
+  <div class="callout">
+    <div class="callout-label">Dual accountability dimension</div>
+    <p>The ghost pensioner scheme operates simultaneously as <strong style="color:#C4964A;">fraud against the Russian federal budget</strong> (1.68bn rubles/month extracted through DNR banks, opaque to federal treasury) and as <strong style="color:#C4964A;">theft of resources designated for civilian welfare</strong> under occupation — both potential accountability vectors.</p>
+    <p>The October 2025 deportation panic was triggered deliberately by the occupation administration to destabilise the elderly population — instrumentalising pensioners' citizenship precarity as a tool of social control even while their pension payments are being fraudulently claimed.</p>
+  </div>
+
+</div>
+
+<div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL</div>
+
+<script>
+const pensionData = [
+  {
+    label: "Official DNR-wide pension recipients",
+    value: 930000,
+    color: "#3B5998",
+    note: "Per Russian PFR RF and ‘MinPraci DNR’ official statistics"
+  },
+  {
+    label: "Mariupol official share (20–22%)",
+    value: 204600,
+    color: "#5B7DB8",
+    note: "Implied figure based on Mariupol’s population share of DNR"
+  },
+  {
+    label: "Pre-war registered pensioners (2021)",
+    value: 160000,
+    color: "#1E3A5F",
+    note: "Ukrainian census/municipal records baseline"
+  },
+  {
+    label: "Internal estimate: actual pensioners present",
+    value: 70000,
+    color: "#134E4A",
+    note: "Maximum estimate based on HUMINT and population analysis"
+  },
+  {
+    label: "Ghost pensioners (fraud discrepancy)",
+    value: 134600,
+    color: "#7C1F1F",
+    note: "204,600 official minus 70,000 actual = 134,600 ‘dead souls’"
+  }
+];
+
+const pensionTimeline = [
+  {
+    period: "2022–ongoing",
+    event: "Ghost pensioner scheme established",
+    detail: "Occupation authorities claim ~930,000 DNR pension recipients. Mariupol’s implied share: ~204,600. Internal estimate of actual present population: maximum 70,000. Discrepancy of ~134,600 ‘dead souls’ generating 1.68 billion rubles/month (~$18.7 million). Money extracted through ‘DNR banks’ ensuring complete opacity from federal treasury oversight."
+  },
+  {
+    period: "Oct 2025",
+    event: "Pensioner deportation panic",
+    detail: "RF 2026–2030 Migration Policy Concept (Oct 2, 2025) allows stripping Russian citizenship from anyone who verified obligations to Ukraine — specifically targeting pensioners who confirmed pension status with Ukrainian state. Occupation administration deliberately activated a pensioner deportation information panic through local bloggers. At least 10% of pensioners actively sought departure. Instrument of psychological coercion rather than actual deportation."
+  },
+  {
+    period: "Mar 2026",
+    event: "140 apartments to 80+ cohort",
+    detail: "Occupation authorities distributed 140 municipal apartments to residents aged 80 and older, framed as social care. Assessment: ‘manual allocation of scarce housing resources in a city experiencing systemic housing collapse.’ Confirms presence of elderly Ukrainian resident stratum that remained through siege and occupation."
+  }
+];
+
+/* ── Bar chart ─────────────────────────────────────── */
+var maxVal = 930000;
+var chartEl = document.getElementById('bar-chart');
+
+pensionData.forEach(function(p) {
+  var pct = (p.value / maxVal * 100).toFixed(1);
+  var row = document.createElement('div');
+  row.className = 'bar-row';
+  row.innerHTML =
+    '<div class="bar-row-top">' +
+      '<div class="bar-label">' + p.label + '</div>' +
+      '<div class="bar-track">' +
+        '<div class="bar-fill" style="width:' + pct + '%;background:' + p.color + ';">' +
+          '<span class="bar-val">' + p.value.toLocaleString() + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="bar-note">' + p.note + '</div>';
+  chartEl.appendChild(row);
+});
+
+/* ── Timeline ──────────────────────────────────────── */
+var expandedIdx = null;
+var timelineEl = document.getElementById('timeline-entries');
+
+function renderTimeline() {
+  timelineEl.innerHTML = '';
+  pensionTimeline.forEach(function(ev, i) {
+    var isOpen = expandedIdx === i;
+    var entry = document.createElement('div');
+    entry.className = 'timeline-entry';
+    entry.innerHTML =
+      '<div class="timeline-period"><span>' + ev.period + '</span></div>' +
+      '<div class="timeline-dot"></div>' +
+      '<div class="timeline-card' + (isOpen ? ' open' : '') + '" data-idx="' + i + '">' +
+        '<div class="timeline-card-title">' + ev.event + '</div>' +
+        '<div class="timeline-detail">' + ev.detail + '</div>' +
+      '</div>';
+    timelineEl.appendChild(entry);
+  });
+
+  timelineEl.querySelectorAll('.timeline-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-idx'), 10);
+      expandedIdx = (expandedIdx === idx) ? null : idx;
+      renderTimeline();
+    });
+  });
+}
+
+renderTimeline();
+</script>
+</body>
+</html>
