@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shadow Fleet &amp; Port-Based Sanctions Evasion — TOT Insights</title>
+<title>Shadow Fleet &amp; Port-Based Cargo Re-registration - TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,7 +19,7 @@ body {
   line-height: 1.6;
 }
 
-/* ─── Page header ────────────────────────────────────────────── */
+/* ─── Page header ──────────────────────────────────────────── */
 .page-header {
   background: #0F1F3D;
   color: #E8E0D0;
@@ -58,7 +58,7 @@ body {
   margin-top: 4px;
 }
 
-/* ─── Citation box ───────────────────────────────────────────── */
+/* ─── Citation box ─────────────────────────────────────────── */
 .citation-box {
   background: rgba(255,255,255,0.02);
   border-left: 2px solid rgba(232,184,75,0.3);
@@ -93,7 +93,7 @@ body {
   display: inline-block;
 }
 
-/* ─── Summary strip ──────────────────────────────────────────── */
+/* ─── Summary strip ────────────────────────────────────────── */
 .summary-strip {
   background: #1A2D4A;
   display: flex;
@@ -113,7 +113,6 @@ body {
   color: #C4964A;
 }
 .summary-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 11px;
   color: #E8E0D0;
   font-weight: 600;
@@ -127,7 +126,7 @@ body {
   margin-top: 2px;
 }
 
-/* ─── Tab bar ────────────────────────────────────────────────── */
+/* ─── Tab bar ──────────────────────────────────────────────── */
 .tab-bar {
   background: #243854;
   display: flex;
@@ -148,20 +147,18 @@ body {
   transition: color 0.15s, border-color 0.15s;
 }
 .tab-btn.active { color: #E8E0D0; border-bottom-color: #C4964A; }
-.tab-btn:hover { color: #E8E0D0; }
+.tab-btn:hover  { color: #E8E0D0; }
 
-/* ─── Content ────────────────────────────────────────────────── */
+/* ─── Content ──────────────────────────────────────────────── */
 .content { padding: 24px 32px 40px; max-width: 1200px; }
 
 .section-title {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: #E8E0D0;
   margin-bottom: 6px;
 }
 .section-desc {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 13px;
   color: #e8eaf0;
   margin-bottom: 16px;
@@ -169,7 +166,7 @@ body {
   max-width: 660px;
 }
 
-/* ─── Type legend ────────────────────────────────────────────── */
+/* ─── Type legend ──────────────────────────────────────────── */
 .type-legend { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
 .type-badge {
   font-family: 'IBM Plex Mono', monospace;
@@ -179,7 +176,7 @@ body {
   border-radius: 3px;
 }
 
-/* ─── Timeline ───────────────────────────────────────────────── */
+/* ─── Timeline ─────────────────────────────────────────────── */
 .timeline-wrap { position: relative; }
 .timeline-line {
   position: absolute;
@@ -215,14 +212,14 @@ body {
 .tl-card {
   flex: 1;
   margin-left: 12px;
-  background: #fff;
+  background: #1a2b42;
   border-radius: 4px;
   padding: 10px 14px;
   cursor: pointer;
   transition: box-shadow 0.15s;
   user-select: none;
 }
-.tl-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.28); }
+.tl-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.45); }
 .tl-card-top {
   display: flex;
   justify-content: space-between;
@@ -230,7 +227,6 @@ body {
   gap: 8px;
 }
 .tl-event-title {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
   flex: 1;
@@ -245,18 +241,17 @@ body {
   white-space: nowrap;
 }
 .chip-navy { background: #0F1F3D; color: #C4964A; }
-.chip-cream { background: #F8F6F1; color: #555; border: 1px solid #DDD; font-weight: 400; }
+.chip-tone { background: #1e2d44; color: #e8eaf0; border: 1px solid #2a3d5a; font-weight: 400; }
 .tl-detail {
   margin-top: 8px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 13px;
-  color: #333;
+  color: #e8eaf0;
   line-height: 1.7;
-  border-top: 1px solid #EEE;
+  border-top: 1px solid rgba(255,255,255,0.10);
   padding-top: 8px;
 }
 
-/* ─── Cargo table ────────────────────────────────────────────── */
+/* ─── Cargo table ──────────────────────────────────────────── */
 .cargo-scroll { overflow-x: auto; }
 .cargo-grid-header {
   display: grid;
@@ -278,30 +273,29 @@ body {
 .cargo-row {
   display: grid;
   grid-template-columns: 1.4fr 1.6fr 1fr 1fr 0.8fr 2fr;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
   min-width: 720px;
 }
-.cargo-row.even { background: #fff; }
-.cargo-row.odd  { background: #F8F6F1; }
+.cargo-row.even { background: #1a2b42; }
+.cargo-row.odd  { background: #142237; }
 .cargo-cell { padding: 10px 12px; font-size: 13px; }
-.cargo-cell:not(:last-child) { border-right: 1px solid #EEE; }
-.cargo-type { font-family: 'IBM Plex Sans', Arial, sans-serif; font-weight: 700; color: #0F1F3D; }
-.cargo-dest { font-family: 'IBM Plex Sans', Arial, sans-serif; color: #333; }
+.cargo-cell:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.07); }
+.cargo-type    { font-weight: 700; color: #E8E0D0; }
+.cargo-dest    { color: #e8eaf0; }
 .cargo-vessels { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: #C4964A; }
-.cargo-tonnage { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #555; }
-.cargo-note { font-family: 'IBM Plex Sans', Arial, sans-serif; font-style: italic; color: #555; font-size: 12px; }
+.cargo-tonnage { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #e8eaf0; }
+.cargo-note    { font-style: italic; color: #e8eaf0; font-size: 12px; }
 .cargo-evasion-cell { display: flex; align-items: center; }
 .evasion-yes { background: #FEF9C3; color: #7C5A00; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
-.evasion-no { color: #AAA; font-size: 12px; }
+.evasion-no  { color: #AAA; font-size: 12px; }
 
-/* ─── Tonnage callout ────────────────────────────────────────── */
+/* ─── Tonnage callout ──────────────────────────────────────── */
 .tonnage-callout {
   margin-top: 20px;
   background: #0F1F3D;
   color: #E8E0D0;
   border-radius: 4px;
   padding: 14px 18px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 13px;
   line-height: 1.8;
 }
@@ -312,21 +306,19 @@ body {
   color: #C4964A;
 }
 
-/* ─── Temryuk nodes ──────────────────────────────────────────── */
+/* ─── Temryuk nodes ────────────────────────────────────────── */
 .temryuk-node {
   border-radius: 6px;
   padding: 16px 20px;
   position: relative;
 }
 .temryuk-node-title {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
 }
 .temryuk-node-desc {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 13px;
-  color: #444;
+  color: #e8eaf0;
   margin-top: 6px;
   line-height: 1.6;
   max-width: 600px;
@@ -338,8 +330,9 @@ body {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   font-weight: 700;
-  color: #7C5A00;
-  background: #FEF9C3;
+  color: #fbbf24;
+  background: rgba(251,191,36,0.12);
+  border: 1px solid rgba(251,191,36,0.35);
   padding: 2px 8px;
   border-radius: 3px;
 }
@@ -349,13 +342,12 @@ body {
   border: 1px solid #F5CBA7;
   border-radius: 4px;
   padding: 12px 16px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
   font-size: 12.5px;
   color: #7D5A1E;
   line-height: 1.7;
 }
 
-/* ─── Footer ─────────────────────────────────────────────────── */
+/* ─── Footer ───────────────────────────────────────────────── */
 .page-footer {
   padding: 12px 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -365,11 +357,11 @@ body {
 }
 
 @media (max-width: 700px) {
-  .content { padding: 20px 16px 32px; }
+  .content     { padding: 20px 16px 32px; }
   .page-header { padding: 12px 16px 16px; }
-  .tab-bar { padding: 0 12px; }
-  .tab-btn { padding: 11px 10px 8px; font-size: 10px; }
-  .citation-box { margin: 0 16px 16px; }
+  .tab-bar     { padding: 0 12px; }
+  .tab-btn     { padding: 11px 10px 8px; font-size: 10px; }
+  .citation-box{ margin: 0 16px 16px; }
   .page-footer { padding: 12px 16px; }
 }
 </style>
@@ -379,14 +371,15 @@ body {
 <div class="page-header">
   <a class="back-link" href="../research.html">&#8592; Back to Research</a>
   <div class="page-eyebrow">TOT Insights · Mariupol · April 2026</div>
-  <div class="page-title">Shadow Fleet &amp; Port-Based Sanctions Evasion</div>
-  <div class="page-subtitle">Vessel numbers · Tonnage · Cargo routing · April 2026</div>
+  <div class="page-title">Shadow Fleet &amp; Port-Based Cargo Re-registration</div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(232,228,220,0.55);padding-top:0.3rem;margin-bottom:0.4rem;">Last updated: April 2026</div>
+  <div class="page-subtitle">Vessel numbers · Tonnage · Cargo routing · Policy audience · April 2026</div>
 </div>
 
 <div class="citation-box">
   <div class="citation-label">Cite this output</div>
-  <div class="citation-text">McGlynn, J. et al. (2026). Shadow Fleet at Mariupol Port: Interactive Visual (v2, with Vessel and Tonnage Data). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20290944" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.20290944</a></div>
-  <button class="citation-copy" onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Shadow Fleet at Mariupol Port: Interactive Visual (v2, with Vessel and Tonnage Data). TOT Insights / King\'s College London. DOI: https://doi.org/10.5281/zenodo.20290944');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)">Copy citation</button>
+  <div class="citation-text">McGlynn, J. et al. (2026). Shadow Fleet at Mariupol Port: Interactive Visual. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20290944" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.20290944</a></div>
+  <button class="citation-copy" onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Shadow Fleet at Mariupol Port: Interactive Visual. TOT Insights / King\'s College London. DOI: https://doi.org/10.5281/zenodo.20290944');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)">Copy citation</button>
 </div>
 
 <div class="summary-strip">
@@ -440,7 +433,7 @@ body {
     <div class="section-desc" style="max-width:none;">All cargo flows documented from Q1 2025 through March 2026.</div>
     <div class="cargo-scroll"><div id="cargo-table"></div></div>
     <div class="tonnage-callout">
-      <span class="callout-label">TONNAGE NOTE &nbsp;·&nbsp; </span>The 8,000t/vessel figure applies to documented bulk cargo (coal, ore, kaolin) under the Autumn 2024 operational model. At 10&#x2013;20 vessels/month this implies a monthly throughput of <strong style="color:#C4964A;">80,000&#x2013;160,000 tonnes</strong>. The Coal Harbor dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling &#x2014; exact post-dredge capacity not yet specified.
+      <span class="callout-label">TONNAGE NOTE &nbsp;&middot;&nbsp; </span>The 8,000t/vessel figure applies to documented bulk cargo (coal, ore, kaolin) under the Autumn 2024 operational model. At 10&#x2013;20 vessels/month this implies a monthly throughput of <strong style="color:#C4964A;">80,000&#x2013;160,000 tonnes</strong>. The Coal Harbor dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling &#x2014; exact post-dredge capacity not yet specified.
     </div>
   </div>
 
@@ -455,10 +448,9 @@ body {
 
 </div>
 
-<div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL</div>
+<div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL</div>
 
 <script>
-/* ── Data ──────────────────────────────────────────────────────── */
 var GOLD  = '#C4964A';
 var NAVY  = '#0F1F3D';
 var RED   = '#7C1F1F';
@@ -477,9 +469,9 @@ var portTimeline = [
   {
     period:  'Nov 2025',
     event:   'Official customs post established',
-    vessels: '—',
-    tonnage: '—',
-    detail:  'RF Government order establishes customs post at Mariupol port for the first time — enabling direct customs clearance without Temryuk intermediary. Agreed by all Kremlin power centres.',
+    vessels: '-',
+    tonnage: '-',
+    detail:  'RF Government order establishes customs post at Mariupol port for the first time - enabling direct customs clearance without Temryuk intermediary. Agreed by all Kremlin power centres.',
     type:    'admin'
   },
   {
@@ -487,7 +479,7 @@ var portTimeline = [
     event:   'First direct customs clearance',
     vessels: '3 vessels',
     tonnage: 'Not specified',
-    detail:  'Three vessels processed: (1) military equipment by rail/road; (2) coking coal to Turkey; (3) wheat to Egypt. First-ever direct customs clearance in Mariupol — significant reduction in cost and transit times. Port frozen mid-January due to ice.',
+    detail:  'Three vessels processed: (1) military equipment by rail/road; (2) coking coal to Turkey; (3) wheat to Egypt. First-ever direct customs clearance in Mariupol - significant reduction in cost and transit times. Port frozen mid-January due to ice.',
     type:    'ops'
   },
   {
@@ -495,7 +487,7 @@ var portTimeline = [
     event:   'Ukrainian strike on fuel storage',
     vessels: '3–4 patrol boats',
     tonnage: 'Military (Border Guard class)',
-    detail:  'Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Night of Feb 21–22: Ukrainian strike reportedly hit newly constructed fuel and lubricants storage.',
+    detail:  'Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Night of Feb 21–22: Ukrainian strike reportedly hit newly constructed fuel and lubricants storage.',
     type:    'strike'
   },
   {
@@ -508,52 +500,58 @@ var portTimeline = [
   },
   {
     period:  'Mar 2026 (tender)',
-    event:   'Coal Harbor dredging: 400,000 m³, >441m rubles',
+    event:   'Coal Harbor dredging: 400,000 m³, >RUB 441 million',
     vessels: 'Enables larger vessels',
     tonnage: '>8,000t/vessel (post-dredge)',
-    detail:  'Tender for dredging Coal Harbor approach channel. ~400,000 cubic metres removed; increases depth for larger vessels. Cost: >441 million rubles. Works: May–October 2026. Signals strategic reorientation toward large-scale export.',
+    detail:  'Tender for dredging Coal Harbor approach channel. ~400,000 cubic metres removed; increases depth for larger vessels. Cost: >RUB 441 million. Works: May–October 2026. Signals strategic reorientation toward large-scale export.',
     type:    'infra'
   }
 ];
 
 var cargoTypes = [
-  { type: 'Grain',                  destination: 'Turkey (via Temryuk)',    vessels: '1',           tonnage: 'Not specified',     evasion: true,  note: 'March 18 — re-registered at Temryuk to obscure occupied-territory origin' },
-  { type: 'Coking coal',            destination: 'Turkey',                  vessels: '2 (Jan 2026)', tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Direct export from Jan 2026 customs post' },
-  { type: 'Wheat',                  destination: 'Egypt',                   vessels: '1 (Jan 2026)', tonnage: 'Not specified',     evasion: false, note: 'Direct export from Jan 2026 customs post' },
-  { type: 'Coal / ore / kaolin',    destination: 'Domestic Russia (relay)', vessels: '10–20/month', tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Autumn 2024–ongoing bulk cargo pipeline' },
-  { type: 'Military equipment',     destination: 'Frontline (rail/road)',   vessels: '1 (Jan 2026)', tonnage: 'Not specified',     evasion: false, note: 'Military logistics alongside commercial cargo' }
+  { type: 'Grain',               destination: 'Turkey (via Temryuk)',    vessels: '1',                tonnage: 'Not specified',      evasion: true,  note: 'March 18 - re-registered at Temryuk to obscure occupied-territory origin' },
+  { type: 'Coking coal',         destination: 'Turkey',                  vessels: '2 (Jan 2026)', tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Direct export from Jan 2026 customs post' },
+  { type: 'Wheat',               destination: 'Egypt',                   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      evasion: false, note: 'Direct export from Jan 2026 customs post' },
+  { type: 'Coal / ore / kaolin', destination: 'Domestic Russia (relay)', vessels: '10–20/month',  tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Autumn 2024–ongoing bulk cargo pipeline' },
+  { type: 'Military equipment',  destination: 'Frontline (rail/road)',   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      evasion: false, note: 'Military logistics alongside commercial cargo' }
 ];
 
 var typeStyle = {
   ops:       { label: 'Operations',        bg: '#DBEAFE', text: SLATE      },
   admin:     { label: 'Admin',             bg: '#F3E8FF', text: '#4B0082'  },
   strike:    { label: 'Strike',            bg: '#FEE2E2', text: RED        },
-  sanctions: { label: 'Sanctions evasion', bg: '#FEF9C3', text: '#7C5A00' },
+  sanctions: { label: 'Suspected sanctions exposure', bg: '#FEF9C3', text: '#7C5A00' },
   infra:     { label: 'Infrastructure',    bg: '#CCFBF1', text: TEAL       }
 };
 
 var temryukNodes = [
   {
     node:  'Mariupol Port',
-    sub:   'Cargo loaded under Russian occupation administration. Origin: occupied Ukrainian territory. Vessel count: 1 (Mar 18 grain shipment); 10–20/month for bulk cargo via relay.',
-    color: NAVY, bg: '#DBEAFE', badge: null
+    sub:   'Cargo loaded under Russian occupation administration. Origin: occupied Ukrainian territory. Vessel count: 1 (Mar 18 grain shipment); 10–20/month for bulk cargo via relay.',
+    color: '#93c5fd',
+    bg:    '#1a3050',
+    badge: null
   },
   {
     node:  'Temryuk Port, Krasnodar Krai (RF)',
-    sub:   'Cargo re-registered as Russian-domestic goods — occupied-territory origin obscured. Temryuk is within Russia proper and outside direct sanctions scrutiny for port-of-origin tracking.',
-    color: '#7C5A00', bg: '#FEF9C3', badge: '⚠ Evasion point'
+    sub:   'Cargo re-registered as Russian-domestic goods - occupied-territory origin obscured. Temryuk is within Russia proper and outside direct sanctions scrutiny for port-of-origin tracking.',
+    color: '#fbbf24',
+    bg:    '#2a2000',
+    badge: '⚠ Evasion point'
   },
   {
     node:  'Turkish Ports',
-    sub:   'Onward shipment. Turkey has not joined Western sanctions regime — effective terminal destination for goods that cannot be openly exported from occupied territory.',
-    color: TEAL, bg: '#CCFBF1', badge: null
+    sub:   'Onward shipment. Turkey has not joined Western sanctions regime - effective terminal destination for goods that cannot be openly exported from occupied territory.',
+    color: '#5eead4',
+    bg:    '#0a2e2a',
+    badge: null
   }
 ];
 
-/* ── State ─────────────────────────────────────────────────────── */
+/* ── State ────────────────────────────────────────────────────── */
 var expandedIdx = null;
 
-/* ── Tab switching ──────────────────────────────────────────────── */
+/* ── Tab switching ────────────────────────────────────────────── */
 function switchTab(i, btn) {
   expandedIdx = null;
   document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -564,7 +562,7 @@ function switchTab(i, btn) {
   if (i === 0) renderTimeline();
 }
 
-/* ── Type legend ────────────────────────────────────────────────── */
+/* ── Type legend ──────────────────────────────────────────────── */
 function buildLegend() {
   var el = document.getElementById('type-legend');
   Object.keys(typeStyle).forEach(function(k) {
@@ -578,7 +576,7 @@ function buildLegend() {
   });
 }
 
-/* ── Timeline ───────────────────────────────────────────────────── */
+/* ── Timeline ─────────────────────────────────────────────────── */
 function renderTimeline() {
   var container = document.getElementById('timeline-entries');
   container.innerHTML = '';
@@ -588,19 +586,17 @@ function renderTimeline() {
     var isOpen = expandedIdx === i;
 
     var chipsHtml = '';
-    if (ev.vessels !== '—') {
+    if (ev.vessels !== '-') {
       chipsHtml += '<span class="chip chip-navy">⛵ ' + ev.vessels + '</span>';
     }
-    if (ev.tonnage !== '—' && ev.tonnage !== 'Not specified') {
-      chipsHtml += '<span class="chip chip-cream">⚖ ' + ev.tonnage + '</span>';
+    if (ev.tonnage !== '-' && ev.tonnage !== 'Not specified') {
+      chipsHtml += '<span class="chip chip-tone">⚖ ' + ev.tonnage + '</span>';
     }
     chipsHtml += '<span class="chip" style="background:' + ts.bg + ';color:' + ts.text + ';font-size:10px;">' + ts.label + '</span>';
 
-    var borderColor = isOpen ? ts.text : '#DDD';
-    var shadowStyle = isOpen ? 'box-shadow:0 2px 10px rgba(0,0,0,0.10);' : '';
-    var detailHtml  = isOpen
-      ? '<div class="tl-detail">' + ev.detail + '</div>'
-      : '';
+    var borderColor = isOpen ? ts.text : 'rgba(255,255,255,0.12)';
+    var shadowStyle = isOpen ? 'box-shadow:0 2px 10px rgba(0,0,0,0.35);' : '';
+    var detailHtml  = isOpen ? '<div class="tl-detail">' + ev.detail + '</div>' : '';
 
     var entry = document.createElement('div');
     entry.className = 'tl-entry';
@@ -627,7 +623,7 @@ function renderTimeline() {
   });
 }
 
-/* ── Cargo table ────────────────────────────────────────────────── */
+/* ── Cargo table ──────────────────────────────────────────────── */
 function buildCargoTable() {
   var headers = ['Cargo type', 'Destination', 'Vessels', 'Tonnage', 'Evasion?', 'Notes'];
   var html = '<div class="cargo-grid-header">';
@@ -653,11 +649,13 @@ function buildCargoTable() {
   document.getElementById('cargo-table').innerHTML = html;
 }
 
-/* ── Temryuk diagram ────────────────────────────────────────────── */
+/* ── Temryuk diagram ──────────────────────────────────────────── */
 function buildTemryuk() {
   var html = '';
   temryukNodes.forEach(function(n, i) {
-    var badgeHtml = n.badge ? '<div class="temryuk-badge">' + n.badge + '</div>' : '';
+    var badgeHtml = n.badge
+      ? '<div class="temryuk-badge">' + n.badge + '</div>'
+      : '';
     html +=
       '<div class="temryuk-node" style="background:' + n.bg + ';border:2px solid ' + n.color + ';">' +
         badgeHtml +
@@ -671,7 +669,7 @@ function buildTemryuk() {
   document.getElementById('temryuk-nodes').innerHTML = html;
 }
 
-/* ── Init ───────────────────────────────────────────────────────── */
+/* ── Init ─────────────────────────────────────────────────────── */
 buildLegend();
 renderTimeline();
 buildCargoTable();

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — TOT Insights</title>
-<meta name="description" content="About TOT Insights — a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London.">
+<title>About - TOT Insights</title>
+<meta name="description" content="About TOT Insights - a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -36,6 +36,16 @@
 .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 .logo-row{display:flex;align-items:center;justify-content:space-evenly;flex-wrap:wrap;gap:24px;padding:32px 0;background:#ffffff;margin-bottom:52px;}
 .logo-pill-dark{display:inline-flex;align-items:center;background:#1a1a2e;border-radius:6px;padding:8px 12px;}
+.about-fieldwork-figure{border-radius:3px;overflow:hidden;margin:0 0 32px;border:1px solid rgba(255,255,255,0.10);}
+.about-fieldwork-figure img{width:100%;display:block;height:220px;object-fit:cover;object-position:center 20%;}
+.about-fieldwork-figure figcaption{font-family:var(--font-source);font-style:italic;font-size:13px;color:var(--text-muted);padding:7px 0 0;}
+.about-sub{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);display:block;margin:28px 0 12px;}
+.about-what-list{list-style:none;padding:0;margin:0 0 4px;}
+.about-what-list li{padding:13px 0;border-top:1px solid rgba(255,255,255,0.07);font-size:16px;line-height:1.75;}
+.about-what-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.07);}
+.about-cover-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:28px;}
+@media(max-width:640px){.about-cover-grid{grid-template-columns:1fr;}}
+.about-cover-item{padding:9px 16px 9px 0;border-top:1px solid rgba(255,255,255,0.07);font-size:15px;line-height:1.65;}
 </style>
 </head>
 <body>
@@ -78,10 +88,36 @@
 
   <div class="section-label">About TOT Insights</div>
   <div class="about-text-block">
-    <p>TOT Insights is a research platform of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, in cooperation with the Leverhulme Centre for Research on Slavery in War, King's College London. It publishes analytical briefings, interactive data tools, datasets, and primary source collections on Russian occupation mechanisms, civilian entrapment, and accountability in Russian-occupied Ukrainian territories.</p>
-    <p>The platform's purpose is to define and develop occupation studies as a field of scholarly inquiry, using the Russian occupation of Ukrainian territories as the primary empirical case. Its work is organised around three core research questions: what is the structure and logic of Russian occupation governance, and how does Russia control civilian populations through legal, economic, identity, and digital mechanisms? How do civilian populations navigate and resist coercive rule under conditions of entrapment, and what forms of agency and circumvention exist? And what are the long-term consequences of this model of occupation — for the territories and their populations, for Ukrainian sovereignty, and for international norms around occupation governance?</p>
-    <p>TOT Insights is a research platform, not an advocacy tool or operational programme. Its outputs are analytical: briefings, dashboards, datasets, and peer-reviewed scholarship. It draws on original fieldwork in Ukraine, occupation administrative records, and open-source monitoring to support researchers, policymakers, and accountability practitioners. The platform is updated on a rolling basis as new research, data, and primary sources become available.</p>
-    <p>We are a collaborative platform and are always open to discussing ways of working together, whether through joint research, data sharing, or other forms of partnership. If you would like to get in touch, please visit our <a href="contact.html" class="about-contact">Contact page</a>.</p>
+    <p>TOT Insights is the central research resource on Russia's occupation of Ukrainian territory. It builds the knowledge base this subject requires and turns it into analysis sound enough for scholars and decision-makers to rely on.</p>
+
+    <figure class="about-fieldwork-figure">
+      <img src="images/photo_2026-04-23_15.00.35.jpeg" alt="A war-damaged residential tower beside a newly built apartment block in occupied Mariupol." loading="lazy">
+      <figcaption>Mariupol, April 2026</figcaption>
+    </figure>
+
+    <span class="about-sub">What we do</span>
+    <ol class="about-what-list">
+      <li><strong>Research and the knowledge base.</strong> We build the knowledge base and produce the research. Original fieldwork in Ukraine, occupation administrative records, and open-source monitoring become analytical briefings, structured datasets, primary-source collections, and peer-reviewed scholarship. The aim is an authoritative foundation that other researchers can build on.</li>
+      <li><strong>Informing policy and practice.</strong> This knowledge reaches the people who act on it. The platform informs policymakers, analysts, and practitioners working on coercion, child deportation, sanctions evasion, and occupation governance.</li>
+      <li><strong>Working in partnership.</strong> We are a collaborative platform. We share data, pursue joint research, and develop tailored analysis with partners working on a particular question or territory.</li>
+    </ol>
+
+    <span class="about-sub">What we cover</span>
+    <div class="about-cover-grid">
+      <div class="about-cover-item"><strong>Stolen children.</strong> The forced removal of Ukrainian children, and the work to return them.</div>
+      <div class="about-cover-item"><strong>Militarised childhoods.</strong> Schooling and youth groups turned into a recruitment pipeline.</div>
+      <div class="about-cover-item"><strong>The shadow fleet.</strong> Vessels and front companies moving cargo past sanctions.</div>
+      <div class="about-cover-item"><strong>Expropriated grain.</strong> The seizure of harvests, farmland, homes, and businesses.</div>
+      <div class="about-cover-item"><strong>China's role.</strong> Chinese and foreign companies operating in the occupied territories.</div>
+      <div class="about-cover-item"><strong>Violent resistance.</strong> Sabotage, partisan attacks, and the armed underground.</div>
+      <div class="about-cover-item"><strong>Occupation governance.</strong> Who administers the territories, and how they are tracked.</div>
+      <div class="about-cover-item"><strong>Russification.</strong> The drive to erase Ukrainian identity and impose another.</div>
+    </div>
+
+    <p>Crimea and Sevastopol, and the occupied and formerly occupied parts of Zaporizhzhia, Kherson, Luhansk, Donetsk, and Kharkiv.</p>
+
+    <p class="about-contact">Correspondence is welcome in English, Ukrainian, or Russian.</p>
+    <p>If you would like to get in touch, please visit our <a href="contact.html" class="about-contact">Contact page</a>.</p>
   </div>
 
   <div class="section-label">Research team</div>
@@ -106,7 +142,7 @@
     <div class="profile-card">
       <!-- Photo placeholder: add <img> here when available -->
       <div class="profile-name">Dr Yelyzaveta Monastyrova</div>
-      <div class="profile-title">Research Fellow — Legal Frameworks</div>
+      <div class="profile-title">Research Fellow - Legal Frameworks</div>
       <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Research Fellow at the Leverhulme Centre for Research on Slavery in War at the University of Nottingham. Leads the platform's work on the legal aspects of the occupation across thematic areas, with focus on forced labour, slavery, forced collaboration and other forms of coercion.</p>
       <a class="profile-link" href="https://orcid.org/0009-0004-7948-6345" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
     </div>
@@ -121,7 +157,7 @@
     <div class="profile-card">
       <!-- Photo placeholder: add <img> here when available -->
       <div class="profile-name">Kimberly Metcalf</div>
-      <div class="profile-title">Research Assistant — TOT Insights Hub</div>
+      <div class="profile-title">Research Assistant - TOT Insights Hub</div>
       <p class="profile-bio">Ph.D. candidate in War Studies at King's College London. Research examines Russian identity production, securitization, and economic predation in Ukraine's temporarily occupied territories, using political anthropological approaches grounded in fieldwork across the former Soviet space and Middle East.</p>
       <p class="profile-bio">Former U.S. Army Special Operations Civil Affairs Officer with two decades of operational experience, including the counter-ISIS problem set (2014–2020), deployment to Kobanî following the liberation of Manbij, and leadership of civilian analytical teams in Erbil and Kyiv. Published in the Texas National Security Review, Small Wars Journal, and War on the Rocks. MA cum laude, European Union and Russian Studies, University of Tartu (2020).</p>
     </div>
@@ -136,15 +172,19 @@
   </div>
 
   <div class="section-label">Institutional Partners</div>
-  <div style="height:60px;background:linear-gradient(to bottom,#111d30,#ffffff);"></div>
-  <div class="logo-row">
-    <img src="assets/logos/kcl-logo.svg" alt="King's College London" style="height:50px;width:auto;">
-    <span class="logo-pill-dark"><img src="assets/logos/csns-logo-white.png" alt="Centre for Statecraft and National Security" style="height:50px;width:auto;"></span>
-    <img src="assets/logos/slavery-in-war-logo.jpg" alt="Leverhulme Centre for Research on Slavery in War" style="height:50px;width:auto;">
-    <img src="assets/logos/curialab-logo.png" alt="Curia Lab" style="height:50px;width:auto;">
-    <img src="" alt="Центр вивчення окупації" data-label="Центр вивчення окупації" style="height:50px;width:auto;display:none;">
-    <img src="assets/logos/isse-logo.png" alt="ISSE" style="height:50px;width:auto;">
-    <img src="assets/logos/ikar-logo.svg" alt="ikar" style="height:50px;width:auto;">
+  <div class="partners-grid">
+    <div class="partner-card">
+      <div class="partner-inst">Institutional partner</div>
+      <div class="partner-name">Centre for Statecraft &amp; National Security, King's College London</div>
+      <p class="partner-role">The research centre at King's College London where the Ukraine and Russia Programme is based.</p>
+      <a class="partner-link" href="https://csns.uk/" target="_blank" rel="noopener noreferrer">csns.uk ↗</a>
+    </div>
+    <div class="partner-card">
+      <div class="partner-inst">Institutional partner</div>
+      <div class="partner-name">Leverhulme Centre for Research on Slavery in War</div>
+      <p class="partner-role">Our partner centre researching coercion, captivity, and exploitation in wartime.</p>
+      <a class="partner-link" href="https://www.slaveryinwar.org/understanding" target="_blank" rel="noopener noreferrer">slaveryinwar.org ↗</a>
+    </div>
   </div>
 
 </div>

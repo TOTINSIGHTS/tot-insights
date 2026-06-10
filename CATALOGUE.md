@@ -156,9 +156,6 @@ CSIS report documenting the evolution of Ukrainian resistance activity in occupi
 **DOC-087 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** *(Report)*
 CSIS report presenting fieldwork and interview-based research on Ukrainian resistance activity in territories subsequently de-occupied. Examines the operational role of resistance in undermining Russia's war effort, documents the personal realities faced by participants, and draws on testimony to assess the costs and achievements of resistance under occupation. Includes policy recommendations for Ukraine and Western supporters.
 
-**DOC-093 — Resistance Incident Map, Occupied Territories and Russian Federation, Dec 2024–Feb 2026** *(Visual)*
-Interactive Leaflet map visualising 387 verified resistance and sabotage incidents from December 2024 to February 2026. Split between occupied Ukrainian territories (246 incidents across Zaporizhzhia, Kherson, Crimea, Donetsk, and Luhansk oblasts) and operations in Russian Federation territory (141 incidents, primarily Bryansk, Kursk, and Belgorod regions). Circle markers scaled proportionally to incident counts. Filterable by territory, incident type, and reporting period.
-
 ---
 
 ### Education and Militarisation

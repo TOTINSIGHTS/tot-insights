@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mariupol Property Seizure Programme — Dashboard</title>
+<title>Mariupol Property Seizure Programme - Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
@@ -56,6 +56,10 @@
   @media print {
     body { background: white; padding: 0; }
     .page { border: none; padding: 20px; }
+    .key-box { background: #f8f9fb; border-left-color: #7a5800; }
+    .key-box-label { color: #7a5800; }
+    .key-item { color: #1a2332; }
+    .key-item strong { color: #7a5800; }
   }
 </style>
 </head>
@@ -78,7 +82,7 @@
   <div class="accent-rule"></div>
 
   <div class="meta-grid">
-    <div class="meta-row"><span>Classification: </span><span>Unclassified — Hub Internal</span></div>
+
     <div class="meta-row"><span>Date: </span><span>April 2026</span></div>
     <div class="meta-row"><span>Data coverage: </span><span>October 2024 – June 2025 (20 snapshots)</span></div>
     <div class="meta-row"><span>Source access: </span><span>Petro Andriushchenko / Mariupol monitoring networks</span></div>
@@ -88,14 +92,14 @@
     <div class="key-box-label">Key findings</div>
     <div class="key-item"><strong>8,526</strong> residential properties registered as ownerless across four Mariupol districts (January 2025 snapshot)</div>
     <div class="key-item"><strong>90.7%</strong> of residential registry classified as exhibiting full signs of бесхозяйность (ownerlessness)</div>
-    <div class="key-item"><strong>2,220</strong> owners successfully reclaimed properties by submitting title documents (November 2024) — a 20.6% reclamation rate</div>
+    <div class="key-item"><strong>2,220</strong> owners successfully reclaimed properties by submitting title documents (November 2024) - a 20.6% reclamation rate</div>
     <div class="key-item"><strong>~460</strong> unique commercial properties in the parallel non-residential seizure registry, tracked across 20 monthly snapshots (Oct 2024 – Jun 2025)</div>
-    <div class="key-item"><strong>Median commercial property: 70 sqm</strong> — predominantly small retail; shops, hairdressers, pharmacies, cafés</div>
+    <div class="key-item"><strong>Median commercial property: 70 sqm</strong> - predominantly small retail; shops, hairdressers, pharmacies, cafés</div>
   </div>
 
   <div class="caveat-box">
     <div class="caveat-label">Methodological notes</div>
-    Address format changes between commercial snapshots (abbreviated vs. full street names) inflate apparent new-entry counts; unique property figures use most-recent-snapshot deduplication. Port City shopping centre (90,000 sqm) is excluded from all area calculations — it is 1,286× the median property size. The residential and commercial registries are separate administrative instruments and are not aggregated.
+    Address format changes between commercial snapshots (abbreviated vs. full street names) inflate apparent new-entry counts; unique property figures use most-recent-snapshot deduplication. Port City shopping centre (90,000 sqm) is excluded from all area calculations - it is 1,286× the median property size. The residential and commercial registries are separate administrative instruments and are not aggregated.
   </div>
 
   <div class="section-head">Summary statistics</div>
@@ -106,10 +110,10 @@
     <div class="metric"><div class="metric-label">Commercial registry</div><div class="metric-value">~460</div><div class="metric-sub">Unique properties per snapshot</div></div>
   </div>
 
-  <div class="section-head">Residential programme — status and district breakdown</div>
+  <div class="section-head">Residential programme - status and district breakdown</div>
   <div class="chart-row-2">
     <div class="chart-block">
-      <div class="chart-label">Status breakdown — Jan 2025</div>
+      <div class="chart-label">Status breakdown - Jan 2025</div>
       <div class="legend">
         <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Ownerless (7,737 / 90.7%)</span>
         <span class="legend-item"><span class="legend-dot" style="background:#185FA5;"></span>Contested (574 / 6.7%)</span>
@@ -125,20 +129,20 @@
     </div>
   </div>
 
-  <div class="section-head">Reclamation — seized vs. reclaimed</div>
+  <div class="section-head">Reclamation - seized vs. reclaimed</div>
   <div class="legend" style="margin-bottom:8px;">
     <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Seized / ownerless (8,526)</span>
     <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Reclaimed by owners (2,220)</span>
   </div>
   <div style="position:relative;width:100%;height:80px;margin-bottom:28px;"><canvas id="c3"></canvas></div>
 
-  <div class="section-head">Commercial programme — registry size over time</div>
+  <div class="section-head">Commercial programme - registry size over time</div>
   <div class="legend" style="margin-bottom:8px;"><span class="legend-item"><span class="legend-dot" style="background:#E8B84B;"></span>Unique properties per snapshot</span></div>
   <div style="position:relative;width:100%;height:200px;margin-bottom:28px;"><canvas id="c4"></canvas></div>
 
   <div class="chart-row-2">
     <div class="chart-block">
-      <div class="chart-label">Top previous uses — commercial seizures</div>
+      <div class="chart-label">Top previous uses - commercial seizures</div>
       <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Unique properties</span></div>
       <div style="position:relative;width:100%;height:360px;"><canvas id="c5"></canvas></div>
     </div>
@@ -153,14 +157,14 @@
   <table class="data-table">
     <thead><tr><th>Property / address</th><th>Area (sqm)</th><th>Previous use</th></tr></thead>
     <tbody>
-      <tr><td>Port City — Володарское шоссе, 2</td><td>90,000</td><td>Shopping centre — EXCLUDED from area stats</td></tr>
-      <tr><td>Гостиница Азовсталь — пр. Победы, 16</td><td>8,386</td><td>Hotel</td></tr>
-      <tr><td>Банк ПУМБ — пр. Ильича, 136</td><td>7,265</td><td>Bank headquarters</td></tr>
-      <tr><td>ДК Искра — пр. Ильича, 143</td><td>5,643</td><td>Cultural centre</td></tr>
-      <tr><td>Мариупольское АТП — ул. Зелинского, 89</td><td>5,100</td><td>Bus transport enterprise</td></tr>
-      <tr><td>Кинотеатр Буревесник — пр. Лунина, 65</td><td>2,708</td><td>Cinema</td></tr>
-      <tr><td>Детский благотворительный центр — ул. Трудовая, 21</td><td>1,300 / 1,260</td><td>Children's charity (two entries)</td></tr>
-      <tr><td>Протестантская церковь — пр. Металлургов, 137А</td><td>839</td><td>Protestant church</td></tr>
+      <tr><td>Port City - Володарское шоссе, 2</td><td>90,000</td><td>Shopping centre - EXCLUDED from area stats</td></tr>
+      <tr><td>Гостиница Азовсталь - пр. Победы, 16</td><td>8,386</td><td>Hotel</td></tr>
+      <tr><td>Банк ПУМБ - пр. Ильича, 136</td><td>7,265</td><td>Bank headquarters</td></tr>
+      <tr><td>ДК Искра - пр. Ильича, 143</td><td>5,643</td><td>Cultural centre</td></tr>
+      <tr><td>Мариупольское АТП - ул. Зелинского, 89</td><td>5,100</td><td>Bus transport enterprise</td></tr>
+      <tr><td>Кинотеатр Буревесник - пр. Лунина, 65</td><td>2,708</td><td>Cinema</td></tr>
+      <tr><td>Детский благотворительный центр - ул. Трудовая, 21</td><td>1,300 / 1,260</td><td>Children's charity (two entries)</td></tr>
+      <tr><td>Протестантская церковь - пр. Металлургов, 137А</td><td>839</td><td>Protestant church</td></tr>
       <tr><td>ATB supermarket locations</td><td>Various</td><td>Ukrainian supermarket chain (58 entries across dataset)</td></tr>
     </tbody>
   </table>
@@ -171,7 +175,7 @@
     <tbody>
       <tr><td>Sobstvenniki_na_13.01.2025_god.xlsx</td><td>Jan 2025</td><td>Residential registry; 8,526 entries across four districts</td></tr>
       <tr><td>22_11_2024_Sobstvenniki_..._dokumenty.xlsx</td><td>Nov 2024</td><td>Reclamation register; 2,220 owners who submitted title documents</td></tr>
-      <tr><td>Postanovlenie_Administratsii_336_ot_20_08_2024.pdf</td><td>Aug 2024</td><td>Decree №336 — operative legal instrument</td></tr>
+      <tr><td>Postanovlenie_Administratsii_336_ot_20_08_2024.pdf</td><td>Aug 2024</td><td>Decree №336 - operative legal instrument</td></tr>
       <tr><td>Publikatsiya series (20 files)</td><td>Oct 2024 – Jun 2025</td><td>Commercial registry snapshots; ~420–660 non-residential properties per snapshot</td></tr>
     </tbody>
   </table>

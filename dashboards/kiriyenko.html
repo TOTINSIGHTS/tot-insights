@@ -3,457 +3,697 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kiriyenko: Russian-occupied Territories — TOT Insights</title>
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
-<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
-<link rel="stylesheet" href="../assets/css/main.css">
-</head>
-<body style="margin:0;padding:0;">
-<a href="../research.html" style="display:block;padding:10px 24px;color:#c9a84c;font-size:13px;font-variant:small-caps;text-decoration:none;font-family:'IBM Plex Mono',monospace;">&#8592; Back to Research</a>
-<div id="root"></div>
-<script type="text/babel">
-const { useState } = React;
-const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, Cell } = Recharts;
+<title>Kiriyenko and Russia's Occupied Territories - TOT Insights</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-
-const NAVY = "#253545";
-const GOLD = "#C9A84C";
-const RED = "#C0392B";
-const LIGHT = "#EAF0F8";
-const GREY = "#888888";
-
-// ── DATA ──────────────────────────────────────────────────────────────────────
-
-const federalTransfers2024 = [
-  { region: "Donetsk (DNR)", rub: 101.8, gbp: 870, color: "#253545" },
-  { region: "Luhansk (LNR)", rub: 70.7, gbp: 600, color: "#2E4D7B" },
-  { region: "Kherson", rub: 26.8, gbp: 230, color: "#C9A84C" },
-  { region: "Zaporizhzhia", rub: 23.7, gbp: 200, color: "#D4A849" },
-];
-
-const educationBudget = [
-  { year: "2022", billion_rub: 11.5 },
-  { year: "2023", billion_rub: 22 },
-  { year: "2024", billion_rub: 45.8 },
-];
-
-const unifiedCustomerProjects = [
-  { region: "Luhansk", total: 1900, completed: 650 },
-  { region: "Donetsk", total: 1200, completed: 620 },
-  { region: "Zaporizhzhia", total: 1000, completed: 720 },
-  { region: "Kherson", total: 900, completed: 630 },
-];
-
-const timeline = [
-  { year: "1998", event: "Prime Minister under Yeltsin (\"Kinder Surprise\")", type: "career" },
-  { year: "2000", event: "Putin appoints Kiriyenko Presidential Envoy, Volga FD", type: "career" },
-  { year: "2005", event: "Head of Rosatom — nuclear industry transformation", type: "career" },
-  { year: "2016", event: "First Deputy Chief of Staff — domestic politics portfolio", type: "career" },
-  { year: "Apr 2022", event: "Appointed Kremlin curator of occupied territories (replaces Kozak)", type: "tot" },
-  { year: "May 2022", event: "Launches regional patronage scheme; tours Mariupol, Donetsk, Luhansk", type: "tot" },
-  { year: "Jun 2022", event: "Opens United Russia office in Kherson; visits Melitopol — referenda preparation begins", type: "tot" },
-  { year: "Sep 2022", event: "Sham referenda (23–27 Sep); formal annexation declared 30 Sep", type: "tot" },
-  { year: "Nov 2022", event: "Passportisation drives; Russian curriculum imposed in schools", type: "russification" },
-  { year: "Sep 2023", event: "First Russian-managed regional elections in occupied territories", type: "elections" },
-  { year: "Nov 2023", event: "Kiriyenko orders 85% passportisation target before 2024 presidential election", type: "russification" },
-  { year: "2024", event: "Patriotic education budget: ₽45.8bn — fourfold increase since 2022", type: "russification" },
-  { year: "Aug 2025", event: "Kozak's departments abolished; Kiriyenko acquires cross-border cooperation remit", type: "power" },
-  { year: "Sep 2025", event: "Ukrainian-language instruction banned in occupied schools", type: "russification" },
-  { year: "Nov 2025", event: "Kiriyenko visits Donetsk with Gerasimov; inaugurates Mius-Front memorial", type: "tot" },
-];
-
-const youthData = [
-  { label: "Movement of the First\nchapters ordered in schools", value: "100%", note: "All occupied schools ordered to establish chapters" },
-  { label: "Children in Yunarmiya\n(Ukrainian govt estimate)", value: "5,000+", note: "Paramilitary training programme" },
-  { label: "Patriotic education\nbudget increase 2022–24", value: "4×", note: "₽45.8bn in 2024" },
-  { label: "Movement of the First\nfunding alone", value: "₽20bn+", note: "Federal budget allocation 2024" },
-];
-
-const powerDomains = [
-  { domain: "Political integration", control: 95, notes: "Full authority: referenda, elections, cadre appointments" },
-  { domain: "Ideological / propaganda", control: 90, notes: "Directs all media, youth, education policy in TOTs" },
-  { domain: "Administrative appointments", control: 85, notes: "Vets and installs occupation governors and premiers" },
-  { domain: "'Reconstruction' oversight", control: 65, notes: "Political oversight; Khusnullin holds economic levers" },
-  { domain: "Security / FSB operations", control: 25, notes: "Coordination only; FSB operates parallel to Kiriyenko" },
-  { domain: "Military decisions", control: 10, notes: "Adapts political calendar to MoD; no command authority" },
-];
-
-// ── TABS ──────────────────────────────────────────────────────────────────────
-const TABS = [
-  { id: "timeline", label: "Career & TOT Timeline" },
-  { id: "budget", label: "Federal Transfers" },
-  { id: "power", label: "Domains of Control" },
-  { id: "reconstruction", label: "Reconstruction" },
-  { id: "youth", label: "Youth & Russification" },
-];
-
-const typeColors = {
-  career: NAVY,
-  tot: "#2980b9",
-  russification: RED,
-  elections: GOLD,
-  power: "#8e44ad",
-};
-
-const typeLabels = {
-  career: "Career milestone",
-  tot: "TOT governance",
-  russification: "Russification",
-  elections: "Managed elections",
-  power: "Power expansion",
-};
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div style={{ background: "white", border: `1px solid ${GOLD}`, padding: "10px 14px", borderRadius: 4, maxWidth: 220, fontSize: 13 }}>
-        <p style={{ fontWeight: 700, color: NAVY, marginBottom: 4 }}>{label}</p>
-        {payload.map((p, i) => (
-          <p key={i} style={{ color: p.color || NAVY, margin: "2px 0" }}>
-            {p.name}: <strong>{p.value}</strong>
-          </p>
-        ))}
-      </div>
-    );
-  }
-  return null;
-};
-
-function App() {
-  const [activeTab, setActiveTab] = useState("timeline");
-  const [filterType, setFilterType] = useState("all");
-
-  const filteredTimeline = filterType === "all"
-    ? timeline
-    : timeline.filter(e => e.type === filterType);
-
-  return (
-    <div style={{ fontFamily: "Georgia, serif", background: "#f7f9fc", minHeight: "100vh", padding: 0 }}>
-      {/* Header */}
-      <div style={{ background: NAVY, color: "white", padding: "28px 36px 20px", borderBottom: `4px solid ${GOLD}` }}>
-        <div style={{ fontSize: 11, color: GOLD, letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>
-          CSNS / KCL War Studies · Analytical Visualisation · April 2026
-        </div>
-        <h1 style={{ margin: 0, fontSize: 26, fontWeight: 700, lineHeight: 1.2 }}>
-          Sergey Kiriyenko and Russian-occupied Territories
-        </h1>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Kiriyenko Report and Visuals. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20272693" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20272693</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Kiriyenko Report and Visuals. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20272693');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
-</div>
-        <p style={{ margin: "8px 0 0", fontSize: 14, color: "#b0c4de", fontStyle: "italic" }}>
-          Architecture of Absorption: Data and Timelines
-        </p>
-      </div>
-
-      {/* Tab bar */}
-      <div style={{ background: "white", borderBottom: `2px solid ${LIGHT}`, display: "flex", overflowX: "auto", padding: "0 24px" }}>
-        {TABS.map(tab => (
-          <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-            style={{
-              background: "none", border: "none", cursor: "pointer",
-              padding: "14px 18px", fontSize: 13.5, fontFamily: "Georgia, serif",
-              color: activeTab === tab.id ? NAVY : GREY,
-              fontWeight: activeTab === tab.id ? 700 : 400,
-              borderBottom: activeTab === tab.id ? `3px solid ${GOLD}` : "3px solid transparent",
-              whiteSpace: "nowrap",
-            }}>
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      <div style={{ padding: "28px 36px", maxWidth: 980, margin: "0 auto" }}>
-
-        {/* ── TIMELINE ─────────────────────────────────────────────────── */}
-        {activeTab === "timeline" && (
-          <div>
-            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Kiriyenko: Career Trajectory and TOT Milestones</h2>
-            <p style={{ color: GREY, fontSize: 13, marginBottom: 20, fontStyle: "italic" }}>
-              From Yeltsin's technocrat to Putin's proconsul in occupied Ukraine
-            </p>
-
-            {/* Filter */}
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
-              {["all", ...Object.keys(typeColors)].map(t => (
-                <button key={t} onClick={() => setFilterType(t)}
-                  style={{
-                    padding: "5px 12px", borderRadius: 20, fontSize: 12, cursor: "pointer",
-                    fontFamily: "Georgia, serif",
-                    background: filterType === t ? (t === "all" ? NAVY : typeColors[t]) : "white",
-                    color: filterType === t ? "white" : GREY,
-                    border: `1px solid ${t === "all" ? NAVY : (typeColors[t] || GREY)}`,
-                    fontWeight: filterType === t ? 700 : 400,
-                  }}>
-                  {t === "all" ? "All" : typeLabels[t]}
-                </button>
-              ))}
-            </div>
-
-            {/* Timeline items */}
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", left: 100, top: 0, bottom: 0, width: 2, background: LIGHT }} />
-              {filteredTimeline.map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "flex-start", marginBottom: 16, position: "relative" }}>
-                  <div style={{ width: 90, textAlign: "right", paddingRight: 16, paddingTop: 2, fontSize: 12, color: GREY, flexShrink: 0, fontWeight: 600 }}>
-                    {item.year}
-                  </div>
-                  <div style={{ position: "absolute", left: 94, top: 6, width: 12, height: 12, borderRadius: "50%", background: typeColors[item.type] || NAVY, border: "2px solid white", boxShadow: "0 0 0 2px " + (typeColors[item.type] || NAVY) }} />
-                  <div style={{ marginLeft: 32, background: "white", border: `1px solid ${LIGHT}`, borderLeft: `3px solid ${typeColors[item.type] || NAVY}`, borderRadius: 4, padding: "8px 14px", flex: 1, fontSize: 13.5 }}>
-                    <span style={{ display: "inline-block", fontSize: 10, color: "white", background: typeColors[item.type] || NAVY, borderRadius: 3, padding: "1px 6px", marginBottom: 4, fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: 0.5 }}>
-                      {typeLabels[item.type]}
-                    </span>
-                    <p style={{ margin: 0, color: "#222" }}>{item.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── FEDERAL TRANSFERS ────────────────────────────────────────── */}
-        {activeTab === "budget" && (
-          <div>
-            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Federal Transfers to Occupied Regions</h2>
-            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
-              Inter-budget transfers by region (Jan–Sep 2024, ₽bn). Total 2023 transfers: ₽483bn. Projected 2025–27 spend: over ₽1 trillion.
-            </p>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 30 }}>
-              {federalTransfers2024.map((d, i) => (
-                <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderTop: `3px solid ${d.color}`, borderRadius: 6, padding: "16px 20px" }}>
-                  <div style={{ fontSize: 12, color: GREY, marginBottom: 4 }}>{d.region}</div>
-                  <div style={{ fontSize: 32, fontWeight: 700, color: d.color }}>₽{d.rub}bn</div>
-                  <div style={{ fontSize: 13, color: GREY, marginTop: 4 }}>≈ £{d.gbp}m (Jan–Sep 2024)</div>
-                </div>
-              ))}
-            </div>
-
-            <ResponsiveContainer width="100%" height={260}>
-              <BarChart data={federalTransfers2024} margin={{ top: 10, right: 20, bottom: 20, left: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
-                <XAxis dataKey="region" tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} />
-                <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "₽ billion", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar dataKey="rub" name="₽ billion" radius={[3, 3, 0, 0]}>
-                  {federalTransfers2024.map((d, i) => <Cell key={i} fill={d.color} />)}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-
-            <div style={{ background: "#fff8e8", border: `1px solid ${GOLD}`, borderRadius: 6, padding: "14px 18px", marginTop: 20, fontSize: 13 }}>
-              <strong style={{ color: NAVY }}>Analytical note:</strong> These figures represent only the publicly visible slice of federal support. The true cost of occupation — including military expenditure, off-budget transfers, and state enterprise subsidies — runs at many multiples of these amounts. The per-capita subsidy rate for these regions exceeds most Russian oblasts, generating domestic political friction that Kiriyenko must manage.
-            </div>
-          </div>
-        )}
-
-        {/* ── DOMAINS OF CONTROL ───────────────────────────────────────── */}
-        {activeTab === "power" && (
-          <div>
-            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Kiriyenko's Domains of Control in the TOT</h2>
-            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
-              Estimated authority index by domain. Power is broad in politics and ideology; bounded by military and security primacy in wartime.
-            </p>
-
-            {powerDomains.map((d, i) => (
-              <div key={i} style={{ marginBottom: 18 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 5 }}>
-                  <span style={{ fontWeight: 700, color: NAVY, fontSize: 14 }}>{d.domain}</span>
-                  <span style={{ color: GREY, fontSize: 13 }}>{d.control}%</span>
-                </div>
-                <div style={{ background: LIGHT, borderRadius: 4, height: 16, overflow: "hidden", marginBottom: 4 }}>
-                  <div style={{
-                    width: `${d.control}%`, height: "100%", borderRadius: 4,
-                    background: d.control > 70 ? NAVY : d.control > 40 ? GOLD : "#ccc",
-                    transition: "width 0.6s ease",
-                  }} />
-                </div>
-                <div style={{ fontSize: 12, color: GREY, fontStyle: "italic" }}>{d.notes}</div>
-              </div>
-            ))}
-
-            <div style={{ marginTop: 30, background: "white", border: `1px solid ${LIGHT}`, borderRadius: 8, padding: "20px 24px" }}>
-              <h3 style={{ color: NAVY, fontSize: 15, marginTop: 0 }}>Key Kremlin Relationships</h3>
-              {[
-                { actor: "Putin", rel: "Trust and efficiency. Kiriyenko delivers political legitimisation for the war. This trust has driven consistent expansion of his remit.", color: NAVY },
-                { actor: "Khusnullin (Deputy PM)", rel: "Partner on reconstruction. Kiriyenko holds political oversight; Khusnullin manages economic integration. They frequently tour TOTs together.", color: "#2980b9" },
-                { actor: "Kozak", rel: "Systematically outmanoeuvred. Two of Kozak's departments were abolished in August 2025 and their functions transferred to Kiriyenko.", color: GOLD },
-                { actor: "FSB / MoD", rel: "Coordination rather than command. Kiriyenko sets the political frame; security services execute coercion. Underlying tensions with Pushilin/FSB networks persist.", color: GREY },
-              ].map((r, i) => (
-                <div key={i} style={{ display: "flex", gap: 14, marginBottom: 12, alignItems: "flex-start" }}>
-                  <div style={{ width: 130, flexShrink: 0, fontWeight: 700, color: r.color, fontSize: 13 }}>{r.actor}</div>
-                  <div style={{ fontSize: 13, color: "#333", lineHeight: 1.5 }}>{r.rel}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── RECONSTRUCTION ───────────────────────────────────────────── */}
-        {activeTab === "reconstruction" && (
-          <div>
-            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>"Reconstruction" Under Kiriyenko's Unified Customer System</h2>
-            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
-              By early 2025: 5,000+ projects across all four regions (est. ₽840bn), 2,600+ completed. Kiriyenko's Presidential Administration holds political oversight of all procurement.
-            </p>
-
-            <ResponsiveContainer width="100%" height={270}>
-              <BarChart data={unifiedCustomerProjects} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
-                <XAxis dataKey="region" tick={{ fontSize: 13, fontFamily: "Georgia, serif", fill: GREY }} />
-                <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "Projects", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
-                <Tooltip content={<CustomTooltip />} />
-                <Legend wrapperStyle={{ fontFamily: "Georgia, serif", fontSize: 13 }} />
-                <Bar dataKey="total" name="Total assigned" fill={NAVY} radius={[3, 3, 0, 0]} />
-                <Bar dataKey="completed" name="Completed" fill={GOLD} radius={[3, 3, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-
-            <div style={{ marginTop: 28 }}>
-              <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 14 }}>Structural Vulnerabilities in the Model</h3>
-              {[
-                {
-                  label: "Showcase vs. substance gap",
-                  desc: "Mariupol's flagship \"Nevsky\" apartment facades began crumbling within months. Sewage infrastructure omitted from rapid builds. Resources shuffled toward propaganda sites at the expense of functional recovery.",
-                  severity: "high",
-                },
-                {
-                  label: "Systemic corruption",
-                  desc: "Standard procurement safeguards suspended. Contracts awarded without competition; no-bid deals; contract notices published same-day or not at all. Timur Ivanov (Deputy Defence Minister) siphoned an estimated ₽17bn before arrest in 2024.",
-                  severity: "high",
-                },
-                {
-                  label: "Donetsk water crisis",
-                  desc: "A confluence of drought, damaged dams, and mine flooding has produced what experts describe as 'administrative collapse' — cities rationing water to a few hours per day. Donetsk schoolchildren filmed appealing directly to Putin.",
-                  severity: "critical",
-                },
-                {
-                  label: "Kherson electricity",
-                  desc: "Thousands subsist without stable electricity as overburdened grids buckle. Each utility failure contradicts the Kremlin narrative of restored normal life.",
-                  severity: "high",
-                },
-              ].map((v, i) => (
-                <div key={i} style={{
-                  background: "white", border: `1px solid ${LIGHT}`,
-                  borderLeft: `4px solid ${v.severity === "critical" ? RED : GOLD}`,
-                  borderRadius: 4, padding: "12px 16px", marginBottom: 12
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-                    <span style={{ fontWeight: 700, color: NAVY, fontSize: 13.5 }}>{v.label}</span>
-                    <span style={{ fontSize: 11, color: v.severity === "critical" ? RED : "#b8860b", background: v.severity === "critical" ? "#fff0ed" : "#fff8e8", padding: "2px 8px", borderRadius: 3 }}>
-                      {v.severity === "critical" ? "Critical" : "High"}
-                    </span>
-                  </div>
-                  <p style={{ margin: 0, fontSize: 13, color: "#444", lineHeight: 1.5 }}>{v.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── YOUTH & RUSSIFICATION ─────────────────────────────────────── */}
-        {activeTab === "youth" && (
-          <div>
-            <h2 style={{ color: NAVY, fontSize: 18, marginBottom: 4 }}>Russification and Youth Militarisation</h2>
-            <p style={{ color: GREY, fontSize: 13, marginBottom: 24, fontStyle: "italic" }}>
-              Kiriyenko directly oversees the "Movement of the First" and described youth as the "primary battleground" in August 2022.
-            </p>
-
-            {/* Patriotic education budget chart */}
-            <div style={{ marginBottom: 28 }}>
-              <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 8 }}>Patriotic Education Budget (Russia-wide, ₽bn)</h3>
-              <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={educationBudget} margin={{ top: 10, right: 20, bottom: 10, left: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke={LIGHT} />
-                  <XAxis dataKey="year" tick={{ fontSize: 13, fontFamily: "Georgia, serif", fill: GREY }} />
-                  <YAxis tick={{ fontSize: 12, fontFamily: "Georgia, serif", fill: GREY }} label={{ value: "₽ billion", angle: -90, position: "insideLeft", offset: 10, fontSize: 12, fill: GREY }} />
-                  <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="billion_rub" name="₽ billion" fill={NAVY} radius={[4, 4, 0, 0]}>
-                    {educationBudget.map((d, i) => <Cell key={i} fill={i === 2 ? RED : NAVY} />)}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-              <p style={{ fontSize: 12, color: GREY, fontStyle: "italic", textAlign: "center" }}>
-                2024 allocation (₽45.8bn) is a fourfold increase from 2022. Over ₽20bn earmarked for the Movement of the First alone.
-              </p>
-            </div>
-
-            {/* Key metrics */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 28 }}>
-              {youthData.map((d, i) => (
-                <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderTop: `3px solid ${i < 2 ? NAVY : RED}`, borderRadius: 6, padding: "16px 18px" }}>
-                  <div style={{ fontSize: 32, fontWeight: 700, color: i < 2 ? NAVY : RED }}>{d.value}</div>
-                  <div style={{ fontSize: 12.5, fontWeight: 600, color: NAVY, marginTop: 4, whiteSpace: "pre-line" }}>{d.label}</div>
-                  <div style={{ fontSize: 12, color: GREY, marginTop: 6, fontStyle: "italic" }}>{d.note}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Russification mechanisms */}
-            <h3 style={{ color: NAVY, fontSize: 15, marginBottom: 14 }}>Russification Mechanisms Under Kiriyenko's Direction</h3>
-            {[
-              {
-                title: "Passportisation",
-                when: "2022–present; 85% target set Nov 2023",
-                detail: "Residents without Russian documents denied employment, healthcare and SIM cards. Kiriyenko personally issued targets to occupation heads, tying the campaign to the 2024 presidential election.",
-                icc: false,
-              },
-              {
-                title: "Language erasure",
-                when: "Effective September 2025",
-                detail: "Ukrainian-language instruction banned in all occupied schools. History curricula rewritten to deny Ukrainian statehood. Teachers who refused compliance replaced with Russian staff.",
-                icc: false,
-              },
-              {
-                title: "Youth deportation and re-education",
-                when: "2022–present",
-                detail: "Ukrainian minors relocated to Russian camps and families under state programmes coordinated by Kiriyenko's Presidential Administration. Kiriyenko has publicly endorsed these as 'humanitarian.' Relevant to ICC definitions of unlawful deportation and re-education of children.",
-                icc: true,
-              },
-              {
-                title: "Soviet nostalgia and memorialisation",
-                when: "2022–present",
-                detail: "Soviet-era victory celebrations amplified; Lenin monuments restored; Mius-Front memorial inaugurated by Kiriyenko (November 2025) embedding current war in WWII patriotic canon.",
-                icc: false,
-              },
-            ].map((m, i) => (
-              <div key={i} style={{ background: "white", border: `1px solid ${LIGHT}`, borderRadius: 6, padding: "14px 18px", marginBottom: 12, position: "relative" }}>
-                {m.icc && (
-                  <div style={{ position: "absolute", top: 12, right: 14, fontSize: 11, color: RED, background: "#fff0ed", padding: "2px 8px", borderRadius: 3, fontWeight: 700 }}>
-                    ICC relevance
-                  </div>
-                )}
-                <div style={{ fontWeight: 700, color: NAVY, fontSize: 14, marginBottom: 2 }}>{m.title}</div>
-                <div style={{ fontSize: 12, color: GOLD, marginBottom: 6, fontStyle: "italic" }}>{m.when}</div>
-                <div style={{ fontSize: 13, color: "#333", lineHeight: 1.5 }}>{m.detail}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-      </div>
-
-      {/* Footer */}
-      <div style={{ background: NAVY, color: "#b0c4de", fontSize: 12, padding: "14px 36px", marginTop: 40, borderTop: `3px solid ${GOLD}` }}>
-        CSNS / KCL War Studies · TOT Insights · April 2026
-      </div>
-    </div>
-  );
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: #111d30;
+  color: #1F3864;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
+/* ── Page header ────────────────────────────────────────── */
+.page-header {
+  background: #1F3864;
+  color: #fff;
+  padding: 14px 36px 20px;
+  border-bottom: 4px solid #C9A84C;
+}
+.back-link {
+  display: inline-block;
+  color: #C9A84C;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-variant: small-caps;
+  text-decoration: none;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.back-link:hover { text-decoration: underline; }
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 6px;
+}
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.header-subtitle {
+  font-size: 14px;
+  color: #b0c4de;
+  font-style: italic;
+}
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+/* ── Tab bar ────────────────────────────────────────────── */
+.tab-bar {
+  background: #fff;
+  border-bottom: 2px solid #EAF0F8;
+  display: flex;
+  overflow-x: auto;
+  padding: 0 24px;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  padding: 13px 18px 10px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #595959;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: 0.02em;
+}
+.tab-btn.active { color: #1F3864; font-weight: 600; border-bottom-color: #C9A84C; }
+.tab-btn:hover  { color: #1F3864; }
+
+/* ── Content wrapper ────────────────────────────────────── */
+.content-outer { padding: 28px 24px 48px; }
+.content-inner {
+  background: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 36px 40px;
+  border-radius: 2px;
+}
+
+/* ── Panels ─────────────────────────────────────────────── */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── Section headings ───────────────────────────────────── */
+.section-h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1F3864;
+  margin-bottom: 4px;
+}
+.section-desc {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  color: #595959;
+  font-style: italic;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+.section-h3 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1F3864;
+  margin-bottom: 12px;
+}
+
+/* ── Timeline filter row ────────────────────────────────── */
+.filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-btn {
+  padding: 5px 13px;
+  border-radius: 20px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #595959;
+  transition: background 0.15s, color 0.15s;
+}
+
+/* ── Timeline ───────────────────────────────────────────── */
+.timeline-wrap { position: relative; }
+.timeline-line {
+  position: absolute; left: 90px; top: 0; bottom: 0;
+  width: 2px; background: #EAF0F8; pointer-events: none;
+}
+.tl-entry { display: flex; align-items: flex-start; margin-bottom: 14px; position: relative; }
+.tl-year {
+  width: 80px; text-align: right; padding-right: 16px; padding-top: 3px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #595959;
+  font-weight: 600; flex-shrink: 0; line-height: 1.4;
+}
+.tl-dot {
+  position: absolute; left: 84px; top: 7px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid #fff; z-index: 1;
+}
+.tl-card {
+  margin-left: 28px; background: #fff;
+  border: 1px solid #EAF0F8; border-radius: 4px;
+  padding: 8px 14px; flex: 1;
+}
+.tl-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px; color: #fff; border-radius: 3px;
+  padding: 2px 6px; text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 4px;
+}
+.tl-event {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px; color: #222; line-height: 1.45; margin: 0;
+}
+
+/* ── Stat cards ─────────────────────────────────────────── */
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+.stat-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 16px 18px; }
+.stat-val { font-family: 'IBM Plex Mono', monospace; font-size: 30px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
+.stat-label { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 12px; font-weight: 600; color: #1F3864; margin-bottom: 4px; }
+.stat-note  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 11px; color: #595959; font-style: italic; }
+
+/* ── Domain bars ────────────────────────────────────────── */
+.domain-row { margin-bottom: 20px; }
+.domain-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.domain-name { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; font-weight: 700; color: #1F3864; }
+.domain-pct  { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #595959; }
+.domain-track { background: #EAF0F8; border-radius: 4px; height: 16px; overflow: hidden; margin-bottom: 4px; }
+.domain-fill  { height: 100%; border-radius: 4px; }
+.domain-notes { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 12px; color: #595959; font-style: italic; }
+
+/* ── Relationships ──────────────────────────────────────── */
+.rel-box { background: #fff; border: 1px solid #EAF0F8; border-radius: 8px; padding: 20px 24px; margin-top: 28px; }
+.rel-row { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
+.rel-actor { width: 140px; flex-shrink: 0; font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; font-weight: 700; line-height: 1.4; }
+.rel-text  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; color: #333; line-height: 1.5; }
+
+/* ── Vulnerability cards ────────────────────────────────── */
+.vuln-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 4px; padding: 12px 16px; margin-bottom: 12px; }
+.vuln-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.vuln-label  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; font-weight: 700; color: #1F3864; }
+.vuln-badge  { font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 3px; }
+.vuln-badge.critical { color: #C0392B; background: #fff0ed; }
+.vuln-badge.high     { color: #7a5500; background: #fff8e8; }
+.vuln-desc { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; color: #444; line-height: 1.5; }
+
+/* ── Mechanism cards ────────────────────────────────────── */
+.mech-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; position: relative; }
+.mech-icc  { position: absolute; top: 12px; right: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 700; color: #C0392B; background: #fff0ed; padding: 2px 8px; border-radius: 3px; }
+.mech-title  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 14px; font-weight: 700; color: #1F3864; margin-bottom: 2px; }
+.mech-when   { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #C9A84C; font-style: italic; margin-bottom: 6px; }
+.mech-detail { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; color: #333; line-height: 1.5; }
+
+/* ── Callout ────────────────────────────────────────────── */
+.callout-box {
+  background: #fff8e8; border: 1px solid #C9A84C; border-radius: 6px;
+  padding: 14px 18px; margin-top: 20px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 13px; line-height: 1.6;
+}
+.callout-box strong { color: #1F3864; }
+.chart-caption { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 12px; color: #595959; font-style: italic; text-align: center; margin-top: 6px; }
+
+/* ── Research integrity ─────────────────────────────────── */
+.integrity-wrap { max-width: 900px; margin: 0 auto; padding: 0 24px 32px; }
+.integrity-inner { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; }
+.integrity-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
+.integrity-link  { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: rgba(232,228,220,0.90); text-decoration: none; }
+.integrity-link:hover { text-decoration: underline; }
+.integrity-note  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
+
+/* ── Footer ─────────────────────────────────────────────── */
+.page-footer {
+  background: #1F3864; color: #b0c4de;
+  font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+  letter-spacing: 0.08em; padding: 14px 36px;
+  border-top: 3px solid #C9A84C;
+}
+
+@media (max-width: 640px) {
+  .content-inner { padding: 20px 18px 32px; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .header-title { font-size: 19px; }
+  .tab-btn { padding: 11px 10px 8px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a class="back-link" href="../research.html">&#8592; Back to Research</a>
+  <div class="header-eyebrow">TOT Insights · CSNS / KCL · April 2026</div>
+  <div class="header-title">Sergey Kiriyenko and Russia's Occupied Territories</div>
+  <div class="header-subtitle">Architecture of Absorption: Data and Timelines · April 2026</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="timeline">Career &amp; TOT Timeline</button>
+  <button class="tab-btn"        data-tab="budget">Federal Transfers</button>
+  <button class="tab-btn"        data-tab="power">Domains of Control</button>
+  <button class="tab-btn"        data-tab="reconstruction">Reconstruction</button>
+  <button class="tab-btn"        data-tab="youth">Youth &amp; Russification</button>
+</div>
+
+<div class="content-outer">
+<div class="content-inner">
+
+  <!-- ── TAB 1: TIMELINE ──────────────────────────────────── -->
+  <div class="panel active" id="panel-timeline">
+    <h2 class="section-h2">Kiriyenko: Career Trajectory and TOT Milestones</h2>
+    <p class="section-desc">From Yeltsin's technocrat to Putin's proconsul in occupied Ukraine</p>
+    <div class="filter-row" id="filter-row"></div>
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div id="timeline-entries"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB 2: FEDERAL TRANSFERS ─────────────────────────── -->
+  <div class="panel" id="panel-budget">
+    <h2 class="section-h2">Federal Transfers to Occupied Regions</h2>
+    <p class="section-desc">Inter-budget transfers by region (Jan–Sep 2024, &#x20BD;bn). Total 2023 transfers: &#x20BD;483bn. Projected 2025&#x2013;27 spend: over &#x20BD;1 trillion.</p>
+    <div class="stat-grid" id="transfer-cards"></div>
+    <canvas id="chart-transfers" height="220"></canvas>
+    <div class="callout-box">
+      <strong>Analytical note:</strong> These figures represent only the publicly visible slice of federal support. The true cost of occupation &#x2014; including military expenditure, off-budget transfers, and state enterprise subsidies &#x2014; runs at many multiples of these amounts. The per-capita subsidy rate for these regions exceeds most Russian oblasts, generating domestic political friction that Kiriyenko must manage.
+    </div>
+  </div>
+
+  <!-- ── TAB 3: DOMAINS OF CONTROL ────────────────────────── -->
+  <div class="panel" id="panel-power">
+    <h2 class="section-h2">Kiriyenko's Domains of Control in the TOT</h2>
+    <p class="section-desc">Estimated authority index by domain. Power is broad in politics and ideology; bounded by military and security primacy in wartime.</p>
+    <div id="domain-bars"></div>
+    <div class="rel-box">
+      <h3 class="section-h3">Key Kremlin Relationships</h3>
+      <div id="relationships"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB 4: RECONSTRUCTION ─────────────────────────────── -->
+  <div class="panel" id="panel-reconstruction">
+    <h2 class="section-h2">"Reconstruction" Under Kiriyenko's Unified Customer System</h2>
+    <p class="section-desc">By early 2025: 5,000+ projects across all four regions (est. &#x20BD;840bn), 2,600+ completed. Kiriyenko's Presidential Administration holds political oversight of all procurement.</p>
+    <canvas id="chart-projects" height="240"></canvas>
+    <div style="margin-top:28px;">
+      <h3 class="section-h3">Structural Vulnerabilities in the Model</h3>
+      <p class="section-desc" style="margin-bottom:16px;">Severity ratings are assigned by TOT Insights analysts on three criteria: scale of documented impact, speed of escalation, and reversibility under a change of administration. <em>Critical</em> denotes active, documented crisis conditions with evidence of harm to populations. <em>High</em> denotes significant structural risk with current evidence of harm or elevated probability of escalation.</p>
+      <div id="vuln-cards"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB 5: YOUTH & RUSSIFICATION ──────────────────────── -->
+  <div class="panel" id="panel-youth">
+    <h2 class="section-h2">Russification and Youth Militarisation</h2>
+    <p class="section-desc">Kiriyenko directly oversees the "Movement of the First" and described youth as the "primary battleground" in August 2022.</p>
+    <h3 class="section-h3">Patriotic Education Budget (Russia-wide, &#x20BD;bn)</h3>
+    <canvas id="chart-education" height="180"></canvas>
+    <p class="chart-caption">2024 allocation (&#x20BD;45.8bn) is a fourfold increase from 2022. Over &#x20BD;20bn earmarked for the Movement of the First alone.</p>
+    <div class="stat-grid" id="youth-cards" style="margin-top:24px;"></div>
+    <h3 class="section-h3" style="margin-top:8px;">Russification Mechanisms Under Kiriyenko's Direction</h3>
+    <div id="mech-cards"></div>
+  </div>
+
+</div>
+</div>
+
+<div class="integrity-wrap">
+  <div class="integrity-inner">
+    <div class="integrity-label">Research integrity</div>
+    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Kiriyenko%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/kiriyenko.html%0A%0AError or correction:%0A%0ASource or evidence:%0A">Flag an error or submit a correction &#8594;</a>
+    <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  </div>
+</div>
+
+<div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL &middot; April 2026</div>
+
+<script>
+var NAVY  = '#1F3864';
+var GOLD  = '#C9A84C';
+var RED   = '#C0392B';
+var GREY  = '#888888';
+var LIGHT = '#EAF0F8';
+
+/* ── DATA ──────────────────────────────────────────────── */
+var federalTransfers = [
+  { region: 'Donetsk (DNR)',  rub: 101.8, gbp: 870, color: '#1F3864' },
+  { region: 'Luhansk (LNR)', rub: 70.7,  gbp: 600, color: '#2E4D7B' },
+  { region: 'Kherson',       rub: 26.8,  gbp: 230, color: '#C9A84C' },
+  { region: 'Zaporizhzhia',  rub: 23.7,  gbp: 200, color: '#D4A849' }
+];
+
+var educationBudget = [
+  { year: '2022', billion_rub: 11.5 },
+  { year: '2023', billion_rub: 22   },
+  { year: '2024', billion_rub: 45.8 }
+];
+
+var unifiedCustomerProjects = [
+  { region: 'Luhansk',      total: 1900, completed: 650 },
+  { region: 'Donetsk',      total: 1200, completed: 620 },
+  { region: 'Zaporizhzhia', total: 1000, completed: 720 },
+  { region: 'Kherson',      total: 900,  completed: 630 }
+];
+
+var timeline = [
+  { year: '1998',     event: 'Prime Minister under Yeltsin ("Kinder Surprise")',                                          type: 'career' },
+  { year: '2000',     event: 'Putin appoints Kiriyenko Presidential Envoy, Volga FD',                                    type: 'career' },
+  { year: '2005',     event: 'Head of Rosatom - nuclear industry transformation',                                   type: 'career' },
+  { year: '2016',     event: 'First Deputy Chief of Staff - domestic politics portfolio',                            type: 'career' },
+  { year: 'Apr 2022', event: 'Appointed Kremlin curator of occupied territories (replaces Kozak)',                        type: 'tot' },
+  { year: 'May 2022', event: 'Launches regional patronage scheme; tours Mariupol, Donetsk, Luhansk',                     type: 'tot' },
+  { year: 'Jun 2022', event: 'Opens United Russia office in Kherson; visits Melitopol - referenda preparation begins', type: 'tot' },
+  { year: 'Sep 2022', event: 'Sham referenda (23–27 Sep); formal annexation declared 30 Sep',                       type: 'tot' },
+  { year: 'Nov 2022', event: 'Passportisation drives; Russian curriculum imposed in schools',                             type: 'russification' },
+  { year: 'Sep 2023', event: 'First Russian-managed regional elections in occupied territories',                          type: 'elections' },
+  { year: 'Nov 2023', event: 'Kiriyenko orders 85% passportisation target before 2024 presidential election',            type: 'russification' },
+  { year: '2024',     event: 'Patriotic education budget: RUB 45.8 billion - fourfold increase since 2022',             type: 'russification' },
+  { year: 'Aug 2025', event: 'Kozak’s departments abolished; Kiriyenko acquires cross-border cooperation remit',    type: 'power' },
+  { year: 'Sep 2025', event: 'Ukrainian-language instruction banned in occupied schools',                                 type: 'russification' },
+  { year: 'Nov 2025', event: 'Kiriyenko visits Donetsk with Gerasimov; inaugurates Mius-Front memorial',                 type: 'tot' }
+];
+
+var typeColors = {
+  career:        NAVY,
+  tot:           '#2980b9',
+  russification: RED,
+  elections:     GOLD,
+  power:         '#8e44ad'
+};
+
+var typeLabels = {
+  career:        'Career milestone',
+  tot:           'TOT governance',
+  russification: 'Russification',
+  elections:     'Managed elections',
+  power:         'Power expansion'
+};
+
+var powerDomains = [
+  { domain: 'Political integration',       control: 95, notes: 'Full authority: referenda, elections, cadre appointments' },
+  { domain: 'Ideological / propaganda',    control: 90, notes: 'Directs all media, youth, education policy in TOTs' },
+  { domain: 'Administrative appointments', control: 85, notes: 'Vets and installs occupation governors and premiers' },
+  { domain: '‘Reconstruction’ oversight', control: 65, notes: 'Political oversight; Khusnullin holds economic levers' },
+  { domain: 'Security / FSB operations',   control: 25, notes: 'Coordination only; FSB operates parallel to Kiriyenko' },
+  { domain: 'Military decisions',          control: 10, notes: 'Adapts political calendar to MoD; no command authority' }
+];
+
+var kremlinRelationships = [
+  { actor: 'Putin',               color: NAVY,     rel: 'Trust and efficiency. Kiriyenko delivers political legitimisation for the war. This trust has driven consistent expansion of his remit.' },
+  { actor: 'Khusnullin (Dep PM)', color: '#2980b9', rel: 'Partner on reconstruction. Kiriyenko holds political oversight; Khusnullin manages economic integration. They frequently tour TOTs together.' },
+  { actor: 'Kozak',               color: GOLD,     rel: 'Systematically outmanoeuvred. Two of Kozak’s departments were abolished in August 2025 and their functions transferred to Kiriyenko.' },
+  { actor: 'FSB / MoD',           color: GREY,     rel: 'Coordination rather than command. Kiriyenko sets the political frame; security services execute coercion. Underlying tensions with Pushilin/FSB networks persist.' }
+];
+
+var vulnCards = [
+  { label: 'Showcase vs. substance gap', severity: 'high',
+    desc: 'Mariupol’s flagship “Nevsky” apartment facades began crumbling within months. Sewage infrastructure omitted from rapid builds. Resources shuffled toward propaganda sites at the expense of functional recovery.' },
+  { label: 'Systemic corruption', severity: 'high',
+    desc: 'Standard procurement safeguards suspended. Contracts awarded without competition; no-bid deals; contract notices published same-day or not at all. Timur Ivanov (Deputy Defence Minister) siphoned an estimated RUB 17 billion before arrest in 2024.' },
+  { label: 'Donetsk water crisis', severity: 'critical',
+    desc: 'A confluence of drought, damaged dams, and mine flooding has produced what experts describe as ‘administrative collapse’ - cities rationing water to a few hours per day. Donetsk schoolchildren filmed appealing directly to Putin.' },
+  { label: 'Kherson electricity', severity: 'high',
+    desc: 'Thousands subsist without stable electricity as overburdened grids buckle. Each utility failure contradicts the Kremlin narrative of restored normal life.' }
+];
+
+var youthMetrics = [
+  { value: '100%',   label: 'Movement of the First\nchapters ordered in schools', note: 'All occupied schools ordered to establish chapters', navy: true },
+  { value: '5,000+', label: 'Children in Yunarmiya\n(Ukrainian govt estimate)',   note: 'Paramilitary training programme',                    navy: true },
+  { value: '4×', label: 'Patriotic education\nbudget increase 2022–24', note: 'RUB 45.8 billion in 2024',                                navy: false },
+  { value: 'RUB 20 billion+', label: 'Movement of the First\nfunding alone',          note: 'Federal budget allocation 2024',                    navy: false }
+];
+
+var mechCards = [
+  { title: 'Passportisation',                  when: '2022–present; 85% target set Nov 2023',
+    detail: 'Residents without Russian documents denied employment, healthcare and SIM cards. Kiriyenko personally issued targets to occupation heads, tying the campaign to the 2024 presidential election.', icc: false },
+  { title: 'Language erasure',                 when: 'Effective September 2025',
+    detail: 'Ukrainian-language instruction banned in all occupied schools. History curricula rewritten to deny Ukrainian statehood. Teachers who refused compliance replaced with Russian staff.', icc: false },
+  { title: 'Youth deportation and re-education', when: '2022–present',
+    detail: 'Ukrainian minors relocated to Russian camps and families under state programmes coordinated by Kiriyenko’s Presidential Administration. Kiriyenko has publicly endorsed these as “humanitarian.” Relevant to ICC definitions of unlawful deportation and re-education of children.', icc: true },
+  { title: 'Soviet nostalgia and memorialisation', when: '2022–present',
+    detail: 'Soviet-era victory celebrations amplified; Lenin monuments restored; Mius-Front memorial inaugurated by Kiriyenko (November 2025) embedding current war in WWII patriotic canon.', icc: false }
+];
+
+/* ── STATE ─────────────────────────────────────────────── */
+var activeFilter = 'all';
+var charts = {};
+
+/* ── TAB SWITCHING ─────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p)  { p.classList.remove('active'); });
+    btn.classList.add('active');
+    var id = btn.getAttribute('data-tab');
+    document.getElementById('panel-' + id).classList.add('active');
+    if (id === 'budget'         && !charts.transfers) buildTransfersChart();
+    if (id === 'reconstruction' && !charts.projects)  buildProjectsChart();
+    if (id === 'youth'          && !charts.education) buildEducationChart();
+  });
+});
+
+/* ── FILTER BUTTONS ────────────────────────────────────── */
+function buildFilters() {
+  var row = document.getElementById('filter-row');
+  ['all'].concat(Object.keys(typeColors)).forEach(function(t) {
+    var btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.textContent = t === 'all' ? 'All' : typeLabels[t];
+    btn.setAttribute('data-type', t);
+    applyFilterStyle(btn, t === activeFilter, t);
+    btn.addEventListener('click', function() {
+      activeFilter = t;
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        applyFilterStyle(b, b.getAttribute('data-type') === t, b.getAttribute('data-type'));
+      });
+      renderTimeline();
+    });
+    row.appendChild(btn);
+  });
+}
+
+function applyFilterStyle(btn, isActive, t) {
+  var col = t === 'all' ? NAVY : (typeColors[t] || NAVY);
+  btn.style.borderColor = col;
+  btn.style.background  = isActive ? col : '#fff';
+  btn.style.color       = isActive ? '#fff' : '#888';
+  btn.style.fontWeight  = isActive ? '600' : '400';
+}
+
+/* ── TIMELINE ──────────────────────────────────────────── */
+function renderTimeline() {
+  var container = document.getElementById('timeline-entries');
+  container.innerHTML = '';
+  var items = activeFilter === 'all' ? timeline : timeline.filter(function(e) { return e.type === activeFilter; });
+  items.forEach(function(item) {
+    var color = typeColors[item.type] || NAVY;
+    var entry = document.createElement('div');
+    entry.className = 'tl-entry';
+    entry.innerHTML =
+      '<div class="tl-year">' + item.year + '</div>' +
+      '<div class="tl-dot" style="background:' + color + ';box-shadow:0 0 0 2px ' + color + ';"></div>' +
+      '<div class="tl-card" style="border-left:3px solid ' + color + ';">' +
+        '<span class="tl-badge" style="background:' + color + ';">' + typeLabels[item.type] + '</span>' +
+        '<p class="tl-event">' + item.event + '</p>' +
+      '</div>';
+    container.appendChild(entry);
+  });
+}
+
+/* ── TRANSFER STAT CARDS ───────────────────────────────── */
+function buildTransferCards() {
+  var grid = document.getElementById('transfer-cards');
+  federalTransfers.forEach(function(d) {
+    var card = document.createElement('div');
+    card.className = 'stat-card';
+    card.style.borderTop = '3px solid ' + d.color;
+    card.innerHTML =
+      '<div class="stat-val" style="color:' + d.color + ';">RUB ' + d.rub + ' billion</div>' +
+      '<div class="stat-label">' + d.region + '</div>' +
+      '<div class="stat-note">≈ £' + d.gbp + 'm (Jan–Sep 2024)</div>';
+    grid.appendChild(card);
+  });
+}
+
+/* ── CHART: FEDERAL TRANSFERS ──────────────────────────── */
+function buildTransfersChart() {
+  var ctx = document.getElementById('chart-transfers').getContext('2d');
+  charts.transfers = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: federalTransfers.map(function(d) { return d.region; }),
+      datasets: [{
+        label: 'RUB billion (Jan–Sep 2024)',
+        data:  federalTransfers.map(function(d) { return d.rub; }),
+        backgroundColor: federalTransfers.map(function(d) { return d.color; }),
+        borderRadius: 3
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(c) { return 'RUB ' + c.parsed.y + ' billion'; } } }
+      },
+      scales: {
+        x: { ticks: { font: { family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid: { color:LIGHT } },
+        y: { ticks: { font: { family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid: { color:LIGHT },
+             title: { display:true, text:'RUB billion', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+      }
+    }
+  });
+}
+
+/* ── DOMAIN BARS ───────────────────────────────────────── */
+function buildDomainBars() {
+  var container = document.getElementById('domain-bars');
+  powerDomains.forEach(function(d) {
+    var fill = d.control > 70 ? NAVY : d.control > 40 ? GOLD : '#ccc';
+    var row = document.createElement('div');
+    row.className = 'domain-row';
+    row.innerHTML =
+      '<div class="domain-header">' +
+        '<span class="domain-name">' + d.domain + '</span>' +
+        '<span class="domain-pct">'  + d.control + '%</span>' +
+      '</div>' +
+      '<div class="domain-track"><div class="domain-fill" style="width:' + d.control + '%;background:' + fill + ';"></div></div>' +
+      '<div class="domain-notes">' + d.notes + '</div>';
+    container.appendChild(row);
+  });
+}
+
+/* ── RELATIONSHIPS ─────────────────────────────────────── */
+function buildRelationships() {
+  var container = document.getElementById('relationships');
+  kremlinRelationships.forEach(function(r) {
+    var row = document.createElement('div');
+    row.className = 'rel-row';
+    row.innerHTML =
+      '<div class="rel-actor" style="color:' + r.color + ';">' + r.actor + '</div>' +
+      '<div class="rel-text">' + r.rel + '</div>';
+    container.appendChild(row);
+  });
+}
+
+/* ── CHART: UNIFIED CUSTOMER PROJECTS ──────────────────── */
+function buildProjectsChart() {
+  var ctx = document.getElementById('chart-projects').getContext('2d');
+  charts.projects = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: unifiedCustomerProjects.map(function(d) { return d.region; }),
+      datasets: [
+        { label:'Total assigned', data: unifiedCustomerProjects.map(function(d){ return d.total; }),     backgroundColor:NAVY, borderRadius:3 },
+        { label:'Completed',      data: unifiedCustomerProjects.map(function(d){ return d.completed; }), backgroundColor:GOLD, borderRadius:3 }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY } },
+        tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y.toLocaleString(); } } }
+      },
+      scales: {
+        x: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
+        y: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
+             title:{ display:true, text:'Projects', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+      }
+    }
+  });
+}
+
+/* ── VULNERABILITY CARDS ───────────────────────────────── */
+function buildVulnCards() {
+  var container = document.getElementById('vuln-cards');
+  vulnCards.forEach(function(v) {
+    var isCrit = v.severity === 'critical';
+    var card = document.createElement('div');
+    card.className = 'vuln-card';
+    card.style.borderLeft = '4px solid ' + (isCrit ? RED : GOLD);
+    card.innerHTML =
+      '<div class="vuln-header">' +
+        '<span class="vuln-label">' + v.label + '</span>' +
+        '<span class="vuln-badge ' + v.severity + '">' + (isCrit ? 'Critical' : 'High') + '</span>' +
+      '</div>' +
+      '<p class="vuln-desc">' + v.desc + '</p>';
+    container.appendChild(card);
+  });
+}
+
+/* ── CHART: EDUCATION BUDGET ───────────────────────────── */
+function buildEducationChart() {
+  var ctx = document.getElementById('chart-education').getContext('2d');
+  charts.education = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: educationBudget.map(function(d) { return d.year; }),
+      datasets: [{
+        label: 'RUB billion',
+        data:  educationBudget.map(function(d) { return d.billion_rub; }),
+        backgroundColor: [NAVY, NAVY, RED],
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(c) { return 'RUB ' + c.parsed.y + ' billion'; } } }
+      },
+      scales: {
+        x: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
+        y: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
+             title:{ display:true, text:'RUB billion', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+      }
+    }
+  });
+}
+
+/* ── YOUTH METRIC CARDS ────────────────────────────────── */
+function buildYouthCards() {
+  var grid = document.getElementById('youth-cards');
+  youthMetrics.forEach(function(d) {
+    var color = d.navy ? NAVY : RED;
+    var card = document.createElement('div');
+    card.className = 'stat-card';
+    card.style.borderTop = '3px solid ' + color;
+    card.innerHTML =
+      '<div class="stat-val" style="color:' + color + ';">' + d.value + '</div>' +
+      '<div class="stat-label">' + d.label.replace(/\n/g,'<br>') + '</div>' +
+      '<div class="stat-note">' + d.note + '</div>';
+    grid.appendChild(card);
+  });
+}
+
+/* ── MECHANISM CARDS ───────────────────────────────────── */
+function buildMechCards() {
+  var container = document.getElementById('mech-cards');
+  mechCards.forEach(function(m) {
+    var card = document.createElement('div');
+    card.className = 'mech-card';
+    var iccHtml = m.icc ? '<div class="mech-icc">ICC relevance</div>' : '';
+    card.innerHTML =
+      iccHtml +
+      '<div class="mech-title">' + m.title + '</div>' +
+      '<div class="mech-when">'  + m.when  + '</div>' +
+      '<div class="mech-detail">'+ m.detail + '</div>';
+    container.appendChild(card);
+  });
+}
+
+/* ── INIT ──────────────────────────────────────────────── */
+buildFilters();
+renderTimeline();
+buildTransferCards();
+buildDomainBars();
+buildRelationships();
+buildVulnCards();
+buildYouthCards();
+buildMechCards();
 </script>
-<div style="padding:0 2rem 1.5rem;">
-<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Kiriyenko%3A%20Russian-occupied%20Territories%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/kiriyenko.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
-</div></div>
 </body>
 </html>

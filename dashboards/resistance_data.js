@@ -1,7 +1,6 @@
 // TOT Insights — Resistance Monitoring Dataset
 // Dec 2024–May 2026 · 464 verified incidents
-// Single shared data source for resistance_analytics.html and resistance_map.html
-// Do not edit data here without updating both dashboards.
+// Data source for resistance_analytics.html
 
 var RDATA = (function () {
 

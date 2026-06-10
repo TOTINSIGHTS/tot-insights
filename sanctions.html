@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanctions Database — TOT Insights</title>
+<title>Sanctions Database - TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -160,19 +160,19 @@ tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
 <div class="stats-strip">
   <div class="stats-inner">
     <div class="stat-card">
-      <div class="stat-val" id="stat-total">—</div>
+      <div class="stat-val" id="stat-total">-</div>
       <div class="stat-lbl">Total entries</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-individuals">—</div>
+      <div class="stat-val" id="stat-individuals">-</div>
       <div class="stat-lbl">Individuals</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-entities">—</div>
+      <div class="stat-val" id="stat-entities">-</div>
       <div class="stat-lbl">Entities &amp; Organisations</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-jurisdictions">—</div>
+      <div class="stat-val" id="stat-jurisdictions">-</div>
       <div class="stat-lbl">Jurisdictions</div>
     </div>
   </div>
@@ -321,12 +321,12 @@ function render() {
     const idx = start + i;
     const pos = truncate(r.Position, 65);
     return `<tr onclick="openDetail(${idx})" ${activeRowIndex === idx ? 'class="active-row"' : ''}>
-      <td>${r.Name || '—'}</td>
+      <td>${r.Name || '-'}</td>
       <td>${typeBadge(r.Type)}</td>
-      <td class="pos-cell" title="${r.Position.replace(/"/g,'&quot;')}">${pos || '—'}</td>
-      <td>${r.Territory || '—'}</td>
-      <td>${r.Jurisdiction || '—'}</td>
-      <td style="white-space:nowrap">${formatDate(r['Date Designated']) || '—'}</td>
+      <td class="pos-cell" title="${r.Position.replace(/"/g,'&quot;')}">${pos || '-'}</td>
+      <td>${r.Territory || '-'}</td>
+      <td>${r.Jurisdiction || '-'}</td>
+      <td style="white-space:nowrap">${formatDate(r['Date Designated']) || '-'}</td>
     </tr>`;
   }).join('');
 
@@ -387,7 +387,7 @@ function openDetail(idx) {
   if (!r) return;
   activeRowIndex = idx;
 
-  document.getElementById('detail-name').textContent = r.Name || '—';
+  document.getElementById('detail-name').textContent = r.Name || '-';
 
   const fields = [
     {label:'Type', key:'Type', render: v => typeBadge(v)},

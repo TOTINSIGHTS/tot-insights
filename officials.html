@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Occupation Officials Database — TOT Insights</title>
+<title>Occupation Officials Database - TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -162,7 +162,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 </div>
     <p class="page-desc">A structured database of individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London, from open sources and primary documentation. The database is updated regularly and is not exhaustive.</p>
     <div class="submit-callout">
-      Have we missed someone? <a href="mailto:totinsights@proton.me?subject=TOT%20Insights%20%E2%80%94%20Officials%20Database%20submission">Let us know</a> — we update this database regularly and welcome corrections and additions.
+      Have we missed someone? <a href="mailto:totinsights@proton.me?subject=TOT%20Insights%20%E2%80%94%20Officials%20Database%20submission">Let us know</a> - we update this database regularly and welcome corrections and additions.
     </div>
   </div>
 </div>
@@ -170,23 +170,23 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 <div class="stats-strip">
   <div class="stats-inner">
     <div class="stat-card">
-      <div class="stat-val" id="stat-total">—</div>
+      <div class="stat-val" id="stat-total">-</div>
       <div class="stat-lbl">Total entries</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-inpost">—</div>
+      <div class="stat-val" id="stat-inpost">-</div>
       <div class="stat-lbl">Currently in post</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-dpr">—</div>
+      <div class="stat-val" id="stat-dpr">-</div>
       <div class="stat-lbl">DPR entries</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-lnr">—</div>
+      <div class="stat-val" id="stat-lnr">-</div>
       <div class="stat-lbl">LNR entries</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" id="stat-crimea">—</div>
+      <div class="stat-val" id="stat-crimea">-</div>
       <div class="stat-lbl">Crimea entries</div>
     </div>
   </div>
@@ -285,8 +285,8 @@ function statusBadge(v) {
 }
 
 function originText(v) {
-  if (!v) return '<span class="origin-other">—</span>';
-  if (v === 'Local collaborator') return `<span class="origin-local">${v}</span>`;
+  if (!v) return '<span class="origin-other">-</span>';
+  if (v === 'Local collaborator') return `<span class="origin-local">Local appointment / occupation-administration role</span>`;
   if (v === 'Russian appointee')  return `<span class="origin-russian">${v}</span>`;
   return `<span class="origin-other">${v}</span>`;
 }
@@ -358,10 +358,10 @@ function render() {
     const role = truncate(r['Role / Position'], 70);
     const active = (activeIdx === idx) ? ' class="row-active"' : '';
     return `<tr${active} onclick="openDetail(${idx})">
-      <td><div class="name-primary">${esc(r['Name (Latin)'] || '—')}</div>${cyrillic}</td>
-      <td class="role-cell" title="${esc(r['Role / Position'])}">${esc(role) || '—'}</td>
-      <td>${esc(r['Territory']) || '—'}</td>
-      <td>${esc(r['Level']) || '—'}</td>
+      <td><div class="name-primary">${esc(r['Name (Latin)'] || '-')}</div>${cyrillic}</td>
+      <td class="role-cell" title="${esc(r['Role / Position'])}">${esc(role) || '-'}</td>
+      <td>${esc(r['Territory']) || '-'}</td>
+      <td>${esc(r['Level']) || '-'}</td>
       <td>${originText(r['Origin'])}</td>
       <td>${statusBadge(r['Still in Post?'])}</td>
     </tr>`;
@@ -425,7 +425,7 @@ function openDetail(idx) {
   if (!r) return;
   activeIdx = idx;
 
-  document.getElementById('dp-name').textContent = r['Name (Latin)'] || '—';
+  document.getElementById('dp-name').textContent = r['Name (Latin)'] || '-';
   document.getElementById('dp-cyrillic').textContent = r['Name (Cyrillic)'] || '';
 
   // Status display label
@@ -538,6 +538,10 @@ fetch('data/officials-data.json')
     populateDropdown('filter-territory', territories);
     populateDropdown('filter-level', levels);
     populateDropdown('filter-origin', origins);
+    // Remap "Local collaborator" display in origin dropdown
+    Array.from(document.getElementById('filter-origin').options).forEach(function(o) {
+      if (o.value === 'Local collaborator') o.textContent = 'Local appointment / occupation-administration role';
+    });
 
     const lm = document.getElementById('loading-msg');
     if (lm) lm.style.display = 'none';

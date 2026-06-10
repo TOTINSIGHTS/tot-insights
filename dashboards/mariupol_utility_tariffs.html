@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Utility Tariff Increases — Occupied Mariupol</title>
+<title>Utility Tariff Increases - Occupied Mariupol</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
@@ -24,7 +24,7 @@
   }
   .subtitle { font-size: 14px; color: #5a5a5a; margin-bottom: 24px; line-height: 1.5; font-style: italic; }
   .legend {
-    display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; font-size: 12px; color: #555;
+    display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; font-size: 13px; color: #555;
   }
   .legend-item { display: flex; align-items: center; gap: 6px; }
   .legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
@@ -34,8 +34,8 @@
     padding: 12px 16px; margin-bottom: 20px; font-size: 13px; color: #2a2a2a; line-height: 1.6;
   }
   .callout strong { font-weight: normal; font-style: italic; color: #c0392b; }
-  .annotation { font-size: 12px; color: #888; border-top: 1px solid #e0ddd8; padding-top: 14px; line-height: 1.6; }
-  .source { font-size: 11px; color: #aaa; margin-top: 16px; letter-spacing: 0.03em; }
+  .annotation { font-size: 13px; color: #888; border-top: 1px solid #e0ddd8; padding-top: 14px; line-height: 1.6; }
+  .source { font-size: 13px; color: #aaa; margin-top: 16px; letter-spacing: 0.03em; }
 </style>
 </head>
 <body>
@@ -46,7 +46,7 @@
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:#1a1a2e;border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a1a2e;margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Utility Tariffs (2023-2025). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308096" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20308096</a></div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:#1a1a2e;line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Utility Tariffs (2023-2025). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308096" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20308096</a></div>
   <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Mariupol Utility Tariffs (2023-2025). TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20308096');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:#1a1a2e;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p class="subtitle">Cumulative percentage increase per service, 2023 baseline to July 2025 tariff schedule</p>
@@ -78,10 +78,10 @@
 <script>
 const services = [
   { label: 'Sewerage',                cat: 'water',  pct: 71.4, v2023: 12.33,  v2025: 21.13 },
-  { label: 'Waste — multi-occupancy', cat: 'waste',  pct: 67.9, v2023: 29.44,  v2025: 49.44 },
+  { label: 'Waste - multi-occupancy', cat: 'waste',  pct: 67.9, v2023: 29.44,  v2025: 49.44 },
   { label: 'Waste collection (m³)',   cat: 'waste',  pct: 66.7, v2023: 205.1,  v2025: 341.92 },
-  { label: 'Waste — residential',     cat: 'waste',  pct: 65.2, v2023: 34.9,   v2025: 57.66 },
-  { label: 'Waste — catering',        cat: 'waste',  pct: 55.9, v2023: 21.78,  v2025: 33.96 },
+  { label: 'Waste - residential',     cat: 'waste',  pct: 65.2, v2023: 34.9,   v2025: 57.66 },
+  { label: 'Waste - catering',        cat: 'waste',  pct: 55.9, v2023: 21.78,  v2025: 33.96 },
   { label: 'Cold water',              cat: 'water',  pct: 52.7, v2023: 27.01,  v2025: 41.24 },
   { label: 'Thermal energy (Gcal)',   cat: 'heat',   pct: 50.2, v2023: 1263.8, v2025: 1897.71 },
   { label: 'Gas',                     cat: 'gas',    pct: 46.2, v2023: 3.25,   v2025: 4.75 },
@@ -191,9 +191,9 @@ new Chart(ctx, {
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Utility%20Tariff%20Increases%20%E2%80%94%20Occupied%20Mariupol&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/mariupol_utility_tariffs.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#555555;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Utility%20Tariff%20Increases%20%E2%80%94%20Occupied%20Mariupol&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/mariupol_utility_tariffs.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:#1a1a2e;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:#555555;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 </body>
 </html>

@@ -3,308 +3,833 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZNPP: Tactical Exploitation Under Occupation — TOT Insights</title>
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<title>ZNPP: Tactical Exploitation Under Occupation - TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
-</head>
-<body style="margin:0;padding:0;">
-<a href="../research.html" style="display:block;padding:10px 24px;color:#c9a84c;font-size:13px;font-variant:small-caps;text-decoration:none;font-family:'IBM Plex Mono',monospace;">&#8592; Back to Research</a>
-<div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);padding:0.5rem 0;margin:0;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Product 6 ZNPP. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20208939" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20208939</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Product 6 ZNPP. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20208939');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
-</div>
-<div id="root"></div>
-<script type="text/babel">
-const { useState } = React;
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-const GOLD = "#C4964A";
-const NAVY = "#0F1F3D";
-const RED = "#8B1A1A";
-const AMBER = "#92400E";
-const TEAL = "#134E4A";
-
-const licenses = [
-  { item: "Radiation sources", date: "Pre-Nov 2025", body: "Rostekhnadzor", status: "granted", color: "#4B5563" },
-  { item: "Spent fuel storage (SNFSF)", date: "Pre-Nov 2025", body: "Rostekhnadzor", status: "granted", color: "#4B5563" },
-  { item: "Unit 1 — 10-year operating licence", date: "Dec 2025", body: "Rostekhnadzor", status: "granted", color: TEAL },
-  { item: "Unit 2 — 10-year operating licence", date: "Feb 18, 2026", body: "Rostekhnadzor", status: "granted", color: TEAL },
-  { item: "Units 3–6", date: "Not yet licensed", body: "Pending", status: "pending", color: "#6B7280" },
-  { item: "Cryptocurrency mining farm launch", date: "Planned 2026", body: "Kiriyenko / Presidential Admin", status: "planned", color: AMBER },
-];
-
-const incidents = [
-  { date: "Sep 23, 2025", event: "Deliberate disconnection as provocation", severity: "high", detail: "Source reporting indicates the September 23 disconnection was deliberate — used as a political provocation rather than an operational accident." },
-  { date: "Nov 8–9, 2025", event: "330kV Ferrosplavna-1 backup line restored", severity: "medium", detail: "Via IAEA-brokered ceasefire pause, Russia restored the 330kV 'Ferrosplavna-1' backup line — the first minimal power supply redundancy since May 2025." },
-  { date: "Nov 14, 2025", event: "750kV Dniprovska line disconnected — single source", severity: "critical", detail: "Protective automation disconnected the main 750kV 'Dniprovska' line. ZNPP again depended on a single power source. IAEA: situation 'critically fragile.'" },
-  { date: "Nov 19, 2025", event: "Dniprovska restored; rolling blackouts begin", severity: "high", detail: "Dniprovska line restored but situation remains fragile. Rolling blackout schedules introduced across occupied region from Nov 19, intensifying from Nov 25." },
-  { date: "Mar 24, 2026", event: "Dniprovska disconnected — artillery damage", severity: "critical", detail: "IAEA reported ZNPP disconnected from 'Dniprovska' power line after damage on Russian-controlled side during artillery activity from positions near the plant toward Ukrainian-controlled territory. Russian forces firing from plant vicinity. Plant supplied via backup 'Ferrosplavna-1'. No radiation change. IAEA called for ceasefire and urgent repairs." },
-];
-
-const sevStyle = {
-  critical: { label: "Critical", bg: "#FEE2E2", text: RED, dot: RED },
-  high:     { label: "High", bg: "#FEF3C7", text: AMBER, dot: AMBER },
-  medium:   { label: "Medium", bg: "#DBEAFE", text: "#1E40AF", dot: "#1E40AF" },
-};
-
-const gridItems = [
-  { period: "Q1 2025", item: "New high-voltage branch — ZNPP to Russian grid", detail: "Construction begins. Completion expected summer 2025. Once operational: industrial-level electricity capacity for Mariupol." },
-  { period: "Feb–May 2025", item: "Distribution node + compressor station constructed", detail: "Section 47°08'55.7\"N 37°18'40.0\"E. Physical infrastructure connecting ZNPP output to Mariupol supply chain." },
-  { period: "Jun 2025", item: "Near-doubling of Mariupol electricity capacity confirmed", detail: "Cumulative effect: new substation 'Horod-12' (2×40 MVA); reconstruction of 'Horod-6' (16→25 MVA); renewal of 'Azovska–Horod-2' line (6km). All enabled by ZNPP integration." },
-  { period: "Nov 2025", item: "New 150kV and 330kV lines included in territorial planning", detail: "Creates an alternative RF power contour for ZNPP — independent of Ukrainian grid infrastructure." },
-  { period: "Mar 2026", item: "New lines: Melitopol → Kamianka-Dniprovska and Yakymivka", detail: "Evidence of technical integration progressing eastward. ZNPP within 120km of proposed manganese extraction zone and within existing 110kV/330kV network serving Berdiansk and Melitopol." },
-];
-
-function App() {
-  const [tab, setTab] = useState(0);
-  const [expanded, setExpanded] = useState(null);
-  const tabs = ["Reactor & Licensing", "Tactical Paradox", "Safety Incidents & Grid"];
-
-  return (
-    <div style={{ fontFamily: "'Georgia', serif", background: "#0C1A0C", minHeight: "100vh", color: "#E8E0D0" }}>
-
-      <div style={{ background: "linear-gradient(135deg, #0C1A0C 0%, #1A2F1A 50%, #0F1F0F 100%)",
-        borderBottom: `3px solid ${GOLD}`, padding: "28px 36px 20px" }}>
-        <div style={{ fontSize: 10, letterSpacing: 4, color: GOLD, fontFamily: "monospace", marginBottom: 6, textTransform: "uppercase" }}>
-          TOT Insights · Zaporizhzhia Nuclear Power Plant · Hub v4
-        </div>
-        <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: 0.3, lineHeight: 1.3, color: "#F0EDE8" }}>
-          ZNPP: Tactical Exploitation Under Occupation
-        </div>
-        <div style={{ fontSize: 13, color: "#6B7280", marginTop: 6 }}>
-          Licensing · Grid integration · Cryptocurrency · Safety incidents · Policy audience · April 2026
-        </div>
-      </div>
-
-      <div style={{ background: "#0A150A", display: "flex", borderBottom: "1px solid #1A2F1A" }}>
-        {[
-          { val: "6", label: "Reactors", sub: "All in cold shutdown" },
-          { val: "2", label: "Units licensed", sub: "Units 1 & 2, Dec 25 – Feb 26" },
-          { val: "0", label: "In RF 2042 energy scheme", sub: "Absent from national plan", red: true },
-          { val: "2×", label: "Mariupol electricity", sub: "Capacity from ZNPP integration" },
-          { val: "4", label: "US-fuel reactors", sub: "Under US-Russia negotiation" },
-          { val: "2026", label: "Crypto launch planned", sub: "Kiriyenko personal project" },
-        ].map((s, i) => (
-          <div key={i} style={{ flex: 1, padding: "14px 16px", borderRight: "1px solid #1A2F1A" }}>
-            <div style={{ fontFamily: "monospace", fontSize: 22, fontWeight: 700, color: s.red ? RED : GOLD }}>{s.val}</div>
-            <div style={{ fontSize: 11, color: "#C8C0B0", fontWeight: 600, marginTop: 2 }}>{s.label}</div>
-            <div style={{ fontSize: 10, color: "#4B5563", marginTop: 2 }}>{s.sub}</div>
-          </div>
-        ))}
-      </div>
-
-      <div style={{ background: "#0A150A", display: "flex", padding: "0 36px", borderBottom: "1px solid #1A2F1A" }}>
-        {tabs.map((t, i) => (
-          <button key={i} onClick={() => { setTab(i); setExpanded(null); }}
-            style={{ background: "none", border: "none", borderBottom: tab === i ? `3px solid ${GOLD}` : "3px solid transparent",
-              color: tab === i ? "#E8E0D0" : "#4B5563", fontFamily: "monospace", fontSize: 11, fontWeight: 700,
-              letterSpacing: 1, padding: "12px 20px 9px", cursor: "pointer", textTransform: "uppercase" }}>
-            {`0${i+1} · ${t}`}
-          </button>
-        ))}
-      </div>
-
-      <div style={{ padding: "28px 36px" }}>
-
-        {tab === 0 && (
-          <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "#E8E0D0", marginBottom: 6 }}>Licensing Trajectory and Reactor Status</div>
-            <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 24, maxWidth: 680, lineHeight: 1.7 }}>
-              Russia is systematically licensing ZNPP components under Rostekhnadzor — the Russian nuclear regulator — in a progression that constitutes de facto legal annexation of the plant. All six reactors remain in cold shutdown. Rosatom-certified personnel in place since autumn 2025.
-            </div>
-
-            <div style={{ marginBottom: 28 }}>
-              <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: GOLD, marginBottom: 12, textTransform: "uppercase" }}>Six reactor units — all cold shutdown</div>
-              <div style={{ display: "flex", gap: 10 }}>
-                {[1,2,3,4,5,6].map(n => (
-                  <div key={n} style={{ flex: 1, background: n <= 2 ? "#1A3A1A" : "#111",
-                    border: `2px solid ${n <= 2 ? TEAL : "#333"}`,
-                    borderRadius: 4, padding: "14px 10px", textAlign: "center" }}>
-                    <div style={{ fontFamily: "monospace", fontSize: 22, fontWeight: 700, color: n <= 2 ? GOLD : "#4B5563" }}>
-                      {n <= 2 ? "⬡" : "○"}
-                    </div>
-                    <div style={{ fontFamily: "monospace", fontSize: 13, fontWeight: 700, color: n <= 2 ? "#E8E0D0" : "#4B5563", marginTop: 4 }}>
-                      Unit {n}
-                    </div>
-                    <div style={{ fontSize: 10, color: n <= 2 ? TEAL : "#333", marginTop: 4, lineHeight: 1.4 }}>
-                      {n <= 2 ? "Licensed (10-year)" : "Not yet licensed"}
-                    </div>
-                    {n <= 2 && (
-                      <div style={{ fontSize: 9, fontFamily: "monospace", color: "#4B5563", marginTop: 6 }}>
-                        {n === 1 ? "Dec 2025" : "Feb 18, 2026"}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div style={{ fontSize: 12, color: "#4B5563", marginTop: 10, fontStyle: "italic" }}>
-                ⬡ = licensed under Rostekhnadzor &nbsp;|&nbsp; ○ = cold shutdown, unlicensed &nbsp;|&nbsp; All 6 units in cold shutdown throughout Nov 2025
-              </div>
-            </div>
-
-            <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: GOLD, marginBottom: 12, textTransform: "uppercase" }}>Licensing progression</div>
-            {licenses.map((l, i) => (
-              <div key={i} style={{ display: "flex", gap: 14, alignItems: "center", marginBottom: 8,
-                background: l.status === "pending" ? "#0A100A" : l.status === "planned" ? "#1A1000" : "#0F1F0F",
-                border: `1px solid ${l.status === "pending" ? "#1A2F1A" : l.status === "planned" ? "#3D2800" : "#1A3A1A"}`,
-                borderLeft: `4px solid ${l.color}`, borderRadius: 4, padding: "10px 14px" }}>
-                <div style={{ fontFamily: "monospace", fontSize: 11, color: l.color, width: 120, flexShrink: 0 }}>{l.date}</div>
-                <div style={{ flex: 1, fontSize: 14, fontWeight: 700, color: l.status === "pending" ? "#4B5563" : "#E8E0D0" }}>{l.item}</div>
-                <div style={{ fontSize: 11, color: "#4B5563", flexShrink: 0 }}>{l.body}</div>
-                <span style={{ fontFamily: "monospace", fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 3, flexShrink: 0,
-                  background: l.status === "granted" ? "#1A3A1A" : l.status === "planned" ? "#3D2800" : "#1A1A1A",
-                  color: l.status === "granted" ? TEAL : l.status === "planned" ? AMBER : "#4B5563" }}>
-                  {l.status === "granted" ? "✓ GRANTED" : l.status === "planned" ? "PLANNED" : "PENDING"}
-                </span>
-              </div>
-            ))}
-
-            <div style={{ marginTop: 20, background: "#0A100A", border: `1px solid #3D2800`, borderLeft: `4px solid ${AMBER}`, borderRadius: 4, padding: "14px 16px", fontSize: 13, color: "#C8C0B0", lineHeight: 1.8 }}>
-              <strong style={{ color: AMBER }}>Key admission:</strong> ZNPP head Chernichuk confirmed to TASS that Rostekhnadzor "directly interferes in plant operation" — and that Russian specialists have been present since the first days of occupation. Rosatom-appointed operating organisation head Galeev corroborated this. The licensing trajectory formalises an operational reality that began in 2022.
-            </div>
-          </div>
-        )}
-
-        {tab === 1 && (
-          <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: "#E8E0D0", marginBottom: 6 }}>The Core Paradox: Licensed but Not Planned</div>
-            <div style={{ fontSize: 13, color: "#6B7280", marginBottom: 24, maxWidth: 700, lineHeight: 1.7 }}>
-              The analytically decisive finding: Russia is issuing 10-year operating licences to ZNPP reactors while simultaneously excluding the plant from its own 25-year national energy plan. This is not an oversight — it signals deliberate tactical exploitation rather than strategic integration.
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 16, marginBottom: 28, alignItems: "center" }}>
-              <div style={{ background: "#1A3A1A", border: `2px solid ${TEAL}`, borderRadius: 6, padding: "20px 18px" }}>
-                <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: TEAL, marginBottom: 8 }}>WHAT RUSSIA IS DOING</div>
-                {["10-year operating licences issued (Units 1 & 2)", "All personnel certified under Rosatom standards", "Rostekhnadzor directly interfering in operations", "Cryptocurrency mining farm planned for 2026", "Grid integration doubling Mariupol electricity capacity", "Reactor restart procurement underway (pumping equipment)"].map((t, i) => (
-                  <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6 }}>
-                    <span style={{ color: TEAL, flexShrink: 0 }}>✓</span>
-                    <span style={{ fontSize: 12.5, color: "#C8C0B0", lineHeight: 1.5 }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 28, color: RED }}>≠</div>
-                <div style={{ fontFamily: "monospace", fontSize: 9, color: "#4B5563", letterSpacing: 1, marginTop: 4 }}>CONTRADICTION</div>
-              </div>
-              <div style={{ background: "#1A0A0A", border: `2px solid ${RED}`, borderRadius: 6, padding: "20px 18px" }}>
-                <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: RED, marginBottom: 8 }}>WHAT RUSSIA IS NOT DOING</div>
-                {["ZNPP absent from RF General Energy Development Scheme 2042", "Not among operating sites (blue markers)", "Not among new/planned sites (green markers)", "Basis: RF Government Order No. 4153-r, 30.12.2024", "No long-term generation planning integration", "No inclusion in national grid capacity projections"].map((t, i) => (
-                  <div key={i} style={{ display: "flex", gap: 8, marginBottom: 6 }}>
-                    <span style={{ color: RED, flexShrink: 0 }}>✕</span>
-                    <span style={{ fontSize: 12.5, color: "#C8C0B0", lineHeight: 1.5 }}>{t}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div style={{ fontFamily: "monospace", fontSize: 10, letterSpacing: 2, color: GOLD, marginBottom: 14, textTransform: "uppercase" }}>Three tactical exploitation tracks</div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 24 }}>
-              {[
-                { title: "Grid extraction", color: TEAL, icon: "⚡", points: ["Near-doubling of Mariupol electricity capacity", "New 150kV and 330kV lines in territorial planning", "Lines under construction Melitopol → Kamianka-Dniprovska", "Industrial-level capacity for Mariupol production facilities"], note: "Immediate operational utility, not long-term grid planning" },
-                { title: "Cryptocurrency mining", color: AMBER, icon: "₿", points: ["Project developed 2022–2025 under Kiriyenko's personal supervision", "Launch planned 2026 once licenses obtained", "Confirmed by ZNPP head Chernichuk to TASS", "ZNPP as energy source for mining farm"], note: "Opportunistic resource extraction — not an energy policy" },
-                { title: "US fuel reactor diplomacy", color: "#6B3A8B", icon: "🇺🇸", points: ["4 of 6 reactors use American fuel", "Russia negotiating with US over control of these 4 reactors", "Seeking tacit US consent for annexation of ZNPP generation", "Connected to broader US peace proposal discussions"], note: "Diplomatic lever, not operational energy planning" },
-              ].map((track, i) => (
-                <div key={i} style={{ background: "#0F1F0F", border: `1.5px solid ${track.color}22`, borderTop: `3px solid ${track.color}`, borderRadius: 4, padding: "16px 14px" }}>
-                  <div style={{ fontSize: 20, marginBottom: 8 }}>{track.icon}</div>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: track.color, marginBottom: 12 }}>{track.title}</div>
-                  {track.points.map((p, j) => (
-                    <div key={j} style={{ display: "flex", gap: 6, marginBottom: 5 }}>
-                      <span style={{ color: track.color, flexShrink: 0, fontSize: 12 }}>›</span>
-                      <span style={{ fontSize: 12, color: "#9CA3AF", lineHeight: 1.5 }}>{p}</span>
-                    </div>
-                  ))}
-                  <div style={{ marginTop: 10, paddingTop: 10, borderTop: `1px solid ${track.color}33`, fontSize: 11, color: track.color, fontStyle: "italic" }}>{track.note}</div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ background: "#0A0A14", border: `1px solid #2A2A4A`, borderLeft: `4px solid ${GOLD}`, borderRadius: 4, padding: "14px 18px", fontSize: 13, color: "#C8C0B0", lineHeight: 1.8 }}>
-              <strong style={{ color: GOLD }}>Analytical assessment:</strong> Russia is using ZNPP as a short-term resource extraction platform — for electricity, cryptocurrency revenue, and diplomatic leverage — without committing to its long-term integration into national energy infrastructure. The absence from the 2042 scheme may also reflect Russia's own uncertainty about whether it will retain the plant under any future settlement.
-            </div>
-          </div>
-        )}
-
-        {tab === 2 && (
-          <div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#E8E0D0", marginBottom: 6 }}>Safety Incidents</div>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 16, lineHeight: 1.6 }}>
-                  All six units in cold shutdown throughout this period. Power supply to the plant — for cooling and safety systems — remains the primary risk vector.
-                </div>
-                <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
-                  {Object.entries(sevStyle).map(([k, v]) => (
-                    <span key={k} style={{ background: "#0A0A0A", color: v.text, border: `1px solid ${v.dot}`, fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 3, fontFamily: "monospace" }}>{v.label}</span>
-                  ))}
-                </div>
-                {incidents.map((inc, i) => {
-                  const ss = sevStyle[inc.severity];
-                  return (
-                    <div key={i} onClick={() => setExpanded(expanded === i ? null : i)}
-                      style={{ background: "#0A100A", border: `1px solid #1A2F1A`, borderLeft: `4px solid ${ss.dot}`,
-                        borderRadius: 4, padding: "10px 14px", marginBottom: 8, cursor: "pointer",
-                        boxShadow: expanded === i ? `0 0 12px ${ss.dot}33` : "none" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
-                        <div>
-                          <div style={{ fontFamily: "monospace", fontSize: 10, color: "#4B5563", marginBottom: 3 }}>{inc.date}</div>
-                          <div style={{ fontSize: 13, fontWeight: 700, color: "#E8E0D0" }}>{inc.event}</div>
-                        </div>
-                        <span style={{ background: "#0A0A0A", color: ss.text, border: `1px solid ${ss.dot}`, fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 3, fontFamily: "monospace", flexShrink: 0 }}>{ss.label}</span>
-                      </div>
-                      {expanded === i && (
-                        <div style={{ marginTop: 10, fontSize: 12.5, color: "#9CA3AF", lineHeight: 1.7, borderTop: "1px solid #1A2F1A", paddingTop: 8 }}>{inc.detail}</div>
-                      )}
-                    </div>
-                  );
-                })}
-                <div style={{ marginTop: 12, background: "#1A0A0A", border: `1px solid ${RED}33`, borderRadius: 4, padding: "10px 14px", fontSize: 12, color: "#9CA3AF", lineHeight: 1.7 }}>
-                  <strong style={{ color: RED }}>Critical pattern:</strong> Russian forces are firing from positions near the plant toward Ukrainian-controlled territory — placing the plant in direct proximity to active hostilities originating on the Russian-controlled side.
-                </div>
-              </div>
-
-              <div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#E8E0D0", marginBottom: 6 }}>Grid Integration Timeline</div>
-                <div style={{ fontSize: 12, color: "#6B7280", marginBottom: 16, lineHeight: 1.6 }}>
-                  Construction of new transmission infrastructure to connect ZNPP output to the Russian electricity supply system — independent of the Ukrainian grid.
-                </div>
-                {gridItems.map((g, i) => (
-                  <div key={i} style={{ display: "flex", gap: 12, marginBottom: 10, background: "#0F1F0F",
-                    border: "1px solid #1A3A1A", borderLeft: `4px solid ${TEAL}`, borderRadius: 4, padding: "10px 14px" }}>
-                    <div style={{ flexShrink: 0 }}>
-                      <div style={{ fontFamily: "monospace", fontSize: 10, color: TEAL, whiteSpace: "nowrap" }}>{g.period}</div>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: 13, fontWeight: 700, color: "#E8E0D0", marginBottom: 4 }}>{g.item}</div>
-                      <div style={{ fontSize: 12, color: "#6B7280", lineHeight: 1.6 }}>{g.detail}</div>
-                    </div>
-                  </div>
-                ))}
-                <div style={{ marginTop: 12, background: "#0A100A", border: `1px solid ${TEAL}33`, borderRadius: 4, padding: "10px 14px", fontSize: 12, color: "#9CA3AF", lineHeight: 1.7 }}>
-                  <strong style={{ color: TEAL }}>Cumulative effect:</strong> Near-doubling of Mariupol electricity capacity. ZNPP lies within 120km of the proposed manganese extraction zone and within the existing 110kV/330kV network serving Berdiansk and Melitopol.
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div style={{ padding: "14px 36px", borderTop: "1px solid #1A2F1A", fontSize: 11, color: "#374151", fontFamily: "monospace" }}>
-        TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME, CSNS / KCL
-      </div>
-    </div>
-  );
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: #0C1A0C;
+  color: #E8E0D0;
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+/* ── Page header ─────────────────────────────────────────── */
+.page-header {
+  background: linear-gradient(135deg, #0C1A0C 0%, #1A2F1A 50%, #0F1F0F 100%);
+  border-bottom: 3px solid #C4964A;
+  padding: 14px 36px 20px;
+}
+.back-link {
+  display: inline-block;
+  color: #C4964A;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-variant: small-caps;
+  text-decoration: none;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.back-link:hover { text-decoration: underline; }
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 6px;
+}
+.header-title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+  color: #F0EDE8;
+  margin-bottom: 6px;
+}
+.header-subtitle {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+}
+
+/* ── Summary strip ──────────────────────────────────────── */
+.summary-strip {
+  background: #0A150A;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1A2F1A;
+}
+.summary-item {
+  flex: 1;
+  padding: 14px 16px;
+  border-right: 1px solid #1A2F1A;
+  min-width: 100px;
+}
+.summary-item:last-child { border-right: none; }
+.summary-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #C4964A;
+  line-height: 1.1;
+}
+.summary-val.red { color: #8B1A1A; }
+.summary-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 11px;
+  color: #C8C0B0;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.summary-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #4B5563;
+  margin-top: 2px;
+}
+
+/* ── Tab bar ────────────────────────────────────────────── */
+.tab-bar {
+  background: #0A150A;
+  display: flex;
+  padding: 0 36px;
+  border-bottom: 1px solid #1A2F1A;
+  overflow-x: auto;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #4B5563;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 20px 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.tab-btn.active { color: #E8E0D0; border-bottom-color: #C4964A; }
+.tab-btn:hover  { color: #C8C0B0; }
+
+/* ── Content area ───────────────────────────────────────── */
+.content { padding: 28px 36px 48px; max-width: 1100px; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── Section headings ───────────────────────────────────── */
+.section-h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #E8E0D0;
+  margin-bottom: 6px;
+}
+.section-desc {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  color: #6B7280;
+  margin-bottom: 24px;
+  max-width: 680px;
+  line-height: 1.7;
+}
+.mono-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #C4964A;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ── Reactor grid ───────────────────────────────────────── */
+.reactor-grid {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.reactor-unit {
+  flex: 1;
+  border-radius: 4px;
+  padding: 14px 10px;
+  text-align: center;
+  border: 2px solid #333;
+  background: #111;
+}
+.reactor-unit.licensed {
+  background: #1A3A1A;
+  border-color: #134E4A;
+}
+.reactor-symbol {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4B5563;
+  line-height: 1;
+}
+.reactor-unit.licensed .reactor-symbol { color: #C4964A; }
+.reactor-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4B5563;
+  margin-top: 4px;
+}
+.reactor-unit.licensed .reactor-name { color: #E8E0D0; }
+.reactor-status {
+  font-size: 10px;
+  color: #333;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.reactor-unit.licensed .reactor-status { color: #134E4A; }
+.reactor-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: #4B5563;
+  margin-top: 6px;
+}
+.reactor-legend {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: #4B5563;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+/* ── Licensing rows ─────────────────────────────────────── */
+.lic-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.lic-row.granted { background: #0F1F0F; border: 1px solid #1A3A1A; }
+.lic-row.pending { background: #0A100A; border: 1px solid #1A2F1A; }
+.lic-row.planned { background: #1A1000; border: 1px solid #3D2800; }
+.lic-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  width: 120px;
+  flex-shrink: 0;
+}
+.lic-item {
+  flex: 1;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #E8E0D0;
+}
+.lic-item.pending { color: #4B5563; }
+.lic-body {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 11px;
+  color: #4B5563;
+  flex-shrink: 0;
+  min-width: 160px;
+  text-align: right;
+}
+.lic-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.lic-badge.granted { background: #1A3A1A; color: #134E4A; }
+.lic-badge.pending { background: #1A1A1A; color: #4B5563; }
+.lic-badge.planned { background: #3D2800; color: #92400E; }
+
+/* ── Callout boxes ──────────────────────────────────────── */
+.callout {
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+.callout.amber { background: #0A100A; border: 1px solid #3D2800; border-left: 4px solid #92400E; color: #C8C0B0; }
+.callout.gold  { background: #0A0A14; border: 1px solid #2A2A4A; border-left: 4px solid #C4964A; color: #C8C0B0; }
+.callout.red   { background: #1A0A0A; border: 1px solid rgba(139,26,26,0.2); border-radius: 4px; color: #9CA3AF; }
+.callout.teal  { background: #0A100A; border: 1px solid rgba(19,78,74,0.2); border-radius: 4px; color: #9CA3AF; }
+.callout strong.amber { color: #92400E; }
+.callout strong.gold  { color: #C4964A; }
+.callout strong.red   { color: #8B1A1A; }
+.callout strong.teal  { color: #134E4A; }
+
+/* ── Paradox two-column ─────────────────────────────────── */
+.paradox-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: center;
+}
+.paradox-box {
+  border-radius: 6px;
+  padding: 20px 18px;
+}
+.paradox-box.doing    { background: #1A3A1A; border: 2px solid #134E4A; }
+.paradox-box.not-doing{ background: #1A0A0A; border: 2px solid #8B1A1A; }
+.paradox-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.paradox-label.teal { color: #134E4A; }
+.paradox-label.red  { color: #8B1A1A; }
+.paradox-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+.paradox-item span.tick { color: #134E4A; flex-shrink: 0; }
+.paradox-item span.cross{ color: #8B1A1A; flex-shrink: 0; }
+.paradox-item span.text { font-size: 12.5px; color: #C8C0B0; line-height: 1.5; }
+.paradox-divider { text-align: center; }
+.paradox-neq { font-size: 28px; color: #8B1A1A; line-height: 1; }
+.paradox-neq-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: #4B5563; letter-spacing: 1px; margin-top: 4px; }
+
+/* ── Exploitation tracks ─────────────────────────────────── */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.track-card {
+  background: #0F1F0F;
+  border-radius: 4px;
+  padding: 16px 14px;
+}
+.track-icon  { font-size: 20px; margin-bottom: 8px; }
+.track-title { font-family: 'EB Garamond', Georgia, serif; font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+.track-point {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 5px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+}
+.track-point .arrow { font-size: 12px; flex-shrink: 0; }
+.track-point .text  { font-size: 12px; color: #9CA3AF; line-height: 1.5; }
+.track-note {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ── Safety / Grid two-column ───────────────────────────── */
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.col-h3 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #E8E0D0;
+  margin-bottom: 6px;
+}
+.col-desc {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: #6B7280;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.sev-legend { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.sev-chip {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: #0A0A0A;
+}
+
+/* ── Incident cards ─────────────────────────────────────── */
+.incident-card {
+  background: #0A100A;
+  border: 1px solid #1A2F1A;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.incident-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.incident-date  { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #4B5563; margin-bottom: 3px; }
+.incident-event { font-family: 'EB Garamond', Georgia, serif; font-size: 13px; font-weight: 700; color: #E8E0D0; }
+.incident-detail {
+  margin-top: 10px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12.5px;
+  color: #9CA3AF;
+  line-height: 1.7;
+  border-top: 1px solid #1A2F1A;
+  padding-top: 8px;
+  display: none;
+}
+.incident-detail.open { display: block; }
+.sev-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  background: #0A0A0A;
+}
+
+/* ── Grid timeline entries ──────────────────────────────── */
+.grid-entry {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  background: #0F1F0F;
+  border: 1px solid #1A3A1A;
+  border-left: 4px solid #134E4A;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.grid-period {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #134E4A;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 80px;
+  padding-top: 2px;
+}
+.grid-item   { font-family: 'EB Garamond', Georgia, serif; font-size: 13px; font-weight: 700; color: #E8E0D0; margin-bottom: 4px; }
+.grid-detail { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 12px; color: #6B7280; line-height: 1.6; }
+
+/* ── Footer ─────────────────────────────────────────────── */
+.page-footer {
+  padding: 14px 36px;
+  border-top: 1px solid #1A2F1A;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #374151;
+  letter-spacing: 0.06em;
+}
+
+/* ── Research integrity ─────────────────────────────────── */
+.integrity-wrap  { padding: 0 36px 32px; }
+.integrity-inner { border-top: 1px solid #1A2F1A; padding-top: 1.25rem; margin-top: 0; }
+.integrity-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
+.integrity-link  { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: rgba(232,228,220,0.90); text-decoration: none; }
+.integrity-link:hover { text-decoration: underline; }
+.integrity-note  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
+
+@media (max-width: 760px) {
+  .content       { padding: 20px 18px 40px; }
+  .page-header   { padding: 12px 18px 16px; }
+  .tab-bar       { padding: 0 12px; }
+  .tab-btn       { padding: 10px 10px 8px; font-size: 10px; }
+  .paradox-grid  { grid-template-columns: 1fr; }
+  .paradox-divider { display: none; }
+  .tracks-grid   { grid-template-columns: 1fr; }
+  .safety-grid   { grid-template-columns: 1fr; }
+  .reactor-grid  { flex-wrap: wrap; }
+  .reactor-unit  { min-width: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── PAGE HEADER ────────────────────────────────────────── -->
+<div class="page-header">
+  <a class="back-link" href="../research.html">&#8592; Back to Research</a>
+  <div class="header-eyebrow">TOT Insights &nbsp;·&nbsp; Zaporizhzhia Nuclear Power Plant</div>
+  <div class="header-title">ZNPP: Tactical Exploitation Under Occupation</div>
+  <div class="header-subtitle">Licensing &nbsp;·&nbsp; Grid integration &nbsp;·&nbsp; Cryptocurrency &nbsp;·&nbsp; Safety incidents &nbsp;·&nbsp; Policy audience &nbsp;·&nbsp; April 2026</div>
+</div>
+
+<!-- ── SUMMARY STRIP ──────────────────────────────────────── -->
+<div class="summary-strip">
+  <div class="summary-item">
+    <div class="summary-val">6</div>
+    <div class="summary-label">Reactors</div>
+    <div class="summary-sub">All in cold shutdown</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-val">2</div>
+    <div class="summary-label">Units licensed</div>
+    <div class="summary-sub">Units 1 &amp; 2, Dec 25 – Feb 26</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-val red">0</div>
+    <div class="summary-label">In RF 2042 energy scheme</div>
+    <div class="summary-sub">Absent from national plan</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-val">2&#x00D7;</div>
+    <div class="summary-label">Mariupol electricity</div>
+    <div class="summary-sub">Capacity from ZNPP integration</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-val">4</div>
+    <div class="summary-label">US-fuel reactors</div>
+    <div class="summary-sub">Under US-Russia negotiation</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-val">2026</div>
+    <div class="summary-label">Crypto launch planned</div>
+    <div class="summary-sub">Kiriyenko personal project</div>
+  </div>
+</div>
+
+<!-- ── TAB BAR ────────────────────────────────────────────── -->
+<div class="tab-bar">
+  <button class="tab-btn active" data-tab="licensing">01 &nbsp;·&nbsp; Reactor &amp; Licensing</button>
+  <button class="tab-btn"        data-tab="paradox">02 &nbsp;·&nbsp; Tactical Paradox</button>
+  <button class="tab-btn"        data-tab="safety">03 &nbsp;·&nbsp; Safety Incidents &amp; Grid</button>
+</div>
+
+<!-- ── CONTENT ────────────────────────────────────────────── -->
+<div class="content">
+
+  <!-- ── TAB 1: REACTOR & LICENSING ──────────────────────── -->
+  <div class="panel active" id="panel-licensing">
+    <h2 class="section-h2">Licensing Trajectory and Reactor Status</h2>
+    <p class="section-desc">Russia is systematically licensing ZNPP components under Rostekhnadzor - the Russian nuclear regulator - in a progression that constitutes de facto legal annexation of the plant. All six reactors remain in cold shutdown. Rosatom-certified personnel in place since autumn 2025.</p>
+
+    <!-- Reactor grid -->
+    <div class="mono-label">Six reactor units - all cold shutdown</div>
+    <div class="reactor-grid" id="reactor-grid"></div>
+    <div class="reactor-legend">&#x2B21; = licensed under Rostekhnadzor &nbsp;|&nbsp; &#x25CB; = cold shutdown, unlicensed &nbsp;|&nbsp; All 6 units in cold shutdown throughout Nov 2025</div>
+
+    <!-- Licensing progression -->
+    <div class="mono-label">Licensing progression</div>
+    <div id="licensing-rows"></div>
+
+    <div class="callout amber">
+      <strong class="amber">Key admission:</strong> ZNPP head Chernichuk confirmed to TASS that Rostekhnadzor &#x201C;directly interferes in plant operation&#x201D; &#x2014; and that Russian specialists have been present since the first days of occupation. Rosatom-appointed operating organisation head Galeev corroborated this. The licensing trajectory formalises an operational reality that began in 2022.
+    </div>
+  </div>
+
+  <!-- ── TAB 2: TACTICAL PARADOX ──────────────────────────── -->
+  <div class="panel" id="panel-paradox">
+    <h2 class="section-h2">The Core Paradox: Licensed but Not Planned</h2>
+    <p class="section-desc">The analytically decisive finding: Russia is issuing 10-year operating licences to ZNPP reactors while simultaneously excluding the plant from its own 25-year national energy plan. This is not an oversight &#x2014; it signals deliberate tactical exploitation rather than strategic integration.</p>
+
+    <!-- Paradox panels -->
+    <div class="paradox-grid">
+      <div class="paradox-box doing">
+        <div class="paradox-label teal">What Russia is doing</div>
+        <div id="doing-list"></div>
+      </div>
+      <div class="paradox-divider">
+        <div class="paradox-neq">&#x2260;</div>
+        <div class="paradox-neq-label">Contradiction</div>
+      </div>
+      <div class="paradox-box not-doing">
+        <div class="paradox-label red">What Russia is not doing</div>
+        <div id="not-doing-list"></div>
+      </div>
+    </div>
+
+    <!-- Three exploitation tracks -->
+    <div class="mono-label">Three tactical exploitation tracks</div>
+    <div class="tracks-grid" id="tracks-grid"></div>
+
+    <div class="callout gold">
+      <strong class="gold">Analytical assessment:</strong> Russia is using ZNPP as a short-term resource extraction platform &#x2014; for electricity, cryptocurrency revenue, and diplomatic leverage &#x2014; without committing to its long-term integration into national energy infrastructure. The absence from the 2042 scheme may also reflect Russia&#x2019;s own uncertainty about whether it will retain the plant under any future settlement. The Kiriyenko&#x2013;Balitsky political link (ZNPP integration was a key project inspected by Kiriyenko in September 2025, leading directly to Balitsky&#x2019;s Putin meeting) confirms ZNPP functions as a political asset as much as an energy one.
+    </div>
+  </div>
+
+  <!-- ── TAB 3: SAFETY INCIDENTS & GRID ───────────────────── -->
+  <div class="panel" id="panel-safety">
+    <div class="safety-grid">
+
+      <!-- Left: Safety incidents -->
+      <div>
+        <h3 class="col-h3">Safety Incidents</h3>
+        <p class="col-desc">All six units in cold shutdown throughout this period. Power supply to the plant &#x2014; for cooling and safety systems &#x2014; remains the primary risk vector.</p>
+        <div class="sev-legend" id="sev-legend"></div>
+        <div id="incident-cards"></div>
+        <div class="callout red" style="margin-top:12px;padding:10px 14px;">
+          <strong class="red">Critical pattern:</strong> Russian forces are firing from positions near the plant toward Ukrainian-controlled territory &#x2014; placing the plant in direct proximity to active hostilities originating on the Russian-controlled side. The March&#x00A0;24 Dniprovska disconnection resulted from damage on the Russian-controlled side.
+        </div>
+      </div>
+
+      <!-- Right: Grid integration -->
+      <div>
+        <h3 class="col-h3">Grid Integration Timeline</h3>
+        <p class="col-desc">Construction of new transmission infrastructure to connect ZNPP output to the Russian electricity supply system &#x2014; independent of the Ukrainian grid.</p>
+        <div id="grid-entries"></div>
+        <div class="callout teal" style="margin-top:12px;padding:10px 14px;">
+          <strong class="teal">Cumulative effect:</strong> Near-doubling of Mariupol electricity capacity. ZNPP lies within 120&#x202F;km of the proposed manganese extraction zone and within the existing 110&#x202F;kV/330&#x202F;kV network serving Berdiansk and Melitopol &#x2014; making it central to Russia&#x2019;s industrial plans for the occupied region.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- .content -->
+
+<!-- ── RESEARCH INTEGRITY ──────────────────────────────────── -->
+<div class="integrity-wrap">
+  <div class="integrity-inner">
+    <div class="integrity-label">Research integrity</div>
+    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20ZNPP%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/znpp.html%0A%0AError or correction:%0A%0ASource or evidence:%0A">Flag an error or submit a correction &#8594;</a>
+    <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  </div>
+</div>
+
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<div class="page-footer">TOT INSIGHTS &nbsp;&middot;&nbsp; UKRAINE &amp; RUSSIA PROGRAMME &nbsp;&middot;&nbsp; CSNS / KCL &nbsp;&middot;&nbsp; April 2026</div>
+
+<script>
+/* ── CONSTANTS ─────────────────────────────────────────── */
+var GOLD  = '#C4964A';
+var RED   = '#8B1A1A';
+var AMBER = '#92400E';
+var TEAL  = '#134E4A';
+
+/* ── DATA ──────────────────────────────────────────────── */
+var licenses = [
+  { item: 'Radiation sources',                  date: 'Pre-Nov 2025',   body: 'Rostekhnadzor',                  status: 'granted', color: '#4B5563' },
+  { item: 'Spent fuel storage (SNFSF)',          date: 'Pre-Nov 2025',   body: 'Rostekhnadzor',                  status: 'granted', color: '#4B5563' },
+  { item: 'Unit 1 - 10-year operating licence',  date: 'Dec 2025',       body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
+  { item: 'Unit 2 - 10-year operating licence',  date: 'Feb 18, 2026',   body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
+  { item: 'Units 3–6',                      date: 'Not yet licensed',body: 'Pending',                       status: 'pending', color: '#6B7280'  },
+  { item: 'Cryptocurrency mining farm launch',   date: 'Planned 2026',   body: 'Kiriyenko / Presidential Admin', status: 'planned', color: AMBER     }
+];
+
+var incidents = [
+  { date: 'Sep 23, 2025',   event: 'Deliberate disconnection as provocation',             severity: 'high',
+    detail: 'Source reporting indicates the September 23 disconnection was deliberate - used as a political provocation rather than an operational accident.' },
+  { date: 'Nov 8–9, 2025', event: '330kV Ferrosplavna-1 backup line restored',       severity: 'medium',
+    detail: 'Via IAEA-brokered ceasefire pause, Russia restored the 330kV ‘Ferrosplavna-1’ backup line - the first minimal power supply redundancy since May 2025.' },
+  { date: 'Nov 14, 2025',   event: '750kV Dniprovska line disconnected - single source', severity: 'critical',
+    detail: 'Protective automation disconnected the main 750kV ‘Dniprovska’ line. ZNPP again depended on a single power source. IAEA: situation ‘critically fragile.’' },
+  { date: 'Nov 19, 2025',   event: 'Dniprovska restored; rolling blackouts begin',         severity: 'high',
+    detail: 'Dniprovska line restored but situation remains fragile. Rolling blackout schedules introduced across occupied region from Nov 19, intensifying from Nov 25.' },
+  { date: 'Mar 24, 2026',   event: 'Dniprovska disconnected - artillery damage',      severity: 'critical',
+    detail: 'IAEA reported ZNPP disconnected from ‘Dniprovska’ power line after damage on Russian-controlled side during artillery activity from positions near the plant toward Ukrainian-controlled territory. Russian forces firing from plant vicinity. Plant supplied via backup ‘Ferrosplavna-1’. No radiation change. IAEA called for ceasefire and urgent repairs.' }
+];
+
+var sevStyle = {
+  critical: { label: 'Critical', text: '#8B1A1A', dot: '#8B1A1A' },
+  high:     { label: 'High',     text: '#92400E', dot: '#92400E' },
+  medium:   { label: 'Medium',   text: '#1E40AF', dot: '#1E40AF' }
+};
+
+var gridItems = [
+  { period: 'Q1 2025',       item: 'New high-voltage branch - ZNPP to Russian grid',
+    detail: 'Construction begins. Completion expected summer 2025. Once operational: industrial-level electricity capacity for Mariupol.' },
+  { period: 'Feb–May 2025', item: 'Distribution node + compressor station constructed',
+    detail: 'Section 47°08′55.7″N 37°18′40.0″E. Physical infrastructure connecting ZNPP output to Mariupol supply chain.' },
+  { period: 'Jun 2025',      item: 'Near-doubling of Mariupol electricity capacity confirmed',
+    detail: 'Cumulative effect: new substation ‘Horod-12’ (2×40 MVA); reconstruction of ‘Horod-6’ (16→25 MVA); renewal of ‘Azovska–Horod-2’ line (6km). All enabled by ZNPP integration.' },
+  { period: 'Nov 2025',      item: 'New 150kV and 330kV lines included in territorial planning',
+    detail: 'Creates an alternative RF power contour for ZNPP - independent of Ukrainian grid infrastructure.' },
+  { period: 'Mar 2026',      item: 'New lines: Melitopol → Kamianka-Dniprovska and Yakymivka',
+    detail: 'Evidence of technical integration progressing eastward. ZNPP within 120km of proposed manganese extraction zone and within existing 110kV/330kV network serving Berdiansk and Melitopol.' }
+];
+
+var doingItems = [
+  '10-year operating licences issued (Units 1 & 2)',
+  'All personnel certified under Rosatom standards',
+  'Rostekhnadzor directly interfering in operations',
+  'Cryptocurrency mining farm planned for 2026',
+  'Grid integration doubling Mariupol electricity capacity',
+  'Reactor restart procurement underway (pumping equipment)'
+];
+
+var notDoingItems = [
+  'ZNPP absent from RF General Energy Development Scheme 2042',
+  'Not among operating sites (blue markers)',
+  'Not among new/planned sites (green markers)',
+  'Basis: RF Government Order No. 4153-r, 30.12.2024',
+  'No long-term generation planning integration',
+  'No inclusion in national grid capacity projections'
+];
+
+var tracks = [
+  { title: 'Grid extraction',          color: TEAL,      icon: '⚡',
+    points: ['Near-doubling of Mariupol electricity capacity', 'New 150kV and 330kV lines in territorial planning', 'Lines under construction Melitopol → Kamianka-Dniprovska', 'Industrial-level capacity for Mariupol production facilities'],
+    note: 'Immediate operational utility, not long-term grid planning' },
+  { title: 'Cryptocurrency mining',     color: AMBER,     icon: '₿',
+    points: ['Project developed 2022–2025 under Kiriyenko’s personal supervision', 'Launch planned 2026 once licences obtained', 'Confirmed by ZNPP head Chernichuk to TASS', 'ZNPP as energy source for mining farm'],
+    note: 'Opportunistic resource extraction - not an energy policy' },
+  { title: 'US fuel reactor diplomacy', color: '#6B3A8B', icon: '🇺🇸',
+    points: ['4 of 6 reactors use American fuel', 'Russia negotiating with US over control of these 4 reactors', 'Seeking tacit US consent for annexation of ZNPP generation', 'Connected to broader US peace proposal discussions'],
+    note: 'Diplomatic lever, not operational energy planning' }
+];
+
+/* ── STATE ─────────────────────────────────────────────── */
+var expandedIdx = null;
+
+/* ── TAB SWITCHING ─────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    expandedIdx = null;
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p)  { p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.getAttribute('data-tab')).classList.add('active');
+  });
+});
+
+/* ── BUILD REACTOR GRID ─────────────────────────────────── */
+(function() {
+  var grid = document.getElementById('reactor-grid');
+  for (var n = 1; n <= 6; n++) {
+    var licensed = n <= 2;
+    var div = document.createElement('div');
+    div.className = 'reactor-unit' + (licensed ? ' licensed' : '');
+    var dateHtml = licensed ? '<div class="reactor-date">' + (n === 1 ? 'Dec 2025' : 'Feb 18, 2026') + '</div>' : '';
+    div.innerHTML =
+      '<div class="reactor-symbol">' + (licensed ? '⬡' : '○') + '</div>' +
+      '<div class="reactor-name">Unit ' + n + '</div>' +
+      '<div class="reactor-status">' + (licensed ? 'Licensed<br>(10-year)' : 'Not yet<br>licensed') + '</div>' +
+      dateHtml;
+    grid.appendChild(div);
+  }
+})();
+
+/* ── BUILD LICENSING ROWS ───────────────────────────────── */
+(function() {
+  var container = document.getElementById('licensing-rows');
+  licenses.forEach(function(l) {
+    var row = document.createElement('div');
+    row.className = 'lic-row ' + l.status;
+    row.style.borderLeft = '4px solid ' + l.color;
+    var badgeText = l.status === 'granted' ? '✓ GRANTED' : l.status === 'planned' ? 'PLANNED' : 'PENDING';
+    row.innerHTML =
+      '<div class="lic-date" style="color:' + l.color + ';">' + l.date + '</div>' +
+      '<div class="lic-item' + (l.status === 'pending' ? ' pending' : '') + '">' + l.item + '</div>' +
+      '<div class="lic-body">' + l.body + '</div>' +
+      '<span class="lic-badge ' + l.status + '">' + badgeText + '</span>';
+    container.appendChild(row);
+  });
+})();
+
+/* ── BUILD PARADOX LISTS ────────────────────────────────── */
+(function() {
+  var doingEl = document.getElementById('doing-list');
+  doingItems.forEach(function(t) {
+    var d = document.createElement('div');
+    d.className = 'paradox-item';
+    d.innerHTML = '<span class="tick">✓</span><span class="text">' + t + '</span>';
+    doingEl.appendChild(d);
+  });
+  var notDoingEl = document.getElementById('not-doing-list');
+  notDoingItems.forEach(function(t) {
+    var d = document.createElement('div');
+    d.className = 'paradox-item';
+    d.innerHTML = '<span class="cross">✕</span><span class="text">' + t + '</span>';
+    notDoingEl.appendChild(d);
+  });
+})();
+
+/* ── BUILD EXPLOITATION TRACKS ──────────────────────────── */
+(function() {
+  var grid = document.getElementById('tracks-grid');
+  tracks.forEach(function(track) {
+    var card = document.createElement('div');
+    card.className = 'track-card';
+    card.style.borderTop = '3px solid ' + track.color;
+    card.style.borderLeft = '1.5px solid ' + track.color + '22';
+    card.style.borderRight = '1.5px solid ' + track.color + '22';
+    card.style.borderBottom = '1.5px solid ' + track.color + '22';
+    var pointsHtml = track.points.map(function(p) {
+      return '<div class="track-point"><span class="arrow" style="color:' + track.color + ';">›</span><span class="text">' + p + '</span></div>';
+    }).join('');
+    card.innerHTML =
+      '<div class="track-icon">' + track.icon + '</div>' +
+      '<div class="track-title" style="color:' + track.color + ';">' + track.title + '</div>' +
+      pointsHtml +
+      '<div class="track-note" style="border-top:1px solid ' + track.color + '33;color:' + track.color + ';">' + track.note + '</div>';
+    grid.appendChild(card);
+  });
+})();
+
+/* ── BUILD SEVERITY LEGEND ──────────────────────────────── */
+(function() {
+  var legend = document.getElementById('sev-legend');
+  ['critical','high','medium'].forEach(function(k) {
+    var ss = sevStyle[k];
+    var chip = document.createElement('span');
+    chip.className = 'sev-chip';
+    chip.style.color = ss.text;
+    chip.style.border = '1px solid ' + ss.dot;
+    chip.textContent = ss.label;
+    legend.appendChild(chip);
+  });
+})();
+
+/* ── BUILD INCIDENT CARDS ───────────────────────────────── */
+(function() {
+  var container = document.getElementById('incident-cards');
+  incidents.forEach(function(inc, i) {
+    var ss = sevStyle[inc.severity];
+    var card = document.createElement('div');
+    card.className = 'incident-card';
+    card.style.borderLeft = '4px solid ' + ss.dot;
+    card.innerHTML =
+      '<div class="incident-top">' +
+        '<div>' +
+          '<div class="incident-date">' + inc.date + '</div>' +
+          '<div class="incident-event">' + inc.event + '</div>' +
+        '</div>' +
+        '<span class="sev-badge" style="color:' + ss.text + ';border:1px solid ' + ss.dot + ';">' + ss.label + '</span>' +
+      '</div>' +
+      '<div class="incident-detail" id="detail-' + i + '">' + inc.detail + '</div>';
+    card.addEventListener('click', function() {
+      var detail = document.getElementById('detail-' + i);
+      var isOpen = detail.classList.contains('open');
+      detail.classList.toggle('open', !isOpen);
+      card.style.boxShadow = !isOpen ? '0 0 12px ' + ss.dot + '33' : 'none';
+    });
+    container.appendChild(card);
+  });
+})();
+
+/* ── BUILD GRID ENTRIES ─────────────────────────────────── */
+(function() {
+  var container = document.getElementById('grid-entries');
+  gridItems.forEach(function(g) {
+    var entry = document.createElement('div');
+    entry.className = 'grid-entry';
+    entry.innerHTML =
+      '<div class="grid-period">' + g.period + '</div>' +
+      '<div>' +
+        '<div class="grid-item">' + g.item + '</div>' +
+        '<div class="grid-detail">' + g.detail + '</div>' +
+      '</div>';
+    container.appendChild(entry);
+  });
+})();
 </script>
-<div style="padding:0 2rem 1.5rem;">
-<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20ZNPP%3A%20Tactical%20Exploitation%20Under%20Occupation%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/znpp.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
-</div></div>
 </body>
 </html>

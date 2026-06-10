@@ -1,0 +1,472 @@
+<!-- TEMPLATE v1.0 — Duplicate, rename, and replace ALL-CAPS placeholders before publishing. See WORKFLOW_GUIDE.md for instructions. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DASHBOARD-TITLE — TOT Insights / King's College London">
+<title>DASHBOARD-TITLE — TOT Insights</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  background: #111d30;
+  color: #e8eaf0;
+  font-size: 17px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Page header ────────────────────────────────────────────── */
+.page-header {
+  background: #0F1F3D;
+  color: #E8E0D0;
+  padding: 14px 32px 18px;
+  border-bottom: 3px solid #C4964A;
+}
+.back-link {
+  display: inline-block;
+  color: #c9a84c;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-variant: small-caps;
+  text-decoration: none;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.back-link:hover { text-decoration: underline; }
+.page-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 6px;
+}
+.page-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #E8E0D0;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.page-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+/* ─── Citation block ─────────────────────────────────────────── */
+.citation-box {
+  background: rgba(255,255,255,0.02);
+  border-left: 2px solid rgba(232,184,75,0.3);
+  padding: 12px 16px;
+  margin: 0 32px 16px;
+}
+.citation-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 5px;
+}
+.citation-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(232,228,220,0.75);
+  line-height: 1.5;
+}
+.citation-text a { color: #C4964A; text-decoration: none; }
+.citation-text a:hover { text-decoration: underline; }
+.citation-copy {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
+  background: transparent;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+/* ─── Content area ───────────────────────────────────────────── */
+.content {
+  padding: 24px 32px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .content { padding: 20px 16px 32px; }
+  .page-header { padding: 12px 16px 16px; }
+  .citation-box { margin: 0 16px 16px; }
+}
+
+/* ─── Stat cards ─────────────────────────────────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 400px) { .stat-grid { grid-template-columns: 1fr; } }
+.stat-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 16px 18px;
+}
+.stat-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #c9a84c;
+}
+.stat-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: #E8E0D0;
+  margin-top: 4px;
+  font-weight: 600;
+}
+.stat-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+/* ─── Tab bar ────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border: none;
+  background: transparent;
+  color: rgba(232,234,240,0.40);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: rgba(232,234,240,0.70); }
+.tab-btn.active { color: #c9a84c; border-bottom-color: #c9a84c; }
+
+/* ─── Panels ─────────────────────────────────────────────────── */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ─── Section heading ────────────────────────────────────────── */
+.section-heading {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 14px;
+}
+
+/* ─── Chart cards ────────────────────────────────────────────── */
+.chart-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.chart-wrap { position: relative; }
+.chart-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(232,228,220,0.45);
+  margin-bottom: 12px;
+}
+
+/* ─── Callout / analytical observations ─────────────────────── */
+.callout {
+  background: #0F1F3D;
+  color: #E8E0D0;
+  border-radius: 4px;
+  border-left: 3px solid #C4964A;
+  padding: 16px 20px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 8px;
+}
+.callout strong { color: #c9a84c; }
+
+/* ─── Research integrity ─────────────────────────────────────── */
+.research-integrity {
+  padding: 0 32px 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .research-integrity { padding: 0 16px 24px; } }
+.integrity-inner { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+.integrity-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(232,228,220,0.55);
+  margin-bottom: 6px;
+}
+.integrity-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(232,228,220,0.90);
+  text-decoration: none;
+}
+.integrity-link:hover { text-decoration: underline; }
+.integrity-note {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.75rem;
+  color: rgba(232,228,220,0.55);
+  margin-top: 6px;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+.page-footer {
+  padding: 12px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,234,240,0.40);
+}
+</style>
+</head>
+<body>
+
+<!-- ─── PAGE HEADER ──────────────────────────────────────────── -->
+<div class="page-header">
+  <a class="back-link" href="../research.html">&#8592; Back to Research</a>
+  <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; THEME-TAG &nbsp;·&nbsp; MONTH YEAR</div>
+  <div class="page-title">DASHBOARD TITLE — Replace with full dashboard title</div>
+  <div class="page-subtitle">DATE-RANGE &nbsp;·&nbsp; BRIEF-SUBTITLE-DESCRIPTOR</div>
+</div>
+
+<!-- ─── CITATION BLOCK ───────────────────────────────────────── -->
+<div class="citation-box">
+  <div class="citation-label">Cite this output</div>
+  <div class="citation-text">
+    SURNAME, Initials. et al. (YEAR). DASHBOARD-TITLE. TOT Insights / King&#39;s College London.
+    DOI:&#160;<a href="https://doi.org/ZENODO-DOI-PLACEHOLDER" target="_blank" rel="noopener noreferrer">https://doi.org/ZENODO-DOI-PLACEHOLDER</a>
+  </div>
+  <button class="citation-copy" onclick="(function(b){navigator.clipboard.writeText('SURNAME, Initials. et al. (YEAR). DASHBOARD-TITLE. TOT Insights / King\'s College London. DOI: https://doi.org/ZENODO-DOI-PLACEHOLDER');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)">Copy citation</button>
+</div>
+
+<!-- ─── MAIN CONTENT ─────────────────────────────────────────── -->
+<div class="content">
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-val">STAT-FIGURE-1</div>
+      <div class="stat-label">STAT-LABEL-1</div>
+      <div class="stat-sub">STAT-SUBLABEL-1</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">STAT-FIGURE-2</div>
+      <div class="stat-label">STAT-LABEL-2</div>
+      <div class="stat-sub">STAT-SUBLABEL-2</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">STAT-FIGURE-3</div>
+      <div class="stat-label">STAT-LABEL-3</div>
+      <div class="stat-sub">STAT-SUBLABEL-3</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">STAT-FIGURE-4</div>
+      <div class="stat-label">STAT-LABEL-4</div>
+      <div class="stat-sub">STAT-SUBLABEL-4</div>
+    </div>
+  </div>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="tab1">TAB 1</button>
+    <button class="tab-btn"        data-tab="tab2">TAB 2</button>
+    <button class="tab-btn"        data-tab="tab3">TAB 3</button>
+  </div>
+
+  <!-- PANEL 1 -->
+  <div class="panel active" id="tab1">
+    <div class="section-heading">CHART-1-SECTION-HEADING</div>
+    <div class="chart-card">
+      <div class="chart-label">CHART-1-LABEL</div>
+      <div class="chart-wrap">
+        <canvas id="chart1" height="260"></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Key analytical observations</div>
+      <p>OBSERVATION-TEXT — Replace with the key analytical observation drawn from this chart. What does the pattern mean? What is the causal explanation? What should a policy audience take from it?</p>
+    </div>
+  </div>
+
+  <!-- PANEL 2 -->
+  <div class="panel" id="tab2">
+    <div class="section-heading">CHART-2-SECTION-HEADING</div>
+    <div class="chart-card">
+      <div class="chart-label">CHART-2-LABEL</div>
+      <div class="chart-wrap">
+        <canvas id="chart2" height="260"></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Key analytical observations</div>
+      <p>OBSERVATION-TEXT</p>
+    </div>
+  </div>
+
+  <!-- PANEL 3 -->
+  <div class="panel" id="tab3">
+    <div class="section-heading">CHART-3-SECTION-HEADING</div>
+    <div class="chart-card">
+      <div class="chart-label">CHART-3-LABEL</div>
+      <div class="chart-wrap">
+        <canvas id="chart3" height="260"></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Key analytical observations</div>
+      <p>OBSERVATION-TEXT</p>
+    </div>
+  </div>
+
+</div><!-- /.content -->
+
+<!-- ─── RESEARCH INTEGRITY ────────────────────────────────────── -->
+<div class="research-integrity">
+  <div class="integrity-inner">
+    <div class="integrity-label">Research integrity</div>
+    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20DASHBOARD-TITLE%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/FILENAME.html%0A%0AError or correction:%0A%0ASource or evidence:%0A">Flag an error or submit a correction &#8594;</a>
+    <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL</div>
+
+<!-- ─── JAVASCRIPT ────────────────────────────────────────────── -->
+<script>
+/* ── Tab switching ──────────────────────────────────────────── */
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
+  });
+});
+
+/* ── Placeholder chart data — replace with real data ─────────── */
+var GOLD  = '#c9a84c';
+var NAVY  = '#0F1F3D';
+var LIGHT = 'rgba(255,255,255,0.08)';
+
+/* Chart 1 — replace labels, data, and chart type as needed */
+new Chart(document.getElementById('chart1').getContext('2d'), {
+  type: 'bar',
+  data: {
+    labels: ['CATEGORY-A', 'CATEGORY-B', 'CATEGORY-C', 'CATEGORY-D', 'CATEGORY-E'],
+    datasets: [{
+      label: 'SERIES-LABEL-1',
+      data: [0, 0, 0, 0, 0],   /* REPLACE WITH REAL DATA */
+      backgroundColor: GOLD,
+      borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#e8eaf0', font: { family: "'IBM Plex Sans', Arial, sans-serif", size: 12 } } },
+      tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y; } } }
+    },
+    scales: {
+      x: { ticks: { color: '#9CA3AF', font: { size: 12 } }, grid: { color: LIGHT } },
+      y: { ticks: { color: '#9CA3AF', font: { size: 12 } }, grid: { color: LIGHT } }
+    }
+  }
+});
+
+/* Chart 2 — replace with real chart type and data */
+new Chart(document.getElementById('chart2').getContext('2d'), {
+  type: 'line',
+  data: {
+    labels: ['PERIOD-1', 'PERIOD-2', 'PERIOD-3', 'PERIOD-4', 'PERIOD-5'],
+    datasets: [{
+      label: 'SERIES-LABEL-2',
+      data: [0, 0, 0, 0, 0],   /* REPLACE WITH REAL DATA */
+      borderColor: GOLD,
+      backgroundColor: 'rgba(201,168,76,0.1)',
+      borderWidth: 2,
+      tension: 0.3,
+      fill: true,
+      pointRadius: 4
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: '#e8eaf0', font: { family: "'IBM Plex Sans', Arial, sans-serif", size: 12 } } }
+    },
+    scales: {
+      x: { ticks: { color: '#9CA3AF', font: { size: 12 } }, grid: { color: LIGHT } },
+      y: { ticks: { color: '#9CA3AF', font: { size: 12 } }, grid: { color: LIGHT } }
+    }
+  }
+});
+
+/* Chart 3 — replace with real chart type and data */
+new Chart(document.getElementById('chart3').getContext('2d'), {
+  type: 'doughnut',
+  data: {
+    labels: ['SEGMENT-A', 'SEGMENT-B', 'SEGMENT-C', 'SEGMENT-D'],
+    datasets: [{
+      data: [25, 25, 25, 25],   /* REPLACE WITH REAL DATA */
+      backgroundColor: ['#c9a84c', '#2980b9', '#134E4A', '#8e44ad'],
+      borderWidth: 2,
+      borderColor: '#111d30'
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: { color: '#e8eaf0', font: { family: "'IBM Plex Sans', Arial, sans-serif", size: 12 }, padding: 14 }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
