@@ -27,10 +27,11 @@ Russia has stolen over 4 million tonnes of Ukrainian grain (~$580 million) throu
 **DOC-A5 — State Grain Operator (DZO): Interactive Research Dashboard** *(Dashboard)*
 Interactive HTML dashboard aggregating key data on the DZO in Russian-occupied Zaporizhzhia. Tabbed navigation across organisational structure, financial data, export flows, personnel network, and accountability indicators, with charts, searchable personnel tables, and a visual org chart. Companion to DOC-A4.
 
-**DOC-A6 — Shadow Fleet at Mariupol Port: Interactive Timeline Visual (v1)** *(Visual)*
-Interactive React visualisation of shadow fleet operations and sanctions evasion at Mariupol port. Displays the operational timeline from Autumn 2024 to Spring 2026. Companion to DOC-A2.
 
-**DOC-A7 — Shadow Fleet at Mariupol Port: Interactive Visual (v2, with Vessel and Tonnage Data)** *(Visual)*
+**DOC-A9 — Mariupol's 2026 Budget Amendment: Control and Extraction Over Reconstruction** *(Briefing)*
+Analysis of the amendment, dated 7 May 2026, to the budget of the Mariupol urban district for 2026 and the 2027-2028 planning period. Official deficit rises from RUB 375.6 million to RUB 654.9 million (up 74%); own revenues cover only 22.5% of spending, with an underlying gap of RUB 5.785 billion plugged by reserve drawdown. Federal transfers fall by RUB 1.535 billion while planned personal income tax rises 55.9%. Education exceeds half the budget (RUB 4.266 billion); housing and utilities cut by 43%; culture, sports, and youth policy protected. The 2027-2028 plan signals contraction of roughly one-third. Co-authored with Petro Andriushchenko.
+
+**DOC-A7 — Shadow Fleet at Mariupol Port: Interactive Visual (with Vessel and Tonnage Data)** *(Visual)*
 Version 2 of the shadow fleet interactive React visualisation, adding vessel counts and tonnage columns to the operational timeline. Covers the same period and events as v1. Preferred version for platform display. Companion to DOC-A2.
 
 **DOC-C2 — Russia's Guardianship Programme: Interactive Research Dashboard** *(Dashboard)*
