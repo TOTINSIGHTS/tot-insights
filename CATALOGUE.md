@@ -28,6 +28,9 @@ Russia has stolen over 4 million tonnes of Ukrainian grain (~$580 million) throu
 Interactive HTML dashboard aggregating key data on the DZO in Russian-occupied Zaporizhzhia. Tabbed navigation across organisational structure, financial data, export flows, personnel network, and accountability indicators, with charts, searchable personnel tables, and a visual org chart. Companion to DOC-A4.
 
 
+**DOC-A10 — The Cost of Occupation: Living Standards in Mariupol, April 2026** *(Briefing)*
+Assessment of the cost of living in occupied Mariupol as of April 2026. Real purchasing power has fallen despite nominal wage growth: the basic grocery basket costs 80 to 120% more than in Rostov or Taganrog, some goods three to four times more. Water tariffs rise close to sevenfold between December 2025 and June 2026; a reinstated 330-litre daily consumption norm inflates bills for unmetered households. New property-based charges ("excess land" fee; "extra square metres" analogue) add extraction over and above tariffs. Funeral services run up to tenfold above Rostov rates, indicating clear monopolisation of the services market. Data current to April 2026. Co-authored with Petro Andriushchenko.
+
 **DOC-A9 — Mariupol's 2026 Budget Amendment: Control and Extraction Over Reconstruction** *(Briefing)*
 Analysis of the amendment, dated 7 May 2026, to the budget of the Mariupol urban district for 2026 and the 2027-2028 planning period. Official deficit rises from RUB 375.6 million to RUB 654.9 million (up 74%); own revenues cover only 22.5% of spending, with an underlying gap of RUB 5.785 billion plugged by reserve drawdown. Federal transfers fall by RUB 1.535 billion while planned personal income tax rises 55.9%. Education exceeds half the budget (RUB 4.266 billion); housing and utilities cut by 43%; culture, sports, and youth policy protected. The 2027-2028 plan signals contraction of roughly one-third. Co-authored with Petro Andriushchenko.
 
