@@ -86,11 +86,10 @@
 
 <div class="footer">
   <p class="annotation">
-    Node size indicates connectivity (number of documented links). ZAT PETROTRANS and Yulia Maksimova (Pakreeva) 
-    emerge as the primary hubs. The Sanagro–Pakreeva link suggests grain trade routing through the port network; 
+    Node size indicates connectivity (number of documented links). ZAT PETROTRANS and the port trading role 
+    emerge as the primary hubs. The Sanagro link suggests grain trade routing through the port network; 
     the RosKapStroy cluster indicates post-capture reconstruction financing structures. Adriamediteran Ltd 
-    represents documented international commercial exposure. Network reconstructed from open-source corporate, 
-    sanctions, and administrative records.
+    represents documented international commercial exposure. Marat Khusnullin is designated on the <a href="https://sanctions.nazk.gov.ua/en/sanction-person/419/" style="color:#e8eaf0;">NACP Ukraine sanctions register</a> (also EU, US, and UK listed). Volodymyr Pakreev also appears in international sanctions records (<a href="https://www.opensanctions.org/entities/NK-3ktEYY4sibcGaNXQfhmxss/" style="color:#e8eaf0;">OpenSanctions</a>). Network reconstructed from open-source corporate, sanctions, and administrative records.
   </p>
   <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · 2023–2025</p>
 </div>
@@ -136,15 +135,14 @@ const nodes = [
   { id: 'NOVOROSS',     label: 'RosKapStroy Novorossiya',   cat: 'construction' },
   { id: 'REGIONKAP',    label: 'TOV RegionKapStroy',        cat: 'construction' },
   { id: 'DNR',          label: 'DNR (nationalisation)',     cat: 'admin' },
-  { id: 'ARUSTAMOV',    label: 'Gennady Arustamov',         cat: 'person' },
-  { id: 'BONDARENKO',   label: 'Yuriy Bondarenko',          cat: 'person' },
-  { id: 'KHARLAMOV',    label: 'Oleg Kharlamov',            cat: 'person' },
-  { id: 'URUSOV',       label: 'Timur Urusov',              cat: 'person' },
-  { id: 'MAKSIMOVA',    label: 'Yulia Maksimova (Pakreeva)',cat: 'person' },
+  { id: 'ARUSTAMOV',    label: 'Petrotrans associate (1)',         cat: 'person' },
+  { id: 'BONDARENKO',   label: 'Petrotrans associate (2)',          cat: 'person' },
+  { id: 'KHARLAMOV',    label: 'SIBMARKET associate',            cat: 'person' },
+  { id: 'URUSOV',       label: 'Aston Shiptrade associate',              cat: 'person' },
+  { id: 'MAKSIMOVA',    label: 'Port trading role',cat: 'person' },
   { id: 'PAKREEV',      label: 'Volodymyr Pakreev',         cat: 'person' },
-  { id: 'MISHCHUK',     label: 'Mykola Mishchuk',           cat: 'person' },
-  { id: 'VORONKOV',     label: 'Voronkov A.V.',             cat: 'person' },
-  { id: 'MIKHAILOVA',   label: 'Elena Mikhailova',          cat: 'person' },
+  { id: 'VORONKOV',     label: 'Nika Treyd associate',             cat: 'person' },
+  { id: 'MIKHAILOVA',   label: 'RosKapStroy associate',          cat: 'person' },
   { id: 'KHUSNULLIN',   label: 'Marat Khusnullin',         cat: 'federal' }
 ];
 
@@ -169,7 +167,6 @@ const edges = [
   { source: 'MAKSIMOVA',  target: 'DNR' },
   { source: 'MAKSIMOVA',  target: 'KHUSNULLIN' },
   { source: 'MAKSIMOVA',  target: 'PAKREEV' },
-  { source: 'MAKSIMOVA',  target: 'MISHCHUK' },
   { source: 'PAKREEV',    target: 'IMPERIAL' },
   { source: 'IMPERIAL',   target: 'IMPEKS' },
   { source: 'IMPERIAL',   target: 'REGIONKAP' }
