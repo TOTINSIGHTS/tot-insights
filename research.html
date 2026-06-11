@@ -403,7 +403,7 @@ function buildCards(){
       card.onclick=()=>openModal(doc.id);
       const th=Array.isArray(doc.theme)?doc.theme:[doc.theme];
       const pills=th.map(t=>`<span class="doc-theme-pill ${THEME_CLASS[t]||''}">${t}</span>`).join('');
-      card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>${doc.doi?('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:6px;padding-top:6px;border-top:1px solid rgba(26,26,46,0.10);">'+(doc.doi2?('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;margin-right:8px;">DOI &#8599;</a> <a href="'+doc.doi2+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">DOI &#8599;</a>'):('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+doc.doi.replace('https://doi.org/','')+' &#8599;</a>'))+'</div>'):''}${doc.vizFile?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:3px;"><a href="'+doc.vizFile+'" onclick="event.stopPropagation()" style="color:rgba(181,146,58,0.80);text-decoration:none;">Interactive visualisation &#8594;</a></div>':''}`;
+      card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>${doc.doi?('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:6px;padding-top:6px;border-top:1px solid rgba(26,26,46,0.10);">'+(doc.doi2?('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;margin-right:8px;">DOI &#8599;</a> <a href="'+doc.doi2+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">DOI &#8599;</a>'):('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+doc.doi.replace('https://doi.org/','')+' &#8599;</a>'))+'</div>'):''}${doc.vizFile?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:3px;"><a href="'+doc.vizFile+'" onclick="event.stopPropagation()" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+(doc.vizLabel||'Interactive visualisation')+' &#8594;</a></div>':''}${doc.vizFile2?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;margin-top:2px;"><a href="'+doc.vizFile2+'" onclick="event.stopPropagation()" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+(doc.vizLabel2||'Interactive visualisation 2')+' &#8594;</a></div>':''}`;
       grid.appendChild(card);
     });
   });
@@ -500,20 +500,19 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModalDirect();
 
 const REGIONS = {
   "DOC-A1":"Donetsk","DOC-A2":"Donetsk","DOC-A3":"Zaporizhzhia",
-  "DOC-A4":"Zaporizhzhia","DOC-A5":"Zaporizhzhia",
-  "DOC-A7":"Donetsk","DOC-A8":"Zaporizhzhia","DOC-A9":"Donetsk","DOC-A10":"Donetsk","DOC-B1":"Multiple",
-  "DOC-B2":"All OT","DOC-B3":"All OT","DOC-B4":"All OT",
-  "DOC-B5":"Donetsk","DOC-B6":"Donetsk","DOC-B7":"All OT",
+  "DOC-A4":"Zaporizhzhia",
+  "DOC-A9":"Donetsk","DOC-A10":"Donetsk","DOC-B1":"Multiple",
+  "DOC-B2":"All OT","DOC-B3":"All OT",
+  "DOC-B6":"Donetsk","DOC-B7":"All OT",
   "DOC-C2":"All OT","DOC-C3":"All OT","DOC-C4":"Donetsk",
   "DOC-C5":"All OT","DOC-C6":"Donetsk","DOC-C7":"All OT",
   "DOC-D2":"All OT","DOC-D3":"Donetsk","DOC-D4":"All OT",
   "DOC-E1":"Luhansk","DOC-E2":"All OT","DOC-F1":"All OT",
-  "DOC-F2":"All OT","DOC-F3":"Multiple","DOC-G1":"Donetsk",
+  "DOC-F3":"Multiple","DOC-G1":"Donetsk",
   "DOC-G2":"Donetsk","DOC-H1":"All OT","DOC-H2":"All OT",
   "DOC-083":"All OT","DOC-084":"All OT","DOC-085":"All OT",
   "DOC-087":"All OT","DOC-088":"All OT","DOC-089":"Zaporizhzhia",
-  "DOC-090":"Donetsk","DOC-091":"Donetsk","DOC-092":"Donetsk",
-  "DOC-094":"Donetsk",
+  
   "DOC-I1":"Donetsk","DOC-J1":"Donetsk","DOC-K1":"Zaporizhzhia"
 };
 
