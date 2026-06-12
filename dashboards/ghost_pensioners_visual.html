@@ -259,6 +259,30 @@ hr.divider {
 .callout p { margin: 0 0 8px; }
 .callout p:last-child { margin: 0; }
 
+/* ─── Footnotes ─────────────────────────────────────────────── */
+.fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+.fn-ref:hover { text-decoration: underline; }
+.page-footnotes {
+  padding: 20px 32px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(232,234,240,0.55);
+  line-height: 1.65;
+}
+.page-footnotes-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(196,150,74,0.6);
+  margin-bottom: 10px;
+}
+.page-footnotes ol { margin: 0; padding-left: 18px; }
+.page-footnotes li { margin-bottom: 8px; }
+.page-footnotes a { color: #c9a84c; }
+
 /* ─── Footer ─────────────────────────────────────────────────── */
 .page-footer {
   padding: 12px 32px;
@@ -285,17 +309,17 @@ hr.divider {
     <div class="stat-card">
       <div class="stat-val" style="color:#7C1F1F;">134,600</div>
       <div class="stat-label">'Dead souls' pensioners</div>
-      <div class="stat-sub">Official minus actual present</div>
+      <div class="stat-sub">Hub analysis estimate</div>
     </div>
     <div class="stat-card">
       <div class="stat-val" style="color:#C4964A;">RUB 1.68 billion</div>
       <div class="stat-label">Per month fraud value</div>
-      <div class="stat-sub">~$18.7 million/month</div>
+      <div class="stat-sub">~$18.7m/month · Hub estimate</div>
     </div>
     <div class="stat-card">
       <div class="stat-val" style="color:#C4964A;">$224m+</div>
       <div class="stat-label">Annual extraction estimate</div>
-      <div class="stat-sub">~$18.7m × 12 months</div>
+      <div class="stat-sub">~$18.7m × 12 · Hub estimate</div>
     </div>
   </div>
 
@@ -317,12 +341,22 @@ hr.divider {
   <!-- Dual accountability callout -->
   <div class="callout">
     <div class="callout-label">Dual accountability dimension</div>
-    <p>The ghost pensioner scheme operates simultaneously as <strong style="color:#C4964A;">fraud against the Russian federal budget</strong> (RUB 1.68 billion/month extracted through DNR banks, opaque to federal treasury) and as <strong style="color:#C4964A;">theft of resources designated for civilian welfare</strong> under occupation - both potential accountability vectors.</p>
-    <p>The October 2025 deportation panic was triggered deliberately by the occupation administration to destabilise the elderly population - instrumentalising pensioners' citizenship precarity as a tool of social control even while their pension payments are being fraudulently claimed.</p>
+    <p>The ghost pensioner scheme operates simultaneously as <strong style="color:#C4964A;">fraud against the Russian federal budget</strong> (RUB 1.68 billion/month extracted through DNR banks, opaque to federal treasury — Hub analysis estimate) and as <strong style="color:#C4964A;">theft of resources designated for civilian welfare</strong> under occupation<sup><a href="#fn5" class="fn-ref">5</a></sup> — both potential accountability vectors.</p>
+    <p>The October 2025 deportation panic was triggered deliberately by the occupation administration to destabilise the elderly population (Centre for the Study of Occupation monitoring) — instrumentalising pensioners' citizenship precarity<sup><a href="#fn4" class="fn-ref">4</a></sup> as a tool of social control even while their pension payments are being fraudulently claimed.<sup><a href="#fn1" class="fn-ref">1</a></sup><sup><a href="#fn2" class="fn-ref">2</a></sup></p>
   </div>
 
 </div>
 
+<div class="page-footnotes">
+  <div class="page-footnotes-label">Notes</div>
+  <ol>
+    <li id="fn1">A decree of 20 March 2025 required Ukrainians in occupied regions to obtain Russian passports by 10 September 2025 or be classified as foreigners, with access to services and property tied to Russian citizenship and expulsion of those who refused. Human Rights Watch, <a href="https://www.hrw.org/news/2025/03/25/get-passport-or-leave-russias-ultimatum-ukrainians" target="_blank" rel="noopener noreferrer">https://www.hrw.org/news/2025/03/25/get-passport-or-leave-russias-ultimatum-ukrainians</a>; Jamestown Foundation, <a href="https://jamestown.org/kremlin-using-passportization-to-russify-ukraines-occupied-territories/" target="_blank" rel="noopener noreferrer">https://jamestown.org/kremlin-using-passportization-to-russify-ukraines-occupied-territories/</a></li>
+    <li id="fn2">Having been coerced into Russian passports, residents face the risk of that citizenship, and its benefits, being stripped away. Meduza, <a href="https://meduza.io/en/feature/2025/06/19/a-false-semblance-of-choice" target="_blank" rel="noopener noreferrer">https://meduza.io/en/feature/2025/06/19/a-false-semblance-of-choice</a></li>
+    <li id="fn3">Russia's Migration Policy Concept targets Ukrainian citizens who left the occupied territories, with naturalisation as the primary instrument. OSW Centre for Eastern Studies, <a href="https://www.osw.waw.pl/en/publikacje/analyses/2025-10-22/russias-new-migration-policy-concept-security-core" target="_blank" rel="noopener noreferrer">https://www.osw.waw.pl/en/publikacje/analyses/2025-10-22/russias-new-migration-policy-concept-security-core</a></li>
+    <li id="fn4">Russia channels large sums into Mariupol pensions, and elderly residents seek Russian passports believing they are required to keep receiving payments. BBC, <a href="https://www.bbc.com/news/world-europe-64887890" target="_blank" rel="noopener noreferrer">https://www.bbc.com/news/world-europe-64887890</a></li>
+    <li id="fn5">Rights groups and international law experts argue Russia's coercive citizenship measures in occupied Ukraine violate the Fourth Geneva Convention and may meet Rome Statute criteria. See notes 1 (Human Rights Watch / Jamestown Foundation) and 2 (Meduza).</li>
+  </ol>
+</div>
 <div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL</div>
 
 <script>
@@ -349,13 +383,13 @@ const pensionData = [
     label: "Internal estimate: actual pensioners present",
     value: 70000,
     color: "#134E4A",
-    note: "Maximum estimate based on TOT Insights partner monitoring and population analysis"
+    note: "Centre for the Study of Occupation monitoring estimate"
   },
   {
     label: "Ghost pensioners (fraud discrepancy)",
     value: 134600,
     color: "#7C1F1F",
-    note: "204,600 official minus 70,000 actual = 134,600 ‘dead souls’"
+    note: "204,600 official minus 70,000 actual = 134,600 — Hub analysis estimate"
   }
 ];
 
@@ -363,17 +397,17 @@ const pensionTimeline = [
   {
     period: "2022–ongoing",
     event: "Ghost pensioner scheme established",
-    detail: "Occupation authorities claim ~930,000 DNR pension recipients. Mariupol’s implied share: ~204,600. Internal estimate of actual present population: maximum 70,000. Discrepancy of ~134,600 ‘dead souls’ generating RUB 1.68 billion/month (~$18.7 million). Money extracted through ‘DNR banks’ ensuring complete opacity from federal treasury oversight."
+    detail: "Occupation authorities claim ~930,000 DNR pension recipients (Russian Pension Fund official statistics). Mariupol’s implied share: ~204,600. Centre for the Study of Occupation monitoring estimate of actual present population: maximum ~70,000. Hub analysis: discrepancy of ~134,600 generating RUB 1.68 billion/month (~$18.7 million) in fraudulent claims. Money extracted through ‘DNR banks’ ensuring complete opacity from federal treasury oversight."
   },
   {
     period: "Oct 2025",
     event: "Pensioner deportation panic",
-    detail: "RF 2026–2030 Migration Policy Concept (Oct 2, 2025) allows stripping Russian citizenship from anyone who verified obligations to Ukraine - specifically targeting pensioners who confirmed pension status with Ukrainian state. Occupation administration deliberately activated a pensioner deportation information panic through local bloggers. At least 10% of pensioners actively sought departure. Instrument of psychological coercion rather than actual deportation."
+    detail: "RF 2026–2030 Migration Policy Concept (Oct 2, 2025)<sup><a href=\"#fn3\" class=\"fn-ref\">3</a></sup> allows stripping Russian citizenship from those who verified obligations to Ukraine<sup><a href=\"#fn1\" class=\"fn-ref\">1</a></sup><sup><a href=\"#fn2\" class=\"fn-ref\">2</a></sup> — specifically targeting pensioners who confirmed pension status with the Ukrainian state. Occupation administration deliberately activated a pensioner deportation information panic through local bloggers. At least 10% of pensioners actively sought departure (Centre for the Study of Occupation monitoring). Instrument of psychological coercion rather than actual deportation."
   },
   {
     period: "Mar 2026",
     event: "140 apartments to 80+ cohort",
-    detail: "Occupation authorities distributed 140 municipal apartments to residents aged 80 and older, framed as social care. Assessment: ‘manual allocation of scarce housing resources in a city experiencing systemic housing collapse.’ Confirms presence of elderly Ukrainian resident stratum that remained through siege and occupation."
+    detail: "Occupation authorities distributed 140 municipal apartments to residents aged 80 and older, framed as social care (Centre for the Study of Occupation monitoring). Hub assessment: ‘manual allocation of scarce housing resources in a city experiencing systemic housing collapse.’ Confirms presence of elderly Ukrainian resident stratum that remained through siege and occupation — consistent with Centre estimate of ~70,000 actual pensioners present."
   }
 ];
 
