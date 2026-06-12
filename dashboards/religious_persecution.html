@@ -1,76 +1,557 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Religious Persecution in Occupied Ukraine - TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
-.tab-btn {
-  padding: 10px 16px;
-  border: none;
-  border-bottom: 3px solid transparent;
-  background: none;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  color: #999;
-  font-weight: normal;
-  white-space: nowrap;
-  margin-bottom: -2px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  background: #111d30;
+  color: #e8eaf0;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
 }
-.tab-btn.active {
-  border-bottom-color: #8B1A1A;
-  color: #8B1A1A;
-  font-weight: bold;
+
+/* ─── Page header ─────────────────────────────────────────────────── */
+.page-header {
+  background: #0F1F3D;
+  color: #E8E0D0;
+  padding: 14px 32px 18px;
+  border-bottom: 3px solid #C4964A;
+}
+.page-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #C4964A;
+  margin-bottom: 6px;
+}
+.page-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #E8E0D0;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+.page-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #9CA3AF;
+  margin-bottom: 12px;
+}
+.cite-box {
+  background: rgba(255,255,255,0.02);
+  border-left: 2px solid rgba(196,150,74,0.4);
+  padding: 0.75rem 1rem;
+  margin: 10px 0 10px;
+}
+.cite-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.35rem;
+}
+.cite-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(232,228,220,0.75);
+  line-height: 1.5;
+}
+.cite-text a { color: #E8B84B; text-decoration: none; }
+.cite-text a:hover { text-decoration: underline; }
+.cite-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
+  background: transparent;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  display: inline-block;
+}
+.source-line {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.65);
+}
+.source-line a { color: #E8B84B; text-decoration: none; }
+.source-line a:hover { text-decoration: underline; }
+
+/* ─── Content ─────────────────────────────────────────────────────── */
+.content {
+  padding: 24px 32px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) {
+  .content { padding: 20px 16px 32px; }
+  .page-header { padding: 12px 16px 16px; }
+}
+
+/* ─── Stat cards ──────────────────────────────────────────────────── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 900px) { .stat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 500px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+.stat-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 16px 12px;
+  text-align: center;
+}
+.stat-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #c9a84c;
+}
+.stat-val.blue { color: #5B9BD5; }
+.stat-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 11px;
+  color: rgba(232,228,220,0.7);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ─── Tabs ────────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: none;
+  background: transparent;
+  color: rgba(232,234,240,0.40);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: rgba(232,234,240,0.70); }
+.tab-btn.active { color: #c9a84c; border-bottom-color: #c9a84c; }
+
+/* ─── Panel structure ─────────────────────────────────────────────── */
+.tab-panel { display: none; }
+
+.panel-intro { margin-bottom: 20px; }
+.panel-head-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.panel-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #C4964A;
+  color: #0F1F3D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.panel-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #E8E0D0;
+  margin: 0;
+  line-height: 1.2;
+}
+.panel-desc {
+  margin: 0 0 0 48px;
+  color: rgba(232,228,220,0.6);
+  font-size: 13px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* ─── Chart cards ─────────────────────────────────────────────────── */
+.chart-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 20px 24px;
+}
+.chart-wrap { position: relative; }
+
+/* ─── Denomination summary cards (Panel 1) ───────────────────────── */
+.denom-summary {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.denom-card {
+  flex: 1;
+  min-width: 200px;
+  background: #0F1F3D;
+  border-left: 3px solid #C4964A;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.denom-card-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c9a84c;
+  margin-bottom: 4px;
+}
+.denom-card-text {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.75);
+  line-height: 1.5;
+}
+
+/* ─── Clergy casualties (Panel 2) ────────────────────────────────── */
+.clergy-layout {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.clergy-chart { flex: 0 0 300px; }
+.clergy-stats {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.clergy-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #0F1F3D;
+  border-radius: 4px;
+  border-left: 4px solid transparent;
+}
+.clergy-stat-val {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  width: 52px;
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 1;
+  color: #c9a84c;
+}
+.clergy-stat-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  color: #E8E0D0;
+  line-height: 1.4;
+}
+.clergy-note {
+  margin-top: 4px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.5);
+  line-height: 1.6;
+}
+
+/* ─── Summary cards (Panel 3 timeline notes) ─────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+@media (max-width: 600px) { .summary-grid { grid-template-columns: 1fr; } }
+.summary-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+.summary-card-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 4px;
+}
+.summary-card-text {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.8);
+  line-height: 1.5;
+}
+
+/* ─── ROC stats box (Panel 4) ────────────────────────────────────── */
+.roc-stats-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: rgba(46,91,138,0.12);
+  border: 1px solid rgba(46,91,138,0.30);
+  border-radius: 4px;
+}
+.roc-stats-title {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5B9BD5;
+  margin-bottom: 12px;
+}
+.roc-stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.roc-stat { text-align: center; }
+.roc-stat-val {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #5B9BD5;
+  line-height: 1;
+}
+.roc-stat-val.zero { color: #c9a84c; }
+.roc-stat-label {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 11px;
+  color: rgba(232,228,220,0.45);
+  margin-top: 2px;
+}
+
+/* ─── If This Were America (Panel 5) ─────────────────────────────── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 700px) { .compare-grid { grid-template-columns: 1fr; } }
+.compare-card {
+  background: #0F1F3D;
+  border-radius: 4px;
+  border: 2px solid #1e3a60;
+  padding: 18px;
+}
+.compare-card.amber-border { border-color: rgba(196,150,74,0.5); }
+.compare-card.banned-card  { border-color: #1a2744; }
+.compare-card-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,228,220,0.45);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.compare-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.compare-num-block { line-height: 1; }
+.compare-big {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #5B9BD5;
+  line-height: 1;
+}
+.compare-num-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,228,220,0.4);
+  margin-top: 4px;
+}
+.compare-arrow {
+  font-size: 24px;
+  color: #C4964A;
+  flex-shrink: 0;
+}
+.compare-result {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #c9a84c;
+  line-height: 1;
+}
+.compare-bar-track {
+  height: 12px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.compare-bar-fill {
+  height: 100%;
+  background: #C4964A;
+  border-radius: 6px;
+}
+.compare-text {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.75);
+  line-height: 1.5;
+}
+.banned-center {
+  text-align: center;
+  padding: 8px 0 12px;
+}
+.banned-word {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: #E8E0D0;
+  line-height: 1;
+}
+.banned-sub {
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.45);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.scale-note {
+  background: rgba(196,150,74,0.08);
+  border: 1px solid rgba(196,150,74,0.25);
+  border-radius: 4px;
+  padding: 14px 16px;
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.8);
+  line-height: 1.7;
+}
+.scale-note strong { color: #c9a84c; font-weight: 600; }
+
+/* ─── Sources footer ─────────────────────────────────────────────── */
+.sources-footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(232,228,220,0.5);
+  line-height: 1.8;
+}
+.sources-footer a { color: #c9a84c; text-decoration: none; }
+.sources-footer a:hover { text-decoration: underline; }
+
+/* ─── Research integrity ─────────────────────────────────────────── */
+.research-integrity {
+  padding: 0 32px 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .research-integrity { padding: 0 16px 24px; } }
+.integrity-inner {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+}
+.integrity-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(232,228,220,0.55);
+  margin-bottom: 6px;
+}
+.integrity-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(232,228,220,0.90);
+  text-decoration: none;
+}
+.integrity-link:hover { text-decoration: underline; }
+.integrity-note {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.75rem;
+  color: rgba(232,228,220,0.55);
+  margin-top: 6px;
+}
+
+/* ─── Page footer ────────────────────────────────────────────────── */
+.page-footer {
+  padding: 12px 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,234,240,0.40);
 }
 </style>
 </head>
-<body style="margin:0;padding:0;">
+<body>
 
+<div class="page-header">
+  <div class="page-eyebrow">TOT Insights · Analytical Visualisations · May 2026</div>
+  <div class="page-title">Controlling Faith by Force: The Scale of Russia's Religious Persecution in Occupied Ukraine</div>
+  <div class="page-subtitle">2014–2025 · Occupied territories</div>
+  <div class="cite-box">
+    <div class="cite-label">Cite this output</div>
+    <div class="cite-text">McGlynn, J. et al. (2026). Religious Persecution Charts. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20303938" target="_blank" rel="noopener noreferrer">https://doi.org/10.5281/zenodo.20303938</a></div>
+    <button class="cite-btn" id="copy-cite-btn" onclick="copyCitation()">Copy citation</button>
+  </div>
+  <p class="source-line">Full sources and footnotes: <a href="../briefings/religious_persecution_briefing.html"><em>Controlling Faith by Force</em> briefing</a></p>
+</div>
 
-<div style="background:#FDF9F5;min-height:100vh;font-family:Arial,sans-serif;color:#1A1A1A;">
+<div class="content">
 
-  <!-- header -->
-  <div style="background:#8B1A1A;color:#fff;padding:24px 32px;margin-bottom:24px;">
-    <div style="font-size:11px;letter-spacing:2px;opacity:0.7;text-transform:uppercase;margin-bottom:6px;font-family:Arial,sans-serif;">TOT Insights · Analytical Visualisations</div>
-    <h1 style="margin:0;font-family:Georgia,serif;font-size:24px;font-weight:normal;line-height:1.3;">Controlling Faith by Force: The Scale of Russia's Religious Persecution in Occupied Ukraine</h1>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-top:12px;margin-bottom:1rem;">Last updated: May 2026</div>
-    <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1rem;">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Religious Persecution Charts. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20303938" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20303938</a></div>
-      <button id="copy-cite-btn" onclick="copyCitation()" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <!-- stat grid -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-val">600+</div>
+      <div class="stat-label">Religious structures damaged or destroyed (2014–2025)</div>
     </div>
-    <p style="margin:0;opacity:0.8;font-size:12px;font-family:Arial,sans-serif;">Full sources and footnotes: <a href="../briefings/religious_persecution_briefing.html" style="color:#E8B84B;"><em>Controlling Faith by Force</em> briefing</a></p>
+    <div class="stat-card">
+      <div class="stat-val">70+</div>
+      <div class="stat-label">Clergy killed or tortured to death</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">200+</div>
+      <div class="stat-label">Clergy abducted and tortured</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val">~1,000</div>
+      <div class="stat-label">Christian communities closed or driven underground</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val blue">871</div>
+      <div class="stat-label">ROC structures now registered in occupied territory</div>
+    </div>
   </div>
 
-  <!-- stat row -->
-  <div style="display:flex;gap:12px;margin:0 32px 24px;flex-wrap:wrap;">
-    <div style="text-align:center;flex:1;padding:16px 8px;background:#FFF5F5;border-radius:8px;border:1px solid #D4C9C0;">
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#8B1A1A;line-height:1;">600+</div>
-      <div style="font-family:Arial,sans-serif;font-size:11px;color:#999;margin-top:6px;line-height:1.4;">Religious structures damaged or destroyed (2014–2025)</div>
-    </div>
-    <div style="text-align:center;flex:1;padding:16px 8px;background:#FFF5F5;border-radius:8px;border:1px solid #D4C9C0;">
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#8B1A1A;line-height:1;">70+</div>
-      <div style="font-family:Arial,sans-serif;font-size:11px;color:#999;margin-top:6px;line-height:1.4;">Clergy killed or tortured to death</div>
-    </div>
-    <div style="text-align:center;flex:1;padding:16px 8px;background:#FFF5F5;border-radius:8px;border:1px solid #D4C9C0;">
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#8B1A1A;line-height:1;">200+</div>
-      <div style="font-family:Arial,sans-serif;font-size:11px;color:#999;margin-top:6px;line-height:1.4;">Clergy abducted and tortured</div>
-    </div>
-    <div style="text-align:center;flex:1;padding:16px 8px;background:#FFF5F5;border-radius:8px;border:1px solid #D4C9C0;">
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#8B1A1A;line-height:1;">~1,000</div>
-      <div style="font-family:Arial,sans-serif;font-size:11px;color:#999;margin-top:6px;line-height:1.4;">Christian communities closed or driven underground</div>
-    </div>
-    <div style="text-align:center;flex:1;padding:16px 8px;background:#FFF5F5;border-radius:8px;border:1px solid #D4C9C0;">
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#2E5B8A;line-height:1;">871</div>
-      <div style="font-family:Arial,sans-serif;font-size:11px;color:#999;margin-top:6px;line-height:1.4;">ROC structures now registered in occupied territory</div>
-    </div>
-  </div>
-
-  <!-- tab nav -->
-  <div style="display:flex;gap:0;margin:0 32px 0;border-bottom:2px solid #D4C9C0;overflow-x:auto;">
+  <!-- tab bar -->
+  <div class="tab-bar">
     <button class="tab-btn active" id="tab-btn-0" onclick="showTab(0)">Suppression by Denomination</button>
     <button class="tab-btn" id="tab-btn-1" onclick="showTab(1)">Clergy Casualties</button>
     <button class="tab-btn" id="tab-btn-2" onclick="showTab(2)">Escalation Timeline</button>
@@ -78,246 +559,276 @@
     <button class="tab-btn" id="tab-btn-4" onclick="showTab(4)">If This Were America</button>
   </div>
 
-  <!-- panels -->
-  <div style="margin:24px 32px;">
-
-    <!-- Panel 0: Suppression by Denomination -->
-    <div id="panel-0">
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8B1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;font-size:16px;flex-shrink:0;">1</div>
-          <h2 style="margin:0;font-family:Georgia,serif;font-size:20px;color:#1A1A1A;">Suppression by Denomination: Before and After Occupation</h2>
-        </div>
-        <p style="margin:0 0 0 48px;color:#999;font-size:13px;font-family:Arial,sans-serif;line-height:1.5;">Number of registered communities in occupied Donetsk Oblast (the best-documented case). Every non-ROC denomination has been eliminated or reduced by 90–100%.</p>
+  <!-- Panel 0: Suppression by Denomination -->
+  <div id="panel-0" class="tab-panel" style="display:block;">
+    <div class="panel-intro">
+      <div class="panel-head-row">
+        <div class="panel-number">1</div>
+        <h2 class="panel-title">Suppression by Denomination: Before and After Occupation</h2>
       </div>
-      <div style="position:relative;width:100%;height:380px;"><canvas id="chart-0"></canvas></div>
-      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:200px;background:#FFF0F0;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:13px;">Three denominations</div>
-          <div style="color:#1A1A1A;font-size:12px;margin-top:4px;">completely eliminated (0 communities remaining): OCU, UGCC, Jehovah's Witnesses</div>
-        </div>
-        <div style="flex:1;min-width:200px;background:#FFF0F0;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:13px;">Baptists &amp; Pentecostals</div>
-          <div style="color:#1A1A1A;font-size:12px;margin-top:4px;">95% of congregations destroyed - the largest Protestant groupings in the region</div>
-        </div>
-        <div style="flex:1;min-width:200px;background:#FFF0F0;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:13px;">Adventists</div>
-          <div style="color:#1A1A1A;font-size:12px;margin-top:4px;">90% reduction; the handful of remaining communities operate underground</div>
-        </div>
+      <p class="panel-desc">Number of registered communities in occupied Donetsk Oblast (the best-documented case). Every non-ROC denomination has been eliminated or reduced by 90–100%.</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:380px;"><canvas id="chart-0"></canvas></div>
+    </div>
+    <div class="denom-summary">
+      <div class="denom-card">
+        <div class="denom-card-label">Three denominations</div>
+        <div class="denom-card-text">completely eliminated (0 communities remaining): OCU, UGCC, Jehovah's Witnesses</div>
+      </div>
+      <div class="denom-card">
+        <div class="denom-card-label">Baptists &amp; Pentecostals</div>
+        <div class="denom-card-text">95% of congregations destroyed - the largest Protestant groupings in the region</div>
+      </div>
+      <div class="denom-card">
+        <div class="denom-card-label">Adventists</div>
+        <div class="denom-card-text">90% reduction; the handful of remaining communities operate underground</div>
       </div>
     </div>
-
-    <!-- Panel 1: Clergy Casualties -->
-    <div id="panel-1" style="display:none;">
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8B1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;font-size:16px;flex-shrink:0;">2</div>
-          <h2 style="margin:0;font-family:Georgia,serif;font-size:20px;color:#1A1A1A;">What Happened to Pastors and Priests</h2>
-        </div>
-        <p style="margin:0 0 0 48px;color:#999;font-size:13px;font-family:Arial,sans-serif;line-height:1.5;">Documented casualties among clergy across all denominations, occupied territories, 2014–2025.</p>
-      </div>
-      <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start;">
-        <div style="flex:0 0 340px;">
-          <div style="position:relative;width:340px;height:300px;"><canvas id="chart-1"></canvas></div>
-        </div>
-        <div style="flex:1;min-width:260px;">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:#FFF;border:1px solid #D4C9C0;border-left:4px solid #8B1A1A;border-radius:4px;">
-            <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#8B1A1A;width:52px;text-align:right;flex-shrink:0;">70+</div>
-            <div style="font-size:13px;color:#1A1A1A;line-height:1.4;">Killed / tortured to death</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:#FFF;border:1px solid #D4C9C0;border-left:4px solid #B04040;border-radius:4px;">
-            <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#B04040;width:52px;text-align:right;flex-shrink:0;">200+</div>
-            <div style="font-size:13px;color:#1A1A1A;line-height:1.4;">Abducted &amp; tortured</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:#FFF;border:1px solid #D4C9C0;border-left:4px solid #C07070;border-radius:4px;">
-            <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#C07070;width:52px;text-align:right;flex-shrink:0;">20</div>
-            <div style="font-size:13px;color:#1A1A1A;line-height:1.4;">Kidnapped - fate unknown</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:#FFF;border:1px solid #D4C9C0;border-left:4px solid #D09090;border-radius:4px;">
-            <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#D09090;width:52px;text-align:right;flex-shrink:0;">45</div>
-            <div style="font-size:13px;color:#1A1A1A;line-height:1.4;">Kidnapped, later released</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:#FFF;border:1px solid #D4C9C0;border-left:4px solid #A04020;border-radius:4px;">
-            <div style="font-family:Georgia,serif;font-size:28px;font-weight:bold;color:#A04020;width:52px;text-align:right;flex-shrink:0;">5</div>
-            <div style="font-size:13px;color:#1A1A1A;line-height:1.4;">Killed in bombing / shelling</div>
-          </div>
-          <div style="margin-top:16px;padding:10px 14px;background:#F5F0F0;border-radius:6px;font-size:12px;color:#999;line-height:1.6;">Note: 6 confirmed cases of intentional killing by Russian forces (excluding shelling), 2022–2025. Five victims from the Orthodox Church of Ukraine; one from the Ukrainian Evangelical Christians.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 2: Escalation Timeline -->
-    <div id="panel-2" style="display:none;">
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8B1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;font-size:16px;flex-shrink:0;">3</div>
-          <h2 style="margin:0;font-family:Georgia,serif;font-size:20px;color:#1A1A1A;">The Escalation: 2014 to 2025</h2>
-        </div>
-        <p style="margin:0 0 0 48px;color:#999;font-size:13px;font-family:Arial,sans-serif;line-height:1.5;">Severity index constructed from documented events, raids, legal prohibitions, and killings. Hover each point for detail.</p>
-      </div>
-      <div style="position:relative;width:100%;height:340px;"><canvas id="chart-2"></canvas></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;">
-        <div style="background:#FFF;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:12px;margin-bottom:4px;">2014–2015</div>
-          <div style="font-size:12px;color:#1A1A1A;line-height:1.5;">First raids on Adventist and Protestant churches; DPR officially classifies evangelical denominations as 'sects'</div>
-        </div>
-        <div style="background:#FFF;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:12px;margin-bottom:4px;">2017</div>
-          <div style="font-size:12px;color:#1A1A1A;line-height:1.5;">Russia's Supreme Court bans Jehovah's Witnesses - applied to all occupied territory. Templated suppression framework deployed.</div>
-        </div>
-        <div style="background:#FFF;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:12px;margin-bottom:4px;">Feb 2022</div>
-          <div style="font-size:12px;color:#1A1A1A;line-height:1.5;">Absolute repression begins. Ultimatum issued to every non-ROC community: join Moscow or be destroyed.</div>
-        </div>
-        <div style="background:#FFF;border:1px solid #D4C9C0;border-radius:6px;padding:10px 14px;">
-          <div style="font-weight:bold;color:#8B1A1A;font-size:12px;margin-bottom:4px;">2023–2025</div>
-          <div style="font-size:12px;color:#1A1A1A;line-height:1.5;">ROC formally absorbs Ukrainian dioceses; individual clergy sentenced to 12–14 years; 871 ROC structures registered.</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 3: Replacement Dynamic -->
-    <div id="panel-3" style="display:none;">
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8B1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;font-size:16px;flex-shrink:0;">4</div>
-          <h2 style="margin:0;font-family:Georgia,serif;font-size:20px;color:#1A1A1A;">The Replacement Dynamic: ROC Monopoly Construction</h2>
-        </div>
-        <p style="margin:0 0 0 48px;color:#999;font-size:13px;font-family:Arial,sans-serif;line-height:1.5;">Estimated registered communities in occupied Donetsk Oblast by affiliation, 2014–2025. The suppression of other denominations is not incidental: it is the mechanism by which ROC monopoly is built.</p>
-      </div>
-      <div style="position:relative;width:100%;height:360px;"><canvas id="chart-3"></canvas></div>
-      <div style="margin-top:16px;padding:12px 16px;background:#EEF4FB;border:1px solid #BCD;border-radius:6px;">
-        <div style="font-weight:bold;color:#2E5B8A;font-size:13px;margin-bottom:6px;">As of October 2025, in occupied territories Russia has registered:</div>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;">
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#2E5B8A;">836</div><div style="font-size:11px;color:#999;">ROC parishes</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#2E5B8A;">16</div><div style="font-size:11px;color:#999;">ROC monasteries</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#2E5B8A;">8</div><div style="font-size:11px;color:#999;">ROC dioceses</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#8B1A1A;">0</div><div style="font-size:11px;color:#999;">UGCC churches</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#8B1A1A;">0</div><div style="font-size:11px;color:#999;">OCU churches</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#8B1A1A;">0</div><div style="font-size:11px;color:#999;">Baptist communities</div></div>
-          <div style="text-align:center;"><div style="font-family:Georgia,serif;font-weight:bold;font-size:22px;color:#8B1A1A;">0</div><div style="font-size:11px;color:#999;">Pentecostal communities</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Panel 4: If This Were America (pure HTML) -->
-    <div id="panel-4" style="display:none;">
-      <div style="margin-bottom:20px;">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:50%;background:#8B1A1A;color:#fff;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:bold;font-size:16px;flex-shrink:0;">5</div>
-          <h2 style="margin:0;font-family:Georgia,serif;font-size:20px;color:#1A1A1A;">If This Were America: A Frame for Understanding Scale</h2>
-        </div>
-        <p style="margin:0 0 0 48px;color:#999;font-size:13px;font-family:Arial,sans-serif;line-height:1.5;">The occupied Donbas region had a religious landscape comparable in diversity to a mid-sized American metropolitan area. The suppression Russia applied, if translated proportionally to the United States, would mean the following (TOT Insights illustrative analysis based on public US denomination figures cited in the footer).</p>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
-        <div style="background:#FFF;border:2px solid #8B1A1A;border-radius:8px;padding:20px;">
-          <div style="font-size:12px;color:#999;margin-bottom:8px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">Baptist churches (SBC equivalent)</div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#2E5B8A;">46,906</div><div style="font-size:12px;color:#999;">SBC churches in the US (2023)</div></div>
-            <div style="font-size:28px;color:#8B1A1A;">→</div>
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#8B1A1A;">2,345</div><div style="font-size:12px;color:#999;">remaining after 95% suppression</div></div>
-          </div>
-          <div style="height:16px;background:#EEE;border-radius:8px;overflow:hidden;"><div style="width:5%;height:100%;background:#8B1A1A;border-radius:8px;"></div></div>
-          <div style="margin-top:8px;font-size:12px;color:#1A1A1A;line-height:1.5;">The equivalent: 44,561 Southern Baptist churches forcibly closed, their buildings seized or converted to government offices. Their pastors given a choice - submit to state-sanctioned Orthodoxy or face prison.</div>
-        </div>
-        <div style="background:#FFF;border:2px solid #8B1A1A;border-radius:8px;padding:20px;">
-          <div style="font-size:12px;color:#999;margin-bottom:8px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">Pentecostal / Charismatic churches</div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#2E5B8A;">~36,000</div><div style="font-size:12px;color:#999;">Assemblies of God + COGIC churches</div></div>
-            <div style="font-size:28px;color:#8B1A1A;">→</div>
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#8B1A1A;">1,800</div><div style="font-size:12px;color:#999;">remaining after 95% suppression</div></div>
-          </div>
-          <div style="height:16px;background:#EEE;border-radius:8px;overflow:hidden;"><div style="width:5%;height:100%;background:#8B1A1A;border-radius:8px;"></div></div>
-          <div style="margin-top:8px;font-size:12px;color:#1A1A1A;line-height:1.5;">34,200 Pentecostal and charismatic churches shuttered. Pastors labelled "American agents" and "extremists." Congregants told they can worship only in a government-aligned denomination.</div>
-        </div>
-        <div style="background:#FFF;border:2px solid #C4960A;border-radius:8px;padding:20px;">
-          <div style="font-size:12px;color:#999;margin-bottom:8px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">Seventh-day Adventist churches</div>
-          <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#2E5B8A;">5,400</div><div style="font-size:12px;color:#999;">SDA churches in the US</div></div>
-            <div style="font-size:28px;color:#C4960A;">→</div>
-            <div><div style="font-family:Georgia,serif;font-weight:bold;font-size:32px;color:#C4960A;">540</div><div style="font-size:12px;color:#999;">remaining after 90% suppression</div></div>
-          </div>
-          <div style="height:16px;background:#EEE;border-radius:8px;overflow:hidden;"><div style="width:10%;height:100%;background:#C4960A;border-radius:8px;"></div></div>
-          <div style="margin-top:8px;font-size:12px;color:#1A1A1A;line-height:1.5;">4,860 Adventist congregations erased. An Adventist pastor from Horlivka was kidnapped during a worship service by armed militants - he survived. Many didn't.</div>
-        </div>
-        <div style="background:#FFF;border:2px solid #333;border-radius:8px;padding:20px;">
-          <div style="font-size:12px;color:#999;margin-bottom:8px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;">Jehovah's Witnesses - complete prohibition</div>
-          <div style="text-align:center;padding:12px 0;margin-bottom:12px;">
-            <div style="font-family:Georgia,serif;font-weight:bold;font-size:40px;color:#333;">BANNED</div>
-            <div style="font-size:13px;color:#999;margin-top:4px;">All 83 communities in occupied Donbas; Russia's 2017 Supreme Court ruling applied to all occupied territories</div>
-          </div>
-          <div style="font-size:12px;color:#1A1A1A;line-height:1.5;">The US equivalent: 13,000+ Kingdom Halls closed by federal court order. Attendance at any meeting criminalised. Members face prosecution under "extremism" laws carrying up to 15 years' imprisonment.</div>
-        </div>
-      </div>
-      <div style="background:#FBE9A8;border:1px solid #C4960A;border-radius:8px;padding:16px;font-size:12px;color:#1A1A1A;line-height:1.7;">
-        <strong style="color:#8B1A1A;">Note on scale:</strong> The occupied Donetsk Oblast before 2014 had approximately 1,797 religious communities for a population of roughly 4 million - a density similar to many US states. Russia did not destroy a few marginal sects. It systematically eliminated a mature, decades-old Christian landscape that looked very similar to what exists in Ukraine's unoccupied regions and in many parts of the American Midwest and South - Baptist-majority, with significant Pentecostal, Adventist, Greek Catholic, and Orthodox minorities. The distinguishing criterion for survival was one: institutional submission to the Moscow Patriarchate.
-      </div>
-    </div>
-
-  </div><!-- /panels -->
-
-  <!-- sources footer -->
-  <div style="margin:32px;padding-top:16px;border-top:1px solid #D4C9C0;font-size:11px;color:#999;font-family:Arial,sans-serif;line-height:1.7;">
-    Full sources and footnotes: <a href="../briefings/religious_persecution_briefing.html" style="color:#8B1A1A;"><em>Controlling Faith by Force</em> briefing</a>. Panel 5 US denomination figures: Lifeway Research, 2023 Annual Church Profile (46,906 SBC churches), reported by <a href="https://www.tennessean.com/story/news/religion/2024/05/21/southern-baptist-convention-membership-church-numbers-2023/73779051007/" style="color:#8B1A1A;">The Tennessean</a>, 21 May 2024; Pew Research Center, <a href="https://www.pewresearch.org/religion/2015/05/12/americas-changing-religious-landscape/" style="color:#8B1A1A;">"America's Changing Religious Landscape,"</a> 12 May 2015. The scaled proportional comparison is TOT Insights illustrative analysis.
   </div>
 
-</div><!-- /light app wrapper -->
+  <!-- Panel 1: Clergy Casualties -->
+  <div id="panel-1" class="tab-panel">
+    <div class="panel-intro">
+      <div class="panel-head-row">
+        <div class="panel-number">2</div>
+        <h2 class="panel-title">What Happened to Pastors and Priests</h2>
+      </div>
+      <p class="panel-desc">Documented casualties among clergy across all denominations, occupied territories, 2014–2025.</p>
+    </div>
+    <div class="clergy-layout">
+      <div class="clergy-chart">
+        <div class="chart-card">
+          <div class="chart-wrap" style="height:300px;"><canvas id="chart-1"></canvas></div>
+        </div>
+      </div>
+      <div class="clergy-stats">
+        <div class="clergy-stat" style="border-left-color:#1e4080;">
+          <div class="clergy-stat-val">70+</div>
+          <div class="clergy-stat-label">Killed / tortured to death</div>
+        </div>
+        <div class="clergy-stat" style="border-left-color:#2e5ea8;">
+          <div class="clergy-stat-val">200+</div>
+          <div class="clergy-stat-label">Abducted &amp; tortured</div>
+        </div>
+        <div class="clergy-stat" style="border-left-color:#4478c4;">
+          <div class="clergy-stat-val">20</div>
+          <div class="clergy-stat-label">Kidnapped - fate unknown</div>
+        </div>
+        <div class="clergy-stat" style="border-left-color:#5e94d8;">
+          <div class="clergy-stat-val">45</div>
+          <div class="clergy-stat-label">Kidnapped, later released</div>
+        </div>
+        <div class="clergy-stat" style="border-left-color:#80b4e8;">
+          <div class="clergy-stat-val">5</div>
+          <div class="clergy-stat-label">Killed in bombing / shelling</div>
+        </div>
+        <div class="clergy-note">Note: 6 confirmed cases of intentional killing by Russian forces (excluding shelling), 2022–2025. Five victims from the Orthodox Church of Ukraine; one from the Ukrainian Evangelical Christians.</div>
+      </div>
+    </div>
+  </div>
 
-<!-- Research Integrity section (dark body) -->
-<div style="padding:0 2rem 1.5rem;">
-<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Religious%20Persecution%20in%20Occupied%20Ukraine%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/religious_persecution.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
-</div></div>
+  <!-- Panel 2: Escalation Timeline -->
+  <div id="panel-2" class="tab-panel">
+    <div class="panel-intro">
+      <div class="panel-head-row">
+        <div class="panel-number">3</div>
+        <h2 class="panel-title">The Escalation: 2014 to 2025</h2>
+      </div>
+      <p class="panel-desc">Severity index constructed from documented events, raids, legal prohibitions, and killings. Hover each point for detail.</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:340px;"><canvas id="chart-2"></canvas></div>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-card-label">2014–2015</div>
+        <div class="summary-card-text">First raids on Adventist and Protestant churches; DPR officially classifies evangelical denominations as 'sects'</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-label">2017</div>
+        <div class="summary-card-text">Russia's Supreme Court bans Jehovah's Witnesses - applied to all occupied territory. Templated suppression framework deployed.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-label">Feb 2022</div>
+        <div class="summary-card-text">Absolute repression begins. Ultimatum issued to every non-ROC community: join Moscow or be destroyed.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-card-label">2023–2025</div>
+        <div class="summary-card-text">ROC formally absorbs Ukrainian dioceses; individual clergy sentenced to 12–14 years; 871 ROC structures registered.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 3: Replacement Dynamic -->
+  <div id="panel-3" class="tab-panel">
+    <div class="panel-intro">
+      <div class="panel-head-row">
+        <div class="panel-number">4</div>
+        <h2 class="panel-title">The Replacement Dynamic: ROC Monopoly Construction</h2>
+      </div>
+      <p class="panel-desc">Estimated registered communities in occupied Donetsk Oblast by affiliation, 2014–2025. The suppression of other denominations is not incidental: it is the mechanism by which ROC monopoly is built.</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:360px;"><canvas id="chart-3"></canvas></div>
+    </div>
+    <div class="roc-stats-box">
+      <div class="roc-stats-title">As of October 2025, in occupied territories Russia has registered:</div>
+      <div class="roc-stats-row">
+        <div class="roc-stat"><div class="roc-stat-val">836</div><div class="roc-stat-label">ROC parishes</div></div>
+        <div class="roc-stat"><div class="roc-stat-val">16</div><div class="roc-stat-label">ROC monasteries</div></div>
+        <div class="roc-stat"><div class="roc-stat-val">8</div><div class="roc-stat-label">ROC dioceses</div></div>
+        <div class="roc-stat"><div class="roc-stat-val zero">0</div><div class="roc-stat-label">UGCC churches</div></div>
+        <div class="roc-stat"><div class="roc-stat-val zero">0</div><div class="roc-stat-label">OCU churches</div></div>
+        <div class="roc-stat"><div class="roc-stat-val zero">0</div><div class="roc-stat-label">Baptist communities</div></div>
+        <div class="roc-stat"><div class="roc-stat-val zero">0</div><div class="roc-stat-label">Pentecostal communities</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 4: If This Were America -->
+  <div id="panel-4" class="tab-panel">
+    <div class="panel-intro">
+      <div class="panel-head-row">
+        <div class="panel-number">5</div>
+        <h2 class="panel-title">If This Were America: A Frame for Understanding Scale</h2>
+      </div>
+      <p class="panel-desc">The occupied Donbas region had a religious landscape comparable in diversity to a mid-sized American metropolitan area. The suppression Russia applied, if translated proportionally to the United States, would mean the following (TOT Insights illustrative analysis based on public US denomination figures cited in the footer).</p>
+    </div>
+    <div class="compare-grid">
+
+      <div class="compare-card">
+        <div class="compare-card-label">Baptist churches (SBC equivalent)</div>
+        <div class="compare-row">
+          <div class="compare-num-block">
+            <div class="compare-big">46,906</div>
+            <div class="compare-num-sub">SBC churches in the US (2023)</div>
+          </div>
+          <div class="compare-arrow">&#8594;</div>
+          <div class="compare-num-block">
+            <div class="compare-result">2,345</div>
+            <div class="compare-num-sub">remaining after 95% suppression</div>
+          </div>
+        </div>
+        <div class="compare-bar-track"><div class="compare-bar-fill" style="width:5%;"></div></div>
+        <div class="compare-text">The equivalent: 44,561 Southern Baptist churches forcibly closed, their buildings seized or converted to government offices. Their pastors given a choice - submit to state-sanctioned Orthodoxy or face prison.</div>
+      </div>
+
+      <div class="compare-card">
+        <div class="compare-card-label">Pentecostal / Charismatic churches</div>
+        <div class="compare-row">
+          <div class="compare-num-block">
+            <div class="compare-big">~36,000</div>
+            <div class="compare-num-sub">Assemblies of God + COGIC churches</div>
+          </div>
+          <div class="compare-arrow">&#8594;</div>
+          <div class="compare-num-block">
+            <div class="compare-result">1,800</div>
+            <div class="compare-num-sub">remaining after 95% suppression</div>
+          </div>
+        </div>
+        <div class="compare-bar-track"><div class="compare-bar-fill" style="width:5%;"></div></div>
+        <div class="compare-text">34,200 Pentecostal and charismatic churches shuttered. Pastors labelled "American agents" and "extremists." Congregants told they can worship only in a government-aligned denomination.</div>
+      </div>
+
+      <div class="compare-card amber-border">
+        <div class="compare-card-label">Seventh-day Adventist churches</div>
+        <div class="compare-row">
+          <div class="compare-num-block">
+            <div class="compare-big">5,400</div>
+            <div class="compare-num-sub">SDA churches in the US</div>
+          </div>
+          <div class="compare-arrow">&#8594;</div>
+          <div class="compare-num-block">
+            <div class="compare-result">540</div>
+            <div class="compare-num-sub">remaining after 90% suppression</div>
+          </div>
+        </div>
+        <div class="compare-bar-track"><div class="compare-bar-fill" style="width:10%;"></div></div>
+        <div class="compare-text">4,860 Adventist congregations erased. An Adventist pastor from Horlivka was kidnapped during a worship service by armed militants - he survived. Many didn't.</div>
+      </div>
+
+      <div class="compare-card banned-card">
+        <div class="compare-card-label">Jehovah's Witnesses - complete prohibition</div>
+        <div class="banned-center">
+          <div class="banned-word">BANNED</div>
+          <div class="banned-sub">All 83 communities in occupied Donbas; Russia's 2017 Supreme Court ruling applied to all occupied territories</div>
+        </div>
+        <div class="compare-text">The US equivalent: 13,000+ Kingdom Halls closed by federal court order. Attendance at any meeting criminalised. Members face prosecution under "extremism" laws carrying up to 15 years' imprisonment.</div>
+      </div>
+
+    </div>
+    <div class="scale-note">
+      <strong>Note on scale:</strong> The occupied Donetsk Oblast before 2014 had approximately 1,797 religious communities for a population of roughly 4 million - a density similar to many US states. Russia did not destroy a few marginal sects. It systematically eliminated a mature, decades-old Christian landscape that looked very similar to what exists in Ukraine's unoccupied regions and in many parts of the American Midwest and South - Baptist-majority, with significant Pentecostal, Adventist, Greek Catholic, and Orthodox minorities. The distinguishing criterion for survival was one: institutional submission to the Moscow Patriarchate.
+    </div>
+  </div>
+
+  <!-- sources footer -->
+  <div class="sources-footer">
+    Full sources and footnotes: <a href="../briefings/religious_persecution_briefing.html"><em>Controlling Faith by Force</em> briefing</a>. Panel 5 US denomination figures: Lifeway Research, 2023 Annual Church Profile (46,906 SBC churches), reported by <a href="https://www.tennessean.com/story/news/religion/2024/05/21/southern-baptist-convention-membership-church-numbers-2023/73779051007/">The Tennessean</a>, 21 May 2024; Pew Research Center, <a href="https://www.pewresearch.org/religion/2015/05/12/americas-changing-religious-landscape/">"America's Changing Religious Landscape,"</a> 12 May 2015. The scaled proportional comparison is TOT Insights illustrative analysis.
+  </div>
+
+</div><!-- /content -->
+
+<!-- Research integrity -->
+<div class="research-integrity">
+  <div class="integrity-inner">
+    <div class="integrity-label">Research integrity</div>
+    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Religious%20Persecution%20in%20Occupied%20Ukraine%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/religious_persecution.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+    <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  </div>
+</div>
+
+<div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL · Last updated: May 2026</div>
 
 <script>
-// ── data ──────────────────────────────────────────────────────────────────────
-const timelineData = [
+// ── severity gradient: navy intensity, darkest = most severe ──────────────
+var sevColors = ['#1e4080', '#2e5ea8', '#4478c4', '#5e94d8', '#80b4e8'];
+
+// ── timeline data ─────────────────────────────────────────────────────────
+var timelineData = [
   { year: "2014",        events: 2,  desc: "Crimea / Donbas occupied; first raids on Protestant churches; 50+ clergy affected" },
   { year: "2015",        events: 4,  desc: "DPR recognises only 4 denominations; Baptists, Pentecostals classified as 'sects'" },
   { year: "2016",        events: 3,  desc: "DPR Law on Religion: forced re-registration, lists of believers demanded" },
   { year: "2017",        events: 4,  desc: "Russia bans Jehovah's Witnesses nationally (Supreme Court); raids expand" },
   { year: "2018",        events: 4,  desc: "LPR stricter law; last UGCC church closed in occupied Donetsk; 200+ raids 2019–21" },
-  { year: "2019–21",     events: 5,  desc: "200+ documented raids on religious communities in this period alone" },
+  { year: "2019–21", events: 5,  desc: "200+ documented raids on religious communities in this period alone" },
   { year: "Feb 2022",    events: 9,  desc: "Full-scale invasion: repression becomes absolute. All denominations face ultimatum" },
   { year: "Dec 2022",    events: 8,  desc: "UGCC formally banned in Zaporizhzhia Oblast; 630 structures destroyed / damaged" },
   { year: "May 2023",    events: 7,  desc: "ROC annexes Berdyansk diocese; Fr Maksymov arrested, later sentenced to 14 years" },
   { year: "Summer 2023", events: 9,  desc: "All non-ROC religious activity effectively banned in Zaporizhzhia & Kherson oblasts" },
-  { year: "2024–25",     events: 10, desc: "871 ROC structures registered in occupied territory; 67 clergy killed in total" },
+  { year: "2024–25", events: 10, desc: "871 ROC structures registered in occupied territory; 67 clergy killed in total" }
 ];
 
-// ── vertical line plugin (timeline chart only) ────────────────────────────────
-const verticalLinePlugin = {
+// ── vertical line plugin (Feb 2022, gold) ─────────────────────────────────
+var verticalLinePlugin = {
   id: 'verticalLine',
-  afterDraw(chart) {
-    const idx = chart.data.labels.indexOf('Feb 2022');
+  afterDraw: function(chart) {
+    var idx = chart.data.labels.indexOf('Feb 2022');
     if (idx === -1) return;
-    const { ctx, chartArea, scales } = chart;
-    const x = scales.x.getPixelForValue(idx);
+    var ctx = chart.ctx, ca = chart.chartArea, scales = chart.scales;
+    var x = scales.x.getPixelForValue(idx);
     ctx.save();
     ctx.setLineDash([4, 2]);
-    ctx.strokeStyle = '#8B1A1A';
+    ctx.strokeStyle = '#C4964A';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(x, chartArea.top);
-    ctx.lineTo(x, chartArea.bottom);
+    ctx.moveTo(x, ca.top);
+    ctx.lineTo(x, ca.bottom);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#8B1A1A';
-    ctx.font = '10px Arial, sans-serif';
+    ctx.fillStyle = '#C4964A';
+    ctx.font = '10px "IBM Plex Sans", Arial, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('Full-scale invasion', x, chartArea.top - 6);
+    ctx.fillText('Full-scale invasion', x, ca.top - 6);
     ctx.restore();
   }
 };
 
-// ── tooltip label wrapping ────────────────────────────────────────────────────
+// ── tooltip label wrapping ────────────────────────────────────────────────
 function wrapLabel(text, maxLen) {
-  const words = text.split(' ');
-  const lines = [];
-  let line = '';
-  words.forEach(w => {
+  var words = text.split(' '), lines = [], line = '';
+  words.forEach(function(w) {
     if (line.length && (line + ' ' + w).length > maxLen) { lines.push(line); line = w; }
     else { line = line ? line + ' ' + w : w; }
   });
@@ -325,11 +836,11 @@ function wrapLabel(text, maxLen) {
   return lines;
 }
 
-// ── tab switching ─────────────────────────────────────────────────────────────
-const chartsInit = [false, false, false, false, false];
+// ── tab switching ─────────────────────────────────────────────────────────
+var chartsInit = [false, false, false, false, false];
 
 function showTab(n) {
-  for (let i = 0; i < 5; i++) {
+  for (var i = 0; i < 5; i++) {
     document.getElementById('panel-' + i).style.display = i === n ? 'block' : 'none';
     document.getElementById('tab-btn-' + i).classList.toggle('active', i === n);
   }
@@ -343,7 +854,7 @@ function initChart(n) {
   else if (n === 3) initROC();
 }
 
-// ── Chart 0: Suppression by Denomination ─────────────────────────────────────
+// ── Chart 0: Suppression by Denomination (horizontal bar) ─────────────────
 function initSuppression() {
   new Chart(document.getElementById('chart-0'), {
     type: 'bar',
@@ -351,29 +862,32 @@ function initSuppression() {
       labels: ['Ukrainian Orthodox (OCU)', 'Greek Catholics (UGCC)', "Jehovah's Witnesses", 'Pentecostals / Charismatic', 'Baptists', 'Adventists'],
       datasets: [
         { label: 'Before occupation',          data: [86, 49, 83, 366, 186, 36], backgroundColor: '#2E5B8A', borderRadius: 3 },
-        { label: 'Remaining under occupation', data: [0,  0,  0,  18,  9,   4],  backgroundColor: '#8B1A1A', borderRadius: 3 }
+        { label: 'Remaining under occupation', data: [0,  0,  0,  18,  9,   4],  backgroundColor: '#8A9BAA', borderRadius: 3 }
       ]
     },
     options: {
       indexAxis: 'y',
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend: { display: true, position: 'bottom', labels: { font: { size: 12, family: 'Arial, sans-serif' }, color: '#1A1A1A', padding: 16 } },
+        legend: {
+          display: true, position: 'bottom',
+          labels: { font: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' }, color: '#E8E0D0', padding: 16 }
+        },
         tooltip: {
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.x}${ctx.parsed.x === 0 ? ' ✕' : ''}` },
-          backgroundColor: '#fff', borderColor: '#D4C9C0', borderWidth: 1,
-          titleColor: '#1A1A1A', bodyColor: '#1A1A1A', padding: 10
+          callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.x + (ctx.parsed.x === 0 ? ' ✕' : ''); } },
+          backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
+          titleColor: '#C4964A', bodyColor: '#1A1A1A', padding: 10
         }
       },
       scales: {
-        x: { grid: { color: '#EEE' }, ticks: { color: '#999', font: { size: 11 } } },
-        y: { grid: { color: 'transparent' }, ticks: { color: '#1A1A1A', font: { size: 11, family: 'Georgia, serif' } } }
+        x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#9CA3AF', font: { size: 11 } } },
+        y: { grid: { color: 'transparent' }, ticks: { color: '#E8E0D0', font: { size: 11, family: '"EB Garamond", Georgia, serif' } } }
       }
     }
   });
 }
 
-// ── Chart 1: Clergy Casualties (doughnut) ────────────────────────────────────
+// ── Chart 1: Clergy Casualties (doughnut) ────────────────────────────────
 function initClergy() {
   new Chart(document.getElementById('chart-1'), {
     type: 'doughnut',
@@ -381,9 +895,9 @@ function initClergy() {
       labels: ['Killed / tortured to death', 'Abducted & tortured', 'Kidnapped - fate unknown', 'Kidnapped, later released', 'Killed in bombing / shelling'],
       datasets: [{
         data: [70, 200, 20, 45, 5],
-        backgroundColor: ['#8B1A1A', '#B04040', '#C07070', '#D09090', '#A04020'],
+        backgroundColor: sevColors,
         borderWidth: 2,
-        borderColor: '#FDF9F5'
+        borderColor: '#0F1F3D'
       }]
     },
     options: {
@@ -392,10 +906,10 @@ function initClergy() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}` },
-          backgroundColor: '#fff', borderColor: '#D4C9C0', borderWidth: 1,
-          bodyColor: '#1A1A1A', bodyFont: { size: 12, family: 'Arial, sans-serif' },
-          titleColor: '#8B1A1A', titleFont: { size: 12, family: 'Arial, sans-serif' },
+          callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed; } },
+          backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
+          bodyColor: '#1A1A1A', bodyFont: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
+          titleColor: '#C4964A', titleFont: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
           padding: 10
         }
       }
@@ -403,23 +917,23 @@ function initClergy() {
   });
 }
 
-// ── Chart 2: Escalation Timeline (line + vertical line plugin) ────────────────
+// ── Chart 2: Escalation Timeline (line + vertical line plugin) ────────────
 function initTimeline() {
   new Chart(document.getElementById('chart-2'), {
     type: 'line',
     data: {
-      labels: timelineData.map(d => d.year),
+      labels: timelineData.map(function(d) { return d.year; }),
       datasets: [{
         label: 'Documented severity',
-        data: timelineData.map(d => d.events),
-        borderColor: '#8B1A1A',
-        backgroundColor: 'rgba(139,26,26,0.06)',
+        data: timelineData.map(function(d) { return d.events; }),
+        borderColor: '#C4964A',
+        backgroundColor: 'rgba(196,150,74,0.06)',
         borderWidth: 2.5,
-        pointBackgroundColor: '#8B1A1A',
+        pointBackgroundColor: '#C4964A',
         pointRadius: 5,
         pointHoverRadius: 8,
-        pointHoverBackgroundColor: '#8B1A1A',
-        pointHoverBorderColor: '#fff',
+        pointHoverBackgroundColor: '#C4964A',
+        pointHoverBorderColor: '#0F1F3D',
         pointHoverBorderWidth: 2,
         tension: 0.3,
         fill: false
@@ -432,26 +946,30 @@ function initTimeline() {
         legend: { display: false },
         tooltip: {
           callbacks: {
-            title: items => items[0].label,
-            label: ctx => wrapLabel(timelineData[ctx.dataIndex].desc, 50)
+            title: function(items) { return items[0].label; },
+            label: function(ctx) { return wrapLabel(timelineData[ctx.dataIndex].desc, 50); }
           },
-          backgroundColor: '#fff', borderColor: '#D4C9C0', borderWidth: 1,
-          titleColor: '#8B1A1A', titleFont: { weight: 'bold', size: 12, family: 'Arial, sans-serif' },
-          bodyColor: '#1A1A1A', bodyFont: { size: 11, family: 'Arial, sans-serif' },
+          backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
+          titleColor: '#C4964A', titleFont: { weight: 'bold', size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
+          bodyColor: '#1A1A1A', bodyFont: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' },
           padding: 10
         }
       },
       scales: {
-        x: { grid: { color: '#EEE' }, ticks: { color: '#1A1A1A', font: { size: 11, family: 'Georgia, serif' }, maxRotation: 25, minRotation: 25 } },
-        y: { min: 0, max: 11, grid: { color: '#EEE' }, ticks: { color: '#999', font: { size: 11 } },
-             title: { display: true, text: 'Documented severity', color: '#999', font: { size: 11, family: 'Arial, sans-serif' } } }
+        x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#E8E0D0', font: { size: 11, family: '"EB Garamond", Georgia, serif' }, maxRotation: 25, minRotation: 25 } },
+        y: {
+          min: 0, max: 11,
+          grid: { color: 'rgba(255,255,255,0.06)' },
+          ticks: { color: '#9CA3AF', font: { size: 11 } },
+          title: { display: true, text: 'Documented severity', color: '#9CA3AF', font: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' } }
+        }
       }
     },
     plugins: [verticalLinePlugin]
   });
 }
 
-// ── Chart 3: ROC Replacement Dynamic (grouped bar) ───────────────────────────
+// ── Chart 3: ROC Replacement Dynamic (grouped bar) ────────────────────────
 function initROC() {
   new Chart(document.getElementById('chart-3'), {
     type: 'bar',
@@ -459,39 +977,45 @@ function initROC() {
       labels: ['2014', '2018', '2022', '2025'],
       datasets: [
         { label: 'Russian Orthodox Church (ROC)',              data: [762, 700, 650, 836], backgroundColor: '#2E5B8A', borderRadius: 3 },
-        { label: 'Protestant denominations',                   data: [552, 80,  30,  10],  backgroundColor: '#C4960A', borderRadius: 3 },
-        { label: 'Greek Catholics (UGCC)',                     data: [36,  0,   0,   0],   backgroundColor: '#7A9E7E', borderRadius: 3 },
-        { label: 'Other Christian (OCU, Adventist, Catholic)', data: [120, 20,  5,   0],   backgroundColor: '#BBBBBB', borderRadius: 3 }
+        { label: 'Protestant denominations',                   data: [552, 80,  30,  10],  backgroundColor: '#8A9490', borderRadius: 3 },
+        { label: 'Greek Catholics (UGCC)',                     data: [36,  0,   0,   0],   backgroundColor: '#7A8870', borderRadius: 3 },
+        { label: 'Other Christian (OCU, Adventist, Catholic)', data: [120, 20,  5,   0],   backgroundColor: '#9A9EA8', borderRadius: 3 }
       ]
     },
     options: {
       responsive: true, maintainAspectRatio: false,
       plugins: {
-        legend: { display: true, position: 'bottom', labels: { font: { size: 12, family: 'Arial, sans-serif' }, color: '#1A1A1A', padding: 16 } },
+        legend: {
+          display: true, position: 'bottom',
+          labels: { font: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' }, color: '#E8E0D0', padding: 16 }
+        },
         tooltip: {
-          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}` },
-          backgroundColor: '#fff', borderColor: '#D4C9C0', borderWidth: 1,
-          titleColor: '#1A1A1A', bodyColor: '#1A1A1A', padding: 10
+          callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.y; } },
+          backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
+          titleColor: '#C4964A', bodyColor: '#1A1A1A', padding: 10
         }
       },
       scales: {
-        x: { grid: { color: '#EEE' }, ticks: { color: '#1A1A1A', font: { size: 12, family: 'Georgia, serif' } } },
-        y: { grid: { color: '#EEE' }, ticks: { color: '#999', font: { size: 11 } },
-             title: { display: true, text: 'Communities', color: '#999', font: { size: 11, family: 'Arial, sans-serif' } } }
+        x: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#E8E0D0', font: { size: 12, family: '"EB Garamond", Georgia, serif' } } },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.06)' },
+          ticks: { color: '#9CA3AF', font: { size: 11 } },
+          title: { display: true, text: 'Communities', color: '#9CA3AF', font: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' } }
+        }
       }
     }
   });
 }
 
-// ── copy citation ─────────────────────────────────────────────────────────────
+// ── copy citation ─────────────────────────────────────────────────────────
 function copyCitation() {
   navigator.clipboard.writeText("McGlynn, J. et al. (2026). Religious Persecution Charts. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20303938");
-  const btn = document.getElementById('copy-cite-btn');
+  var btn = document.getElementById('copy-cite-btn');
   btn.textContent = 'Copied ✓';
-  setTimeout(() => { btn.textContent = 'Copy citation'; }, 2000);
+  setTimeout(function() { btn.textContent = 'Copy citation'; }, 2000);
 }
 
-// ── init first tab on load ────────────────────────────────────────────────────
+// ── init first tab on load ────────────────────────────────────────────────
 initSuppression();
 chartsInit[0] = true;
 </script>
