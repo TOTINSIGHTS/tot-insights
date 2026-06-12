@@ -36,6 +36,13 @@
     font-size: 13px; color: #aaa; margin-top: 20px;
     letter-spacing: 0.03em;
   }
+  .fn-ref { font-size: 10px; vertical-align: super; color: #9a6600; text-decoration: none; }
+  .fn-ref:hover { text-decoration: underline; }
+  .page-footnotes { padding: 16px 0 24px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #777; line-height: 1.65; border-top: 1px solid #e0ddd8; margin-top: 16px; }
+  .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: #9a6600; margin-bottom: 10px; }
+  .page-footnotes ol { margin: 0; padding-left: 18px; }
+  .page-footnotes li { margin-bottom: 8px; }
+  .page-footnotes a { color: #9a6600; }
 </style>
 </head>
 <body>
@@ -53,13 +60,22 @@
     <canvas id="chart"></canvas>
   </div>
   <p class="annotation">
-    The data captures displacement across three phases: mass evacuation in 2022–23 as the occupation consolidated; 
+    The data captures displacement across three phases: mass evacuation in 2022–23 as the occupation consolidated<sup><a href="#fn2" class="fn-ref">2</a></sup>; 
     onward migration to the EU, primarily through Russia or Belarus; departure to Russia (including forced or 
-    semi-coerced relocation); and a small return movement in spring 2025.
-    <strong>Return flows remain minimal at 5% of total movement</strong>, consistent with entrapment dynamics 
-    documented across occupied territories.
+    semi-coerced relocation)<sup><a href="#fn3" class="fn-ref">3</a></sup>; and a small return movement in spring 2025.
+    <strong>Return flows remain minimal at 5% of total movement</strong>, consistent with UNHCR's Protection Analysis finding that just 5% of internally displaced Ukrainians intended to return to their place of origin within 12 months as of February 2024<sup><a href="#fn1" class="fn-ref">1</a></sup> (these are different measures: the page figure is a share of recorded displacement flows; UNHCR's is an intention-to-return survey - both point in the same direction). The low return rate reflects entrapment dynamics across occupied territories (TOT Insights analysis), reinforced by the documented resettlement of Russian citizens from Kursk Oblast into the region.<sup><a href="#fn4" class="fn-ref">4</a></sup>
   </p>
-  <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · Data: 2025</p>
+  <p class="source">Source: Centre for the Study of Occupation monitoring; deposited dataset (Zenodo DOI above) · TOT Insights / CSNS, King’s College London</p>
+  <div class="page-footnotes">
+    <div class="page-footnotes-label">Notes</div>
+    <ol>
+      <li id="fn1">UNHCR's Protection Analysis found that as of February 2024, just 5% of internally displaced Ukrainians intended to return to their place of origin within 12 months, while 68% hoped to return one day. This is an intention-to-return survey figure; the page's 5% is a share of recorded displacement flows. Both measures point in the same direction. UNHCR / Global Protection Cluster, <a href="https://globalprotectioncluster.org/sites/default/files/2024-09/ukraine_protection_analysis_update_-_july_2024.pdf">globalprotectioncluster.org</a>.</li>
+      <li id="fn2">Donetsk, Luhansk, Kherson and Zaporizhzhia have experienced major population losses through evacuation, displacement, casualties and inaccessibility to Ukrainian census methods. UNHCR / Global Protection Cluster (as note 1).</li>
+      <li id="fn3">The US State Department's 2024 human rights report on the Russian-occupied areas documents forced transfers and coercive population measures in the occupied territories, including Zaporizhzhia. US Department of State, <a href="https://www.state.gov/wp-content/uploads/2025/08/624521_UKRAINE-RUSSIAN-OCCUPIED-AREAS-2024-HUMAN-RIGHTS-REPORT.pdf">state.gov</a>.</li>
+      <li id="fn4">Russia announced it would resettle refugees evacuated from Kursk Oblast into occupied Zaporizhzhia, where around 75% of the region was occupied by mid-2024. Kyiv Independent, <a href="https://kyivindependent.com/russia-evacuates-refugees-from-kursk-oblast-to-russian-held-territory-of-zaporizhzhia-oblast/">kyivindependent.com</a>.</li>
+    </ol>
+  </div>
+
 </div>
 <script>
 const ctx = document.getElementById('chart').getContext('2d');
