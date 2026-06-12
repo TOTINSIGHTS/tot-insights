@@ -41,6 +41,14 @@
   }
   .callout strong { font-weight: normal; font-style: italic; color: #c96a00; }
   .annotation { font-size: 12px; color: #888; border-top: 1px solid #e0ddd8; padding-top: 14px; line-height: 1.6; }
+
+  .fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+  .fn-ref:hover { text-decoration: underline; }
+  .page-footnotes { padding: 16px 0 24px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(232,228,220,0.50); line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.10); margin-top: 16px; }
+  .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(232,184,75,0.6); margin-bottom: 10px; }
+  .page-footnotes ol { margin: 0; padding-left: 18px; }
+  .page-footnotes li { margin-bottom: 8px; }
+  .page-footnotes a { color: #E8B84B; }
   .source { font-size: 11px; color: #aaa; margin-top: 16px; letter-spacing: 0.03em; }
 </style>
 </head>
@@ -65,20 +73,21 @@
     <div class="metric">
       <div class="metric-label">Own-source income share</div>
       <div class="metric-value">~29%</div>
-      <div class="metric-note">of total income, full year 2024</div>
+      <div class="metric-note">of total income, full year 2024 · TOT Insights analysis</div>
     </div>
     <div class="metric">
       <div class="metric-label">Transfer dependency</div>
       <div class="metric-value">~71%</div>
-      <div class="metric-note">income from Russian budget transfers</div>
+      <div class="metric-note">Mariupol municipal income from Russian budget transfers (TOT Insights analysis)</div>
+      <div class="metric-note" style="margin-top:5px;color:#777;font-style:italic;">Regional (occupied oblast) average: 80–90%<sup><a href="#fn1" class="fn-ref">1</a></sup> — higher than city level; both confirm structural dependency on Moscow transfers.</div>
     </div>
   </div>
 
   <div class="callout">
     <strong>Mariupol generates less than a third of its own budget income.</strong>
-    The remainder flows from Russian federal transfers - structural fiscal dependency 
+    The remainder flows from Russian federal transfers<sup><a href="#fn2" class="fn-ref">2</a></sup> — structural fiscal dependency 
     that locks the city's administration into the Russian budgetary system and makes 
-    genuine financial autonomy functionally impossible.
+    genuine financial autonomy functionally impossible (TOT Insights analysis<sup><a href="#fn1" class="fn-ref">1</a></sup>).
   </div>
 
   <div class="legend">
@@ -96,9 +105,17 @@
     Q1 2025 resets to January–March 2025. The visible drop from full-year 2024 to Q1 2025 
     reflects the reset to a new annual cycle, not a contraction in budget activity.
     Values are in Russian roubles (million). Own-source income includes local taxes and fees 
-    generated within Mariupol; transfers are Russian federal subventions and subsidies.
+    generated within Mariupol;<sup><a href="#fn3" class="fn-ref">3</a></sup> transfers are Russian federal subventions and subsidies.
   </p>
-  <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · Source: occupation administration budget reports</p>
+  <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · Source: Mariupol city district budget execution reports, 2024 (Q1, H1, 9 months, full year) and Q1 2025; occupation administration source</p>
+  <div class="page-footnotes">
+    <div class="page-footnotes-label">Notes</div>
+    <ol>
+      <li id="fn1">Between 80% and 90% of the regional budgets in occupied Donetsk, Luhansk, Zaporizhzhia and Kherson were subsidised by Moscow in 2023. <em>The Moscow Times</em> (citing Forbes), <a href="https://www.themoscowtimes.com/2024/01/23/moscow-to-slash-funding-for-occupied-ukrainian-territories-forbes-a83815">themoscowtimes.com</a>.</li>
+      <li id="fn2">The occupied territories received 483 billion rubles in non-reciprocal federal transfers in 2023; subsidies to the four regions were around 513 billion rubles in 2023, projected to fall to approximately 303 billion in 2024. <em>The Bell</em>, <a href="https://en.thebell.io/russias-wartime-budget/">thebell.io</a>; <em>The Moscow Times</em> (as [1]).</li>
+      <li id="fn3">Russia collected 118 billion rubles in taxes from the occupied territories in January–September 2024, up 22% year on year, reflecting integration into the Russian fiscal system. <em>The Moscow Times</em> (citing RBC), <a href="https://www.themoscowtimes.com/2024/10/09/russias-tax-revenue-from-occupied-ukrainian-regions-tops-2023-levels-a86620">themoscowtimes.com</a>.</li>
+    </ol>
+  </div>
 </div>
 <script>
 const labels = ['Q1 2024', 'H1 2024', '9 months 2024', 'Full year 2024', 'Q1 2025'];
