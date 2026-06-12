@@ -348,6 +348,29 @@ body {
   line-height: 1.7;
 }
 
+/* ─── Footnotes ─────────────────────────────────────────────── */
+.fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+.fn-ref:hover { text-decoration: underline; }
+.page-footnotes {
+  padding: 20px 32px 32px;
+  max-width: 1200px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: rgba(232,234,240,0.45);
+  line-height: 1.65;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.page-footnotes-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(196,150,74,0.6);
+  margin-bottom: 10px;
+}
+.page-footnotes ol { margin: 0; padding-left: 18px; }
+.page-footnotes li { margin-bottom: 8px; }
+.page-footnotes a { color: #c9a84c; }
+
 /* ─── Footer ───────────────────────────────────────────────── */
 .page-footer {
   padding: 12px 32px;
@@ -384,14 +407,14 @@ body {
 
 <div class="summary-strip">
   <div class="summary-item">
-    <div class="summary-val">10&#x2013;20</div>
-    <div class="summary-label">Peak monthly vessel volume</div>
-    <div class="summary-sub">Autumn 2024 onwards, bulk cargo</div>
+    <div class="summary-val">40k&#x2013;60k t</div>
+    <div class="summary-label">Monthly throughput (FIS est.)</div>
+    <div class="summary-sub">Ukraine FIS, occupied ports<sup><a href="#fn3" class="fn-ref">3</a></sup></div>
   </div>
   <div class="summary-item">
-    <div class="summary-val">8,000t</div>
-    <div class="summary-label">Peak cargo per vessel</div>
-    <div class="summary-sub">Coal / ore / kaolin</div>
+    <div class="summary-val">~8,000t</div>
+    <div class="summary-label">Max cargo per vessel</div>
+    <div class="summary-sub">Documented bulk cargo<sup><a href="#fn1" class="fn-ref">1</a></sup></div>
   </div>
   <div class="summary-item">
     <div class="summary-val">3</div>
@@ -405,8 +428,8 @@ body {
   </div>
   <div class="summary-item">
     <div class="summary-val">1+</div>
-    <div class="summary-label">Temryuk evasion route</div>
-    <div class="summary-sub">First documented Mar 18, 2026</div>
+    <div class="summary-label">Temryuk re-registration route</div>
+    <div class="summary-sub">Documented from Mar 18, 2026<sup><a href="#fn1" class="fn-ref">1</a></sup></div>
   </div>
 </div>
 
@@ -433,13 +456,13 @@ body {
     <div class="section-desc" style="max-width:none;">All cargo flows documented from Q1 2025 through March 2026.</div>
     <div class="cargo-scroll"><div id="cargo-table"></div></div>
     <div class="tonnage-callout">
-      <span class="callout-label">TONNAGE NOTE &nbsp;&middot;&nbsp; </span>The 8,000t/vessel figure applies to documented bulk cargo (coal, ore, kaolin) under the Autumn 2024 operational model. At 10&#x2013;20 vessels/month this implies a monthly throughput of <strong style="color:#C4964A;">80,000&#x2013;160,000 tonnes</strong>. The Coal Harbour dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling &#x2014; exact post-dredge capacity not yet specified.
+      <span class="callout-label">THROUGHPUT NOTE &nbsp;&middot;&nbsp; </span>Ukraine's Foreign Intelligence Service estimates roughly <strong style="color:#C4964A;">40,000&#x2013;60,000 tonnes</strong> of stolen resources move through the occupied ports each month.<sup><a href="#fn3" class="fn-ref">3</a></sup> Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk over a five-month period, most bound for Turkish ports.<sup><a href="#fn4" class="fn-ref">4</a></sup> Documented per-vessel loads are consistent with up to approximately 8,000 tonnes per vessel.<sup><a href="#fn1" class="fn-ref">1</a></sup> The Coal Harbour dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling.
     </div>
   </div>
 
   <div id="panel-2" style="display:none;">
     <div class="section-title">The Temryuk Re-Registration Mechanism</div>
-    <div class="section-desc">The March 18 shipment is the first explicitly documented instance. One vessel, cargo unspecified in tonnage.</div>
+    <div class="section-desc">The March 18 shipment is one documented example of this routing. One vessel, cargo unspecified in tonnage.<sup><a href="#fn1" class="fn-ref">1</a></sup></div>
     <div id="temryuk-nodes"></div>
     <div class="dual-track-note">
       <strong>Dual-track capacity note:</strong> The November 2025 direct customs post enables clearance without Temryuk &#x2014; for cargo that can be openly declared (coking coal to Turkey, wheat to Egypt). The Temryuk route handles cargo whose occupied-territory origin must be concealed. These are complementary mechanisms, not alternatives. Post-dredging (from Q4 2026), both tracks will have higher vessel capacity.
@@ -448,6 +471,16 @@ body {
 
 </div>
 
+<div class="page-footnotes">
+  <div class="page-footnotes-label">Notes</div>
+  <ol>
+    <li id="fn1">Vessels load grain or coal at occupied Mariupol, then clear documents at the Russian port of Temryuk without cargo operations, with AIS switched off during the Mariupol leg, before delivering to Turkey or Egypt. SeaKrime / Ukrainian Shipping Magazine, <a href="https://en.usm.media/stolen-ukrainian-wheat-delivered-from-occupied-mariupol-to-turkey/" target="_blank" rel="noopener noreferrer">https://en.usm.media/stolen-ukrainian-wheat-delivered-from-occupied-mariupol-to-turkey/</a> and <a href="https://en.usm.media/bulk-carrier-with-stolen-grain-from-occupied-mariupol-is-being-unloaded-in-egypt/" target="_blank" rel="noopener noreferrer">https://en.usm.media/bulk-carrier-with-stolen-grain-from-occupied-mariupol-is-being-unloaded-in-egypt/</a>; Ukraine Defense Intelligence War and Sanctions portal, <a href="https://war-sanctions.gur.gov.ua/" target="_blank" rel="noopener noreferrer">https://war-sanctions.gur.gov.ua/</a></li>
+    <li id="fn2">Ukraine's Foreign Intelligence Service reported Russia's 2025 integration of the Mariupol port into its logistics system and its opening to foreign vessels to circumvent sanctions; a government decree of 25 August 2025 added Mariupol and Berdiansk to the list of ports open to foreign vessels. RBC-Ukraine, <a href="https://newsukraine.rbc.ua/news/russia-folds-occupied-mariupol-port-into-1768738134.html" target="_blank" rel="noopener noreferrer">https://newsukraine.rbc.ua/news/russia-folds-occupied-mariupol-port-into-1768738134.html</a></li>
+    <li id="fn3">Ukraine's Foreign Intelligence Service estimates roughly 40,000 to 60,000 tonnes of stolen resources move through the occupied ports each month. RBC-Ukraine (as note 2).</li>
+    <li id="fn4">Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk between July and November, most bound for Turkish ports; Russian customs data showed at least 508,500 tonnes of coal, coke and anthracite worth $13.2 million exported from occupied regions between March 2022 and March 2025. Reuters, via Kyiv Post, <a href="https://www.kyivpost.com/post/72779" target="_blank" rel="noopener noreferrer">https://www.kyivpost.com/post/72779</a></li>
+    <li id="fn5">Ukrainian forces struck the Mariupol Commercial Sea Port, identified as a Russian military-logistics hub also used for illegal export of grain, coal and metal. Kyiv Post, <a href="https://www.kyivpost.com/post/77876" target="_blank" rel="noopener noreferrer">https://www.kyivpost.com/post/77876</a>; United24 Media, <a href="https://united24media.com/war-in-ukraine/ukraine-strikes-occupied-mariupol-port-used-for-russian-military-logistics-and-illegal-grain-exports-19686" target="_blank" rel="noopener noreferrer">https://united24media.com/war-in-ukraine/ukraine-strikes-occupied-mariupol-port-used-for-russian-military-logistics-and-illegal-grain-exports-19686</a></li>
+  </ol>
+</div>
 <div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL</div>
 
 <script>
@@ -463,7 +496,7 @@ var portTimeline = [
     event:   'Port reoriented to bulk cargo only',
     vessels: '10–20/month',
     tonnage: 'Up to 8,000t/vessel',
-    detail:  'Main channel blocked by military vessel ‘Donbass’. Port reoriented exclusively to bulk cargo: coal, ore, kaolin. Volume: 10–20 vessels/month, up to 8,000 tons per vessel.',
+    detail:  'Main channel blocked by military vessel ‘Donbass’. Port reoriented exclusively to bulk cargo: coal, ore, kaolin. Ukraine’s FIS estimates 40,000–60,000 tonnes/month through occupied ports; Reuters recorded 18 vessels departing Mariupol and Berdiansk over five months. Documented per-vessel loads up to ~8,000 tonnes.',
     type:    'ops'
   },
   {
@@ -487,15 +520,15 @@ var portTimeline = [
     event:   'Ukrainian strike on fuel storage',
     vessels: '3–4 patrol boats',
     tonnage: 'Military (Border Guard class)',
-    detail:  'Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Night of Feb 21–22: Ukrainian strike reportedly hit newly constructed fuel and lubricants storage.',
+    detail:  'Infrastructure for 3–4 Russian Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant (Centre monitoring). Night of Feb 21–22: Ukrainian strike reportedly hit newly constructed fuel and lubricants storage. See note 5 (Kyiv Post / United24).',
     type:    'strike'
   },
   {
     period:  'Mar 18, 2026',
-    event:   'First grain shipment via Temryuk',
+    event:   'Grain shipment via Temryuk (documented example)',
     vessels: '1 vessel',
     tonnage: 'Not specified',
-    detail:  'First vessel loaded with grain departed Mariupol port. Route: Mariupol → Temryuk (Krasnodar Krai, RF) for cargo re-registration → Turkish ports. Assessment: ‘consistent with mechanisms used to obscure origin of goods exported from occupied Ukrainian territories.’',
+    detail:  ‘A vessel loaded with grain departed Mariupol port. Route: Mariupol → Temryuk (Krasnodar Krai, RF) for cargo re-registration → Turkish ports. Hub assessment: consistent with mechanisms to obscure occupied-territory cargo origin. See note 1 (SeaKrime / GUR).’,
     type:    'sanctions'
   },
   {
@@ -509,11 +542,11 @@ var portTimeline = [
 ];
 
 var cargoTypes = [
-  { type: 'Grain',               destination: 'Turkey (via Temryuk)',    vessels: '1',                tonnage: 'Not specified',      evasion: true,  note: 'March 18 - re-registered at Temryuk to obscure occupied-territory origin' },
-  { type: 'Coking coal',         destination: 'Turkey',                  vessels: '2 (Jan 2026)', tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Direct export from Jan 2026 customs post' },
-  { type: 'Wheat',               destination: 'Egypt',                   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      evasion: false, note: 'Direct export from Jan 2026 customs post' },
-  { type: 'Coal / ore / kaolin', destination: 'Domestic Russia (relay)', vessels: '10–20/month',  tonnage: 'Up to 8,000t/vessel', evasion: false, note: 'Autumn 2024–ongoing bulk cargo pipeline' },
-  { type: 'Military equipment',  destination: 'Frontline (rail/road)',   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      evasion: false, note: 'Military logistics alongside commercial cargo' }
+  { type: 'Grain',               destination: 'Turkey (via Temryuk)',    vessels: '1',                tonnage: 'Not specified',      routing: 'Re-registered via Temryuk', note: 'March 18 — re-registered at Temryuk to obscure occupied-territory origin' },
+  { type: 'Coking coal',         destination: 'Turkey',                  vessels: '2 (Jan 2026)', tonnage: 'Up to 8,000t/vessel', routing: 'Direct',                    note: 'Direct export from Jan 2026 customs post' },
+  { type: 'Wheat',               destination: 'Egypt',                   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      routing: 'Direct',                    note: 'Direct export from Jan 2026 customs post' },
+  { type: 'Coal / ore / kaolin', destination: 'Domestic Russia (relay)', vessels: 'Multiple/month',   tonnage: 'Up to 8,000t/vessel', routing: 'Relay (domestic)',           note: 'Autumn 2024–ongoing bulk cargo pipeline (Centre monitoring)' },
+  { type: 'Military equipment',  destination: 'Frontline (rail/road)',   vessels: '1 (Jan 2026)', tonnage: 'Not specified',      routing: 'N/A',                       note: 'Military logistics alongside commercial cargo' }
 ];
 
 var typeStyle = {
@@ -527,7 +560,7 @@ var typeStyle = {
 var temryukNodes = [
   {
     node:  'Mariupol Port',
-    sub:   'Cargo loaded under Russian occupation administration. Origin: occupied Ukrainian territory. Vessel count: 1 (Mar 18 grain shipment); 10–20/month for bulk cargo via relay.',
+    sub:   'Cargo loaded under Russian occupation administration. Origin: occupied Ukrainian territory. One documented instance: March 18 grain shipment. Bulk cargo also moves via domestic relay chain (Centre monitoring).',
     color: '#93c5fd',
     bg:    '#1a3050',
     badge: null
@@ -537,7 +570,7 @@ var temryukNodes = [
     sub:   'Cargo re-registered as Russian-domestic goods - occupied-territory origin obscured. Temryuk is within Russia proper and outside direct sanctions scrutiny for port-of-origin tracking.',
     color: '#fbbf24',
     bg:    '#2a2000',
-    badge: '⚠ Evasion point'
+    badge: '⚠ Re-registration point'
   },
   {
     node:  'Turkish Ports',
@@ -625,23 +658,21 @@ function renderTimeline() {
 
 /* ── Cargo table ──────────────────────────────────────────────── */
 function buildCargoTable() {
-  var headers = ['Cargo type', 'Destination', 'Vessels', 'Tonnage', 'Evasion?', 'Notes'];
+  var headers = ['Cargo type', 'Destination', 'Vessels', 'Tonnage', 'Routing', 'Notes'];
   var html = '<div class="cargo-grid-header">';
   headers.forEach(function(h) { html += '<div class="cargo-header-cell">' + h + '</div>'; });
   html += '</div>';
 
   cargoTypes.forEach(function(c, i) {
-    var leftCol = c.evasion ? GOLD : SLATE;
-    var evasionHtml = c.evasion
-      ? '<span class="evasion-yes">YES</span>'
-      : '<span class="evasion-no">No</span>';
+    var leftCol = (c.routing === 'Re-registered via Temryuk') ? GOLD : SLATE;
+    var routingHtml = '<span class="evasion-no">' + c.routing + '</span>';
     html +=
       '<div class="cargo-row ' + (i % 2 === 0 ? 'even' : 'odd') + '" style="border-left:4px solid ' + leftCol + ';">' +
         '<div class="cargo-cell cargo-type">'         + c.type        + '</div>' +
         '<div class="cargo-cell cargo-dest">'         + c.destination + '</div>' +
         '<div class="cargo-cell cargo-vessels">'      + c.vessels     + '</div>' +
         '<div class="cargo-cell cargo-tonnage">'      + c.tonnage     + '</div>' +
-        '<div class="cargo-cell cargo-evasion-cell">' + evasionHtml   + '</div>' +
+        '<div class="cargo-cell cargo-evasion-cell">' + routingHtml   + '</div>' +
         '<div class="cargo-cell cargo-note">'         + c.note        + '</div>' +
       '</div>';
   });

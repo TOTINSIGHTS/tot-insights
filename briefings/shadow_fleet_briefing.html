@@ -39,6 +39,13 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
 .key-findings li:last-child{margin-bottom:0;}
 .key-findings li::before{content:"■";color:#c9a84c;font-size:0.4rem;margin-right:0.6rem;vertical-align:middle;}
 @media(max-width:600px){.doc-header{padding:20px 20px 18px}.doc-body{padding:28px 20px 60px}.doc-title{font-size:20px}}
+.fn-ref{font-size:10px;vertical-align:super;color:#c9a84c;text-decoration:none;}
+.fn-ref:hover{text-decoration:underline;}
+.footnotes{margin-top:32px;padding-top:16px;border-top:1px solid rgba(26,26,26,0.15);font-family:var(--sans);font-size:12px;color:#5a5a6a;line-height:1.65;}
+.footnotes-heading{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.15em;color:rgba(181,146,58,0.7);margin-bottom:10px;}
+.footnotes ol{margin:0;padding-left:18px;}
+.footnotes li{margin-bottom:8px;}
+.footnotes a{color:#c9a84c;}
 </style>
 </head>
 <body>
@@ -61,8 +68,8 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
     <div class="key-findings" style="background:#0d1b2a !important;border-left:3px solid #c9a84c !important;padding:24px 28px !important;border-radius:4px !important;">
       <span class="key-findings-label" style="color:#c9a84c !important;">Key findings</span>
       <ul>
-        <li style="color:rgba(232,228,220,0.88) !important;">Mariupol port is processing 10–20 shadow fleet vessels per month carrying up to 8,000 tonnes each, implying bulk cargo throughput of 80,000–160,000 tonnes monthly. A dredging tender (May–October 2026) costing over RUB 441 million will increase vessel capacity beyond this ceiling from Q3 2026.</li>
-        <li style="color:rgba(232,228,220,0.88) !important;">Russia established a direct customs post at Mariupol in November 2025, enabling cargo clearance without intermediary routing for the first time. A parallel Temryuk re-registration route - first documented March 18, 2026 - obscures occupied-territory cargo origin before onward shipment to Turkey.</li>
+        <li style="color:rgba(232,228,220,0.88) !important;">Ukraine's Foreign Intelligence Service estimates roughly 40,000–60,000 tonnes of stolen resources move through the occupied ports each month;<sup><a href="#fn3" class="fn-ref">3</a></sup> Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk over a five-month period, most bound for Turkish ports.<sup><a href="#fn4" class="fn-ref">4</a></sup> A dredging tender (May–October 2026, Centre for the Study of Occupation monitoring) costing over RUB 441 million will further increase vessel capacity from Q3 2026.</li>
+        <li style="color:rgba(232,228,220,0.88) !important;">Russia established a direct customs post at Mariupol in November 2025, enabling cargo clearance without intermediary routing.<sup><a href="#fn2" class="fn-ref">2</a></sup> A Temryuk re-registration route — documented from March 18, 2026 — routes cargo through Krasnodar Krai to obscure occupied-territory origin before onward shipment to Turkey.<sup><a href="#fn1" class="fn-ref">1</a></sup></li>
         <li style="color:rgba(232,228,220,0.88) !important;">The port is undergoing simultaneous military conversion: infrastructure for 3–4 Border Guard patrol boats was under construction in early 2026, with the main channel already blocked by the military vessel Donbass. Commercial and military logistics are operating from the same facility.</li>
       </ul>
     </div>
@@ -70,15 +77,15 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
 <table>
   <thead>
     <tr>
-      <th><strong>10–20</strong><br><strong>Vessels/month</strong><br>Peak, Autumn 2024+</th>
-      <th><strong>8,000t</strong><br><strong>Per vessel</strong><br>Bulk cargo ceiling</th>
+      <th><strong>40k–60k t</strong><br><strong>Monthly throughput</strong><br>FIS estimate, occupied ports<sup><a href="#fn3" class="fn-ref">3</a></sup></th>
+      <th><strong>~8,000t</strong><br><strong>Per vessel (max)</strong><br>Documented bulk cargo<sup><a href="#fn1" class="fn-ref">1</a></sup></th>
       <th><strong>4</strong><br><strong>Vessels, Jan 2026</strong><br>First direct clearance</th>
       <th><strong>3–4</strong><br><strong>Patrol boats</strong><br>Border Guard, spring 2026</th>
-      <th><strong>1+</strong><br><strong>Temryuk evasion route</strong><br>First: Mar 18, 2026</th>
+      <th><strong>1+</strong><br><strong>Temryuk re-registration route</strong><br>Documented from Mar 18, 2026<sup><a href="#fn1" class="fn-ref">1</a></sup></th>
     </tr>
   </thead>
 </table>
-<p><strong><em>Note on throughput. </em></strong><em>At the documented rate of 10–20 vessels/month carrying up to 8,000 tonnes each, the implied bulk cargo throughput is </em><strong>80,000–160,000 tonnes per month</strong><em>. The Coal Harbour dredging tender (May–October 2026) is designed to increase vessel capacity beyond this ceiling.</em><em> </em></p>
+<p><strong><em>Note on throughput. </em></strong><em>Ukraine's Foreign Intelligence Service estimates roughly </em><strong>40,000–60,000 tonnes</strong><em> of stolen resources move through the occupied ports each month.<sup><a href="#fn3" class="fn-ref">3</a></sup> Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk over a five-month period, most bound for Turkish ports.<sup><a href="#fn4" class="fn-ref">4</a></sup> Documented per-vessel loads are consistent with up to approximately 8,000 tonnes per vessel.<sup><a href="#fn1" class="fn-ref">1</a></sup> The Coal Harbour dredging tender (May–October 2026) is designed to increase vessel capacity beyond this ceiling.</em></p>
 <p><em>Note on sourcing: Centre for the Study of Occupation monitoring, held within the TOT Insights repository. See <a href="../about.html#how-we-work">how we work</a>.</em></p>
 <p><strong>1. Port Operational Timeline</strong></p>
 <table>
@@ -95,9 +102,9 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
     <tr>
       <td><strong>Autumn 2024</strong></td>
       <td><strong>Port reoriented to bulk cargo only</strong></td>
-      <td><strong>10–20/month</strong></td>
-      <td>≤8,000t/vessel</td>
-      <td>Main channel blocked by military vessel 'Donbass'. Reoriented exclusively to bulk cargo: coal, ore, kaolin. Monthly throughput implied: 80,000–160,000 tonnes.</td>
+      <td>Multiple/month (Centre monitoring)</td>
+      <td>≤8,000t/vessel<sup><a href="#fn1" class="fn-ref">1</a></sup></td>
+      <td>Main channel blocked by military vessel 'Donbass'. Reoriented exclusively to bulk cargo: coal, ore, kaolin.<sup><a href="#fn2" class="fn-ref">2</a></sup></td>
     </tr>
     <tr>
       <td><strong>Nov 2025</strong></td>
@@ -118,14 +125,14 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
       <td><strong>Ukrainian strike on fuel storage</strong></td>
       <td><strong>3–4 (military, planned)</strong></td>
       <td>Border Guard class</td>
-      <td>Infrastructure for 3–4 Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Ukrainian strike hit newly constructed fuel/lubricants storage. Military conversion continues.</td>
+      <td>Infrastructure for 3–4 Border Guard patrol boats nearing completion near berth No. 1 and former Ship Repair Plant. Ukrainian strike hit newly constructed fuel/lubricants storage.<sup><a href="#fn5" class="fn-ref">5</a></sup> Military conversion continues.</td>
     </tr>
     <tr>
       <td><strong>Mar 18, 2026</strong></td>
-      <td><strong>First grain shipment via Temryuk</strong></td>
+      <td><strong>Grain shipment via Temryuk</strong></td>
       <td><strong>1 vessel</strong></td>
       <td>Not specified</td>
-      <td>Cargo: grain. Route: Mariupol → Temryuk (Krasnodar Krai, RF) for re-registration → Turkish ports. Hub assessment: consistent with mechanisms to obscure occupied-territory origin and circumvent trade restrictions.</td>
+      <td>Cargo: grain. Route: Mariupol → Temryuk (Krasnodar Krai, RF) for re-registration → Turkish ports.<sup><a href="#fn1" class="fn-ref">1</a></sup> Hub assessment: consistent with mechanisms to obscure occupied-territory origin and circumvent trade restrictions.</td>
     </tr>
     <tr>
       <td><strong>Mar 2026 (tender)</strong></td>
@@ -136,7 +143,7 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
     </tr>
   </tbody>
 </table>
-<p><strong>2. Cargo Flows: Vessels, Tonnage and Evasion Assessment</strong></p>
+<p><strong>2. Cargo Flows: Vessels, Tonnage and Routing</strong></p>
 <table>
   <thead>
     <tr>
@@ -144,7 +151,7 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
       <th><strong>Destination</strong></th>
       <th><strong>Vessels</strong></th>
       <th><strong>Tonnage</strong></th>
-      <th><strong>Evasion?</strong></th>
+      <th><strong>Routing</strong></th>
       <th><strong>Notes</strong></th>
     </tr>
   </thead>
@@ -154,15 +161,15 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
       <td>Turkey (via Temryuk)</td>
       <td><strong>1</strong></td>
       <td>Not specified</td>
-      <td><strong>YES</strong></td>
-      <td>March 18 - re-registered at Temryuk to obscure occupied-territory origin before onward export to Turkey.</td>
+      <td>Re-registered via Temryuk<sup><a href="#fn1" class="fn-ref">1</a></sup></td>
+      <td>March 18 — re-registered at Temryuk to obscure occupied-territory origin before onward export to Turkey.</td>
     </tr>
     <tr>
       <td><strong>Coking coal</strong></td>
       <td>Turkey</td>
       <td><strong>2 (Jan 2026)</strong></td>
       <td>≤8,000t/vessel</td>
-      <td>No (direct)</td>
+      <td>Direct</td>
       <td>Direct export from January 2026 customs post.</td>
     </tr>
     <tr>
@@ -170,16 +177,16 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
       <td>Egypt</td>
       <td><strong>1 (Jan 2026)</strong></td>
       <td>Not specified</td>
-      <td>No (direct)</td>
+      <td>Direct</td>
       <td>Direct export from January 2026 customs post.</td>
     </tr>
     <tr>
       <td><strong>Coal / ore / kaolin</strong></td>
       <td>Domestic Russia (relay)</td>
-      <td><strong>10–20/month</strong></td>
+      <td>Multiple/month (Centre monitoring)</td>
       <td>≤8,000t/vessel</td>
-      <td>Indirect</td>
-      <td>Autumn 2024–ongoing. Implied throughput: 80,000–160,000 tonnes/month.</td>
+      <td>Relay (domestic)</td>
+      <td>Autumn 2024–ongoing bulk cargo pipeline.</td>
     </tr>
     <tr>
       <td><strong>Military equipment</strong></td>
@@ -192,17 +199,17 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
   </tbody>
 </table>
 <p><strong>3. Temryuk Re-Registration Mechanism</strong></p>
-<p>The March 18 grain shipment is the first explicitly documented instance of this routing. The three-step evasion mechanism:</p>
+<p>The March 18 grain shipment is one documented example of this routing. The three-step re-registration mechanism:</p>
 <table>
   <thead>
     <tr>
       <th><strong>Step 1</strong></th>
-      <th>Cargo loaded at Mariupol port under Russian occupation administration. Origin: occupied Ukrainian territory. Documented vessel count: 1 (March 18 grain shipment). Bulk cargo pipeline: 10–20 vessels/month via separate relay chain.</th>
+      <th>Cargo loaded at Mariupol port under Russian occupation administration. Origin: occupied Ukrainian territory. One documented instance: March 18 grain shipment.<sup><a href="#fn1" class="fn-ref">1</a></sup></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Step 2 Evasion point</strong></td>
+      <td><strong>Step 2 Re-registration point</strong></td>
       <td>Shipped to Temryuk port (Krasnodar Krai, Russian Federation). Cargo re-registered as Russian-domestic goods - occupied-territory origin obscured. Temryuk is within Russia proper and outside direct sanctions scrutiny for port-of-origin tracking.</td>
     </tr>
     <tr>
@@ -215,9 +222,19 @@ body{font-family:'EB Garamond',serif;background:#111d30;color:var(--text);font-s
 <ul>
   <li>Coal Harbour dredging (May–October 2026): completion will increase vessel capacity beyond 8,000t ceiling, watch for cargo-type and volume changes from Q3 2026</li>
   <li>April 10 dredging tender results: contractor identity will indicate whether MoD-linked or commercial entities are awarded the contract</li>
-  <li>Temryuk routing frequency: March 18 is the first documented instance - tracking subsequent shipments will establish whether this is systematic or ad hoc</li>
+  <li>Temryuk routing frequency: a re-registration via Temryuk was documented on March 18 — tracking subsequent shipments will establish whether this is systematic or ad hoc</li>
   <li>Border Guard patrol boat deployment (spring 2026): 3–4 vessels planned; formal transformation of port into military facility affects civilian shipping access and international legal status</li>
 </ul>
+  <div class="footnotes">
+    <div class="footnotes-heading">Notes</div>
+    <ol>
+      <li id="fn1">Vessels load grain or coal at occupied Mariupol, then clear documents at the Russian port of Temryuk without cargo operations, with AIS switched off during the Mariupol leg, before delivering to Turkey or Egypt. SeaKrime / Ukrainian Shipping Magazine, <a href="https://en.usm.media/stolen-ukrainian-wheat-delivered-from-occupied-mariupol-to-turkey/" target="_blank" rel="noopener noreferrer">https://en.usm.media/stolen-ukrainian-wheat-delivered-from-occupied-mariupol-to-turkey/</a> and <a href="https://en.usm.media/bulk-carrier-with-stolen-grain-from-occupied-mariupol-is-being-unloaded-in-egypt/" target="_blank" rel="noopener noreferrer">https://en.usm.media/bulk-carrier-with-stolen-grain-from-occupied-mariupol-is-being-unloaded-in-egypt/</a>; Ukraine Defense Intelligence War and Sanctions portal, <a href="https://war-sanctions.gur.gov.ua/" target="_blank" rel="noopener noreferrer">https://war-sanctions.gur.gov.ua/</a></li>
+      <li id="fn2">Ukraine's Foreign Intelligence Service reported Russia's 2025 integration of the Mariupol port into its logistics system and its opening to foreign vessels to circumvent sanctions; a government decree of 25 August 2025 added Mariupol and Berdiansk to the list of ports open to foreign vessels. RBC-Ukraine, <a href="https://newsukraine.rbc.ua/news/russia-folds-occupied-mariupol-port-into-1768738134.html" target="_blank" rel="noopener noreferrer">https://newsukraine.rbc.ua/news/russia-folds-occupied-mariupol-port-into-1768738134.html</a></li>
+      <li id="fn3">Ukraine's Foreign Intelligence Service estimates roughly 40,000 to 60,000 tonnes of stolen resources move through the occupied ports each month. RBC-Ukraine (as note 2).</li>
+      <li id="fn4">Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk between July and November, most bound for Turkish ports; Russian customs data showed at least 508,500 tonnes of coal, coke and anthracite worth $13.2 million exported from occupied regions between March 2022 and March 2025. Reuters, via Kyiv Post, <a href="https://www.kyivpost.com/post/72779" target="_blank" rel="noopener noreferrer">https://www.kyivpost.com/post/72779</a></li>
+      <li id="fn5">Ukrainian forces struck the Mariupol Commercial Sea Port, identified as a Russian military-logistics hub also used for illegal export of grain, coal and metal. Kyiv Post, <a href="https://www.kyivpost.com/post/77876" target="_blank" rel="noopener noreferrer">https://www.kyivpost.com/post/77876</a>; United24 Media, <a href="https://united24media.com/war-in-ukraine/ukraine-strikes-occupied-mariupol-port-used-for-russian-military-logistics-and-illegal-grain-exports-19686" target="_blank" rel="noopener noreferrer">https://united24media.com/war-in-ukraine/ukraine-strikes-occupied-mariupol-port-used-for-russian-military-logistics-and-illegal-grain-exports-19686</a></li>
+    </ol>
+  </div>
   </div>
   <div style="position:relative;border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
   <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:20px;line-height:1;color:rgba(26,26,46,0.4);padding:2px 4px;">&times;</button>
