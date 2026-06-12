@@ -13,7 +13,7 @@
 
 body {
   font-family: 'EB Garamond', Georgia, serif;
-  background: #0C1A0C;
+  background: #111d30;
   color: #E8E0D0;
   min-height: 100vh;
   font-size: 15px;
@@ -22,7 +22,7 @@ body {
 
 /* ── Page header ─────────────────────────────────────────── */
 .page-header {
-  background: linear-gradient(135deg, #0C1A0C 0%, #1A2F1A 50%, #0F1F0F 100%);
+  background: #0a1628;
   border-bottom: 3px solid #C4964A;
   padding: 14px 36px 20px;
 }
@@ -61,15 +61,15 @@ body {
 
 /* ── Summary strip ──────────────────────────────────────── */
 .summary-strip {
-  background: #0A150A;
+  background: #0D1624;
   display: flex;
   flex-wrap: wrap;
-  border-bottom: 1px solid #1A2F1A;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .summary-item {
   flex: 1;
   padding: 14px 16px;
-  border-right: 1px solid #1A2F1A;
+  border-right: 1px solid rgba(255,255,255,0.08);
   min-width: 100px;
 }
 .summary-item:last-child { border-right: none; }
@@ -97,10 +97,10 @@ body {
 
 /* ── Tab bar ────────────────────────────────────────────── */
 .tab-bar {
-  background: #0A150A;
+  background: #0D1624;
   display: flex;
   padding: 0 36px;
-  border-bottom: 1px solid #1A2F1A;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   overflow-x: auto;
 }
 .tab-btn {
@@ -167,8 +167,8 @@ body {
   background: #111;
 }
 .reactor-unit.licensed {
-  background: #1A3A1A;
-  border-color: #134E4A;
+  background: #0a1628;
+  border-color: rgba(181,146,58,0.5);
 }
 .reactor-symbol {
   font-family: 'IBM Plex Mono', monospace;
@@ -192,7 +192,7 @@ body {
   margin-top: 4px;
   line-height: 1.4;
 }
-.reactor-unit.licensed .reactor-status { color: #134E4A; }
+.reactor-unit.licensed .reactor-status { color: rgba(181,146,58,0.7); }
 .reactor-date {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
@@ -217,8 +217,8 @@ body {
   border-radius: 4px;
   padding: 10px 14px;
 }
-.lic-row.granted { background: #0F1F0F; border: 1px solid #1A3A1A; }
-.lic-row.pending { background: #0A100A; border: 1px solid #1A2F1A; }
+.lic-row.granted { background: #0D1624; border: 1px solid rgba(181,146,58,0.3); }
+.lic-row.pending { background: #0a1628; border: 1px solid rgba(255,255,255,0.08); }
 .lic-row.planned { background: #1A1000; border: 1px solid #3D2800; }
 .lic-date {
   font-family: 'IBM Plex Mono', monospace;
@@ -251,7 +251,7 @@ body {
   flex-shrink: 0;
   white-space: nowrap;
 }
-.lic-badge.granted { background: #1A3A1A; color: #134E4A; }
+.lic-badge.granted { background: rgba(181,146,58,0.15); color: #B5923A; }
 .lic-badge.pending { background: #1A1A1A; color: #4B5563; }
 .lic-badge.planned { background: #3D2800; color: #92400E; }
 
@@ -264,14 +264,14 @@ body {
   line-height: 1.8;
   margin-top: 20px;
 }
-.callout.amber { background: #0A100A; border: 1px solid #3D2800; border-left: 4px solid #92400E; color: #C8C0B0; }
+.callout.amber { background: #0a1628; border: 1px solid #3D2800; border-left: 4px solid #92400E; color: #C8C0B0; }
 .callout.gold  { background: #0A0A14; border: 1px solid #2A2A4A; border-left: 4px solid #C4964A; color: #C8C0B0; }
 .callout.red   { background: #1A0A0A; border: 1px solid rgba(139,26,26,0.2); border-radius: 4px; color: #9CA3AF; }
-.callout.teal  { background: #0A100A; border: 1px solid rgba(19,78,74,0.2); border-radius: 4px; color: #9CA3AF; }
+.callout.teal  { background: #0a1628; border: 1px solid rgba(181,146,58,0.2); border-radius: 4px; color: #9CA3AF; }
 .callout strong.amber { color: #92400E; }
 .callout strong.gold  { color: #C4964A; }
 .callout strong.red   { color: #8B1A1A; }
-.callout strong.teal  { color: #134E4A; }
+.callout strong.teal  { color: #B5923A; }
 
 /* ── Paradox two-column ─────────────────────────────────── */
 .paradox-grid {
@@ -285,7 +285,7 @@ body {
   border-radius: 6px;
   padding: 20px 18px;
 }
-.paradox-box.doing    { background: #1A3A1A; border: 2px solid #134E4A; }
+.paradox-box.doing    { background: #0a1628; border: 2px solid rgba(181,146,58,0.5); }
 .paradox-box.not-doing{ background: #1A0A0A; border: 2px solid #8B1A1A; }
 .paradox-label {
   font-family: 'IBM Plex Mono', monospace;
@@ -293,7 +293,7 @@ body {
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
-.paradox-label.teal { color: #134E4A; }
+.paradox-label.teal { color: #B5923A; }
 .paradox-label.red  { color: #8B1A1A; }
 .paradox-item {
   display: flex;
@@ -301,7 +301,7 @@ body {
   margin-bottom: 6px;
   font-family: 'IBM Plex Sans', Arial, sans-serif;
 }
-.paradox-item span.tick { color: #134E4A; flex-shrink: 0; }
+.paradox-item span.tick { color: #B5923A; flex-shrink: 0; }
 .paradox-item span.cross{ color: #8B1A1A; flex-shrink: 0; }
 .paradox-item span.text { font-size: 12.5px; color: #C8C0B0; line-height: 1.5; }
 .paradox-divider { text-align: center; }
@@ -316,7 +316,7 @@ body {
   margin-bottom: 24px;
 }
 .track-card {
-  background: #0F1F0F;
+  background: #0a1628;
   border-radius: 4px;
   padding: 16px 14px;
 }
@@ -370,8 +370,8 @@ body {
 
 /* ── Incident cards ─────────────────────────────────────── */
 .incident-card {
-  background: #0A100A;
-  border: 1px solid #1A2F1A;
+  background: #0a1628;
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 4px;
   padding: 10px 14px;
   margin-bottom: 8px;
@@ -392,7 +392,7 @@ body {
   font-size: 12.5px;
   color: #9CA3AF;
   line-height: 1.7;
-  border-top: 1px solid #1A2F1A;
+  border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 8px;
   display: none;
 }
@@ -412,16 +412,16 @@ body {
   display: flex;
   gap: 12px;
   margin-bottom: 10px;
-  background: #0F1F0F;
-  border: 1px solid #1A3A1A;
-  border-left: 4px solid #134E4A;
+  background: #0a1628;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 4px solid #B5923A;
   border-radius: 4px;
   padding: 10px 14px;
 }
 .grid-period {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  color: #134E4A;
+  color: #B5923A;
   white-space: nowrap;
   flex-shrink: 0;
   min-width: 80px;
@@ -433,7 +433,7 @@ body {
 /* ── Footer ─────────────────────────────────────────────── */
 .page-footer {
   padding: 14px 36px;
-  border-top: 1px solid #1A2F1A;
+  border-top: 1px solid rgba(255,255,255,0.08);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   color: #374151;
@@ -442,7 +442,7 @@ body {
 
 /* ── Research integrity ─────────────────────────────────── */
 .integrity-wrap  { padding: 0 36px 32px; }
-.integrity-inner { border-top: 1px solid #1A2F1A; padding-top: 1.25rem; margin-top: 0; }
+.integrity-inner { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; margin-top: 0; }
 .integrity-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
 .integrity-link  { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: rgba(232,228,220,0.90); text-decoration: none; }
 .integrity-link:hover { text-decoration: underline; }
@@ -468,7 +468,7 @@ body {
 <div class="page-header">
   <div class="header-eyebrow">TOT Insights &nbsp;·&nbsp; Zaporizhzhia Nuclear Power Plant</div>
   <div class="header-title">ZNPP: Tactical Exploitation Under Occupation</div>
-  <div class="header-subtitle">Licensing &nbsp;·&nbsp; Grid integration &nbsp;·&nbsp; Cryptocurrency &nbsp;·&nbsp; Safety incidents &nbsp;·&nbsp; Policy audience &nbsp;·&nbsp; April 2026</div>
+  <div class="header-subtitle">Licensing &nbsp;·&nbsp; Grid integration &nbsp;·&nbsp; Cryptocurrency &nbsp;·&nbsp; Safety incidents</div>
 </div>
 
 <!-- ── SUMMARY STRIP ──────────────────────────────────────── -->
@@ -611,7 +611,7 @@ body {
 var GOLD  = '#C4964A';
 var RED   = '#8B1A1A';
 var AMBER = '#92400E';
-var TEAL  = '#134E4A';
+var TEAL  = '#B5923A';
 
 /* ── DATA ──────────────────────────────────────────────── */
 var licenses = [

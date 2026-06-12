@@ -21,7 +21,7 @@ body {
 
 /* ─── Page header ──────────────────────────────────────────── */
 .page-header {
-  background: #0F1F3D;
+  background: #0a1628;
   color: #E8E0D0;
   padding: 14px 32px 18px;
   border-bottom: 3px solid #C4964A;
@@ -95,14 +95,14 @@ body {
 
 /* ─── Summary strip ────────────────────────────────────────── */
 .summary-strip {
-  background: #1A2D4A;
+  background: #0D1624;
   display: flex;
   flex-wrap: wrap;
 }
 .summary-item {
   flex: 1;
   padding: 14px 16px;
-  border-right: 1px solid #2A3D5A;
+  border-right: 1px solid rgba(255,255,255,0.08);
   min-width: 130px;
 }
 .summary-item:last-child { border-right: none; }
@@ -128,7 +128,7 @@ body {
 
 /* ─── Tab bar ──────────────────────────────────────────────── */
 .tab-bar {
-  background: #243854;
+  background: #0a1628;
   display: flex;
   padding: 0 32px;
 }
@@ -212,7 +212,7 @@ body {
 .tl-card {
   flex: 1;
   margin-left: 12px;
-  background: #1a2b42;
+  background: #0a1628;
   border-radius: 4px;
   padding: 10px 14px;
   cursor: pointer;
@@ -240,7 +240,7 @@ body {
   border-radius: 3px;
   white-space: nowrap;
 }
-.chip-navy { background: #0F1F3D; color: #C4964A; }
+.chip-navy { background: #0a1628; color: #C4964A; }
 .chip-tone { background: #1e2d44; color: #e8eaf0; border: 1px solid #2a3d5a; font-weight: 400; }
 .tl-detail {
   margin-top: 8px;
@@ -260,7 +260,7 @@ body {
   min-width: 720px;
 }
 .cargo-header-cell {
-  background: #0F1F3D;
+  background: #0a1628;
   color: #fff;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
@@ -269,15 +269,15 @@ body {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.cargo-header-cell:not(:last-child) { border-right: 1px solid #2A3D5A; }
+.cargo-header-cell:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.08); }
 .cargo-row {
   display: grid;
   grid-template-columns: 1.4fr 1.6fr 1fr 1fr 0.8fr 2fr;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   min-width: 720px;
 }
-.cargo-row.even { background: #1a2b42; }
-.cargo-row.odd  { background: #142237; }
+.cargo-row.even { background: rgba(255,255,255,0.03); }
+.cargo-row.odd  { background: transparent; }
 .cargo-cell { padding: 10px 12px; font-size: 13px; }
 .cargo-cell:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.07); }
 .cargo-type    { font-weight: 700; color: #E8E0D0; }
@@ -292,7 +292,7 @@ body {
 /* ─── Tonnage callout ──────────────────────────────────────── */
 .tonnage-callout {
   margin-top: 20px;
-  background: #0F1F3D;
+  background: #0a1628;
   color: #E8E0D0;
   border-radius: 4px;
   padding: 14px 18px;
@@ -372,7 +372,7 @@ body {
   <div class="page-eyebrow">TOT Insights · Mariupol · April 2026</div>
   <div class="page-title">Shadow Fleet &amp; Port-Based Cargo Re-registration</div>
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(232,228,220,0.55);padding-top:0.3rem;margin-bottom:0.4rem;">Last updated: April 2026</div>
-  <div class="page-subtitle">Vessel numbers · Tonnage · Cargo routing · Policy audience · April 2026</div>
+  <div class="page-subtitle">Vessel numbers · Tonnage · Cargo routing</div>
 </div>
 
 <div class="citation-box">
@@ -451,7 +451,7 @@ body {
 
 <script>
 var GOLD  = '#C4964A';
-var NAVY  = '#0F1F3D';
+var NAVY  = '#0a1628';
 var RED   = '#7C1F1F';
 var TEAL  = '#134E4A';
 var SLATE = '#1E3A5F';
