@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisichansk Occupation Press Archive (2023) - TOT Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'IBM Plex Sans',Arial,sans-serif;background:#111d30;color:#e8eaf0;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+.page-header{background:#0F1F3D;border-bottom:3px solid #C4964A;padding:14px 24px;flex-shrink:0;}
+.page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;line-height:1.3;}
+.page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em;}
+.framing-bar{background:#FBE9A8;border-bottom:1px solid #E8D89A;padding:9px 24px;font-size:11.5px;color:#5C4A00;line-height:1.55;flex-shrink:0;}
+.framing-bar strong{color:#3A2E00;}
+.viewer-wrap{flex:1;display:flex;overflow:hidden;min-height:0;}
+.sidebar{width:296px;background:#0D1624;border-right:1px solid rgba(255,255,255,0.08);overflow-y:auto;flex-shrink:0;display:flex;flex-direction:column;}
+.holdings-block{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.block-label{font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:#C4964A;margin-bottom:6px;}
+.holdings-text{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(232,228,220,0.55);line-height:1.65;}
+.holdings-text strong{color:rgba(232,228,220,0.80);}
+.pub-section{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);}
+.pub-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.14em;color:#C4964A;margin-bottom:5px;}
+.pub-cyrillic{font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#E8E0D0;font-weight:500;margin-bottom:2px;line-height:1.25;}
+.pub-roman{font-family:'EB Garamond',Georgia,serif;font-size:12px;color:rgba(232,228,220,0.50);font-style:italic;margin-bottom:9px;}
+.pub-meta{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(232,228,220,0.45);line-height:1.75;margin-bottom:8px;}
+.pub-meta strong{color:rgba(232,228,220,0.70);}
+.held-summary{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(232,228,220,0.35);margin-bottom:8px;line-height:1.5;}
+.issue-list{display:flex;flex-direction:column;gap:2px;}
+.issue-btn{width:100%;text-align:left;background:transparent;border:none;padding:7px 10px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(232,228,220,0.55);border-radius:2px;transition:background 0.1s,color 0.1s;display:flex;align-items:center;justify-content:space-between;gap:4px;}
+.issue-btn:hover{background:rgba(255,255,255,0.05);color:rgba(232,228,220,0.85);}
+.issue-btn.active{background:rgba(196,150,74,0.15);color:#E8B84B;}
+.issue-no{white-space:nowrap;}
+.issue-date{font-size:10px;color:rgba(232,228,220,0.32);text-align:right;}
+.issue-btn.active .issue-date{color:rgba(232,228,220,0.55);}
+.provenance-block{padding:12px 16px;margin-top:auto;}
+.provenance-text{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(232,228,220,0.30);line-height:1.65;}
+.pdf-area{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+.pdf-toolbar{background:#0D1624;border-bottom:1px solid rgba(255,255,255,0.08);padding:8px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;}
+.toolbar-label{font-family:'EB Garamond',Georgia,serif;font-size:14px;color:#E8E0D0;}
+.toolbar-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(232,228,220,0.40);margin-top:2px;}
+.open-btn{display:inline-flex;align-items:center;gap:6px;background:#253545;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 12px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background 0.12s;flex-shrink:0;white-space:nowrap;}
+.open-btn:hover{background:#3D6678;}
+.pdf-frame{flex:1;width:100%;border:none;display:block;min-height:0;}
+.integrity-bar{background:#0D1624;border-top:1px solid rgba(255,255,255,0.08);padding:5px 24px;display:flex;align-items:center;gap:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;flex-shrink:0;}
+.integrity-bar span{text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);}
+.integrity-bar a{color:rgba(232,228,220,0.90);text-decoration:none;}
+.integrity-bar a:hover{text-decoration:underline;}
+@media(max-width:700px){
+  .sidebar{width:220px;}
+  .pub-cyrillic{font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <h1>Lisichansk Occupation Press Archive: Вестник Лисичанска and Лисичанский вестник (2023)</h1>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:0.2rem;">Last updated: June 2026</div>
+    <p>DOC-E1 &middot; Information Space &middot; Primary Sources &middot; TOT Insights</p>
+  </div>
+</div>
+
+<div class="framing-bar">
+  <strong>Occupation propaganda archive, primary sources:</strong> This page presents a partial archive of occupation-administration newspapers published in and for occupied Lisichansk, Luhansk region. These are primary sources, reproduced for research and documentation. Their content is Russian occupation propaganda and does not represent the views of the TOT Insights Hub or its contributors. They are made available so researchers, journalists, and the public can study how the occupation administration presents itself to residents of occupied territory.
+</div>
+
+<div class="viewer-wrap">
+
+  <aside class="sidebar">
+
+    <div class="holdings-block">
+      <div class="block-label">Holdings note</div>
+      <div class="holdings-text">
+        This is a <strong>partial archive</strong>, not a complete run.<br><br>
+        <strong>Title A (Вестник Лисичанска):</strong> 10 issues held (No. 11, 12, 13, 14, 15, 16, 17, 18, 20, 30). Missing: issues 2 to 10, issue 19, and issues 21 to 29.<br><br>
+        <strong>Title B (Лисичанский вестник):</strong> 1 issue held (No. 1). No later issues currently held.
+      </div>
+    </div>
+
+    <!-- Title A -->
+    <div class="pub-section">
+      <div class="pub-tag">Title A</div>
+      <div class="pub-cyrillic">Вестник Лисичанска</div>
+      <div class="pub-roman">Vestnik Lisichanska</div>
+      <div class="pub-meta">
+        <strong>Publisher:</strong> ООО «МЕДИА-ПАРТНЕР»<br>
+        (private LLC, registered in Kazan, Tatarstan)<br>
+        <strong>Editor:</strong> S. G. Sorokin<br>
+        <strong>Reg. no.:</strong> ПИ № ФС77-84707<br>
+        <strong>Reg. date:</strong> 10 February 2023<br>
+        <strong>Frequency:</strong> Weekly (Fridays)<br>
+        <strong>Strapline:</strong> "Это наш НОВЫЙ ПУТЬ"
+      </div>
+      <div class="held-summary">10 issues held</div>
+      <div class="issue-list" id="issue-list-a"></div>
+    </div>
+
+    <!-- Title B -->
+    <div class="pub-section">
+      <div class="pub-tag">Title B</div>
+      <div class="pub-cyrillic">Лисичанский вестник</div>
+      <div class="pub-roman">Lisichansky Vestnik</div>
+      <div class="pub-meta">
+        <strong>Publisher:</strong> ГУП ЛНР «ЛУГАНЬМЕДИА»<br>
+        (LNR state unitary enterprise)<br>
+        <strong>Editor:</strong> E. E. Kolobova<br>
+        <strong>Reg. no.:</strong> ПИ № ТУ23-01952<br>
+        <strong>Reg. date:</strong> 1 June 2023
+      </div>
+      <div class="held-summary">1 issue held</div>
+      <div class="issue-list" id="issue-list-b"></div>
+    </div>
+
+    <div class="provenance-block">
+      <div class="block-label">Provenance and method</div>
+      <div class="provenance-text">
+        These issues were obtained as a partial run of the available papers. Labelling follows each issue's printed masthead: issue number, date, and title as they appear on the front page of each document. No editorial amendments have been made.
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="pdf-area">
+    <div class="pdf-toolbar">
+      <div>
+        <div class="toolbar-label" id="toolbar-label">No.&nbsp;11, 26 May 2023</div>
+        <div class="toolbar-sub" id="toolbar-sub">Вестник Лисичанска (Title A)</div>
+      </div>
+      <a id="open-btn" href="../primary-sources/lysychansk-vestnik/lysychansk-vestnik-2023-issue-11.pdf" target="_blank" rel="noopener noreferrer" class="open-btn">Open in new tab &#8599;</a>
+    </div>
+    <iframe id="pdf-iframe" class="pdf-frame" src="../primary-sources/lysychansk-vestnik/lysychansk-vestnik-2023-issue-11.pdf" title="Selected issue"></iframe>
+  </main>
+
+</div>
+
+<div class="integrity-bar">
+  <span>Research integrity</span>
+  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Lisichansk%20Press%20Archive%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/lysychansk_press_archive.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+</div>
+
+<script>
+var BASE = '../primary-sources/lysychansk-vestnik/';
+
+var issuesA = [
+  {no:'11',  date:'26 May 2023',      file:'lysychansk-vestnik-2023-issue-11.pdf'},
+  {no:'12',  date:'2 June 2023',      file:'lysychansk-vestnik-2023-issue-12.pdf'},
+  {no:'13',  date:'9 June 2023',      file:'lysychansk-vestnik-2023-issue-13.pdf'},
+  {no:'14',  date:'16 June 2023',     file:'lysychansk-vestnik-2023-issue-14.pdf'},
+  {no:'15',  date:'23 June 2023',     file:'lysychansk-vestnik-2023-issue-15.pdf'},
+  {no:'16',  date:'30 June 2023',     file:'lysychansk-vestnik-2023-issue-16.pdf'},
+  {no:'17',  date:'7 July 2023',      file:'lysychansk-vestnik-2023-issue-17.pdf'},
+  {no:'18',  date:'14 July 2023',     file:'lysychansk-vestnik-2023-issue-18.pdf'},
+  {no:'20',  date:'28 July 2023',     file:'lysychansk-vestnik-2023-issue-20.pdf'},
+  {no:'30',  date:'6 October 2023',   file:'lysychansk-vestnik-2023-issue-30.pdf'}
+];
+
+var issuesB = [
+  {no:'1 (1)', date:'1 November 2023', file:'lysychansk-vestnik-2023-issue-01.pdf'}
+];
+
+function buildList(issues, listId, subLabel, defaultActive) {
+  var list = document.getElementById(listId);
+  issues.forEach(function(iss, i) {
+    var btn = document.createElement('button');
+    btn.className = 'issue-btn' + (defaultActive && i === 0 ? ' active' : '');
+    btn.innerHTML =
+      '<span class="issue-no">No. ' + iss.no + '</span>' +
+      '<span class="issue-date">' + iss.date + '</span>';
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.issue-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var url = BASE + iss.file;
+      document.getElementById('pdf-iframe').src = url;
+      document.getElementById('open-btn').href = url;
+      document.getElementById('toolbar-label').innerHTML = 'No. ' + iss.no + ', ' + iss.date;
+      document.getElementById('toolbar-sub').textContent = subLabel;
+    });
+    list.appendChild(btn);
+  });
+}
+
+buildList(issuesA, 'issue-list-a', 'Вестник Лисичанска (Title A)', true);
+buildList(issuesB, 'issue-list-b', 'Лисичанский вестник (Title B)', false);
+</script>
+</body>
+</html>
