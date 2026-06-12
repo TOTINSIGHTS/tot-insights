@@ -42,6 +42,14 @@
   }
   .tooltip .tt-name { font-weight: bold; font-size: 13px; margin-bottom: 4px; color: #fff; }
   .tooltip .tt-cat  { color: #aaa; font-style: italic; font-size: 11px; }
+  .tooltip .tt-desc { color: #ccc; font-size: 11px; margin-top: 4px; }
+  .fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+  .fn-ref:hover { text-decoration: underline; }
+  .page-footnotes { padding: 16px 0 24px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(232,228,220,0.45); line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 14px; }
+  .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
+  .page-footnotes ol { margin: 0; padding-left: 18px; }
+  .page-footnotes li { margin-bottom: 8px; }
+  .page-footnotes a { color: #c9a84c; }
 </style>
 </head>
 <body>
@@ -67,6 +75,7 @@
 </div>
 
 <svg id="network"></svg>
+<div style="max-width:940px;margin:10px auto 4px;padding:0 24px;font-size:11px;font-family:'IBM Plex Mono',monospace;color:rgba(232,228,220,0.45);font-style:italic;">This network combines Centre for the Study of Occupation monitoring with separately-sourced entities documented in public investigations (marked with dashed border).</div>
 
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#1E3A8A"></div>Port &amp; shipping</div>
@@ -75,6 +84,7 @@
   <div class="legend-item"><div class="legend-dot" style="background:#1E6E6E"></div>Individuals</div>
   <div class="legend-item"><div class="legend-dot" style="background:#7C2D2D"></div>Individuals (federal)</div>
   <div class="legend-item"><div class="legend-dot" style="background:#555"></div>Administrative</div>
+  <div class="legend-item"><div style="width:10px;height:10px;border-radius:50%;background:rgba(194,84,10,0.3);border:2.5px dashed #B5923A;flex-shrink:0;box-sizing:border-box;"></div>Public-investigation source</div>
 </div>
 
 <div class="footer">
@@ -82,14 +92,25 @@
     Node size indicates connectivity (number of documented links). ZAT PETROTRANS and the port trading role 
     emerge as the primary hubs. The Sanagro link suggests grain trade routing through the port network; 
     the RosKapStroy cluster indicates post-capture reconstruction financing structures. Adriamediteran Ltd 
-    represents documented international commercial exposure. Marat Khusnullin is designated on the <a href="https://sanctions.nazk.gov.ua/en/sanction-person/419/" style="color:#e8eaf0;">NACP Ukraine sanctions register</a> (also EU, US, and UK listed). Volodymyr Pakreev also appears in international sanctions records (<a href="https://www.opensanctions.org/entities/NK-3ktEYY4sibcGaNXQfhmxss/" style="color:#e8eaf0;">OpenSanctions</a>). Network reconstructed from open-source corporate, sanctions, and administrative records.
+    represents documented international commercial exposure. Marat Khusnullin is designated on the <a href="https://sanctions.nazk.gov.ua/en/sanction-person/419/" style="color:#e8eaf0;">NACP Ukraine sanctions register</a> (also EU, US, and UK listed). Volodymyr Pakreev also appears in international sanctions records (<a href="https://www.opensanctions.org/entities/NK-3ktEYY4sibcGaNXQfhmxss/" style="color:#e8eaf0;">OpenSanctions</a>). Network reconstructed from open-source corporate, sanctions, and administrative records. Four entities documented in public investigations (dashed border) connect to the port network: Nika LLC<sup><a href="#fn1" class="fn-ref">1</a></sup> (54,000+ tonnes of wheat exported to Turkey 2023-2024; director Roman Gurov also heads sanctioned Roboavia); Mostagro<sup><a href="#fn2" class="fn-ref">2</a></sup> (Temryuk re-registration scheme); Naumov network / Zorka Food<sup><a href="#fn3" class="fn-ref">3</a></sup> (grain export via Mariupol port; Vladimir Naumov, sanctioned former Belarusian interior minister); and Vessel Alfa M<sup><a href="#fn4" class="fn-ref">4</a></sup> (Ukrainian-sanctioned vessel, ~7,857 tonnes Nika wheat Mariupol-Temryuk, November 2023 sanctions).
   </p>
   <p class="source">TOT Insights · Ukraine &amp; Russia Programme, CSNS / King's College London · 2023–2025</p>
+  <div class="page-footnotes">
+    <div class="page-footnotes-label">Notes</div>
+    <ol>
+      <li id="fn1">Nika LLC exported over 54,000 tonnes of wheat from occupied Mariupol to Turkey across 2023-2024; compliance declarations list production sites in occupied Mariupol. Director Roman Gurov also heads Roboavia, a US- and Ukraine-sanctioned drone manufacturer. Slidstvo.Info / OCCRP, <a href="https://www.slidstvo.info/en/articles/the-mariupol-connection-tracking-occupied-ukraine-s-grain-from-russian-arms-dealers-to-turkish-tables/">slidstvo.info</a>; United24 Media, <a href="https://united24media.com/latest-news/how-stolen-ukrainian-grain-from-occupied-mariupol-reached-a-un-supplier-investigation-17236">united24media.com</a>.</li>
+      <li id="fn2">Mostagro (TIN 9701208412) named as a company exporting stolen grain from the occupied territories; tied to the Temryuk re-registration scheme. SeaKrime / Ukrainian Shipping Magazine, <a href="https://en.usm.media/russians-forged-documents-for-grain-export-from-mariupol/">en.usm.media</a>.</li>
+      <li id="fn3">Grain-export network controlled by Vladimir Naumov (sanctioned former Belarusian interior minister), with ownership distributed through nominal directors; Zorka Food shipped wheat directly from Mariupol port. BELPOL via SeaKrime / Ukrainian Shipping Magazine, <a href="https://en.usm.media/belarusian-government-officials-companies-exported-stolen-ukrainian-grain-through-mariupol-port-investigation-finds/">en.usm.media</a>.</li>
+      <li id="fn4">Vessel Alfa M moved approximately 7,857 tonnes of Nika wheat from Mariupol to Temryuk where documents listed Mariupol as a Russian city; under Ukrainian sanctions since November 2023. Slidstvo.Info / Euromaidan Press, <a href="https://euromaidanpress.com/2026/03/25/stolen-ukrainian-grain-relabeled-russian-un-food-supplier-mariupol/">euromaidanpress.com</a>.</li>
+    </ol>
+  </div>
+
 </div>
 
 <div class="tooltip" id="tooltip">
   <div class="tt-name"></div>
   <div class="tt-cat"></div>
+  <div class="tt-desc"></div>
 </div>
 
 <script>
@@ -136,7 +157,23 @@ const nodes = [
   { id: 'PAKREEV',      label: 'Volodymyr Pakreev',         cat: 'person' },
   { id: 'VORONKOV',     label: 'Nika Treyd associate',             cat: 'person' },
   { id: 'MIKHAILOVA',   label: 'RosKapStroy associate',          cat: 'person' },
-  { id: 'KHUSNULLIN',   label: 'Marat Khusnullin',         cat: 'federal' }
+  { id: 'KHUSNULLIN',   label: 'Marat Khusnullin',         cat: 'federal' },
+  { id: 'NIKA_LLC',  label: 'Nika LLC',                   cat: 'trade',  pub: true,
+    desc: 'Exported 54,000+ tonnes wheat from occupied Mariupol to Turkey, 2023-2024. '
+         + 'Compliance declarations list production sites in occupied Mariupol. '
+         + 'Director Roman Gurov also heads sanctioned Roboavia drone manufacturer. '
+         + 'Slidstvo.Info/OCCRP; United24.' },
+  { id: 'MOSTAGRO',  label: 'Mostagro',                   cat: 'trade',  pub: true,
+    desc: 'TIN 9701208412. Named as exporter of stolen grain; tied to Temryuk '
+         + 're-registration scheme. SeaKrime / Ukrainian Shipping Magazine.' },
+  { id: 'NAUMOV',    label: 'Naumov network / Zorka Food', cat: 'trade',  pub: true,
+    desc: 'Grain-export network controlled by Vladimir Naumov, sanctioned former '
+         + 'Belarusian interior minister. Zorka Food shipped wheat directly from '
+         + 'Mariupol port. BELPOL via SeaKrime / Ukrainian Shipping Magazine.' },
+  { id: 'ALFA_M',    label: 'Vessel Alfa M',               cat: 'port',   pub: true,
+    desc: 'Moved ~7,857 tonnes of Nika wheat from Mariupol to Temryuk; documents '
+         + 'listed Mariupol as a Russian city. Under Ukrainian sanctions since '
+         + 'November 2023. Slidstvo.Info / Euromaidan Press.' }
 ];
 
 const edges = [
@@ -162,7 +199,11 @@ const edges = [
   { source: 'MAKSIMOVA',  target: 'PAKREEV' },
   { source: 'PAKREEV',    target: 'IMPERIAL' },
   { source: 'IMPERIAL',   target: 'IMPEKS' },
-  { source: 'IMPERIAL',   target: 'REGIONKAP' }
+  { source: 'IMPERIAL',   target: 'REGIONKAP' },
+  { source: 'NIKA_LLC',  target: 'PETROTRANS' },
+  { source: 'NIKA_LLC',  target: 'ALFA_M'     },
+  { source: 'ALFA_M',    target: 'MOSTAGRO'   },
+  { source: 'NAUMOV',    target: 'PETROTRANS' }
 ];
 
 const degreeMap = {};
@@ -230,9 +271,10 @@ node.append('circle')
   .attr('r', d => nodeRadius(d))
   .attr('fill', d => catColors[d.cat])
   .attr('fill-opacity', 0.85)
-  .attr('stroke', d => catColors[d.cat])
-  .attr('stroke-width', 1.5)
-  .attr('stroke-opacity', 0.4);
+  .attr('stroke', d => d.pub ? '#B5923A' : catColors[d.cat])
+  .attr('stroke-width', d => d.pub ? 2.5 : 1.5)
+  .attr('stroke-dasharray', d => d.pub ? '5,3' : 'none')
+  .attr('stroke-opacity', d => d.pub ? 1 : 0.4);
 
 node.append('text')
   .text(d => d.label)
@@ -262,7 +304,9 @@ node.on('mouseenter', (event, d) => {
   );
 
   tooltip.querySelector('.tt-name').textContent = d.label;
-  tooltip.querySelector('.tt-cat').textContent  = catLabels[d.cat];
+  tooltip.querySelector('.tt-cat').textContent  = catLabels[d.cat] + (d.pub ? ' · public investigation' : '');
+  const descEl = tooltip.querySelector('.tt-desc');
+  if (descEl) descEl.textContent = d.desc || '';
   tooltip.style.opacity = '1';
 })
 .on('mousemove', event => {
@@ -294,13 +338,13 @@ node.on('click', (event, d) => {
   );
   node.select('circle')
     .attr('fill-opacity', n => connected.has(n.id) || n.id === d.id ? 1 : 0.15)
-    .attr('stroke-width', n => n.id === d.id ? 3 : 1.5);
+    .attr('stroke-width', n => n.id === d.id ? 3 : (n.pub ? 2.5 : 1.5));
   event.stopPropagation();
 });
 
 svg.on('click', () => {
   link.attr('stroke', '#c8c2b8').attr('stroke-opacity', 0.7).attr('stroke-width', 1.2);
-  node.select('circle').attr('fill-opacity', 0.85).attr('stroke-width', 1.5);
+  node.select('circle').attr('fill-opacity', 0.85).attr('stroke-width', d => d.pub ? 2.5 : 1.5);
 });
 
 sim.on('tick', () => {
