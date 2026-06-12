@@ -82,6 +82,14 @@ footer a:hover{text-decoration:underline}
 footer strong{color:var(--text-secondary);font-weight:600}
 
 @media print{.viz-nav,.interact-hint,.close-btn{display:none!important}.desc-panel{display:block!important}}
+sup{font-size:10px;line-height:0;vertical-align:super;}
+sup a{color:rgba(26,26,46,0.65);text-decoration:none;}
+sup a:hover{text-decoration:underline;}
+.doc-footnotes{margin-top:44px;padding-top:18px;border-top:1px solid #dde2ee;}
+.doc-footnotes h2{font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}
+.doc-footnotes ol{margin:0 0 0 20px;padding:0;}
+.doc-footnotes li{font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.65;color:#9090aa;margin-bottom:5px;}
+.doc-footnotes li:target{background:#FBE9A8;padding:2px 4px;margin-left:-4px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -111,7 +119,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 <section class="viz-section" id="sequence">
   <div class="section-kicker"><span class="num">1</span><span class="tag">Event sequence</span></div>
   <h2>The Deal and Its Infrastructure: A Four-Day Coincidence</h2>
-  <p class="description">The agreement between the "DNR" government and Georgian company George Oil was not an isolated business deal. Within four days of the signing, a RUB 441 million dredging tender was published for Mariupol's Coal Harbour - deepening the channel for vessels carrying larger tonnage. Within five days, a new legal entity (George Oil Plus) was registered in Batumi. The speed and sequencing of these events indicates coordinated preparation, not spontaneous commercial activity.</p>
+  <p class="description">The agreement between the "DNR" government and Georgian company George Oil was not an isolated business deal. Within four days of the signing, a RUB 441 million dredging tender was published for Mariupol's Coal Harbour - deepening the channel for vessels carrying larger tonnage.<sup><a href="#fn1">1</a></sup> Within five days, a new legal entity (George Oil Plus) was registered in Batumi.<sup><a href="#fn2">2</a></sup> The speed and sequencing of these events indicates coordinated preparation, not spontaneous commercial activity.<sup><a href="#fn10">10</a></sup></p>
 
   <div class="svg-wrap">
     <svg viewBox="0 0 680 560" xmlns="http://www.w3.org/2000/svg" aria-labelledby="seq-title seq-desc" role="img">
@@ -193,7 +201,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
     <h4 id="desc-sequence-title"></h4>
     <p id="desc-sequence-text"></p>
   </div>
-  <p class="caption">Source: TOT Insights Hub partner monitoring and OSINT; Georgian National Agency of Public Registry; Russian federal procurement portal; Reuters satellite investigation, March 2026.</p>
+  <p class="caption">Dredging tender: Russian federal procurement portal.<sup><a href="#fn1">1</a></sup> George Oil Plus: Georgian National Agency of Public Registry.<sup><a href="#fn2">2</a></sup> Coal stockpiles and dome storage: Reuters satellite investigation, March 2026.<sup><a href="#fn5">5</a></sup> Field monitoring: Centre for the Study of Occupation.<sup><a href="#fn4">4</a></sup> EEF cooperation memorandum.<sup><a href="#fn9">9</a></sup></p>
 </section>
 
 
@@ -203,7 +211,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 <section class="viz-section" id="port">
   <div class="section-kicker"><span class="num">2</span><span class="tag">Infrastructure</span></div>
   <h2>Mariupol Port Transformation: From Commercial Port to Colonial Raw-Material Terminal</h2>
-  <p class="description">Russia is systematically converting Mariupol Commercial Sea Port into a dedicated export terminal for looted raw materials. The conversion involves five interlocking infrastructure elements, each documented in the investigation. Taken together they describe a port being purpose-built for permanent bulk export operations - not temporary logistics.</p>
+  <p class="description">Russia is systematically converting Mariupol Commercial Sea Port into a dedicated export terminal for looted raw materials. The conversion involves five interlocking infrastructure elements, each documented in the investigation. Taken together they describe a port being purpose-built for permanent bulk export operations - not temporary logistics.<sup><a href="#fn10">10</a></sup></p>
 
   <div class="svg-wrap">
     <svg viewBox="0 0 680 480" xmlns="http://www.w3.org/2000/svg" aria-labelledby="port-title port-desc" role="img">
@@ -281,7 +289,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
     <h4 id="desc-port-title"></h4>
     <p id="desc-port-text"></p>
   </div>
-  <p class="caption">Source: TOT Insights Hub partner monitoring, Mariupol; Russian federal procurement portal (dredging tender, March 2026); Reuters satellite investigation, March 2026; occupation administration port development documentation.</p>
+  <p class="caption">Field monitoring: Centre for the Study of Occupation.<sup><a href="#fn4">4</a></sup> Dredging tender: Russian federal procurement portal.<sup><a href="#fn1">1</a></sup> Dome storage and coal stockpiles: Reuters satellite investigation, March 2026.<sup><a href="#fn5">5</a></sup> Port 2040 plan: occupation-administration source.<sup><a href="#fn6">6</a></sup></p>
 </section>
 
 
@@ -291,7 +299,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 <section class="viz-section" id="scheme">
   <div class="section-kicker"><span class="num">3</span><span class="tag">Sanctions circumvention</span></div>
   <h2>The Export Scheme: Extracted Resources from Occupied Territory to Foreign Markets via Georgian Intermediary</h2>
-  <p class="description">The structure of the George Oil arrangement follows a pattern documented across multiple occupied-territory resource extraction schemes: looted raw materials are channelled through a foreign private intermediary company, creating legal distance between the occupation extractors and the end markets. George Oil director confirmed coal is only the first resource of interest - grain, sunflower, and salt from the region are also targets.</p>
+  <p class="description">The structure of the George Oil arrangement follows a pattern documented across multiple occupied-territory resource extraction schemes: looted raw materials are channelled through a foreign private intermediary company, creating legal distance between the occupation extractors and the end markets.<sup><a href="#fn10">10</a></sup> George Oil director confirmed coal is only the first resource of interest - grain, sunflower, and salt from the region are also targets.<sup><a href="#fn7">7</a></sup></p>
 
   <div class="svg-wrap">
     <svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" aria-labelledby="scheme-title scheme-desc" role="img">
@@ -419,9 +427,24 @@ footer strong{color:var(--text-secondary);font-weight:600}
     <h4 id="desc-scheme-title"></h4>
     <p id="desc-scheme-text"></p>
   </div>
-  <p class="caption">Source: TOT Insights Hub partner monitoring; Georgian National Agency of Public Registry (George Oil Ltd, ID 404501133; George Oil Plus LLC); Radio Free Europe/Radio Liberty interview with George Oil director; DNR Deputy Prime Minister <a href="https://search-uk-sanctions-list.service.gov.uk/designations/RUS3156/Individual">Andrey Chertkov</a> statement; Russian federal procurement portal.</p>
+  <p class="caption">Field monitoring: Centre for the Study of Occupation.<sup><a href="#fn4">4</a></sup> George Oil Ltd and George Oil Plus: Georgian National Agency of Public Registry.<sup><a href="#fn3">3</a></sup><sup><a href="#fn2">2</a></sup> George Oil director: Radio Free Europe / Radio Liberty interview.<sup><a href="#fn7">7</a></sup> Andrey Chertkov (DNR Deputy Prime Minister, UK sanctions-listed) statement.<sup><a href="#fn8">8</a></sup> Dredging tender: Russian federal procurement portal.<sup><a href="#fn1">1</a></sup></p>
 </section>
 
+<div class="doc-footnotes" style="padding:0 0 2rem;">
+  <h2>Notes</h2>
+  <ol>
+    <li id="fn1">Russian federal procurement portal (Единая информационная система в сфере закупок), electronic auction for dredging works, Coal Harbour approach channel, Mariupol port, published 20 March 2026; initial contract value RUB 441.34 million; volume 400,000m³ soil removal; works planned May–2026 to October 2026. [FLAG: specific tender URL not confirmed; requires zakupki.gov.ru record before publication.]</li>
+    <li id="fn2">Georgian National Agency of Public Registry (NAPR), George Oil Plus LLC, Batumi (4 Seaside Street), registered 24 March 2026; director and sole owner (100%): George Oil director.</li>
+    <li id="fn3">Georgian National Agency of Public Registry (NAPR), George Oil Ltd (სფს ჯორჯ ოილი), Tbilisi (Old Tbilisi district, Sanapiro Street 2a, apt. 21), registered 18 September 2015; identification number 404501133; director and co-owner (50%).</li>
+    <li id="fn4">Centre for the Study of Occupation, field monitoring, Mariupol, 2026. Findings include: coal delivered and stored on quays as open accumulation zones; railway wagon repair base established within port territory; first Russian Railways (RZD)-livery wagon recorded in port; port assessed as being converted into a raw-material export terminal.</li>
+    <li id="fn5">Reuters, satellite investigation, Mariupol port, March 2026. Identified large stockpiles of material resembling coal and a new dome structure for bulk cargo storage; two port employees confirmed vessels regularly carry grain and coal. [FLAG: specific article URL not confirmed; requires URL before publication.]</li>
+    <li id="fn6">Russian occupation administration (DNR / Russian Federation), Mariupol port long-term development plan to 2040. Occupation-administration source; no archive confirmed. [FLAG: source publication name, date, and Wayback Machine permalink required before publication.]</li>
+    <li id="fn7">Radio Free Europe / Radio Liberty, interview with George Oil director, 2026. Director confirmed interest in Donbas coal, plans to resell to Turkey and India, and future interest in grain, sunflower, and salt from the region. [FLAG: specific article URL not confirmed; requires URL before publication.]</li>
+    <li id="fn8">Andrey Chertkov (DNR Deputy Prime Minister), statement describing the George Oil agreement as a continuation of dialogue initiated at the Eastern Economic Forum, 2026. Occupation-administration source; no archive confirmed. UK sanctions listing: <a href="https://search-uk-sanctions-list.service.gov.uk/designations/RUS3156/Individual">search-uk-sanctions-list.service.gov.uk/designations/RUS3156/Individual</a>. [FLAG: statement date and Wayback Machine permalink required before publication.]</li>
+    <li id="fn9">Russian Congress of Industrialists and Entrepreneurs of the Asia-Pacific Region, cooperation memorandum with George Oil (Republic of Georgia), Eastern Economic Forum, Vladivostok, September 2025. [FLAG: no URL confirmed; requires EEF official record or Russian press source before publication.]</li>
+    <li id="fn10">TOT Insights analysis. Conclusions regarding coordinated preparation, sanctions-circumvention architecture, and port-conversion function are TOT Insights assessments derived from the sourced evidence above.</li>
+  </ol>
+</div>
 </main>
 
 <footer>
