@@ -448,6 +448,14 @@ body {
 .integrity-link:hover { text-decoration: underline; }
 .integrity-note  { font-family: 'IBM Plex Sans', Arial, sans-serif; font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
 
+
+.fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+.fn-ref:hover { text-decoration: underline; }
+.page-footnotes { padding: 20px 32px 32px; max-width: 1100px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(232,234,240,0.45); line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.08); }
+.page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
+.page-footnotes ol { margin: 0; padding-left: 18px; }
+.page-footnotes li { margin-bottom: 8px; }
+.page-footnotes a { color: #c9a84c; }
 @media (max-width: 760px) {
   .content       { padding: 20px 18px 40px; }
   .page-header   { padding: 12px 18px 16px; }
@@ -530,7 +538,7 @@ body {
     <div id="licensing-rows"></div>
 
     <div class="callout amber">
-      <strong class="amber">Key admission:</strong> ZNPP head Chernichuk confirmed to TASS that Rostekhnadzor &#x201C;directly interferes in plant operation&#x201D; &#x2014; and that Russian specialists have been present since the first days of occupation. Rosatom-appointed operating organisation head Galeev corroborated this. The licensing trajectory formalises an operational reality that began in 2022.
+      <strong class="amber">Key admission:</strong> ZNPP head Chernichuk confirmed to TASS<sup><a href="#fn3" class="fn-ref">3</a></sup> that Rostekhnadzor &#x201C;directly interferes in plant operation&#x201D; &#x2014; and that Russian specialists have been present since the first days of occupation. Rosatom-appointed operating organisation head Galeev corroborated this. The licensing trajectory formalises an operational reality that began in 2022.
     </div>
   </div>
 
@@ -560,7 +568,7 @@ body {
     <div class="tracks-grid" id="tracks-grid"></div>
 
     <div class="callout gold">
-      <strong class="gold">Analytical assessment:</strong> Russia is using ZNPP as a short-term resource extraction platform &#x2014; for electricity, cryptocurrency revenue, and diplomatic leverage &#x2014; without committing to its long-term integration into national energy infrastructure. The absence from the 2042 scheme may also reflect Russia&#x2019;s own uncertainty about whether it will retain the plant under any future settlement. The Kiriyenko&#x2013;Balitsky political link (ZNPP integration was a key project inspected by Kiriyenko in September 2025, leading directly to Balitsky&#x2019;s Putin meeting) confirms ZNPP functions as a political asset as much as an energy one.
+      <strong class="gold">Analytical assessment:</strong> Russia is using ZNPP as a short-term resource extraction platform &#x2014; for electricity, cryptocurrency revenue, and diplomatic leverage &#x2014; without committing to its long-term integration into national energy infrastructure. The absence from the 2042 scheme may also reflect Russia&#x2019;s own uncertainty about whether it will retain the plant under any future settlement. The Kiriyenko&#x2013;Balitsky political link (ZNPP integration was a key project inspected by Kiriyenko in September 2025, leading directly to Balitsky&#x2019;s Putin meeting<sup><a href="#fn6" class="fn-ref">6</a></sup>) confirms ZNPP functions as a political asset as much as an energy one.
     </div>
   </div>
 
@@ -594,6 +602,18 @@ body {
 
 </div><!-- .content -->
 
+<div class="page-footnotes">
+  <div class="page-footnotes-label">Notes</div>
+  <ol>
+    <li id="fn1">RF Government Order No. 4153-r, 30.12.2024 (<em>General Energy Development Scheme of the Russian Federation through 2042</em>). Available at pravo.gov.ru [URL not confirmed at time of writing].</li>
+    <li id="fn2">Rostekhnadzor operating licences: Unit 1 (December 2025) and Unit 2 (18 February 2026). Reported by TASS and Rosatom [URLs not confirmed at time of writing].</li>
+    <li id="fn3">Chernichuk, A. Interview with TASS confirming Rostekhnadzor operational interference and the cryptocurrency mining project under Kiriyenko's supervision [URL not confirmed at time of writing].</li>
+    <li id="fn4">IAEA Director General Updates on the Situation in Ukraine (November 2025 and March 2026 updates). Available at <a href="https://www.iaea.org/topics/nuclear-safety-and-security/ukraine">iaea.org</a>.</li>
+    <li id="fn5">IAEA Director General Update on the Situation in Ukraine, September 2025 [URL not confirmed at time of writing].</li>
+    <li id="fn6">Centre for the Study of Occupation monitoring: Kiriyenko's September 2025 inspection visit to Zaporizhzhia; grid integration infrastructure data (substation names, coordinates, capacity figures); Balitsky's meeting with Putin. No public link.</li>
+  </ol>
+</div>
+
 <!-- ── RESEARCH INTEGRITY ──────────────────────────────────── -->
 <div class="integrity-wrap">
   <div class="integrity-inner">
@@ -617,23 +637,23 @@ var TEAL  = '#B5923A';
 var licenses = [
   { item: 'Radiation sources',                  date: 'Pre-Nov 2025',   body: 'Rostekhnadzor',                  status: 'granted', color: '#4B5563' },
   { item: 'Spent fuel storage (SNFSF)',          date: 'Pre-Nov 2025',   body: 'Rostekhnadzor',                  status: 'granted', color: '#4B5563' },
-  { item: 'Unit 1 - 10-year operating licence',  date: 'Dec 2025',       body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
-  { item: 'Unit 2 - 10-year operating licence',  date: 'Feb 18, 2026',   body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
+  { item: 'Unit 1 - 10-year operating licence',  date: 'Dec 2025<sup><a href="#fn2" class="fn-ref">2</a></sup>',       body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
+  { item: 'Unit 2 - 10-year operating licence',  date: 'Feb 18, 2026<sup><a href="#fn2" class="fn-ref">2</a></sup>',   body: 'Rostekhnadzor',                  status: 'granted', color: TEAL      },
   { item: 'Units 3–6',                      date: 'Not yet licensed',body: 'Pending',                       status: 'pending', color: '#6B7280'  },
   { item: 'Cryptocurrency mining farm launch',   date: 'Planned 2026',   body: 'Kiriyenko / Presidential Admin', status: 'planned', color: AMBER     }
 ];
 
 var incidents = [
-  { date: 'Sep 23, 2025',   event: 'Deliberate disconnection as provocation',             severity: 'high',
-    detail: 'Source reporting indicates the September 23 disconnection was deliberate - used as a political provocation rather than an operational accident.' },
+  { date: 'Sep 23, 2025',   event: 'Dniprovska line disconnected — provocation assessed',             severity: 'high',
+    detail: 'IAEA reported ZNPP was operating on a single external power source following the September 23 disconnection.<sup><a href="#fn5" class="fn-ref">5</a></sup> TOT Insights assessment: the timing and pattern of the disconnection indicate deliberate use as a political provocation rather than an operational accident.' },
   { date: 'Nov 8–9, 2025', event: '330kV Ferrosplavna-1 backup line restored',       severity: 'medium',
-    detail: 'Via IAEA-brokered ceasefire pause, Russia restored the 330kV ‘Ferrosplavna-1’ backup line - the first minimal power supply redundancy since May 2025.' },
+    detail: 'Via IAEA-brokered ceasefire pause,<sup><a href="#fn4" class="fn-ref">4</a></sup> Russia restored the 330kV ‘Ferrosplavna-1’ backup line - the first minimal power supply redundancy since May 2025.' },
   { date: 'Nov 14, 2025',   event: '750kV Dniprovska line disconnected - single source', severity: 'critical',
-    detail: 'Protective automation disconnected the main 750kV ‘Dniprovska’ line. ZNPP again depended on a single power source. IAEA: situation ‘critically fragile.’' },
+    detail: 'Protective automation disconnected the main 750kV ‘Dniprovska’ line. ZNPP again depended on a single power source. IAEA<sup><a href="#fn4" class="fn-ref">4</a></sup>: situation ‘critically fragile.’' },
   { date: 'Nov 19, 2025',   event: 'Dniprovska restored; rolling blackouts begin',         severity: 'high',
     detail: 'Dniprovska line restored but situation remains fragile. Rolling blackout schedules introduced across occupied region from Nov 19, intensifying from Nov 25.' },
   { date: 'Mar 24, 2026',   event: 'Dniprovska disconnected - artillery damage',      severity: 'critical',
-    detail: 'IAEA reported ZNPP disconnected from ‘Dniprovska’ power line after damage on Russian-controlled side during artillery activity from positions near the plant toward Ukrainian-controlled territory. Russian forces firing from plant vicinity. Plant supplied via backup ‘Ferrosplavna-1’. No radiation change. IAEA called for ceasefire and urgent repairs.' }
+    detail: 'IAEA<sup><a href="#fn4" class="fn-ref">4</a></sup> reported ZNPP disconnected from ‘Dniprovska’ power line after damage on Russian-controlled side during artillery activity from positions near the plant toward Ukrainian-controlled territory. Russian forces firing from plant vicinity. Plant supplied via backup ‘Ferrosplavna-1’. No radiation change. IAEA called for ceasefire and urgent repairs.' }
 ];
 
 var sevStyle = {
@@ -646,9 +666,9 @@ var gridItems = [
   { period: 'Q1 2025',       item: 'New high-voltage branch - ZNPP to Russian grid',
     detail: 'Construction begins. Completion expected summer 2025. Once operational: industrial-level electricity capacity for Mariupol.' },
   { period: 'Feb–May 2025', item: 'Distribution node + compressor station constructed',
-    detail: 'Section 47°08′55.7″N 37°18′40.0″E. Physical infrastructure connecting ZNPP output to Mariupol supply chain.' },
+    detail: 'Section 47°08′55.7″N 37°18′40.0″E. Physical infrastructure connecting ZNPP output to Mariupol supply chain. (Centre for the Study of Occupation monitoring.<sup><a href="#fn6" class="fn-ref">6</a></sup>)' },
   { period: 'Jun 2025',      item: 'Near-doubling of Mariupol electricity capacity confirmed',
-    detail: 'Cumulative effect: new substation ‘Horod-12’ (2×40 MVA); reconstruction of ‘Horod-6’ (16→25 MVA); renewal of ‘Azovska–Horod-2’ line (6km). All enabled by ZNPP integration.' },
+    detail: 'Cumulative effect: new substation ‘Horod-12’ (2×40 MVA); reconstruction of ‘Horod-6’ (16→25 MVA); renewal of ‘Azovska–Horod-2’ line (6km). All enabled by ZNPP integration. (Centre for the Study of Occupation monitoring.<sup><a href="#fn6" class="fn-ref">6</a></sup>)' },
   { period: 'Nov 2025',      item: 'New 150kV and 330kV lines included in territorial planning',
     detail: 'Creates an alternative RF power contour for ZNPP - independent of Ukrainian grid infrastructure.' },
   { period: 'Mar 2026',      item: 'New lines: Melitopol → Kamianka-Dniprovska and Yakymivka',
@@ -668,7 +688,7 @@ var notDoingItems = [
   'ZNPP absent from RF General Energy Development Scheme 2042',
   'Not among operating sites (blue markers)',
   'Not among new/planned sites (green markers)',
-  'Basis: RF Government Order No. 4153-r, 30.12.2024',
+  'Basis: RF Government Order No. 4153-r, 30.12.2024<sup><a href="#fn1" class="fn-ref">1</a></sup>',
   'No long-term generation planning integration',
   'No inclusion in national grid capacity projections'
 ];
@@ -678,7 +698,7 @@ var tracks = [
     points: ['Near-doubling of Mariupol electricity capacity', 'New 150kV and 330kV lines in territorial planning', 'Lines under construction Melitopol → Kamianka-Dniprovska', 'Industrial-level capacity for Mariupol production facilities'],
     note: 'Immediate operational utility, not long-term grid planning' },
   { title: 'Cryptocurrency mining',     color: AMBER,     icon: '₿',
-    points: ['Project developed 2022–2025 under Kiriyenko’s personal supervision', 'Launch planned 2026 once licences obtained', 'Confirmed by ZNPP head Chernichuk to TASS', 'ZNPP as energy source for mining farm'],
+    points: ['Project developed 2022–2025 under Kiriyenko’s personal supervision', 'Launch planned 2026 once licences obtained', 'Confirmed by ZNPP head Chernichuk to TASS<sup><a href="#fn3" class="fn-ref">3</a></sup>', 'ZNPP as energy source for mining farm'],
     note: 'Opportunistic resource extraction - not an energy policy' },
   { title: 'US fuel reactor diplomacy', color: '#6B3A8B', icon: '🇺🇸',
     points: ['4 of 6 reactors use American fuel', 'Russia negotiating with US over control of these 4 reactors', 'Seeking tacit US consent for annexation of ZNPP generation', 'Connected to broader US peace proposal discussions'],
