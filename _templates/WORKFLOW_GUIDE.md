@@ -333,7 +333,7 @@ Run a full site audit before any major public announcement, after a batch of con
 ```
 Conduct a full functionality audit of the entire TOT Insights Hub. Check every page and report what works and what doesn't. Do not fix anything — report only.
 
-Check every HTML file including: index.html, research.html, media.html, data.html, projects.html, resources.html, about.html, contact.html, all files in briefings/, all files in dashboards/, and any other HTML files present.
+Check every HTML file including: index.html, research.html, media.html, data.html, projects.html, resources.html, about.html, all files in briefings/, all files in dashboards/, and any other HTML files present.
 
 For each page check and report:
 
@@ -464,7 +464,6 @@ After adding, report: files changed, entries added, em-dash count per document, 
 | `data.html` | Databases and structured data page |
 | `media.html` | Media outputs and public engagement — edit to add new media items |
 | `about.html` | Team profiles and institutional partners — edit to add team members |
-| `contact.html` | Contact page |
 | `resources.html` | External resources and reading list |
 | `projects.html` | Current and past research projects |
 | `economics.html`, `sanctions.html`, etc. | Thematic sub-pages |
