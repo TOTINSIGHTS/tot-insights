@@ -370,6 +370,84 @@ Do not make any changes.
 
 ---
 
+## Task 9 — Adding a primary source (existing standalone page) to the research catalogue
+
+**File to edit:** `data/documents.js`
+
+Use this task when a primary source document already has its own standalone HTML page (e.g. in `primary-sources/mariupol-admin-2026/`) and you want it to appear on research.html as a searchable, filterable card.
+
+This task does NOT create a new page. It only adds an entry to the catalogue so the existing page becomes discoverable.
+
+### Before you start
+
+Gather the following from the document's existing standalone page — do not invent or assume any detail that is not on the page:
+
+- **DOC ID** — visible in the page eyebrow (e.g. `DOC-095`)
+- **Title** — the `<h1>` page title, verbatim
+- **Date** — the document date shown on the page (not the "Last updated" platform date); use format `"Month YYYY"` (e.g. `"April 2026"`)
+- **Theme** — the theme tag shown on the page; confirm with the lead researcher whether a secondary theme applies
+- **Summary** — the `<p class="summary">` paragraph, verbatim; apply the em-dash rule below before copying
+- **Source and decree details** — the source name, decree number, and date, for the `file` field; cite by name and date only, no live hyperlink
+- **PDF filename** — used only to confirm the page loads correctly; do not link to the PDF directly from documents.js
+- **Provenance** — check that the page has a source note. If provenance is missing, flag it in your report and do not fill it in yourself
+
+### Standing rules (apply to every primary source entry)
+
+1. **No live hyperlink to occupation-administration sources.** Do not add a URL pointing to a Russian or DNR government website. The `gdocs` field should be `""` unless there is an existing Google Drive folder for that source collection.
+2. **Em-dash conversion.** Before copying any text into the entry, convert any em-dash (—) to a comma, colon, or parentheses, whichever reads most naturally. Count the conversions and include the count in your report.
+3. **No invented detail.** Every word in `desc`, `descriptor`, and `summary` must be traceable to the page. Do not draw from external sources, prior knowledge, or other documents.
+4. **Names: role not name, unless a public official acting in official capacity.** Do not introduce an individual's name into summary text unless the page names them in their official role.
+5. **Use `dashboardFile`, not `briefingFile`.** Primary source pages open in the iframe viewer via the `dashboardFile` field. Using `briefingFile` will not work for these pages.
+
+### Entry structure
+
+```javascript
+{
+  id:            "DOC-095",
+  date:          "April 2026",
+  theme:         ["Primary Theme","Secondary Theme"],   // string if single theme
+  format:        "Primary Sources",
+  title:         "Title from the page h1",
+  desc:          "One or two sentences — first sentence(s) of the page summary.",
+  descriptor:    "One punchy analytical sentence: what the document reveals.",
+  summary:       "Full text of the page summary paragraph, verbatim (after em-dash conversion).",
+  file:          "Decree No. XXX, Administration of the City District of Mariupol, DNR, DD Month YYYY",
+  gdocs:         "",
+  dashboardFile: "primary-sources/mariupol-admin-2026/doc-095.html"
+}
+```
+
+### Where to insert
+
+Add new entries to `data/documents.js` in DOC-ID order within the DOCS array. If the new entries are in a numbered series (DOC-095, DOC-096 etc.) and there is no obvious insertion point, add them before the last entry in the array.
+
+### After adding
+
+- Verify the entries appear on `research.html` and are searchable and filterable.
+- Update `CATALOGUE.md` to note the entries are now in the research catalogue.
+- If the documents also appear as hardcoded cards on `data.html`, flag this as a duplicate display — do not remove the `data.html` cards without instruction.
+- Note: the `REGIONS` object in `research.html` maps DOC IDs to region labels. Entries not in REGIONS fall back to "All occupied territories." If a precise region label matters, ask the lead researcher whether to update REGIONS.
+
+### Exact Claude Code prompt
+
+```
+In the TOT Insights Hub, add the following primary source documents to data/documents.js so they appear on research.html as searchable cards. Each already has its own standalone HTML page — do not create new pages. Use dashboardFile to link to each existing page.
+
+For each document, read its existing page at [PATH] and build the catalogue entry from that page only. Apply these rules:
+- No live hyperlink to occupation-administration sources; gdocs: ""
+- Convert any em-dash (—) to comma, colon, or parentheses; report the count
+- Summary taken verbatim from the page's <p class="summary"> paragraph
+- Cite source by name and date in the file field only; no URL
+
+Documents to add:
+- DOC-XXX: theme [PRIMARY + SECONDARY], page at primary-sources/[FOLDER]/doc-xxx.html
+- [repeat for each]
+
+After adding, report: files changed, entries added, em-dash count per document, any provenance gaps, and confirm they appear on research.html.
+```
+
+---
+
 ## File structure reference
 
 | File or folder | What it controls |

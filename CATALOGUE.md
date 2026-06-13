@@ -27,6 +27,8 @@ Russia has stolen over 4 million tonnes of Ukrainian grain (~$580 million) throu
 **DOC-A5 — State Grain Operator (DZO): Interactive Research Dashboard** *(Dashboard)*
 Interactive HTML dashboard aggregating key data on the DZO in Russian-occupied Zaporizhzhia. Tabbed navigation across organisational structure, financial data, export flows, personnel network, and accountability indicators, with charts, searchable personnel tables, and a visual org chart. Companion to DOC-A4.
 
+**DOC-A6 — Beijing's Quiet Stake in Occupied Ukraine** *(Briefing)*
+Examines China's deepening commercial role in the Russian-occupied territories of Ukraine. At least seventeen Chinese companies operate openly in the occupied regions; the economy is described as "totally yuanised," with Chinese currency circulating at seventy-nine bank branches, Chinese payment systems routing trades, and Chinese relay stations forming the telecommunications backbone. Traces a three-stage engagement logic — private equipment suppliers first, Belt and Road para-diplomatic networks second, Russian courtship of Chinese state capital third — each step deliberately deniable. The West holds enforcement levers it has barely touched: the firms involved operate openly in European markets. Themes: Economics (primary), Governance (secondary). Author: Jade McGlynn.
 
 **DOC-A10 — The Cost of Occupation: Living Standards in Mariupol, April 2026** *(Briefing)*
 Assessment of the cost of living in occupied Mariupol as of April 2026. Real purchasing power has fallen despite nominal wage growth: the basic grocery basket costs 80 to 120% more than in Rostov or Taganrog, some goods three to four times more. Water tariffs rise close to sevenfold between December 2025 and June 2026; a reinstated 330-litre daily consumption norm inflates bills for unmetered households. New property-based charges ("excess land" fee; "extra square metres" analogue) add extraction over and above tariffs. Funeral services run up to tenfold above Rostov rates, indicating clear monopolisation of the services market. Data current to April 2026. Co-authored with Petro Andriushchenko.
@@ -183,7 +185,7 @@ Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russ
 
 ## 3. Primary Source Documents — Mariupol Administration (2026)
 
-Standalone primary source documents from the Mariupol occupation administration, published in original Russian with machine translations.
+Standalone primary source documents from the Mariupol occupation administration, published in original Russian with machine translations. All eight entries below are in `data/documents.js` and searchable on research.html as of June 2026.
 
 **DOC-095 — Official Market Valuation of Residential Property in Mariupol, 2026** *(Economics)*
 Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).
