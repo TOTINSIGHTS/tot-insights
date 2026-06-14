@@ -55,7 +55,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: #111d30;
+  background: var(--navy);
   color: rgba(232,228,220,0.90);
   font-size: 17px;
   line-height: 1.6;

@@ -213,7 +213,80 @@ Decree amending a co-financed programme for capital repair of 21 apartments dama
 
 ---
 
-## 4. Media & Public Engagement
+## 4. Primary Source Documents — Legal Acts and Executive Decrees (2022–2025)
+
+Nineteen primary source documents drawn from five thematic archives: DNR legal acts, LNR legal acts, occupation citizenship decrees, Kherson and Zaporizhzhia legal acts, and Russian federal mobilisation and education legislation. All entries are in `data/documents.js` and searchable on research.html as of June 2026.
+
+### DNR Legal Acts
+
+**DOC-103 — Donetsk People's Republic: Constitution (Consolidated Text, March 2020)** *(Governance, Accountability and Legal)*
+Consolidated text of the DNR Constitution, the foundational document for the entire DNR legal order including its legislative, executive, and judicial structures.
+
+**DOC-104 — Donetsk People's Republic: Law on Education (Consolidated Text, December 2021)** *(Governance, Education and Militarisation)*
+Consolidated text of the DNR Law on Education, modelled on Russian Federal Law No. 273-FZ, governing curriculum standards, the language of instruction (Russian as state language), and school accreditation across DNR-controlled territory.
+
+**DOC-105 — Donetsk People's Republic: Law on Military Duty and Military Service (Law No. 08-INs, Consolidated March 2020)** *(Governance, Accountability and Legal)*
+Consolidated text of Law No. 08-INs, the foundational DNR conscription statute defining who must serve, grounds for exemption (Article 23, amended by DOC-107), and obligations during mobilisation.
+
+**DOC-106 — Donetsk People's Republic: Law on Mobilisation Preparation and Mobilisation (Law No. 10-INs, 22 September 2021)** *(Governance, Accountability and Legal)*
+Law No. 10-INs governing the full cycle of mobilisation planning and execution. Adopted five months before the general mobilisation decree (DOC-108); the direct statutory basis for that decree.
+
+**DOC-107 — Donetsk People's Republic: Law No. 376-IINs — Amendment to Article 23, Law on Military Duty** *(Governance, Accountability and Legal)*
+Amendment narrowing conscription exemption grounds under Article 23 of Law No. 08-INs. Part of the stepwise pre-invasion tightening of the DNR military duty framework; DNR counterpart to DOC-117.
+
+**DOC-108 — Decree of the Head of the Donetsk People's Republic No. 29 — On the Conduct of General Mobilisation (19 February 2022)** *(Governance, Education and Militarisation, Accountability and Legal)*
+Signed by Denis Pushilin five days before Russia's full-scale invasion, declaring general mobilisation across DNR territory and ordering all conscription-age men to report to military commissariats. Issued simultaneously with a parallel LNR decree.
+
+### Citizenship
+
+**DOC-109 — Russian Federation Presidential Decree No. 304 (25 May 2022) — Extension of Simplified Citizenship to Kherson Oblast and Occupied Zaporizhzhia** *(Governance, Identity, Culture and Religion)*
+Step 5 of 10 in the passportisation sequence, extending simplified citizenship to residents of Kherson and occupied Zaporizhzhia three months after military seizure and five months before formal annexation.
+
+**DOC-110 — Russian Federation: Regulatory Reference — Admission to Citizenship in Simplified Procedure for Foreign Nationals and Stateless Persons** *(Governance, Identity, Culture and Religion)*
+Procedural framework through which the passportisation programme was administered at the individual level. Includes three-month processing timeline and biometric data requirements introduced for applicants from occupied Ukrainian territories.
+
+**DOC-111 — Russian Federation: Regulatory Reference — Admission to Citizenship for Residents of Transnistria (Transnistrian Moldovan Republic)** *(Governance, Identity, Culture and Religion)*
+The Transnistrian model, Russia's earliest operationally mature passportisation programme. Included as a comparator: the voluntary, individual-application Transnistrian model was the template subsequently applied at mass scale in occupied Ukraine.
+
+### Kherson and Zaporizhzhia Legal Acts
+
+**DOC-112 — Treaty on the Accession of Kherson Oblast to the Russian Federation (30 September 2022)** *(Governance, Accountability and Legal)*
+Annexation treaty purporting to incorporate Kherson Oblast into the Russian Federation. Invokes September 2022 referendums condemned as legally invalid. Not recognised by Ukraine, the UN General Assembly (143 to 5), the EU, or the US.
+
+**DOC-113 — Russian Federation: Federal Constitutional Law on the Ratification of the Treaty on the Accession of Kherson Oblast (4 October 2022)** *(Governance, Accountability and Legal)*
+Ratification law adopted unanimously by both chambers on 3 to 4 October 2022. Its Article 3 declares Kherson's borders to be the state border of the Russian Federation.
+
+**DOC-114 — Russian Federation Presidential Decree No. 708 — Appointment of Acting Governor of Kherson Oblast (4 October 2022)** *(Governance, Accountability and Legal)*
+Decree appointing Vladimir Saldo as Acting Governor on the same day as the ratification law, integrating the occupation administration into the Russian federal executive hierarchy.
+
+**DOC-115 — Zaporizhzhia Oblast (Occupied): Government Composition Amendment (2024)** *(Governance, Accountability and Legal)*
+Regulatory act setting out the composition of the Zaporizhzhia occupation government under the Russian federal system. Documents the consolidation from wartime military administration to bureaucratised federal governance operating from Melitopol.
+
+**DOC-116 — Zaporizhzhia Oblast (Occupied): Regulations on the Organisation and Activity of the Ministry of Education** *(Governance, Education and Militarisation)*
+Regulations establishing the Ministry of Education of Zaporizhzhia Oblast under the Russian federal framework, providing the institutional and legal basis for replacing Ukrainian-language schooling with Russian federal curriculum standards.
+
+### LNR Legal Acts
+
+**DOC-117 — Luhansk People's Republic: Law Amending Article 53 of the Law on Military Duty and Military Service** *(Governance, Accountability and Legal)*
+LNR counterpart to DNR Law No. 376-IINs (DOC-107): conscription exemption grounds narrowed in the same pre-invasion period, reflecting synchronised Russian oversight of the DNR and LNR legislative process.
+
+**DOC-118 — Luhansk People's Republic: Decree on Restrictions on Departure of Citizens Subject to Military Duty During General Mobilisation** *(Governance, Accountability and Legal)*
+Travel ban preventing conscription-age men from leaving LNR-controlled territory without military commissariat permission. The enforcement corollary of the February 2022 general mobilisation declaration.
+
+**DOC-119 — Presidential Instructions: Expansion of the Defenders of the Fatherland Foundation to Occupied Ukrainian Oblasts (2025)** *(Governance, Education and Militarisation)*
+Kremlin instructions extending the veterans' welfare and ideological foundation to the four occupied oblasts. Runs patriotic school programmes and normalises military service as part of the social stabilisation of the occupation.
+
+**DOC-120 — Luhansk Oblast (Occupied): Conscription Decree No. UG-341/25 — Spring 2025 Call-Up (28 March 2025)** *(Governance, Accountability and Legal)*
+Spring 2025 call-up targeting citizens born 1995 to 2007. The youngest cohort (born 2007, aged 17 to 18) are the first generation schooled entirely under the Russian occupation curriculum. Raises questions under the Optional Protocol to the CRC on children in armed conflict.
+
+### Mobilisation and Martial Law
+
+**DOC-121 — Russian Federation Federal Law No. 423-FZ — Mandatory Military Training in Schools (4 August 2023)** *(Governance, Education and Militarisation, Coercion, Resistance and Security)*
+Introduces Foundations of Security and Defence of the Motherland (OBZR) as a mandatory school subject from September 2024, including weapons handling, drone operation, and combat first aid. Applies in occupied Ukrainian territories via formal annexation. The most direct legislative expression of education militarisation in the collection.
+
+---
+
+## 5. Media & Public Engagement
 
 *49 items. Sorted by date, most recent first.*
 
