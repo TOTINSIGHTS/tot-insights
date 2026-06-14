@@ -9,15 +9,16 @@
   --navy-deep:         #0a1628;
   --navy-card:         #0D1624;
   --gold:              #c9a84c;
+  --gold-hover:        #E8B84B;
   --gold-pale:         #E8D5A0;
   --text:              rgba(232,228,220,0.90);
   --text-muted:        rgba(232,228,220,0.55);
   --border:            rgba(255,255,255,0.07);
   --color-bg:          #111d30;
   --color-dark:        #0a1628;
-  --color-primary:     #B5923A;
+  --color-primary:     var(--gold);
   --color-mid:         rgba(255,255,255,0.15);
-  --color-accent:      #B5923A;
+  --color-accent:      var(--gold);
   --color-accent-pale: rgba(181,146,58,0.15);
   --color-border:      rgba(255,255,255,0.07);
   --color-text:        rgba(232,228,220,0.90);

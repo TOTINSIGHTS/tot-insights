@@ -112,12 +112,12 @@
 }
 
 .nav-dropdown-panel a:hover {
-  color: #E8B84B;
-  border-left-color: #E8B84B;
+  color: var(--gold-hover);
+  border-left-color: var(--gold-hover);
 }
 
 .nav-dropdown-panel a.active {
-  color: #E8B84B;
+  color: var(--gold-hover);
 }
 
 @media (max-width: 700px) {
@@ -142,7 +142,7 @@
 
 /* Amber accent line at the very top of every page — higher specificity than inline .site-header */
 header.site-header {
-  border-top: 3px solid #E8B84B;
+  border-top: 3px solid var(--gold-hover);
 }
 
 /* Mobile hamburger — hidden by default on desktop */
@@ -154,7 +154,7 @@ header.site-header {
   .header-nav{display:none !important;}
   .nav-hamburger{
     display:flex;align-items:center;justify-content:center;
-    background:none;border:none;font-size:28px;color:#E8B84B;
+    background:none;border:none;font-size:28px;color:var(--gold-hover);
     cursor:pointer;padding:4px;line-height:1;flex-shrink:0;
   }
   .nav-mobile-menu{
@@ -165,7 +165,7 @@ header.site-header {
   .nav-mobile-menu.open{display:flex;}
   .nav-mobile-close{
     position:absolute;top:1.25rem;right:1.25rem;
-    font-size:1.5rem;color:#E8B84B;background:none;border:none;
+    font-size:1.5rem;color:var(--gold-hover);background:none;border:none;
     cursor:pointer;line-height:1;padding:0;
   }
   .nav-mobile-menu a{
@@ -174,6 +174,6 @@ header.site-header {
     padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.08);
     display:block;letter-spacing:0.04em;transition:color 0.12s;
   }
-  .nav-mobile-menu a:hover,.nav-mobile-menu a.active{color:#E8B84B;}
+  .nav-mobile-menu a:hover,.nav-mobile-menu a.active{color:var(--gold-hover);}
   .nav-mobile-menu a:last-child{border-bottom:none;}
 }
