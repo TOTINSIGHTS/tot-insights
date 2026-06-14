@@ -60,6 +60,10 @@
 .vis-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#3a3a4a;}
 .vis-arrow{font-size:14px;color:rgba(26,26,46,0.25);transition:color 0.12s,transform 0.12s;}
 .vis-card:hover .vis-arrow{color:var(--steel);transform:translateX(3px);}
+/* Jump-links */
+.data-jumplinks{display:flex;gap:24px;margin-bottom:40px;}
+.data-jumplinks a{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(201,168,76,0.35);transition:border-color 0.12s,color 0.12s;}
+.data-jumplinks a:hover{border-bottom-color:#c9a84c;}
 </style>
 </head>
 <body>
@@ -104,7 +108,13 @@
     <p style="font-family:'Source Serif 4',Georgia,serif;font-size:0.92rem;font-weight:300;color:rgba(232,228,220,0.90);line-height:1.75;">TOT Insights publishes interactive databases, analytical visualisations, and primary source documents drawn from occupation administrative records, original fieldwork, and open-source research. Databases are searchable and updated on a rolling basis. Visualisations and dashboards are companion tools to published analytical outputs. Primary source documents are published in their original language with machine translations where available.</p>
   </div>
 
-  <div class="section-label">Databases</div>
+  <div class="data-jumplinks">
+    <a href="#databases">Databases</a>
+    <a href="#primary-sources">Primary sources</a>
+    <a href="#visualisations">Visualisations</a>
+  </div>
+
+  <div class="section-label" id="databases">Databases</div>
   <div class="db-grid">
 
     <div>
@@ -132,6 +142,124 @@
       </a>
       <a class="db-dl-link" href="assets/downloads/tot-sanctions-database-may2026.csv" download>↓ Download CSV - May 2026</a>
     </div>
+
+  </div>
+
+  <div class="section-label" id="primary-sources">Primary sources - Mariupol city administration, 2026</div>
+  <p style="font-size:14px;color:var(--muted);line-height:1.65;max-width:820px;margin-bottom:28px;">Russian-language administrative documents issued by the occupation authorities in Mariupol, obtained and published for research, accountability, and documentation purposes. Original documents are published alongside machine translations.</p>
+  <div class="ps-grid">
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-095.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-095</span>
+      </div>
+      <div class="ps-title">Official Market Valuation of Residential Property in Mariupol, 2026</div>
+      <div class="ps-desc">Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Economics</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-096.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-096</span>
+      </div>
+      <div class="ps-title">Auction Decree: Municipal Property Lease, Lenin Prospekt &amp; Metallurgov Prospekt, Mariupol</div>
+      <div class="ps-desc">Decree authorising the electronic auction of two non-residential municipal properties on five-year leases under Russian federal competition law.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-097.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-097</span>
+      </div>
+      <div class="ps-title">Subsidy Amendment: MUP Mariupolzhilkompleks Wage Arrears, January–February 2026</div>
+      <div class="ps-desc">Decree amending a subsidy scheme to cover wage debt owed to employees of the municipal housing utility enterprise MUP "Mariupolzhilkompleks" for January–February 2026.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-098.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-098</span>
+      </div>
+      <div class="ps-title">Auction Decree: Municipal Property Lease, Stroiteley Prospekt &amp; Lenin Prospekt, Mariupol</div>
+      <div class="ps-desc">Decree authorising the electronic auction of two further non-residential municipal properties on five-year leases under Russian federal competition law.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-099.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-099</span>
+      </div>
+      <div class="ps-title">"Development of Education in Mariupol" Municipal Programme, 2026–2028</div>
+      <div class="ps-desc">Full text of the occupation administration's three-year education programme. Total budget RUB 8.76 billion. Objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values."</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Education and Militarisation</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-100.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-100</span>
+      </div>
+      <div class="ps-title">Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)</div>
+      <div class="ps-desc">Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Governance</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-101.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-101</span>
+      </div>
+      <div class="ps-title">Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026</div>
+      <div class="ps-desc">Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Civilian Life</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
+
+    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-102.html">
+      <div class="ps-card-top">
+        <span class="ps-tag">Primary Source</span>
+        <span class="ps-id">DOC-102</span>
+      </div>
+      <div class="ps-title">Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol</div>
+      <div class="ps-desc">Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.</div>
+      <div class="ps-card-footer">
+        <span class="ps-label">Civilian Life</span>
+        <span class="ps-translation">Machine translation available</span>
+        <span class="ps-arrow">→</span>
+      </div>
+    </a>
 
   </div>
 
@@ -274,123 +402,7 @@
 
   </div>
 
-  <div class="section-label">Primary sources - Mariupol city administration, 2026</div>
-  <p style="font-size:14px;color:var(--muted);line-height:1.65;max-width:820px;margin-bottom:28px;">Russian-language administrative documents issued by the occupation authorities in Mariupol, obtained and published for research, accountability, and documentation purposes. Original documents are published alongside machine translations.</p>
-  <div class="ps-grid">
 
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-095.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-095</span>
-      </div>
-      <div class="ps-title">Official Market Valuation of Residential Property in Mariupol, 2026</div>
-      <div class="ps-desc">Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Economics</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-096.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-096</span>
-      </div>
-      <div class="ps-title">Auction Decree: Municipal Property Lease, Lenin Prospekt &amp; Metallurgov Prospekt, Mariupol</div>
-      <div class="ps-desc">Decree authorising the electronic auction of two non-residential municipal properties on five-year leases under Russian federal competition law.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Governance</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-097.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-097</span>
-      </div>
-      <div class="ps-title">Subsidy Amendment: MUP Mariupolzhilkompleks Wage Arrears, January–February 2026</div>
-      <div class="ps-desc">Decree amending a subsidy scheme to cover wage debt owed to employees of the municipal housing utility enterprise MUP "Mariupolzhilkompleks" for January–February 2026.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Governance</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-098.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-098</span>
-      </div>
-      <div class="ps-title">Auction Decree: Municipal Property Lease, Stroiteley Prospekt &amp; Lenin Prospekt, Mariupol</div>
-      <div class="ps-desc">Decree authorising the electronic auction of two further non-residential municipal properties on five-year leases under Russian federal competition law.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Governance</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-099.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-099</span>
-      </div>
-      <div class="ps-title">"Development of Education in Mariupol" Municipal Programme, 2026–2028</div>
-      <div class="ps-desc">Full text of the occupation administration's three-year education programme. Total budget RUB 8.76 billion. Objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values."</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Education and Militarisation</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-100.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-100</span>
-      </div>
-      <div class="ps-title">Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)</div>
-      <div class="ps-desc">Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Governance</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-101.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-101</span>
-      </div>
-      <div class="ps-title">Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026</div>
-      <div class="ps-desc">Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Civilian Life</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-102.html">
-      <div class="ps-card-top">
-        <span class="ps-tag">Primary Source</span>
-        <span class="ps-id">DOC-102</span>
-      </div>
-      <div class="ps-title">Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol</div>
-      <div class="ps-desc">Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.</div>
-      <div class="ps-card-footer">
-        <span class="ps-label">Civilian Life</span>
-        <span class="ps-translation">Machine translation available</span>
-        <span class="ps-arrow">→</span>
-      </div>
-    </a>
-
-  </div>
 
 </div>
 
