@@ -113,12 +113,12 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
 .breakout-row{display:flex;align-items:center;gap:2rem;background:#0D1624;border-left:3px solid #E8B84B;padding:1.5rem 2rem;text-decoration:none;margin:8px 0;transition:background 0.2s;cursor:pointer;}
 .breakout-row:hover{background:#142030;}
 .breakout-number-block{min-width:200px;flex-shrink:0;}
-.breakout-number{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#ffffff;line-height:1;}
+.breakout-number{font-family:var(--font-display);font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:400;color:#ffffff;line-height:1;}
 .breakout-underline{width:24px;height:2px;background:#E8B84B;margin:0.4rem 0 0.5rem;}
 .breakout-text-block{flex:1;}
-.breakout-finding{font-family:'Source Serif 4',Georgia,serif;font-weight:300;font-size:0.88rem;color:rgba(255,255,255,0.9);line-height:1.4;max-width:560px;margin-bottom:0.35rem;}
-.breakout-source{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:#FBE9A8;}
-.breakout-arrow{font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;color:#fff;opacity:0.7;margin-left:auto;flex-shrink:0;transition:opacity 0.2s;}
+.breakout-finding{font-family:var(--font-source);font-weight:300;font-size:0.88rem;color:rgba(255,255,255,0.9);line-height:1.4;max-width:560px;margin-bottom:0.35rem;}
+.breakout-source{font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:#FBE9A8;}
+.breakout-arrow{font-family:var(--font-display);font-size:1.4rem;color:#fff;opacity:0.7;margin-left:auto;flex-shrink:0;transition:opacity 0.2s;}
 .breakout-row:hover .breakout-arrow{opacity:1;}
 @media(max-width:768px){.breakout-row{flex-direction:column;align-items:flex-start;gap:0.75rem;padding:1.25rem;}.breakout-number-block{min-width:0;}.breakout-number{font-size:clamp(2rem,8vw,2.8rem);}.breakout-arrow{display:none;}}
 </style>
@@ -213,7 +213,7 @@ body{font-family:var(--font-sans);background:#111d30;color:rgba(232,228,220,0.90
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
     <span><a href="privacy.html">Privacy Notice</a></span>
   </div>
-  <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
 </footer>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">

@@ -12,7 +12,7 @@
 body{font-family:'EB Garamond',serif;background:var(--cream);color:#1a1a2e;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
 .page-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:14px 24px;flex-shrink:0;}
 .page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
-.page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:'IBM Plex Mono',monospace;letter-spacing:0.06em;}
+.page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:var(--font-mono);letter-spacing:0.06em;}
 .caveat-bar{background:#FBE9A8;border-bottom:1px solid #E8D89A;padding:8px 24px;font-size:11.5px;color:#5C4A00;line-height:1.5;flex-shrink:0;}
 .caveat-bar strong{color:#3A2E00;}
 .tab-bar{background:#0D1624;border-bottom:2px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;padding:0 16px;}
@@ -21,17 +21,17 @@ body{font-family:'EB Garamond',serif;background:var(--cream);color:#1a1a2e;displ
 .tab-btn.active{color:rgba(232,228,220,0.90);border-bottom-color:var(--gold);font-weight:600;}
 .pdf-frame{flex:1;display:none;width:100%;border:none;}
 .pdf-frame.active{display:block;}
-.open-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;padding:5px 12px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background 0.12s;float:right;margin-top:-2px;}
+.open-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;padding:5px 12px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:background 0.12s;float:right;margin-top:-2px;}
 .open-btn:hover{background:#3D6678;}
 </style>
 </head>
 <body>
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 <div class="page-header">
   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
     <div>
       <h1>Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)</h1>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
+  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
       <p>DOC-G2 · Social Conditions · Primary Sources · TOT Insights</p>
     </div>
   </div>
@@ -74,7 +74,7 @@ function showTab(i) {
   openLink.href = pdfs[i];
 }
 </script>
-<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(255,255,255,0.94);border-top:1px solid rgba(26,26,26,0.1);padding:5px 24px;display:flex;align-items:center;gap:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;">
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(255,255,255,0.94);border-top:1px solid rgba(26,26,26,0.1);padding:5px 24px;display:flex;align-items:center;gap:1rem;font-family:var(--font-mono);font-size:0.6rem;">
   <span style="text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);">Research integrity</span>
   <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Mariupol%20City%20Administration%3A%20Citizen%20Appeals%20Reports%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/otchyet_mariupol.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
 </div>

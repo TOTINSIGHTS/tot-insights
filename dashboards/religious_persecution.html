@@ -13,7 +13,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   background: #111d30;
   color: #e8eaf0;
   font-size: 15px;
@@ -29,7 +29,7 @@ body {
   border-bottom: 3px solid #C4964A;
 }
 .page-eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -45,7 +45,7 @@ body {
   margin-bottom: 4px;
 }
 .page-subtitle {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: #9CA3AF;
   margin-bottom: 12px;
@@ -57,7 +57,7 @@ body {
   margin: 10px 0 10px;
 }
 .cite-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.58rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -65,7 +65,7 @@ body {
   margin-bottom: 0.35rem;
 }
 .cite-text {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   color: rgba(232,228,220,0.75);
   line-height: 1.5;
@@ -73,7 +73,7 @@ body {
 .cite-text a { color: #E8B84B; text-decoration: none; }
 .cite-text a:hover { text-decoration: underline; }
 .cite-btn {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.58rem;
   border: 1px solid rgba(255,255,255,0.15);
   color: rgba(255,255,255,0.4);
@@ -84,7 +84,7 @@ body {
   display: inline-block;
 }
 .source-line {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.65);
 }
@@ -118,7 +118,7 @@ body {
   text-align: center;
 }
 .stat-val {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 22px;
   font-weight: 700;
   line-height: 1.1;
@@ -126,7 +126,7 @@ body {
 }
 .stat-val.blue { color: #5B9BD5; }
 .stat-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   color: rgba(232,228,220,0.7);
   margin-top: 6px;
@@ -141,7 +141,7 @@ body {
   overflow-x: auto;
 }
 .tab-btn {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
   padding: 10px 18px;
@@ -195,7 +195,7 @@ body {
   margin: 0 0 0 48px;
   color: rgba(232,228,220,0.6);
   font-size: 13px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 
@@ -223,14 +223,14 @@ body {
   padding: 10px 14px;
 }
 .denom-card-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
   color: #c9a84c;
   margin-bottom: 4px;
 }
 .denom-card-text {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.75);
   line-height: 1.5;
@@ -271,7 +271,7 @@ body {
   color: #c9a84c;
 }
 .clergy-stat-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   color: #E8E0D0;
   line-height: 1.4;
@@ -281,7 +281,7 @@ body {
   padding: 10px 14px;
   background: rgba(255,255,255,0.03);
   border-radius: 4px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.5);
   line-height: 1.6;
@@ -301,14 +301,14 @@ body {
   padding: 10px 14px;
 }
 .summary-card-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 700;
   color: #c9a84c;
   margin-bottom: 4px;
 }
 .summary-card-text {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.8);
   line-height: 1.5;
@@ -323,7 +323,7 @@ body {
   border-radius: 4px;
 }
 .roc-stats-title {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 600;
   color: #5B9BD5;
@@ -344,7 +344,7 @@ body {
 }
 .roc-stat-val.zero { color: #c9a84c; }
 .roc-stat-label {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
   color: rgba(232,228,220,0.45);
   margin-top: 2px;
@@ -367,7 +367,7 @@ body {
 .compare-card.amber-border { border-color: rgba(196,150,74,0.5); }
 .compare-card.banned-card  { border-color: #1a2744; }
 .compare-card-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: rgba(232,228,220,0.45);
   text-transform: uppercase;
@@ -389,7 +389,7 @@ body {
   line-height: 1;
 }
 .compare-num-sub {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: rgba(232,228,220,0.4);
   margin-top: 4px;
@@ -419,7 +419,7 @@ body {
   border-radius: 6px;
 }
 .compare-text {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.75);
   line-height: 1.5;
@@ -436,7 +436,7 @@ body {
   line-height: 1;
 }
 .banned-sub {
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.45);
   margin-top: 6px;
@@ -447,7 +447,7 @@ body {
   border: 1px solid rgba(196,150,74,0.25);
   border-radius: 4px;
   padding: 14px 16px;
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.8);
   line-height: 1.7;
@@ -459,7 +459,7 @@ body {
   margin-top: 40px;
   padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: 'IBM Plex Sans', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   color: rgba(232,228,220,0.5);
   line-height: 1.8;
@@ -479,7 +479,7 @@ body {
   padding-top: 20px;
 }
 .integrity-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -487,7 +487,7 @@ body {
   margin-bottom: 6px;
 }
 .integrity-link {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   color: rgba(232,228,220,0.90);
   text-decoration: none;
@@ -504,14 +504,14 @@ body {
 .page-footer {
   padding: 12px 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   color: rgba(232,234,240,0.40);
 }
 </style>
 </head>
 <body>
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 
 <div class="page-header">
   <div class="page-eyebrow">TOT Insights · Analytical Visualisations · May 2026</div>

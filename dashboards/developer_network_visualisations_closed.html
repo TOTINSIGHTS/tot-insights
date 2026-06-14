@@ -23,12 +23,12 @@ html{scroll-behavior:smooth}
 body{font-family:'EB Garamond',serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:16px}
 
 .access-banner{background:#3A0000;border-bottom:3px solid #F08080;padding:.85rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.access-banner strong{font-family:'IBM Plex Mono',monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#FFCCD0}
-.access-banner span{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:rgba(255,200,200,0.75)}
+.access-banner strong{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#FFCCD0}
+.access-banner span{font-family:var(--font-mono);font-size:.72rem;color:rgba(255,200,200,0.75)}
 
 .site-header{background:var(--navy);color:#fff;padding:2.5rem 2rem 2rem;position:relative}
 .site-header .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-bottom:.75rem;font-weight:600}
-.site-header h1{font-family:'Libre Baskerville',serif;font-size:clamp(1.35rem,3vw,1.95rem);font-weight:700;line-height:1.25;max-width:820px;margin-bottom:.65rem}
+.site-header h1{font-family:var(--font-serif);font-size:clamp(1.35rem,3vw,1.95rem);font-weight:700;line-height:1.25;max-width:820px;margin-bottom:.65rem}
 .site-header .subtitle{font-size:.975rem;opacity:.75;max-width:700px;line-height:1.55}
 .site-header .meta{margin-top:1.25rem;font-size:.82rem;opacity:.5;border-top:1px solid rgba(255,255,255,.15);padding-top:.85rem}
 
@@ -44,7 +44,7 @@ main{max-width:1020px;margin:0 auto;padding:0 1.5rem 4rem}
 .section-kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
 .section-kicker .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;border-radius:4px;flex-shrink:0}
 .section-kicker .tag{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600}
-.viz-section h2{font-family:'Libre Baskerville',serif;font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
+.viz-section h2{font-family:var(--font-serif);font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
 .description{font-size:.95rem;color:var(--text-secondary);max-width:820px;line-height:1.65;margin-bottom:1.4rem}
 
 .legend{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;margin-bottom:1rem;font-size:.8rem;color:var(--text-secondary)}
@@ -70,7 +70,7 @@ main{max-width:1020px;margin:0 auto;padding:0 1.5rem 4rem}
   padding:1.2rem 1.4rem;margin-top:.75rem;position:relative;
 }
 .detail-panel.active{display:block}
-.detail-panel h4{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;padding-right:1.8rem;line-height:1.3}
+.detail-panel h4{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;padding-right:1.8rem;line-height:1.3}
 .detail-flags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.65rem}
 .detail-panel p{font-size:.88rem;color:var(--text-secondary);line-height:1.68}
 .close-btn{position:absolute;top:.9rem;right:1rem;background:none;border:none;font-size:1.2rem;color:var(--text-muted);cursor:pointer;padding:0;line-height:1}
@@ -103,7 +103,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 </style>
 </head>
 <body>
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 
 <!-- ACCESS CONTROL BANNER -->
 <div class="access-banner">
@@ -118,7 +118,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 <header class="site-header">
   <div class="label">TOT Insights · Ukraine and Russia Programme · CSNS / King's College London · RESTRICTED VERSION</div>
   <h1>Russian Developer Networks in Occupied Ukraine: Individual-Level Network [RESTRICTED]</h1>
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: June 2026 · Access-controlled version</div>
+  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: June 2026 · Access-controlled version</div>
   <p class="subtitle">Full individual-level network for authorised recipients only: NACP, Foreign Affairs Committee, and trusted partners. Naming leads for future designation is the purpose of this version. DPO and ethics review pending before any individual-level findings are published or shared beyond authorised recipients. Ivanov Alexey node retained here pending DPO review determination.</p>
   <p class="meta">Sources: Rusprofile / SPARK corporate registry; Russian EGRUL/EGRIP registers; Ukrainian NACP/NSDC sanctions lists; open-source border crossing records &nbsp;·&nbsp; Professional and business-capacity information only &nbsp;·&nbsp; Hover to preview · click to open full detail</p>
 </header>
@@ -406,9 +406,9 @@ footer strong{color:var(--text-secondary);font-weight:600}
 
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(26,26,46,0.45);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Russian%20Developer%20Networks%20%5BRESTRICTED%5D%20%E2%80%94%20TOT%20Insights&body=Page URL: [RESTRICTED - internal use only]%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:#1a1a2e;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
-  <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:#555555;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(26,26,46,0.45);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Russian%20Developer%20Networks%20%5BRESTRICTED%5D%20%E2%80%94%20TOT%20Insights&body=Page URL: [RESTRICTED - internal use only]%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#1a1a2e;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+  <p style="font-family:var(--font-source);font-size:0.75rem;color:#555555;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 
 <script>

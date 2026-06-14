@@ -14,19 +14,19 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
 /* ── Layout ── */
 #app{display:flex;flex-direction:column;height:100vh;}
 .map-header{background:#253545;border-bottom:3px solid #E8B84B;padding:0 24px;display:flex;align-items:center;gap:16px;height:50px;flex-shrink:0;z-index:500;position:relative;}
-.map-header-logo{font-family:'Libre Baskerville',Georgia,serif;font-size:14px;font-weight:700;color:#fff;}
+.map-header-logo{font-family:var(--font-serif);font-size:14px;font-weight:700;color:#fff;}
 .map-header-sep{color:rgba(255,255,255,0.2);}
-.map-header-title{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#E8B84B;letter-spacing:0.14em;text-transform:uppercase;}
-.map-header-period{margin-left:4px;font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
-.map-header-back{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(255,255,255,0.4);text-decoration:none;border:1px solid rgba(255,255,255,0.15);padding:4px 10px;border-radius:2px;transition:all 0.12s;white-space:nowrap;}
+.map-header-title{font-family:var(--font-mono);font-size:10px;color:#E8B84B;letter-spacing:0.14em;text-transform:uppercase;}
+.map-header-period{margin-left:4px;font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;}
+.map-header-back{margin-left:auto;font-family:var(--font-mono);font-size:10px;color:rgba(255,255,255,0.4);text-decoration:none;border:1px solid rgba(255,255,255,0.15);padding:4px 10px;border-radius:2px;transition:all 0.12s;white-space:nowrap;}
 .map-header-back:hover{color:#fff;border-color:rgba(255,255,255,0.4);}
 .map-body{display:flex;flex:1;overflow:hidden;}
 /* ── Panel ── */
 .map-panel{width:268px;flex-shrink:0;background:#0a1a2e;border-right:1px solid #142638;display:flex;flex-direction:column;overflow-y:auto;}
 .panel-sec{padding:14px 16px;border-bottom:1px solid #142638;}
-.panel-lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#E8B84B;margin-bottom:10px;opacity:0.85;}
+.panel-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#E8B84B;margin-bottom:10px;opacity:0.85;}
 .toggle-row{display:flex;gap:3px;}
-.tbtn{flex:1;background:#0e2038;border:1px solid #1e3a58;color:rgba(255,255,255,0.45);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.06em;padding:6px 2px;border-radius:2px;cursor:pointer;transition:all 0.12s;text-align:center;}
+.tbtn{flex:1;background:#0e2038;border:1px solid #1e3a58;color:rgba(255,255,255,0.45);font-family:var(--font-mono);font-size:9px;letter-spacing:0.06em;padding:6px 2px;border-radius:2px;cursor:pointer;transition:all 0.12s;text-align:center;}
 .tbtn:hover{border-color:#E8B84B;color:rgba(255,255,255,0.8);}
 .tbtn.on{background:#253545;border-color:#E8B84B;color:#fff;}
 .type-list{display:flex;flex-direction:column;gap:3px;}
@@ -35,13 +35,13 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
 .type-btn.on{border-color:#E8B84B;color:#fff;background:rgba(232,184,75,0.07);}
 .type-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .type-name{flex:1;font-size:10px;line-height:1.3;}
-.type-ct{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.3);}
-.prd-sel{width:100%;background:#0e2038;border:1px solid #1e3a58;color:rgba(255,255,255,0.65);font-family:'IBM Plex Mono',monospace;font-size:10px;padding:7px 10px;border-radius:2px;cursor:pointer;appearance:none;-webkit-appearance:none;}
+.type-ct{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.3);}
+.prd-sel{width:100%;background:#0e2038;border:1px solid #1e3a58;color:rgba(255,255,255,0.65);font-family:var(--font-mono);font-size:10px;padding:7px 10px;border-radius:2px;cursor:pointer;appearance:none;-webkit-appearance:none;}
 .prd-sel:focus{outline:none;border-color:#E8B84B;}
 .stats-list{display:flex;flex-direction:column;gap:8px;}
 .stat-row{display:flex;justify-content:space-between;align-items:baseline;}
 .stat-lbl{font-size:11px;color:rgba(255,255,255,0.38);}
-.stat-val{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#fff;}
+.stat-val{font-family:var(--font-mono);font-size:14px;font-weight:600;color:#fff;}
 .stat-val.gold{color:#E8B84B;}
 .panel-foot{padding:12px 16px;font-size:10px;color:rgba(255,255,255,0.18);line-height:1.65;margin-top:auto;}
 /* ── Map ── */
@@ -56,8 +56,8 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
 .leaflet-control-zoom a{background:#0a1a2e !important;color:rgba(255,255,255,0.6) !important;border-color:#1e3a58 !important;}
 .leaflet-control-zoom a:hover{background:#253545 !important;color:#fff !important;}
 /* ── Popup internals ── */
-.pop-name{font-family:'Libre Baskerville',Georgia,serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;}
-.pop-big{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:#E8B84B;line-height:1;margin-bottom:2px;}
+.pop-name{font-family:var(--font-serif);font-size:14px;font-weight:700;color:#fff;margin-bottom:4px;}
+.pop-big{font-family:var(--font-mono);font-size:28px;font-weight:600;color:#E8B84B;line-height:1;margin-bottom:2px;}
 .pop-sub{font-size:10px;color:rgba(255,255,255,0.38);margin-bottom:11px;}
 .pop-types{display:flex;flex-direction:column;gap:5px;}
 .pop-trow{display:flex;align-items:center;gap:6px;font-size:10px;color:rgba(255,255,255,0.65);}
@@ -65,7 +65,7 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
 .pop-tlbl{flex:1;}
 .pop-bar-wrap{width:60px;background:rgba(255,255,255,0.08);border-radius:2px;height:5px;}
 .pop-bar{height:100%;border-radius:2px;}
-.pop-tpct{font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.35);min-width:26px;text-align:right;}
+.pop-tpct{font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.35);min-width:26px;text-align:right;}
 .pop-note{margin-top:10px;font-size:9px;color:rgba(255,255,255,0.25);line-height:1.6;border-top:1px solid #142638;padding-top:8px;}
 /* ── Method note overlay ── */
 .method-note{position:absolute;bottom:28px;left:10px;z-index:500;background:rgba(8,20,34,0.88);border:1px solid #1e3a58;border-left:2px solid #E8B84B;padding:8px 12px;font-size:9px;color:rgba(255,255,255,0.38);max-width:260px;line-height:1.7;border-radius:2px;pointer-events:none;}
@@ -81,7 +81,7 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
 </style>
 </head>
 <body>
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 <div id="app">
 
 <header class="map-header">
@@ -89,7 +89,7 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
   <span class="map-header-sep">|</span>
   <span class="map-header-title">Resistance Incident Map</span>
   <span class="map-header-period">Dec 2024 &ndash; Feb 2026 &middot; 387 verified incidents</span>
-  <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:0.08em;margin-right:4px;">Last updated: May 2026</span>
+  <span style="font-family:var(--font-mono);font-size:9px;color:rgba(255,255,255,0.25);letter-spacing:0.08em;margin-right:4px;">Last updated: May 2026</span>
 
 </header>
 
@@ -128,8 +128,8 @@ html,body{height:100%;font-family:'EB Garamond',serif;font-size:13px;background:
       Source: TOT Insights Resistance Monitoring Dataset - 387 verified violent incidents across 30 biweekly periods.<br>
       Circles plotted at occupied oblast centroids. Size proportional to incident count. Per-period geographic distribution estimated from overall proportions.
     <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:0.6rem;margin-top:0.4rem;">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);margin-bottom:0.25rem;">Research integrity</div>
-      <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Resistance%20Incident%20Map%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/resistance_map.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+      <div style="font-family:var(--font-mono);font-size:0.55rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);margin-bottom:0.25rem;">Research integrity</div>
+      <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Resistance%20Incident%20Map%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/resistance_map.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.58rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
     </div>
     </div>
 
