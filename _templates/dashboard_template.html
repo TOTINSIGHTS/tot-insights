@@ -24,7 +24,7 @@ body {
 
 /* ─── Page header ────────────────────────────────────────────── */
 .page-header {
-  background: #0F1F3D;
+  background: var(--navy);
   color: #E8E0D0;
   padding: 14px 32px 18px;
   border-bottom: 3px solid #C4964A;
@@ -119,7 +119,7 @@ body {
 @media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 400px) { .stat-grid { grid-template-columns: 1fr; } }
 .stat-card {
-  background: #0F1F3D;
+  background: var(--navy);
   border-radius: 4px;
   padding: 16px 18px;
 }
@@ -185,7 +185,7 @@ body {
 
 /* ─── Chart cards ────────────────────────────────────────────── */
 .chart-card {
-  background: #0F1F3D;
+  background: var(--navy);
   border-radius: 4px;
   padding: 20px 24px;
   margin-bottom: 20px;
@@ -202,7 +202,7 @@ body {
 
 /* ─── Callout / analytical observations ─────────────────────── */
 .callout {
-  background: #0F1F3D;
+  background: var(--navy);
   color: #E8E0D0;
   border-radius: 4px;
   border-left: 3px solid #C4964A;
@@ -388,7 +388,7 @@ document.querySelectorAll('.tab-btn').forEach(function(btn) {
 
 /* ── Placeholder chart data — replace with real data ─────────── */
 var GOLD  = '#c9a84c';
-var NAVY  = '#0F1F3D';
+var NAVY  = 'var(--navy)';
 var LIGHT = 'rgba(255,255,255,0.08)';
 
 /* Chart 1 — replace labels, data, and chart type as needed */
