@@ -265,6 +265,124 @@ a.resource-row:hover .resource-title {
   padding: 16px 0;
 }
 
+/* ── White card layout ────────────────────────────────────────────── */
+/* The card inverts to a warm cream, so each theme reads as a panel  */
+/* against the site's dark navy. The details collapse sits outside    */
+/* the card on the dark background, exactly as before.               */
+
+.theme-card {
+  background: #f2f0ec;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.24), 0 0 0 1px rgba(0,0,0,0.10);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+/* Left column: title + framing + questions (takes ~62% of width) */
+.theme-card-left {
+  flex: 2;
+  min-width: 0;
+  padding: 40px 36px 40px 40px;
+}
+
+/* Right column: start-here + previews (takes ~38% of width) */
+.theme-card-right {
+  flex: 1;
+  min-width: 200px;
+  padding: 40px 36px 40px 32px;
+  border-left: 1px solid rgba(17,29,48,0.09);
+  background: #ede9e3;
+}
+
+/* Dark text overrides inside the card */
+.theme-card .theme-title {
+  color: #111d30;
+  margin-bottom: 18px;
+}
+.theme-card .theme-framing {
+  color: rgba(17,29,48,0.78);
+}
+.theme-card .theme-question-list {
+  margin-bottom: 0;
+}
+.theme-card .theme-question-list li {
+  color: rgba(17,29,48,0.70);
+  border-top-color: rgba(17,29,48,0.09);
+}
+.theme-card .theme-question-list li:last-child {
+  border-bottom-color: rgba(17,29,48,0.09);
+}
+.theme-card .theme-question-list li::before {
+  color: rgba(181,146,58,0.80);
+}
+.theme-card .theme-questions-label {
+  color: #B5923A;
+}
+
+/* Start-here box inside the right column */
+.theme-card .theme-start-here {
+  max-width: none;
+  margin: 0 0 20px;
+  background: rgba(181,146,58,0.08);
+}
+.theme-card .theme-start-label {
+  color: rgba(181,146,58,0.85);
+}
+.theme-card .theme-start-title {
+  color: #111d30;
+}
+.theme-card a.theme-start-link:hover .theme-start-title {
+  color: var(--gold);
+}
+.theme-card .theme-start-desc {
+  color: rgba(17,29,48,0.52);
+}
+
+/* Preview resource rows inside the card */
+.theme-card a.resource-row,
+.theme-card div.resource-row {
+  border-top-color: rgba(17,29,48,0.09);
+}
+.theme-card a.resource-row:last-child,
+.theme-card div.resource-row:last-child {
+  border-bottom-color: rgba(17,29,48,0.09);
+}
+.theme-card .resource-title {
+  color: #111d30;
+}
+.theme-card .resource-date {
+  color: rgba(17,29,48,0.40);
+}
+.theme-card a.resource-row:hover .resource-title {
+  color: var(--gold);
+}
+.theme-card .resource-format {
+  color: rgba(181,146,58,0.70);
+}
+
+/* Small gap between card bottom and the details toggle */
+.theme-card + .theme-details {
+  margin-top: 10px;
+}
+
+/* Mobile: at 760px, stack the two columns into one */
+@media (max-width: 760px) {
+  .theme-card {
+    flex-direction: column;
+  }
+  .theme-card-left {
+    padding: 28px 24px 24px;
+  }
+  .theme-card-right {
+    border-left: none;
+    border-top: 1px solid rgba(17,29,48,0.09);
+    padding: 24px;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 640px) {
   .resource-format { width: 68px; font-size: 7px; }
   .theme-start-here { padding: 14px 16px; }
@@ -346,28 +464,43 @@ a.resource-row:hover .resource-title {
   <!-- ── ECONOMICS ──────────────────────────────────────────────────── -->
   <section class="theme-section" id="theme-economics">
 
-    <h2 class="theme-title">Economics</h2>
+    <div class="theme-card">
 
-    <p class="theme-framing">Economics covers how Russia turns occupied territory into a source of value, and who profits from doing so. This is the occupation as a going concern: grain and coal moved out through reflagged ports, confiscated property re-auctioned to new owners, residents charged rising prices for failing services, and outside firms (increasingly Chinese) wiring the whole arrangement into foreign markets. Follow the money and you see what the occupation is for, and who sustains it.</p>
+      <!-- Left column: title, framing, questions -->
+      <div class="theme-card-left">
 
-    <div class="theme-questions-label">Questions we ask</div>
-    <ol class="theme-question-list">
-      <li>How does Russia extract value: grain, coal, ports, property?</li>
-      <li>Who profits, and which Russian and foreign firms are involved?</li>
-      <li>What does the occupation cost the people who remain: prices, tariffs, wages, housing?</li>
-      <li>What does the administration's own financial paperwork admit?</li>
-    </ol>
+        <h2 class="theme-title">Economics</h2>
 
-    <div class="theme-start-here">
-      <div class="theme-start-label">Start here</div>
-      <a class="theme-start-link" href="briefings/beijing_quiet_stake.html">
-        <span class="theme-start-title">Beijing's Quiet Stake in Occupied Ukraine</span>
-        <span class="theme-start-desc">The clearest account of how the occupation economy actually functions, and who underwrites it.</span>
-      </a>
-    </div>
+        <p class="theme-framing">Economics covers how Russia turns occupied territory into a source of value, and who profits from doing so. This is the occupation as a going concern: grain and coal moved out through reflagged ports, confiscated property re-auctioned to new owners, residents charged rising prices for failing services, and outside firms (increasingly Chinese) wiring the whole arrangement into foreign markets. Follow the money and you see what the occupation is for, and who sustains it.</p>
 
-    <div class="theme-preview" id="econ-preview"></div>
+        <div class="theme-questions-label">Questions we ask</div>
+        <ol class="theme-question-list">
+          <li>How does Russia extract value: grain, coal, ports, property?</li>
+          <li>Who profits, and which Russian and foreign firms are involved?</li>
+          <li>What does the occupation cost the people who remain: prices, tariffs, wages, housing?</li>
+          <li>What does the administration's own financial paperwork admit?</li>
+        </ol>
 
+      </div>
+
+      <!-- Right column: start-here + editorial previews -->
+      <div class="theme-card-right">
+
+        <div class="theme-start-here">
+          <div class="theme-start-label">Start here</div>
+          <a class="theme-start-link" href="briefings/beijing_quiet_stake.html">
+            <span class="theme-start-title">Beijing's Quiet Stake in Occupied Ukraine</span>
+            <span class="theme-start-desc">The clearest account of how the occupation economy actually functions, and who underwrites it.</span>
+          </a>
+        </div>
+
+        <div class="theme-preview" id="econ-preview"></div>
+
+      </div>
+
+    </div><!-- /.theme-card -->
+
+    <!-- Details sits outside the card, on the dark background -->
     <details class="theme-details">
       <summary>See all resources in this theme</summary>
       <div class="theme-details-body" id="econ-details-body"></div>
