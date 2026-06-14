@@ -38,6 +38,7 @@
   --font-mono:    'IBM Plex Mono', monospace;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-source:  'Source Serif 4', Georgia, serif;
+  --font-body:    'EB Garamond', Georgia, serif;
 
   /* Briefing shorthand aliases */
   --serif: var(--font-serif);
@@ -53,7 +54,7 @@ html { scroll-behavior: smooth; }
 /* ─── Base ───────────────────────────────────────────────────────────────────── */
 
 body {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-body);
   background: #111d30;
   color: rgba(232,228,220,0.90);
   font-size: 17px;
