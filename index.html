@@ -171,6 +171,20 @@ a.partner-item:hover .partner-logo{filter:brightness(0) opacity(1);}
 a.partner-item:hover .partner-text-name{color:#8a6f2e;}
 .partner-sep{display:inline-block;width:1px;height:24px;background:rgba(26,26,46,0.15);flex-shrink:0;align-self:center;}
 @media(max-width:767px){.partners-section{padding:3rem 20px 3.5rem;}.partners-row{flex-wrap:wrap;justify-content:center;gap:1.25rem;}.partner-sep{display:none;}}
+
+/* Theme browse grid */
+.themes-browse{padding:2.5rem 3rem;background:#0a1628;border-bottom:1px solid rgba(255,255,255,0.07);}
+.themes-browse-inner{max-width:1200px;margin:0 auto;}
+.themes-browse-inner .section-label{color:var(--gold);}
+.theme-browse-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.25rem;}
+.theme-browse-card{display:block;text-decoration:none;background:#f2f0ec;border-radius:3px;border-left:3px solid var(--gold);box-shadow:0 2px 20px rgba(0,0,0,0.24),0 0 0 1px rgba(0,0,0,0.10);padding:1.1rem 1rem;transition:box-shadow 0.15s,transform 0.12s;}
+.theme-browse-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.30),0 0 0 1px rgba(0,0,0,0.14);transform:translateY(-2px);}
+.theme-browse-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:#111d30;line-height:1.25;margin-bottom:7px;transition:color 0.12s;}
+.theme-browse-card:hover .theme-browse-title{color:var(--gold);}
+.theme-browse-desc{font-family:var(--font-source);font-weight:300;font-size:0.80rem;color:rgba(17,29,48,0.65);line-height:1.5;}
+@media(max-width:900px){.theme-browse-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.theme-browse-grid{grid-template-columns:1fr;}}
+@media(max-width:700px){.themes-browse{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}}
 </style>
 </head>
 <body>
@@ -230,11 +244,43 @@ a.partner-item:hover .partner-text-name{color:#8a6f2e;}
 </div>
 
 
-<section class="featured">
-  <div class="featured-inner">
-    <div class="section-label">Featured outputs</div>
-    <div class="featured-grid" id="featured-grid"></div>
-    <div class="section-cta"><a href="research.html">View all research outputs →</a></div>
+<section class="themes-browse">
+  <div class="themes-browse-inner">
+    <div class="section-label">Explore by theme</div>
+    <div class="theme-browse-grid">
+      <a class="theme-browse-card" href="themes.html#governance">
+        <div class="theme-browse-title">Governance</div>
+        <div class="theme-browse-desc">How Russia administers the territory it has seized, and who runs it.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#economics">
+        <div class="theme-browse-title">Economics</div>
+        <div class="theme-browse-desc">How Russia turns occupied territory into a source of value, and who profits.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#civilian-life">
+        <div class="theme-browse-title">Civilian Life</div>
+        <div class="theme-browse-desc">What occupation is actually like for the people who stay.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#identity-culture-and-religion">
+        <div class="theme-browse-title">Identity, Culture and Religion</div>
+        <div class="theme-browse-desc">What Russia tries to erase, and what it installs in its place.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#education-and-militarisation">
+        <div class="theme-browse-title">Education and Militarisation</div>
+        <div class="theme-browse-desc">How Russia uses schooling and youth programmes to reshape a generation.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#coercion-resistance-and-security">
+        <div class="theme-browse-title">Coercion, Resistance and Security</div>
+        <div class="theme-browse-desc">How control is enforced, how Ukrainians resist, and the surveillance between them.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#information-space">
+        <div class="theme-browse-title">Information Space</div>
+        <div class="theme-browse-desc">How Russia controls what people can know, say and believe.</div>
+      </a>
+      <a class="theme-browse-card" href="themes.html#accountability-and-legal">
+        <div class="theme-browse-title">Accountability and Legal</div>
+        <div class="theme-browse-desc">The occupation as a body of crimes, and the effort to document them.</div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -391,23 +437,5 @@ a.partner-item:hover .partner-text-name{color:#8a6f2e;}
 <script src="data/documents.js"></script>
 <script src="assets/js/counters.js"></script>
 <script src="navigation.js"></script>
-<script>
-(function(){
-  var sorted=DOCS.slice().sort(function(a,b){return parseDateOrdinal(b.date)-parseDateOrdinal(a.date);});
-  var grid=document.getElementById('featured-grid');
-  if(!grid)return;
-  sorted.slice(0,4).forEach(function(doc,i){
-    var th=Array.isArray(doc.theme)?doc.theme[0]:doc.theme;
-    var col=THEME_COLOR[th]||'#3D6678';
-    var url=doc.dashboardFile||doc.briefingFile||(doc.gdocs&&doc.gdocs!==''&&doc.gdocs!=='#'?doc.gdocs:'research.html');
-    var card=document.createElement('div');
-    card.className=i===0?'featured-card primary':'featured-card';
-    card.onclick=function(){window.location.href=url;};
-    var fmt=doc.format.replace(/&/g,'&amp;');
-    card.innerHTML='<div class="card-theme"><span class="card-theme-dot" style="background:'+col+'"></span><span style="color:'+col+'">'+th+'</span></div><div class="card-title">'+doc.title+'</div><div class="card-desc">'+doc.desc+'</div><div class="card-meta"><span class="card-format-tag">'+fmt+'</span><span class="card-id">'+doc.id+'</span></div>';
-    grid.appendChild(card);
-  });
-})();
-</script>
 </body>
 </html>
