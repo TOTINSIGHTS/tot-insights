@@ -107,26 +107,22 @@
 .db-stat{font-family:var(--font-mono);font-size:13px;color:#3a3a4a;letter-spacing:0.06em;}
 .db-arrow{font-size:15px;color:var(--border);transition:color 0.12s,transform 0.12s;}
 .db-card:hover .db-arrow{color:var(--steel);transform:translateX(3px);}
-/* Media section */
-.media-section{padding:2.5rem 3rem;background:#111d30;border-bottom:1px solid var(--border);}
-.media-inner{max-width:1200px;margin:0 auto;}
-.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-@media(max-width:1000px){.media-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.media-grid{grid-template-columns:1fr;}}
-.media-card{background:#ffffff;border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px 14px;display:flex;flex-direction:column;transition:all 0.2s ease;}
-.media-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}
-.media-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;}
-.media-fmt{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;}
-.media-fmt-podcast{background:rgba(138,111,46,0.12);color:#7a5c0d;}
-.media-fmt-report{background:rgba(58,58,74,0.10);color:#3a3a4a;}
-.media-fmt-journal{background:rgba(74,48,128,0.12);color:#4A3080;}
-.media-date{font-family:var(--font-mono);font-size:9px;color:#8a6f2e;letter-spacing:0.06em;white-space:nowrap;}
-.media-title{font-family:var(--font-serif);font-size:13px;font-weight:700;color:#1a1a2e;line-height:1.35;margin-bottom:5px;}
-.media-outlet{font-family:var(--font-mono);font-size:9px;color:#8a6f2e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-.media-desc{font-size:15px;color:#3a3a4a;line-height:1.6;flex:1;margin-bottom:12px;}
-.media-card-footer{margin-top:auto;padding-top:9px;border-top:1px solid #e0e4ed;}
-.media-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11px;font-weight:500;color:#8a6f2e;text-decoration:none;transition:color 0.12s;}
-.media-link:hover{color:rgba(255,255,255,0.9);}
+/* Outputs section */
+.outputs-section{padding:2.5rem 3rem;background:#111d30;border-bottom:1px solid var(--border);}
+.outputs-inner{max-width:1200px;margin:0 auto;}
+.outputs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:1000px){.outputs-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.outputs-grid{grid-template-columns:1fr;}}
+.output-card{background:#ffffff;border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px 14px;display:flex;flex-direction:column;}
+.output-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;}
+.output-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap;flex-shrink:0;background:rgba(58,58,74,0.10);color:#3a3a4a;}
+.output-date{font-family:var(--font-mono);font-size:9px;color:#8a6f2e;letter-spacing:0.06em;white-space:nowrap;}
+.output-title{font-family:var(--font-serif);font-size:13px;font-weight:700;color:#1a1a2e;line-height:1.35;margin-bottom:8px;}
+.output-outlet{font-family:var(--font-mono);font-size:9px;color:#8a6f2e;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+.output-desc{font-size:13px;color:#3a3a4a;line-height:1.6;flex:1;margin-bottom:12px;}
+.output-card-footer{margin-top:auto;padding-top:9px;border-top:1px solid #e0e4ed;}
+.output-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11px;font-weight:500;color:#8a6f2e;text-decoration:none;transition:color 0.12s;}
+.output-link:hover{color:#253545;}
 /* Platform strip */
 .platform-strip{background:#0a1628;border-bottom:1px solid rgba(255,255,255,0.07);height:56px;display:flex;align-items:center;}
 .platform-strip-inner{max-width:1200px;margin:0 auto;padding:0 3.5rem;display:flex;align-items:center;width:100%;}
@@ -151,7 +147,7 @@
   .about-links{display:none;}
   .featured-card:nth-child(n+5){display:none;}
 }
-@media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.media-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
+@media(max-width:700px){.static-hero{height:70vh;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.accred-inner{padding:0 1.25rem;}.featured,.databases-section,.outputs-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
 .photo-card{border-radius:3px;overflow:hidden;max-width:420px;border:1px solid rgba(255,255,255,0.10);}
 .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 /* Partners */
@@ -300,52 +296,11 @@
   </div>
 </section>
 
-<section class="media-section">
-  <div class="media-inner">
-    <div class="section-label">Latest media &amp; public engagement</div>
-    <div class="media-grid">
-
-      <div class="media-card">
-        <div class="media-card-top">
-          <span class="media-fmt media-fmt-report">Report</span>
-          <span class="media-date">29 Mar 2026</span>
-        </div>
-        <div class="media-title">A State-Engineered Architecture of Persecution: Russia's Systematic Campaign Against Ukrainian Civilians in Occupied Territories</div>
-        <div class="media-outlet">Forsvarets høgskole</div>
-        <div class="media-desc">An analysis of Russian state-led repression of Ukrainian civilians since 2022, examining surveillance, arbitrary detention, forced deportations, torture, enforced disappearances, and illegal imprisonment as part of a coordinated system constituting potential crimes against humanity.</div>
-        <div class="media-card-footer">
-          <a class="media-link" href="https://nva.sikt.no/registration/019ce67ba74d-9b569b1f-a62d-4c89-b9cc-659e27a3f456" target="_blank" rel="noopener">Read report <span class="media-link-arrow">→</span></a>
-        </div>
-      </div>
-
-      <div class="media-card">
-        <div class="media-card-top">
-          <span class="media-fmt media-fmt-podcast">Podcast</span>
-          <span class="media-date">13 Mar 2026</span>
-        </div>
-        <div class="media-title">Trump lifts sanctions on Russian oil as energy prices surge &amp; the 'leaner, more professional' partisans in the occupied territories</div>
-        <div class="media-outlet">Telegraph</div>
-        <div class="media-desc">An overview of resistance efforts in occupied areas, including partisan activity in Luhansk, alongside reports on deported children, forced mobilisation, ideological indoctrination, and wider disruption in energy markets.</div>
-        <div class="media-card-footer">
-          <a class="media-link" href="https://podcasts.apple.com/cz/podcast/trump-lifts-sanctions-on-russian-oil-as-energy-prices/id1612424182?i=1000755134732" target="_blank" rel="noopener">Listen <span class="media-link-arrow">→</span></a>
-        </div>
-      </div>
-
-      <div class="media-card">
-        <div class="media-card-top">
-          <span class="media-fmt media-fmt-journal">Journal Article</span>
-          <span class="media-date">9 Mar 2026</span>
-        </div>
-        <div class="media-title">Capturing the minds: The role of child deportation in maintaining Russian authority over Ukraine's occupied territories</div>
-        <div class="media-outlet">European Journal of International Security</div>
-        <div class="media-desc">An academic article analysing Russia's deportation of Ukrainian children from occupied territories as a form of biopolitical control to coerce families, disrupt Ukrainian identity, and shape future generations.</div>
-        <div class="media-card-footer">
-          <a class="media-link" href="https://www.cambridge.org/core/services/aop-cambridge-core/content/view/752354B4F5AB0983F4CE5A489FA10391/S205756372610056Xa.pdf/capturing-the-minds-the-role-of-child-deportation-in-maintaining-russian-authority-over-ukraines-occupied-territories.pdf" target="_blank" rel="noopener">Read article <span class="media-link-arrow">→</span></a>
-        </div>
-      </div>
-
-    </div>
-    <div class="section-cta"><a href="media.html">See all media and public engagement →</a></div>
+<section class="outputs-section">
+  <div class="outputs-inner">
+    <div class="section-label">Latest outputs</div>
+    <div class="outputs-grid" id="latest-outputs-grid"></div>
+    <div class="section-cta"><a href="research.html">See all research outputs &#8594;</a></div>
   </div>
 </section>
 
@@ -366,6 +321,97 @@
 
 <script src="data/documents.js"></script>
 <script src="assets/js/counters.js"></script>
+<script>
+(function () {
+  /* One media item not in documents.js */
+  var MEDIA_EXTRA = [
+    {
+      title: "Trump lifts sanctions on Russian oil as energy prices surge & the ‘leaner, more professional’ partisans in the occupied territories",
+      date: "13 Mar 2026",
+      format: "Podcast",
+      outlet: "Telegraph",
+      desc: "An overview of resistance efforts in occupied areas, including partisan activity in Luhansk, alongside reports on deported children, forced mobilisation, ideological indoctrination, and wider disruption in energy markets.",
+      link: "https://podcasts.apple.com/cz/podcast/trump-lifts-sanctions-on-russian-oil-as-energy-prices/id1612424182?i=1000755134732"
+    }
+  ];
+
+  /* Month-name lookup used by both date formats */
+  var MON = {January:1,February:2,March:3,April:4,May:5,June:6,July:7,August:8,
+             September:9,October:10,November:11,December:12,
+             Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+
+  /* Returns a sortable integer: YYYY*10000 + MM*100 [+ DD]
+     Handles "March 2026" and "13 Mar 2026". Returns 0 if unparseable. */
+  function parseDate(d) {
+    if (!d) return 0;
+    var m;
+    m = d.match(/^([A-Za-z]+)\s+(\d{4})$/);           /* Month YYYY */
+    if (m) return parseInt(m[2]) * 10000 + (MON[m[1]] || 0) * 100;
+    m = d.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/); /* D Mon YYYY */
+    if (m) return parseInt(m[3]) * 10000 + (MON[m[2]] || 0) * 100 + parseInt(m[1]);
+    return 0;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  /* Best internal link for a DOCS item */
+  function getLink(d) {
+    if (d.briefingFile) return d.briefingFile;
+    if (d.dashboardFile) return d.dashboardFile;
+    if (d.gdocs && d.gdocs.indexOf('http') === 0) return d.gdocs;
+    return 'research.html';
+  }
+
+  var TAG  = {Briefing:'BRIEFING',Dashboard:'DASHBOARD',Data:'DATASET',
+              'Primary Sources':'PRIMARY SOURCE',Visual:'VISUAL',
+              Report:'REPORT','Journal Article':'JOURNAL ARTICLE',Podcast:'PODCAST'};
+  var VERB = {Briefing:'Read briefing',Dashboard:'View dashboard',Data:'View dataset',
+              'Primary Sources':'View document',Visual:'View visual',
+              Report:'Read report','Journal Article':'Read article',Podcast:'Listen'};
+
+  /* Normalise documents.js entries */
+  var combined = DOCS.map(function (d) {
+    return { title:d.title, date:d.date, dateSort:parseDate(d.date),
+             format:d.format, desc:d.desc, link:getLink(d), outlet:null };
+  });
+
+  /* Add extra media items */
+  MEDIA_EXTRA.forEach(function (m) {
+    combined.push({ title:m.title, date:m.date, dateSort:parseDate(m.date),
+                    format:m.format, desc:m.desc, link:m.link, outlet:m.outlet });
+  });
+
+  /* Sort newest first; stable sort preserves documents.js order within same month */
+  combined.sort(function (a, b) { return b.dateSort - a.dateSort; });
+
+  var grid = document.getElementById('latest-outputs-grid');
+  if (!grid) return;
+
+  combined.slice(0, 6).forEach(function (item) {
+    var tag      = TAG[item.format]  || item.format.toUpperCase();
+    var linkVerb = VERB[item.format] || 'View';
+    var ext      = item.link && item.link.indexOf('http') === 0;
+    var extAttr  = ext ? ' target="_blank" rel="noopener"' : '';
+    var outletHtml = item.outlet ? '<div class="output-outlet">' + esc(item.outlet) + '</div>' : '';
+    var div = document.createElement('div');
+    div.className = 'output-card';
+    div.innerHTML =
+      '<div class="output-card-top">' +
+        '<span class="output-tag">' + tag + '</span>' +
+        '<span class="output-date">' + esc(item.date) + '</span>' +
+      '</div>' +
+      '<div class="output-title">' + esc(item.title) + '</div>' +
+      outletHtml +
+      '<div class="output-desc">' + esc(item.desc) + '</div>' +
+      '<div class="output-card-footer">' +
+        '<a class="output-link" href="' + esc(item.link) + '"' + extAttr + '>' + linkVerb + ' &#8594;</a>' +
+      '</div>';
+    grid.appendChild(div);
+  });
+})();
+</script>
 <script src="navigation.js"></script>
 </body>
 </html>
