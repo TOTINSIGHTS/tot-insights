@@ -25,6 +25,7 @@
   --color-text-muted:  rgba(232,228,220,0.55);
   --color-bg-alt:      var(--navy-deep);
   --color-bg-stats:    #f7f5f1;
+  --card-bg:           #f2f0ec;
 
   /* Legacy aliases */
   --steel:   var(--color-primary);
