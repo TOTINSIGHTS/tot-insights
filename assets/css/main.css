@@ -22,7 +22,7 @@
   --color-accent-pale: rgba(201,168,76,0.15);
   --color-border:      rgba(255,255,255,0.07);
   --color-text:        rgba(232,228,220,0.90);
-  --color-text-muted:  rgba(232,228,220,0.55);
+  --color-text-muted:  var(--text-muted);
   --color-bg-alt:      var(--navy-deep);
   --color-bg-stats:    #f7f5f1;
   --card-bg:           #f2f0ec;
