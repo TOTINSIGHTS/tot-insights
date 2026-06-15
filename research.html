@@ -254,6 +254,7 @@ function buildCards(){
   ];
   SEG.forEach(seg=>{
     const grid=document.getElementById(seg.id);
+    if(!grid)return;
     DOCS.slice(seg.s,seg.e).forEach(doc=>{
       const card=document.createElement('div');
       card.className='doc-card';
