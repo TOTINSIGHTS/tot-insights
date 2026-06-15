@@ -152,7 +152,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
   <div class="page-hero-inner">
     <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability</div>
     <h1 class="page-title">Occupation Officials Database</h1>
-    <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
+    <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: June 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
   <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20283034" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/10.5281/zenodo.20283034</a></div>
@@ -181,7 +181,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
     </div>
     <div class="stat-card">
       <div class="stat-val" id="stat-lnr">-</div>
-      <div class="stat-lbl">LNR entries</div>
+      <div class="stat-lbl">LPR entries</div>
     </div>
     <div class="stat-card">
       <div class="stat-val" id="stat-crimea">-</div>
@@ -192,8 +192,8 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 
 <div class="main-content">
   <div class="db-download-wrap">
-    <a class="db-download-btn" href="assets/downloads/tot-officials-database-may2026.csv" download>Download full database (CSV)</a>
-    <div class="db-download-sub">1,198 entries · Last updated May 2026</div>
+    <a class="db-download-btn" href="assets/downloads/tot-officials-database-june2026.csv" download>Download full database (CSV)</a>
+    <div class="db-download-sub">1,085 entries · Last updated June 2026</div>
   </div>
   <div class="controls-row">
     <div class="control-group" style="flex:1;min-width:200px;">
@@ -264,7 +264,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
     <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
     <span><a href="index.html#about">Contact</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Notice</a></span>
   </div>
-  <p style="font-family:var(--font-mono);font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: May 2026</p>
+  <p style="font-family:var(--font-mono);font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: June 2026</p>
 </footer>
 
 <script>
@@ -277,8 +277,9 @@ let activeIdx = -1;
 // ── Formatters ──
 
 function statusBadge(v) {
-  if (v === 'Yes') return '<span class="status-badge badge-yes">In post</span>';
-  if (v === 'No')  return '<span class="status-badge badge-no">Departed</span>';
+  const t = (v || '').trim();
+  if (t.startsWith('Yes')) return '<span class="status-badge badge-yes">In post</span>';
+  if (t.startsWith('No'))  return '<span class="status-badge badge-no">Departed</span>';
   return '<span class="status-badge badge-unknown">Unknown</span>';
 }
 
@@ -320,7 +321,7 @@ function applyFilters() {
     )) return false;
     if (ter && r['Territory'] !== ter) return false;
     if (lvl && r['Level'] !== lvl) return false;
-    if (sts && r['Still in Post?'] !== sts) return false;
+    if (sts) { const sv = (r['Still in Post?'] || '').trim(); if (sts === 'No' ? !sv.startsWith('No') : sv !== sts) return false; }
     if (ori && r['Origin'] !== ori) return false;
     return true;
   });
@@ -427,8 +428,9 @@ function openDetail(idx) {
   document.getElementById('dp-cyrillic').textContent = r['Name (Cyrillic)'] || '';
 
   // Status display label
-  const statusLabel = r['Still in Post?'] === 'Yes' ? 'In post'
-    : r['Still in Post?'] === 'No' ? 'Departed'
+  const sv = (r['Still in Post?'] || '').trim();
+  const statusLabel = sv.startsWith('Yes') ? 'In post'
+    : sv.startsWith('No') ? 'Departed'
     : 'Unknown';
 
   // Year range
@@ -521,7 +523,7 @@ fetch('data/officials-data.json')
     // Stat cards (global, not filtered)
     const inPost  = data.filter(r => r['Still in Post?'] === 'Yes').length;
     const dpr     = data.filter(r => r['Territory'] === 'DPR').length;
-    const lnr     = data.filter(r => r['Territory'] === 'LNR').length;
+    const lnr     = data.filter(r => r['Territory'] === 'LPR').length;
     const crimea  = data.filter(r => r['Territory'] === 'Crimea').length;
     document.getElementById('stat-total').textContent   = data.length.toLocaleString();
     document.getElementById('stat-inpost').textContent  = inPost.toLocaleString();
