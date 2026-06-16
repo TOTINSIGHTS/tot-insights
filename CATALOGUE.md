@@ -64,7 +64,7 @@ Interactive D3 force-directed network map of 26 entities operating in or around 
 Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026. 150+ goods across six categories: fresh produce and eggs; staples; cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents. Also includes a district heating invoice. First instalment of a quarterly price-monitoring series.
 
 **DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
-Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DNR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
+Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DPR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
 
 ---
 
@@ -86,7 +86,7 @@ Ten photographs documenting Russian mobilisation-related materials in Russian-oc
 Comprehensive analytical profile of Sergey Kiriyenko, First Deputy Chief of Staff and Kremlin's de facto proconsul for occupied Ukraine since spring 2022. Documents the evolution of the Kremlin's occupation management model (Surkov → Kozak → Kiriyenko), the referenda as manufactured mandate, the cadre pipeline via 'Leaders of Russia', regional patronage, russification mechanisms (passportisation, language erasure, youth militarisation), reconstruction as governance, and Kiriyenko's 2025 remit expansion to other post-Soviet territories.
 
 **DOC-F2 — Kiriyenko and Russia's Occupation of Ukrainian Territories: Interactive Data Visualisation** *(Visual)*
-Interactive React visualisation accompanying the Kiriyenko analytical briefing. Five tabs: career and TOT milestone timeline with filter-by-category; federal transfers by region (Jan–Sep 2024, DNR ₽101.8bn); domains-of-control authority index; Unified Customer reconstruction project counts by region; youth militarisation budget (₽45.8bn in 2024) and russification mechanisms with ICC implications.
+Interactive React visualisation accompanying the Kiriyenko analytical briefing. Five tabs: career and TOT milestone timeline with filter-by-category; federal transfers by region (Jan–Sep 2024, DPR ₽101.8bn); domains-of-control authority index; Unified Customer reconstruction project counts by region; youth militarisation budget (₽45.8bn in 2024) and russification mechanisms with ICC implications.
 
 ---
 
@@ -117,8 +117,8 @@ Full cleaned dataset from a survey of 1,001 IDPs from Russian-occupied Ukrainian
 **DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)* *(also: Coercion, Resistance and Security)*
 Interactive dashboard presenting findings from a survey of 1,001 IDPs from Russian-occupied territories. Key findings: 76.4% rate Ukrainian government ineffective vs 48.9% for international humanitarian organisations; 58.5% disagree that people who stayed are satisfied with Russian rule; 61.6% believe hidden resistance exists. Top resistance actions: evacuation (46.5%), medicine (42.8%), essential goods (41.5%).
 
-**DOC-G1 — DNR Ombudswoman: Social-Humanitarian Situation Reports (Primary Source Collection)** *(Primary Sources)*
-Collection of five socio-humanitarian situation reports produced by the Ombudswoman of the self-proclaimed Donetsk People's Republic. These are primary sources from within the occupation administration and should not be treated as reliable independent accounts of conditions in Russian-occupied Donetsk. Their analytical value lies in what they acknowledge: the complaints and social problems the DNR apparatus considered acceptable to record and address.
+**DOC-G1 — DPR Ombudswoman: Social-Humanitarian Situation Reports (Primary Source Collection)** *(Primary Sources)*
+Collection of five socio-humanitarian situation reports produced by the Ombudswoman of the self-proclaimed Donetsk People's Republic. These are primary sources from within the occupation administration and should not be treated as reliable independent accounts of conditions in Russian-occupied Donetsk. Their analytical value lies in what they acknowledge: the complaints and social problems the DPR apparatus considered acceptable to record and address.
 
 **DOC-G2 — Mariupol City Administration: Citizen Appeals Reports (Jan 2023 – Jun 2024)** *(Primary Sources)*
 Four official reports from the Mariupol occupation city administration covering citizen appeals from January 2023 through June 2024. Total appeals decline from 9,031 (Jan–Jul 2023) to 4,524 (Jan–Jun 2024). Housing dominates at 66% in the post-siege period, drops to 7% by Aug–Dec 2023 — a reporting reclassification rather than resolved demand, reflecting the occupation's transition from emergency reconstruction to normalised bureaucratic dependency.
@@ -176,7 +176,7 @@ An estimated 600,000–650,000 children in Russian-occupied Ukrainian territorie
 Ten Russian-language documents comprising working materials produced by or for the Russian occupation administration. Includes Ministry of Education curriculum lists, Year of the Family methodological manuals, a document titled 'Ukrainian Crimes (2022–2023)', and a manual on the Methods of TsIPSO (Centre for Information and Psychological Operations). Relevant to research on identity replacement, education capture, and the administrative architecture of annexation.
 
 **DOC-E1 — Lysychansk Vestnik: Occupation Newspaper Archive (Issues 1–30, 2023–2026)** *(Primary Sources)*
-Eleven issues of Лисичанський Вісник, the occupation administration's local gazette for Lysychansk in Russian-occupied Luhansk oblast. Covers municipal services, governance, commercial activity, alongside consistent framing of the occupation as liberation. Includes reporting on Tatarstan produce under the guardian-city relationship and LNR leadership coverage. Relevant to research on occupation media architecture, normalisation, and settler integration.
+Eleven issues of Лисичанський Вісник, the occupation administration's local gazette for Lysychansk in Russian-occupied Luhansk oblast. Covers municipal services, governance, commercial activity, alongside consistent framing of the occupation as liberation. Includes reporting on Tatarstan produce under the guardian-city relationship and LPR leadership coverage. Relevant to research on occupation media architecture, normalisation, and settler integration.
 
 **DOC-088 — Russian Propaganda Tactics in Ukraine's Newly Occupied Territories** *(Journal Article)*
 Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russian propaganda tactics in Ukrainian territories occupied after 2022. Argues that Russia moved from the Crimea-style information control model to a two-tier messaging system targeting Russian and occupied Ukrainian audiences differently, with a heavier reliance on fear-based narratives and threat construction. Includes analysis of potential counter-strategies. Published May 2024.
@@ -215,27 +215,27 @@ Decree amending a co-financed programme for capital repair of 21 apartments dama
 
 ## 4. Primary Source Documents — Legal Acts and Executive Decrees (2022–2025)
 
-Nineteen primary source documents drawn from five thematic archives: DNR legal acts, LNR legal acts, occupation citizenship decrees, Kherson and Zaporizhzhia legal acts, and Russian federal mobilisation and education legislation. All entries are in `data/documents.js` and searchable on research.html as of June 2026.
+Nineteen primary source documents drawn from five thematic archives: DPR legal acts, LPR legal acts, occupation citizenship decrees, Kherson and Zaporizhzhia legal acts, and Russian federal mobilisation and education legislation. All entries are in `data/documents.js` and searchable on research.html as of June 2026.
 
-### DNR Legal Acts
+### DPR Legal Acts
 
 **DOC-103 — Donetsk People's Republic: Constitution (Consolidated Text, March 2020)** *(Governance, Accountability and Legal)*
-Consolidated text of the DNR Constitution, the foundational document for the entire DNR legal order including its legislative, executive, and judicial structures.
+Consolidated text of the DPR Constitution, the foundational document for the entire DPR legal order including its legislative, executive, and judicial structures.
 
 **DOC-104 — Donetsk People's Republic: Law on Education (Consolidated Text, December 2021)** *(Governance, Education and Militarisation)*
-Consolidated text of the DNR Law on Education, modelled on Russian Federal Law No. 273-FZ, governing curriculum standards, the language of instruction (Russian as state language), and school accreditation across DNR-controlled territory.
+Consolidated text of the DPR Law on Education, modelled on Russian Federal Law No. 273-FZ, governing curriculum standards, the language of instruction (Russian as state language), and school accreditation across DPR-controlled territory.
 
 **DOC-105 — Donetsk People's Republic: Law on Military Duty and Military Service (Law No. 08-INs, Consolidated March 2020)** *(Governance, Accountability and Legal)*
-Consolidated text of Law No. 08-INs, the foundational DNR conscription statute defining who must serve, grounds for exemption (Article 23, amended by DOC-107), and obligations during mobilisation.
+Consolidated text of Law No. 08-INs, the foundational DPR conscription statute defining who must serve, grounds for exemption (Article 23, amended by DOC-107), and obligations during mobilisation.
 
 **DOC-106 — Donetsk People's Republic: Law on Mobilisation Preparation and Mobilisation (Law No. 10-INs, 22 September 2021)** *(Governance, Accountability and Legal)*
 Law No. 10-INs governing the full cycle of mobilisation planning and execution. Adopted five months before the general mobilisation decree (DOC-108); the direct statutory basis for that decree.
 
 **DOC-107 — Donetsk People's Republic: Law No. 376-IINs — Amendment to Article 23, Law on Military Duty** *(Governance, Accountability and Legal)*
-Amendment narrowing conscription exemption grounds under Article 23 of Law No. 08-INs. Part of the stepwise pre-invasion tightening of the DNR military duty framework; DNR counterpart to DOC-117.
+Amendment narrowing conscription exemption grounds under Article 23 of Law No. 08-INs. Part of the stepwise pre-invasion tightening of the DPR military duty framework; DPR counterpart to DOC-117.
 
 **DOC-108 — Decree of the Head of the Donetsk People's Republic No. 29 — On the Conduct of General Mobilisation (19 February 2022)** *(Governance, Education and Militarisation, Accountability and Legal)*
-Signed by Denis Pushilin five days before Russia's full-scale invasion, declaring general mobilisation across DNR territory and ordering all conscription-age men to report to military commissariats. Issued simultaneously with a parallel LNR decree.
+Signed by Denis Pushilin five days before Russia's full-scale invasion, declaring general mobilisation across DPR territory and ordering all conscription-age men to report to military commissariats. Issued simultaneously with a parallel LPR decree.
 
 ### Citizenship
 
@@ -265,13 +265,13 @@ Regulatory act setting out the composition of the Zaporizhzhia occupation govern
 **DOC-116 — Zaporizhzhia Oblast (Occupied): Regulations on the Organisation and Activity of the Ministry of Education** *(Governance, Education and Militarisation)*
 Regulations establishing the Ministry of Education of Zaporizhzhia Oblast under the Russian federal framework, providing the institutional and legal basis for replacing Ukrainian-language schooling with Russian federal curriculum standards.
 
-### LNR Legal Acts
+### LPR Legal Acts
 
 **DOC-117 — Luhansk People's Republic: Law Amending Article 53 of the Law on Military Duty and Military Service** *(Governance, Accountability and Legal)*
-LNR counterpart to DNR Law No. 376-IINs (DOC-107): conscription exemption grounds narrowed in the same pre-invasion period, reflecting synchronised Russian oversight of the DNR and LNR legislative process.
+LPR counterpart to DPR Law No. 376-IINs (DOC-107): conscription exemption grounds narrowed in the same pre-invasion period, reflecting synchronised Russian oversight of the DPR and LPR legislative process.
 
 **DOC-118 — Luhansk People's Republic: Decree on Restrictions on Departure of Citizens Subject to Military Duty During General Mobilisation** *(Governance, Accountability and Legal)*
-Travel ban preventing conscription-age men from leaving LNR-controlled territory without military commissariat permission. The enforcement corollary of the February 2022 general mobilisation declaration.
+Travel ban preventing conscription-age men from leaving LPR-controlled territory without military commissariat permission. The enforcement corollary of the February 2022 general mobilisation declaration.
 
 **DOC-119 — Presidential Instructions: Expansion of the Defenders of the Fatherland Foundation to Occupied Ukrainian Oblasts (2025)** *(Governance, Education and Militarisation)*
 Kremlin instructions extending the veterans' welfare and ideological foundation to the four occupied oblasts. Runs patriotic school programmes and normalises military service as part of the social stabilisation of the occupation.

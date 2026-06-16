@@ -393,7 +393,7 @@ Gather the following from the document's existing standalone page — do not inv
 
 ### Standing rules (apply to every primary source entry)
 
-1. **No live hyperlink to occupation-administration sources.** Do not add a URL pointing to a Russian or DNR government website. The `gdocs` field should be `""` unless there is an existing Google Drive folder for that source collection.
+1. **No live hyperlink to occupation-administration sources.** Do not add a URL pointing to a Russian or DPR government website. The `gdocs` field should be `""` unless there is an existing Google Drive folder for that source collection.
 2. **Em-dash conversion.** Before copying any text into the entry, convert any em-dash (—) to a comma, colon, or parentheses, whichever reads most naturally. Count the conversions and include the count in your report.
 3. **No invented detail.** Every word in `desc`, `descriptor`, and `summary` must be traceable to the page. Do not draw from external sources, prior knowledge, or other documents.
 4. **Names: role not name, unless a public official acting in official capacity.** Do not introduce an individual's name into summary text unless the page names them in their official role.
@@ -411,7 +411,7 @@ Gather the following from the document's existing standalone page — do not inv
   desc:          "One or two sentences — first sentence(s) of the page summary.",
   descriptor:    "One punchy analytical sentence: what the document reveals.",
   summary:       "Full text of the page summary paragraph, verbatim (after em-dash conversion).",
-  file:          "Decree No. XXX, Administration of the City District of Mariupol, DNR, DD Month YYYY",
+  file:          "Decree No. XXX, Administration of the City District of Mariupol, DPR, DD Month YYYY",
   gdocs:         "",
   dashboardFile: "primary-sources/mariupol-admin-2026/doc-095.html"
 }
