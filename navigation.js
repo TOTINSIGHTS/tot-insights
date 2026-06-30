@@ -1,4 +1,101 @@
 (function () {
+  // ─────────────────────────────────────────────────────────────────────
+  // SINGLE SOURCE OF TRUTH for the site header + footer.
+  // This script injects the same header and footer into every page, so the
+  // pages can never drift apart. To change the menu or footer, edit ONLY the
+  // chromeHTML() function below.
+  //
+  // `p` is the relative path prefix to the site root ("" for top-level pages,
+  // "../../" for pages nested two folders deep). It is detected automatically.
+  // ─────────────────────────────────────────────────────────────────────
+  function chromeHTML(p) {
+    return {
+      header:
+        '<header class="site-header">' +
+          '<div class="header-inner">' +
+            '<a class="site-logo" href="' + p + 'index.html">' +
+              '<span class="logo-main">TOT Insights</span>' +
+              '<span class="logo-sub">Russian-occupied Ukraine</span>' +
+            '</a>' +
+            '<nav class="header-nav">' +
+              '<a href="' + p + 'index.html" data-nav="home">Home</a>' +
+              '<a href="' + p + 'themes.html" data-nav="themes">Themes</a>' +
+              '<div class="nav-dropdown">' +
+                '<a href="' + p + 'data.html" class="nav-dropdown-link" data-nav="data">Data</a>' +
+                '<button class="nav-chevron-btn" aria-expanded="false" aria-label="Toggle Data submenu"><span class="nav-chevron">&#9662;</span></button>' +
+                '<div class="nav-dropdown-panel">' +
+                  '<a href="' + p + 'data.html" data-nav="data-all">All Data</a>' +
+                  '<a href="' + p + 'data.html#visualisations">Visualisations</a>' +
+                  '<a href="' + p + 'officials.html" data-nav="officials">Officials Database</a>' +
+                  '<a href="' + p + 'sanctions.html" data-nav="sanctions">Sanctions Database</a>' +
+                '</div>' +
+              '</div>' +
+              '<a href="' + p + 'media.html" data-nav="media">Media</a>' +
+              '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
+              '<a href="' + p + 'about.html" data-nav="about">About</a>' +
+              '<a href="' + p + 'contact.html" data-nav="contact">Contact</a>' +
+            '</nav>' +
+          '</div>' +
+        '</header>',
+      footer:
+        '<footer class="site-footer">' +
+          '<div class="footer-inner">' +
+            '<span>TOT Insights &nbsp;&middot;&nbsp; Ukraine &amp; Russia Programme &nbsp;&middot;&nbsp; Centre for Statecraft and National Security / King&#39;s College London</span>' +
+            '<span><a href="' + p + 'contact.html">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
+          '</div>' +
+          '<p style="font-family:var(--font-mono);font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: June 2026</p>' +
+        '</footer>'
+    };
+  }
+
+  // Detect the relative path back to the site root from the existing
+  // navigation.css link (every page already loads it with the correct prefix).
+  function rootPrefix() {
+    var link = document.querySelector('link[href$="navigation.css"]');
+    if (link) return link.getAttribute('href').replace(/navigation\.css.*$/, '');
+    var script = document.querySelector('script[src$="navigation.js"], script[src$="site-chrome.js"]');
+    if (script) return script.getAttribute('src').replace(/(navigation|site-chrome)\.js.*$/, '');
+    return '';
+  }
+
+  // Highlight the current page's menu item.
+  function setActive(root) {
+    var path = location.pathname.replace(/\\/g, '/');
+    var file = path.substring(path.lastIndexOf('/') + 1).replace('.PREVIEW', '');
+    if (!file) file = 'index.html';
+    var key = null;
+    if (file === 'index.html') key = 'home';
+    else if (file === 'themes.html') key = 'themes';
+    else if (file === 'media.html') key = 'media';
+    else if (file === 'about.html') key = 'about';
+    else if (file === 'contact.html') key = 'contact';
+    else if (file === 'data.html') key = 'data-all';
+    else if (file === 'officials.html') key = 'officials';
+    else if (file === 'sanctions.html') key = 'sanctions';
+    else if (file.indexOf('resources') === 0 || file === 'research.html') key = 'resources';
+    if (!key) return;
+    var el = root.querySelector('[data-nav="' + key + '"]');
+    if (el) el.classList.add('active');
+    if (key === 'data-all' || key === 'officials' || key === 'sanctions') {
+      var parent = root.querySelector('[data-nav="data"]');
+      if (parent) parent.classList.add('active');
+    }
+  }
+
+  // Replace the page's existing header/footer (or fill a placeholder) with the
+  // single canonical version.
+  function injectChrome() {
+    var html = chromeHTML(rootPrefix());
+    var header = document.querySelector('header.site-header') || document.getElementById('site-header');
+    if (header) header.outerHTML = html.header;
+    else document.body.insertAdjacentHTML('afterbegin', html.header);
+    var footer = document.querySelector('footer.site-footer') || document.getElementById('site-footer');
+    if (footer) footer.outerHTML = html.footer;
+    else document.body.insertAdjacentHTML('beforeend', html.footer);
+    setActive(document);
+  }
+
+  // ── Dropdown + mobile-menu behaviour (unchanged from the original) ──────
   function closeAll() {
     document.querySelectorAll('.nav-dropdown.open').forEach(function (el) {
       el.classList.remove('open');
@@ -52,6 +149,8 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    injectChrome();
+
     document.querySelectorAll('.nav-chevron-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -66,10 +165,7 @@
     });
 
     document.addEventListener('click', closeAll);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeAll();
-    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 
     initMobileMenu();
   });

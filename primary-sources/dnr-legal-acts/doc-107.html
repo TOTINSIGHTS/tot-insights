@@ -38,30 +38,7 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="site-logo" href="../../index.html">
-      <span class="logo-main">TOT Insights</span>
-      <span class="logo-sub">Russian-occupied Ukraine</span>
-    </a>
-    <nav class="header-nav">
-      <a href="../../index.html">Home</a>
-      <a href="../../themes.html">Themes</a>
-      <div class="nav-dropdown">
-        <a href="../../data.html" class="nav-dropdown-link">Data</a><button class="nav-chevron-btn" aria-expanded="false" aria-label="Toggle Data submenu"><span class="nav-chevron">&#9662;</span></button>
-        <div class="nav-dropdown-panel">
-          <a href="../../data.html">All Data</a>
-          <a href="../../data.html#visualisations">Visualisations</a>
-          <a href="../../officials.html">Officials Database</a>
-          <a href="../../sanctions.html">Sanctions Database</a>
-        </div>
-      </div>
-      <a href="../../media.html">Media</a>
-      <a href="../../resources.html">Resources</a>
-      <a href="../../about.html">About</a>
-    </nav>
-  </div>
-</header>
+<div id="site-header"></div>
 
 <div style="background:var(--navy-deep);padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../../themes.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 <div class="page-hero">
@@ -139,13 +116,7 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-
   <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20DNR%20Law%20376-IINs%20Amendment%20Art23%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/primary-sources/dnr-legal-acts/doc-107.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
   <p style="font-family:'Source Serif 4',serif;font-size:0.75rem;color:var(--text-muted-light-bg);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span>TOT Insights &nbsp;·&nbsp; Ukraine &amp; Russia Programme &nbsp;·&nbsp; Centre for Statecraft and National Security / King's College London</span>
-    <span><a href="../../privacy.html">Privacy Notice</a></span>
-  </div>
-  <p style="font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: June 2026</p>
-</footer>
+<div id="site-footer"></div>
 <script>
 function showDocTab(id){
   document.querySelectorAll('.doc-tab-btn').forEach(b=>b.classList.remove('active'));
