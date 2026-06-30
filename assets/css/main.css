@@ -264,7 +264,7 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 }
 /* Entry titles → dark navy; italic annotations → same dark body tone as .theme-framing */
 .reading-panel p[style] { color: #111d30 !important; }
-.reading-panel p[style*="italic"] { color: rgba(17,29,48,0.78) !important; }
+.reading-panel p[style*="italic"] { color: rgba(17,29,48,0.78) !important; font-style: normal !important; }
 /* Keep gold mono section sub-heads, but make their divider readable on cream */
 .reading-panel .section-header { color: var(--gold); border-bottom-color: rgba(17,29,48,0.15); }
 /* See-also body text legible on cream (links stay gold) */
