@@ -95,6 +95,23 @@
     setActive(document);
   }
 
+  // Mark links to other domains: open them in a new tab and append a small
+  // external-link icon (skipping links that already carry a ↗).
+  var EXT_ICON = '<svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 5h5v5"/><path d="M19 5l-8.5 8.5"/><path d="M18 14.5V18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3.5"/></svg>';
+  function markExternalLinks(root) {
+    root.querySelectorAll('a[href]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (!/^https?:\/\//i.test(href)) return;
+      var url; try { url = new URL(href, location.href); } catch (e) { return; }
+      if (url.host === location.host) return;
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+      if (a.querySelector('.ext-icon') || a.textContent.indexOf('↗') !== -1) return;
+      var title = a.querySelector('.theme-start-title');
+      (title || a).insertAdjacentHTML('beforeend', EXT_ICON);
+    });
+  }
+
   // ── Dropdown + mobile-menu behaviour (unchanged from the original) ──────
   function closeAll() {
     document.querySelectorAll('.nav-dropdown.open').forEach(function (el) {
@@ -150,6 +167,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     injectChrome();
+    markExternalLinks(document);
 
     document.querySelectorAll('.nav-chevron-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
