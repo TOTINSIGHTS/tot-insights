@@ -250,3 +250,22 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 .footer-inner span { font-size: 11px; color: rgba(255,255,255,0.65); }
 .footer-inner a { color: rgba(255,255,255,0.38); text-decoration: none; }
 .footer-inner a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── Annotated-bibliography reading panel ──────────────────────────────
+   Cream surface + dark navy text, reused verbatim from the Themes page
+   .theme-card ("Governance") panel so the bibliography reading content
+   matches the rest of the site. */
+.reading-panel {
+  background: #f2f0ec;
+  border-radius: 3px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.24), 0 0 0 1px rgba(0,0,0,0.10);
+  padding: 36px 40px;
+  margin: 0 0 2rem;
+}
+/* Entry titles → dark navy; italic annotations → same dark body tone as .theme-framing */
+.reading-panel p[style] { color: #111d30 !important; }
+.reading-panel p[style*="italic"] { color: rgba(17,29,48,0.78) !important; }
+/* Keep gold mono section sub-heads, but make their divider readable on cream */
+.reading-panel .section-header { color: var(--gold); border-bottom-color: rgba(17,29,48,0.15); }
+/* See-also body text legible on cream (links stay gold) */
+.reading-panel .see-also-list { color: rgba(17,29,48,0.78); }
