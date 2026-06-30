@@ -23,6 +23,10 @@
 .res-cat-title{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:#1a1a2e;margin-bottom:0.4rem;}
 .res-cat-desc{font-family:var(--font-source);font-size:0.82rem;font-weight:300;color:#3a3a4a;line-height:1.6;margin-bottom:1.25rem;}
 .res-cat-arrow{font-family:var(--font-mono);font-size:0.82rem;color:var(--gold);position:absolute;bottom:1.25rem;right:1.5rem;}
+/* Unfinished category cards — de-emphasised, with a muted status badge instead of a count, and no arrow */
+.res-cat-card--pending{opacity:0.7;border-left-color:rgba(26,26,46,0.20);}
+.res-cat-card--pending:hover{opacity:0.85;box-shadow:none;border-left-color:rgba(26,26,46,0.30);}
+.res-cat-card--pending .res-cat-count{display:inline-block;font-family:var(--font-mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(26,26,46,0.60);background:rgba(26,26,46,0.06);border:1px solid rgba(26,26,46,0.14);border-radius:3px;padding:2px 8px;}
 </style>
 </head>
 <body>
@@ -49,29 +53,25 @@
     <div class="res-cat-desc">In-depth thematic reading lists with summaries.</div>
     <div class="res-cat-arrow">&#8594;</div>
   </a>
-  <a href="resources-human-rights.html" class="res-cat-card">
+  <a href="resources-human-rights.html" class="res-cat-card res-cat-card--pending">
     <div class="res-cat-count">Being compiled</div>
     <div class="res-cat-title">Human rights &amp; accountability</div>
     <div class="res-cat-desc">Monitoring bodies and their reporting.</div>
-    <div class="res-cat-arrow">&#8594;</div>
   </a>
-  <a href="resources-organisations.html" class="res-cat-card">
+  <a href="resources-organisations.html" class="res-cat-card res-cat-card--pending">
     <div class="res-cat-count">Being compiled</div>
     <div class="res-cat-title">Research organisations &amp; networks</div>
     <div class="res-cat-desc">Institutions and projects working on occupation.</div>
-    <div class="res-cat-arrow">&#8594;</div>
   </a>
-  <a href="resources-long-form-media.html" class="res-cat-card">
+  <a href="resources-long-form-media.html" class="res-cat-card res-cat-card--pending">
     <div class="res-cat-count">Being compiled</div>
     <div class="res-cat-title">Long-form media &amp; journalism</div>
     <div class="res-cat-desc">Investigations, documentaries, explainers.</div>
-    <div class="res-cat-arrow">&#8594;</div>
   </a>
-  <a href="resources-legal.html" class="res-cat-card">
+  <a href="resources-legal.html" class="res-cat-card res-cat-card--pending">
     <div class="res-cat-count">Being compiled</div>
     <div class="res-cat-title">Legal &amp; IHL framework</div>
     <div class="res-cat-desc">Core legal instruments and key jurisprudence.</div>
-    <div class="res-cat-arrow">&#8594;</div>
   </a>
   </div>
 </div>
