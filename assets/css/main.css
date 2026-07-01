@@ -269,6 +269,8 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 .reading-panel .section-header { color: var(--gold); border-bottom-color: rgba(17,29,48,0.15); }
 /* See-also body text legible on cream (links stay gold) */
 .reading-panel .see-also-list { color: rgba(17,29,48,0.78); }
+/* Resource-list entries: keep the gold left accent; make the row divider readable on cream (year tags + links stay gold) */
+.reading-panel .res-entry { border-bottom-color: rgba(17,29,48,0.08); }
 
 /* ── Base link colour ──────────────────────────────────────────────────
    Every link defaults to the site gold (nav, footer, and card components
