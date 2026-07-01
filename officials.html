@@ -119,6 +119,35 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 .db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
 .db-download-btn:hover{background:rgba(232,184,75,0.1);}
 .db-download-sub{font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);margin-top:0.4rem;letter-spacing:0.04em;}
+/* ── Light cream panel for the database (filters + table) ── */
+.db-panel{background:#f2f0ec;border-radius:3px;box-shadow:0 2px 20px rgba(0,0,0,0.24),0 0 0 1px rgba(0,0,0,0.10);padding:20px 22px;margin-bottom:20px;}
+.db-panel .control-label{color:rgba(17,29,48,0.60);}
+.db-panel .search-input{background:#ffffff;color:#1a1a2e;border-color:rgba(17,29,48,0.20);}
+.db-panel .search-input::placeholder{color:rgba(17,29,48,0.42);}
+.db-panel select.filter-select{background-color:#ffffff;color:#1a1a2e;border-color:rgba(17,29,48,0.20);}
+.db-panel .clear-btn{color:rgba(17,29,48,0.60);}
+.db-panel .results-info{color:rgba(17,29,48,0.60);}
+.db-panel .results-info strong{color:#111d30;}
+.db-panel .table-wrap{border-color:rgba(17,29,48,0.12);}
+.db-panel th{color:#111d30;}
+.db-panel td{border-bottom:1px solid rgba(17,29,48,0.08);color:#475569;}
+.db-panel tbody tr td{background:#ffffff;}
+.db-panel tbody tr:nth-child(even) td{background:#f2f0ec;}
+.db-panel tbody tr:hover td,.db-panel tbody tr:nth-child(even):hover td{background:rgba(201,168,76,0.16);}
+.db-panel tbody tr.row-active td,.db-panel tbody tr:nth-child(even).row-active td{background:rgba(201,168,76,0.26);}
+.db-panel .name-primary{color:#111d30;}
+.db-panel .name-cyrillic{color:#475569;}
+.db-panel .role-cell{color:#475569;}
+.db-panel .origin-local,.db-panel .origin-other{color:#475569;}
+.db-panel .origin-russian{color:#a04a10;}
+.db-panel .badge-yes{background:rgba(34,139,87,0.16);color:#1f7a4d;}
+.db-panel .badge-no{background:rgba(17,29,48,0.09);color:#4a5568;}
+.db-panel .badge-unknown{background:rgba(181,146,58,0.20);color:#8a6d1f;}
+.db-panel .page-btn{color:#475569;border-color:rgba(17,29,48,0.18);}
+.db-panel .page-btn:hover:not(:disabled){border-color:#8a6d1f;color:#8a6d1f;}
+.db-panel .page-btn.current{background:var(--steel);border-color:var(--steel);color:#111d30;}
+.db-panel .page-info{color:#475569;}
+.db-panel .state-msg{color:#475569;}
 </style>
 </head>
 <body>
@@ -172,6 +201,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
     <a class="db-download-btn" href="assets/downloads/tot-officials-database-june2026.csv" download>Download full database (CSV)</a>
     <div class="db-download-sub">1,085 entries · Last updated June 2026</div>
   </div>
+  <div class="db-panel">
   <div class="controls-row">
     <div class="control-group" style="flex:1;min-width:200px;">
       <div class="control-label">Search</div>
@@ -214,6 +244,7 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
   </div>
 
   <div class="pagination" id="pagination"></div>
+  </div><!-- /.db-panel -->
 
   <div class="detail-panel" id="detail-panel">
     <div class="detail-panel-header">
