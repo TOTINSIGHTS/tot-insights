@@ -15,24 +15,24 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', Arial, sans-serif; background: #111d30; color: var(--text); font-size: 13px; }
 
-  .header { background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%); color: white; padding: 20px 32px; border-bottom: 3px solid var(--accent); }
+  .header { background: #0F1F3D; color: white; padding: 20px 32px; border-bottom: 3px solid #C4964A; }
   .header h1 { font-size: 20px; font-weight: 700; }
   .header .sub { font-size: 12px; opacity: 0.75; margin-top: 4px; }
   .header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; }
+  .badge { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55); padding: 3px 10px; border-radius: 12px; font-size: 11px; }
 
   .tabs { display: flex; background: var(--navy); padding: 0 32px; overflow-x: auto; }
   .tab { padding: 11px 18px; cursor: pointer; color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
   .tab:hover { color: rgba(255,255,255,0.9); }
-  .tab.active { color: white; border-bottom-color: #5b9bd5; }
+  .tab.active { color: white; border-bottom-color: #C4964A; }
 
   .panel { display: none; padding: 24px 32px; }
   .panel.active { display: block; }
 
-  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin-bottom: 24px; }
-  .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); border-left: 4px solid var(--mid); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .card.red { border-left-color: var(--accent); }
-  .card.warn { border-left-color: var(--warn); }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 400px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
   .card .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
   .card .value { font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.1; }
   .card .value.red { color: var(--accent); }
@@ -119,19 +119,19 @@
 
 <!-- ═══ OVERVIEW ═══ -->
 <div class="panel active" id="tab-overview">
-  <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);border-radius:4px;padding:14px 20px;margin-bottom:20px;">
-    <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(201,168,76,0.8);margin-bottom:0.3rem;">Briefing</div>
-    <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:rgba(232,228,220,0.9);margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
-    <div style="font-family:var(--font-sans);font-size:0.78rem;color:rgba(232,228,220,0.6);line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
+  <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left:3px solid #C4964A;border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(17,29,48,0.08);">
+    <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
+    <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+    <div style="font-family:var(--font-sans);font-size:0.78rem;color:#334155;line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
   </a>
   <div class="cards">
     <div class="card"><div class="label">Established</div><div class="value">15 May 2022</div><div class="note">By Balytsky decree</div></div>
-    <div class="card warn"><div class="label">Land nationalised</div><div class="value warn">~250,000 ha</div><div class="note">Only 25% cultivated in 2025</div></div>
-    <div class="card red"><div class="label">2024 Revenue decline</div><div class="value red">&minus;59%</div><div class="note">Despite larger harvest</div></div>
-    <div class="card red"><div class="label">2024 Net loss (official)</div><div class="value red">&minus;1.13bn &#8381;</div><div class="note">Assessed as artificially constructed</div></div>
+    <div class="card"><div class="label">Land nationalised</div><div class="value">~250,000 ha</div><div class="note">Only 25% cultivated in 2025</div></div>
+    <div class="card"><div class="label">2024 Revenue decline</div><div class="value red">&minus;59%</div><div class="note">Despite larger harvest</div></div>
+    <div class="card"><div class="label">2024 Net loss (official)</div><div class="value red">&minus;1.13bn &#8381;</div><div class="note">Assessed as artificially constructed</div></div>
     <div class="card"><div class="label">Branches</div><div class="value">20+</div><div class="note">With additional sub-units</div></div>
     <div class="card"><div class="label">Verified counterparties</div><div class="value">25</div><div class="note">May&ndash;December 2022</div></div>
-    <div class="card warn"><div class="label">Tax + court debt</div><div class="value warn">&gt;1.9bn &#8381;</div><div class="note">1bn tax + 911m court judgments</div></div>
+    <div class="card"><div class="label">Tax + court debt</div><div class="value red">&gt;1.9bn &#8381;</div><div class="note">1bn tax + 911m court judgments</div></div>
     <div class="card"><div class="label">Initial capitalisation</div><div class="value">5.8bn &#8381;</div><div class="note">Federal + Balytsky + Promsvyazbank</div></div>
   </div>
 
@@ -530,7 +530,7 @@ new Chart(document.getElementById('buyerChart'), {
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
   <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://DOMAIN-PLACEHOLDER/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
   <p style="font-family:var(--font-source);font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 </body>

@@ -82,21 +82,22 @@ body {
 @media (max-width: 400px) { .stat-grid { grid-template-columns: 1fr; } }
 
 .stat-card {
-  background: #0F1F3D;
+  background: #f2f0ec;
   border-radius: 4px;
   padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(17,29,48,0.08);
 }
 .stat-val {
   font-family: var(--font-mono);
   font-size: 26px;
   font-weight: 700;
   line-height: 1.1;
-  color: #c9a84c;
+  color: #111d30;
 }
 .stat-label {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: #E8E0D0;
+  color: #111d30;
   margin-top: 4px;
   font-weight: 600;
 }
@@ -110,7 +111,7 @@ body {
 /* ─── Tabs ───────────────────────────────────────────────────── */
 .tab-bar {
   display: flex;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid rgba(17,29,48,0.12);
   margin-bottom: 24px;
 }
 .tab-btn {
@@ -120,7 +121,7 @@ body {
   padding: 10px 22px;
   border: none;
   background: transparent;
-  color: rgba(232,234,240,0.40);
+  color: rgba(17,29,48,0.50);
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
@@ -128,10 +129,17 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.tab-btn:hover { color: rgba(232,234,240,0.70); }
+.tab-btn:hover { color: rgba(17,29,48,0.80); }
 .tab-btn.active {
-  color: #c9a84c;
+  color: #111d30;
   border-bottom-color: #c9a84c;
+}
+
+.viz-panel {
+  background: #f2f0ec;
+  border-radius: 4px;
+  padding: 20px 22px 22px;
+  box-shadow: 0 1px 3px rgba(17,29,48,0.08);
 }
 
 /* ─── Section heading ────────────────────────────────────────── */
@@ -139,13 +147,14 @@ body {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;
-  color: #c9a84c;
+  color: #a67c1a;
   margin-bottom: 14px;
 }
 
 /* ─── Chart cards ────────────────────────────────────────────── */
 .chart-card {
-  background: #0F1F3D;
+  background: #ffffff;
+  border: 1px solid rgba(17,29,48,0.08);
   border-radius: 4px;
   padding: 20px 24px;
 }
@@ -173,13 +182,13 @@ body {
 .legend-label {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: #e8eaf0;
+  color: #334155;
   flex: 1;
 }
 .legend-val {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: #c9a84c;
+  color: #111d30;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -190,9 +199,10 @@ body {
 
 /* ─── Callout box ────────────────────────────────────────────── */
 .callout {
-  background: #0F1F3D;
-  color: #E8E0D0;
+  background: #f2f0ec;
+  color: #111d30;
   border-radius: 4px;
+  border: 1px solid rgba(17,29,48,0.08);
   border-left: 3px solid #C4964A;
   padding: 16px 20px;
   font-family: var(--font-sans);
@@ -208,7 +218,7 @@ body {
   color: #C4964A;
   margin-bottom: 8px;
 }
-.callout strong { color: #c9a84c; }
+.callout strong { color: #111d30; }
 
 /* ─── Research integrity ─────────────────────────────────────── */
 .research-integrity {
@@ -249,7 +259,7 @@ body {
   border-top: 1px solid rgba(255,255,255,0.08);
   font-family: var(--font-mono);
   font-size: 11px;
-  color: rgba(232,234,240,0.40);
+  color: rgba(17,29,48,0.50);
 }
 </style>
 </head>
@@ -294,6 +304,7 @@ body {
     </div>
   </div>
 
+  <div class="viz-panel">
   <!-- ── Tabs ── -->
   <div class="tab-bar">
     <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
@@ -338,13 +349,15 @@ body {
     </div>
   </div>
 
+  </div><!-- /viz-panel -->
+
 </div><!-- /content -->
 
 <!-- ── Research integrity ── -->
 <div class="research-integrity">
   <div class="integrity-inner">
     <div class="integrity-label">Research integrity</div>
-    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Violent%20Resistance%20Activity%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.github.io/tot-insights/dashboards/resistance_analytics.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+    <a class="integrity-link" href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20Violent%20Resistance%20Activity%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://DOMAIN-PLACEHOLDER/dashboards/resistance_analytics.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
     <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
   </div>
 </div>
@@ -374,7 +387,7 @@ var biweeklyValues = [
 ];
 
 var geoData = [
-  {label:"Russian Federation territory", value:216, color:"#c9a84c"},
+  {label:"Russian Federation territory", value:216, color:"#a67c1a"},
   {label:"South occupied oblasts",       value:126, color:"#4B9E9E"},
   {label:"East occupied oblasts",        value:75,  color:"#5B7DB8"},
   {label:"Crimea",                       value:42,  color:"#2D5A8A"},
@@ -382,7 +395,7 @@ var geoData = [
 ];
 
 /* ── Chart.js globals ──────────────────────────────────────────── */
-Chart.defaults.color = '#9CA3AF';
+Chart.defaults.color = '#64748b';
 Chart.defaults.font.family = "'IBM Plex Sans', Arial, sans-serif";
 
 /* ── Tab state ─────────────────────────────────────────────────── */
@@ -410,8 +423,8 @@ function initBarChart() {
       labels: typeLabels,
       datasets: [{
         data: typeValues,
-        backgroundColor: 'rgba(201,168,76,0.85)',
-        hoverBackgroundColor: '#c9a84c',
+        backgroundColor: '#a67c1a',
+        hoverBackgroundColor: '#8a6715',
         borderRadius: 3,
         borderSkipped: false
       }]
@@ -434,12 +447,12 @@ function initBarChart() {
       },
       scales: {
         x: {
-          grid: { color: 'rgba(255,255,255,0.07)' },
-          ticks: { color: '#9CA3AF', font: { size: 11 } }
+          grid: { color: 'rgba(166,124,26,0.12)' },
+          ticks: { color: '#64748b', font: { size: 11 } }
         },
         y: {
           grid: { display: false },
-          ticks: { color: '#e8eaf0', font: { size: 12 } }
+          ticks: { color: '#334155', font: { size: 12 } }
         }
       }
     }
@@ -450,8 +463,8 @@ function initBarChart() {
 function initLineChart() {
   var ctx = document.getElementById('lineChart').getContext('2d');
   var gradient = ctx.createLinearGradient(0, 0, 0, 310);
-  gradient.addColorStop(0, 'rgba(201,168,76,0.28)');
-  gradient.addColorStop(1, 'rgba(201,168,76,0.02)');
+  gradient.addColorStop(0, 'rgba(166,124,26,0.28)');
+  gradient.addColorStop(1, 'rgba(166,124,26,0.02)');
 
   new Chart(ctx, {
     type: 'line',
@@ -459,13 +472,13 @@ function initLineChart() {
       labels: biweeklyLabels,
       datasets: [{
         data: biweeklyValues,
-        borderColor: '#c9a84c',
+        borderColor: '#a67c1a',
         backgroundColor: gradient,
         fill: true,
         tension: 0.35,
         pointRadius: 3,
-        pointBackgroundColor: '#c9a84c',
-        pointBorderColor: '#0F1F3D',
+        pointBackgroundColor: '#a67c1a',
+        pointBorderColor: '#ffffff',
         pointBorderWidth: 1.5,
         pointHoverRadius: 5
       }]
@@ -487,17 +500,17 @@ function initLineChart() {
       },
       scales: {
         x: {
-          grid: { color: 'rgba(255,255,255,0.06)' },
+          grid: { color: 'rgba(166,124,26,0.12)' },
           ticks: {
-            color: '#9CA3AF',
+            color: '#64748b',
             font: { size: 10 },
             maxRotation: 45,
             minRotation: 30
           }
         },
         y: {
-          grid: { color: 'rgba(255,255,255,0.07)' },
-          ticks: { color: '#9CA3AF', font: { size: 11 } },
+          grid: { color: 'rgba(166,124,26,0.12)' },
+          ticks: { color: '#64748b', font: { size: 11 } },
           beginAtZero: true
         }
       }
@@ -529,7 +542,7 @@ function initDonutChart() {
       datasets: [{
         data: geoData.map(function(d) { return d.value; }),
         backgroundColor: geoData.map(function(d) { return d.color; }),
-        borderColor: '#111d30',
+        borderColor: '#ffffff',
         borderWidth: 2,
         hoverOffset: 8
       }]

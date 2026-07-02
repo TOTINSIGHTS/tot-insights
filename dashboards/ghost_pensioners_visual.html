@@ -80,20 +80,22 @@ body {
 @media (max-width: 640px) { .stat-grid { grid-template-columns: 1fr; } }
 
 .stat-card {
-  background: #0F1F3D;
+  background: #f2f0ec;
   border-radius: 4px;
   padding: 16px 18px;
+  box-shadow: 0 1px 3px rgba(17,29,48,0.08);
 }
 .stat-val {
   font-family: var(--font-mono);
   font-size: 26px;
   font-weight: 700;
   line-height: 1.1;
+  color: #111d30;
 }
 .stat-label {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: #E8E0D0;
+  color: #111d30;
   margin-top: 4px;
   font-weight: 600;
 }
@@ -102,6 +104,14 @@ body {
   font-size: 11px;
   color: #6B7280;
   margin-top: 2px;
+}
+
+/* ─── Light panel card (bar chart) ───────────────────────────── */
+.panel-card {
+  background: #f2f0ec;
+  border-radius: 4px;
+  padding: 20px 22px;
+  box-shadow: 0 1px 3px rgba(17,29,48,0.08);
 }
 
 hr.divider {
@@ -130,14 +140,14 @@ hr.divider {
   width: 220px;
   font-family: var(--font-sans);
   font-size: 12px;
-  color: #e8eaf0;
+  color: #334155;
   line-height: 1.4;
   flex-shrink: 0;
 }
 .bar-track {
   flex: 1;
   height: 28px;
-  background: rgba(255,255,255,0.10);
+  background: rgba(17,29,48,0.08);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -160,7 +170,7 @@ hr.divider {
   margin-left: 232px;
   font-family: var(--font-sans);
   font-size: 11px;
-  color: rgba(232,234,240,0.55);
+  color: #6B7280;
   font-style: italic;
 }
 @media (max-width: 640px) {
@@ -208,40 +218,43 @@ hr.divider {
 .timeline-card {
   flex: 1;
   margin-left: 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1.5px solid rgba(255,255,255,0.12);
+  background: #f2f0ec;
+  border: 1.5px solid rgba(17,29,48,0.08);
   border-left: 4px solid #C4964A;
   border-radius: 4px;
   padding: 10px 14px;
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
   user-select: none;
+  box-shadow: 0 1px 3px rgba(17,29,48,0.08);
 }
-.timeline-card:hover { background: rgba(255,255,255,0.07); }
+.timeline-card:hover { background: #ebe8e2; }
 .timeline-card.open { border-color: #C4964A; }
 .timeline-card-title {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 700;
-  color: #E8E0D0;
+  color: #111d30;
 }
 .timeline-detail {
   display: none;
   margin-top: 8px;
   font-family: var(--font-body);
   font-size: 15px;
-  color: #e8eaf0;
+  color: #334155;
   line-height: 1.7;
-  border-top: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid rgba(17,29,48,0.10);
   padding-top: 8px;
 }
 .timeline-card.open .timeline-detail { display: block; }
 
 /* ─── Callout box ────────────────────────────────────────────── */
 .callout {
-  background: #0F1F3D;
-  color: #E8E0D0;
+  background: #f2f0ec;
+  color: #111d30;
   border-radius: 4px;
+  border: 1px solid rgba(17,29,48,0.08);
+  border-left: 3px solid #C4964A;
   padding: 16px 20px;
   font-family: var(--font-sans);
   font-size: 13px;
@@ -313,12 +326,12 @@ hr.divider {
       <div class="stat-sub">Hub analysis estimate</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" style="color:#C4964A;">RUB 1.68 billion</div>
+      <div class="stat-val" style="color:#111d30;">RUB 1.68 billion</div>
       <div class="stat-label">Per month fraud value</div>
       <div class="stat-sub">~$18.7m/month · Hub estimate</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" style="color:#C4964A;">$224m+</div>
+      <div class="stat-val" style="color:#111d30;">$224m+</div>
       <div class="stat-label">Annual extraction estimate</div>
       <div class="stat-sub">~$18.7m × 12 · Hub estimate</div>
     </div>
@@ -328,7 +341,7 @@ hr.divider {
 
   <!-- Bar chart -->
   <div class="section-heading">Pensioner Population: Official vs Actual</div>
-  <div id="bar-chart"></div>
+  <div class="panel-card"><div id="bar-chart"></div></div>
 
   <hr class="divider">
 
@@ -342,7 +355,7 @@ hr.divider {
   <!-- Dual accountability callout -->
   <div class="callout">
     <div class="callout-label">Dual accountability dimension</div>
-    <p>The ghost pensioner scheme operates simultaneously as <strong style="color:#C4964A;">fraud against the Russian federal budget</strong> (RUB 1.68 billion/month extracted through DPR banks, opaque to federal treasury — Hub analysis estimate) and as <strong style="color:#C4964A;">theft of resources designated for civilian welfare</strong> under occupation<sup><a href="#fn5" class="fn-ref">5</a></sup> — both potential accountability vectors.</p>
+    <p>The ghost pensioner scheme operates simultaneously as <strong style="color:#a67c1a;">fraud against the Russian federal budget</strong> (RUB 1.68 billion/month extracted through DPR banks, opaque to federal treasury — Hub analysis estimate) and as <strong style="color:#a67c1a;">theft of resources designated for civilian welfare</strong> under occupation<sup><a href="#fn5" class="fn-ref">5</a></sup> — both potential accountability vectors.</p>
     <p>The October 2025 deportation panic was triggered deliberately by the occupation administration to destabilise the elderly population (Centre for the Study of Occupation monitoring) — instrumentalising pensioners' citizenship precarity<sup><a href="#fn4" class="fn-ref">4</a></sup> as a tool of social control even while their pension payments are being fraudulently claimed.<sup><a href="#fn1" class="fn-ref">1</a></sup><sup><a href="#fn2" class="fn-ref">2</a></sup></p>
   </div>
 
