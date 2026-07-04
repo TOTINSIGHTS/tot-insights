@@ -54,10 +54,10 @@
   .legend-item { display: flex; align-items: center; gap: 4px; }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
-  table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 0; }
   table.data-table th { background: #1F3A6E; color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 11px; }
-  table.data-table td { padding: 6px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #e8eaf0; }
-  table.data-table tr:nth-child(even) td { background: rgba(31,58,110,0.20); }
+  table.data-table td { padding: 6px 10px; border-bottom: 1px solid rgba(17,29,48,0.10); color: #1a2332; }
+  table.data-table tr:nth-child(even) td { background: rgba(17,29,48,0.035); }
   table.data-table td:nth-child(2), table.data-table td:nth-child(3) { text-align: right; }
 
   .footer { margin-top: 32px; border-top: 1px solid #ddd; padding-top: 12px; font-size: 11px; color: #999; }
@@ -169,6 +169,7 @@
   </div>
 
   <div class="section-head">Notable commercial seizures</div>
+  <div class="chart-block" style="margin-bottom:28px;">
   <table class="data-table">
     <thead><tr><th>Property / address</th><th>Area (sqm)</th><th>Previous use</th></tr></thead>
     <tbody>
@@ -183,8 +184,10 @@
       <tr><td>ATB supermarket locations</td><td>Various</td><td>Ukrainian supermarket chain (58 entries across dataset)</td></tr>
     </tbody>
   </table>
+  </div>
 
   <div class="section-head">Primary sources</div>
+  <div class="chart-block" style="margin-bottom:28px;">
   <table class="data-table">
     <thead><tr><th>File</th><th>Date</th><th>Description</th></tr></thead>
     <tbody>
@@ -194,6 +197,7 @@
       <tr><td>Publikatsiya series (20 files)</td><td>Oct 2024 – Jun 2025</td><td>Commercial registry snapshots; ~420–660 non-residential properties per snapshot</td></tr>
     </tbody>
   </table>
+  </div>
 
   <div class="footer">
     Sources: Centre for the Study of Occupation monitoring &nbsp;·&nbsp; Archived: TOT Insight Hub → Housing &nbsp;·&nbsp; Generated April 2026
