@@ -128,7 +128,7 @@ hr.divider {
 <body data-chrome="footer-only">
 
 <div class="back-nav" style="display:flex;justify-content:space-between;align-items:center;">
-  <a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a>
+  <a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a>
   <span style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(232,228,220,0.55);">Last updated: May 2026</span>
 </div>
 
