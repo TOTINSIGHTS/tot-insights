@@ -22,10 +22,19 @@
   .meta-row span:first-child { font-weight: bold; color: rgba(232,228,220,0.75); }
   .meta-row span:last-child { color: rgba(232,228,220,0.75); }
 
-  .key-box { border: 1.5px solid #1F3A6E; border-left-width: 4px; background: rgba(31,58,110,0.20); padding: 16px 20px; margin-bottom: 20px; }
-  .key-box-label { font-size: 11px; font-weight: bold; color: rgba(181,146,58,0.80); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
-  .key-item { font-size: 13px; color: rgba(232,228,220,0.88); margin-bottom: 7px; line-height: 1.5; }
-  .key-item strong { color: rgba(181,146,58,0.80); }
+  .key-box { border: 1px solid rgba(17,29,48,0.10); border-left: 4px solid #c9a84c; background: #f7f5f1; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(17,29,48,0.06); }
+  .key-box-label { font-size: 11px; font-weight: bold; color: #a67c1a; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .key-item { font-size: 13px; color: #1a2332; margin-bottom: 7px; line-height: 1.5; }
+  .key-item strong { color: #a67c1a; }
+
+  /* header reading content on cream (matches site .reading-panel) */
+  .reading-panel { background:#f2f0ec; border-radius:3px; box-shadow:0 2px 20px rgba(0,0,0,0.24),0 0 0 1px rgba(0,0,0,0.10); padding:30px 34px; margin-bottom:24px; }
+  .reading-panel .header { border-bottom-color: rgba(17,29,48,0.12); }
+  .reading-panel .header-label { color:#6b7280; }
+  .reading-panel h1 { color:#a67c1a; }
+  .reading-panel .subtitle { color: rgba(17,29,48,0.72); }
+  .reading-panel .meta-row span:first-child { color:#1a2332; }
+  .reading-panel .meta-row span:last-child { color: rgba(17,29,48,0.72); }
 
   .caveat-box { border-left: 4px solid #854F0B; background: #FBE9A8; padding: 12px 16px; margin-bottom: 24px; font-size: 12px; color: #633806; line-height: 1.6; }
   .caveat-label { font-size: 11px; font-weight: bold; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; color: #854F0B; }
@@ -33,15 +42,15 @@
   .section-head { font-size: 11px; font-weight: bold; color: rgba(181,146,58,0.80); letter-spacing: .08em; text-transform: uppercase; border-bottom: 1px solid #D0D8E8; padding-bottom: 6px; margin: 28px 0 14px; }
 
   .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
-  .metric { background: rgba(255,255,255,0.05); border-radius: 6px; padding: 14px 16px; }
-  .metric-label { font-size: 11px; color: rgba(232,228,220,0.55); margin-bottom: 4px; }
-  .metric-value { font-size: 22px; font-weight: bold; color: rgba(181,146,58,0.80); line-height: 1.1; }
-  .metric-sub { font-size: 11px; color: #888; margin-top: 3px; }
+  .metric { background: #f2f0ec; border: 1px solid rgba(17,29,48,0.08); border-radius: 6px; padding: 14px 16px; box-shadow: 0 1px 3px rgba(17,29,48,0.08); }
+  .metric-label { font-size: 11px; color: #334155; margin-bottom: 4px; }
+  .metric-value { font-size: 22px; font-weight: bold; color: #111d30; line-height: 1.1; }
+  .metric-sub { font-size: 11px; color: #6b7280; margin-top: 3px; }
 
   .chart-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
-  .chart-block { }
-  .chart-label { font-size: 11px; font-weight: bold; color: rgba(232,228,220,0.75); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
-  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: rgba(232,228,220,0.75); }
+  .chart-block { background: #ffffff; border: 1px solid rgba(17,29,48,0.08); border-radius: 4px; padding: 18px 20px; box-shadow: 0 1px 3px rgba(17,29,48,0.08); }
+  .chart-label { font-size: 11px; font-weight: bold; color: #475569; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: #334155; }
   .legend-item { display: flex; align-items: center; gap: 4px; }
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
@@ -67,16 +76,17 @@
 <div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../themes.html" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back to themes</a></div>
 <div class="page">
 
+  <div class="reading-panel">
   <div class="header">
     <span class="header-label">TOT Insights &nbsp;|&nbsp; Briefing &nbsp;|&nbsp; Legal Architecture · Economic Dependency</span>
   </div>
 
   <h1>Mariupol Property Seizure Programme</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Property Seizure Programme. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20209826" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20209826</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Mariupol Property Seizure Programme. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20209826');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(17,29,48,0.5);border-top:1px solid rgba(17,29,48,0.12);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
+<div style="background:rgba(17,29,48,0.03);border-left:3px solid #c9a84c;padding:0.75rem 1rem;margin-bottom:1.5rem;">
+  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(17,29,48,0.5);margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(17,29,48,0.78);line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Property Seizure Programme. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20209826" target="_blank" rel="noopener noreferrer" style="color:#a67c1a;text-decoration:none;">https://doi.org/10.5281/zenodo.20209826</a></div>
+  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Mariupol Property Seizure Programme. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20209826');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(17,29,48,0.2);color:rgba(17,29,48,0.55);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p class="subtitle">Evidence from Russian Occupation Administrative Records, October 2024 – June 2025</p>
   <div class="accent-rule"></div>
@@ -86,6 +96,7 @@
     <div class="meta-row"><span>Date: </span><span>April 2026</span></div>
     <div class="meta-row"><span>Data coverage: </span><span>October 2024 – June 2025 (20 snapshots)</span></div>
     <div class="meta-row"><span>Source access: </span><span>Centre for the Study of Occupation monitoring</span></div>
+  </div>
   </div>
 
   <div class="key-box">
@@ -130,15 +141,19 @@
   </div>
 
   <div class="section-head">Reclamation - seized vs. reclaimed</div>
+  <div class="chart-block" style="margin-bottom:28px;">
   <div class="legend" style="margin-bottom:8px;">
     <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Seized / ownerless (8,526)</span>
     <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Reclaimed by owners (2,220)</span>
   </div>
-  <div style="position:relative;width:100%;height:80px;margin-bottom:28px;"><canvas id="c3"></canvas></div>
+  <div style="position:relative;width:100%;height:80px;"><canvas id="c3"></canvas></div>
+  </div>
 
   <div class="section-head">Commercial programme - registry size over time</div>
+  <div class="chart-block" style="margin-bottom:28px;">
   <div class="legend" style="margin-bottom:8px;"><span class="legend-item"><span class="legend-dot" style="background:#E8B84B;"></span>Unique properties per snapshot</span></div>
-  <div style="position:relative;width:100%;height:200px;margin-bottom:28px;"><canvas id="c4"></canvas></div>
+  <div style="position:relative;width:100%;height:200px;"><canvas id="c4"></canvas></div>
+  </div>
 
   <div class="chart-row-2">
     <div class="chart-block">
@@ -157,14 +172,14 @@
   <table class="data-table">
     <thead><tr><th>Property / address</th><th>Area (sqm)</th><th>Previous use</th></tr></thead>
     <tbody>
-      <tr><td>Port City - Володарское шоссе, 2</td><td>90,000</td><td>Shopping centre - EXCLUDED from area stats</td></tr>
-      <tr><td>Гостиница Азовсталь - пр. Победы, 16</td><td>8,386</td><td>Hotel</td></tr>
-      <tr><td>Банк ПУМБ - пр. Ильича, 136</td><td>7,265</td><td>Bank headquarters</td></tr>
-      <tr><td>ДК Искра - пр. Ильича, 143</td><td>5,643</td><td>Cultural centre</td></tr>
-      <tr><td>Мариупольское АТП - ул. Зелинского, 89</td><td>5,100</td><td>Bus transport enterprise</td></tr>
-      <tr><td>Кинотеатр Буревесник - пр. Лунина, 65</td><td>2,708</td><td>Cinema</td></tr>
-      <tr><td>Детский благотворительный центр - ул. Трудовая, 21</td><td>1,300 / 1,260</td><td>Children's charity (two entries)</td></tr>
-      <tr><td>Протестантская церковь - пр. Металлургов, 137А</td><td>839</td><td>Protestant church</td></tr>
+      <tr><td>Port City, Volodarskoye shosse 2</td><td>90,000</td><td>Shopping centre - EXCLUDED from area stats</td></tr>
+      <tr><td>Gostinitsa Azovstal, pr. Pobedy 16</td><td>8,386</td><td>Hotel</td></tr>
+      <tr><td>Bank PUMB, pr. Ilyicha 136</td><td>7,265</td><td>Bank headquarters</td></tr>
+      <tr><td>DK Iskra, pr. Ilyicha 143</td><td>5,643</td><td>Cultural centre</td></tr>
+      <tr><td>Mariupolskoye ATP, ul. Zelinskogo 89</td><td>5,100</td><td>Bus transport enterprise</td></tr>
+      <tr><td>Kinoteatr Burevesnik, pr. Lunina 65</td><td>2,708</td><td>Cinema</td></tr>
+      <tr><td>Detskiy blagotvoritelny tsentr, ul. Trudovaya 21</td><td>1,300 / 1,260</td><td>Children's charity (two entries)</td></tr>
+      <tr><td>Protestantskaya tserkov, pr. Metallurgov 137A</td><td>839</td><td>Protestant church</td></tr>
       <tr><td>ATB supermarket locations</td><td>Various</td><td>Ukrainian supermarket chain (58 entries across dataset)</td></tr>
     </tbody>
   </table>
@@ -198,9 +213,9 @@ new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Total documen
 
 new Chart(document.getElementById('c4'),{type:'line',data:{labels:['Oct 7','Oct 28','Nov 7','Nov 26','Dec 13','Dec 23','Dec 28','Jan 21','Feb 5','Feb 17','Mar 10','Apr 7','May 5','Jun 3'],datasets:[{data:[391,428,425,424,628,656,440,458,457,469,460,458,431,419],borderColor:'#E8B84B',backgroundColor:'rgba(232,184,75,0.06)',tension:0.3,pointRadius:4,pointBackgroundColor:'#E8B84B',fill:true,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y} unique properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11},maxRotation:45,autoSkip:false}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}},min:300,max:700}}}});
 
-new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Shop (магазин)','Café','Hairdresser','Garage','Pharmacy','Food shop','Legal services','Commercial space','Pet shop','Beauty salon','ATB (chain)','Tailor'],datasets:[{data:[145,20,16,15,13,11,9,8,8,7,6,6],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} unique properties`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
+new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Shop (magazin)','Café','Hairdresser','Garage','Pharmacy','Food shop','Legal services','Commercial space','Pet shop','Beauty salon','ATB (chain)','Tailor'],datasets:[{data:[145,20,16,15,13,11,9,8,8,7,6,6],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} unique properties`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
 
-new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['Azovsteel hotel','PUMB bank','ДК Искра','Leninskyi 89A','Burevesnik cinema','Siltpo (Kyivska)','Zelelinskyi 89 (ATP)','Olympic sports','Primorska 1','Aquamarin'],datasets:[{data:[8386,7265,5643,4500,2708,2100,5100,2891,2891,1200],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x.toLocaleString()} sqm`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11},callback:v=>v.toLocaleString()}},y:{grid:{display:false},ticks:{color:lc,font:{size:10}}}}}});
+new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['Azovstal hotel','PUMB bank','DK Iskra','Leninskyi 89A','Burevesnik cinema','Siltpo (Kyivska)','Zelinskogo 89 (ATP)','Olympic sports','Primorska 1','Aquamarin'],datasets:[{data:[8386,7265,5643,4500,2708,2100,5100,2891,2891,1200],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x.toLocaleString()} sqm`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11},callback:v=>v.toLocaleString()}},y:{grid:{display:false},ticks:{color:lc,font:{size:10}}}}}});
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
