@@ -140,6 +140,19 @@
 .theme-preview {
   margin-bottom: 8px;
 }
+/* Bold "way in" link on each theme card -> that theme's filtered research view */
+.theme-resources-link {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  line-height: 1.4;
+  margin-top: 14px;
+  transition: color 0.12s;
+}
+.theme-resources-link:hover { color: var(--gold-hover); text-decoration: underline; }
 
 a.resource-row,
 div.resource-row {
@@ -477,15 +490,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="gov-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Governance">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="gov-details-body"></div>
-    </details>
 
   </section>
 

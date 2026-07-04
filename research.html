@@ -339,7 +339,20 @@ const REGION_LABELS={
 };
 
 DOCS.sort((a,b)=>parseDateOrdinal(b.date)-parseDateOrdinal(a.date));
-buildCards();applyFilters();
+buildCards();
+// Pre-apply a theme filter from the URL (?theme=<name>) so links from the Themes page
+// land on that theme's filtered view.
+(function(){
+  var t=new URLSearchParams(location.search).get('theme');
+  if(!t)return;
+  var btn=document.querySelector('[data-filter="theme"][data-value="'+t.replace(/["\\<>]/g,'')+'"]');
+  if(btn){
+    activeTheme=t;
+    document.querySelectorAll('[data-filter="theme"]').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+  }
+})();
+applyFilters();
 </script>
 <script src="navigation.js"></script>
 </body>
