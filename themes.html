@@ -402,37 +402,48 @@ a.resource-row:hover .resource-title {
   .theme-title { font-size: 1.5rem; }
 }
 
-/* Catalogue link bar */
+/* Catalogue call-to-action card */
 .catalogue-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 14px 18px;
-  border: 1px solid rgba(181,146,58,0.22);
-  border-left: 3px solid var(--gold);
+  background: #f2f0ec;
+  border: 1px solid rgba(17,29,48,0.10);
+  border-radius: 4px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.24), 0 0 0 1px rgba(0,0,0,0.10);
+  padding: 30px 34px;
+  max-width: 640px;
   margin-bottom: 48px;
+}
+.catalogue-cta-heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111d30;
+  line-height: 1.25;
+  margin-bottom: 8px;
 }
 .catalogue-cta-text {
   font-family: var(--font-source);
-  font-size: 0.87rem;
-  font-weight: 300;
-  color: rgba(232,228,220,0.68);
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(17,29,48,0.72);
+  line-height: 1.6;
+  margin: 0 0 20px;
+  max-width: 46rem;
 }
-.catalogue-cta-link {
+.catalogue-cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #111d30;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
   text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.12s;
+  padding: 12px 24px;
+  border-radius: 3px;
+  transition: background 0.15s;
 }
-.catalogue-cta-link:hover {
-  color: rgba(232,228,220,0.90);
-}
+.catalogue-cta-btn:hover { background: var(--gold-hover); }
 
 </style>
 </head>
@@ -451,8 +462,9 @@ a.resource-row:hover .resource-title {
 <div class="main-content">
 
   <div class="catalogue-cta">
-    <span class="catalogue-cta-text">Want the complete searchable list of all research outputs? Use the full catalogue.</span>
-    <a class="catalogue-cta-link" href="research.html">Browse the full catalogue &#8594;</a>
+    <div class="catalogue-cta-heading">Browse the full catalogue</div>
+    <p class="catalogue-cta-text">The complete searchable list of all research outputs &mdash; briefings, reports, dashboards, and primary sources.</p>
+    <a class="catalogue-cta-btn" href="research.html">Open the catalogue &#8594;</a>
   </div>
 
   <!-- ── GOVERNANCE ─────────────────────────────────────────────────── -->
@@ -533,15 +545,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="econ-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Economics">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="econ-details-body"></div>
-    </details>
 
   </section>
 
@@ -580,15 +588,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="civil-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Civilian%20Life">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="civil-details-body"></div>
-    </details>
 
   </section>
 
@@ -627,15 +631,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="identity-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Identity%2C%20Culture%20and%20Religion">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="identity-details-body"></div>
-    </details>
 
   </section>
 
@@ -674,15 +674,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="edu-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Education%20and%20Militarisation">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="edu-details-body"></div>
-    </details>
 
   </section>
 
@@ -721,15 +717,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="coercion-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Coercion%2C%20Resistance%20and%20Security">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="coercion-details-body"></div>
-    </details>
 
   </section>
 
@@ -768,15 +760,11 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="info-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Information%20Space">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
-
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="info-details-body"></div>
-    </details>
 
   </section>
 
@@ -815,21 +803,18 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-preview" id="acc-preview"></div>
 
+        <a class="theme-resources-link" href="research.html?theme=Accountability%20and%20Legal">See all resources in this theme &#8594;</a>
+
       </div>
 
     </div><!-- /.theme-card -->
 
-    <!-- Details sits outside the card, on the dark background -->
-    <details class="theme-details">
-      <summary>See all resources in this theme</summary>
-      <div class="theme-details-body" id="acc-details-body"></div>
-    </details>
-
   </section>
 
   <div class="catalogue-cta" style="margin-top:52px;margin-bottom:0;">
-    <span class="catalogue-cta-text">Browse all research outputs in the full searchable catalogue.</span>
-    <a class="catalogue-cta-link" href="research.html">Browse the full catalogue &#8594;</a>
+    <div class="catalogue-cta-heading">Browse the full catalogue</div>
+    <p class="catalogue-cta-text">The complete searchable list of all research outputs &mdash; briefings, reports, dashboards, and primary sources.</p>
+    <a class="catalogue-cta-btn" href="research.html">Open the catalogue &#8594;</a>
   </div>
 
 </div>
