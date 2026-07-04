@@ -40,10 +40,9 @@
       footer:
         '<footer class="site-footer">' +
           '<div class="footer-inner">' +
-            '<span>TOT Insights &nbsp;&middot;&nbsp; Ukraine &amp; Russia Programme &nbsp;&middot;&nbsp; Centre for Statecraft and National Security / King&#39;s College London</span>' +
-            '<span><a href="' + p + 'contact.html">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
+            '<span>TOT Insights &nbsp;&middot;&nbsp; Ukraine &amp; Russia Programme &nbsp;&middot;&nbsp; Centre for Statecraft and National Security &nbsp;&middot;&nbsp; King&#39;s College London</span>' +
+            '<span><a href="mailto:TOTInsightsHub@protonmail.com">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
           '</div>' +
-          '<p style="font-family:var(--font-mono);font-size:0.62rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:12px;">Platform last updated: June 2026</p>' +
         '</footer>'
     };
   }
@@ -86,9 +85,14 @@
   // single canonical version.
   function injectChrome() {
     var html = chromeHTML(rootPrefix());
-    var header = document.querySelector('header.site-header') || document.getElementById('site-header');
-    if (header) header.outerHTML = html.header;
-    else document.body.insertAdjacentHTML('afterbegin', html.header);
+    // Pages that opt into data-chrome="footer-only" (e.g. dashboards/briefings that
+    // keep their own top nav) receive ONLY the shared footer, not the site header.
+    var footerOnly = document.body.getAttribute('data-chrome') === 'footer-only';
+    if (!footerOnly) {
+      var header = document.querySelector('header.site-header') || document.getElementById('site-header');
+      if (header) header.outerHTML = html.header;
+      else document.body.insertAdjacentHTML('afterbegin', html.header);
+    }
     var footer = document.querySelector('footer.site-footer') || document.getElementById('site-footer');
     if (footer) footer.outerHTML = html.footer;
     else document.body.insertAdjacentHTML('beforeend', html.footer);

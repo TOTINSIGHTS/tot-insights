@@ -237,6 +237,7 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
   background: var(--color-dark);
   border-top: 2px solid var(--color-accent);
   padding: 22px 40px;
+  font-family: var(--font-body);
 }
 .footer-inner {
   max-width: 1200px;
@@ -248,8 +249,8 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
   gap: 8px;
 }
 .footer-inner span { font-size: 11px; color: rgba(255,255,255,0.65); }
-.footer-inner a { color: rgba(255,255,255,0.38); text-decoration: none; }
-.footer-inner a:hover { color: rgba(255,255,255,0.7); }
+.footer-inner a { color: var(--gold); text-decoration: none; }
+.footer-inner a:hover { color: var(--gold-hover); }
 
 /* ── Annotated-bibliography reading panel ──────────────────────────────
    Cream surface + dark navy text, reused verbatim from the Themes page
