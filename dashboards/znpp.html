@@ -13,8 +13,8 @@
 
 body {
   font-family: var(--font-body);
-  background: #111d30;
-  color: #E8E0D0;
+  background: #f2f0ec;
+  color: #111d30;
   min-height: 100vh;
   font-size: 15px;
   line-height: 1.6;
@@ -22,7 +22,7 @@ body {
 
 /* ── Page header ─────────────────────────────────────────── */
 .page-header {
-  background: #0a1628;
+  background: #111d30;
   border-bottom: 3px solid #C4964A;
   padding: 14px 36px 20px;
 }
@@ -84,7 +84,7 @@ body {
 .summary-label {
   font-family: var(--font-sans);
   font-size: 11px;
-  color: #C8C0B0;
+  color: #2a2a3a;
   font-weight: 600;
   margin-top: 2px;
 }
@@ -118,8 +118,8 @@ body {
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s;
 }
-.tab-btn.active { color: #E8E0D0; border-bottom-color: #C4964A; }
-.tab-btn:hover  { color: #C8C0B0; }
+.tab-btn.active { color: #C4964A; border-bottom-color: #C4964A; }
+.tab-btn:hover  { color: #2a2a3a; }
 
 /* ── Content area ───────────────────────────────────────── */
 .content { padding: 28px 36px 48px; max-width: 1100px; }
@@ -132,7 +132,7 @@ body {
   font-family: var(--font-body);
   font-size: 17px;
   font-weight: 700;
-  color: #E8E0D0;
+  color: #111d30;
   margin-bottom: 6px;
 }
 .section-desc {
@@ -163,12 +163,12 @@ body {
   border-radius: 4px;
   padding: 14px 10px;
   text-align: center;
-  border: 2px solid #333;
-  background: #111;
+  border: 2px solid #cfccc4;
+  background: #eeece6;
 }
 .reactor-unit.licensed {
-  background: #0a1628;
-  border-color: rgba(181,146,58,0.5);
+  background: #ffffff;
+  border-color: #C4964A;
 }
 .reactor-symbol {
   font-family: var(--font-mono);
@@ -185,7 +185,7 @@ body {
   color: #4B5563;
   margin-top: 4px;
 }
-.reactor-unit.licensed .reactor-name { color: #E8E0D0; }
+.reactor-unit.licensed .reactor-name { color: #111d30; }
 .reactor-status {
   font-size: 10px;
   color: #333;
@@ -217,9 +217,9 @@ body {
   border-radius: 4px;
   padding: 10px 14px;
 }
-.lic-row.granted { background: #0D1624; border: 1px solid rgba(181,146,58,0.3); }
-.lic-row.pending { background: #0a1628; border: 1px solid rgba(255,255,255,0.08); }
-.lic-row.planned { background: #1A1000; border: 1px solid #3D2800; }
+.lic-row.granted { background: #f7f5f1; border: 1px solid rgba(181,146,58,0.5); }
+.lic-row.pending { background: #ffffff; border: 1px solid #e3e0d9; }
+.lic-row.planned { background: #FBE9A8; border: 1px solid #E8B84B; }
 .lic-date {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -231,7 +231,7 @@ body {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 700;
-  color: #E8E0D0;
+  color: #111d30;
 }
 .lic-item.pending { color: #4B5563; }
 .lic-body {
@@ -252,8 +252,8 @@ body {
   white-space: nowrap;
 }
 .lic-badge.granted { background: rgba(181,146,58,0.15); color: #B5923A; }
-.lic-badge.pending { background: #1A1A1A; color: #4B5563; }
-.lic-badge.planned { background: #3D2800; color: #92400E; }
+.lic-badge.pending { background: #eeece6; color: #4B5563; }
+.lic-badge.planned { background: #FBE9A8; color: #7a5a12; }
 
 /* ── Callout boxes ──────────────────────────────────────── */
 .callout {
@@ -264,10 +264,10 @@ body {
   line-height: 1.8;
   margin-top: 20px;
 }
-.callout.amber { background: #0a1628; border: 1px solid #3D2800; border-left: 4px solid #92400E; color: #C8C0B0; }
-.callout.gold  { background: #0A0A14; border: 1px solid #2A2A4A; border-left: 4px solid #C4964A; color: #C8C0B0; }
-.callout.red   { background: #1A0A0A; border: 1px solid rgba(139,26,26,0.2); border-radius: 4px; color: #9CA3AF; }
-.callout.teal  { background: #0a1628; border: 1px solid rgba(181,146,58,0.2); border-radius: 4px; color: #9CA3AF; }
+.callout.amber { background: #FBE9A8; border: 1px solid #E8B84B; border-left: 4px solid #92400E; color: #633806; }
+.callout.gold  { background: #f7f5f1; border: 1px solid #e3e0d9; border-left: 4px solid #C4964A; color: #2a2a3a; }
+.callout.red   { background: #FCEBEB; border: 1px solid rgba(162,59,52,0.3); border-radius: 4px; color: #7A1F1F; }
+.callout.teal  { background: #f7f5f1; border: 1px solid #e3e0d9; border-radius: 4px; color: #2a2a3a; }
 .callout strong.amber { color: #92400E; }
 .callout strong.gold  { color: #C4964A; }
 .callout strong.red   { color: #8B1A1A; }
@@ -285,8 +285,8 @@ body {
   border-radius: 6px;
   padding: 20px 18px;
 }
-.paradox-box.doing    { background: #0a1628; border: 2px solid rgba(181,146,58,0.5); }
-.paradox-box.not-doing{ background: #1A0A0A; border: 2px solid #8B1A1A; }
+.paradox-box.doing    { background: #ffffff; border: 2px solid rgba(181,146,58,0.5); }
+.paradox-box.not-doing{ background: #FCEBEB; border: 2px solid #8B1A1A; }
 .paradox-label {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -303,7 +303,7 @@ body {
 }
 .paradox-item span.tick { color: #B5923A; flex-shrink: 0; }
 .paradox-item span.cross{ color: #8B1A1A; flex-shrink: 0; }
-.paradox-item span.text { font-size: 12.5px; color: #C8C0B0; line-height: 1.5; }
+.paradox-item span.text { font-size: 12.5px; color: #2a2a3a; line-height: 1.5; }
 .paradox-divider { text-align: center; }
 .paradox-neq { font-size: 28px; color: #8B1A1A; line-height: 1; }
 .paradox-neq-label { font-family: var(--font-mono); font-size: 9px; color: #4B5563; letter-spacing: 1px; margin-top: 4px; }
@@ -316,7 +316,7 @@ body {
   margin-bottom: 24px;
 }
 .track-card {
-  background: #0a1628;
+  background: #ffffff;
   border-radius: 4px;
   padding: 16px 14px;
 }
@@ -329,7 +329,7 @@ body {
   font-family: var(--font-sans);
 }
 .track-point .arrow { font-size: 12px; flex-shrink: 0; }
-.track-point .text  { font-size: 12px; color: #9CA3AF; line-height: 1.5; }
+.track-point .text  { font-size: 12px; color: #4a4a57; line-height: 1.5; }
 .track-note {
   margin-top: 10px;
   padding-top: 10px;
@@ -348,7 +348,7 @@ body {
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 700;
-  color: #E8E0D0;
+  color: #111d30;
   margin-bottom: 6px;
 }
 .col-desc {
@@ -365,12 +365,12 @@ body {
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 3px;
-  background: #0A0A0A;
+  background: #eeece6;
 }
 
 /* ── Incident cards ─────────────────────────────────────── */
 .incident-card {
-  background: #0a1628;
+  background: #ffffff;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 4px;
   padding: 10px 14px;
@@ -385,14 +385,14 @@ body {
   gap: 8px;
 }
 .incident-date  { font-family: var(--font-mono); font-size: 10px; color: #4B5563; margin-bottom: 3px; }
-.incident-event { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #E8E0D0; }
+.incident-event { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #111d30; }
 .incident-detail {
   margin-top: 10px;
   font-family: var(--font-sans);
   font-size: 12.5px;
-  color: #9CA3AF;
+  color: #4a4a57;
   line-height: 1.7;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,29,48,0.1);
   padding-top: 8px;
   display: none;
 }
@@ -404,7 +404,7 @@ body {
   padding: 2px 6px;
   border-radius: 3px;
   flex-shrink: 0;
-  background: #0A0A0A;
+  background: #eeece6;
 }
 
 /* ── Grid timeline entries ──────────────────────────────── */
@@ -412,7 +412,7 @@ body {
   display: flex;
   gap: 12px;
   margin-bottom: 10px;
-  background: #0a1628;
+  background: #ffffff;
   border: 1px solid rgba(255,255,255,0.08);
   border-left: 4px solid #B5923A;
   border-radius: 4px;
@@ -427,13 +427,13 @@ body {
   min-width: 80px;
   padding-top: 2px;
 }
-.grid-item   { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #E8E0D0; margin-bottom: 4px; }
+.grid-item   { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #111d30; margin-bottom: 4px; }
 .grid-detail { font-family: var(--font-sans); font-size: 12px; color: #6B7280; line-height: 1.6; }
 
 /* ── Footer ─────────────────────────────────────────────── */
 .page-footer {
   padding: 14px 36px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(17,29,48,0.1);
   font-family: var(--font-mono);
   font-size: 11px;
   color: #374151;
@@ -442,16 +442,16 @@ body {
 
 /* ── Research integrity ─────────────────────────────────── */
 .integrity-wrap  { padding: 0 36px 32px; }
-.integrity-inner { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; margin-top: 0; }
+.integrity-inner { border-top: 1px solid rgba(17,29,48,0.1); padding-top: 1.25rem; margin-top: 0; }
 .integrity-label { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
-.integrity-link  { font-family: var(--font-mono); font-size: 0.68rem; color: rgba(232,228,220,0.90); text-decoration: none; }
+.integrity-link  { font-family: var(--font-mono); font-size: 0.68rem; color: #9c7418; text-decoration: none; }
 .integrity-link:hover { text-decoration: underline; }
 .integrity-note  { font-family: var(--font-sans); font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
 
 
 .fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
 .fn-ref:hover { text-decoration: underline; }
-.page-footnotes { padding: 20px 32px 32px; max-width: 1100px; font-family: var(--font-mono); font-size: 11px; color: rgba(232,234,240,0.45); line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.08); }
+.page-footnotes { padding: 20px 32px 32px; max-width: 1100px; font-family: var(--font-mono); font-size: 11px; color: #6b6b78; line-height: 1.65; border-top: 1px solid rgba(17,29,48,0.1); }
 .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
 .page-footnotes ol { margin: 0; padding-left: 18px; }
 .page-footnotes li { margin-bottom: 8px; }
@@ -471,7 +471,7 @@ body {
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#111d30;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <!-- ── PAGE HEADER ────────────────────────────────────────── -->
 <div class="page-header">
@@ -528,8 +528,8 @@ body {
   <div class="panel active" id="panel-licensing">
     <a href="../briefings/znpp_briefing.html" style="display:block;text-decoration:none;color:inherit;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);border-radius:4px;padding:14px 20px;margin-bottom:20px;">
       <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(201,168,76,0.8);margin-bottom:0.3rem;">Briefing</div>
-      <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:rgba(232,228,220,0.9);margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
-      <div style="font-family:var(--font-sans);font-size:0.78rem;color:rgba(232,228,220,0.6);line-height:1.5;">The written briefing on Russia's tactical exploitation of the Zaporizhzhia Nuclear Power Plant.</div>
+      <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:#9c7418;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+      <div style="font-family:var(--font-sans);font-size:0.78rem;color:#6b6b78;line-height:1.5;">The written briefing on Russia's tactical exploitation of the Zaporizhzhia Nuclear Power Plant.</div>
     </a>
     <h2 class="section-h2">Licensing Trajectory and Reactor Status</h2>
     <p class="section-desc">Russia is systematically licensing ZNPP components under Rostekhnadzor - the Russian nuclear regulator - in a progression that constitutes de facto legal annexation of the plant. All six reactors remain in cold shutdown. Rosatom-certified personnel in place since autumn 2025.</p>
