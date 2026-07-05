@@ -8,7 +8,27 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
-:root{--bg:#0d1521;--bg2:#131e2e;--bg3:#1a2840;--border:#243552;--text:#cdd8e6;--muted:#6e8aaa;--accent:#c4992a;--acl:#e0b94a;--del:#4ade80;--par:#fbbf24;--fail:#f87171;--unc:#94a3b8;--serif:'EB Garamond',Georgia,serif;--mono:'IBM Plex Mono',monospace;}
+:root{
+  /* House light theme (docs/STYLE_GUIDE.md): reading content on cream, navy hero/frame */
+  --bg:#f2f0ec;            /* page = cream reading surface */
+  --bg2:#ffffff;           /* cards = white raised on cream */
+  --bg3:#f7f5f1;           /* pale cream */
+  --border:#e3e0d9;        /* light hairline */
+  --text:#2a2a3a;          /* dark grey body on cream */
+  --muted:#6b6b78;         /* muted grey — AA on cream */
+  --accent:#9c7418;        /* gold, darkened for AA on cream */
+  --acl:#9c7418;           /* value emphasis */
+  --del:var(--status-confirmed);   /* green — confirmed delivery */
+  --par:var(--status-partial);     /* amber — partial/disputed */
+  --fail:var(--status-negative);   /* red — not delivered */
+  --unc:#6b6b78;           /* unclear — neutral grey */
+  --serif:'EB Garamond',Georgia,serif;--mono:'IBM Plex Mono',monospace;
+}
+/* Navy hero strip (the one place dark navy is allowed) */
+.header{background:var(--navy);}
+.header .hsub{color:rgba(232,228,220,0.72);}
+.header .sv{color:#e0b94a;}
+.header .sl{color:rgba(232,228,220,0.55);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:16px;line-height:1.6;min-height:100vh;}
 .header{border-bottom:1px solid var(--border);padding:1.6rem 2.5rem 1.3rem;position:relative;}
@@ -37,17 +57,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:1
 .dc.d::before{background:var(--del);}.dc.p::before{background:var(--par);}.dc.f::before{background:var(--fail);}.dc.u::before{background:var(--unc);}
 .dcs{font-family:var(--mono);font-size:.95rem;font-weight:700;float:right;margin-left:.4rem;}
 .dc.d .dcs{color:var(--del);}.dc.p .dcs{color:var(--par);}.dc.f .dcs{color:var(--fail);}.dc.u .dcs{color:var(--unc);}
-.dcdonor{font-weight:600;font-size:.88rem;color:#e8f0f8;margin-bottom:.12rem;}
+.dcdonor{font-weight:600;font-size:.88rem;color:var(--navy);margin-bottom:.12rem;}
 .dcterr{font-size:.8rem;color:var(--muted);margin-bottom:.28rem;}
 .dcsec{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
 /* TIMELINE */
 .tlwrap{position:relative;padding-left:1.9rem;}
 .tlwrap::before{content:'';position:absolute;top:0;left:7px;width:2px;height:100%;background:var(--border);}
 .plabel{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;padding:.18rem .5rem;border-radius:2px;display:inline-block;margin-bottom:.9rem;margin-left:-1.75rem;}
-.pl-pre{background:rgba(148,163,184,.1);color:var(--unc);}.pl-1{background:rgba(74,158,255,.1);color:#4a9eff;}.pl-2{background:rgba(196,153,42,.1);color:var(--accent);}.pl-3{background:rgba(251,191,36,.1);color:var(--par);}.pl-4{background:rgba(248,113,113,.1);color:var(--fail);}
+.pl-pre{background:rgba(17,29,48,.06);color:var(--muted);}.pl-1{background:rgba(17,29,48,.06);color:var(--navy);}.pl-2{background:rgba(196,153,42,.12);color:var(--accent);}.pl-3{background:rgba(184,134,43,.12);color:var(--par);}.pl-4{background:rgba(162,59,52,.10);color:var(--fail);}
 .tli{position:relative;margin-bottom:1.3rem;}
 .tldot{position:absolute;left:-1.68rem;top:.42rem;width:10px;height:10px;border-radius:50%;background:var(--bg3);border:2px solid var(--border);}
-.ph-pre .tldot{border-color:var(--unc);}.ph-1 .tldot{border-color:#4a9eff;}.ph-2 .tldot{border-color:var(--accent);}.ph-3 .tldot{border-color:var(--par);}.ph-4 .tldot{border-color:var(--fail);}
+.ph-pre .tldot{border-color:var(--unc);}.ph-1 .tldot{border-color:var(--navy);}.ph-2 .tldot{border-color:var(--accent);}.ph-3 .tldot{border-color:var(--par);}.ph-4 .tldot{border-color:var(--fail);}
 .tldate{font-family:var(--mono);font-size:.65rem;color:var(--accent);margin-bottom:.12rem;}
 .tlevent{font-size:.9rem;color:var(--text);margin-bottom:.22rem;}
 .tlnote{font-size:.78rem;color:var(--muted);font-style:italic;}
@@ -55,16 +75,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:1
 .ccards{display:flex;flex-direction:column;gap:.85rem;}
 .cc{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:1rem;}
 .cch{display:flex;justify-content:space-between;align-items:flex-start;gap:.9rem;margin-bottom:.45rem;}
-.cctitle{font-weight:600;font-size:.92rem;color:#e8f0f8;}
+.cctitle{font-weight:600;font-size:.92rem;color:var(--navy);}
 .cctype{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.08em;padding:.18rem .42rem;border-radius:2px;white-space:nowrap;flex-shrink:0;}
-.t-op{background:rgba(248,113,113,.1);color:#f87171;}.t-vat{background:rgba(251,191,36,.1);color:#fbbf24;}.t-as{background:rgba(196,153,42,.1);color:var(--accent);}.t-em{background:rgba(248,113,113,.18);color:#fca5a5;}.t-pt{background:rgba(167,139,250,.1);color:#a78bfa;}.t-wt{background:rgba(94,234,212,.1);color:#5eead4;}.t-sc{background:rgba(248,113,113,.22);color:#f87171;}
+/* Corruption-type badges are categorical labels, not status — one neutral house tone (rule 4) */
+.t-op,.t-vat,.t-as,.t-em,.t-pt,.t-wt,.t-sc{background:rgba(17,29,48,.06);color:var(--navy);}
 .ccscale{font-family:var(--mono);font-size:.7rem;color:var(--accent);margin-bottom:.35rem;}
 .ccdesc{font-size:.83rem;color:var(--muted);line-height:1.52;}
 /* NOTE */
 .nwrap{max-width:730px;}.nsec{margin-bottom:1.9rem;}
 .nh{font-family:var(--mono);font-size:.63rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);margin-bottom:.75rem;padding-bottom:.35rem;border-bottom:1px solid var(--border);}
 .np{font-size:1rem;line-height:1.78;margin-bottom:.7rem;color:var(--text);}
-.npull{background:rgba(196,153,42,.09);border-left:3px solid var(--accent);padding:.75rem .95rem;margin:.9rem 0;font-style:italic;font-size:.93rem;color:#c8d8e8;line-height:1.65;}
+.npull{background:rgba(196,153,42,.10);border-left:3px solid var(--accent);padding:.75rem .95rem;margin:.9rem 0;font-style:italic;font-size:.93rem;color:var(--navy);line-height:1.65;}
 ::-webkit-scrollbar{width:5px;height:5px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 /* map delivery overlay */
 .statleg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px;align-items:center;}
@@ -79,13 +100,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:1
 svg#occMap circle.pt{cursor:pointer;transition:r .1s;}
 svg#occMap circle.pt:hover{r:7;}
 /* Map point detail box — shown on hover AND click/tap (works on touch) */
-.occ-tip{position:absolute;z-index:30;display:none;background:#0d1624;color:#e8eaf0;border:1px solid rgba(201,168,76,0.35);border-radius:4px;padding:8px 11px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;line-height:1.5;max-width:230px;box-shadow:0 6px 20px rgba(0,0,0,0.35);}
-.occ-tip-recip{font-weight:700;color:#fff;margin-bottom:2px;font-size:11.5px;}
-.occ-tip-row{color:rgba(232,228,220,0.82);}
-.occ-tip-sec{color:rgba(232,228,220,0.6);}
+.occ-tip{position:absolute;z-index:30;display:none;background:#ffffff;color:var(--navy);border:1px solid rgba(201,168,76,0.55);border-radius:4px;padding:8px 11px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;line-height:1.5;max-width:230px;box-shadow:0 6px 20px rgba(17,29,48,0.18);}
+.occ-tip-recip{font-weight:700;color:var(--navy);margin-bottom:2px;font-size:11.5px;}
+.occ-tip-row{color:#4a4a57;}
+.occ-tip-sec{color:#6b6b78;}
 .occ-tip-status{margin-top:3px;font-weight:600;}
-.occ-tip-link{display:inline-block;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.12);color:#c9a84c;text-decoration:none;font-weight:600;}
-.occ-tip-link:hover{color:#E8B84B;text-decoration:underline;}
+.occ-tip-link{display:inline-block;margin-top:6px;padding-top:6px;border-top:1px solid rgba(17,29,48,0.12);color:#9c7418;text-decoration:none;font-weight:600;}
+.occ-tip-link:hover{color:#7a5a12;text-decoration:underline;}
 </style>
 </head>
 <body data-chrome="footer-only">
@@ -93,7 +114,6 @@ svg#occMap circle.pt:hover{r:7;}
 <div class="header">
   <div class="hlabel">TOT Insight Hub · Analytical Overview</div>
   <div class="htitle">Russian Regional Guardianship Programme (Шефство)</div>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
   <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Russia Guardianship Programme (Dataset & Hub Visualisations). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20210256" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20210256</a></div>
@@ -280,7 +300,7 @@ ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class=
   // Equirectangular transform from the SVG's Ukraine outline bbox (validated against the occupied polygons)
   const W=22.137,E=40.228,N=52.379,S=44.386,X0=16,X1=984,Y0=16,Y1=660.5;
   const proj=(lat,lon)=>[X0+(lon-W)/(E-W)*(X1-X0), Y0+(N-lat)/(N-S)*(Y1-Y0)];
-  const COL={'✓':'#4ade80','~':'#fbbf24','✗':'#f87171','?':'#94a3b8'};
+  const COL={'✓':'#3f7d5a','~':'#b8862b','✗':'#a23b34','?':'#6b6b78'};
   const LBL={'✓':'Confirmed delivered','~':'Partial / disputed','✗':'Not delivered','?':'Status unclear'};
   // Detail box shared by hover and click/tap so both show exactly the same thing.
   const wrap=svg.parentElement; wrap.style.position='relative';
@@ -292,7 +312,7 @@ ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class=
     tip.innerHTML='<div class="occ-tip-recip">'+d.recipient+'</div>'
       +'<div class="occ-tip-row">'+d.donor+'</div>'
       +'<div class="occ-tip-row occ-tip-sec">'+d.sectors+'</div>'
-      +'<div class="occ-tip-status" style="color:'+(COL[d.status]||'#94a3b8')+'">'+(LBL[d.status]||'')+'</div>'
+      +'<div class="occ-tip-status" style="color:'+(COL[d.status]||'#6b6b78')+'">'+(LBL[d.status]||'')+'</div>'
       +'<a class="occ-tip-link" href="#" onclick="switchTab(\'delivery\');return false;">View in Delivery Scorecard &#8594;</a>';
   }
   function place(circle){
@@ -314,7 +334,7 @@ ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class=
     const c=document.createElementNS(NS,'circle');
     c.setAttribute('class','pt');
     c.setAttribute('cx',x.toFixed(1)); c.setAttribute('cy',y.toFixed(1)); c.setAttribute('r','5.5');
-    c.setAttribute('fill',COL[d.status]||'#94a3b8'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','1.4'); c.setAttribute('opacity','0.95');
+    c.setAttribute('fill',COL[d.status]||'#6b6b78'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','1.4'); c.setAttribute('opacity','0.95');
     c.setAttribute('tabindex','0'); c.setAttribute('role','button');
     c.setAttribute('aria-label', d.recipient+' — '+d.donor+'. '+d.sectors+'. '+(LBL[d.status]||''));
     c.addEventListener('mouseenter',()=>{ if(!pinned) show(c,d); });
@@ -326,15 +346,15 @@ ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class=
   document.addEventListener('click',()=>{ if(pinned) hide(); });
   window.addEventListener('resize',()=>{ if(pinned) place(pinned); });
   const aside=deliveries.filter(d=>d.aside), box=document.getElementById('occAside');
-  if(box&&aside.length){ box.innerHTML='<div class="aside-h">Areas listed to the side (not single points):</div>'+aside.map(d=>'<div class="aside-i"><span class="aside-dot" style="background:'+(COL[d.status]||'#94a3b8')+'"></span>'+d.recipient+' — '+d.donor+'</div>').join(''); }
+  if(box&&aside.length){ box.innerHTML='<div class="aside-h">Areas listed to the side (not single points):</div>'+aside.map(d=>'<div class="aside-i"><span class="aside-dot" style="background:'+(COL[d.status]||'#6b6b78')+'"></span>'+d.recipient+' — '+d.donor+'</div>').join(''); }
 })();
 
 </script>
 <div style="padding:0 2rem 1.5rem;">
-<div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Russian%20Guardianship%20Programme%20%E2%80%94%20TOT%20Insight%20Hub&body=Page URL: https://totinsights.org/dashboards/guardianship.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:rgba(255,255,255,0.3);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+<div style="border-top:1px solid rgba(17,29,48,0.12);padding-top:1.25rem;margin-top:2rem;">
+  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Russian%20Guardianship%20Programme%20%E2%80%94%20TOT%20Insight%20Hub&body=Page URL: https://totinsights.org/dashboards/guardianship.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:0.75rem;color:var(--muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>
