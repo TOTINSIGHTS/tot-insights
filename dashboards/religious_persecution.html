@@ -14,8 +14,8 @@
 
 body {
   font-family: var(--font-sans);
-  background: #111d30;
-  color: #e8eaf0;
+  background: #f2f0ec;
+  color: #2a2a3a;
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
@@ -23,7 +23,7 @@ body {
 
 /* ─── Page header ─────────────────────────────────────────────────── */
 .page-header {
-  background: #0F1F3D;
+  background: #111d30;
   color: #E8E0D0;
   padding: 14px 32px 18px;
   border-bottom: 3px solid #C4964A;
@@ -496,20 +496,20 @@ body {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(232,228,220,0.55);
+  color: #6b6b78;
   margin-bottom: 6px;
 }
 .integrity-link {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: rgba(232,228,220,0.90);
+  color: #9c7418;
   text-decoration: none;
 }
 .integrity-link:hover { text-decoration: underline; }
 .integrity-note {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: rgba(232,228,220,0.55);
+  color: #6b6b78;
   margin-top: 6px;
 }
 
@@ -624,23 +624,23 @@ body {
         </div>
       </div>
       <div class="clergy-stats">
-        <div class="clergy-stat" style="border-left-color:#1e4080;">
+        <div class="clergy-stat" style="border-left-color:#111d30;">
           <div class="clergy-stat-val">70+</div>
           <div class="clergy-stat-label">Killed / tortured to death</div>
         </div>
-        <div class="clergy-stat" style="border-left-color:#2e5ea8;">
+        <div class="clergy-stat" style="border-left-color:#33445c;">
           <div class="clergy-stat-val">200+</div>
           <div class="clergy-stat-label">Abducted &amp; tortured</div>
         </div>
-        <div class="clergy-stat" style="border-left-color:#4478c4;">
+        <div class="clergy-stat" style="border-left-color:#5a6c88;">
           <div class="clergy-stat-val">20</div>
           <div class="clergy-stat-label">Kidnapped - fate unknown</div>
         </div>
-        <div class="clergy-stat" style="border-left-color:#5e94d8;">
+        <div class="clergy-stat" style="border-left-color:#8b9bb0;">
           <div class="clergy-stat-val">45</div>
           <div class="clergy-stat-label">Kidnapped, later released</div>
         </div>
-        <div class="clergy-stat" style="border-left-color:#80b4e8;">
+        <div class="clergy-stat" style="border-left-color:#c2ccda;">
           <div class="clergy-stat-val">5</div>
           <div class="clergy-stat-label">Killed in bombing / shelling</div>
         </div>
@@ -802,11 +802,11 @@ body {
   </div>
 </div>
 
-<div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL · Last updated: May 2026</div>
+<div class="page-footer">TOT INSIGHTS · UKRAINE &amp; RUSSIA PROGRAMME · CSNS / KCL</div>
 
 <script>
 // ── severity gradient: navy intensity, darkest = most severe ──────────────
-var sevColors = ['#1e4080', '#2e5ea8', '#4478c4', '#5e94d8', '#80b4e8'];
+var sevColors = ['#111d30', '#33445c', '#5a6c88', '#8b9bb0', '#c2ccda'];
 
 // ── timeline data ─────────────────────────────────────────────────────────
 var timelineData = [
@@ -841,7 +841,7 @@ var verticalLinePlugin = {
     ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = '#a67c1a';
-    ctx.font = '10px "IBM Plex Sans", Arial, sans-serif';
+    ctx.font = '10px "EB Garamond", Georgia, serif';
     ctx.textAlign = 'center';
     ctx.fillText('Full-scale invasion', x, ca.top - 6);
     ctx.restore();
@@ -884,8 +884,8 @@ function initSuppression() {
     data: {
       labels: ['Ukrainian Orthodox (OCU)', 'Greek Catholics (UGCC)', "Jehovah's Witnesses", 'Pentecostals / Charismatic', 'Baptists', 'Adventists'],
       datasets: [
-        { label: 'Before occupation',          data: [86, 49, 83, 366, 186, 36], backgroundColor: '#2E5B8A', borderRadius: 3 },
-        { label: 'Remaining under occupation', data: [0,  0,  0,  18,  9,   4],  backgroundColor: '#8A9BAA', borderRadius: 3 }
+        { label: 'Before occupation',          data: [86, 49, 83, 366, 186, 36], backgroundColor: '#3a5578', borderRadius: 3 },
+        { label: 'Remaining under occupation', data: [0,  0,  0,  18,  9,   4],  backgroundColor: '#c9a84c', borderRadius: 3 }
       ]
     },
     options: {
@@ -894,7 +894,7 @@ function initSuppression() {
       plugins: {
         legend: {
           display: true, position: 'bottom',
-          labels: { font: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' }, color: '#334155', padding: 16 }
+          labels: { font: { size: 12, family: '"EB Garamond", Georgia, serif' }, color: '#334155', padding: 16 }
         },
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.x + (ctx.parsed.x === 0 ? ' ✕' : ''); } },
@@ -903,7 +903,7 @@ function initSuppression() {
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#4a4a57', font: { size: 11 } } },
         y: { grid: { color: 'transparent' }, ticks: { color: '#334155', font: { size: 11, family: '"EB Garamond", Georgia, serif' } } }
       }
     }
@@ -931,8 +931,8 @@ function initClergy() {
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed; } },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          bodyColor: '#1A1A1A', bodyFont: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
-          titleColor: '#C4964A', titleFont: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
+          bodyColor: '#1A1A1A', bodyFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
+          titleColor: '#C4964A', titleFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
           padding: 10
         }
       }
@@ -973,8 +973,8 @@ function initTimeline() {
             label: function(ctx) { return wrapLabel(timelineData[ctx.dataIndex].desc, 50); }
           },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          titleColor: '#C4964A', titleFont: { weight: 'bold', size: 12, family: '"IBM Plex Sans", Arial, sans-serif' },
-          bodyColor: '#1A1A1A', bodyFont: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' },
+          titleColor: '#C4964A', titleFont: { weight: 'bold', size: 12, family: '"EB Garamond", Georgia, serif' },
+          bodyColor: '#1A1A1A', bodyFont: { size: 11, family: '"EB Garamond", Georgia, serif' },
           padding: 10
         }
       },
@@ -983,8 +983,8 @@ function initTimeline() {
         y: {
           min: 0, max: 11,
           grid: { color: 'rgba(166,124,26,0.12)' },
-          ticks: { color: '#64748b', font: { size: 11 } },
-          title: { display: true, text: 'Documented severity', color: '#64748b', font: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' } }
+          ticks: { color: '#4a4a57', font: { size: 11 } },
+          title: { display: true, text: 'Documented severity', color: '#4a4a57', font: { size: 11, family: '"EB Garamond", Georgia, serif' } }
         }
       }
     },
@@ -999,7 +999,7 @@ function initROC() {
     data: {
       labels: ['2014', '2018', '2022', '2025'],
       datasets: [
-        { label: 'Russian Orthodox Church (ROC)',              data: [762, 700, 650, 836], backgroundColor: '#2E5B8A', borderRadius: 3 },
+        { label: 'Russian Orthodox Church (ROC)',              data: [762, 700, 650, 836], backgroundColor: '#3a5578', borderRadius: 3 },
         { label: 'Protestant denominations',                   data: [552, 80,  30,  10],  backgroundColor: '#8A9490', borderRadius: 3 },
         { label: 'Greek Catholics (UGCC)',                     data: [36,  0,   0,   0],   backgroundColor: '#7A8870', borderRadius: 3 },
         { label: 'Other Christian (OCU, Adventist, Catholic)', data: [120, 20,  5,   0],   backgroundColor: '#9A9EA8', borderRadius: 3 }
@@ -1010,7 +1010,7 @@ function initROC() {
       plugins: {
         legend: {
           display: true, position: 'bottom',
-          labels: { font: { size: 12, family: '"IBM Plex Sans", Arial, sans-serif' }, color: '#334155', padding: 16 }
+          labels: { font: { size: 12, family: '"EB Garamond", Georgia, serif' }, color: '#334155', padding: 16 }
         },
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.y; } },
@@ -1022,8 +1022,8 @@ function initROC() {
         x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#334155', font: { size: 12, family: '"EB Garamond", Georgia, serif' } } },
         y: {
           grid: { color: 'rgba(166,124,26,0.12)' },
-          ticks: { color: '#64748b', font: { size: 11 } },
-          title: { display: true, text: 'Communities', color: '#64748b', font: { size: 11, family: '"IBM Plex Sans", Arial, sans-serif' } }
+          ticks: { color: '#4a4a57', font: { size: 11 } },
+          title: { display: true, text: 'Communities', color: '#4a4a57', font: { size: 11, family: '"EB Garamond", Georgia, serif' } }
         }
       }
     }
