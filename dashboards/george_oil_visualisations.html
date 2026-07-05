@@ -7,7 +7,6 @@
 <meta name="description" content="Three analytical visualisations from the TOT Insights investigation into the George Oil agreement, Mariupol port transformation, and the emerging scheme for exporting extracted coal from occupied Donetsk.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,opsz,wght@0,9..46,400;0,9..46,600;1,9..46,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -17,21 +16,21 @@
   --blue:#B5923A;
   --text:#1a1a2c;
   --text-secondary:#5a5e7a;
-  --text-muted:#9090aa;
-  --bg:#ffffff;
-  --bg-surface:#f7f8fc;
-  --bg-section:#f2f4f9;
-  --border:#dde2ee;
-  --border-light:#eaecf4;
+  --text-muted:#6b6b78;
+  --bg:#f2f0ec;
+  --bg-surface:#ffffff;
+  --bg-section:#f7f5f1;
+  --border:#e3e0d9;
+  --border-light:#ece9e2;
   --red:#A32D2D;
   --red-light:#FCEBEB;
-  --red-mid:#E24B4A;
+  --red-mid:#a23b34;
   --amber:#B5923A;
   --amber-light:#FBE9A8;
   --amber-mid:#E8B84B;
-  --teal:#085041;
-  --teal-light:#E1F5EE;
-  --teal-mid:#0F6E56;
+  --teal:#111d30;
+  --teal-light:#eeece6;
+  --teal-mid:#9aa0a8;
   --gray-light:#F1EFE8;
   --gray-mid:#888780;
 }
@@ -57,7 +56,7 @@ main{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
 .section-kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
 .section-kicker .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;border-radius:4px;flex-shrink:0}
 .section-kicker .tag{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600}
-.viz-section h2{font-family:var(--font-serif);font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;color:rgba(232,228,220,0.90);margin-bottom:.6rem;line-height:1.3}
+.viz-section h2{font-family:var(--font-serif);font-size:clamp(1.1rem,2.5vw,1.45rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
 .viz-section .description{font-size:.95rem;color:var(--text-secondary);max-width:760px;line-height:1.65;margin-bottom:1.6rem}
 .svg-wrap{background:var(--bg-section);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1rem;overflow-x:auto}
 .svg-wrap svg{display:block;width:100%;height:auto}
@@ -67,7 +66,7 @@ main{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
 
 .desc-panel{display:none;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.3rem;margin-top:.75rem;position:relative}
 .desc-panel.active{display:block}
-.desc-panel h4{font-family:var(--font-serif);font-size:.95rem;font-weight:700;color:rgba(232,228,220,0.90);margin-bottom:.45rem;padding-right:1.5rem;line-height:1.35}
+.desc-panel h4{font-family:var(--font-serif);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.45rem;padding-right:1.5rem;line-height:1.35}
 .desc-panel p{font-size:.88rem;color:var(--text-secondary);line-height:1.65}
 .close-btn{position:absolute;top:.75rem;right:.9rem;background:none;border:none;font-size:1.1rem;color:var(--text-muted);cursor:pointer;padding:0;line-height:1}
 .close-btn:hover{color:var(--text)}
@@ -86,24 +85,23 @@ sup{font-size:10px;line-height:0;vertical-align:super;}
 sup a{color:rgba(26,26,46,0.65);text-decoration:none;}
 sup a:hover{text-decoration:underline;}
 .doc-footnotes{margin-top:44px;padding-top:18px;border-top:1px solid #dde2ee;}
-.doc-footnotes h2{font-family:'Source Sans 3',sans-serif;font-size:11px;font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}
+.doc-footnotes h2{font-family:'EB Garamond',Georgia,serif;font-size:11px;font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}
 .doc-footnotes ol{margin:0 0 0 20px;padding:0;}
-.doc-footnotes li{font-family:'Source Sans 3',sans-serif;font-size:12px;line-height:1.65;color:#9090aa;margin-bottom:5px;}
+.doc-footnotes li{font-family:'EB Garamond',Georgia,serif;font-size:12px;line-height:1.65;color:#6b6b78;margin-bottom:5px;}
 .doc-footnotes li:target{background:#FBE9A8;padding:2px 4px;margin-left:-4px;border-radius:2px;}
 </style>
 </head>
 <body data-chrome="footer-only">
 <div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 <div style="background:#111d30;height:44px;border-bottom:2px solid #B5923A;display:flex;align-items:center;padding:0 20px;position:relative;">
-  <span style="position:absolute;left:0;right:0;text-align:center;color:#e8eaf0;font-family:'Source Sans 3',sans-serif;font-size:13px;font-weight:500;pointer-events:none;">Resource Extraction from Occupied Donbas: The Mariupol Coal Export Scheme</span>
+  <span style="position:absolute;left:0;right:0;text-align:center;color:#e8eaf0;font-family:'EB Garamond',Georgia,serif;font-size:13px;font-weight:500;pointer-events:none;">Resource Extraction from Occupied Donbas: The Mariupol Coal Export Scheme</span>
 </div>
 
 <header class="site-header">
   <div class="label">TOT Insights · Ukraine and Russia Programme · CSNS / King's College London</div>
   <h1>Resource Extraction from Occupied Donbas: The Mariupol Coal Export Scheme</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
   <p class="subtitle">Three analytical visualisations from the TOT Insights investigation into the George Oil agreement, Mariupol port transformation, and the emerging sanctions circumvention scheme for exporting looted coal from occupied Donetsk.</p>
-  <p class="meta">Source investigation: ANALYTICAL_BRIEF_G, TOT Insights Hub, 2026 &nbsp;·&nbsp; Click any node to expand detail</p>
+  <p class="meta">TOT Insights analytical research, 2026 &nbsp;·&nbsp; Click any node to expand detail</p>
 </header>
 
 <nav class="viz-nav" aria-label="Visualisation sections">
@@ -128,7 +126,7 @@ sup a:hover{text-decoration:underline;}
       <desc id="seq-desc">Timeline showing the coordinated sequence from initial contact at the Eastern Economic Forum in September 2025 through the George Oil signing on 19 March 2026, the dredging tender on 20 March, George Oil Plus registration on 24 March, and satellite confirmation of coal stockpiles.</desc>
       <defs>
         <marker id="arr-seq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#7AACBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
 
@@ -137,62 +135,62 @@ sup a:hover{text-decoration:underline;}
 
       <!-- Phase: Background contact -->
       <rect x="30" y="34" width="622" height="96" rx="4" fill="#f7f8fc"/>
-      <text x="42" y="50" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">BACKGROUND CONTACT</text>
+      <text x="42" y="50" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#6b6b78" font-weight="600" letter-spacing=".08em">BACKGROUND CONTACT</text>
 
       <!-- Sep 2025: EEF -->
       <g class="clickable-node" tabindex="0" data-node="eef" role="button" aria-label="EEF contact - click for detail">
-        <circle cx="196" cy="72" r="8" fill="#2E5396" stroke="#D8EBF1" stroke-width="2.5"/>
-        <text x="218" y="62" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#253545" dominant-baseline="central">September 2025</text>
-        <text x="218" y="80" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Eastern Economic Forum - first contact between George Oil and Russia</text>
-        <text x="218" y="96" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Congress of Industrialists: cooperation memorandum with George Oil</text>
+        <circle cx="196" cy="72" r="8" fill="#9aa0a8" stroke="#f2f0ec" stroke-width="2.5"/>
+        <text x="218" y="62" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#111d30" dominant-baseline="central">September 2025</text>
+        <text x="218" y="80" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Eastern Economic Forum - first contact between George Oil and Russia</text>
+        <text x="218" y="96" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Congress of Industrialists: cooperation memorandum with George Oil</text>
       </g>
 
       <!-- Separator: "The critical window" -->
       <rect x="30" y="148" width="622" height="310" rx="4" fill="#FEF4F4"/>
-      <text x="42" y="164" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#A32D2D" font-weight="600" letter-spacing=".08em">THE CRITICAL WINDOW - 5 DAYS</text>
+      <text x="42" y="164" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#A32D2D" font-weight="600" letter-spacing=".08em">THE CRITICAL WINDOW - 5 DAYS</text>
 
       <!-- 19 March: Signing -->
       <g class="clickable-node" tabindex="0" data-node="signing" role="button" aria-label="Agreement signing - click for detail">
         <circle cx="196" cy="190" r="9" fill="#A32D2D" stroke="#FCEBEB" stroke-width="2.5"/>
-        <text x="218" y="178" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">19 March 2026</text>
-        <text x="218" y="196" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">George Oil director signs cooperation agreements in Donetsk with "DPR" government</text>
-        <text x="218" y="212" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Covers coking coal extraction and transport through Mariupol port</text>
+        <text x="218" y="178" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">19 March 2026</text>
+        <text x="218" y="196" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">George Oil director signs cooperation agreements in Donetsk with "DPR" government</text>
+        <text x="218" y="212" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Covers coking coal extraction and transport through Mariupol port</text>
       </g>
 
       <!-- 20 March: Dredging tender -->
       <g class="clickable-node" tabindex="0" data-node="dredging" role="button" aria-label="Dredging tender - click for detail">
         <circle cx="196" cy="268" r="9" fill="#A32D2D" stroke="#FCEBEB" stroke-width="2.5"/>
-        <text x="218" y="256" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">20 March 2026 <tspan font-weight="400" fill="#9090aa" font-size="11">- one day later</tspan></text>
-        <text x="218" y="274" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Electronic auction: dredging works on Coal Harbour channel, Mariupol</text>
-        <text x="218" y="290" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">RUB 441.34 million · 400,000m³ soil removal · deadline: May–October 2026</text>
+        <text x="218" y="256" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">20 March 2026 <tspan font-weight="400" fill="#6b6b78" font-size="11">- one day later</tspan></text>
+        <text x="218" y="274" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Electronic auction: dredging works on Coal Harbour channel, Mariupol</text>
+        <text x="218" y="290" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">RUB 441.34 million · 400,000m³ soil removal · deadline: May–October 2026</text>
       </g>
 
       <!-- 24 March: George Oil Plus -->
       <g class="clickable-node" tabindex="0" data-node="geoilplus" role="button" aria-label="George Oil Plus registration - click for detail">
         <circle cx="196" cy="348" r="9" fill="#A32D2D" stroke="#FCEBEB" stroke-width="2.5"/>
-        <text x="218" y="336" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">24 March 2026 <tspan font-weight="400" fill="#9090aa" font-size="11">- five days after signing</tspan></text>
-        <text x="218" y="354" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">George Oil Plus LLC registered in Batumi, Georgia (Seaside Street 4)</text>
-        <text x="218" y="370" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Director/owner: George Oil director - separate legal structure</text>
-        <text x="218" y="386" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Sanctions circumvention: foreign private trader as intermediary</text>
+        <text x="218" y="336" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#A32D2D" dominant-baseline="central">24 March 2026 <tspan font-weight="400" fill="#6b6b78" font-size="11">- five days after signing</tspan></text>
+        <text x="218" y="354" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">George Oil Plus LLC registered in Batumi, Georgia (Seaside Street 4)</text>
+        <text x="218" y="370" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Director/owner: George Oil director - separate legal structure</text>
+        <text x="218" y="386" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Sanctions circumvention: foreign private trader as intermediary</text>
       </g>
 
       <!-- Mar/Apr: Satellite / field confirmation -->
       <rect x="30" y="472" width="622" height="80" rx="4" fill="#f7f8fc"/>
-      <text x="42" y="488" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" font-weight="600" letter-spacing=".08em">INDEPENDENT CONFIRMATION</text>
+      <text x="42" y="488" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#6b6b78" font-weight="600" letter-spacing=".08em">INDEPENDENT CONFIRMATION</text>
 
       <g class="clickable-node" tabindex="0" data-node="satellite" role="button" aria-label="Independent confirmation - click for detail">
-        <circle cx="196" cy="516" r="8" fill="#2E5396" stroke="#D8EBF1" stroke-width="2.5"/>
-        <text x="218" y="506" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#253545" dominant-baseline="central">March–April 2026</text>
-        <text x="218" y="522" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Reuters satellite images: coal stockpiles and dome storage, Mariupol</text>
-        <text x="218" y="538" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">TOT Insights partner monitoring: coal on quays; railway wagon repair base established</text>
+        <circle cx="196" cy="516" r="8" fill="#9aa0a8" stroke="#f2f0ec" stroke-width="2.5"/>
+        <text x="218" y="506" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#111d30" dominant-baseline="central">March–April 2026</text>
+        <text x="218" y="522" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">Reuters satellite images: coal stockpiles and dome storage, Mariupol</text>
+        <text x="218" y="538" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#5a5e7a" dominant-baseline="central">TOT Insights partner monitoring: coal on quays; railway wagon repair base established</text>
       </g>
 
       <!-- Year spine markers -->
-      <text x="185" y="72" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" text-anchor="end" dominant-baseline="central">Sep 25</text>
-      <text x="185" y="190" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">19 Mar</text>
-      <text x="185" y="268" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">20 Mar</text>
-      <text x="185" y="348" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">24 Mar</text>
-      <text x="185" y="516" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#9090aa" text-anchor="end" dominant-baseline="central">Mar–Apr</text>
+      <text x="185" y="72" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#6b6b78" text-anchor="end" dominant-baseline="central">Sep 25</text>
+      <text x="185" y="190" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">19 Mar</text>
+      <text x="185" y="268" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">20 Mar</text>
+      <text x="185" y="348" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#A32D2D" text-anchor="end" dominant-baseline="central" font-weight="600">24 Mar</text>
+      <text x="185" y="516" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#6b6b78" text-anchor="end" dominant-baseline="central">Mar–Apr</text>
     </svg>
   </div>
 
@@ -220,67 +218,67 @@ sup a:hover{text-decoration:underline;}
       <desc id="port-desc">Structural diagram showing five elements of Mariupol port transformation: Coal Harbour dredging for larger vessels, open-quay coal accumulation zones, new dome bulk cargo storage, railway wagon repair base, and long-term 2040 development plan - all converging on the function of permanent coal and raw material export.</desc>
       <defs>
         <marker id="arr-port" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#7AACBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
 
       <!-- Outer container: Mariupol port -->
-      <rect x="30" y="30" width="620" height="380" rx="14" fill="#f7f8fc" stroke="#2E5396" stroke-width="1.5" stroke-dasharray="6 4"/>
-      <text x="340" y="56" font-family="'Source Sans 3',sans-serif" font-size="13" font-weight="600" fill="#253545" text-anchor="middle">Mariupol Commercial Sea Port</text>
-      <text x="340" y="74" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#5a5e7a" text-anchor="middle">Under systematic conversion to coal and raw-material export terminal, 2022–2040</text>
+      <rect x="30" y="30" width="620" height="380" rx="14" fill="#f7f8fc" stroke="#9aa0a8" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text x="340" y="56" font-family="'EB Garamond',Georgia,serif" font-size="13" font-weight="600" fill="#111d30" text-anchor="middle">Mariupol Commercial Sea Port</text>
+      <text x="340" y="74" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#5a5e7a" text-anchor="middle">Under systematic conversion to coal and raw-material export terminal, 2022–2040</text>
 
       <!-- Element 1: Coal Harbour dredging -->
       <g class="clickable-node" tabindex="0" data-node="dredge-port" role="button" aria-label="Coal Harbour dredging - click for detail">
         <rect x="52" y="94" width="268" height="68" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
-        <text x="186" y="116" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Coal Harbour dredging</text>
-        <text x="186" y="134" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">400,000m³ soil removed</text>
-        <text x="186" y="150" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Channel deepened for larger-tonnage vessels</text>
+        <text x="186" y="116" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Coal Harbour dredging</text>
+        <text x="186" y="134" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">400,000m³ soil removed</text>
+        <text x="186" y="150" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Channel deepened for larger-tonnage vessels</text>
       </g>
 
       <!-- Element 2: Open quay coal stockpiles -->
       <g class="clickable-node" tabindex="0" data-node="quay" role="button" aria-label="Open quay coal storage - click for detail">
         <rect x="360" y="94" width="268" height="68" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
-        <text x="494" y="116" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Open-quay coal accumulation</text>
-        <text x="494" y="134" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Coking coal delivered and stored directly</text>
-        <text x="494" y="150" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">on quays as open accumulation zones</text>
+        <text x="494" y="116" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Open-quay coal accumulation</text>
+        <text x="494" y="134" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Coking coal delivered and stored directly</text>
+        <text x="494" y="150" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">on quays as open accumulation zones</text>
       </g>
 
       <!-- Element 3: Dome structure -->
       <g class="clickable-node" tabindex="0" data-node="dome" role="button" aria-label="Dome bulk cargo storage - click for detail">
         <rect x="52" y="196" width="268" height="68" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1"/>
-        <text x="186" y="218" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">New dome bulk-cargo storage</text>
-        <text x="186" y="236" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Confirmed by Reuters satellite imagery</text>
-        <text x="186" y="252" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Permanent enclosed storage capacity</text>
+        <text x="186" y="218" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">New dome bulk-cargo storage</text>
+        <text x="186" y="236" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Confirmed by Reuters satellite imagery</text>
+        <text x="186" y="252" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Permanent enclosed storage capacity</text>
       </g>
 
       <!-- Element 4: Railway wagon repair -->
       <g class="clickable-node" tabindex="0" data-node="railway" role="button" aria-label="Railway wagon repair base - click for detail">
         <rect x="360" y="196" width="268" height="68" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1"/>
-        <text x="494" y="218" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Railway wagon repair base</text>
-        <text x="494" y="236" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">First RZD-livery passenger wagon repaired</text>
-        <text x="494" y="252" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">within port territory - military-industrial base</text>
+        <text x="494" y="218" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Railway wagon repair base</text>
+        <text x="494" y="236" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">First RZD-livery passenger wagon repaired</text>
+        <text x="494" y="252" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">within port territory - military-industrial base</text>
       </g>
 
       <!-- Element 5: 2040 plan - spans full width -->
       <g class="clickable-node" tabindex="0" data-node="plan2040" role="button" aria-label="2040 development plan - click for detail">
-        <rect x="52" y="298" width="576" height="88" rx="8" fill="#D8EBF1" stroke="#3D6678" stroke-width="1"/>
-        <text x="340" y="324" font-family="'Source Sans 3',sans-serif" font-size="12.5" font-weight="600" fill="#1a3870" text-anchor="middle" dominant-baseline="central">Long-term development plan: Mariupol port to 2040</text>
-        <text x="340" y="344" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#3D6678" text-anchor="middle" dominant-baseline="central">Regular dredging · new terminals · warehouse reconstruction · energy infrastructure · customs zone</text>
-        <text x="340" y="362" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#2E5396" text-anchor="middle" dominant-baseline="central">Indicative of preparation for permanent export operations, not temporary logistics</text>
+        <rect x="52" y="298" width="576" height="88" rx="8" fill="#f2f0ec" stroke="#9aa0a8" stroke-width="1"/>
+        <text x="340" y="324" font-family="'EB Garamond',Georgia,serif" font-size="12.5" font-weight="600" fill="#111d30" text-anchor="middle" dominant-baseline="central">Long-term development plan: Mariupol port to 2040</text>
+        <text x="340" y="344" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#9aa0a8" text-anchor="middle" dominant-baseline="central">Regular dredging · new terminals · warehouse reconstruction · energy infrastructure · customs zone</text>
+        <text x="340" y="362" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#9aa0a8" text-anchor="middle" dominant-baseline="central">Indicative of preparation for permanent export operations, not temporary logistics</text>
       </g>
 
       <!-- Arrows converging toward 2040 plan -->
-      <line x1="186" y1="162" x2="186" y2="196" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr-port)"/>
-      <line x1="494" y1="162" x2="494" y2="196" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr-port)"/>
-      <line x1="186" y1="264" x2="186" y2="284" stroke="#7AACBE" stroke-width="1.2"/>
-      <line x1="494" y1="264" x2="494" y2="284" stroke="#7AACBE" stroke-width="1.2"/>
-      <line x1="186" y1="284" x2="494" y2="284" stroke="#7AACBE" stroke-width="1.2"/>
-      <line x1="340" y1="284" x2="340" y2="298" stroke="#7AACBE" stroke-width="1.2" marker-end="url(#arr-port)"/>
+      <line x1="186" y1="162" x2="186" y2="196" stroke="#9aa0a8" stroke-width="1.2" marker-end="url(#arr-port)"/>
+      <line x1="494" y1="162" x2="494" y2="196" stroke="#9aa0a8" stroke-width="1.2" marker-end="url(#arr-port)"/>
+      <line x1="186" y1="264" x2="186" y2="284" stroke="#9aa0a8" stroke-width="1.2"/>
+      <line x1="494" y1="264" x2="494" y2="284" stroke="#9aa0a8" stroke-width="1.2"/>
+      <line x1="186" y1="284" x2="494" y2="284" stroke="#9aa0a8" stroke-width="1.2"/>
+      <line x1="340" y1="284" x2="340" y2="298" stroke="#9aa0a8" stroke-width="1.2" marker-end="url(#arr-port)"/>
     </svg>
   </div>
 
   <!-- Function label outside the SVG -->
-  <div style="background:#253545;color:#fff;border-radius:6px;padding:.9rem 1.2rem;margin-top:.75rem;font-size:.9rem;line-height:1.55">
+  <div style="background:#111d30;color:#fff;border-radius:6px;padding:.9rem 1.2rem;margin-top:.75rem;font-size:.9rem;line-height:1.55">
     <strong style="font-family:var(--font-serif)">Assessed function:</strong> The Mariupol port is being converted into a Russian industrial-military base with the primary function of exporting raw materials extracted from occupied Donetsk. The combination of deepened access channels, bulk storage infrastructure, and a 14-year development horizon is consistent with permanent export terminal status, not temporary military logistics.
   </div>
 
@@ -308,10 +306,10 @@ sup a:hover{text-decoration:underline;}
       <desc id="scheme-desc">Flow diagram showing extraction of coking coal from occupied Donetsk, transport to Mariupol port, sale to Georgian company George Oil Ltd acting as foreign intermediary, then onward export to Turkey, India, and potentially Georgia. A second lane shows the same scheme extending to grain, sunflower, and salt. The structure creates legal distance and serves as a sanctions circumvention mechanism.</desc>
       <defs>
         <marker id="arr-sch" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#7AACBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#9aa0a8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
         <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1L8 5L2 9" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#a23b34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
         <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M2 1L8 5L2 9" fill="none" stroke="#E8B84B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -319,71 +317,71 @@ sup a:hover{text-decoration:underline;}
       </defs>
 
       <!-- Lane labels -->
-      <text x="38" y="46" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#A32D2D" font-weight="600" letter-spacing=".08em">PRIMARY SCHEME - COKING COAL</text>
-      <text x="38" y="232" font-family="'Source Sans 3',sans-serif" font-size="10" fill="#854F0B" font-weight="600" letter-spacing=".08em">DECLARED FUTURE EXPANSION</text>
+      <text x="38" y="46" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#A32D2D" font-weight="600" letter-spacing=".08em">PRIMARY SCHEME - COKING COAL</text>
+      <text x="38" y="232" font-family="'EB Garamond',Georgia,serif" font-size="10" fill="#854F0B" font-weight="600" letter-spacing=".08em">DECLARED FUTURE EXPANSION</text>
 
       <!-- ── COAL LANE ── -->
 
       <!-- Step 1: Extraction -->
       <g class="clickable-node" tabindex="0" data-node="extraction" role="button" aria-label="Coal extraction in occupied Donetsk - click for detail">
         <rect x="38" y="56" width="148" height="60" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
-        <text x="112" y="78" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Coal extraction</text>
-        <text x="112" y="96" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Occupied Donetsk oblast</text>
+        <text x="112" y="78" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Coal extraction</text>
+        <text x="112" y="96" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Occupied Donetsk oblast</text>
       </g>
 
       <!-- Arrow 1→2 -->
-      <line x1="186" y1="86" x2="210" y2="86" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#arr-red)"/>
+      <line x1="186" y1="86" x2="210" y2="86" stroke="#a23b34" stroke-width="1.5" marker-end="url(#arr-red)"/>
 
       <!-- Step 2: Mariupol port -->
       <g class="clickable-node" tabindex="0" data-node="port-node" role="button" aria-label="Mariupol port - click for detail">
         <rect x="210" y="56" width="148" height="60" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
-        <text x="284" y="78" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Mariupol port</text>
-        <text x="284" y="96" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Coal Harbour - maritime export</text>
+        <text x="284" y="78" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">Mariupol port</text>
+        <text x="284" y="96" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Coal Harbour - maritime export</text>
       </g>
 
       <!-- Arrow 2→3 -->
-      <line x1="358" y1="86" x2="382" y2="86" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#arr-red)"/>
+      <line x1="358" y1="86" x2="382" y2="86" stroke="#a23b34" stroke-width="1.5" marker-end="url(#arr-red)"/>
 
       <!-- Step 3: George Oil - the intermediary (highlighted) -->
       <g class="clickable-node" tabindex="0" data-node="georgeoil" role="button" aria-label="George Oil intermediary - click for detail">
         <rect x="382" y="50" width="176" height="72" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="2"/>
-        <text x="470" y="75" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">George Oil Ltd</text>
-        <text x="470" y="93" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Georgian intermediary</text>
-        <text x="470" y="109" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Reg. Tbilisi 2015 · George Oil director</text>
+        <text x="470" y="75" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#7A1F1F" text-anchor="middle" dominant-baseline="central">George Oil Ltd</text>
+        <text x="470" y="93" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Georgian intermediary</text>
+        <text x="470" y="109" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">Reg. Tbilisi 2015 · George Oil director</text>
       </g>
 
       <!-- Arrow 3→ markets (fan out) -->
       <!-- to Turkey -->
-      <path d="M558 72 L614 72 L614 110" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#arr-red)"/>
+      <path d="M558 72 L614 72 L614 110" fill="none" stroke="#a23b34" stroke-width="1.5" marker-end="url(#arr-red)"/>
       <!-- to India -->
-      <path d="M558 86 L640 86 L640 110" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#arr-red)"/>
+      <path d="M558 86 L640 86 L640 110" fill="none" stroke="#a23b34" stroke-width="1.5" marker-end="url(#arr-red)"/>
       <!-- to Georgia (use) -->
-      <path d="M558 100 L614 100 L614 170" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-red)"/>
+      <path d="M558 100 L614 100 L614 170" fill="none" stroke="#a23b34" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-red)"/>
 
       <!-- End markets -->
       <g class="clickable-node" tabindex="0" data-node="turkey" role="button" aria-label="Turkey end market - click for detail">
         <rect x="566" y="110" width="96" height="40" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
-        <text x="614" y="130" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">Turkey</text>
+        <text x="614" y="130" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">Turkey</text>
       </g>
 
       <g class="clickable-node" tabindex="0" data-node="india" role="button" aria-label="India end market - click for detail">
         <rect x="592" y="160" width="96" height="40" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="0.8"/>
-        <text x="640" y="180" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">India</text>
+        <text x="640" y="180" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#3a3a36" text-anchor="middle" dominant-baseline="central">India</text>
       </g>
 
       <g>
         <rect x="566" y="170" width="96" height="40" rx="6" fill="#F1EFE8" stroke="#888780" stroke-width="0.8" stroke-dasharray="4 3"/>
-        <text x="614" y="190" font-family="'Source Sans 3',sans-serif" font-size="11.5" fill="#888780" text-anchor="middle" dominant-baseline="central">Georgia (use)</text>
+        <text x="614" y="190" font-family="'EB Garamond',Georgia,serif" font-size="11.5" fill="#888780" text-anchor="middle" dominant-baseline="central">Georgia (use)</text>
       </g>
 
       <!-- "Legal distance" annotation -->
       <rect x="370" y="140" width="182" height="36" rx="6" fill="#FBE9A8" stroke="#E8B84B" stroke-width="0.8"/>
-      <text x="461" y="158" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Creates legal distance from occupation</text>
+      <text x="461" y="158" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Creates legal distance from occupation</text>
 
       <!-- George Oil Plus note -->
       <g class="clickable-node" tabindex="0" data-node="geoilplus2" role="button" aria-label="George Oil Plus - separate legal structure - click for detail">
         <rect x="38" y="168" width="310" height="40" rx="6" fill="#FBE9A8" stroke="#E8B84B" stroke-width="0.8"/>
-        <text x="193" y="188" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#633800" text-anchor="middle" dominant-baseline="central">George Oil Plus LLC registered Batumi 24 March 2026 - separate structure for new scheme</text>
+        <text x="193" y="188" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#633800" text-anchor="middle" dominant-baseline="central">George Oil Plus LLC registered Batumi 24 March 2026 - separate structure for new scheme</text>
       </g>
 
       <!-- ── EXPANSION LANE ── -->
@@ -392,9 +390,9 @@ sup a:hover{text-decoration:underline;}
       <!-- Future resources -->
       <g class="clickable-node" tabindex="0" data-node="future" role="button" aria-label="Future resource expansion - click for detail">
         <rect x="38" y="244" width="148" height="72" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1"/>
-        <text x="112" y="266" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Future resources</text>
-        <text x="112" y="284" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Grain · sunflower · salt</text>
-        <text x="112" y="300" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Confirmed by George Oil director</text>
+        <text x="112" y="266" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Future resources</text>
+        <text x="112" y="284" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Grain · sunflower · salt</text>
+        <text x="112" y="300" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Confirmed by George Oil director</text>
       </g>
 
       <!-- same port arrow -->
@@ -402,23 +400,23 @@ sup a:hover{text-decoration:underline;}
 
       <g>
         <rect x="210" y="252" width="148" height="56" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1" stroke-dasharray="5 3"/>
-        <text x="284" y="276" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Same port channel</text>
-        <text x="284" y="294" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Mariupol port infrastructure</text>
+        <text x="284" y="276" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Same port channel</text>
+        <text x="284" y="294" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">Mariupol port infrastructure</text>
       </g>
 
       <line x1="358" y1="280" x2="382" y2="280" stroke="#E8B84B" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arr-amber)"/>
 
       <g>
         <rect x="382" y="252" width="176" height="56" rx="8" fill="#FBE9A8" stroke="#E8B84B" stroke-width="1" stroke-dasharray="5 3"/>
-        <text x="470" y="272" font-family="'Source Sans 3',sans-serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Same intermediary</text>
-        <text x="470" y="290" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">George Oil / George Oil Plus</text>
-        <text x="470" y="306" font-family="'Source Sans 3',sans-serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">(scalable scheme)</text>
+        <text x="470" y="272" font-family="'EB Garamond',Georgia,serif" font-size="12" font-weight="600" fill="#633800" text-anchor="middle" dominant-baseline="central">Same intermediary</text>
+        <text x="470" y="290" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">George Oil / George Oil Plus</text>
+        <text x="470" y="306" font-family="'EB Garamond',Georgia,serif" font-size="10.5" fill="#854F0B" text-anchor="middle" dominant-baseline="central">(scalable scheme)</text>
       </g>
 
       <!-- EEF context box -->
-      <rect x="38" y="344" width="604" height="44" rx="6" fill="#D8EBF1" stroke="#3D6678" stroke-width="0.8"/>
-      <text x="340" y="360" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#1a3870" text-anchor="middle" dominant-baseline="central">Contact mechanism: Eastern Economic Forum (EEF), Vladivostok - platform for Russian-foreign private business contact</text>
-      <text x="340" y="378" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#3D6678" text-anchor="middle" dominant-baseline="central">75 countries in 2025, including businesses from states whose governments publicly distance themselves from Russia</text>
+      <rect x="38" y="344" width="604" height="44" rx="6" fill="#f2f0ec" stroke="#9aa0a8" stroke-width="0.8"/>
+      <text x="340" y="360" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#111d30" text-anchor="middle" dominant-baseline="central">Contact mechanism: Eastern Economic Forum (EEF), Vladivostok - platform for Russian-foreign private business contact</text>
+      <text x="340" y="378" font-family="'EB Garamond',Georgia,serif" font-size="11" fill="#9aa0a8" text-anchor="middle" dominant-baseline="central">75 countries in 2025, including businesses from states whose governments publicly distance themselves from Russia</text>
     </svg>
   </div>
 
@@ -561,9 +559,9 @@ document.querySelectorAll('.clickable-node').forEach(el=>{
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Resource%20Extraction%20from%20Occupied%20Donbas%3A%20The%20Mariupol%20Coal%20Export%20Scheme%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/george_oil_visualisations.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Resource%20Extraction%20from%20Occupied%20Donbas%3A%20The%20Mariupol%20Coal%20Export%20Scheme%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/george_oil_visualisations.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:0.75rem;color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>
