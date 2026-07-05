@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Georgia', serif; background: #111d30; color: rgba(232,228,220,0.88); }
+  body { font-family: var(--font-serif); background: #f2f0ec; color: #2a2a3a; }
   .header { max-width: 940px; margin: 0 auto; padding: 40px 24px 0; }
   .label-bar {
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
@@ -17,17 +17,17 @@
   }
   .label-bar span { display: inline-block; width: 24px; height: 1px; background: #b0aa9e; }
   h1 { font-size: 22px; font-weight: normal; line-height: 1.3; margin-bottom: 6px; }
-  .subtitle { font-size: 14px; color: #e8eaf0; margin-bottom: 18px; font-style: italic; }
+  .subtitle { font-size: 14px; color: #2a2a3a; margin-bottom: 18px; font-style: italic; }
   .controls {
     display: flex; flex-wrap: wrap; align-items: center; gap: 16px;
-    margin-bottom: 16px; font-size: 12px; color: rgba(232,228,220,0.75);
+    margin-bottom: 16px; font-size: 12px; color: #4a4a57;
   }
 
   .hint { font-size: 12px; color: #999; font-style: italic; }
-  #network { width: 100%; height: 580px; display: block; border-top: 1px solid #e0ddd8; background: #f8f9fb; }
+  #network { width: 100%; height: 580px; display: block; border-top: 1px solid #e0ddd8; background: #f7f5f1; }
   .legend {
     max-width: 940px; margin: 0 auto; padding: 0 24px;
-    display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 12px; color: #e8eaf0;
+    display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 12px; color: #2a2a3a;
   }
   .legend-item { display: flex; align-items: center; gap: 6px; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
@@ -35,18 +35,18 @@
   .annotation { font-size: 12px; color: #888; border-top: 1px solid #e0ddd8; padding-top: 14px; line-height: 1.6; margin-top: 14px; }
   .source { font-size: 11px; color: #aaa; margin-top: 12px; letter-spacing: 0.03em; }
   .tooltip {
-    position: absolute; background: #253545; color: #f0ede6;
-    padding: 10px 14px; border-radius: 4px; font-size: 12px; font-family: Georgia;
+    position: absolute; background: #ffffff; color: #111d30;
+    padding: 10px 14px; border-radius: 4px; font-size: 12px; font-family: var(--font-serif);
     pointer-events: none; opacity: 0; transition: opacity 0.15s; max-width: 220px;
     line-height: 1.5; z-index: 100;
   }
-  .tooltip .tt-name { font-weight: bold; font-size: 13px; margin-bottom: 4px; color: #fff; }
-  .tooltip .tt-cat  { color: #aaa; font-style: italic; font-size: 11px; }
-  .tooltip .tt-desc { color: #ccc; font-size: 11px; margin-top: 4px; }
+  .tooltip .tt-name { font-weight: bold; font-size: 13px; margin-bottom: 4px; color: #111d30; }
+  .tooltip .tt-cat  { color: #6b6b78; font-style: italic; font-size: 11px; }
+  .tooltip .tt-desc { color: #6b6b78; font-size: 11px; margin-top: 4px; }
   .fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
   .fn-ref:hover { text-decoration: underline; }
-  .page-footnotes { padding: 16px 0 24px; font-family: var(--font-mono); font-size: 11px; color: rgba(232,228,220,0.45); line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 14px; }
-  .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
+  .page-footnotes { padding: 16px 0 24px; font-family: var(--font-mono); font-size: 11px; color: #6b6b78; line-height: 1.65; border-top: 1px solid rgba(17,29,48,0.10); margin-top: 14px; }
+  .page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: #9c7418; margin-bottom: 10px; }
   .page-footnotes ol { margin: 0; padding-left: 18px; }
   .page-footnotes li { margin-bottom: 8px; }
   .page-footnotes a { color: #c9a84c; }
@@ -57,10 +57,9 @@
 <div class="header">
   <div class="label-bar"><span></span> Economics &nbsp;·&nbsp; Mariupol Port</div>
   <h1>Connections around Mariupol Port, 2023–2025</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
-<div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Port Network (2023-2025). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20307784" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20307784</a></div>
+<div style="background:#f7f5f1;border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#6b6b78;margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Port Network (2023-2025). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20307784" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20307784</a></div>
   <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Mariupol Port Network (2023-2025). TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20307784');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p class="subtitle">Commercial, administrative, and personal networks operating in and around the occupied port</p>
@@ -76,11 +75,11 @@
 </div>
 
 <svg id="network"></svg>
-<div style="max-width:940px;margin:10px auto 4px;padding:0 24px;font-size:11px;font-family:var(--font-mono);color:rgba(232,228,220,0.45);font-style:italic;">This network combines Centre for the Study of Occupation monitoring with separately-sourced entities documented in public investigations (marked with dashed border).</div>
+<div style="max-width:940px;margin:10px auto 4px;padding:0 24px;font-size:11px;font-family:var(--font-mono);color:#6b6b78;font-style:italic;">This network combines Centre for the Study of Occupation monitoring with separately-sourced entities documented in public investigations (marked with dashed border).</div>
 
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#1E3A8A"></div>Port &amp; shipping</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#C2540A"></div>Trading / commercial</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#B5923A"></div>Trading / commercial</div>
   <div class="legend-item"><div class="legend-dot" style="background:#15803D"></div>Construction</div>
   <div class="legend-item"><div class="legend-dot" style="background:#1E6E6E"></div>Individuals</div>
   <div class="legend-item"><div class="legend-dot" style="background:#7C2D2D"></div>Individuals (federal)</div>
@@ -117,7 +116,7 @@
 <script>
 const catColors = {
   port:         '#1E3A8A',
-  trade:        '#C2540A',
+  trade:        '#B5923A',
   construction: '#15803D',
   person:       '#1E6E6E',
   federal:      '#7C2D2D',
@@ -280,7 +279,7 @@ node.append('circle')
 node.append('text')
   .text(d => d.label)
   .attr('font-size', '10.5px')
-  .attr('font-family', 'Georgia')
+  .attr('font-family', "'EB Garamond',Georgia,serif")
   .attr('fill', '#2a2a2a')
   .attr('text-anchor', 'middle')
   .attr('dy', d => nodeRadius(d) + 12)
@@ -391,9 +390,9 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Network%20Map%20%E2%80%94%20Mariupol%20Port%20(2023%E2%80%932025)&body=Page URL: https://totinsights.org/dashboards/mariupol_port_network.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Network%20Map%20%E2%80%94%20Mariupol%20Port%20(2023%E2%80%932025)&body=Page URL: https://totinsights.org/dashboards/mariupol_port_network.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:0.75rem;color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>
