@@ -8,19 +8,19 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, sans-serif; font-size: 14px; color: rgba(232,228,220,0.88); background: #111d30; padding: 32px 24px; }
-  .page { max-width: 960px; margin: 0 auto; background: #0D1624; border: 1px solid rgba(255,255,255,0.07); padding: 40px; }
+  body { font-family: var(--font-serif); font-size: 14px; color: #2a2a3a; background: #f2f0ec; padding: 32px 24px; }
+  .page { max-width: 960px; margin: 0 auto; background: #ffffff; border: 1px solid rgba(255,255,255,0.07); padding: 40px; }
 
   .header { border-bottom: 1px solid #ddd; padding-bottom: 12px; margin-bottom: 6px; }
   .header-label { font-size: 11px; font-weight: bold; color: #888; letter-spacing: .08em; text-transform: uppercase; }
 
   h1 { font-size: 26px; font-weight: bold; color: rgba(181,146,58,0.80); margin: 20px 0 4px; line-height: 1.2; }
-  .subtitle { font-size: 15px; color: rgba(232,228,220,0.75); font-style: italic; margin-bottom: 18px; }
-  .accent-rule { height: 4px; background: #1F3A6E; margin-bottom: 24px; }
+  .subtitle { font-size: 15px; color: rgba(17,29,48,0.72); font-style: italic; margin-bottom: 18px; }
+  .accent-rule { height: 4px; background: #111d30; margin-bottom: 24px; }
 
   .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 32px; margin-bottom: 24px; font-size: 13px; }
-  .meta-row span:first-child { font-weight: bold; color: rgba(232,228,220,0.75); }
-  .meta-row span:last-child { color: rgba(232,228,220,0.75); }
+  .meta-row span:first-child { font-weight: bold; color: rgba(17,29,48,0.72); }
+  .meta-row span:last-child { color: rgba(17,29,48,0.72); }
 
   .key-box { border: 1px solid rgba(17,29,48,0.10); border-left: 4px solid #c9a84c; background: #f7f5f1; padding: 16px 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(17,29,48,0.06); }
   .key-box-label { font-size: 11px; font-weight: bold; color: #a67c1a; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
@@ -55,7 +55,7 @@
   .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
 
   table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 0; }
-  table.data-table th { background: #1F3A6E; color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 11px; }
+  table.data-table th { background: #111d30; color: #fff; padding: 7px 10px; text-align: left; font-weight: bold; font-size: 11px; }
   table.data-table td { padding: 6px 10px; border-bottom: 1px solid rgba(17,29,48,0.10); color: #1a2332; }
   table.data-table tr:nth-child(even) td { background: rgba(17,29,48,0.035); }
   table.data-table td:nth-child(2), table.data-table td:nth-child(3) { text-align: right; }
@@ -82,7 +82,6 @@
   </div>
 
   <h1>Mariupol Property Seizure Programme</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(17,29,48,0.5);border-top:1px solid rgba(17,29,48,0.12);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(17,29,48,0.03);border-left:3px solid #c9a84c;padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(17,29,48,0.5);margin-bottom:0.35rem;">Cite this output</div>
   <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(17,29,48,0.78);line-height:1.5;">McGlynn, J. et al. (2026). Mariupol Property Seizure Programme. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20209826" target="_blank" rel="noopener noreferrer" style="color:#a67c1a;text-decoration:none;">https://doi.org/10.5281/zenodo.20209826</a></div>
@@ -127,15 +126,15 @@
       <div class="chart-label">Status breakdown - Jan 2025</div>
       <div class="legend">
         <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Ownerless (7,737 / 90.7%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#185FA5;"></span>Contested (574 / 6.7%)</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Heirs (145 / 1.7%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#3a5578;"></span>Contested (574 / 6.7%)</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#3f7d5a;"></span>Heirs (145 / 1.7%)</span>
         <span class="legend-item"><span class="legend-dot" style="background:#888780;"></span>Municipal (70 / 0.8%)</span>
       </div>
       <div style="position:relative;width:100%;height:220px;"><canvas id="c1"></canvas></div>
     </div>
     <div class="chart-block">
       <div class="chart-label">Properties by district</div>
-      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Properties in registry</span></div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#c9a84c;"></span>Properties in registry</span></div>
       <div style="position:relative;width:100%;height:220px;"><canvas id="c2"></canvas></div>
     </div>
   </div>
@@ -144,7 +143,7 @@
   <div class="chart-block" style="margin-bottom:28px;">
   <div class="legend" style="margin-bottom:8px;">
     <span class="legend-item"><span class="legend-dot" style="background:#A32D2D;"></span>Seized / ownerless (8,526)</span>
-    <span class="legend-item"><span class="legend-dot" style="background:#0F6E56;"></span>Reclaimed by owners (2,220)</span>
+    <span class="legend-item"><span class="legend-dot" style="background:#3f7d5a;"></span>Reclaimed by owners (2,220)</span>
   </div>
   <div style="position:relative;width:100%;height:80px;"><canvas id="c3"></canvas></div>
   </div>
@@ -158,7 +157,7 @@
   <div class="chart-row-2">
     <div class="chart-block">
       <div class="chart-label">Top previous uses - commercial seizures</div>
-      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#534AB7;"></span>Unique properties</span></div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#c9a84c;"></span>Unique properties</span></div>
       <div style="position:relative;width:100%;height:360px;"><canvas id="c5"></canvas></div>
     </div>
     <div class="chart-block">
@@ -186,38 +185,27 @@
   </table>
   </div>
 
-  <div class="section-head">Primary sources</div>
-  <div class="chart-block" style="margin-bottom:28px;">
-  <table class="data-table">
-    <thead><tr><th>File</th><th>Date</th><th>Description</th></tr></thead>
-    <tbody>
-      <tr><td>Sobstvenniki_na_13.01.2025_god.xlsx</td><td>Jan 2025</td><td>Residential registry; 8,526 entries across four districts</td></tr>
-      <tr><td>22_11_2024_Sobstvenniki_..._dokumenty.xlsx</td><td>Nov 2024</td><td>Reclamation register; 2,220 owners who submitted title documents</td></tr>
-      <tr><td>Postanovlenie_Administratsii_336_ot_20_08_2024.pdf</td><td>Aug 2024</td><td>Decree №336 - operative legal instrument</td></tr>
-      <tr><td>Publikatsiya series (20 files)</td><td>Oct 2024 – Jun 2025</td><td>Commercial registry snapshots; ~420–660 non-residential properties per snapshot</td></tr>
-    </tbody>
-  </table>
-  </div>
 
   <div class="footer">
-    Sources: Centre for the Study of Occupation monitoring &nbsp;·&nbsp; Archived: TOT Insight Hub → Housing &nbsp;·&nbsp; Generated April 2026
+    Sources: Centre for the Study of Occupation monitoring
   </div>
 
 </div>
 
 <script>
-const lc = '#73726c';
+const lc = '#6b6b78';
 const gc = 'rgba(0,0,0,0.07)';
+Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color='#2a2a3a';
 
-new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Ownerless','Contested','Heirs','Municipalised'],datasets:[{data:[7737,574,145,70],backgroundColor:['#A32D2D','#185FA5','#0F6E56','#888780'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed.toLocaleString()} (${Math.round(ctx.parsed/8526*100)}%)`}}}}});
+new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Ownerless','Contested','Heirs','Municipalised'],datasets:[{data:[7737,574,145,70],backgroundColor:['#A32D2D','#3a5578','#3f7d5a','#888780'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed.toLocaleString()} (${Math.round(ctx.parsed/8526*100)}%)`}}}}});
 
-new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['Zhovtnevyi','Prymorskyi','Ordzhonikidzevshy','Ilyichevsky'],datasets:[{data:[2454,843,756,714],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y.toLocaleString()} properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11}}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}}}}}});
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:['Zhovtnevyi','Prymorskyi','Ordzhonikidzevshy','Ilyichevsky'],datasets:[{data:[2454,843,756,714],backgroundColor:'#c9a84c',borderRadius:3,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y.toLocaleString()} properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11}}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}}}}}});
 
-new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Total documented'],datasets:[{label:'Seized',data:[8526],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0},{label:'Reclaimed',data:[2220],backgroundColor:'#0F6E56',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.x.toLocaleString()}`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
+new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Total documented'],datasets:[{label:'Seized',data:[8526],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0},{label:'Reclaimed',data:[2220],backgroundColor:'#3f7d5a',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.dataset.label}: ${ctx.parsed.x.toLocaleString()}`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
 
 new Chart(document.getElementById('c4'),{type:'line',data:{labels:['Oct 7','Oct 28','Nov 7','Nov 26','Dec 13','Dec 23','Dec 28','Jan 21','Feb 5','Feb 17','Mar 10','Apr 7','May 5','Jun 3'],datasets:[{data:[391,428,425,424,628,656,440,458,457,469,460,458,431,419],borderColor:'#E8B84B',backgroundColor:'rgba(232,184,75,0.06)',tension:0.3,pointRadius:4,pointBackgroundColor:'#E8B84B',fill:true,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y} unique properties`}}},scales:{x:{grid:{display:false},ticks:{color:lc,font:{size:11},maxRotation:45,autoSkip:false}},y:{grid:{color:gc},ticks:{color:lc,font:{size:11}},min:300,max:700}}}});
 
-new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Shop (magazin)','Café','Hairdresser','Garage','Pharmacy','Food shop','Legal services','Commercial space','Pet shop','Beauty salon','ATB (chain)','Tailor'],datasets:[{data:[145,20,16,15,13,11,9,8,8,7,6,6],backgroundColor:'#534AB7',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} unique properties`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
+new Chart(document.getElementById('c5'),{type:'bar',data:{labels:['Shop (magazin)','Café','Hairdresser','Garage','Pharmacy','Food shop','Legal services','Commercial space','Pet shop','Beauty salon','ATB (chain)','Tailor'],datasets:[{data:[145,20,16,15,13,11,9,8,8,7,6,6],backgroundColor:'#c9a84c',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} unique properties`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11}}},y:{grid:{display:false},ticks:{color:lc,font:{size:11}}}}}});
 
 new Chart(document.getElementById('c6'),{type:'bar',data:{labels:['Azovstal hotel','PUMB bank','DK Iskra','Leninskyi 89A','Burevesnik cinema','Siltpo (Kyivska)','Zelinskogo 89 (ATP)','Olympic sports','Primorska 1','Aquamarin'],datasets:[{data:[8386,7265,5643,4500,2708,2100,5100,2891,2891,1200],backgroundColor:'#A32D2D',borderRadius:3,borderWidth:0}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x.toLocaleString()} sqm`}}},scales:{x:{grid:{color:gc},ticks:{color:lc,font:{size:11},callback:v=>v.toLocaleString()}},y:{grid:{display:false},ticks:{color:lc,font:{size:10}}}}}});
 </script>
