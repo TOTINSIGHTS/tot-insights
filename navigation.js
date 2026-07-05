@@ -25,11 +25,13 @@
                 '<button class="nav-chevron-btn" aria-expanded="false" aria-label="Toggle Data submenu"><span class="nav-chevron">&#9662;</span></button>' +
                 '<div class="nav-dropdown-panel">' +
                   '<a href="' + p + 'data.html" data-nav="data-all">All Data</a>' +
-                  '<a href="' + p + 'data.html#visualisations">Visualisations</a>' +
+                  '<a href="' + p + 'data.html#databases">Databases</a>' +
                   '<a href="' + p + 'officials.html" data-nav="officials">Officials Database</a>' +
                   '<a href="' + p + 'sanctions.html" data-nav="sanctions">Sanctions Database</a>' +
+                  '<a href="' + p + 'data.html#dashboards">Interactive dashboards</a>' +
                 '</div>' +
               '</div>' +
+              '<a href="' + p + 'primary-sources.html" data-nav="primary-sources">Primary sources</a>' +
               '<a href="' + p + 'media.html" data-nav="media">Media</a>' +
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
@@ -69,6 +71,7 @@
     else if (file === 'about.html') key = 'about';
     else if (file === 'contact.html') key = 'contact';
     else if (file === 'data.html') key = 'data-all';
+    else if (file === 'primary-sources.html') key = 'primary-sources';
     else if (file === 'officials.html') key = 'officials';
     else if (file === 'sanctions.html') key = 'sanctions';
     else if (file.indexOf('resources') === 0 || file === 'research.html') key = 'resources';
