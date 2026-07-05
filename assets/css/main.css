@@ -95,8 +95,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-body);
-  background: var(--navy);
-  color: rgba(232,228,220,0.90);
+  background: var(--cream-panel);   /* light cream surface throughout (option B) */
+  color: var(--grey-900);
   font-size: 17px;
   line-height: 1.6;
 }
@@ -108,8 +108,9 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 /* ─── Site header ────────────────────────────────────────────────────────────── */
 
 .site-header {
-  background: var(--color-dark);
-  border-bottom: 3px solid var(--color-accent);
+  background: var(--cream-panel);   /* light header (option B) */
+  border-top: 3px solid var(--navy); /* thin navy strip at the very top */
+  border-bottom: 1px solid var(--grey-200);
   padding: 0 40px;
   position: sticky;
   top: 0;
@@ -133,13 +134,13 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
-  color: #fff;
+  color: var(--navy);
   letter-spacing: 0.02em;
 }
 .logo-sub {
   font-family: var(--font-mono);
   font-size: 9px;
-  color: rgba(255,255,255,0.35);
+  color: var(--grey-500);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -152,14 +153,14 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,0.55);
+  color: var(--grey-700);
   text-decoration: none;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 0.15s;
 }
 .header-nav a:hover,
-.header-nav a.active { color: #fff; }
+.header-nav a.active { color: var(--navy); }
 
 @media (max-width: 700px) {
   .header-nav { gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
@@ -169,8 +170,8 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
 /* ─── Page hero ──────────────────────────────────────────────────────────────── */
 
 .page-hero {
-  background: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-mid);
+  background: transparent;   /* light — sits on the cream body (option B) */
+  border-bottom: 1px solid var(--grey-200);
   padding: 36px 40px 32px;
 }
 .page-hero-inner { max-width: var(--content-width); margin: 0 auto; }
@@ -186,7 +187,7 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
   font-family: var(--font-serif);
   font-size: 26px;
   font-weight: 700;
-  color: var(--color-text);
+  color: var(--navy);
   line-height: 1.22;
 }
 
