@@ -12,16 +12,16 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
 
-body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-size:14px;line-height:1.6;}
+body{font-family:var(--font-body);background:var(--cream-panel);color:#2a2a3a;font-size:14px;line-height:1.6;}
 
 /* ── Header ── */
 
 /* ── Page header ── */
 
-.page-desc{font-size:13px;color:rgba(232,228,220,0.75);max-width:680px;line-height:1.75;border-left:3px solid var(--border);padding-left:14px;}
+.page-desc{font-size:13px;color:#4a4a57;max-width:680px;line-height:1.75;border-left:3px solid #e3e0d9;padding-left:14px;}
 
 /* ── Stat cards ── */
-.stats-strip{background:var(--navy-deep);border-bottom:1px solid var(--border);padding:20px 40px;}
+.stats-strip{background:transparent;border-bottom:1px solid #e3e0d9;padding:20px 40px;}
 .stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
 .stat-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 22px;flex:1;min-width:160px;transition:all 0.2s ease;}.stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}
 .stat-val{font-family:var(--font-serif);font-size:26px;font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
@@ -35,25 +35,25 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-
 .controls-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px;}
 .control-group{display:flex;flex-direction:column;gap:4px;}
 .control-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
-.search-input{font-family:var(--font-sans);font-size:13px;color:var(--text);background:var(--navy-deep);border:1px solid var(--border);border-radius:2px;padding:7px 12px;width:260px;transition:border-color 0.12s;outline:none;}
+.search-input{font-family:var(--font-sans);font-size:13px;color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 12px;width:260px;transition:border-color 0.12s;outline:none;}
 .search-input:focus{border-color:var(--steel);}
-.search-input::placeholder{color:rgba(232,228,220,0.32);}
-select.filter-select{font-family:var(--font-sans);font-size:12px;color:var(--text);background:var(--navy-deep);border:1px solid var(--border);border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
+.search-input::placeholder{color:#4a4a57;}
+select.filter-select{font-family:var(--font-sans);font-size:12px;color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
 select.filter-select:focus{border-color:var(--steel);}
 .clear-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--muted);background:none;border:none;cursor:pointer;padding:7px 0;text-decoration:underline;white-space:nowrap;transition:color 0.12s;align-self:flex-end;}
 .clear-btn:hover{color:var(--steel);}
 .results-info{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;}
-.results-info strong{color:rgba(232,228,220,0.90);font-weight:500;}
+.results-info strong{color:#4a4a57;font-weight:500;}
 
 /* ── Table ── */
-.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:3px;}
+.table-wrap{overflow-x:auto;border:1px solid #e3e0d9;border-radius:3px;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
 thead{position:sticky;top:61px;z-index:10;}
-th{background:var(--steel);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;cursor:pointer;user-select:none;}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;cursor:pointer;user-select:none;}
 th:hover{background:rgba(181,146,58,0.20);}
 th .sort-arrow{margin-left:4px;opacity:0.5;font-size:10px;}
 th.sorted .sort-arrow{opacity:1;}
-td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.45;color:var(--text);}
+td{padding:10px 14px;border-bottom:1px solid #e3e0d9;vertical-align:top;line-height:1.45;color:#2a2a3a;}
 tr:last-child td{border-bottom:none;}
 tbody tr{cursor:pointer;transition:background 0.1s;}
 tbody tr:hover td{background:rgba(255,255,255,0.05);}
@@ -72,7 +72,7 @@ tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
 
 /* ── Pagination ── */
 .pagination{display:flex;align-items:center;gap:6px;margin-top:16px;flex-wrap:wrap;}
-.page-btn{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border:1px solid var(--border);border-radius:2px;background:transparent;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
+.page-btn{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border:1px solid #e3e0d9;border-radius:2px;background:transparent;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
 .page-btn:hover:not(:disabled){border-color:var(--steel);color:var(--steel);}
 .page-btn.current{background:var(--steel);border-color:var(--steel);color:#fff;cursor:default;}
 .page-btn:disabled{opacity:0.35;cursor:not-allowed;}
@@ -85,20 +85,20 @@ tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
 /* ── Detail panel ── */
 .detail-overlay{display:none;position:fixed;inset:0;background:rgba(8,18,32,0.5);z-index:300;align-items:flex-start;justify-content:flex-end;}
 .detail-overlay.open{display:flex;}
-.detail-panel{background:var(--navy-deep);width:440px;max-width:100vw;height:100vh;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;}
+.detail-panel{background:#ffffff;width:440px;max-width:100vw;height:100vh;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;}
 .detail-header{background:var(--steel);padding:18px 20px;display:flex;align-items:flex-start;gap:12px;position:sticky;top:0;border-bottom:2px solid var(--gold);}
 .detail-header-text{flex:1;min-width:0;}
 .detail-name{font-family:var(--font-serif);font-size:16px;font-weight:700;color:#fff;line-height:1.3;word-wrap:break-word;}
-.detail-close{background:none;border:none;color:rgba(255,255,255,0.45);font-size:22px;cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
+.detail-close{background:none;border:none;color:#4a4a57;font-size:22px;cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
 .detail-close:hover{color:#fff;}
 .detail-body{padding:20px;flex:1;}
 .detail-type-row{margin-bottom:16px;}
 .detail-field{margin-bottom:14px;}
 .detail-field-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
-.detail-field-value{font-size:13px;color:var(--text);line-height:1.6;word-wrap:break-word;}
+.detail-field-value{font-size:13px;color:#2a2a3a;line-height:1.6;word-wrap:break-word;}
 .detail-field-value.mono{font-family:var(--font-mono);font-size:11px;}
-.detail-divider{height:1px;background:var(--border);margin:16px 0;}
-.detail-notes{background:var(--navy-deep);border:1px solid var(--border);border-left:3px solid var(--gold-lt);border-radius:2px;padding:12px 14px;font-size:12px;line-height:1.7;color:#3A4A56;word-wrap:break-word;}
+.detail-divider{height:1px;background:#e3e0d9;margin:16px 0;}
+.detail-notes{background:#f7f5f1;border:1px solid #e3e0d9;border-left:3px solid var(--gold-lt);border-radius:2px;padding:12px 14px;font-size:12px;line-height:1.7;color:#3A4A56;word-wrap:break-word;}
 
 /* ── Footer ── */
 
@@ -148,11 +148,11 @@ tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
   <div class="page-hero-inner">
     <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability and Legal</div>
     <h1 class="page-title">Sanctions Database</h1>
-    <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
+    <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Sanctioned (All Jurisdictions). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20185222" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/10.5281/zenodo.20185222</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Sanctioned (All Jurisdictions). TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20185222');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). Sanctioned (All Jurisdictions). TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20185222" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/10.5281/zenodo.20185222</a></div>
+  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Sanctioned (All Jurisdictions). TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20185222');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
     <p class="page-desc">A cross-jurisdiction database of individuals and entities sanctioned in connection with Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London. Covers designations by Australia (DFAT), the EU, Japan, Switzerland, the UK, the United States, and Ukraine.</p>
   </div>
@@ -227,7 +227,7 @@ tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
 <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
   <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Sanctions%20Database%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/sanctions.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Sanctions%20Database%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/sanctions.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
   <p style="font-family:var(--font-source);font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <div id="site-footer"></div>
