@@ -33,18 +33,50 @@
   --color-bg-stats:    #f7f5f1;
   --card-bg:           #f2f0ec;
 
+  /* ─── Design tokens — single source of truth (docs/STYLE_GUIDE.md) ─────── */
+
+  /* Reading/data surfaces */
+  --cream-panel:  #f2f0ec;   /* the reading/data surface (panels, cards) */
+  --cream-raised: #f7f5f1;   /* slightly lighter cream for stat strips */
+
+  /* Neutral house greys — for anything NOT signalling meaning */
+  --grey-900: #2a2a3a;   /* body text on cream (current value) */
+  --grey-700: #4a4a57;   /* secondary text on cream */
+  --grey-500: #6b6b78;   /* muted labels — still AA on cream */
+  --grey-300: #cfccc4;   /* faint gridlines / hairlines on cream */
+  --grey-200: #e3e0d9;   /* dividers on cream */
+
+  /* Status colours — MEANING ONLY (rule 4). Never decorative. */
+  --status-confirmed: #3f7d5a;   /* green — confirmed / delivered / positive */
+  --status-partial:   #b8862b;   /* amber — partial / analytically important */
+  --status-negative:  #a23b34;   /* red   — not delivered / negative */
+
+  /* Reading typography (the site's current comfortable size) */
+  --reading-size:    21px;
+  --reading-lead:    23px;
+  --reading-line:    1.8;
+  --reading-measure: 40rem;
+
+  /* Spacing steps */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 16px;
+  --space-4: 24px; --space-5: 40px; --space-6: 64px;
+
+  /* Shared content width */
+  --content-width:      1200px;
+  --content-width-wide: 1400px;   /* ≥1024px screens */
+
   /* Legacy aliases */
   --steel:   var(--color-primary);
   --gold-lt: var(--gold-pale);
-  --cream:   var(--color-bg-alt);
+  --cream:   #f2f0ec;   /* real cream reading/data surface (was mis-aliased to navy) */
   --muted:   var(--text-muted);
   --paper:   var(--navy-card);
 
   /* Typography */
   --font-serif:   'EB Garamond', Georgia, serif;    /* unified to site serif (was Libre Baskerville) */
-  --font-sans:    'IBM Plex Sans', sans-serif;
-  --font-mono:    'IBM Plex Mono', monospace;
-  --font-display: 'Playfair Display', Georgia, serif;  /* kept for logo + hero display headings */
+  --font-sans:    var(--font-serif);   /* Garamond everywhere (was IBM Plex Sans) */
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;   /* small uppercase labels only */
+  --font-display: var(--font-serif);   /* Garamond everywhere (was Playfair Display) */
   --font-source:  'EB Garamond', Georgia, serif;    /* unified to site serif (was Source Serif 4) */
   --font-body:    'EB Garamond', Georgia, serif;
 
