@@ -34,6 +34,17 @@
 .ps-ph-title{font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:rgba(232,228,220,0.9);margin-bottom:8px;}
 .ps-ph-note{font-family:var(--font-body);font-size:15px;color:rgba(232,228,220,0.55);line-height:1.6;max-width:520px;margin:0 auto;}
 
+
+/* Body reading content moved onto the cream panel */
+.ps-reading{padding:40px 44px 48px;}
+.ps-reading > .section-label:first-child{margin-top:0;}
+.ps-reading .section-label{border-bottom-color:rgba(17,29,48,0.15);}
+.ps-reading .section-desc{color:rgba(17,29,48,0.72);}
+.ps-reading .ps-collection-title{color:#111d30;}
+.ps-reading .ps-card{box-shadow:0 1px 5px rgba(17,29,48,0.10);}
+.ps-reading .ps-gallery-placeholder{background:rgba(201,168,76,0.07);}
+.ps-reading .ps-ph-title{color:#111d30;}
+.ps-reading .ps-ph-note{color:rgba(17,29,48,0.6);}
 </style>
 </head>
 <body>
@@ -49,6 +60,7 @@
 </div>
 
 <div class="main-content">
+  <div class="reading-panel ps-reading">
 
   <div class="section-label" id="documents">Document collections</div>
   <p class="section-desc">Original Russian-language records issued by the occupation authorities and Russian state, published with machine translations for research, accountability, and documentation.</p>
@@ -341,6 +353,7 @@
     <p class="ps-ph-note">This area is reserved for image galleries and photo carousels. They will appear here once added &mdash; the layout above (document collections) and this gallery area sit on one page.</p>
   </div>
 
+  </div>
 </div>
 
 <div id="site-footer"></div>

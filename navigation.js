@@ -35,7 +35,6 @@
               '<a href="' + p + 'media.html" data-nav="media">Media</a>' +
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
-              '<a href="' + p + 'contact.html" data-nav="contact">Contact</a>' +
             '</nav>' +
           '</div>' +
         '</header>',
@@ -69,7 +68,6 @@
     else if (file === 'themes.html') key = 'themes';
     else if (file === 'media.html') key = 'media';
     else if (file === 'about.html') key = 'about';
-    else if (file === 'contact.html') key = 'contact';
     else if (file === 'data.html') key = 'data-all';
     else if (file === 'primary-sources.html') key = 'primary-sources';
     else if (file === 'officials.html') key = 'officials';
