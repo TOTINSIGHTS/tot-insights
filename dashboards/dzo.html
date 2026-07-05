@@ -417,6 +417,12 @@ function showTab(el, id) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   el.classList.add('active');
+  // Charts created inside a hidden panel initialise at 0x0; once the panel is
+  // shown, tell any Chart.js charts within it to resize so they actually render.
+  document.querySelectorAll('#tab-' + id + ' canvas').forEach(function (c) {
+    var ch = (typeof Chart !== 'undefined' && Chart.getChart) ? Chart.getChart(c) : null;
+    if (ch) ch.resize();
+  });
 }
 
 function filterTable(tableId, query) {
