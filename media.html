@@ -12,17 +12,17 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
 
-body{font-family:var(--font-sans);background:var(--navy);color:rgba(232,228,220,0.88);font-size:15px;line-height:1.6;}
+body{font-family:var(--font-sans);background:transparent;color:#6b6b78;font-size:15px;line-height:1.6;}
 
-.media-section{padding:40px 40px 80px;background:var(--navy-deep);}
+.media-section{padding:40px 40px 80px;background:transparent;}
 .media-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 
 .filter-block{margin-bottom:20px;}
-.filter-row-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(232,228,220,0.75);margin-bottom:8px;}
+.filter-row-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#4a4a57;margin-bottom:8px;}
 .filter-row{display:flex;flex-wrap:wrap;gap:6px;}
 
-.results-count{font-family:var(--font-mono);font-size:11px;color:rgba(232,228,220,0.75);margin-bottom:14px;letter-spacing:0.05em;}
+.results-count{font-family:var(--font-mono);font-size:11px;color:#4a4a57;margin-bottom:14px;letter-spacing:0.05em;}
 .results-count span{color:rgba(181,146,58,0.80);font-weight:500;}
 .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch;}
 @media(max-width:1000px){.media-grid{grid-template-columns:repeat(2,1fr);}}
@@ -46,9 +46,9 @@ body{font-family:var(--font-sans);background:var(--navy);color:rgba(232,228,220,
 .media-link:hover{color:#1a1a2e;}
 .media-link-arrow{transition:transform 0.12s;}
 .media-link:hover .media-link-arrow{transform:translateX(3px);}
-.media-no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:rgba(232,228,220,0.75);font-size:14px;}
+.media-no-results{display:none;grid-column:1/-1;padding:48px 0;text-align:center;color:#4a4a57;font-size:14px;}
 .media-no-results.visible{display:block;}
-.media-photo-card{border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);height:420px;}
+.media-photo-card{border-radius:3px;overflow:hidden;border:1px solid rgba(17,29,48,0.08);height:420px;}
 .media-photo-card img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;}
 @media(max-width:700px){.media-section{padding:28px 20px 60px;}.page-hero{padding:24px 20px 20px;}}
 </style>
