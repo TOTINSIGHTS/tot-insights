@@ -23,7 +23,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-he
 
 .site-header{background:transparent;color:var(--navy);padding:2.5rem 2rem 2rem;position:relative}
 .site-header .label{font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;opacity:.65;margin-bottom:.75rem;font-weight:600}
-.site-header h1{font-family:var(--font-serif);font-size:var(--fs-section);font-weight:700;line-height:1.25;max-width:820px;margin-bottom:.65rem}
+.site-header h1{font-family:var(--font-serif);font-size:var(--fs-title);font-weight:700;line-height:1.25;max-width:820px;margin-bottom:.65rem}
 .site-header .subtitle{font-size:var(--fs-body);color:var(--grey-700);max-width:700px;line-height:1.55}
 .site-header .meta{margin-top:1.25rem;font-size:var(--fs-body);color:var(--grey-500);border-top:1px solid var(--grey-200);padding-top:.85rem}
 
@@ -46,14 +46,14 @@ main{max-width:1020px;margin:0 auto;padding:0 1.5rem 4rem}
 .li{display:flex;align-items:center;gap:.35rem}
 .ls{width:13px;height:13px;border-radius:50%;flex-shrink:0}
 
-.network-wrapper{position:relative;border-radius:10px;overflow-x:auto;overflow-y:hidden;border:1px solid #111d30}
+.network-wrapper{position:relative;border-radius:4px;overflow-x:auto;overflow-y:hidden;border:1px solid #111d30}
 .network-wrapper svg{display:block;width:100%;height:auto;min-width:680px}
 
 .hover-tip{
   position:fixed;background:#0a1628;color:#e3e0d9;border:1px solid #3a4a5e;border-radius:6px;
   padding:.5rem .8rem;font-size:var(--fs-label);font-family:var(--font-body);pointer-events:none;
   z-index:2000;max-width:240px;line-height:1.4;opacity:0;transition:opacity .1s;
-  box-shadow:0 4px 16px rgba(0,0,0,.4);
+  box-shadow:none;
 }
 .hover-tip.visible{opacity:1}
 .hover-tip .tip-name{font-weight:600;color:#f2f0ec;margin-bottom:.15rem}
@@ -104,8 +104,8 @@ footer strong{color:var(--text-secondary);font-weight:600}
   <p class="description">Each cluster groups construction companies operating in occupied territory (amber) with their corporate parent or holding structures (grey). Ownership links are expressed at corporate level per registry records. The Etalon Group cluster - a major listed St Petersburg developer with an occupied-territory subsidiary structure routed through AO RSK and OOO SFO Direct Finance - is analytically the most significant structural finding. Click any node for registry detail.</p>
 
   <div class="legend">
-    <div class="li"><div class="ls" style="background:#E8B84B;border:2px solid #E8B84B"></div>Company operating in occupied territory (links to registry)</div>
-    <div class="li"><div class="ls" style="background:#9aa0a8;border:2px solid #9aa0a8"></div>Corporate holding or parent structure</div>
+    <div class="li"><div class="ls" style="background:#E8B84B;border:1px solid #E8B84B"></div>Company operating in occupied territory (links to registry)</div>
+    <div class="li"><div class="ls" style="background:#9aa0a8;border:1px solid #9aa0a8"></div>Corporate holding or parent structure</div>
     <div class="li" style="color:var(--text-muted);font-style:italic">Cluster zone = common-ownership grouping per registry</div>
   </div>
 

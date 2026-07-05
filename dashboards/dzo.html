@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
   :root {
-    --navy: #3a5578; --blue: #3a5578; --mid: #5a6c88; --light: #e8edf5;
+    --navy: #111d30; --blue: #111d30; --mid: #5a6c88; --light: #e8edf5;
     --accent: #a23b34; --warn: #b8862b; --green: #3f7d5a;
     --text: #2a2a3a; --muted: #5a6a8a; --border: #d0d8e8;
   }
@@ -19,7 +19,7 @@
   .header h1 { font-size:var(--fs-body); font-weight: 700; }
   .header .sub { font-size:var(--fs-label); color: #4a4a57; margin-top: 4px; }
   .header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .badge { background: transparent; border: 1px solid rgba(17,29,48,0.2); color: #6b6b78; padding: 3px 10px; border-radius: 12px; font-size:var(--fs-label); }
+  .badge { background: transparent; border: 1px solid rgba(17,29,48,0.2); color: #6b6b78; padding: 3px 10px; border-radius:4px; font-size:var(--fs-label); }
 
   .tabs { display: flex; background: var(--cream-raised); border-bottom: 1px solid var(--grey-200); padding: 0 32px; overflow-x: auto; }
   .tab { padding: 11px 18px; cursor: pointer; color: var(--grey-700); font-size:var(--fs-label); font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
@@ -32,7 +32,7 @@
   .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
   @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 400px) { .cards { grid-template-columns: 1fr; } }
-  .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); box-shadow:none; }
   .card .label { font-size:var(--fs-label); text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
   .card .value { font-size:var(--fs-body); font-weight: 700; color: var(--navy); line-height: 1.1; }
   .card .value.red { color: var(--accent); }
@@ -44,7 +44,7 @@
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
-  .box { background: white; border-radius: 8px; padding: 18px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 20px; }
+  .box { background: white; border-radius: 8px; padding: 18px; border: 1px solid var(--border); box-shadow:none; margin-bottom: 20px; }
 
   table { width: 100%; border-collapse: collapse; font-size:var(--fs-label); }
   th { background: var(--navy); color: white; padding: 8px 10px; text-align: left; font-size:var(--fs-label); font-weight: 600; }
@@ -52,20 +52,20 @@
   tr:nth-child(even) td { background: #f8f9fc; }
   tr:hover td { background: #edf2fb; }
 
-  .flag { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size:var(--fs-label); font-weight: 600; }
-  .flag.red { background: #fde8e8; color: var(--accent); }
+  .flag { display: inline-block; padding: 2px 7px; border-radius:4px; font-size:var(--fs-label); font-weight: 600; }
+  .flag.red { background: #e3e0d9; color: var(--accent); }
   .flag.blue { background: #e8edf8; color: var(--blue); }
-  .flag.warn { background: #fef3e2; color: var(--warn); }
+  .flag.warn { background: #e3e0d9; color: var(--warn); }
   .flag.dark { background: #333; color: white; }
   .flag.green { background: #e8f5ee; color: var(--green); }
 
-  .alert { background: #fef3e2; border: 1px solid #f0a040; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size:var(--fs-label); line-height: 1.6; }
-  .alert.red { background: #fde8e8; border-color: #e07070; color: #7a1f1f; }
+  .alert { background: #e3e0d9; border: 1px solid #f0a040; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size:var(--fs-label); line-height: 1.6; }
+  .alert.red { background: #e3e0d9; border-color: #e07070; color: #7a1f1f; }
 
   .org { overflow-x: auto; padding: 10px 0; }
   .org-tree { display: flex; flex-direction: column; align-items: center; }
   .org-level { display: flex; justify-content: center; gap: 12px; margin: 6px 0; flex-wrap: wrap; }
-  .org-node { background: white; border: 2px solid var(--border); border-radius: 8px; padding: 10px 14px; min-width: 160px; max-width: 210px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .org-node { background: white; border:1px solid var(--border); border-radius: 8px; padding: 10px 14px; min-width: 160px; max-width: 210px; text-align: center; box-shadow:none; }
   .org-node .name { font-weight: 700; font-size:var(--fs-label); color: var(--navy); line-height: 1.3; }
   .org-node .role { font-size:var(--fs-label); color: var(--muted); margin-top: 3px; }
   .org-node .dob { font-size:var(--fs-label); color: #505050; margin-top: 2px; }
@@ -76,11 +76,11 @@
   .former { border-color: #bbb; background: #f8f8f8; }
   .former .name { color: #505050; }
   .ministry-node { border-color: var(--warn); background: #fffaf0; }
-  .security-node { border-color: #3a5578; background: #eef1f5; }
+  .security-node { border-color: #111d30; background: #eef1f5; }
   .org-connector { width: 2px; height: 20px; background: var(--border); margin: 0 auto; }
 
   input.search { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size:var(--fs-label); width: 100%; max-width: 320px; margin-bottom: 14px; outline: none; }
-  input.search:focus { border-color: var(--mid); box-shadow: 0 0 0 2px rgba(58,111,196,0.15); }
+  input.search:focus { border-color: var(--mid); box-shadow:none; }
 
   .chart-wrap { position: relative; height: 280px; }
   .chart-wrap-sm { position: relative; height: 220px; }
@@ -118,7 +118,7 @@
 
 <!-- ═══ OVERVIEW ═══ -->
 <div class="panel active" id="tab-overview">
-  <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left:3px solid #C4964A;border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(17,29,48,0.08);">
+  <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left:3px solid #C4964A;border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:none;">
     <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#334155;line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
@@ -191,7 +191,7 @@
         <div class="name">Balytsky Yevhen Vitaliyovych</div>
         <div class="role">Head of Occupation Administration, Zaporizhzhia</div>
         <div class="dob">b. 10.12.1969, Melitopol &middot; IPN 2554609355</div>
-        <div class="tag" style="background:#fde8e8;color:var(--accent)">APEX BENEFICIARY &middot; SANCTIONED EU/US/UK</div>
+        <div class="tag" style="background:#e3e0d9;color:var(--accent)">APEX BENEFICIARY &middot; SANCTIONED EU/US/UK</div>
       </div>
     </div>
     <div class="org-connector"></div>
@@ -201,7 +201,7 @@
         <div class="name">Shevchenko (Lyshkova) Svitlana Yuriivna</div>
         <div class="role">Minister, Agro-Industrial Complex &amp; Food Policy, Zaporizhzhia VCA</div>
         <div class="dob">b. 07.02.1982, Vurnary, Chuvash Republic RF</div>
-        <div class="tag" style="background:#fef3e2;color:var(--warn)">MINISTRY OVERSIGHT</div>
+        <div class="tag" style="background:#e3e0d9;color:var(--warn)">MINISTRY OVERSIGHT</div>
       </div>
     </div>
     <div class="org-connector"></div>
@@ -234,7 +234,7 @@
     <div class="org-level">
       <div class="org-node current"><div class="name">Semyriak Denys Oleksandrovych</div><div class="role">Director, Commercial Dept</div><div class="dob">b. 23.06.1988, Krasnovardiiske, Crimea</div></div>
       <div class="org-node current"><div class="name">Mykhailovskyi Dmytro Leonidovych</div><div class="role">Director, Economics &amp; Finance</div><div class="dob">b. 24.12.1973, Donetsk</div></div>
-      <div class="org-node current"><div class="name">Dzhurkín Oleksiy Serhiyovych</div><div class="role">Director, Logistics Operations</div><div class="dob">b. 28.10.1979, RF &middot; St. Petersburg</div><div class="tag" style="background:#fef3e2;color:var(--warn)">Also runs Agrogroup intermediary</div></div>
+      <div class="org-node current"><div class="name">Dzhurkín Oleksiy Serhiyovych</div><div class="role">Director, Logistics Operations</div><div class="dob">b. 28.10.1979, RF &middot; St. Petersburg</div><div class="tag" style="background:#e3e0d9;color:var(--warn)">Also runs Agrogroup intermediary</div></div>
       <div class="org-node current"><div class="name">Verkhaturov Yuriy Yuriyovych</div><div class="role">Director, Logistics Operations</div><div class="dob">b. 16.01.1985, Nerchinsk, Chita Oblast</div></div>
       <div class="org-node current"><div class="name">Hrynko Taras Viktorovych</div><div class="role">Director, Plant Growing</div><div class="dob">b. 26.03.1983, Hola Prystan, Kherson Oblast</div></div>
       <div class="org-node current"><div class="name">Kavtaradze Nana Hochaivna</div><div class="role">Director, Protocol</div><div class="dob">b. 29.08.1989, RF &middot; Moscow</div></div>
@@ -311,11 +311,11 @@
     <div class="box">
       <h3>Probable trajectories (source assessment)</h3>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
-        <div style="padding:12px;border-radius:6px;background:#fef3e2;border-left:3px solid var(--warn)">
+        <div style="padding:12px;border-radius:6px;background:#e3e0d9;border-left:3px solid var(--warn)">
           <div style="font-weight:700;font-size:var(--fs-label);color:var(--warn)">Most probable - Subsidised extraction</div>
           <div style="font-size:var(--fs-label);margin-top:4px;line-height:1.6">DZO continues as a federal budget recipient, with costs socialised to the Russian state while real profits are channelled through shadow schemes. Official losses legitimise continued subsidy while Balytsky and associates extract value.</div>
         </div>
-        <div style="padding:12px;border-radius:6px;background:#fde8e8;border-left:3px solid var(--accent)">
+        <div style="padding:12px;border-radius:6px;background:#e3e0d9;border-left:3px solid var(--accent)">
           <div style="font-weight:700;font-size:var(--fs-label);color:var(--accent)">Alternative - Controlled bankruptcy</div>
           <div style="font-size:var(--fs-label);margin-top:4px;line-height:1.6">Formal bankruptcy, debt write-off, asset transfer to a successor entity under a new name - restarting the cycle with legacy liabilities extinguished.</div>
         </div>
@@ -478,14 +478,14 @@ Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color=
 new Chart(document.getElementById('cropChart'), {
   type:'doughnut',
   data:{labels:['Wheat (~95k t)','Sunflower (~35k t)','Rapeseed (~10k t)','Corn (~4.4k t)','Barley (~2.4k t)','Peas (~0.1k t)'],
-    datasets:[{data:[95000,34940,9728,4418,2438,95],backgroundColor:['#3a5578','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[95000,34940,9728,4418,2438,95],backgroundColor:['#111d30','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}}}}
 });
 
 new Chart(document.getElementById('finChart'), {
   type:'bar',
   data:{labels:['2023','2024'],datasets:[
-    {label:'Revenue (bn \u20bd)',data:[5.9,2.427],backgroundColor:['#3a5578','#a23b34'],yAxisID:'y'},
+    {label:'Revenue (bn \u20bd)',data:[5.9,2.427],backgroundColor:['#111d30','#a23b34'],yAxisID:'y'},
     {label:'Harvest (m tonnes)',data:[5.7,6.26],type:'line',borderColor:'#3f7d5a',backgroundColor:'transparent',pointBackgroundColor:'#3f7d5a',pointRadius:6,yAxisID:'y2'}
   ]},
   options:{responsive:true,maintainAspectRatio:false,
@@ -496,29 +496,29 @@ new Chart(document.getElementById('finChart'), {
 new Chart(document.getElementById('capChart'), {
   type:'pie',
   data:{labels:['Promsvyazbank credit (4bn \u20bd)','Balytsky personal loan (1bn \u20bd)','Federal budget injection (0.8bn \u20bd)'],
-    datasets:[{data:[4,1,0.8],backgroundColor:['#3a5578','#a23b34','#b8862b'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[4,1,0.8],backgroundColor:['#111d30','#a23b34','#b8862b'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}
 });
 
 new Chart(document.getElementById('commodityChart'), {
   type:'bar',
   data:{labels:['Wheat','Sunflower','Rapeseed','Corn','Barley','Peas'],
-    datasets:[{label:'Tonnes',data:[95000,34940,9728,4418,2438,95],backgroundColor:['#3a5578','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34']}]},
+    datasets:[{label:'Tonnes',data:[95000,34940,9728,4418,2438,95],backgroundColor:['#111d30','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34']}]},
   options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Tonnes'}}}}
 });
 
 new Chart(document.getElementById('geoChart'), {
   type:'doughnut',
   data:{labels:['Moscow (4)','St. Petersburg (3)','Krasnodar (4)','Rostov Oblast (5)','Crimea occupied (2)','North Caucasus (2)','Occupied territories (3)','Unknown (1)'],
-    datasets:[{data:[4,3,4,5,2,2,3,1],backgroundColor:['#3a5578','#3a5578','#b8862b','#c9a84c','#a23b34','#333','#6b7688','#9aa0a8'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[4,3,4,5,2,2,3,1],backgroundColor:['#111d30','#111d30','#b8862b','#c9a84c','#a23b34','#333','#6b7688','#9aa0a8'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:10},boxWidth:12}}}}
 });
 
 const topBuyers = [
-  {name:'Kuban-Forward LLC',vol:44858,color:'#3a5578'},
-  {name:'Aval LLC',vol:29883,color:'#3a5578'},
+  {name:'Kuban-Forward LLC',vol:44858,color:'#111d30'},
+  {name:'Aval LLC',vol:29883,color:'#111d30'},
   {name:'NAYM LLC',vol:16635,color:'#b8862b'},
-  {name:'TD Fregat LLC',vol:4942,color:'#3a5578'},
+  {name:'TD Fregat LLC',vol:4942,color:'#111d30'},
   {name:'Dukush-2 LLC (Chechnya)',vol:4526,color:'#555'},
   {name:'Global Treyd LLC',vol:5730,color:'#9aa0a8'},
   {name:'Flagman-Yug (Crimea, occ.)',vol:3995,color:'#a23b34'},

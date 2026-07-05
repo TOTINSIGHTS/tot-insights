@@ -48,7 +48,7 @@ body {
   margin-bottom: 6px;
 }
 .header-title {
-  font-size:var(--fs-subheading);
+  font-size:var(--fs-title);
   font-weight: 600;
   color:var(--navy);
   line-height: 1.2;
@@ -127,7 +127,7 @@ body {
 .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
 .filter-btn {
   padding: 5px 13px;
-  border-radius: 20px;
+  border-radius:4px;
   font-family: var(--font-sans);
   font-size:var(--fs-label);
   cursor: pointer;
@@ -152,7 +152,7 @@ body {
 .tl-dot {
   position: absolute; left: 84px; top: 7px;
   width: 12px; height: 12px; border-radius: 50%;
-  border: 2px solid #fff; z-index: 1;
+  border:1px solid #fff; z-index: 1;
 }
 .tl-card {
   margin-left: 28px; background: #fff;
@@ -503,7 +503,7 @@ function renderTimeline() {
     entry.className = 'tl-entry';
     entry.innerHTML =
       '<div class="tl-year">' + item.year + '</div>' +
-      '<div class="tl-dot" style="background:' + color + ';box-shadow:0 0 0 2px ' + color + ';"></div>' +
+      '<div class="tl-dot" style="background:' + color + ';box-shadow:none;"></div>' +
       '<div class="tl-card" style="border-left:3px solid ' + color + ';">' +
         '<span class="tl-badge" style="background:' + color + ';">' + typeLabels[item.type] + '</span>' +
         '<p class="tl-event">' + item.event + '</p>' +
