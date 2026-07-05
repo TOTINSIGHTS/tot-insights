@@ -323,10 +323,10 @@ h3 { font-size: 1.2rem; line-height: 1.3; }
    .theme-card ("Governance") panel so the bibliography reading content
    matches the rest of the site. */
 .reading-panel {
-  background: #f2f0ec;
-  border-radius: 3px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.24), 0 0 0 1px rgba(0,0,0,0.10);
-  padding: 36px 40px;
+  background: transparent;   /* flat: reading content sits open on the cream surface */
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
   margin: 0 0 2rem;
 }
 /* Entry titles → dark navy; italic annotations → same dark body tone as .theme-framing */
