@@ -1,0 +1,127 @@
+/* TOT Insights — shared chart & diagram styles
+   Implements docs/STYLE_GUIDE.md rules 5 (charts) and 6 (diagrams).
+
+   Link AFTER main.css on any visualisation page:
+     <link rel="stylesheet" href="assets/css/main.css">
+     <link rel="stylesheet" href="assets/css/viz.css">
+
+   Charts and diagrams sit INSIDE a .reading-surface (cream). These styles
+   give them the house look so no page invents its own. */
+
+/* ─── Charts: spare, no chrome (rule 5) ─────────────────────────────── */
+
+.chart-figure {
+  background: transparent;   /* no fill behind the plot */
+  border: none;              /* no chart border */
+  box-shadow: none;          /* no drop shadow / 3D */
+  margin: 0 0 var(--space-5);
+}
+.chart-figure > canvas,
+.chart-figure > svg { max-width: 100%; height: auto; }
+
+.chart-title {
+  font-family: var(--font-serif);
+  color: var(--navy);        /* dark navy serif — always legible */
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+/* Plain-English gloss: spell out what the numbers mean (rule 5) */
+.chart-note {
+  font-family: var(--font-serif);
+  color: var(--grey-700);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: var(--space-2);
+  max-width: var(--reading-measure);
+}
+
+/* Source line — link to the research brief, never a repo file (rule 8) */
+.chart-source {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  margin-top: var(--space-2);
+}
+.chart-source a { color: var(--gold); }
+
+/* ─── Diagrams: plain boxes + connecting lines (rule 6) ─────────────── */
+
+.diagram {
+  display: grid;
+  gap: var(--space-4);
+  font-family: var(--font-serif);
+  align-items: start;        /* keep the layout on a consistent grid */
+}
+
+.diagram-box {
+  background: var(--cream-raised);
+  border: 1px solid var(--grey-300);
+  border-radius: 3px;
+  padding: var(--space-3) var(--space-4);
+  color: var(--navy);        /* Garamond dark navy box text */
+  font-family: var(--font-serif);
+  box-shadow: none;          /* no depth effects */
+}
+.diagram-box h3, .diagram-box h4, .diagram-box p, .diagram-box li {
+  font-family: var(--font-serif);
+  color: var(--navy);
+}
+.diagram-box .box-label {    /* small uppercase label inside a box */
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+}
+
+/* Status / important nodes — colour ONLY to signal meaning (rule 4).
+   Applied as a left accent + border so the box stays neutral otherwise. */
+.diagram-box.is-confirmed { border-left: 4px solid var(--status-confirmed); }
+.diagram-box.is-partial   { border-left: 4px solid var(--status-partial); }
+.diagram-box.is-negative  { border-left: 4px solid var(--status-negative); }
+.diagram-box.is-key       { border: 2px solid var(--gold); }  /* analytically important node */
+
+/* Connectors: simple neutral lines; colour only to signal status */
+.diagram-connector            { stroke: var(--grey-500); stroke-width: 1.5; fill: none; }
+.diagram-connector.is-confirmed { stroke: var(--status-confirmed); }
+.diagram-connector.is-partial   { stroke: var(--status-partial); }
+.diagram-connector.is-negative  { stroke: var(--status-negative); }
+
+/* ─── Status legend (shared key for meaning colours) ────────────────── */
+
+.status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-700);
+  margin: var(--space-3) 0;
+}
+.status-legend .swatch {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.status-legend .swatch.confirmed { background: var(--status-confirmed); }
+.status-legend .swatch.partial   { background: var(--status-partial); }
+.status-legend .swatch.negative  { background: var(--status-negative); }
+
+/* ─── Accessibility: interaction works on tap + keyboard (rule 7) ───── */
+
+.diagram-box[tabindex], .diagram-box a,
+.chart-figure [role="button"], .chart-figure a {
+  min-height: 44px;          /* tap target big enough for a phone */
+}
+.diagram-box:focus-visible, .chart-figure :focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
