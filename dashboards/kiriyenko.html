@@ -8,13 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: var(--font-body);
-  background: #111d30;
-  color: #1F3864;
+  background: #f2f0ec;
+  color: #111d30;
   font-size: 16px;
   line-height: 1.6;
   min-height: 100vh;
@@ -22,7 +23,7 @@ body {
 
 /* ── Page header ────────────────────────────────────────── */
 .page-header {
-  background: #1F3864;
+  background: #111d30;
   color: #fff;
   padding: 14px 36px 20px;
   border-bottom: 4px solid #C9A84C;
@@ -81,8 +82,8 @@ body {
   transition: color 0.15s, border-color 0.15s;
   letter-spacing: 0.02em;
 }
-.tab-btn.active { color: #1F3864; font-weight: 600; border-bottom-color: #C9A84C; }
-.tab-btn:hover  { color: #1F3864; }
+.tab-btn.active { color: #111d30; font-weight: 600; border-bottom-color: #C9A84C; }
+.tab-btn:hover  { color: #111d30; }
 
 /* ── Content wrapper ────────────────────────────────────── */
 .content-outer { padding: 28px 24px 48px; }
@@ -103,7 +104,7 @@ body {
   font-family: var(--font-body);
   font-size: 20px;
   font-weight: 600;
-  color: #1F3864;
+  color: #111d30;
   margin-bottom: 4px;
 }
 .section-desc {
@@ -118,7 +119,7 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
-  color: #1F3864;
+  color: #111d30;
   margin-bottom: 12px;
 }
 
@@ -174,13 +175,13 @@ body {
 .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
 .stat-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 16px 18px; }
 .stat-val { font-family: var(--font-mono); font-size: 30px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
-.stat-label { font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: #1F3864; margin-bottom: 4px; }
+.stat-label { font-family: var(--font-sans); font-size: 12px; font-weight: 600; color: #111d30; margin-bottom: 4px; }
 .stat-note  { font-family: var(--font-sans); font-size: 11px; color: #595959; font-style: italic; }
 
 /* ── Domain bars ────────────────────────────────────────── */
 .domain-row { margin-bottom: 20px; }
 .domain-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-.domain-name { font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: #1F3864; }
+.domain-name { font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: #111d30; }
 .domain-pct  { font-family: var(--font-mono); font-size: 13px; color: #595959; }
 .domain-track { background: #EAF0F8; border-radius: 4px; height: 16px; overflow: hidden; margin-bottom: 4px; }
 .domain-fill  { height: 100%; border-radius: 4px; }
@@ -195,7 +196,7 @@ body {
 /* ── Vulnerability cards ────────────────────────────────── */
 .vuln-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 4px; padding: 12px 16px; margin-bottom: 12px; }
 .vuln-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.vuln-label  { font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: #1F3864; }
+.vuln-label  { font-family: var(--font-sans); font-size: 13px; font-weight: 700; color: #111d30; }
 .vuln-badge  { font-family: var(--font-mono); font-size: 10px; padding: 2px 8px; border-radius: 3px; }
 .vuln-badge.critical { color: #C0392B; background: #fff0ed; }
 .vuln-badge.high     { color: #7a5500; background: #fff8e8; }
@@ -204,7 +205,7 @@ body {
 /* ── Mechanism cards ────────────────────────────────────── */
 .mech-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; position: relative; }
 .mech-icc  { position: absolute; top: 12px; right: 14px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #C0392B; background: #fff0ed; padding: 2px 8px; border-radius: 3px; }
-.mech-title  { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: #1F3864; margin-bottom: 2px; }
+.mech-title  { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: #111d30; margin-bottom: 2px; }
 .mech-when   { font-family: var(--font-mono); font-size: 11px; color: #C9A84C; font-style: italic; margin-bottom: 6px; }
 .mech-detail { font-family: var(--font-sans); font-size: 13px; color: #333; line-height: 1.5; }
 
@@ -214,7 +215,7 @@ body {
   padding: 14px 18px; margin-top: 20px;
   font-family: var(--font-sans); font-size: 13px; line-height: 1.6;
 }
-.callout-box strong { color: #1F3864; }
+.callout-box strong { color: #111d30; }
 .chart-caption { font-family: var(--font-sans); font-size: 12px; color: #595959; font-style: italic; text-align: center; margin-top: 6px; }
 
 /* ── Research integrity ─────────────────────────────────── */
@@ -227,7 +228,7 @@ body {
 
 /* ── Footer ─────────────────────────────────────────────── */
 .page-footer {
-  background: #1F3864; color: #b0c4de;
+  background: #111d30; color: #b0c4de;
   font-family: var(--font-mono); font-size: 11px;
   letter-spacing: 0.08em; padding: 14px 36px;
   border-top: 3px solid #C9A84C;
@@ -240,7 +241,6 @@ body {
   .tab-btn { padding: 11px 10px 8px; font-size: 11px; }
 }
 </style>
-  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body data-chrome="footer-only">
 <div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
@@ -264,7 +264,7 @@ body {
 
   <a href="../briefings/kiriyenko_brief.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(201,168,76,0.3);border-left:3px solid #c9a84c;border-radius:4px;padding:14px 20px;margin-bottom:24px;">
     <div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#c9a84c;margin-bottom:0.3rem;">Briefing</div>
-    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;font-weight:600;color:#1F3864;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+    <div style="font-family:'IBM Plex Sans',sans-serif;font-size:0.9rem;font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
     <div style="font-family:'IBM Plex Sans',sans-serif;font-size:0.78rem;color:rgba(26,26,46,0.65);line-height:1.5;">The written briefing on Kiriyenko's role as architect of Russia's political absorption of occupied Ukraine.</div>
   </a>
 
@@ -339,7 +339,8 @@ body {
 <div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL &middot; April 2026</div>
 
 <script>
-var NAVY  = '#1F3864';
+var NAVY  = '#111d30';
+if(window.Chart){Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color='#4a4a57';}
 var GOLD  = '#C9A84C';
 var RED   = '#C0392B';
 var GREY  = '#888888';
@@ -347,10 +348,10 @@ var LIGHT = 'rgba(166,124,26,0.12)';
 
 /* ── DATA ──────────────────────────────────────────────── */
 var federalTransfers = [
-  { region: 'Donetsk (DPR)',  rub: 101.8, gbp: 870, color: '#1F3864' },
-  { region: 'Luhansk (LPR)', rub: 70.7,  gbp: 600, color: '#2E4D7B' },
+  { region: 'Donetsk (DPR)',  rub: 101.8, gbp: 870, color: '#111d30' },
+  { region: 'Luhansk (LPR)', rub: 70.7,  gbp: 600, color: '#5a6c88' },
   { region: 'Kherson',       rub: 26.8,  gbp: 230, color: '#C9A84C' },
-  { region: 'Zaporizhzhia',  rub: 23.7,  gbp: 200, color: '#D4A849' }
+  { region: 'Zaporizhzhia',  rub: 23.7,  gbp: 200, color: '#C9A84C' }
 ];
 
 var educationBudget = [
@@ -386,10 +387,10 @@ var timeline = [
 
 var typeColors = {
   career:        NAVY,
-  tot:           '#2980b9',
+  tot:           '#3a5578',
   russification: RED,
   elections:     GOLD,
-  power:         '#8e44ad'
+  power:         '#9aa0a8'
 };
 
 var typeLabels = {
@@ -411,7 +412,7 @@ var powerDomains = [
 
 var kremlinRelationships = [
   { actor: 'Putin',               color: NAVY,     rel: 'Trust and efficiency. Kiriyenko delivers political legitimisation for the war. This trust has driven consistent expansion of his remit.' },
-  { actor: 'Khusnullin (Dep PM)', color: '#2980b9', rel: 'Partner on reconstruction. Kiriyenko holds political oversight; Khusnullin manages economic integration. They frequently tour TOTs together.' },
+  { actor: 'Khusnullin (Dep PM)', color: '#3a5578', rel: 'Partner on reconstruction. Kiriyenko holds political oversight; Khusnullin manages economic integration. They frequently tour TOTs together.' },
   { actor: 'Kozak',               color: GOLD,     rel: 'Systematically outmanoeuvred. Two of Kozak\'s departments were abolished in August 2025 and their functions transferred to Kiriyenko.' },
   { actor: 'FSB / MoD',           color: GREY,     rel: 'Coordination rather than command. Kiriyenko sets the political frame; security services execute coercion. Underlying tensions with Pushilin/FSB networks persist.' }
 ];
@@ -547,9 +548,9 @@ function buildTransfersChart() {
         tooltip: { callbacks: { label: function(c) { return 'RUB ' + c.parsed.y + ' billion'; } } }
       },
       scales: {
-        x: { ticks: { font: { family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid: { color:LIGHT } },
-        y: { ticks: { font: { family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid: { color:LIGHT },
-             title: { display:true, text:'RUB billion', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+        x: { ticks: { font: { family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY }, grid: { color:LIGHT } },
+        y: { ticks: { font: { family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY }, grid: { color:LIGHT },
+             title: { display:true, text:'RUB billion', font:{ family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY } }
       }
     }
   });
@@ -601,13 +602,13 @@ function buildProjectsChart() {
     options: {
       responsive: true,
       plugins: {
-        legend: { labels: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY } },
+        legend: { labels: { font:{ family:"'EB Garamond',Georgia,serif", size:13 }, color:GREY } },
         tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + c.parsed.y.toLocaleString(); } } }
       },
       scales: {
-        x: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
-        y: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
-             title:{ display:true, text:'Projects', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+        x: { ticks: { font:{ family:"'EB Garamond',Georgia,serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
+        y: { ticks: { font:{ family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
+             title:{ display:true, text:'Projects', font:{ family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY } }
       }
     }
   });
@@ -652,9 +653,9 @@ function buildEducationChart() {
         tooltip: { callbacks: { label: function(c) { return 'RUB ' + c.parsed.y + ' billion'; } } }
       },
       scales: {
-        x: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
-        y: { ticks: { font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
-             title:{ display:true, text:'RUB billion', font:{ family:"'IBM Plex Sans',Arial,sans-serif", size:12 }, color:GREY } }
+        x: { ticks: { font:{ family:"'EB Garamond',Georgia,serif", size:13 }, color:GREY }, grid:{ color:LIGHT } },
+        y: { ticks: { font:{ family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY }, grid:{ color:LIGHT },
+             title:{ display:true, text:'RUB billion', font:{ family:"'EB Garamond',Georgia,serif", size:12 }, color:GREY } }
       }
     }
   });
