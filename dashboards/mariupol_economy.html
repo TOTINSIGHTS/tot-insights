@@ -15,7 +15,7 @@ body {
   background: #f2f0ec;
   color: #2a2a3a;
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size:var(--fs-body);
   line-height: 1.6;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 .back-nav a {
   color: #c9a84c;
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-variant: small-caps;
   text-decoration: none;
   font-family: var(--font-mono);
@@ -55,14 +55,14 @@ body {
 }
 .stat-val {
   font-family: var(--font-body);
-  font-size: 32px;
+  font-size:var(--fs-section);
   font-weight: 500;
   color: #111d30;
   line-height: 1;
 }
 .stat-lbl {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   margin-top: 6px;
   line-height: 1.4;
@@ -83,7 +83,7 @@ hr.divider {
 
 .chart-heading {
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size:var(--fs-body);
   font-weight: 500;
   color: #a67c1a;
   margin-bottom: 12px;
@@ -96,7 +96,7 @@ hr.divider {
   margin-bottom: 8px;
   flex-wrap: wrap;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   align-items: center;
 }
@@ -115,7 +115,7 @@ hr.divider {
 
 .chart-note {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size:var(--fs-body);
   color: #334155;
   line-height: 1.65;
   margin-top: 12px;
@@ -128,7 +128,7 @@ hr.divider {
 <body data-chrome="footer-only">
 
 <div class="back-nav" style="display:flex;justify-content:space-between;align-items:center;">
-  <a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a>
+  <a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a>
 </div>
 
 <div class="dash">

@@ -16,7 +16,7 @@ body {
   background: #f2f0ec;
   color: #111d30;
   min-height: 100vh;
-  font-size: 15px;
+  font-size:var(--fs-body);
   line-height: 1.6;
 }
 
@@ -30,7 +30,7 @@ body {
   display: inline-block;
   color: #C4964A;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-variant: small-caps;
   text-decoration: none;
   margin-bottom: 12px;
@@ -39,14 +39,14 @@ body {
 .back-link:hover { text-decoration: underline; }
 .header-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   letter-spacing: 4px;
   text-transform: uppercase;
   color: #C4964A;
   margin-bottom: 6px;
 }
 .header-title {
-  font-size: 24px;
+  font-size:var(--fs-subheading);
   font-weight: 600;
   letter-spacing: 0.3px;
   line-height: 1.3;
@@ -55,7 +55,7 @@ body {
 }
 .header-subtitle {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   color: #6B7280;
 }
 
@@ -75,7 +75,7 @@ body {
 .summary-item:last-child { border-right: none; }
 .summary-val {
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #C4964A;
   line-height: 1.1;
@@ -83,14 +83,14 @@ body {
 .summary-val.red { color: #8B1A1A; }
 .summary-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #2a2a3a;
   font-weight: 600;
   margin-top: 2px;
 }
 .summary-sub {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   color: #4B5563;
   margin-top: 2px;
 }
@@ -109,7 +109,7 @@ body {
   border-bottom: 3px solid transparent;
   color: #4B5563;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   font-weight: 700;
   letter-spacing: 1px;
   padding: 12px 20px 9px;
@@ -130,14 +130,14 @@ body {
 /* ── Section headings ───────────────────────────────────── */
 .section-h2 {
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #111d30;
   margin-bottom: 6px;
 }
 .section-desc {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-bottom: 24px;
   max-width: 680px;
@@ -145,7 +145,7 @@ body {
 }
 .mono-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   letter-spacing: 2px;
   color: #C4964A;
   text-transform: uppercase;
@@ -172,7 +172,7 @@ body {
 }
 .reactor-symbol {
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #4B5563;
   line-height: 1;
@@ -180,14 +180,14 @@ body {
 .reactor-unit.licensed .reactor-symbol { color: #C4964A; }
 .reactor-name {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-weight: 700;
   color: #4B5563;
   margin-top: 4px;
 }
 .reactor-unit.licensed .reactor-name { color: #111d30; }
 .reactor-status {
-  font-size: 10px;
+  font-size:var(--fs-label);
   color: #333;
   margin-top: 4px;
   line-height: 1.4;
@@ -195,13 +195,13 @@ body {
 .reactor-unit.licensed .reactor-status { color: rgba(181,146,58,0.7); }
 .reactor-date {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   color: #4B5563;
   margin-top: 6px;
 }
 .reactor-legend {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #4B5563;
   font-style: italic;
   margin-top: 10px;
@@ -222,21 +222,21 @@ body {
 .lic-row.planned { background: #FBE9A8; border: 1px solid #E8B84B; }
 .lic-date {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   width: 120px;
   flex-shrink: 0;
 }
 .lic-item {
   flex: 1;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #111d30;
 }
 .lic-item.pending { color: #4B5563; }
 .lic-body {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #4B5563;
   flex-shrink: 0;
   min-width: 160px;
@@ -244,7 +244,7 @@ body {
 }
 .lic-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 3px;
@@ -260,7 +260,7 @@ body {
   border-radius: 4px;
   padding: 14px 16px;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   line-height: 1.8;
   margin-top: 20px;
 }
@@ -289,7 +289,7 @@ body {
 .paradox-box.not-doing{ background: #FCEBEB; border: 2px solid #8B1A1A; }
 .paradox-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
@@ -303,10 +303,10 @@ body {
 }
 .paradox-item span.tick { color: #B5923A; flex-shrink: 0; }
 .paradox-item span.cross{ color: #8B1A1A; flex-shrink: 0; }
-.paradox-item span.text { font-size: 12.5px; color: #2a2a3a; line-height: 1.5; }
+.paradox-item span.text { font-size:var(--fs-label); color: #2a2a3a; line-height: 1.5; }
 .paradox-divider { text-align: center; }
-.paradox-neq { font-size: 28px; color: #8B1A1A; line-height: 1; }
-.paradox-neq-label { font-family: var(--font-mono); font-size: 9px; color: #4B5563; letter-spacing: 1px; margin-top: 4px; }
+.paradox-neq { font-size:var(--fs-section); color: #8B1A1A; line-height: 1; }
+.paradox-neq-label { font-family: var(--font-mono); font-size:var(--fs-label); color: #4B5563; letter-spacing: 1px; margin-top: 4px; }
 
 /* ── Exploitation tracks ─────────────────────────────────── */
 .tracks-grid {
@@ -320,21 +320,21 @@ body {
   border-radius: 4px;
   padding: 16px 14px;
 }
-.track-icon  { font-size: 20px; margin-bottom: 8px; }
-.track-title { font-family: var(--font-body); font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+.track-icon  { font-size:var(--fs-body); margin-bottom: 8px; }
+.track-title { font-family: var(--font-body); font-size:var(--fs-body); font-weight: 700; margin-bottom: 12px; }
 .track-point {
   display: flex;
   gap: 6px;
   margin-bottom: 5px;
   font-family: var(--font-sans);
 }
-.track-point .arrow { font-size: 12px; flex-shrink: 0; }
-.track-point .text  { font-size: 12px; color: #4a4a57; line-height: 1.5; }
+.track-point .arrow { font-size:var(--fs-label); flex-shrink: 0; }
+.track-point .text  { font-size:var(--fs-label); color: #4a4a57; line-height: 1.5; }
 .track-note {
   margin-top: 10px;
   padding-top: 10px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   font-style: italic;
 }
 
@@ -346,14 +346,14 @@ body {
 }
 .col-h3 {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #111d30;
   margin-bottom: 6px;
 }
 .col-desc {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-bottom: 16px;
   line-height: 1.6;
@@ -361,7 +361,7 @@ body {
 .sev-legend { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
 .sev-chip {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 3px;
@@ -384,12 +384,12 @@ body {
   align-items: flex-start;
   gap: 8px;
 }
-.incident-date  { font-family: var(--font-mono); font-size: 10px; color: #4B5563; margin-bottom: 3px; }
-.incident-event { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #111d30; }
+.incident-date  { font-family: var(--font-mono); font-size:var(--fs-label); color: #4B5563; margin-bottom: 3px; }
+.incident-event { font-family: var(--font-body); font-size:var(--fs-label); font-weight: 700; color: #111d30; }
 .incident-detail {
   margin-top: 10px;
   font-family: var(--font-sans);
-  font-size: 12.5px;
+  font-size:var(--fs-label);
   color: #4a4a57;
   line-height: 1.7;
   border-top: 1px solid rgba(17,29,48,0.1);
@@ -399,7 +399,7 @@ body {
 .incident-detail.open { display: block; }
 .sev-badge {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   font-weight: 700;
   padding: 2px 6px;
   border-radius: 3px;
@@ -420,22 +420,22 @@ body {
 }
 .grid-period {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   color: #B5923A;
   white-space: nowrap;
   flex-shrink: 0;
   min-width: 80px;
   padding-top: 2px;
 }
-.grid-item   { font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #111d30; margin-bottom: 4px; }
-.grid-detail { font-family: var(--font-sans); font-size: 12px; color: #6B7280; line-height: 1.6; }
+.grid-item   { font-family: var(--font-body); font-size:var(--fs-label); font-weight: 700; color: #111d30; margin-bottom: 4px; }
+.grid-detail { font-family: var(--font-sans); font-size:var(--fs-label); color: #6B7280; line-height: 1.6; }
 
 /* ── Footer ─────────────────────────────────────────────── */
 .page-footer {
   padding: 14px 36px;
   border-top: 1px solid rgba(17,29,48,0.1);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #374151;
   letter-spacing: 0.06em;
 }
@@ -443,16 +443,16 @@ body {
 /* ── Research integrity ─────────────────────────────────── */
 .integrity-wrap  { padding: 0 36px 32px; }
 .integrity-inner { border-top: 1px solid rgba(17,29,48,0.1); padding-top: 1.25rem; margin-top: 0; }
-.integrity-label { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
-.integrity-link  { font-family: var(--font-mono); font-size: 0.68rem; color: #9c7418; text-decoration: none; }
+.integrity-label { font-family: var(--font-mono); font-size:var(--fs-label); text-transform: uppercase; letter-spacing: 0.12em; color: #555; margin-bottom: 0.4rem; }
+.integrity-link  { font-family: var(--font-mono); font-size:var(--fs-label); color: #9c7418; text-decoration: none; }
 .integrity-link:hover { text-decoration: underline; }
-.integrity-note  { font-family: var(--font-sans); font-size: 0.75rem; color: #555; margin-top: 0.5rem; }
+.integrity-note  { font-family: var(--font-sans); font-size:var(--fs-label); color: #555; margin-top: 0.5rem; }
 
 
-.fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+.fn-ref { font-size:var(--fs-label); vertical-align: super; color: #c9a84c; text-decoration: none; }
 .fn-ref:hover { text-decoration: underline; }
-.page-footnotes { padding: 20px 32px 32px; max-width: 1100px; font-family: var(--font-mono); font-size: 11px; color: #6b6b78; line-height: 1.65; border-top: 1px solid rgba(17,29,48,0.1); }
-.page-footnotes-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
+.page-footnotes { padding: 20px 32px 32px; max-width: 1100px; font-family: var(--font-mono); font-size:var(--fs-label); color: #6b6b78; line-height: 1.65; border-top: 1px solid rgba(17,29,48,0.1); }
+.page-footnotes-label { font-size:var(--fs-label); text-transform: uppercase; letter-spacing: 0.15em; color: rgba(196,150,74,0.6); margin-bottom: 10px; }
 .page-footnotes ol { margin: 0; padding-left: 18px; }
 .page-footnotes li { margin-bottom: 8px; }
 .page-footnotes a { color: #c9a84c; }
@@ -460,7 +460,7 @@ body {
   .content       { padding: 20px 18px 40px; }
   .page-header   { padding: 12px 18px 16px; }
   .tab-bar       { padding: 0 12px; }
-  .tab-btn       { padding: 10px 10px 8px; font-size: 10px; }
+  .tab-btn       { padding: 10px 10px 8px; font-size:var(--fs-label); }
   .paradox-grid  { grid-template-columns: 1fr; }
   .paradox-divider { display: none; }
   .tracks-grid   { grid-template-columns: 1fr; }
@@ -471,7 +471,7 @@ body {
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:#111d30;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#111d30;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <!-- ── PAGE HEADER ────────────────────────────────────────── -->
 <div class="page-header">
@@ -527,9 +527,9 @@ body {
   <!-- ── TAB 1: REACTOR & LICENSING ──────────────────────── -->
   <div class="panel active" id="panel-licensing">
     <a href="../briefings/znpp_briefing.html" style="display:block;text-decoration:none;color:inherit;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-left:3px solid var(--gold);border-radius:4px;padding:14px 20px;margin-bottom:20px;">
-      <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(201,168,76,0.8);margin-bottom:0.3rem;">Briefing</div>
-      <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:#9c7418;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
-      <div style="font-family:var(--font-sans);font-size:0.78rem;color:#6b6b78;line-height:1.5;">The written briefing on Russia's tactical exploitation of the Zaporizhzhia Nuclear Power Plant.</div>
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:rgba(201,168,76,0.8);margin-bottom:0.3rem;">Briefing</div>
+      <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#9c7418;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+      <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#6b6b78;line-height:1.5;">The written briefing on Russia's tactical exploitation of the Zaporizhzhia Nuclear Power Plant.</div>
     </a>
     <h2 class="section-h2">Licensing Trajectory and Reactor Status</h2>
     <p class="section-desc">Russia is systematically licensing ZNPP components under Rostekhnadzor - the Russian nuclear regulator - in a progression that constitutes de facto legal annexation of the plant. All six reactors remain in cold shutdown. Rosatom-certified personnel in place since autumn 2025.</p>

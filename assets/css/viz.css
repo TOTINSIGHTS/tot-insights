@@ -22,7 +22,7 @@
 .chart-title {
   font-family: var(--font-serif);
   color: var(--navy);        /* dark navy serif — always legible */
-  font-size: 1.1rem;
+  font-size:var(--fs-body);
   font-weight: 600;
   margin-bottom: var(--space-2);
 }
@@ -31,7 +31,7 @@
 .chart-note {
   font-family: var(--font-serif);
   color: var(--grey-700);
-  font-size: 0.95rem;
+  font-size:var(--fs-body);
   line-height: 1.5;
   margin-top: var(--space-2);
   max-width: var(--reading-measure);
@@ -40,7 +40,7 @@
 /* Source line — link to the research brief, never a repo file (rule 8) */
 .chart-source {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size:var(--fs-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--grey-500);
@@ -72,7 +72,7 @@
 }
 .diagram-box .box-label {    /* small uppercase label inside a box */
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size:var(--fs-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey-500);
@@ -98,7 +98,7 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size:var(--fs-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--grey-700);

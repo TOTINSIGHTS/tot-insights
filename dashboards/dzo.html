@@ -13,16 +13,16 @@
     --text: #2a2a3a; --muted: #5a6a8a; --border: #d0d8e8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-serif); background: #f2f0ec; color: var(--text); font-size: 13px; }
+  body { font-family: var(--font-serif); background: #f2f0ec; color: var(--text); font-size:var(--fs-label); }
 
   .header { background:transparent; color: var(--navy); padding: 20px 32px; border-bottom: 3px solid #C4964A; }
-  .header h1 { font-size: 20px; font-weight: 700; }
-  .header .sub { font-size: 12px; color: #4a4a57; margin-top: 4px; }
+  .header h1 { font-size:var(--fs-body); font-weight: 700; }
+  .header .sub { font-size:var(--fs-label); color: #4a4a57; margin-top: 4px; }
   .header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .badge { background: transparent; border: 1px solid rgba(17,29,48,0.2); color: #6b6b78; padding: 3px 10px; border-radius: 12px; font-size: 11px; }
+  .badge { background: transparent; border: 1px solid rgba(17,29,48,0.2); color: #6b6b78; padding: 3px 10px; border-radius: 12px; font-size:var(--fs-label); }
 
   .tabs { display: flex; background: var(--cream-raised); border-bottom: 1px solid var(--grey-200); padding: 0 32px; overflow-x: auto; }
-  .tab { padding: 11px 18px; cursor: pointer; color: var(--grey-700); font-size: 12px; font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
+  .tab { padding: 11px 18px; cursor: pointer; color: var(--grey-700); font-size:var(--fs-label); font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
   .tab:hover { color: var(--navy); }
   .tab.active { color: var(--navy); border-bottom-color: #C4964A; }
 
@@ -33,43 +33,43 @@
   @media (max-width: 720px) { .cards { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 400px) { .cards { grid-template-columns: 1fr; } }
   .card { background: white; border-radius: 8px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-  .card .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
-  .card .value { font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .card .label { font-size:var(--fs-label); text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 4px; }
+  .card .value { font-size:var(--fs-body); font-weight: 700; color: var(--navy); line-height: 1.1; }
   .card .value.red { color: var(--accent); }
   .card .value.warn { color: var(--warn); }
-  .card .note { font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .card .note { font-size:var(--fs-label); color: var(--muted); margin-top: 4px; }
 
-  h2 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--light); }
-  h3 { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+  h2 { font-size:var(--fs-body); font-weight: 700; color: var(--navy); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--light); }
+  h3 { font-size:var(--fs-label); font-weight: 700; color: var(--blue); margin-bottom: 10px; }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
   .box { background: white; border-radius: 8px; padding: 18px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 20px; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: var(--navy); color: white; padding: 8px 10px; text-align: left; font-size: 11px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size:var(--fs-label); }
+  th { background: var(--navy); color: white; padding: 8px 10px; text-align: left; font-size:var(--fs-label); font-weight: 600; }
   td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tr:nth-child(even) td { background: #f8f9fc; }
   tr:hover td { background: #edf2fb; }
 
-  .flag { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+  .flag { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size:var(--fs-label); font-weight: 600; }
   .flag.red { background: #fde8e8; color: var(--accent); }
   .flag.blue { background: #e8edf8; color: var(--blue); }
   .flag.warn { background: #fef3e2; color: var(--warn); }
   .flag.dark { background: #333; color: white; }
   .flag.green { background: #e8f5ee; color: var(--green); }
 
-  .alert { background: #fef3e2; border: 1px solid #f0a040; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; }
+  .alert { background: #fef3e2; border: 1px solid #f0a040; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size:var(--fs-label); line-height: 1.6; }
   .alert.red { background: #fde8e8; border-color: #e07070; color: #7a1f1f; }
 
   .org { overflow-x: auto; padding: 10px 0; }
   .org-tree { display: flex; flex-direction: column; align-items: center; }
   .org-level { display: flex; justify-content: center; gap: 12px; margin: 6px 0; flex-wrap: wrap; }
   .org-node { background: white; border: 2px solid var(--border); border-radius: 8px; padding: 10px 14px; min-width: 160px; max-width: 210px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-  .org-node .name { font-weight: 700; font-size: 11.5px; color: var(--navy); line-height: 1.3; }
-  .org-node .role { font-size: 10px; color: var(--muted); margin-top: 3px; }
-  .org-node .dob { font-size: 9px; color: #505050; margin-top: 2px; }
-  .org-node .tag { display: inline-block; margin-top: 5px; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700; }
+  .org-node .name { font-weight: 700; font-size:var(--fs-label); color: var(--navy); line-height: 1.3; }
+  .org-node .role { font-size:var(--fs-label); color: var(--muted); margin-top: 3px; }
+  .org-node .dob { font-size:var(--fs-label); color: #505050; margin-top: 2px; }
+  .org-node .tag { display: inline-block; margin-top: 5px; padding: 2px 6px; border-radius: 8px; font-size:var(--fs-label); font-weight: 700; }
   .apex { border-color: var(--accent) !important; background: #fff5f5 !important; }
   .apex .name { color: var(--accent) !important; }
   .current { border-color: var(--mid); background: #f0f5ff; }
@@ -79,26 +79,26 @@
   .security-node { border-color: #3a5578; background: #eef1f5; }
   .org-connector { width: 2px; height: 20px; background: var(--border); margin: 0 auto; }
 
-  input.search { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; width: 100%; max-width: 320px; margin-bottom: 14px; outline: none; }
+  input.search { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size:var(--fs-label); width: 100%; max-width: 320px; margin-bottom: 14px; outline: none; }
   input.search:focus { border-color: var(--mid); box-shadow: 0 0 0 2px rgba(58,111,196,0.15); }
 
   .chart-wrap { position: relative; height: 280px; }
   .chart-wrap-sm { position: relative; height: 220px; }
   .section-gap { margin-top: 28px; }
-  .fn { font-size: 10px; color: var(--muted); margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.6; }
+  .fn { font-size:var(--fs-label); color: var(--muted); margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.6; }
   .box td { color: #1a2332; }
   .box td strong { color: #0d1624; }
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="header">
   <h1>State Grain Operator (DZO) - Research Dashboard</h1>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#6b6b78;margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). State Grain Operator (DZO) Dashboard. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20306147" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20306147</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). State Grain Operator (DZO) Dashboard. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20306147');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(17,29,48,0.2);color:#6b6b78;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#6b6b78;margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). State Grain Operator (DZO) Dashboard. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20306147" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20306147</a></div>
+  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). State Grain Operator (DZO) Dashboard. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20306147');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.2);color:#6b6b78;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <div class="sub">TOT Insights &middot; Zaporizhzhia Oblast &middot; Compiled April 2026</div>
   <div class="badges">
@@ -119,9 +119,9 @@
 <!-- ═══ OVERVIEW ═══ -->
 <div class="panel active" id="tab-overview">
   <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left:3px solid #C4964A;border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(17,29,48,0.08);">
-    <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
-    <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
-    <div style="font-family:var(--font-sans);font-size:0.78rem;color:#334155;line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
+    <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+    <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#334155;line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
   </a>
   <div class="cards">
     <div class="card"><div class="label">Established</div><div class="value">15 May 2022</div><div class="note">By Balytsky decree</div></div>
@@ -173,7 +173,7 @@
 
   <div class="box">
     <h3>Export volume by commodity - verified counterparty data, May&ndash;December 2022</h3>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:12px">~200,000 tonnes total removed from DZO facilities in this period. Chart shows commodity breakdown from verified counterparty data.</p>
+    <p style="font-size:var(--fs-label);color:var(--muted);margin-bottom:12px">~200,000 tonnes total removed from DZO facilities in this period. Chart shows commodity breakdown from verified counterparty data.</p>
     <div class="chart-wrap-sm"><canvas id="cropChart"></canvas></div>
   </div>
   <div class="fn">Sources: Centre for the Study of Occupation monitoring; Centre for the Study of Occupation, Zaporizhzhia reports September&ndash;October 2025; EU Financial Sanctions Files, 22 May 2025; OpenSanctions.</div>
@@ -312,16 +312,16 @@
       <h3>Probable trajectories (source assessment)</h3>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
         <div style="padding:12px;border-radius:6px;background:#fef3e2;border-left:3px solid var(--warn)">
-          <div style="font-weight:700;font-size:12px;color:var(--warn)">Most probable - Subsidised extraction</div>
-          <div style="font-size:11px;margin-top:4px;line-height:1.6">DZO continues as a federal budget recipient, with costs socialised to the Russian state while real profits are channelled through shadow schemes. Official losses legitimise continued subsidy while Balytsky and associates extract value.</div>
+          <div style="font-weight:700;font-size:var(--fs-label);color:var(--warn)">Most probable - Subsidised extraction</div>
+          <div style="font-size:var(--fs-label);margin-top:4px;line-height:1.6">DZO continues as a federal budget recipient, with costs socialised to the Russian state while real profits are channelled through shadow schemes. Official losses legitimise continued subsidy while Balytsky and associates extract value.</div>
         </div>
         <div style="padding:12px;border-radius:6px;background:#fde8e8;border-left:3px solid var(--accent)">
-          <div style="font-weight:700;font-size:12px;color:var(--accent)">Alternative - Controlled bankruptcy</div>
-          <div style="font-size:11px;margin-top:4px;line-height:1.6">Formal bankruptcy, debt write-off, asset transfer to a successor entity under a new name - restarting the cycle with legacy liabilities extinguished.</div>
+          <div style="font-weight:700;font-size:var(--fs-label);color:var(--accent)">Alternative - Controlled bankruptcy</div>
+          <div style="font-size:var(--fs-label);margin-top:4px;line-height:1.6">Formal bankruptcy, debt write-off, asset transfer to a successor entity under a new name - restarting the cycle with legacy liabilities extinguished.</div>
         </div>
         <div style="padding:12px;border-radius:6px;background:#f0f5ff;border-left:3px solid var(--mid)">
-          <div style="font-weight:700;font-size:12px;color:var(--blue)">Alternative - Reorganisation</div>
-          <div style="font-size:11px;margin-top:4px;line-height:1.6">Restructured under a new corporate identity, preserving operational assets while paper losses remain with the defunct entity.</div>
+          <div style="font-weight:700;font-size:var(--fs-label);color:var(--blue)">Alternative - Reorganisation</div>
+          <div style="font-size:var(--fs-label);margin-top:4px;line-height:1.6">Restructured under a new corporate identity, preserving operational assets while paper losses remain with the defunct entity.</div>
         </div>
       </div>
     </div>
@@ -339,7 +339,7 @@
     <div class="card"><div class="label">Total sunflower shipped</div><div class="value">~34,900 t</div></div>
     <div class="card"><div class="label">Total rapeseed shipped</div><div class="value">~9,700 t</div></div>
     <div class="card"><div class="label">Total corn shipped</div><div class="value">~4,400 t</div></div>
-    <div class="card"><div class="label">Largest single buyer</div><div class="value" style="font-size:14px">Kuban-Forward</div><div class="note">44,858 t wheat</div></div>
+    <div class="card"><div class="label">Largest single buyer</div><div class="value" style="font-size:var(--fs-body)">Kuban-Forward</div><div class="note">44,858 t wheat</div></div>
   </div>
   <div class="grid-2" style="margin-bottom:20px">
     <div class="box"><h3>Volume by commodity</h3><div class="chart-wrap-sm"><canvas id="commodityChart"></canvas></div></div>
@@ -469,7 +469,7 @@ const tbody = document.getElementById('cpBody');
 cpData.forEach(d => {
   const cls = geoClass[d.geo] || 'green';
   const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${d.n}</td><td><strong>${d.name}</strong></td><td>${d.loc}</td><td style="font-family:monospace;font-size:11px">${d.inn}</td><td>${d.vol}</td><td><span class="flag ${cls}">${d.geo}</span></td>`;
+  tr.innerHTML = `<td>${d.n}</td><td><strong>${d.name}</strong></td><td>${d.loc}</td><td style="font-family:monospace;font-size:var(--fs-label)">${d.inn}</td><td>${d.vol}</td><td><span class="flag ${cls}">${d.geo}</span></td>`;
   tbody.appendChild(tr);
 });
 
@@ -535,9 +535,9 @@ new Chart(document.getElementById('buyerChart'), {
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>

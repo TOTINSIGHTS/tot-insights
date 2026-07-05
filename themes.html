@@ -15,7 +15,7 @@
 
 .page-hero-desc {
   font-family: var(--font-source);
-  font-size: 1rem;
+  font-size:var(--fs-body);
   font-weight: 300;
   color:#4a4a57;
   margin-top: 10px;
@@ -35,7 +35,7 @@
 
 .theme-title {
   font-family: var(--font-display);
-  font-size: 1.9rem;
+  font-size:var(--fs-section);
   font-weight: 700;
   color:#4a4a57;
   margin-bottom: 22px;
@@ -44,7 +44,7 @@
 
 .theme-framing {
   font-family: var(--font-source);
-  font-size: 23px;
+  font-size:var(--fs-subheading);
   font-weight: 300;
   color:#4a4a57;
   line-height: 1.8;
@@ -55,7 +55,7 @@
 /* Questions */
 .theme-questions-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
@@ -72,7 +72,7 @@
 .theme-question-list li {
   counter-increment: q;
   font-family: var(--font-source);
-  font-size: 21px;
+  font-size:var(--fs-body);
   font-weight: 300;
   color:#4a4a57;
   line-height: 1.8;
@@ -85,7 +85,7 @@
   position: absolute;
   left: 0;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   color: rgba(181,146,58,0.70);
   top: 14px;
   letter-spacing: 0.05em;
@@ -104,7 +104,7 @@
 }
 .theme-start-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(181,146,58,0.80);
@@ -117,7 +117,7 @@
 .theme-start-title {
   display: block;
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size:var(--fs-body);
   font-weight: 700;
   color:#4a4a57;
   margin-bottom: 6px;
@@ -130,7 +130,7 @@
 .theme-start-desc {
   display: block;
   font-family: var(--font-source);
-  font-size: 0.83rem;
+  font-size:var(--fs-body);
   font-weight: 300;
   color:#4a4a57;
   line-height: 1.6;
@@ -144,7 +144,7 @@
 .theme-resources-link {
   display: inline-block;
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: var(--gold);
   text-decoration: none;
@@ -170,7 +170,7 @@ div.resource-row:last-child {
 
 .resource-format {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size:var(--fs-label);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(181,146,58,0.65);
@@ -187,7 +187,7 @@ div.resource-row:last-child {
 
 .resource-title {
   font-family: var(--font-sans);
-  font-size: 0.87rem;
+  font-size:var(--fs-body);
   font-weight: 500;
   color:#4a4a57;
   line-height: 1.4;
@@ -199,7 +199,7 @@ a.resource-row:hover .resource-title {
 
 .resource-date {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size:var(--fs-label);
   color:#4a4a57;
   letter-spacing: 0.06em;
 }
@@ -210,7 +210,7 @@ a.resource-row:hover .resource-title {
 }
 .theme-details summary {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   letter-spacing: 0.1em;
   color:#4a4a57;
   cursor: pointer;
@@ -226,7 +226,7 @@ a.resource-row:hover .resource-title {
 .theme-details summary::before {
   content: '+';
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size:var(--fs-body);
   color: rgba(181,146,58,0.65);
   line-height: 1;
   flex-shrink: 0;
@@ -245,7 +245,7 @@ a.resource-row:hover .resource-title {
 
 .theme-group-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color:#4a4a57;
@@ -261,7 +261,7 @@ a.resource-row:hover .resource-title {
   display: inline-block;
   margin-top: 20px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   color: rgba(181,146,58,0.65);
   text-decoration: none;
   letter-spacing: 0.08em;
@@ -273,7 +273,7 @@ a.resource-row:hover .resource-title {
 
 .theme-coming-soon {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color:#4a4a57;
   padding: 16px 0;
 }
@@ -397,9 +397,9 @@ a.resource-row:hover .resource-title {
 }
 
 @media (max-width: 640px) {
-  .resource-format { width: 68px; font-size: 7px; }
+  .resource-format { width: 68px; font-size:var(--fs-label); }
   .theme-start-here { padding: 14px 16px; }
-  .theme-title { font-size: 1.5rem; }
+  .theme-title { font-size:var(--fs-subheading); }
 }
 
 /* Catalogue call-to-action card */
@@ -414,7 +414,7 @@ a.resource-row:hover .resource-title {
 }
 .catalogue-cta-heading {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size:var(--fs-subheading);
   font-weight: 700;
   color: #111d30;
   line-height: 1.25;
@@ -422,7 +422,7 @@ a.resource-row:hover .resource-title {
 }
 .catalogue-cta-text {
   font-family: var(--font-source);
-  font-size: 15px;
+  font-size:var(--fs-body);
   font-weight: 400;
   color: rgba(17,29,48,0.72);
   line-height: 1.6;
@@ -434,7 +434,7 @@ a.resource-row:hover .resource-title {
   background: var(--gold);
   color: #111d30;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size:var(--fs-label);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;

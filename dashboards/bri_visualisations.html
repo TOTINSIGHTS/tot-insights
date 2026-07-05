@@ -43,18 +43,18 @@
 }
 
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.6;font-size:16px}
+body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.6;font-size:var(--fs-body)}
 
 /* ── HEADER ── */
 .site-header{background:transparent;color:var(--navy);padding:2.5rem 2rem 2rem;position:relative}
-.site-header .label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;font-family:var(--font-mono);font-weight:600}
-.site-header h1{font-family:var(--font-serif);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;line-height:1.25;max-width:800px;margin-bottom:.65rem;color:var(--navy)}
-.site-header .subtitle{font-size:.975rem;color:var(--grey-700);max-width:680px;line-height:1.55}
-.site-header .meta{margin-top:1.25rem;font-size:.82rem;color:var(--grey-500);border-top:1px solid var(--grey-200);padding-top:.85rem}
+.site-header .label{font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;font-family:var(--font-mono);font-weight:600}
+.site-header h1{font-family:var(--font-serif);font-size:var(--fs-title);font-weight:700;line-height:1.25;max-width:800px;margin-bottom:.65rem;color:var(--navy)}
+.site-header .subtitle{font-size:var(--fs-body);color:var(--grey-700);max-width:680px;line-height:1.55}
+.site-header .meta{margin-top:1.25rem;font-size:var(--fs-label);color:var(--grey-500);border-top:1px solid var(--grey-200);padding-top:.85rem}
 
 /* ── NAV ── */
 .viz-nav{background:var(--cream-raised);border-top:1px solid var(--grey-200);border-bottom:1px solid var(--grey-200);display:flex;gap:0;overflow-x:auto}
-.viz-nav a{color:var(--grey-700);text-decoration:none;padding:.7rem 1.4rem;font-size:.85rem;font-weight:600;font-family:var(--font-body);white-space:nowrap;border-right:1px solid var(--grey-200);transition:color .15s,background .15s}
+.viz-nav a{color:var(--grey-700);text-decoration:none;padding:.7rem 1.4rem;font-size:var(--fs-label);font-weight:600;font-family:var(--font-body);white-space:nowrap;border-right:1px solid var(--grey-200);transition:color .15s,background .15s}
 .viz-nav a:hover{color:var(--navy);background:rgba(17,29,48,.04)}
 .viz-nav a .num{opacity:.5;margin-right:.3rem}
 
@@ -65,22 +65,22 @@ main{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
 .viz-section{padding:3rem 0 2.5rem;border-bottom:1px solid var(--border-light)}
 .viz-section:last-of-type{border-bottom:none}
 .section-kicker{display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem}
-.section-kicker .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;font-size:.75rem;font-weight:700;border-radius:4px;flex-shrink:0;font-family:var(--font-mono)}
-.section-kicker .tag{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono)}
-.viz-section h2{font-family:var(--font-serif);font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
-.viz-section .description{font-size:.95rem;color:var(--text-secondary);max-width:760px;line-height:1.65;margin-bottom:1.6rem}
+.section-kicker .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:var(--navy);color:#fff;font-size:var(--fs-label);font-weight:700;border-radius:4px;flex-shrink:0;font-family:var(--font-mono)}
+.section-kicker .tag{font-size:var(--fs-label);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono)}
+.viz-section h2{font-family:var(--font-serif);font-size:var(--fs-section);font-weight:700;color:var(--navy);margin-bottom:.6rem;line-height:1.3}
+.viz-section .description{font-size:var(--fs-body);color:var(--text-secondary);max-width:760px;line-height:1.65;margin-bottom:1.6rem}
 .svg-wrap{background:var(--bg-section);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1rem;overflow-x:auto}
 .svg-wrap svg{display:block;width:100%;height:auto}
-.caption{font-size:.8rem;color:var(--text-muted);margin-top:.75rem;font-style:italic}
-.interact-hint{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;display:flex;align-items:center;gap:.3rem}
+.caption{font-size:var(--fs-label);color:var(--text-muted);margin-top:.75rem;font-style:italic}
+.interact-hint{font-size:var(--fs-label);color:var(--text-muted);margin-top:.5rem;display:flex;align-items:center;gap:.3rem}
 .interact-hint::before{content:'↖';font-style:normal}
 
 /* ── DESCRIPTION PANEL ── */
 .desc-panel{display:none;background:var(--bg-surface);border:1px solid var(--border);border-radius:6px;padding:1.1rem 1.3rem;margin-top:.75rem;position:relative}
 .desc-panel.active{display:block}
-.desc-panel h4{font-family:var(--font-serif);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.45rem;padding-right:1.5rem;line-height:1.35}
-.desc-panel p{font-size:.88rem;color:var(--text-secondary);line-height:1.65}
-.desc-panel .close-btn{position:absolute;top:.75rem;right:.9rem;background:none;border:none;font-size:1.1rem;color:var(--text-muted);cursor:pointer;padding:0;line-height:1}
+.desc-panel h4{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:var(--navy);margin-bottom:.45rem;padding-right:1.5rem;line-height:1.35}
+.desc-panel p{font-size:var(--fs-body);color:var(--text-secondary);line-height:1.65}
+.desc-panel .close-btn{position:absolute;top:.75rem;right:.9rem;background:none;border:none;font-size:var(--fs-body);color:var(--text-muted);cursor:pointer;padding:0;line-height:1}
 .desc-panel .close-btn:hover{color:var(--text)}
 
 /* ── SVG INTERACTION ── */
@@ -89,7 +89,7 @@ main{max-width:900px;margin:0 auto;padding:0 1.5rem 4rem}
 .clickable-node:focus{outline:2px solid var(--blue);outline-offset:2px}
 
 /* ── FOOTER ── */
-footer{background:var(--bg-section);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:.82rem;color:var(--text-muted)}
+footer{background:var(--bg-section);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:var(--fs-label);color:var(--text-muted)}
 footer a{color:var(--blue);text-decoration:none}
 footer a:hover{text-decoration:underline}
 footer strong{color:var(--text-secondary);font-weight:600}
@@ -99,7 +99,7 @@ footer strong{color:var(--text-secondary);font-weight:600}
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <header class="site-header">
   <div class="label">TOT Insights · Ukraine and Russia Programme · CSNS / King's College London</div>
@@ -117,9 +117,9 @@ footer strong{color:var(--text-secondary);font-weight:600}
 <main>
 
 <a href="../briefings/beijing_quiet_stake.html" style="display:block;text-decoration:none;color:inherit;background:var(--card-bg);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--gold);border-radius:4px;padding:16px 20px;margin-bottom:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.4rem;">Briefing</div>
-  <div style="font-family:var(--font-sans);font-size:0.95rem;font-weight:600;color:#1a1a2c;margin-bottom:0.3rem;">Read the full analysis &#8594;</div>
-  <div style="font-family:var(--font-sans);font-size:0.82rem;color:var(--text-muted-light-bg);line-height:1.55;">The written briefing on China's Belt and Road networks reaching occupied Ukrainian territories.</div>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.4rem;">Briefing</div>
+  <div style="font-family:var(--font-sans);font-size:var(--fs-subheading);font-weight:600;color:#1a1a2c;margin-bottom:0.3rem;">Read the full analysis &#8594;</div>
+  <div style="font-family:var(--font-sans);font-size:var(--fs-body);color:var(--text-muted-light-bg);line-height:1.55;">The written briefing on China's Belt and Road networks reaching occupied Ukrainian territories.</div>
 </a>
 
 <!-- ══════════════════════════════════════════════════════════════ -->
@@ -557,9 +557,9 @@ document.querySelectorAll('.clickable-node').forEach(el => {
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Chinese%20Belt%20and%20Road%20Expansion%20into%20Occupied%20Ukraine%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/bri_visualisations.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Chinese%20Belt%20and%20Road%20Expansion%20into%20Occupied%20Ukraine%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/bri_visualisations.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>

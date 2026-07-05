@@ -23,6 +23,23 @@ The order of priority is: **clarity and accessibility first, house style second.
 - Dark navy serif, always clearly readable.
 - Never pale-on-pale or washed-out. If a heading is hard to read against its background, it is wrong.
 
+## Type scale (the only font sizes on the site)
+
+There are **five** font sizes, defined once as tokens in the shared styles (`assets/css/main.css`), and **nothing uses a size outside this list.** Body errs on the larger side (comfortable on an 11-inch laptop; most readers are on bigger screens). Sizes are fixed, not responsive clamps.
+
+| Token | Size | Use for |
+|---|---|---|
+| `--fs-title` | 38px | Large heading — page/dashboard titles |
+| `--fs-section` | 30px | Section headings |
+| `--fs-subheading` | 24px | Sub-headings, lead paragraphs, card titles, the logo |
+| `--fs-body` | 19px | All reading text — paragraphs, entries, descriptions, card body |
+| `--fs-label` | 12px | Small gold-monospace labels, eyebrows, tags, badges, nav, buttons, captions, footnotes |
+
+Rules:
+- Every `font-size` references one of these tokens (`font-size: var(--fs-body)` etc.). No raw `px`/`rem`/`clamp()` font sizes anywhere.
+- Map by **role, not old value**: reading text → `--fs-body` even if it used to be small; small labels/annotations → `--fs-label`.
+- **One exception:** text drawn *inside* an SVG chart or diagram is sized to fit the drawing and is not bound to this scale (it is data-viz internal, like the shared Chart.js font size), though it should stay small and legible.
+
 ## 4. Colour
 
 - Base palette: **navy, cream, gold.**

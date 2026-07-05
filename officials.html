@@ -12,16 +12,16 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
 
-body{font-family:var(--font-body);background:var(--cream-panel);color:#2a2a3a;font-size:14px;line-height:1.6;}
+body{font-family:var(--font-body);background:var(--cream-panel);color:#2a2a3a;font-size:var(--fs-body);line-height:1.6;}
 
 /* ── Header ── */
 @media(max-width:700px){}
 
 /* ── Page hero ── */
 .page-hero{background:transparent;border-bottom:1px solid rgba(17,29,48,0.08);padding:36px 40px 28px;}
-.page-desc{font-size:13px;color:#4a4a57;max-width:700px;line-height:1.75;border-left:3px solid #e3e0d9;padding-left:14px;margin-bottom:14px;}
-.submit-callout{display:inline-flex;align-items:center;gap:8px;background:rgba(61,102,120,0.07);border:1px solid rgba(61,102,120,0.2);border-radius:2px;padding:10px 14px;font-size:12px;color:#4a4a57;line-height:1.5;max-width:620px;}
-.submit-callout::before{content:'✎';font-size:13px;color:var(--steel);flex-shrink:0;}
+.page-desc{font-size:var(--fs-label);color:#4a4a57;max-width:700px;line-height:1.75;border-left:3px solid #e3e0d9;padding-left:14px;margin-bottom:14px;}
+.submit-callout{display:inline-flex;align-items:center;gap:8px;background:rgba(61,102,120,0.07);border:1px solid rgba(61,102,120,0.2);border-radius:2px;padding:10px 14px;font-size:var(--fs-label);color:#4a4a57;line-height:1.5;max-width:620px;}
+.submit-callout::before{content:'✎';font-size:var(--fs-label);color:var(--steel);flex-shrink:0;}
 .submit-callout a{color:var(--steel);text-decoration:underline;}
 .submit-callout a:hover{color:#4a4a57;}
 
@@ -29,8 +29,8 @@ body{font-family:var(--font-body);background:var(--cream-panel);color:#2a2a3a;fo
 .stats-strip{background:transparent;border-bottom:1px solid #e3e0d9;padding:20px 40px;}
 .stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
 .stat-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:14px 20px;flex:1;min-width:140px;transition:all 0.2s ease;}.stat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.15);transform:translateY(-2px);}
-.stat-val{font-family:var(--font-serif);font-size:24px;font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
-.stat-lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:#3a3a4a;}
+.stat-val{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.11em;text-transform:uppercase;color:#3a3a4a;}
 
 /* ── Main ── */
 .main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
@@ -39,21 +39,21 @@ body{font-family:var(--font-body);background:var(--cream-panel);color:#2a2a3a;fo
 /* ── Controls ── */
 .controls-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px;}
 .control-group{display:flex;flex-direction:column;gap:4px;}
-.control-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
-.search-input{font-family:var(--font-sans);font-size:13px;color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 12px;width:240px;transition:border-color 0.12s;outline:none;}
+.control-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+.search-input{font-family:var(--font-sans);font-size:var(--fs-label);color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 12px;width:240px;transition:border-color 0.12s;outline:none;}
 .search-input:focus{border-color:var(--steel);}
 .search-input::placeholder{color:#4a4a57;}
-select.filter-select{font-family:var(--font-sans);font-size:12px;color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
+select.filter-select{font-family:var(--font-sans);font-size:var(--fs-label);color:#2a2a3a;background:#ffffff;border:1px solid #e3e0d9;border-radius:2px;padding:7px 28px 7px 10px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23617080'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;cursor:pointer;outline:none;transition:border-color 0.12s;}
 select.filter-select:focus{border-color:var(--steel);}
-.clear-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--muted);background:none;border:none;cursor:pointer;padding:7px 0;text-decoration:underline;white-space:nowrap;transition:color 0.12s;align-self:flex-end;}
+.clear-btn{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;color:var(--muted);background:none;border:none;cursor:pointer;padding:7px 0;text-decoration:underline;white-space:nowrap;transition:color 0.12s;align-self:flex-end;}
 .clear-btn:hover{color:var(--steel);}
-.results-info{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;}
+.results-info{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--muted);margin-bottom:14px;letter-spacing:0.04em;}
 .results-info strong{color:#4a4a57;font-weight:500;}
 
 /* ── Table ── */
 .table-wrap{overflow-x:auto;border:1px solid #e3e0d9;border-radius:3px;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
-th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-label);}
+th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;}
 td{padding:10px 14px;border-bottom:1px solid #e3e0d9;vertical-align:top;line-height:1.4;}
 tr:last-child td{border-bottom:none;}
 tbody tr{cursor:pointer;transition:background 0.1s;}
@@ -62,52 +62,52 @@ tbody tr.row-active td{background:rgba(255,255,255,0.07);}
 tr:nth-child(even) td{background:rgba(255,255,255,0.03);}
 tr:nth-child(even):hover td{background:rgba(255,255,255,0.05);}
 tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
-.name-primary{font-weight:600;color:#4a4a57;font-size:13px;}
-.name-cyrillic{font-size:11px;color:var(--muted);margin-top:2px;font-family:var(--font-sans);}
-.role-cell{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:12px;}
+.name-primary{font-weight:600;color:#4a4a57;font-size:var(--fs-label);}
+.name-cyrillic{font-size:var(--fs-label);color:var(--muted);margin-top:2px;font-family:var(--font-sans);}
+.role-cell{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:var(--fs-label);}
 
 /* ── Status badges ── */
-.status-badge{font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
+.status-badge{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;display:inline-block;}
 .badge-yes{background:rgba(26,92,53,0.30);color:#6FCF97;}
 .badge-no{background:rgba(74,90,104,0.30);color:#A0BACF;}
 .badge-unknown{background:rgba(138,96,16,0.30);color:var(--gold);}
 
 /* ── Origin coloured text ── */
-.origin-local{color:rgba(181,146,58,0.80);font-size:12px;}
-.origin-russian{color:#A04A10;font-size:12px;}
-.origin-other{color:var(--muted);font-size:12px;}
+.origin-local{color:rgba(181,146,58,0.80);font-size:var(--fs-label);}
+.origin-russian{color:#A04A10;font-size:var(--fs-label);}
+.origin-other{color:var(--muted);font-size:var(--fs-label);}
 
 /* ── Pagination ── */
 .pagination{display:flex;align-items:center;gap:6px;margin-top:16px;flex-wrap:wrap;}
-.page-btn{font-family:var(--font-mono);font-size:11px;padding:5px 10px;border:1px solid #e3e0d9;border-radius:2px;background:transparent;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
+.page-btn{font-family:var(--font-mono);font-size:var(--fs-label);padding:5px 10px;border:1px solid #e3e0d9;border-radius:2px;background:transparent;color:var(--muted);cursor:pointer;transition:border-color 0.12s,color 0.12s;min-width:32px;text-align:center;}
 .page-btn:hover:not(:disabled){border-color:var(--steel);color:var(--steel);}
 .page-btn.current{background:var(--steel);border-color:var(--steel);color:#fff;cursor:default;}
 .page-btn:disabled{opacity:0.35;cursor:not-allowed;}
-.page-info{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-left:6px;}
+.page-info{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--muted);margin-left:6px;}
 
 /* ── State messages ── */
-.state-msg{padding:48px 0;text-align:center;color:var(--muted);font-size:13px;}
+.state-msg{padding:48px 0;text-align:center;color:var(--muted);font-size:var(--fs-label);}
 .state-msg.error{color:#a02020;}
 
 /* ── Detail panel ── */
 .detail-panel{background:#ffffff;border:1px solid #e3e0d9;border-top:3px solid var(--gold);border-radius:3px;margin-top:20px;display:none;}
 .detail-panel.open{display:block;}
 .detail-panel-header{background:var(--steel);padding:16px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
-.detail-panel-name{font-family:var(--font-serif);font-size:17px;font-weight:700;color:#fff;line-height:1.3;}
-.detail-panel-cyrillic{font-family:var(--font-sans);font-size:12px;color:#4a4a57;margin-top:3px;}
-.detail-close{background:none;border:none;color:#4a4a57;font-size:22px;cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
+.detail-panel-name{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#fff;line-height:1.3;}
+.detail-panel-cyrillic{font-family:var(--font-sans);font-size:var(--fs-label);color:#4a4a57;margin-top:3px;}
+.detail-close{background:none;border:none;color:#4a4a57;font-size:var(--fs-body);cursor:pointer;line-height:1;padding:0;flex-shrink:0;transition:color 0.12s;}
 .detail-close:hover{color:#fff;}
 .detail-body{padding:22px 24px;}
 .detail-sections{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 @media(max-width:700px){.detail-sections{grid-template-columns:1fr;}}
 .detail-section{min-width:0;}
-.detail-section-title{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid #e3e0d9;}
+.detail-section-title{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:5px;border-bottom:1px solid #e3e0d9;}
 .detail-field{margin-bottom:12px;}
 .detail-field:last-child{margin-bottom:0;}
-.detail-field-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#A0B0BE;margin-bottom:3px;}
-.detail-field-value{font-size:13px;color:#2a2a3a;line-height:1.6;word-wrap:break-word;}
+.detail-field-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:#A0B0BE;margin-bottom:3px;}
+.detail-field-value{font-size:var(--fs-label);color:#2a2a3a;line-height:1.6;word-wrap:break-word;}
 .detail-field-value.muted{color:var(--muted);}
-.detail-footer{margin-top:18px;padding-top:14px;border-top:1px solid #e3e0d9;font-family:var(--font-mono);font-size:10px;color:#A0B0BE;letter-spacing:0.05em;}
+.detail-footer{margin-top:18px;padding-top:14px;border-top:1px solid #e3e0d9;font-family:var(--font-mono);font-size:var(--fs-label);color:#A0B0BE;letter-spacing:0.05em;}
 .detail-footer a{color:#A0B0BE;text-decoration:underline;}
 .detail-footer a:hover{color:var(--steel);}
 
@@ -116,9 +116,9 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 @media(max-width:640px){.controls-row{flex-direction:column;align-items:stretch;}.search-input{width:100%;}}
 /* ── Download button ── */
 .db-download-wrap{margin-bottom:20px;}
-.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.6rem 1.25rem;text-decoration:none;transition:background 0.12s;}
 .db-download-btn:hover{background:rgba(232,184,75,0.1);}
-.db-download-sub{font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);margin-top:0.4rem;letter-spacing:0.04em;}
+.db-download-sub{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.4rem;letter-spacing:0.04em;}
 /* ── Light cream panel for the database (filters + table) ── */
 .db-panel{background:#f2f0ec;border-radius:3px;box-shadow:0 2px 20px rgba(0,0,0,0.24),0 0 0 1px rgba(0,0,0,0.10);padding:20px 22px;margin-bottom:20px;}
 .db-panel .control-label{color:rgba(17,29,48,0.60);}
@@ -158,11 +158,11 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
   <div class="page-hero-inner">
     <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability and Legal</div>
     <h1 class="page-title">Occupation Officials Database</h1>
-    <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: June 2026</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: June 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20283034" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/10.5281/zenodo.20283034</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20283034');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20283034" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/10.5281/zenodo.20283034</a></div>
+  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Occupation Officials Database. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20283034');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
     <p class="page-desc">A structured database of individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, compiled by TOT Insights at the Centre for Statecraft and National Security, King's College London, from open sources and primary documentation. The database is updated regularly and is not exhaustive.</p>
     <div class="submit-callout">
@@ -263,9 +263,9 @@ tr:nth-child(even).row-active td{background:rgba(255,255,255,0.07);}
 
 <div style="max-width:1200px;margin:0 auto;padding:0 40px;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Occupation%20Officials%20Database%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/officials.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Occupation%20Officials%20Database%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/officials.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <div id="site-footer"></div>
 

@@ -14,7 +14,7 @@ body {
   font-family: var(--font-body);
   background: #111d30;
   color: #e8eaf0;
-  font-size: 17px;
+  font-size:var(--fs-body);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -30,7 +30,7 @@ body {
   display: inline-block;
   color: #c9a84c;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-variant: small-caps;
   text-decoration: none;
   margin-bottom: 12px;
@@ -39,7 +39,7 @@ body {
 .back-link:hover { text-decoration: underline; }
 .page-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #C4964A;
@@ -47,7 +47,7 @@ body {
 }
 .page-title {
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color:var(--navy);
   line-height: 1.25;
@@ -55,7 +55,7 @@ body {
 }
 .page-subtitle {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   color: #9CA3AF;
 }
 
@@ -87,21 +87,21 @@ body {
 }
 .stat-val {
   font-family: var(--font-mono);
-  font-size: 26px;
+  font-size:var(--fs-subheading);
   font-weight: 700;
   line-height: 1.1;
   color: #111d30;
 }
 .stat-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #111d30;
   margin-top: 4px;
   font-weight: 600;
 }
 .stat-sub {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-top: 2px;
 }
@@ -122,7 +122,7 @@ hr.divider {
 
 .section-heading {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #c9a84c;
   margin-bottom: 14px;
@@ -139,7 +139,7 @@ hr.divider {
 .bar-label {
   width: 220px;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.4;
   flex-shrink: 0;
@@ -162,14 +162,14 @@ hr.divider {
 .bar-val {
   color: #fff;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size:var(--fs-label);
   font-weight: 700;
   white-space: nowrap;
 }
 .bar-note {
   margin-left: 232px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   font-style: italic;
 }
@@ -200,7 +200,7 @@ hr.divider {
 }
 .timeline-period span {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   color: rgba(232,234,240,0.55);
 }
 .timeline-dot {
@@ -232,7 +232,7 @@ hr.divider {
 .timeline-card.open { border-color: #C4964A; }
 .timeline-card-title {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #111d30;
 }
@@ -240,7 +240,7 @@ hr.divider {
   display: none;
   margin-top: 8px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size:var(--fs-body);
   color: #334155;
   line-height: 1.7;
   border-top: 1px solid rgba(17,29,48,0.10);
@@ -257,13 +257,13 @@ hr.divider {
   border-left: 3px solid #C4964A;
   padding: 16px 20px;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   line-height: 1.8;
   margin-top: 20px;
 }
 .callout-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #C4964A;
@@ -273,20 +273,20 @@ hr.divider {
 .callout p:last-child { margin: 0; }
 
 /* ─── Footnotes ─────────────────────────────────────────────── */
-.fn-ref { font-size: 10px; vertical-align: super; color: #c9a84c; text-decoration: none; }
+.fn-ref { font-size:var(--fs-label); vertical-align: super; color: #c9a84c; text-decoration: none; }
 .fn-ref:hover { text-decoration: underline; }
 .page-footnotes {
   padding: 20px 32px 32px;
   max-width: 1100px;
   margin: 0 auto;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: rgba(232,234,240,0.55);
   line-height: 1.65;
 }
 .page-footnotes-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size:var(--fs-label);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(196,150,74,0.6);
@@ -301,14 +301,14 @@ hr.divider {
   padding: 12px 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: rgba(232,234,240,0.40);
 }
 </style>
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="page-header">
   <div class="page-eyebrow">TOT Insights · Mariupol · April 2026</div>

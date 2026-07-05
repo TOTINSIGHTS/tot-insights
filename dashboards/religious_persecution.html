@@ -16,7 +16,7 @@ body {
   font-family: var(--font-sans);
   background: #f2f0ec;
   color: #2a2a3a;
-  font-size: 15px;
+  font-size:var(--fs-body);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -30,7 +30,7 @@ body {
 }
 .page-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #C4964A;
@@ -38,7 +38,7 @@ body {
 }
 .page-title {
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color:var(--navy);
   line-height: 1.25;
@@ -46,7 +46,7 @@ body {
 }
 .page-subtitle {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #9CA3AF;
   margin-bottom: 12px;
 }
@@ -58,7 +58,7 @@ body {
 }
 .cite-label {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size:var(--fs-label);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #6b6b78;
@@ -66,7 +66,7 @@ body {
 }
 .cite-text {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size:var(--fs-label);
   color: #4a4a57;
   line-height: 1.5;
 }
@@ -74,7 +74,7 @@ body {
 .cite-text a:hover { text-decoration: underline; }
 .cite-btn {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size:var(--fs-label);
   border: 1px solid rgba(17,29,48,0.2);
   color: #6b6b78;
   background: transparent;
@@ -85,7 +85,7 @@ body {
 }
 .source-line {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: rgba(232,228,220,0.65);
 }
 .source-line a { color: #E8B84B; text-decoration: none; }
@@ -120,7 +120,7 @@ body {
 }
 .stat-val {
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   line-height: 1.1;
   color: #111d30;
@@ -128,7 +128,7 @@ body {
 .stat-val.blue { color: #2D5A8A; }
 .stat-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #334155;
   margin-top: 6px;
   line-height: 1.4;
@@ -151,7 +151,7 @@ body {
 }
 .tab-btn {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   font-weight: 600;
   padding: 10px 18px;
   border: none;
@@ -189,12 +189,12 @@ body {
   justify-content: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 16px;
+  font-size:var(--fs-body);
   flex-shrink: 0;
 }
 .panel-title {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size:var(--fs-body);
   font-weight: 500;
   color: #111d30;
   margin: 0;
@@ -203,7 +203,7 @@ body {
 .panel-desc {
   margin: 0 0 0 48px;
   color: #334155;
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-family: var(--font-sans);
   line-height: 1.5;
 }
@@ -235,14 +235,14 @@ body {
 }
 .denom-card-label {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-weight: 600;
   color: #a67c1a;
   margin-bottom: 4px;
 }
 .denom-card-text {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.5;
 }
@@ -274,7 +274,7 @@ body {
 }
 .clergy-stat-val {
   font-family: var(--font-body);
-  font-size: 26px;
+  font-size:var(--fs-subheading);
   font-weight: 700;
   width: 52px;
   text-align: right;
@@ -284,7 +284,7 @@ body {
 }
 .clergy-stat-label {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.4;
 }
@@ -294,7 +294,7 @@ body {
   background: rgba(17,29,48,0.04);
   border-radius: 4px;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #6B7280;
   line-height: 1.6;
 }
@@ -315,14 +315,14 @@ body {
 }
 .summary-card-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   font-weight: 700;
   color: #a67c1a;
   margin-bottom: 4px;
 }
 .summary-card-text {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.5;
 }
@@ -337,7 +337,7 @@ body {
 }
 .roc-stats-title {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-weight: 600;
   color: #2D5A8A;
   margin-bottom: 12px;
@@ -351,14 +351,14 @@ body {
 .roc-stat-val {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 22px;
+  font-size:var(--fs-body);
   color: #2D5A8A;
   line-height: 1;
 }
 .roc-stat-val.zero { color: #a67c1a; }
 .roc-stat-label {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-top: 2px;
 }
@@ -381,7 +381,7 @@ body {
 .compare-card.banned-card  { border-color: rgba(17,29,48,0.20); }
 .compare-card-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -397,25 +397,25 @@ body {
 .compare-big {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 30px;
+  font-size:var(--fs-section);
   color: #2D5A8A;
   line-height: 1;
 }
 .compare-num-sub {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-top: 4px;
 }
 .compare-arrow {
-  font-size: 24px;
+  font-size:var(--fs-subheading);
   color: #a67c1a;
   flex-shrink: 0;
 }
 .compare-result {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 30px;
+  font-size:var(--fs-section);
   color: #a67c1a;
   line-height: 1;
 }
@@ -433,7 +433,7 @@ body {
 }
 .compare-text {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.5;
 }
@@ -444,13 +444,13 @@ body {
 .banned-word {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 38px;
+  font-size:var(--fs-title);
   color: #111d30;
   line-height: 1;
 }
 .banned-sub {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-top: 6px;
   line-height: 1.4;
@@ -461,7 +461,7 @@ body {
   border-radius: 4px;
   padding: 14px 16px;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   line-height: 1.7;
 }
@@ -473,7 +473,7 @@ body {
   padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: rgba(232,228,220,0.5);
   line-height: 1.8;
 }
@@ -493,7 +493,7 @@ body {
 }
 .integrity-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size:var(--fs-label);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #6b6b78;
@@ -501,14 +501,14 @@ body {
 }
 .integrity-link {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size:var(--fs-label);
   color: #9c7418;
   text-decoration: none;
 }
 .integrity-link:hover { text-decoration: underline; }
 .integrity-note {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size:var(--fs-label);
   color: #6b6b78;
   margin-top: 6px;
 }
@@ -518,13 +518,13 @@ body {
   padding: 12px 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: rgba(232,234,240,0.40);
 }
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="page-header">
   <div class="page-eyebrow">TOT Insights · Analytical Visualisations · May 2026</div>
@@ -541,9 +541,9 @@ body {
 <div class="content">
 
   <a href="../briefings/religious_persecution_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left:3px solid #C4964A;border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:0 1px 3px rgba(17,29,48,0.08);">
-    <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
-    <div style="font-family:var(--font-sans);font-size:0.9rem;font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
-    <div style="font-family:var(--font-sans);font-size:0.78rem;color:#334155;line-height:1.5;">The written briefing on Russia's systematic campaign of religious persecution in occupied Ukrainian territories.</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
+    <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
+    <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#334155;line-height:1.5;">The written briefing on Russia's systematic campaign of religious persecution in occupied Ukrainian territories.</div>
   </a>
 
   <!-- stat grid -->

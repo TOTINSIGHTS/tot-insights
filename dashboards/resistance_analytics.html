@@ -15,7 +15,7 @@ body {
   font-family: var(--font-body);
   background: #111d30;
   color: #e8eaf0;
-  font-size: 17px;
+  font-size:var(--fs-body);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -31,7 +31,7 @@ body {
   display: inline-block;
   color: #c9a84c;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-variant: small-caps;
   text-decoration: none;
   margin-bottom: 12px;
@@ -40,7 +40,7 @@ body {
 .back-link:hover { text-decoration: underline; }
 .page-eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #C4964A;
@@ -48,7 +48,7 @@ body {
 }
 .page-title {
   font-family: var(--font-body);
-  font-size: 22px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color:var(--navy);
   line-height: 1.25;
@@ -56,7 +56,7 @@ body {
 }
 .page-subtitle {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size:var(--fs-label);
   color: #9CA3AF;
 }
 
@@ -89,21 +89,21 @@ body {
 }
 .stat-val {
   font-family: var(--font-mono);
-  font-size: 26px;
+  font-size:var(--fs-subheading);
   font-weight: 700;
   line-height: 1.1;
   color: #111d30;
 }
 .stat-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #111d30;
   margin-top: 4px;
   font-weight: 600;
 }
 .stat-sub {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: #6B7280;
   margin-top: 2px;
 }
@@ -116,7 +116,7 @@ body {
 }
 .tab-btn {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   font-weight: 600;
   padding: 10px 22px;
   border: none;
@@ -145,7 +145,7 @@ body {
 /* ─── Section heading ────────────────────────────────────────── */
 .section-heading {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size:var(--fs-body);
   font-weight: 700;
   color: #a67c1a;
   margin-bottom: 14px;
@@ -181,13 +181,13 @@ body {
 }
 .legend-label {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #334155;
   flex: 1;
 }
 .legend-val {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size:var(--fs-label);
   color: #111d30;
   font-weight: 700;
   white-space: nowrap;
@@ -206,13 +206,13 @@ body {
   border-left: 3px solid #C4964A;
   padding: 16px 20px;
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size:var(--fs-label);
   line-height: 1.8;
   margin-top: 20px;
 }
 .callout-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size:var(--fs-label);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #C4964A;
@@ -233,7 +233,7 @@ body {
 }
 .integrity-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size:var(--fs-label);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: rgba(232,228,220,0.55);
@@ -241,14 +241,14 @@ body {
 }
 .integrity-link {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size:var(--fs-label);
   color: rgba(232,228,220,0.90);
   text-decoration: none;
 }
 .integrity-link:hover { text-decoration: underline; }
 .integrity-note {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size:var(--fs-label);
   color: rgba(232,228,220,0.55);
   margin-top: 6px;
 }
@@ -258,14 +258,14 @@ body {
   padding: 12px 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size:var(--fs-label);
   color: rgba(17,29,48,0.50);
 }
 </style>
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body data-chrome="footer-only">
-<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:#0a1628;padding:6px 36px;border-bottom:1px solid rgba(201,168,76,0.25);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#c9a84c;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="page-header">
   <div class="page-eyebrow">TOT Insights · Resistance Analytics · May 2026</div>
