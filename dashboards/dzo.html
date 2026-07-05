@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="../assets/css/main.css">
 <style>
   :root {
-    --navy: #1a2744; --blue: #2a4a8a; --mid: #3a6fc4; --light: #e8edf5;
-    --accent: #c0392b; --warn: #e67e22; --green: #27ae60;
-    --text: #e8eaf0; --muted: #5a6a8a; --border: #d0d8e8;
+    --navy: #3a5578; --blue: #3a5578; --mid: #5a6c88; --light: #e8edf5;
+    --accent: #a23b34; --warn: #b8862b; --green: #3f7d5a;
+    --text: #2a2a3a; --muted: #5a6a8a; --border: #d0d8e8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #111d30; color: var(--text); font-size: 13px; }
+  body { font-family: var(--font-serif); background: #f2f0ec; color: var(--text); font-size: 13px; }
 
   .header { background: #0F1F3D; color: white; padding: 20px 32px; border-bottom: 3px solid #C4964A; }
   .header h1 { font-size: 20px; font-weight: 700; }
@@ -76,7 +76,7 @@
   .former { border-color: #bbb; background: #f8f8f8; }
   .former .name { color: #505050; }
   .ministry-node { border-color: var(--warn); background: #fffaf0; }
-  .security-node { border-color: rgba(232,228,220,0.85); background: #111d30; }
+  .security-node { border-color: #3a5578; background: #eef1f5; }
   .org-connector { width: 2px; height: 20px; background: var(--border); margin: 0 auto; }
 
   input.search { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; width: 100%; max-width: 320px; margin-bottom: 14px; outline: none; }
@@ -95,7 +95,6 @@
 
 <div class="header">
   <h1>State Grain Operator (DZO) - Research Dashboard</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
   <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
   <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). State Grain Operator (DZO) Dashboard. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20306147" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20306147</a></div>
@@ -475,18 +474,19 @@ cpData.forEach(d => {
 });
 
 // Charts - each canvas ID used exactly once
+Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color='#4a4a57';
 new Chart(document.getElementById('cropChart'), {
   type:'doughnut',
   data:{labels:['Wheat (~95k t)','Sunflower (~35k t)','Rapeseed (~10k t)','Corn (~4.4k t)','Barley (~2.4k t)','Peas (~0.1k t)'],
-    datasets:[{data:[95000,34940,9728,4418,2438,95],backgroundColor:['#2a4a8a','#e67e22','#27ae60','#3a6fc4','#9b59b6','#e74c3c'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[95000,34940,9728,4418,2438,95],backgroundColor:['#3a5578','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}}}}
 });
 
 new Chart(document.getElementById('finChart'), {
   type:'bar',
   data:{labels:['2023','2024'],datasets:[
-    {label:'Revenue (bn \u20bd)',data:[5.9,2.427],backgroundColor:['#2a4a8a','#c0392b'],yAxisID:'y'},
-    {label:'Harvest (m tonnes)',data:[5.7,6.26],type:'line',borderColor:'#27ae60',backgroundColor:'transparent',pointBackgroundColor:'#27ae60',pointRadius:6,yAxisID:'y2'}
+    {label:'Revenue (bn \u20bd)',data:[5.9,2.427],backgroundColor:['#3a5578','#a23b34'],yAxisID:'y'},
+    {label:'Harvest (m tonnes)',data:[5.7,6.26],type:'line',borderColor:'#3f7d5a',backgroundColor:'transparent',pointBackgroundColor:'#3f7d5a',pointRadius:6,yAxisID:'y2'}
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{labels:{font:{size:11}}}},
@@ -496,35 +496,35 @@ new Chart(document.getElementById('finChart'), {
 new Chart(document.getElementById('capChart'), {
   type:'pie',
   data:{labels:['Promsvyazbank credit (4bn \u20bd)','Balytsky personal loan (1bn \u20bd)','Federal budget injection (0.8bn \u20bd)'],
-    datasets:[{data:[4,1,0.8],backgroundColor:['#1a2744','#c0392b','#e67e22'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[4,1,0.8],backgroundColor:['#3a5578','#a23b34','#b8862b'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}
 });
 
 new Chart(document.getElementById('commodityChart'), {
   type:'bar',
   data:{labels:['Wheat','Sunflower','Rapeseed','Corn','Barley','Peas'],
-    datasets:[{label:'Tonnes',data:[95000,34940,9728,4418,2438,95],backgroundColor:['#2a4a8a','#e67e22','#27ae60','#3a6fc4','#9b59b6','#e74c3c']}]},
+    datasets:[{label:'Tonnes',data:[95000,34940,9728,4418,2438,95],backgroundColor:['#3a5578','#b8862b','#3f7d5a','#5a6c88','#9aa0a8','#a23b34']}]},
   options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{title:{display:true,text:'Tonnes'}}}}
 });
 
 new Chart(document.getElementById('geoChart'), {
   type:'doughnut',
   data:{labels:['Moscow (4)','St. Petersburg (3)','Krasnodar (4)','Rostov Oblast (5)','Crimea occupied (2)','North Caucasus (2)','Occupied territories (3)','Unknown (1)'],
-    datasets:[{data:[4,3,4,5,2,2,3,1],backgroundColor:['#1a2744','#2a4a8a','#e67e22','#e0a020','#c0392b','#333','#8e44ad','#7f8c8d'],borderWidth:2,borderColor:'#fff'}]},
+    datasets:[{data:[4,3,4,5,2,2,3,1],backgroundColor:['#3a5578','#3a5578','#b8862b','#c9a84c','#a23b34','#333','#6b7688','#9aa0a8'],borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:10},boxWidth:12}}}}
 });
 
 const topBuyers = [
-  {name:'Kuban-Forward LLC',vol:44858,color:'#2a4a8a'},
-  {name:'Aval LLC',vol:29883,color:'#2a4a8a'},
-  {name:'NAYM LLC',vol:16635,color:'#e67e22'},
-  {name:'TD Fregat LLC',vol:4942,color:'#2a4a8a'},
+  {name:'Kuban-Forward LLC',vol:44858,color:'#3a5578'},
+  {name:'Aval LLC',vol:29883,color:'#3a5578'},
+  {name:'NAYM LLC',vol:16635,color:'#b8862b'},
+  {name:'TD Fregat LLC',vol:4942,color:'#3a5578'},
   {name:'Dukush-2 LLC (Chechnya)',vol:4526,color:'#555'},
-  {name:'Global Treyd LLC',vol:5730,color:'#9b59b6'},
-  {name:'Flagman-Yug (Crimea, occ.)',vol:3995,color:'#c0392b'},
-  {name:'Milyev LLC (Donetsk, occ.)',vol:9053,color:'#8e44ad'},
-  {name:'Agro-Trading LLC',vol:3334,color:'#3a6fc4'},
-  {name:'Inviktus Treyd (Berdyansk, occ.)',vol:2092,color:'#c0392b'},
+  {name:'Global Treyd LLC',vol:5730,color:'#9aa0a8'},
+  {name:'Flagman-Yug (Crimea, occ.)',vol:3995,color:'#a23b34'},
+  {name:'Milyev LLC (Donetsk, occ.)',vol:9053,color:'#6b7688'},
+  {name:'Agro-Trading LLC',vol:3334,color:'#5a6c88'},
+  {name:'Inviktus Treyd (Berdyansk, occ.)',vol:2092,color:'#a23b34'},
 ].sort((a,b)=>b.vol-a.vol);
 
 new Chart(document.getElementById('buyerChart'), {
@@ -535,9 +535,9 @@ new Chart(document.getElementById('buyerChart'), {
 </script>
 <div style="padding:0 2rem 1.5rem;">
 <div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(232,228,220,0.55);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-  <p style="font-family:var(--font-source);font-size:0.75rem;color:rgba(232,228,220,0.55);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:#6b6b78;margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20DZO%20Research%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/dzo.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:#9c7418;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <p style="font-family:var(--font-source);font-size:0.75rem;color:#6b6b78;margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div></div>
 <script src="../navigation.js"></script>
 </body>
