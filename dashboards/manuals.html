@@ -18,9 +18,9 @@
 html,body{height:100%;margin:0;}
 body{font-family:var(--font-body);background:#111d30;color:var(--text);font-size:14px;line-height:1.6;display:flex;flex-direction:column;}
 /* ─── Header ─── */
-.page-header{background:var(--navy);border-bottom:3px solid var(--gold);padding:14px 28px;flex-shrink:0;}
-.page-header h1{font-size:15px;font-weight:600;color:#fff;margin-bottom:3px;}
-.page-header p{font-size:11px;color:rgba(255,255,255,0.45);font-family:var(--font-mono);letter-spacing:0.06em;}
+.page-header{background:transparent;border-bottom:3px solid var(--gold);padding:14px 28px;flex-shrink:0;}
+.page-header h1{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.page-header p{font-size:11px;color:#4a4a57;font-family:var(--font-mono);letter-spacing:0.06em;}
 /* ─── Stats bar ─── */
 .stats-bar{background:#253545;border-bottom:1px solid rgba(255,255,255,0.08);padding:10px 28px;display:flex;gap:36px;flex-shrink:0;}
 .stat-item{display:flex;flex-direction:column;}
@@ -75,7 +75,7 @@ body{font-family:var(--font-body);background:#111d30;color:var(--text);font-size
 .viewer-header{background:var(--navy);border-bottom:2px solid var(--gold);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
 .viewer-title-text{font-size:13px;font-weight:600;color:#fff;max-width:700px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .viewer-controls{display:flex;gap:10px;align-items:center;}
-.viewer-open-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;padding:5px 12px;border-radius:2px;text-decoration:none;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:background 0.12s;}
+.viewer-open-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;padding:5px 12px;border-radius:2px;text-decoration:none;border:1px solid rgba(17,29,48,0.2);cursor:pointer;transition:background 0.12s;}
 .viewer-open-btn:hover{background:rgba(255,255,255,0.15);color:#fff;}
 .viewer-close{background:var(--gold);color:rgba(232,228,220,0.90);font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:5px 14px;border:none;border-radius:2px;cursor:pointer;transition:background 0.12s;}
 .viewer-close:hover{background:#E0A81E;}
@@ -92,11 +92,10 @@ body{font-family:var(--font-body);background:#111d30;color:var(--text);font-size
 
 <div class="page-header">
   <h1>Russian Occupation Education and Propaganda Manuals</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: May 2026</div>
 <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.35);margin-bottom:0.35rem;">Cite this output</div>
-  <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308490" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20308490</a></div>
-  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20308490');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+  <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:#6b6b78;margin-bottom:0.35rem;">Cite this output</div>
+  <div style="font-family:var(--font-mono);font-size:0.68rem;color:#4a4a57;line-height:1.5;">McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/10.5281/zenodo.20308490" target="_blank" rel="noopener noreferrer" style="color:#E8B84B;text-decoration:none;">https://doi.org/10.5281/zenodo.20308490</a></div>
+  <button onclick="(function(b){navigator.clipboard.writeText('McGlynn, J. et al. (2026). Russian Military Recruitment Materials – Occupied Mariupol, March 2026. TOT Insights / King's College London. DOI: https://doi.org/10.5281/zenodo.20308490');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(17,29,48,0.2);color:#6b6b78;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
 </div>
   <p>DOC-D4 · Propaganda · Primary Sources · TOT Insights</p>
 </div>

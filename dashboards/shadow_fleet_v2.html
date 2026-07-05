@@ -22,8 +22,8 @@ body {
 
 /* ─── Page header ──────────────────────────────────────────── */
 .page-header {
-  background: #0a1628;
-  color: #E8E0D0;
+  background:transparent;
+  color:var(--navy);
   padding: 14px 32px 18px;
   border-bottom: 3px solid #C4964A;
 }
@@ -50,7 +50,7 @@ body {
   font-family: var(--font-serif);
   font-size: 21px;
   font-weight: 700;
-  color: #E8E0D0;
+  color:var(--navy);
   line-height: 1.2;
 }
 .page-subtitle {
@@ -130,7 +130,7 @@ body {
 
 /* ─── Tab bar ──────────────────────────────────────────────── */
 .tab-bar {
-  background: #0a1628;
+  background: var(--cream-raised); border-bottom: 1px solid var(--grey-200);
   display: flex;
   padding: 0 32px;
 }
@@ -148,8 +148,8 @@ body {
   text-transform: uppercase;
   transition: color 0.15s, border-color 0.15s;
 }
-.tab-btn.active { color: #E8E0D0; border-bottom-color: #C4964A; }
-.tab-btn:hover  { color: #E8E0D0; }
+.tab-btn.active { color: var(--navy); border-bottom-color: #C4964A; }
+.tab-btn:hover  { color: var(--navy); }
 
 /* ─── Content ──────────────────────────────────────────────── */
 .content { padding: 24px 32px 40px; max-width: 1200px; }
