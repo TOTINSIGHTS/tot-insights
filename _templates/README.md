@@ -3,7 +3,7 @@
 This folder contains everything needed to contribute to the TOT Insights Hub platform.
 
 ## Start here
-1. Read `STYLE_GUIDE.md` before creating anything
+1. Read the style guide at [`/docs/STYLE_GUIDE.md`](../docs/STYLE_GUIDE.md) before creating anything
 2. Use `WORKFLOW_GUIDE.md` for step-by-step instructions on common tasks
 
 ## Templates
