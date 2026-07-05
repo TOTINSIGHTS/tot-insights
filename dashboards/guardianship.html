@@ -76,7 +76,16 @@ body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:1
 #occAside .aside-h{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:#5b6472;margin-bottom:6px;}
 #occAside .aside-i{font-family:var(--mono);font-size:.68rem;color:#3a4453;display:flex;align-items:center;gap:7px;line-height:1.8;}
 #occAside .aside-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0;border:1px solid rgba(17,29,48,.25);}
-svg#occMap circle.pt{cursor:pointer;}
+svg#occMap circle.pt{cursor:pointer;transition:r .1s;}
+svg#occMap circle.pt:hover{r:7;}
+/* Map point detail box — shown on hover AND click/tap (works on touch) */
+.occ-tip{position:absolute;z-index:30;display:none;background:#0d1624;color:#e8eaf0;border:1px solid rgba(201,168,76,0.35);border-radius:4px;padding:8px 11px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;line-height:1.5;max-width:230px;box-shadow:0 6px 20px rgba(0,0,0,0.35);}
+.occ-tip-recip{font-weight:700;color:#fff;margin-bottom:2px;font-size:11.5px;}
+.occ-tip-row{color:rgba(232,228,220,0.82);}
+.occ-tip-sec{color:rgba(232,228,220,0.6);}
+.occ-tip-status{margin-top:3px;font-weight:600;}
+.occ-tip-link{display:inline-block;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.12);color:#c9a84c;text-decoration:none;font-weight:600;}
+.occ-tip-link:hover{color:#E8B84B;text-decoration:underline;}
 </style>
 </head>
 <body data-chrome="footer-only">
@@ -273,15 +282,49 @@ ccData.forEach(c=>{ccEl.innerHTML+=`<div class="cc"><div class="cch"><div class=
   const proj=(lat,lon)=>[X0+(lon-W)/(E-W)*(X1-X0), Y0+(N-lat)/(N-S)*(Y1-Y0)];
   const COL={'✓':'#4ade80','~':'#fbbf24','✗':'#f87171','?':'#94a3b8'};
   const LBL={'✓':'Confirmed delivered','~':'Partial / disputed','✗':'Not delivered','?':'Status unclear'};
+  // Detail box shared by hover and click/tap so both show exactly the same thing.
+  const wrap=svg.parentElement; wrap.style.position='relative';
+  const tip=document.createElement('div'); tip.className='occ-tip'; tip.setAttribute('role','tooltip'); wrap.appendChild(tip);
+  let pinned=null, hideTimer=null;
+  const clearTimer=()=>{ if(hideTimer){clearTimeout(hideTimer);hideTimer=null;} };
+  const scheduleHide=()=>{ if(!pinned){ clearTimer(); hideTimer=setTimeout(hide,180); } };
+  function fill(d){
+    tip.innerHTML='<div class="occ-tip-recip">'+d.recipient+'</div>'
+      +'<div class="occ-tip-row">'+d.donor+'</div>'
+      +'<div class="occ-tip-row occ-tip-sec">'+d.sectors+'</div>'
+      +'<div class="occ-tip-status" style="color:'+(COL[d.status]||'#94a3b8')+'">'+(LBL[d.status]||'')+'</div>'
+      +'<a class="occ-tip-link" href="#" onclick="switchTab(\'delivery\');return false;">View in Delivery Scorecard &#8594;</a>';
+  }
+  function place(circle){
+    const cr=circle.getBoundingClientRect(), wr=wrap.getBoundingClientRect();
+    const tw=tip.offsetWidth, th=tip.offsetHeight;
+    let left=cr.left-wr.left+cr.width/2-tw/2, top=cr.top-wr.top-th-9;
+    left=Math.max(6,Math.min(left,wr.width-tw-6));
+    if(top<4) top=cr.top-wr.top+cr.height+9;
+    tip.style.left=left+'px'; tip.style.top=top+'px';
+  }
+  function show(c,d){ clearTimer(); fill(d); tip.style.display='block'; place(c); }
+  function hide(){ clearTimer(); tip.style.display='none'; pinned=null; }
+  function toggle(c,d){ if(pinned===c){hide();} else {pinned=c; show(c,d);} }
+  tip.addEventListener('mouseenter',clearTimer);
+  tip.addEventListener('mouseleave',scheduleHide);
+  tip.addEventListener('click',e=>e.stopPropagation());
   deliveries.filter(d=>d.lat!=null&&d.lon!=null&&!d.aside).forEach(d=>{
     const [x,y]=proj(d.lat,d.lon);
     const c=document.createElementNS(NS,'circle');
     c.setAttribute('class','pt');
     c.setAttribute('cx',x.toFixed(1)); c.setAttribute('cy',y.toFixed(1)); c.setAttribute('r','5.5');
     c.setAttribute('fill',COL[d.status]||'#94a3b8'); c.setAttribute('stroke','#fff'); c.setAttribute('stroke-width','1.4'); c.setAttribute('opacity','0.95');
-    const ti=document.createElementNS(NS,'title'); ti.textContent=d.recipient+' — '+d.donor+'\n'+d.sectors+'\n'+(LBL[d.status]||''); c.appendChild(ti);
+    c.setAttribute('tabindex','0'); c.setAttribute('role','button');
+    c.setAttribute('aria-label', d.recipient+' — '+d.donor+'. '+d.sectors+'. '+(LBL[d.status]||''));
+    c.addEventListener('mouseenter',()=>{ if(!pinned) show(c,d); });
+    c.addEventListener('mouseleave',scheduleHide);
+    c.addEventListener('click',e=>{ e.stopPropagation(); toggle(c,d); });
+    c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(c,d); } });
     svg.appendChild(c);
   });
+  document.addEventListener('click',()=>{ if(pinned) hide(); });
+  window.addEventListener('resize',()=>{ if(pinned) place(pinned); });
   const aside=deliveries.filter(d=>d.aside), box=document.getElementById('occAside');
   if(box&&aside.length){ box.innerHTML='<div class="aside-h">Areas listed to the side (not single points):</div>'+aside.map(d=>'<div class="aside-i"><span class="aside-dot" style="background:'+(COL[d.status]||'#94a3b8')+'"></span>'+d.recipient+' — '+d.donor+'</div>').join(''); }
 })();
