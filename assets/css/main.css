@@ -76,6 +76,7 @@
   --fs-card-title: 22px;   /* card titles — a notch below sub-heading so dense card grids aren't too heavy */
   --fs-card:       17px;   /* card descriptions — a notch below body, to match (see the shared card rule) */
   --card-desc-lines: 3;    /* card description line clamp — ONE value to change (try 2 or 4) */
+  --card-title-lines: 2;   /* card title line clamp — ONE value to change */
 
   --reading-size:    var(--fs-body);
   --reading-lead:    var(--fs-subheading);
@@ -411,6 +412,15 @@ table th {
 .output-title, .ps-title, .db-title, .vis-title, .media-title, .res-cat-title {
   font-size: var(--fs-card-title) !important;
 }
+/* Cap card titles to a set number of lines so a long title can't push a card
+   taller than its row-mates. Change --card-title-lines (one value) to adjust. */
+.output-title, .ps-title, .db-title, .vis-title, .media-title, .res-cat-title, .doc-title {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--card-title-lines);
+  line-clamp: var(--card-title-lines);
+  overflow: hidden !important;
+}
 .output-desc, .ps-desc, .db-desc, .vis-desc, .media-desc, .res-cat-desc, .doc-desc {
   font-size: var(--fs-card) !important;
   text-decoration: none !important;
@@ -431,6 +441,21 @@ table th {
 .output-card-footer, .ps-card-footer, .db-card-footer,
 .vis-card-footer, .media-card-footer, .doc-card-footer {
   margin-top: auto !important;
+}
+/* Card category tags (BRIEFING / VISUAL / ARTICLE / etc.) use the site's plain
+   gold monospace label style — no coloured box — so they match every other
+   small label (section labels, PARTNERS, etc.). Same tokens as .section-label;
+   gold because these are category labels (colour = status is reserved). */
+.output-tag, .vis-tag, .ps-tag, .media-fmt, .doc-format {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: var(--gold) !important;
+  font-family: var(--font-mono) !important;
+  font-size: var(--fs-label) !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
 }
 
 /* Theme dot — a small coloured marker placed before a theme label on themed
