@@ -200,6 +200,19 @@ h3 { font-size: var(--fs-subheading); line-height: 1.3; }
 .page-hero.centered .page-hero-inner { text-align: center; }
 .page-hero.centered .page-desc,
 .page-hero.centered .page-hero-desc { margin-left: auto; margin-right: auto; }
+
+/* Partners — a plain, readable list (Home + About). No logos. */
+.partner-block { border-top: 1px solid var(--grey-200); padding: 2.5rem 3rem 3rem; }
+.partner-block-inner { max-width: var(--content-width); margin: 0 auto; }
+.partner-grid { list-style: none; margin: 1.25rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
+@media (max-width: 760px) { .partner-grid { grid-template-columns: 1fr; gap: 24px; } }
+.partner-org { font-family: var(--font-serif); font-size: var(--fs-body); font-weight: 600;
+  color: var(--navy); text-decoration: none; }
+.partner-org:hover { color: var(--gold); text-decoration: underline; }
+.partner-org-ext { font-size: var(--fs-label); color: var(--gold); margin-left: 4px; }
+.partner-blurb { font-size: var(--fs-body); color: var(--grey-700); line-height: 1.5;
+  margin-top: 5px; max-width: 34rem; }
 .page-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
