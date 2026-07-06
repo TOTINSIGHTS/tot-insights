@@ -175,73 +175,6 @@
   <span class="static-hero-caption">Mariupol, April 2026 · fieldwork documentation</span>
 </section>
 
-<section class="themes-browse">
-  <div class="themes-browse-inner">
-    <div class="section-label">Explore by theme</div>
-    <div class="theme-browse-grid">
-      <a class="theme-browse-card" href="themes.html#governance">
-        <div class="theme-browse-title">Governance</div>
-        <div class="theme-browse-desc">How Russia administers the territory it has seized, and who runs it.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#economics">
-        <div class="theme-browse-title">Economics</div>
-        <div class="theme-browse-desc">How Russia turns occupied territory into a source of value, and who profits.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#civilian-life">
-        <div class="theme-browse-title">Civilian Life</div>
-        <div class="theme-browse-desc">What occupation is actually like for the people who stay.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#identity-culture-and-religion">
-        <div class="theme-browse-title">Identity, Culture and Religion</div>
-        <div class="theme-browse-desc">What Russia tries to erase, and what it installs in its place.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#education-and-militarisation">
-        <div class="theme-browse-title">Education and Militarisation</div>
-        <div class="theme-browse-desc">How Russia uses schooling and youth programmes to reshape a generation.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#coercion-resistance-and-security">
-        <div class="theme-browse-title">Coercion, Resistance and Security</div>
-        <div class="theme-browse-desc">How control is enforced, how Ukrainians resist, and the surveillance between them.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#information-space">
-        <div class="theme-browse-title">Information Space</div>
-        <div class="theme-browse-desc">How Russia controls what people can know, say and believe.</div>
-      </a>
-      <a class="theme-browse-card" href="themes.html#accountability-and-legal">
-        <div class="theme-browse-title">Accountability and Legal</div>
-        <div class="theme-browse-desc">The occupation as a body of crimes, and the effort to document them.</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="databases-section">
-  <div class="databases-inner">
-    <div class="section-label">Latest from the databases</div>
-    <div class="db-grid">
-      <a class="db-card" href="officials.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-OFF</div>
-        <div class="db-title">Occupation Officials Database</div>
-        <div class="db-desc">1,085 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, searchable by name, territory, level, status, and origin.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">1,085 entries &nbsp;·&nbsp; Accountability and Legal</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-card" href="sanctions.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-SAN</div>
-        <div class="db-title">Sanctions Database</div>
-        <div class="db-desc">2,306 sanctioned individuals and entities across seven jurisdictions - Australia, EU, Japan, Switzerland, UK, US, and Ukraine - searchable by name, type, territory, and jurisdiction.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">2,306 entries &nbsp;·&nbsp; 7 jurisdictions</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-    </div>
-    <div class="section-cta"><a href="data.html">See all data and primary sources →</a></div>
-  </div>
-</section>
-
 <section class="outputs-section">
   <div class="outputs-inner">
     <div class="section-label">Latest outputs</div>
@@ -263,17 +196,6 @@
 <script src="assets/js/counters.js"></script>
 <script>
 (function () {
-  /* One media item not in documents.js */
-  var MEDIA_EXTRA = [
-    {
-      title: "Trump lifts sanctions on Russian oil as energy prices surge & the ‘leaner, more professional’ partisans in the occupied territories",
-      date: "13 Mar 2026",
-      format: "Podcast",
-      outlet: "Telegraph",
-      desc: "An overview of resistance efforts in occupied areas, including partisan activity in Luhansk, alongside reports on deported children, forced mobilisation, ideological indoctrination, and wider disruption in energy markets.",
-      link: "https://podcasts.apple.com/cz/podcast/trump-lifts-sanctions-on-russian-oil-as-energy-prices/id1612424182?i=1000755134732"
-    }
-  ];
 
   /* Month-name lookup used by both date formats */
   var MON = {January:1,February:2,March:3,April:4,May:5,June:6,July:7,August:8,
@@ -301,6 +223,7 @@
     if (d.briefingFile) return d.briefingFile;
     if (d.dashboardFile) return d.dashboardFile;
     if (d.gdocs && d.gdocs.indexOf('http') === 0) return d.gdocs;
+    if (d.url) return d.url;
     return 'research.html';
   }
 
@@ -314,13 +237,7 @@
   /* Normalise documents.js entries */
   var combined = DOCS.map(function (d) {
     return { title:d.title, date:d.date, dateSort:parseDate(d.date),
-             format:d.format, desc:d.desc, link:getLink(d), outlet:null };
-  });
-
-  /* Add extra media items */
-  MEDIA_EXTRA.forEach(function (m) {
-    combined.push({ title:m.title, date:m.date, dateSort:parseDate(m.date),
-                    format:m.format, desc:m.desc, link:m.link, outlet:m.outlet });
+             format:d.format, desc:d.desc, link:getLink(d), outlet:d.outlet || null };
   });
 
   /* Sort newest first; stable sort preserves documents.js order within same month */
