@@ -321,7 +321,8 @@ a.resource-row:hover .resource-title {
 
 .theme-card {
   background: #f2f0ec;
-  border-radius: 3px;
+  border-radius: 0;
+  border-top: 3px solid var(--gold);   /* gold rule marks off each theme block */
   display: flex;
   flex-direction: row;
   box-shadow:none;
@@ -329,9 +330,9 @@ a.resource-row:hover .resource-title {
   margin-bottom: 14px;
 }
 
-/* Left column: title + framing + questions (takes ~62% of width) */
+/* Left column: title + framing + questions (~half the width) */
 .theme-card-left {
-  flex: 2;
+  flex: 1;
   min-width: 0;
   padding: 40px 36px 40px 40px;
 }
@@ -342,7 +343,7 @@ a.resource-row:hover .resource-title {
   min-width: 200px;
   padding: 40px 36px 40px 32px;
   border-left: 1px solid rgba(17,29,48,0.09);
-  background: #ede9e3;
+  background: var(--grey-200);   /* light tint so the research column reads as its own zone */
 }
 
 /* Dark text overrides inside the card */
