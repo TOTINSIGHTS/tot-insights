@@ -22,17 +22,7 @@
             '<nav class="header-nav">' +
               '<a href="' + p + 'index.html" data-nav="home">Home</a>' +
               '<a href="' + p + 'themes.html" data-nav="themes">Themes</a>' +
-              '<div class="nav-dropdown">' +
-                '<a href="' + p + 'data.html" class="nav-dropdown-link" data-nav="data">Data</a>' +
-                '<button class="nav-chevron-btn" aria-expanded="false" aria-label="Toggle Data submenu"><span class="nav-chevron">&#9662;</span></button>' +
-                '<div class="nav-dropdown-panel">' +
-                  '<a href="' + p + 'data.html" data-nav="data-all">All Data</a>' +
-                  '<a href="' + p + 'data.html#databases">Databases</a>' +
-                  '<a href="' + p + 'officials.html" data-nav="officials">Officials Database</a>' +
-                  '<a href="' + p + 'sanctions.html" data-nav="sanctions">Sanctions Database</a>' +
-                  '<a href="' + p + 'data.html#dashboards">Interactive dashboards</a>' +
-                '</div>' +
-              '</div>' +
+              '<a href="' + p + 'data.html" data-nav="data">Data</a>' +
               '<a href="' + p + 'primary-sources.html" data-nav="primary-sources">Primary sources</a>' +
               '<a href="' + p + 'media.html" data-nav="media">Media</a>' +
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
@@ -70,7 +60,7 @@
     else if (file === 'themes.html') key = 'themes';
     else if (file === 'media.html') key = 'media';
     else if (file === 'about.html') key = 'about';
-    else if (file === 'data.html') key = 'data-all';
+    else if (file === 'data.html') key = 'data';
     else if (file === 'primary-sources.html') key = 'primary-sources';
     else if (file === 'officials.html') key = 'officials';
     else if (file === 'sanctions.html') key = 'sanctions';
@@ -78,7 +68,7 @@
     if (!key) return;
     var el = root.querySelector('[data-nav="' + key + '"]');
     if (el) el.classList.add('active');
-    if (key === 'data-all' || key === 'officials' || key === 'sanctions') {
+    if (key === 'officials' || key === 'sanctions') {
       var parent = root.querySelector('[data-nav="data"]');
       if (parent) parent.classList.add('active');
     }
