@@ -440,7 +440,7 @@ table th {
 .doc-content p, .doc-content li { max-width: none !important; }
 /* Briefing tables read at the body size (not the smaller shared table size),
    and never larger than the body text. */
-.doc-content td, .doc-content th { padding: 7px 11px !important; font-size: var(--fs-body) !important; }
+.doc-content td, .doc-content th { padding: 7px 11px !important; font-size: var(--fs-table) !important; }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
