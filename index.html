@@ -16,7 +16,7 @@
 /* Header */
 
 /* Static hero — shallow wide banner across the top */
-.static-hero{position:relative;width:100%;height:30vh;min-height:230px;max-height:340px;overflow:hidden;background:var(--navy);display:flex;align-items:center;}
+.static-hero{position:relative;width:100%;height:50vh;min-height:320px;max-height:540px;overflow:hidden;background:var(--navy);display:flex;align-items:center;}
 /* image layer, calmed (lower contrast, slightly muted) so it recedes */
 .static-hero::before{content:'';position:absolute;inset:0;background-image:url('images/mariupol-lyudi-hero.jpg');background-size:cover;background-position:left 42%;filter:contrast(0.9) brightness(0.95) saturate(0.92);z-index:0;}
 /* soft wash: darker on the left under the title, fading right */
@@ -125,7 +125,7 @@
 /* Footer */
 @media(max-width:767px){
   
-  .static-hero{min-height:200px;max-height:300px;}
+  .static-hero{min-height:280px;max-height:440px;}
   .static-hero-title{font-size:var(--fs-section);}
   .static-hero-desc,.static-hero-caption{display:none;}
   .stats-grid{grid-template-columns:repeat(2,1fr);}
@@ -137,7 +137,7 @@
   .about-links{display:none;}
   .featured-card:nth-child(n+5){display:none;}
 }
-@media(max-width:700px){.static-hero{min-height:180px;max-height:260px;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.featured,.databases-section,.outputs-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
+@media(max-width:700px){.static-hero{min-height:260px;max-height:400px;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.featured,.databases-section,.outputs-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
 .photo-card{border-radius:3px;overflow:hidden;max-width:420px;border:1px solid rgba(255,255,255,0.10);}
 .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 /* Partners */
