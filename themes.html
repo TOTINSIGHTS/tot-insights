@@ -52,6 +52,41 @@
   margin-bottom: 30px;
 }
 
+/* Theme index — jump links below the page title */
+html { scroll-behavior: smooth; }
+.theme-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 40px;
+}
+.theme-index a {
+  font-family: var(--font-source);
+  font-size: var(--fs-label);
+  letter-spacing: 0.02em;
+  color: var(--navy);
+  text-decoration: none;
+  background: rgba(17,29,48,0.035);
+  border: 1px solid rgba(17,29,48,0.12);
+  border-radius: 999px;
+  padding: 8px 16px;
+  line-height: 1.25;
+  transition: color .12s ease, border-color .12s ease, background .12s ease;
+}
+.theme-index a:hover,
+.theme-index a:focus-visible {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(181,146,58,0.09);
+}
+.theme-section {
+  scroll-margin-top: 90px;
+}
+@media (max-width: 640px) {
+  .theme-index { gap: 8px; margin-bottom: 30px; }
+  .theme-index a { padding: 7px 13px; }
+}
+
 /* Questions */
 .theme-questions-label {
   font-family: var(--font-mono);
@@ -75,9 +110,9 @@
   font-size:var(--fs-body);
   font-weight: 300;
   color:#4a4a57;
-  line-height: 1.8;
-  padding: 10px 0 10px 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  line-height: 1.5;
+  padding: 5px 0 5px 30px;
+  border-top: none;
   position: relative;
 }
 .theme-question-list li::before {
@@ -87,11 +122,11 @@
   font-family: var(--font-mono);
   font-size:var(--fs-label);
   color: rgba(181,146,58,0.70);
-  top: 14px;
+  top: 8px;
   letter-spacing: 0.05em;
 }
 .theme-question-list li:last-child {
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: none;
 }
 
 /* Start here */
@@ -461,6 +496,17 @@ a.resource-row:hover .resource-title {
 </div>
 
 <div class="main-content">
+
+  <nav class="theme-index" aria-label="Jump to a theme">
+    <a href="#governance">Governance</a>
+    <a href="#economics">Economics</a>
+    <a href="#civilian-life">Civilian Life</a>
+    <a href="#identity-culture-and-religion">Identity, Culture and Religion</a>
+    <a href="#education-and-militarisation">Education and Militarisation</a>
+    <a href="#coercion-resistance-and-security">Coercion, Resistance and Security</a>
+    <a href="#information-space">Information Space</a>
+    <a href="#accountability-and-legal">Accountability and Legal</a>
+  </nav>
 
   <!-- ── GOVERNANCE ─────────────────────────────────────────────────── -->
   <section class="theme-section" id="governance">
