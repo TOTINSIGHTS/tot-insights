@@ -13,10 +13,13 @@
       header:
         '<header class="site-header">' +
           '<div class="header-inner">' +
-            '<a class="site-logo" href="' + p + 'index.html">' +
-              '<span class="logo-main">TOT Insights</span>' +
-              '<span class="logo-sub">Russian-occupied Ukraine</span>' +
-            '</a>' +
+            '<div class="site-brand">' +
+              '<a class="site-logo" href="' + p + 'index.html">' +
+                '<span class="logo-main">TOT Insights</span>' +
+                '<span class="logo-sub">Researching Russian-occupied Ukraine</span>' +
+              '</a>' +
+              '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
+            '</div>' +
             '<nav class="header-nav">' +
               '<a href="' + p + 'index.html" data-nav="home">Home</a>' +
               '<a href="' + p + 'themes.html" data-nav="themes">Themes</a>' +
@@ -36,7 +39,6 @@
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
             '</nav>' +
-            '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
           '</div>' +
         '</header>',
       footer:

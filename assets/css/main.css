@@ -151,20 +151,19 @@ h3 { font-size: var(--fs-subheading); line-height: 1.3; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
-/* Institutional crest (King's College London) sits at the far right of the
-   header. Logo pushes left; nav + crest group on the right. */
-.site-logo { margin-right: auto; }
+/* Left brand block: TOT Insights logo, strapline, then the King's College
+   London crest — grouped together and pushed to the left. Menu stays right. */
+.site-brand { display: flex; align-items: center; gap: 16px; margin-right: auto; }
 .site-crest {
-  height: 32px;
+  height: 30px;
   width: auto;
-  margin-left: 28px;
   flex-shrink: 0;
   opacity: 0.9;
-  align-self: center;
 }
-/* Space is tight below desktop (nav collapses to a hamburger at 767px);
-   hide the crest so it never crowds the logo/menu on small screens. */
+/* Narrow screens: drop the crest first (it needs the most room), then the
+   strapline, so the three-part brand never overflows next to the menu. */
 @media (max-width: 900px) { .site-crest { display: none; } }
+@media (max-width: 720px) { .logo-sub { display: none; } }
 .header-nav {
   display: flex;
   gap: 28px;
