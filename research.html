@@ -47,7 +47,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#2a2a3a;fo
 .doc-card{background:var(--card-bg);border:1px solid rgba(26,26,46,0.12);border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px 14px;cursor:pointer;transition:all 0.2s ease;display:flex;flex-direction:column;height:420px;overflow:hidden;}
 .doc-card:hover{box-shadow:none;transform:translateY(-2px);}
 .doc-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;gap:8px;}
-.doc-theme-pill{font-family:var(--font-mono);font-size:var(--fs-label);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;background:rgba(201,168,76,0.15);color:#c9a84c;border:1px solid rgba(201,168,76,0.4);}
+.doc-theme-pill{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:var(--fs-label);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;color:#3a3a4a;}
 .doc-id{font-family:var(--font-mono);font-size:var(--fs-label);color:#8a6f2e;letter-spacing:0.08em;}
 .doc-title{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:600;color:#1a1a2e;line-height:1.35;margin-bottom:7px;}
 .doc-desc{font-size:var(--fs-label);color:#3a3a4a;line-height:1.6;flex:1;margin-bottom:12px;}
@@ -204,6 +204,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#2a2a3a;fo
 <script>
 const BROWSE_DEFAULT=100;
 let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
+const THEME_DOT={'Governance':'var(--theme-governance)','Economics':'var(--theme-economics)','Civilian Life':'var(--theme-civilian-life)','Identity, Culture and Religion':'var(--theme-identity)','Education and Militarisation':'var(--theme-education)','Coercion, Resistance and Security':'var(--theme-coercion)','Information Space':'var(--theme-information)','Accountability and Legal':'var(--theme-accountability)'};
 
 function buildCards(){
   const SEG=[
@@ -218,7 +219,7 @@ function buildCards(){
       card.dataset.docId=doc.id;
       card.onclick=()=>openModal(doc.id);
       const th=Array.isArray(doc.theme)?doc.theme:[doc.theme];
-      const pills=th.map(t=>`<span class="doc-theme-pill ${THEME_CLASS[t]||''}">${t}</span>`).join('');
+      const pills=th.map(t=>`<span class="doc-theme-pill"><span class="theme-dot" style="background:${THEME_DOT[t]||'#888'}"></span>${t}</span>`).join('');
       card.innerHTML=`<div class="doc-card-top"><div style="display:flex;gap:4px;flex-wrap:wrap;flex:1;">${pills}</div><span class="doc-id">${doc.id}</span></div>${doc.date?`<div class="doc-date">${doc.date}</div>`:""}<div class="doc-title">${doc.title}</div><div class="doc-desc">${doc.desc}</div><div class="doc-card-footer"><span class="doc-format">${doc.format}</span><span class="doc-arrow">&rarr;</span></div>${doc.doi?('<div style="font-family:\'IBM Plex Mono\',monospace;font-size:var(--fs-label);margin-top:6px;padding-top:6px;border-top:1px solid rgba(26,26,46,0.10);">'+(doc.doi2?('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;margin-right:8px;">DOI &#8599;</a> <a href="'+doc.doi2+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">DOI &#8599;</a>'):('<a href="'+doc.doi+'" target="_blank" rel="noopener noreferrer" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+doc.doi.replace('https://doi.org/','')+' &#8599;</a>'))+'</div>'):''}${doc.vizFile?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:var(--fs-label);margin-top:3px;"><a href="'+doc.vizFile+'" onclick="event.stopPropagation()" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+(doc.vizLabel||'Interactive visualisation')+' &#8594;</a></div>':''}${doc.vizFile2?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:var(--fs-label);margin-top:2px;"><a href="'+doc.vizFile2+'" onclick="event.stopPropagation()" style="color:rgba(181,146,58,0.80);text-decoration:none;">'+(doc.vizLabel2||'Interactive visualisation 2')+' &#8594;</a></div>':''}${doc.datasetFile?'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:var(--fs-label);margin-top:2px;"><a href="'+doc.datasetFile+'" onclick="event.stopPropagation();event.preventDefault();openViewer(this.href,\'Underlying dataset\');return false;" style="color:rgba(181,146,58,0.80);text-decoration:none;">Underlying dataset &#8594;</a></div>':''}`;
       grid.appendChild(card);
     });
