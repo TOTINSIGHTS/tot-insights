@@ -25,14 +25,16 @@ The order of priority is: **clarity and accessibility first, house style second.
 
 ## Type scale (the only font sizes on the site)
 
-There are **five** font sizes, defined once as tokens in the shared styles (`assets/css/main.css`), and **nothing uses a size outside this list.** Body errs on the larger side (comfortable on an 11-inch laptop; most readers are on bigger screens). Sizes are fixed, not responsive clamps.
+There is a small fixed set of font sizes, defined once as tokens in the shared styles (`assets/css/main.css`), and **nothing uses a size outside this list.** Body errs on the larger side (comfortable on an 11-inch laptop; most readers are on bigger screens). Sizes are fixed, not responsive clamps.
 
 | Token | Size | Use for |
 |---|---|---|
 | `--fs-title` | 38px | Large heading — page/dashboard titles |
 | `--fs-section` | 30px | Section headings |
-| `--fs-subheading` | 24px | Sub-headings, lead paragraphs, card titles, the logo |
-| `--fs-body` | 19px | All reading text — paragraphs, entries, descriptions, card body |
+| `--fs-subheading` | 24px | Sub-headings, lead paragraphs, the logo |
+| `--fs-body` | 19px | All reading text — paragraphs, entries, descriptions |
+| `--fs-card-title` | 22px | **Card titles** — a notch below sub-heading so dense card grids aren't too heavy (see the shared card rule) |
+| `--fs-card` | 17px | **Card descriptions** — a notch below body, to match |
 | `--fs-label` | 12px | Small gold-monospace labels, eyebrows, tags, badges, nav, buttons, captions, footnotes |
 | `--fs-table` | 15px | **Table cells and headers** — a notch below body (see the table rule below) |
 
