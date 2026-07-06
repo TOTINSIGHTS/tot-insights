@@ -15,16 +15,16 @@
 
 /* Header */
 
-/* Static hero — shallow wide banner across the top */
-.static-hero{position:relative;width:100%;height:58vh;min-height:360px;max-height:600px;overflow:hidden;background:var(--navy);display:flex;align-items:center;}
-/* image layer, calmed (lower contrast, slightly muted) so it recedes */
-.static-hero::before{content:'';position:absolute;inset:0;background-image:url('images/mariupol-lyudi-hero.jpg');background-size:cover;background-position:left 66%;filter:contrast(0.9) brightness(0.95) saturate(0.92);z-index:0;}
-/* soft wash: darker on the left under the title, fading right */
-.static-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,18,40,0.72) 0%,rgba(8,18,40,0.48) 45%,rgba(8,18,40,0.22) 100%);z-index:1;pointer-events:none;}
-.static-hero-content{position:relative;z-index:2;max-width:660px;padding:0 3.5rem;}
-.static-hero-title{font-family:var(--font-display);font-size:var(--fs-section);font-weight:700;color:#fff;line-height:1.2;margin-bottom:9px;text-shadow:0 1px 12px rgba(8,18,40,0.55);}
-.static-hero-desc{font-size:var(--fs-body);color:rgba(255,255,255,0.85);line-height:1.5;max-width:560px;text-shadow:0 1px 10px rgba(8,18,40,0.55);}
-.static-hero-caption{position:absolute;bottom:0.85rem;right:1.5rem;z-index:2;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;color:rgba(255,255,255,0.62);text-shadow:0 1px 6px rgba(8,18,40,0.6);}
+/* Photo band — the image shown naturally (text now sits below it, not on it) */
+.static-hero{position:relative;width:100%;height:58vh;min-height:360px;max-height:600px;overflow:hidden;background:var(--navy);}
+.static-hero::before{content:'';position:absolute;inset:0;background-image:url('images/mariupol-lyudi-hero.jpg');background-size:cover;background-position:left 66%;z-index:0;}
+/* only a whisper of a scrim along the bottom so the corner caption stays legible */
+.static-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,40,0.32) 0%,rgba(8,18,40,0) 28%);z-index:1;pointer-events:none;}
+.static-hero-caption{position:absolute;bottom:0.85rem;right:1.5rem;z-index:2;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;color:rgba(255,255,255,0.9);text-shadow:0 1px 8px rgba(0,0,0,0.75);}
+/* Title + intro below the photo, centred on the cream */
+.hero-titleblock{background:var(--cream-panel);text-align:center;padding:38px 40px 30px;}
+.static-hero-title{font-family:var(--font-display);font-size:var(--fs-section);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:11px;}
+.static-hero-desc{font-size:var(--fs-body);color:var(--grey-700);line-height:1.55;max-width:660px;margin:0 auto;}
 
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
@@ -168,12 +168,12 @@
 <div id="site-header"></div>
 
 <section class="static-hero">
-  <div class="static-hero-content">
-    <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-    <p class="static-hero-desc">Documenting occupation mechanisms, civilian entrapment, and accountability across Russian-occupied Ukraine.</p>
-  </div>
   <span class="static-hero-caption">Occupied Mariupol. 2026.</span>
 </section>
+<div class="hero-titleblock">
+  <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+  <p class="static-hero-desc">Documenting occupation mechanisms, civilian entrapment, and accountability across Russian-occupied Ukraine.</p>
+</div>
 
 <section class="outputs-section">
   <div class="outputs-inner">

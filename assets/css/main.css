@@ -196,6 +196,10 @@ h3 { font-size: var(--fs-subheading); line-height: 1.3; }
   padding: 56px 40px 40px;
 }
 .page-hero-inner { max-width: var(--content-width); margin: 0 auto; }
+/* Centred section-page title + intro (opt-in: add "centered" to .page-hero) */
+.page-hero.centered .page-hero-inner { text-align: center; }
+.page-hero.centered .page-desc,
+.page-hero.centered .page-hero-desc { margin-left: auto; margin-right: auto; }
 .page-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
