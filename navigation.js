@@ -16,7 +16,6 @@
             '<div class="site-brand">' +
               '<a class="site-logo" href="' + p + 'index.html">' +
                 '<span class="logo-main">TOT Insights</span>' +
-                '<span class="logo-sub">Researching Russian-occupied Ukraine</span>' +
               '</a>' +
               '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
             '</div>' +
