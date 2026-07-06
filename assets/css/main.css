@@ -441,6 +441,9 @@ table th {
 /* Briefing tables read at the body size (not the smaller shared table size),
    and never larger than the body text. */
 .doc-content td, .doc-content th { padding: 7px 11px !important; font-size: var(--fs-table) !important; }
+/* Cell text is wrapped in <p>, which otherwise keeps the body size — size the
+   cell paragraphs too so the table actually reads smaller than the body. */
+.doc-content td p, .doc-content th p { font-size: var(--fs-table) !important; margin: 0 !important; line-height: 1.4 !important; }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
