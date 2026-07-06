@@ -427,6 +427,17 @@ table th {
   vertical-align: middle;
   flex-shrink: 0;
 }
+
+/* ═══ Briefings — use more of the page ═══════════════════════════════════════
+   The briefing template (.doc-body / .doc-content, used by every file in
+   briefings/) defaulted to a narrow 800px column with a 40rem reading measure,
+   so briefings read as a thin strip in a large page and their tables cramped.
+   Widen the body and the reading measure, and tighten the table cells. Defined
+   once here; !important so it wins over the per-briefing inline styles. Table
+   font stays at the shared 15px (--fs-table) via the table rule above. */
+.doc-body { max-width: 1000px !important; }
+.doc-content p, .doc-content li { max-width: 46rem !important; }
+.doc-content td, .doc-content th { padding: 7px 11px !important; }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
