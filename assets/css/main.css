@@ -436,8 +436,11 @@ table th {
    once here; !important so it wins over the per-briefing inline styles. Table
    font stays at the shared 15px (--fs-table) via the table rule above. */
 .doc-body { max-width: 1000px !important; }
-.doc-content p, .doc-content li { max-width: 46rem !important; }
-.doc-content td, .doc-content th { padding: 7px 11px !important; }
+/* Body text runs the full content width, matching where the tables reach. */
+.doc-content p, .doc-content li { max-width: none !important; }
+/* Briefing tables read at the body size (not the smaller shared table size),
+   and never larger than the body text. */
+.doc-content td, .doc-content th { padding: 7px 11px !important; font-size: var(--fs-body) !important; }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
