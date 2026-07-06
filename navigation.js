@@ -119,6 +119,36 @@
     });
   }
 
+  // Theme dot — prepend a small coloured marker before a theme label on themed
+  // cards (.ps-label / .vis-label). Colour is keyed to the first (primary) theme
+  // named in the label; the label text itself stays neutral.
+  var THEME_DOT_COLORS = {
+    'Governance': 'var(--theme-governance)',
+    'Economics': 'var(--theme-economics)',
+    'Civilian Life': 'var(--theme-civilian-life)',
+    'Identity, Culture and Religion': 'var(--theme-identity)',
+    'Education and Militarisation': 'var(--theme-education)',
+    'Coercion, Resistance and Security': 'var(--theme-coercion)',
+    'Information Space': 'var(--theme-information)',
+    'Accountability and Legal': 'var(--theme-accountability)'
+  };
+  function markThemeDots(root) {
+    root.querySelectorAll('.ps-label, .vis-label').forEach(function (el) {
+      if (el.querySelector('.theme-dot')) return;
+      var txt = el.textContent.trim();
+      var name = null;
+      for (var k in THEME_DOT_COLORS) {
+        if (txt.indexOf(k) === 0) { name = k; break; }
+      }
+      if (!name) return;
+      var dot = document.createElement('span');
+      dot.className = 'theme-dot';
+      dot.style.background = THEME_DOT_COLORS[name];
+      el.insertBefore(dot, el.firstChild);
+    });
+  }
+  window.markThemeDots = markThemeDots;
+
   // ── Dropdown + mobile-menu behaviour (unchanged from the original) ──────
   function closeAll() {
     document.querySelectorAll('.nav-dropdown.open').forEach(function (el) {
@@ -175,6 +205,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     injectChrome();
     markExternalLinks(document);
+    markThemeDots(document);
 
     document.querySelectorAll('.nav-chevron-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {

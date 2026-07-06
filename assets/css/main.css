@@ -34,6 +34,19 @@
   --card-bg:           #f2f0ec;
   --card-border:       #e0e4ed;   /* thin faint full border shared by every card (known-good, visible) */
 
+  /* Theme palette — one muted colour per theme, shown as a small dot before a
+     theme label on themed cards (see .theme-dot / markThemeDots in navigation.js).
+     Deliberately muted, none a bright red/amber/green, so they never read as a
+     chart status colour. */
+  --theme-governance:     #3D6678;
+  --theme-economics:      #2E7350;
+  --theme-civilian-life:  #B0563A;
+  --theme-identity:       #86527E;
+  --theme-education:      #7E6B2E;
+  --theme-coercion:       #626873;
+  --theme-information:    #2A7373;
+  --theme-accountability: #45508A;
+
   /* ─── Design tokens — single source of truth (docs/STYLE_GUIDE.md) ─────── */
 
   /* Reading/data surfaces */
@@ -400,6 +413,19 @@ table th {
 .output-desc, .ps-desc, .db-desc, .vis-desc, .media-desc, .res-cat-desc {
   font-size: var(--fs-card) !important;
   text-decoration: none !important;
+}
+
+/* Theme dot — a small coloured marker placed before a theme label on themed
+   cards. The label text stays neutral; only the dot carries the theme colour.
+   Colour is set inline by markThemeDots() in navigation.js from the palette. */
+.theme-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
