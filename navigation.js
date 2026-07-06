@@ -36,6 +36,7 @@
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
             '</nav>' +
+            '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
           '</div>' +
         '</header>',
       footer:

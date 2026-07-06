@@ -151,6 +151,20 @@ h3 { font-size: var(--fs-subheading); line-height: 1.3; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
+/* Institutional crest (King's College London) sits at the far right of the
+   header. Logo pushes left; nav + crest group on the right. */
+.site-logo { margin-right: auto; }
+.site-crest {
+  height: 32px;
+  width: auto;
+  margin-left: 28px;
+  flex-shrink: 0;
+  opacity: 0.9;
+  align-self: center;
+}
+/* Space is tight below desktop (nav collapses to a hamburger at 767px);
+   hide the crest so it never crowds the logo/menu on small screens. */
+@media (max-width: 900px) { .site-crest { display: none; } }
 .header-nav {
   display: flex;
   gap: 28px;
