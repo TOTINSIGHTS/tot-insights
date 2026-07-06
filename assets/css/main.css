@@ -223,14 +223,21 @@ h3 { font-size: var(--fs-subheading); line-height: 1.3; }
 .partner-block { border-top: 1px solid var(--grey-200); padding: 2.5rem 3rem 3rem; }
 .partner-block-inner { max-width: var(--content-width); margin: 0 auto; }
 .partner-grid { list-style: none; margin: 1.25rem 0 0; padding: 0;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
-@media (max-width: 760px) { .partner-grid { grid-template-columns: 1fr; gap: 24px; } }
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+/* Compact directory: each partner is a row with a faint hairline above it (the
+   shared card-border token). The top row of each column carries no line. */
+.partner-grid li { padding: 12px 0; border-top: 1px solid var(--card-border); }
+.partner-grid li:nth-child(1), .partner-grid li:nth-child(2) { border-top: none; padding-top: 0; }
+@media (max-width: 760px) {
+  .partner-grid { grid-template-columns: 1fr; gap: 0; }
+  .partner-grid li:nth-child(2) { border-top: 1px solid var(--card-border); padding-top: 12px; }
+}
 .partner-org { font-family: var(--font-serif); font-size: var(--fs-body); font-weight: 600;
   color: var(--navy); text-decoration: none; }
 .partner-org:hover { color: var(--gold); text-decoration: underline; }
 .partner-org-ext { font-size: var(--fs-label); color: var(--gold); margin-left: 4px; }
-.partner-blurb { font-size: var(--fs-body); color: var(--grey-700); line-height: 1.5;
-  margin-top: 5px; max-width: 34rem; }
+.partner-blurb { font-size: var(--fs-body); color: var(--grey-700); line-height: 1.4;
+  margin-top: 3px; max-width: 34rem; }
 .page-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-label);
