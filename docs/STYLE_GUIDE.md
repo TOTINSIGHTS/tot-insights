@@ -34,10 +34,12 @@ There are **five** font sizes, defined once as tokens in the shared styles (`ass
 | `--fs-subheading` | 24px | Sub-headings, lead paragraphs, card titles, the logo |
 | `--fs-body` | 19px | All reading text — paragraphs, entries, descriptions, card body |
 | `--fs-label` | 12px | Small gold-monospace labels, eyebrows, tags, badges, nav, buttons, captions, footnotes |
+| `--fs-table` | 15px | **Table cells and headers** — a notch below body (see the table rule below) |
 
 Rules:
 - Every `font-size` references one of these tokens (`font-size: var(--fs-body)` etc.). No raw `px`/`rem`/`clamp()` font sizes anywhere.
 - Map by **role, not old value**: reading text → `--fs-body` even if it used to be small; small labels/annotations → `--fs-label`.
+- **Tables are not body text.** Table cells and headers use the smaller table size (`--fs-table`, 15px) with tight line-height (1.4), never body size — so each row scans as one unit and columns wrap less. Table **headers** sit on the light surface too (cream background, dark text, a divider underneath) — never a dark navy/slate header bar. This is all set **once** in `assets/css/main.css` (a shared `table` rule) and applies to every table automatically; individual pages must not override table font size or re-introduce a dark header.
 - **One exception:** text drawn *inside* an SVG chart or diagram is sized to fit the drawing and is not bound to this scale (it is data-viz internal, like the shared Chart.js font size), though it should stay small and legible.
 
 ## 4. Colour

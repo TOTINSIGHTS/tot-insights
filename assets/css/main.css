@@ -58,6 +58,7 @@
   --fs-subheading: 24px;   /* sub-heading / lead */
   --fs-body:       19px;   /* body — comfortable reading (err larger) */
   --fs-label:      12px;   /* small gold monospace label / chrome */
+  --fs-table:      15px;   /* table cells — a notch below body so rows scan as one unit (see docs/STYLE_GUIDE.md) */
 
   --reading-size:    var(--fs-body);
   --reading-lead:    var(--fs-subheading);
@@ -323,6 +324,22 @@ h3 { margin-top: var(--space-5); margin-bottom: var(--space-2); }
 h1:first-child, h2:first-child, h3:first-child,
 .page-hero + * h2:first-child { margin-top: 0; }
 p  { margin-bottom: var(--space-3); }
+/* Tables are NOT body text — one smaller, tighter size site-wide so rows
+   scan as a unit and columns wrap less. See docs/STYLE_GUIDE.md. Defined
+   once here; !important so this norm always wins over per-page table CSS
+   and cannot drift. */
+table { font-size: var(--fs-table) !important; }
+table td, table th, table caption {
+  font-size: var(--fs-table) !important;
+  line-height: 1.4 !important;
+}
+/* Table headers sit on the light surface too: cream, dark text, a divider
+   underneath — never a dark navy/slate header bar. */
+table th {
+  background: var(--cream-raised) !important;
+  color: var(--navy) !important;
+  border-bottom: 2px solid var(--grey-300) !important;
+}
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
