@@ -18,7 +18,7 @@
 /* Static hero — shallow wide banner across the top */
 .static-hero{position:relative;width:100%;height:58vh;min-height:360px;max-height:600px;overflow:hidden;background:var(--navy);display:flex;align-items:center;}
 /* image layer, calmed (lower contrast, slightly muted) so it recedes */
-.static-hero::before{content:'';position:absolute;inset:0;background-image:url('images/mariupol-lyudi-hero.jpg');background-size:cover;background-position:left 42%;filter:contrast(0.9) brightness(0.95) saturate(0.92);z-index:0;}
+.static-hero::before{content:'';position:absolute;inset:0;background-image:url('images/mariupol-lyudi-hero.jpg');background-size:cover;background-position:left 66%;filter:contrast(0.9) brightness(0.95) saturate(0.92);z-index:0;}
 /* soft wash: darker on the left under the title, fading right */
 .static-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,18,40,0.72) 0%,rgba(8,18,40,0.48) 45%,rgba(8,18,40,0.22) 100%);z-index:1;pointer-events:none;}
 .static-hero-content{position:relative;z-index:2;max-width:660px;padding:0 3.5rem;}
