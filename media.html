@@ -19,6 +19,11 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
 .section-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 
 .filter-block{margin-bottom:20px;}
+/* Format + Year filter groups sit side by side across the page; they stack
+   again on narrow screens where there isn't room for both. */
+.filter-blocks{display:flex;flex-wrap:wrap;gap:20px 56px;margin-bottom:20px;}
+.filter-blocks .filter-block{flex:1 1 280px;margin-bottom:0;}
+@media(max-width:640px){.filter-blocks .filter-block{flex-basis:100%;}}
 .filter-row-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.14em;text-transform:uppercase;color:#4a4a57;margin-bottom:8px;}
 .filter-row{display:flex;flex-wrap:wrap;gap:6px;}
 
@@ -67,6 +72,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
 <section class="media-section">
   <div class="media-inner">
     <div class="section-label">All media and public engagement</div>
+    <div class="filter-blocks">
     <div class="filter-block">
       <div class="filter-row-label">Format</div>
       <div class="filter-row">
@@ -87,6 +93,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
         <button class="filter-btn" data-mfilter="year" data-mvalue="2025">2025</button>
         <button class="filter-btn" data-mfilter="year" data-mvalue="2024">2024</button>
       </div>
+    </div>
     </div>
     <div class="results-count"><span id="media-count-num">55</span> items</div>
     <div class="media-grid" id="media-grid">
