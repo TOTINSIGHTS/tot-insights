@@ -43,7 +43,7 @@
       footer:
         '<footer class="site-footer">' +
           '<div class="footer-inner">' +
-            '<span>TOT Insights &nbsp;&middot;&nbsp; Ukraine &amp; Russia Programme &nbsp;&middot;&nbsp; Centre for Statecraft and National Security &nbsp;&middot;&nbsp; King&#39;s College London &nbsp;&middot;&nbsp; Leverhulme Centre for Research on Slavery in War</span>' +
+            '<span>TOT Insights is part of the Ukraine &amp; Russia Programme at King&#39;s College London&#39;s Centre for Statecraft and National Security. This site was established with seed funding from the Leverhulme Centre for Research on Slavery in War.</span>' +
             '<span><a href="mailto:TOTInsightsHub@protonmail.com">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
           '</div>' +
         '</footer>'
