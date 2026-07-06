@@ -22,9 +22,13 @@
 .static-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,40,0.32) 0%,rgba(8,18,40,0) 28%);z-index:1;pointer-events:none;}
 .static-hero-caption{position:absolute;bottom:0.85rem;right:1.5rem;z-index:2;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;color:rgba(255,255,255,0.9);text-shadow:0 1px 8px rgba(0,0,0,0.75);}
 /* Title + intro below the photo, centred on the cream */
-.hero-titleblock{background:var(--cream-panel);text-align:center;padding:38px 40px 30px;}
+/* Title block sits directly under the photo, left-aligned, its content column
+   matching the cards/partners below (same 3rem side padding + --content-width). */
+.hero-titleblock{background:var(--cream-panel);padding:18px 3rem 30px;}
+.hero-titleblock-inner{max-width:var(--content-width);margin:0 auto;}
+.hero-rule{display:block;width:34px;height:2px;background:var(--gold);margin-bottom:14px;}
 .static-hero-title{font-family:var(--font-display);font-size:var(--fs-section);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:11px;}
-.static-hero-desc{font-size:var(--fs-body);color:var(--grey-700);line-height:1.55;max-width:660px;margin:0 auto;}
+.static-hero-desc{font-size:var(--fs-body);color:var(--grey-700);line-height:1.55;max-width:660px;}
 
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
@@ -137,7 +141,7 @@
   .about-links{display:none;}
   .featured-card:nth-child(n+5){display:none;}
 }
-@media(max-width:700px){.static-hero{min-height:290px;max-height:460px;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.featured,.databases-section,.outputs-section,.impact-section,.stats-strip{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
+@media(max-width:700px){.static-hero{min-height:290px;max-height:460px;}.static-hero-content{padding:1.25rem 1.25rem 2.5rem;}.static-hero-caption{right:1.25rem;bottom:0.75rem;}.featured,.databases-section,.outputs-section,.impact-section,.stats-strip,.hero-titleblock{padding-left:20px;padding-right:20px;padding-top:1.5rem;padding-bottom:1.5rem;}.about-platform{padding:1.5rem 1.25rem;}}
 .photo-card{border-radius:3px;overflow:hidden;max-width:420px;border:1px solid rgba(255,255,255,0.10);}
 .photo-card img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
 /* Partners */
@@ -171,8 +175,11 @@
   <span class="static-hero-caption">Occupied Mariupol. 2026.</span>
 </section>
 <div class="hero-titleblock">
-  <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
-  <p class="static-hero-desc">Documenting occupation mechanisms, civilian entrapment, and accountability across Russian-occupied Ukraine.</p>
+  <div class="hero-titleblock-inner">
+    <span class="hero-rule"></span>
+    <h1 class="static-hero-title">Research, data, and primary sources on Russian-occupied Ukraine</h1>
+    <p class="static-hero-desc">Documenting occupation mechanisms, civilian entrapment, and accountability across Russian-occupied Ukraine.</p>
+  </div>
 </div>
 
 <section class="outputs-section">
