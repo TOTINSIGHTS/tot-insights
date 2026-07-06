@@ -286,7 +286,6 @@
     var linkVerb = VERB[item.format] || 'View';
     var ext      = item.link && item.link.indexOf('http') === 0;
     var extAttr  = ext ? ' target="_blank" rel="noopener"' : '';
-    var outletHtml = item.outlet ? '<div class="output-outlet">' + esc(item.outlet) + '</div>' : '';
     var div = document.createElement('div');
     div.className = 'output-card';
     div.innerHTML =
@@ -295,7 +294,6 @@
         '<span class="output-date">' + esc(item.date) + '</span>' +
       '</div>' +
       '<div class="output-title">' + esc(item.title) + '</div>' +
-      outletHtml +
       '<div class="output-desc">' + esc(item.desc) + '</div>' +
       '<div class="output-card-footer">' +
         '<a class="output-link" href="' + esc(item.link) + '"' + extAttr + '>' + linkVerb + ' &#8594;</a>' +
