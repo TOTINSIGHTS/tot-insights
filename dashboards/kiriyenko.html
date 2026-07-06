@@ -56,14 +56,14 @@ body {
 }
 .header-subtitle {
   font-size:var(--fs-body);
-  color: #b0c4de;
+  color: #6b6b78;
   font-style: italic;
 }
 
 /* ── Tab bar ────────────────────────────────────────────── */
 .tab-bar {
   background: #fff;
-  border-bottom: 2px solid #EAF0F8;
+  border-bottom: 2px solid #e3e0d9;
   display: flex;
   overflow-x: auto;
   padding: 0 24px;
@@ -141,7 +141,7 @@ body {
 .timeline-wrap { position: relative; }
 .timeline-line {
   position: absolute; left: 90px; top: 0; bottom: 0;
-  width: 2px; background: #EAF0F8; pointer-events: none;
+  width: 2px; background: #e3e0d9; pointer-events: none;
 }
 .tl-entry { display: flex; align-items: flex-start; margin-bottom: 14px; position: relative; }
 .tl-year {
@@ -156,7 +156,7 @@ body {
 }
 .tl-card {
   margin-left: 28px; background: #fff;
-  border: 1px solid #EAF0F8; border-radius: 4px;
+  border: 1px solid #e3e0d9; border-radius: 4px;
   padding: 8px 14px; flex: 1;
 }
 .tl-badge {
@@ -173,7 +173,7 @@ body {
 
 /* ── Stat cards ─────────────────────────────────────────── */
 .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
-.stat-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 16px 18px; }
+.stat-card { background: #fff; border: 1px solid #e3e0d9; border-radius: 6px; padding: 16px 18px; }
 .stat-val { font-family: var(--font-mono); font-size:var(--fs-section); font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
 .stat-label { font-family: var(--font-sans); font-size:var(--fs-label); font-weight: 600; color: #111d30; margin-bottom: 4px; }
 .stat-note  { font-family: var(--font-sans); font-size:var(--fs-label); color: #595959; font-style: italic; }
@@ -183,18 +183,18 @@ body {
 .domain-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
 .domain-name { font-family: var(--font-sans); font-size:var(--fs-label); font-weight: 700; color: #111d30; }
 .domain-pct  { font-family: var(--font-mono); font-size:var(--fs-label); color: #595959; }
-.domain-track { background: #EAF0F8; border-radius: 4px; height: 16px; overflow: hidden; margin-bottom: 4px; }
+.domain-track { background: #e3e0d9; border-radius: 4px; height: 16px; overflow: hidden; margin-bottom: 4px; }
 .domain-fill  { height: 100%; border-radius: 4px; }
 .domain-notes { font-family: var(--font-sans); font-size:var(--fs-label); color: #595959; font-style: italic; }
 
 /* ── Relationships ──────────────────────────────────────── */
-.rel-box { background: #fff; border: 1px solid #EAF0F8; border-radius: 8px; padding: 20px 24px; margin-top: 28px; }
+.rel-box { background: #fff; border: 1px solid #e3e0d9; border-radius: 8px; padding: 20px 24px; margin-top: 28px; }
 .rel-row { display: flex; gap: 14px; margin-bottom: 12px; align-items: flex-start; }
 .rel-actor { width: 140px; flex-shrink: 0; font-family: var(--font-sans); font-size:var(--fs-label); font-weight: 700; line-height: 1.4; }
 .rel-text  { font-family: var(--font-sans); font-size:var(--fs-label); color: #333; line-height: 1.5; }
 
 /* ── Vulnerability cards ────────────────────────────────── */
-.vuln-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 4px; padding: 12px 16px; margin-bottom: 12px; }
+.vuln-card { background: #fff; border: 1px solid #e3e0d9; border-radius: 4px; padding: 12px 16px; margin-bottom: 12px; }
 .vuln-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 .vuln-label  { font-family: var(--font-sans); font-size:var(--fs-label); font-weight: 700; color: #111d30; }
 .vuln-badge  { font-family: var(--font-mono); font-size:var(--fs-label); padding: 2px 8px; border-radius: 3px; }
@@ -203,7 +203,7 @@ body {
 .vuln-desc { font-family: var(--font-sans); font-size:var(--fs-label); color: #444; line-height: 1.5; }
 
 /* ── Mechanism cards ────────────────────────────────────── */
-.mech-card { background: #fff; border: 1px solid #EAF0F8; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; position: relative; }
+.mech-card { background: #fff; border: 1px solid #e3e0d9; border-radius: 6px; padding: 14px 18px; margin-bottom: 12px; position: relative; }
 .mech-icc  { position: absolute; top: 12px; right: 14px; font-family: var(--font-mono); font-size:var(--fs-label); font-weight: 700; color: #C0392B; background: #fff0ed; padding: 2px 8px; border-radius: 3px; }
 .mech-title  { font-family: var(--font-sans); font-size:var(--fs-body); font-weight: 700; color: #111d30; margin-bottom: 2px; }
 .mech-when   { font-family: var(--font-mono); font-size:var(--fs-label); color: #C9A84C; font-style: italic; margin-bottom: 6px; }
@@ -228,7 +228,7 @@ body {
 
 /* ── Footer ─────────────────────────────────────────────── */
 .page-footer {
-  background: #111d30; color: #b0c4de;
+  background: #111d30; color: #cfccc4;
   font-family: var(--font-mono); font-size:var(--fs-label);
   letter-spacing: 0.08em; padding: 14px 36px;
   border-top: 3px solid #C9A84C;
