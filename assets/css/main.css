@@ -75,6 +75,7 @@
   --fs-table:      15px;   /* table cells — a notch below body so rows scan as one unit (see docs/STYLE_GUIDE.md) */
   --fs-card-title: 22px;   /* card titles — a notch below sub-heading so dense card grids aren't too heavy */
   --fs-card:       17px;   /* card descriptions — a notch below body, to match (see the shared card rule) */
+  --card-desc-lines: 3;    /* card description line clamp — ONE value to change (try 2 or 4) */
 
   --reading-size:    var(--fs-body);
   --reading-lead:    var(--fs-subheading);
@@ -410,9 +411,26 @@ table th {
 .output-title, .ps-title, .db-title, .vis-title, .media-title, .res-cat-title {
   font-size: var(--fs-card-title) !important;
 }
-.output-desc, .ps-desc, .db-desc, .vis-desc, .media-desc, .res-cat-desc {
+.output-desc, .ps-desc, .db-desc, .vis-desc, .media-desc, .res-cat-desc, .doc-desc {
   font-size: var(--fs-card) !important;
   text-decoration: none !important;
+}
+/* Clamp every card description to a set number of lines so cards in a row stay
+   even and no card towers over its neighbours. The full text still lives on the
+   linked page. To try 2 or 4 lines, change --card-desc-lines (one value) above. */
+.output-desc, .ps-desc, .db-desc, .vis-desc, .media-desc, .res-cat-desc, .doc-desc {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--card-desc-lines);
+  line-clamp: var(--card-desc-lines);
+  overflow: hidden !important;
+  flex: 0 0 auto !important;   /* natural (clamped) height, not grow-to-fill */
+}
+/* Pin each card's link/footer row to the bottom, so the "View →" / "Read →"
+   links line up neatly across a row. */
+.output-card-footer, .ps-card-footer, .db-card-footer,
+.vis-card-footer, .media-card-footer, .doc-card-footer {
+  margin-top: auto !important;
 }
 
 /* Theme dot — a small coloured marker placed before a theme label on themed
