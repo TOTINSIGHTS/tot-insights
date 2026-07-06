@@ -32,7 +32,6 @@
   --color-bg-alt:      var(--navy-deep);
   --color-bg-stats:    #f7f5f1;
   --card-bg:           #f2f0ec;
-  --card-border:       rgba(17,29,48,0.10);   /* thin faint full border shared by every card */
 
   /* ─── Design tokens — single source of truth (docs/STYLE_GUIDE.md) ─────── */
 
@@ -358,47 +357,6 @@ table th {
   color: var(--navy) !important;
   border-bottom: 2px solid var(--grey-300) !important;
 }
-
-/* ═══ Shared card — ONE definition for every card grid on the site ═══════════
-   Every card grid (homepage Latest outputs, Primary-sources documents, Data
-   databases + dashboards, Media, Resources) points at this single style, so
-   the cards are identical and cannot drift. Light surface, a thin faint full
-   border, a straight gold accent down the left edge, even padding, flat (no
-   shadow, no heavy border). Per confirmed house choice both the card title and
-   the description use the body size (--fs-body); no stray one-off sizes.
-   New card grids: add the class to these selector lists — do not restyle the
-   box on the page. */
-.output-card,
-.ps-card,
-.db-card,
-.vis-card,
-.media-card,
-.res-cat-card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-left: 3px solid var(--gold);
-  border-radius: 3px;
-  padding: 18px 20px;
-  box-shadow: none;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-.output-card:hover,
-.ps-card:hover,
-.db-card:hover,
-.vis-card:hover,
-.media-card:hover,
-.res-cat-card:hover {
-  box-shadow: none;
-  transform: translateY(-2px);
-}
-/* Card type sizes come from the scale: title and description both at body. */
-.output-title, .ps-title, .db-title, .vis-title, .media-title, .res-cat-title { font-size: var(--fs-body); }
-.output-desc,  .ps-desc,  .db-desc,  .vis-desc,  .media-desc,  .res-cat-desc  { font-size: var(--fs-body); }
 .reading-surface h1, .reading-surface h2,
 .reading-surface h3, .reading-surface h4 {
   font-family: var(--font-serif);
