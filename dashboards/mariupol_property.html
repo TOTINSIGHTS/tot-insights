@@ -197,7 +197,6 @@
 <script>
 const lc = '#6b6b78';
 const gc = 'rgba(0,0,0,0.07)';
-Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color='#2a2a3a';
 
 new Chart(document.getElementById('c1'),{type:'doughnut',data:{labels:['Ownerless','Contested','Heirs','Municipalised'],datasets:[{data:[7737,574,145,70],backgroundColor:['#A32D2D','#3a5578','#3f7d5a','#888780'],borderWidth:0,hoverOffset:4}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` ${ctx.label}: ${ctx.parsed.toLocaleString()} (${Math.round(ctx.parsed/8526*100)}%)`}}}}});
 

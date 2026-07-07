@@ -476,7 +476,7 @@ cpData.forEach(d => {
 });
 
 // Charts - each canvas ID used exactly once
-Chart.defaults.font.family='"EB Garamond", Georgia, serif';Chart.defaults.color='#4a4a57';
+// Font + text colour inherited from chart-defaults.js (Garamond, dark)
 new Chart(document.getElementById('cropChart'), {
   type:'doughnut',
   data:{labels:['Wheat (~95k t)','Sunflower (~35k t)','Rapeseed (~10k t)','Corn (~4.4k t)','Barley (~2.4k t)','Peas (~0.1k t)'],
