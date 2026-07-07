@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/main.css?v=8">
+<link rel="stylesheet" href="../assets/css/main.css?v=9">
 <link rel="stylesheet" href="../assets/css/viz.css?v=8">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -98,34 +98,36 @@ body {
 
 /* ─── Summary strip ────────────────────────────────────────── */
 .summary-strip {
-  background: #0D1624;
+  background: var(--cream-raised);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
 }
 .summary-item {
   flex: 1;
   padding: 14px 16px;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(17,29,48,0.08);
   min-width: 130px;
 }
 .summary-item:last-child { border-right: none; }
 .summary-val {
-  font-family: var(--font-mono);
-  font-size:var(--fs-body);
+  font-family: var(--font-body);
+  font-size:var(--fs-subheading);
   font-weight: 700;
-  color: var(--gold);
+  color: #111d30;
 }
 .summary-label {
-  font-size:var(--fs-label);
-  color: #E8E0D0;
+  font-size:var(--fs-fine);
+  color: #2a2a3a;
   font-weight: 600;
   margin-top: 2px;
   line-height: 1.4;
 }
 .summary-sub {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size:var(--fs-label);
-  color: #6B7280;
+  color: var(--muted);
   margin-top: 2px;
 }
 
