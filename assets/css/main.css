@@ -71,7 +71,8 @@
   --fs-section:    30px;   /* section heading */
   --fs-subheading: 24px;   /* sub-heading / lead */
   --fs-body:       19px;   /* body — comfortable reading (err larger) */
-  --fs-label:      12px;   /* small gold monospace label / chrome */
+  --fs-label:      12px;   /* small gold monospace label / chrome / eyebrows / footnotes / superscript refs */
+  --fs-fine:       14px;   /* secondary reading text — callouts, annotations, source lines, captions (NOT footnotes) */
   --fs-table:      15px;   /* table cells — a notch below body so rows scan as one unit (see docs/STYLE_GUIDE.md) */
   --fs-card-title: 22px;   /* card titles — a notch below sub-heading so dense card grids aren't too heavy */
   --fs-card:       17px;   /* card descriptions — a notch below body, to match (see the shared card rule) */
