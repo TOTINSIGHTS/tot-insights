@@ -186,8 +186,8 @@ new Chart(ctx, {
         titleColor: '#fff',
         bodyColor: '#ccc',
         padding: 12,
-        titleFont: { family: '"EB Garamond", Georgia, serif', size: 12 },
-        bodyFont: { family: '"EB Garamond", Georgia, serif', size: 12 },
+        titleFont: { size: 12 },
+        bodyFont: { size: 12 },
         callbacks: {
           label: ctx => `  ${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} m RUB`
         }
@@ -196,7 +196,7 @@ new Chart(ctx, {
     scales: {
       x: {
         ticks: {
-          font: { family: '"EB Garamond", Georgia, serif', size: 12 },
+          font: { size: 12 },
           color: '#555'
         },
         grid: { display: false },
@@ -206,7 +206,7 @@ new Chart(ctx, {
         min: 0,
         ticks: {
           callback: v => (v / 1000).toFixed(0) + 'k',
-          font: { family: '"EB Garamond", Georgia, serif', size: 12 },
+          font: { size: 12 },
           color: '#888'
         },
         grid: { color: '#ebe8e0', lineWidth: 0.8 },
@@ -214,7 +214,7 @@ new Chart(ctx, {
         title: {
           display: true,
           text: 'Million roubles (RUB)',
-          font: { family: '"EB Garamond", Georgia, serif', size: 12, style: 'italic' },
+          font: { size: 12, style: 'italic' },
           color: '#888',
           padding: { bottom: 8 }
         }

@@ -896,7 +896,7 @@ function initSuppression() {
       plugins: {
         legend: {
           display: true, position: 'bottom',
-          labels: { font: { size: 12, family: '"EB Garamond", Georgia, serif' }, color: '#334155', padding: 16 }
+          labels: { font: { size: 12 }, color: '#334155', padding: 16 }
         },
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.x + (ctx.parsed.x === 0 ? ' ✕' : ''); } },
@@ -906,7 +906,7 @@ function initSuppression() {
       },
       scales: {
         x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#4a4a57', font: { size: 11 } } },
-        y: { grid: { color: 'transparent' }, ticks: { color: '#334155', font: { size: 11, family: '"EB Garamond", Georgia, serif' } } }
+        y: { grid: { color: 'transparent' }, ticks: { color: '#334155', font: { size: 11 } } }
       }
     }
   });
@@ -933,8 +933,8 @@ function initClergy() {
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed; } },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          bodyColor: '#1A1A1A', bodyFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
-          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
+          bodyColor: '#1A1A1A', bodyFont: { size: 12 },
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { size: 12 },
           padding: 10
         }
       }
@@ -975,18 +975,18 @@ function initTimeline() {
             label: function(ctx) { return wrapLabel(timelineData[ctx.dataIndex].desc, 50); }
           },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { weight: 'bold', size: 12, family: '"EB Garamond", Georgia, serif' },
-          bodyColor: '#1A1A1A', bodyFont: { size: 11, family: '"EB Garamond", Georgia, serif' },
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { weight: 'bold', size: 12 },
+          bodyColor: '#1A1A1A', bodyFont: { size: 11 },
           padding: 10
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#334155', font: { size: 11, family: '"EB Garamond", Georgia, serif' }, maxRotation: 25, minRotation: 25 } },
+        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#334155', font: { size: 11 }, maxRotation: 25, minRotation: 25 } },
         y: {
           min: 0, max: 11,
           grid: { color: 'rgba(166,124,26,0.12)' },
           ticks: { color: '#4a4a57', font: { size: 11 } },
-          title: { display: true, text: 'Documented severity', color: '#4a4a57', font: { size: 11, family: '"EB Garamond", Georgia, serif' } }
+          title: { display: true, text: 'Documented severity', color: '#4a4a57', font: { size: 11 } }
         }
       }
     },
@@ -1012,7 +1012,7 @@ function initROC() {
       plugins: {
         legend: {
           display: true, position: 'bottom',
-          labels: { font: { size: 12, family: '"EB Garamond", Georgia, serif' }, color: '#334155', padding: 16 }
+          labels: { font: { size: 12 }, color: '#334155', padding: 16 }
         },
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.y; } },
@@ -1021,11 +1021,11 @@ function initROC() {
         }
       },
       scales: {
-        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#334155', font: { size: 12, family: '"EB Garamond", Georgia, serif' } } },
+        x: { grid: { color: 'rgba(166,124,26,0.12)' }, ticks: { color: '#334155', font: { size: 12 } } },
         y: {
           grid: { color: 'rgba(166,124,26,0.12)' },
           ticks: { color: '#4a4a57', font: { size: 11 } },
-          title: { display: true, text: 'Communities', color: '#4a4a57', font: { size: 11, family: '"EB Garamond", Georgia, serif' } }
+          title: { display: true, text: 'Communities', color: '#4a4a57', font: { size: 11 } }
         }
       }
     }
