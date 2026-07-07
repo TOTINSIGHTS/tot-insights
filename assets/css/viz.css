@@ -125,3 +125,41 @@
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
+
+/* ─── Diagram enlarge / lightbox (shared, wired by diagram-zoom.js) ─── */
+.diagram-zoomable { position: relative; }
+.diagram-enlarge {
+  position: absolute; top: .55rem; right: .55rem; z-index: 5;
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-family: var(--font-mono); font-size: var(--fs-label);
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--navy); background: rgba(255,255,255,.9);
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: .28rem .5rem; cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.diagram-enlarge:hover, .diagram-enlarge:focus-visible { background: var(--navy); color: #fff; }
+.diagram-lightbox {
+  position: fixed; inset: 0; z-index: 9998;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(10,22,40,.82); padding: 2.5rem;
+}
+.diagram-lightbox.open { display: flex; }
+.diagram-lightbox-inner {
+  background: var(--cream); border-radius: 8px; padding: 1.5rem 1.5rem 1rem;
+  max-width: 96vw; max-height: 92vh; overflow: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+.diagram-lightbox-inner svg {
+  height: auto; max-width: none; display: block;   /* width set by diagram-zoom.js */
+}
+.diagram-lightbox-hint {
+  font-family: var(--font-mono); font-size: var(--fs-label);
+  color: var(--muted); text-align: center; margin-top: .75rem;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+.diagram-lightbox-close {
+  position: fixed; top: .75rem; right: 1.1rem; z-index: 9999;
+  background: none; border: none; color: #fff;
+  font-size: 2.2rem; line-height: 1; cursor: pointer;
+}
