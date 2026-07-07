@@ -15,7 +15,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: var(--font-serif); background: #f2f0ec; color: var(--text); font-size:var(--fs-label); }
 
-  .header { background:transparent; color: var(--navy); padding: 20px 32px; border-bottom: 3px solid #C4964A; }
+  .header { background:transparent; color: var(--navy); padding: 20px 32px; border-bottom: 3px solid var(--gold); }
   .header h1 { font-size:var(--fs-body); font-weight: 700; }
   .header .sub { font-size:var(--fs-label); color: #4a4a57; margin-top: 4px; }
   .header .badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
@@ -24,7 +24,7 @@
   .tabs { display: flex; background: var(--cream-raised); border-bottom: 1px solid var(--grey-200); padding: 0 32px; overflow-x: auto; }
   .tab { padding: 11px 18px; cursor: pointer; color: var(--grey-700); font-size:var(--fs-label); font-weight: 600; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; }
   .tab:hover { color: var(--navy); }
-  .tab.active { color: var(--navy); border-bottom-color: #C4964A; }
+  .tab.active { color: var(--navy); border-bottom-color: var(--gold); }
 
   .panel { display: none; padding: 24px 32px; }
   .panel.active { display: block; }
@@ -119,7 +119,7 @@
 <!-- ═══ OVERVIEW ═══ -->
 <div class="panel active" id="tab-overview">
   <a href="../briefings/grain_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left: 3px solid var(--gold);border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:none;">
-    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.3rem;">Briefing</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#334155;line-height:1.5;">The written briefing on grain expropriation and the State Grain Operator.</div>
   </a>

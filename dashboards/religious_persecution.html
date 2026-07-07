@@ -26,14 +26,14 @@ body {
   background:transparent;
   color:var(--navy);
   padding: 14px 32px 18px;
-  border-bottom: 3px solid #C4964A;
+  border-bottom: 3px solid var(--gold);
 }
 .page-eyebrow {
   font-family: var(--font-mono);
   font-size:var(--fs-label);
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #C4964A;
+  color: var(--gold);
   margin-bottom: 6px;
 }
 .page-title {
@@ -182,7 +182,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #C4964A;
+  background: var(--gold);
   color: #0F1F3D;
   display: flex;
   align-items: center;
@@ -428,7 +428,7 @@ body {
 }
 .compare-bar-fill {
   height: 100%;
-  background: #C4964A;
+  background: var(--gold);
   border-radius: 6px;
 }
 .compare-text {
@@ -541,7 +541,7 @@ body {
 <div class="content">
 
   <a href="../briefings/religious_persecution_briefing.html" style="display:block;text-decoration:none;color:inherit;background:#f2f0ec;border:1px solid rgba(17,29,48,0.08);border-left: 3px solid var(--gold);border-radius:4px;padding:14px 20px;margin-bottom:20px;box-shadow:none;">
-    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#C4964A;margin-bottom:0.3rem;">Briefing</div>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:0.3rem;">Briefing</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-body);font-weight:600;color:#111d30;margin-bottom:0.25rem;">Read the full analysis &#8594;</div>
     <div style="font-family:var(--font-sans);font-size:var(--fs-label);color:#334155;line-height:1.5;">The written briefing on Russia's systematic campaign of religious persecution in occupied Ukrainian territories.</div>
   </a>
@@ -899,7 +899,7 @@ function initSuppression() {
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.x + (ctx.parsed.x === 0 ? ' ✕' : ''); } },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          titleColor: '#C4964A', bodyColor: '#1A1A1A', padding: 10
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), bodyColor: '#1A1A1A', padding: 10
         }
       },
       scales: {
@@ -932,7 +932,7 @@ function initClergy() {
           callbacks: { label: function(ctx) { return ' ' + ctx.label + ': ' + ctx.parsed; } },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
           bodyColor: '#1A1A1A', bodyFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
-          titleColor: '#C4964A', titleFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { size: 12, family: '"EB Garamond", Georgia, serif' },
           padding: 10
         }
       }
@@ -973,7 +973,7 @@ function initTimeline() {
             label: function(ctx) { return wrapLabel(timelineData[ctx.dataIndex].desc, 50); }
           },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          titleColor: '#C4964A', titleFont: { weight: 'bold', size: 12, family: '"EB Garamond", Georgia, serif' },
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), titleFont: { weight: 'bold', size: 12, family: '"EB Garamond", Georgia, serif' },
           bodyColor: '#1A1A1A', bodyFont: { size: 11, family: '"EB Garamond", Georgia, serif' },
           padding: 10
         }
@@ -1015,7 +1015,7 @@ function initROC() {
         tooltip: {
           callbacks: { label: function(ctx) { return ' ' + ctx.dataset.label + ': ' + ctx.parsed.y; } },
           backgroundColor: '#fff', borderColor: '#d0d8e8', borderWidth: 1,
-          titleColor: '#C4964A', bodyColor: '#1A1A1A', padding: 10
+          titleColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(), bodyColor: '#1A1A1A', padding: 10
         }
       },
       scales: {

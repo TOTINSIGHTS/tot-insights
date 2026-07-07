@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../assets/css/main.css?v=8">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Georgia', serif; background: var(--cream-panel); color: #2a2a3a; padding: 40px 24px 48px; }
+  body { font-family: var(--font-serif); background: var(--cream-panel); color: #2a2a3a; padding: 40px 24px 48px; }
   .wrap { max-width: 820px; margin: 0 auto; }
   .label-bar {
     display: flex; align-items: center;
@@ -184,8 +184,8 @@ new Chart(ctx, {
         titleColor: '#fff',
         bodyColor: '#ccc',
         padding: 12,
-        titleFont: { family: 'Georgia', size: 12 },
-        bodyFont: { family: 'Georgia', size: 12 },
+        titleFont: { family: '"EB Garamond", Georgia, serif', size: 12 },
+        bodyFont: { family: '"EB Garamond", Georgia, serif', size: 12 },
         callbacks: {
           label: ctx => `  ${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} m RUB`
         }
@@ -194,7 +194,7 @@ new Chart(ctx, {
     scales: {
       x: {
         ticks: {
-          font: { family: 'Georgia', size: 12 },
+          font: { family: '"EB Garamond", Georgia, serif', size: 12 },
           color: '#555'
         },
         grid: { display: false },
@@ -204,7 +204,7 @@ new Chart(ctx, {
         min: 0,
         ticks: {
           callback: v => (v / 1000).toFixed(0) + 'k',
-          font: { family: 'Georgia', size: 12 },
+          font: { family: '"EB Garamond", Georgia, serif', size: 12 },
           color: '#888'
         },
         grid: { color: '#ebe8e0', lineWidth: 0.8 },
@@ -212,7 +212,7 @@ new Chart(ctx, {
         title: {
           display: true,
           text: 'Million roubles (RUB)',
-          font: { family: 'Georgia', size: 12, style: 'italic' },
+          font: { family: '"EB Garamond", Georgia, serif', size: 12, style: 'italic' },
           color: '#888',
           padding: { bottom: 8 }
         }

@@ -23,12 +23,12 @@ body {
 /* ── Page header ─────────────────────────────────────────── */
 .page-header {
   background:transparent;
-  border-bottom: 3px solid #C4964A;
+  border-bottom: 3px solid var(--gold);
   padding: 14px 36px 20px;
 }
 .back-link {
   display: inline-block;
-  color: #C4964A;
+  color: var(--gold);
   font-family: var(--font-mono);
   font-size:var(--fs-label);
   font-variant: small-caps;
@@ -42,7 +42,7 @@ body {
   font-size:var(--fs-label);
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #C4964A;
+  color: var(--gold);
   margin-bottom: 6px;
 }
 .header-title {
@@ -77,7 +77,7 @@ body {
   font-family: var(--font-mono);
   font-size:var(--fs-body);
   font-weight: 700;
-  color: #C4964A;
+  color: var(--gold);
   line-height: 1.1;
 }
 .summary-val.red { color: #8B1A1A; }
@@ -118,7 +118,7 @@ body {
   white-space: nowrap;
   transition: color 0.15s, border-color 0.15s;
 }
-.tab-btn.active { color: #C4964A; border-bottom-color: #C4964A; }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 .tab-btn:hover  { color: #2a2a3a; }
 
 /* ── Content area ───────────────────────────────────────── */
@@ -147,7 +147,7 @@ body {
   font-family: var(--font-mono);
   font-size:var(--fs-label);
   letter-spacing: 2px;
-  color: #C4964A;
+  color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 12px;
 }
@@ -168,7 +168,7 @@ body {
 }
 .reactor-unit.licensed {
   background: #ffffff;
-  border-color: #C4964A;
+  border-color: var(--gold);
 }
 .reactor-symbol {
   font-family: var(--font-mono);
@@ -177,7 +177,7 @@ body {
   color: #4B5563;
   line-height: 1;
 }
-.reactor-unit.licensed .reactor-symbol { color: #C4964A; }
+.reactor-unit.licensed .reactor-symbol { color: var(--gold); }
 .reactor-name {
   font-family: var(--font-mono);
   font-size:var(--fs-label);
@@ -269,7 +269,7 @@ body {
 .callout.red   { background: #FCEBEB; border: 1px solid rgba(162,59,52,0.3); border-radius: 4px; color: #7A1F1F; }
 .callout.teal  { background: #f7f5f1; border: 1px solid #e3e0d9; border-radius: 4px; color: #2a2a3a; }
 .callout strong.amber { color: #92400E; }
-.callout strong.gold  { color: #C4964A; }
+.callout strong.gold  { color: var(--gold); }
 .callout strong.red   { color: #8B1A1A; }
 .callout strong.teal  { color: #B5923A; }
 
@@ -634,7 +634,7 @@ body {
 
 <script>
 /* ── CONSTANTS ─────────────────────────────────────────── */
-var GOLD  = '#C4964A';
+var GOLD  = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
 var RED   = '#8B1A1A';
 var AMBER = '#92400E';
 var TEAL  = '#B5923A';

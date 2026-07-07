@@ -25,7 +25,7 @@ body {
   background:transparent;
   color:var(--navy);
   padding: 14px 32px 18px;
-  border-bottom: 3px solid #C4964A;
+  border-bottom: 3px solid var(--gold);
 }
 .back-link {
   display: inline-block;
@@ -43,7 +43,7 @@ body {
   font-size:var(--fs-label);
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #C4964A;
+  color: var(--gold);
   margin-bottom: 6px;
 }
 .page-title {
@@ -112,7 +112,7 @@ body {
   font-family: var(--font-mono);
   font-size:var(--fs-body);
   font-weight: 700;
-  color: #C4964A;
+  color: var(--gold);
 }
 .summary-label {
   font-size:var(--fs-label);
@@ -148,7 +148,7 @@ body {
   text-transform: uppercase;
   transition: color 0.15s, border-color 0.15s;
 }
-.tab-btn.active { color: var(--navy); border-bottom-color: #C4964A; }
+.tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
 .tab-btn:hover  { color: var(--navy); }
 
 /* ─── Content ──────────────────────────────────────────────── */
@@ -243,7 +243,7 @@ body {
   border-radius: 3px;
   white-space: nowrap;
 }
-.chip-navy { background: #0a1628; color: #C4964A; }
+.chip-navy { background: #0a1628; color: var(--gold); }
 .chip-tone { background: #1e2d44; color: #e8eaf0; border: 1px solid #2a3d5a; font-weight: 400; }
 .tl-detail {
   margin-top: 8px;
@@ -285,7 +285,7 @@ body {
 .cargo-cell:not(:last-child) { border-right: 1px solid rgba(17,29,48,0.07); }
 .cargo-type    { font-weight: 700; color: #111d30; }
 .cargo-dest    { color: #2a2a3a; }
-.cargo-vessels { font-family: var(--font-mono); font-weight: 700; color: #C4964A; }
+.cargo-vessels { font-family: var(--font-mono); font-weight: 700; color: var(--gold); }
 .cargo-tonnage { font-family: var(--font-mono); font-size:var(--fs-label); color: #2a2a3a; }
 .cargo-note    { font-style: italic; color: #6b6b78; font-size:var(--fs-label); }
 .cargo-evasion-cell { display: flex; align-items: center; }
@@ -306,7 +306,7 @@ body {
   font-family: var(--font-mono);
   font-size:var(--fs-label);
   letter-spacing: 2px;
-  color: #C4964A;
+  color: var(--gold);
 }
 
 /* ─── Temryuk nodes ────────────────────────────────────────── */
@@ -326,7 +326,7 @@ body {
   line-height: 1.6;
   max-width: 600px;
 }
-.temryuk-arrow { text-align: center; font-size:var(--fs-subheading); color: #C4964A; margin: 6px 0; }
+.temryuk-arrow { text-align: center; font-size:var(--fs-subheading); color: var(--gold); margin: 6px 0; }
 .temryuk-badge {
   position: absolute;
   top: 12px; right: 16px;
@@ -463,7 +463,7 @@ body {
     <div class="section-desc" style="max-width:none;">All cargo flows documented from Q1 2025 through March 2026.</div>
     <div class="cargo-scroll"><div id="cargo-table"></div></div>
     <div class="tonnage-callout">
-      <span class="callout-label">THROUGHPUT NOTE &nbsp;&middot;&nbsp; </span>Ukraine's Foreign Intelligence Service estimates roughly <strong style="color:#C4964A;">40,000&#x2013;60,000 tonnes</strong> of stolen resources move through the occupied ports each month.<sup><a href="#fn3" class="fn-ref">3</a></sup> Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk over a five-month period, most bound for Turkish ports.<sup><a href="#fn4" class="fn-ref">4</a></sup> Documented per-vessel loads are consistent with up to approximately 8,000 tonnes per vessel.<sup><a href="#fn1" class="fn-ref">1</a></sup> The Coal Harbour dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling.
+      <span class="callout-label">THROUGHPUT NOTE &nbsp;&middot;&nbsp; </span>Ukraine's Foreign Intelligence Service estimates roughly <strong style="color:var(--gold);">40,000&#x2013;60,000 tonnes</strong> of stolen resources move through the occupied ports each month.<sup><a href="#fn3" class="fn-ref">3</a></sup> Reuters vessel-tracking recorded 18 cargo vessels departing Mariupol and Berdiansk over a five-month period, most bound for Turkish ports.<sup><a href="#fn4" class="fn-ref">4</a></sup> Documented per-vessel loads are consistent with up to approximately 8,000 tonnes per vessel.<sup><a href="#fn1" class="fn-ref">1</a></sup> The Coal Harbour dredging tender (May&#x2013;October 2026) is designed to increase vessel capacity beyond this ceiling.
     </div>
   </div>
 
@@ -491,7 +491,7 @@ body {
 <div class="page-footer">TOT INSIGHTS &middot; UKRAINE &amp; RUSSIA PROGRAMME &middot; CSNS / KCL</div>
 
 <script>
-var GOLD  = '#C4964A';
+var GOLD  = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
 var NAVY  = '#0a1628';
 var RED   = '#7C1F1F';
 var TEAL  = '#134E4A';
