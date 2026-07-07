@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../assets/css/main.css?v=8">
+<link rel="stylesheet" href="../assets/css/viz.css?v=8">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -80,6 +81,8 @@ main{max-width:1020px;margin:0 auto;padding:0 1.5rem 4rem}
 footer{background:var(--bg-section);border-top:1px solid var(--border);padding:1.5rem 2rem;text-align:center;font-size:var(--fs-body);color:var(--text-muted)}
 footer a{color:var(--blue);text-decoration:none}
 footer strong{color:var(--text-secondary);font-weight:600}
+/* SVG text reads the shared serif token (overrides hardcoded font-family attrs) */
+svg text{font-family:var(--font-serif);}
 </style>
 </head>
 <body data-chrome="footer-only">
