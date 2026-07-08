@@ -22,8 +22,10 @@ body{ background:var(--cream-panel); }
 
 /* ── Reading panel ────────────────────────────────────────────
    .reading-surface (main.css) supplies the surface, font, body size, line
-   height and measure. Here we only set the briefing column width + centring. */
-.reading-surface{ max-width:800px; margin:40px auto; padding:40px 48px; }
+   height and measure. Here we only set the briefing column width + centring.
+   1000px (not 800) matches the pre-migration briefing width — main.css widened
+   .doc-body to 1000px so table-heavy briefings don't cramp; keep parity. */
+.reading-surface{ max-width:1000px; margin:40px auto; padding:40px 48px; }
 
 /* In-content heading hierarchy — title is the page's single H1 (.page-title);
    sections are H2, sub-sections H3, sub-sub H4. */
@@ -40,6 +42,15 @@ body{ background:var(--cream-panel); }
 .doc-content a{ color:var(--gold); text-decoration:underline; }
 .doc-content blockquote{ border-left:3px solid var(--gold); padding:10px 18px; margin:20px 0; background:rgba(201,168,76,0.07); font-style:italic; color:var(--text); }
 .doc-content img{ max-width:100%; height:auto; border-radius:2px; }
+
+/* ── Tables (shared). Header colour/background, cell font-size and cell
+   padding come from the main.css table norm; here we set only the layout the
+   norm doesn't: full width, collapsed borders, left-aligned uppercase headers,
+   cell divider, and zebra striping. */
+.doc-content table{ width:100%; border-collapse:collapse; margin:24px 0; }
+.doc-content th{ text-align:left; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; }
+.doc-content td{ border-bottom:1px solid var(--border); vertical-align:top; }
+.doc-content tr:nth-child(even) td{ background:rgba(17,29,48,0.04); }
 
 /* ── Key findings callout (its own look — not the grid card) ──── */
 .key-findings{ background:var(--card-bg); border:1px solid var(--card-border); border-left:3px solid var(--gold); border-radius:4px; padding:24px 28px; margin-bottom:2rem; }
@@ -64,6 +75,8 @@ body{ background:var(--cream-panel); }
 .footnotes a{ color:var(--gold); }
 .fn-ref{ color:var(--gold); text-decoration:none; }
 .fn-ref:hover{ text-decoration:underline; }
+.fn-back{ margin-left:0.4em; text-decoration:none; font-size:var(--fs-body); opacity:0.7; }
+.fn-back:hover{ opacity:1; }
 sup{ line-height:0; }
 
 /* ── Footer strip ─────────────────────────────────────────────── */
