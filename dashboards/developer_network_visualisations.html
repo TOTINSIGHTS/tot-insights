@@ -13,7 +13,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --blue:#c9a84c;
+  --blue:var(--gold);
   --text:#1a1a2c;--text-secondary:#5a5e7a;--text-muted:#6b6b78;
   --bg:#f2f0ec;--bg-surface:#ffffff;--bg-section:#f7f5f1;
   --border:#e3e0d9;--border-light:#ece9e2;
@@ -106,7 +106,7 @@ svg text{font-family:var(--font-serif);}
   <p class="description">Each cluster groups construction companies operating in occupied territory (amber) with their corporate parent or holding structures (grey). Ownership links are expressed at corporate level per registry records. The Etalon Group cluster - a major listed St Petersburg developer with an occupied-territory subsidiary structure routed through AO RSK and OOO SFO Direct Finance - is analytically the most significant structural finding. Click any node for registry detail.</p>
 
   <div class="legend">
-    <div class="li"><div class="ls" style="background:#E8B84B;border:1px solid #E8B84B"></div>Company operating in occupied territory (links to registry)</div>
+    <div class="li"><div class="ls" style="background:var(--gold);border:1px solid var(--gold)"></div>Company operating in occupied territory (links to registry)</div>
     <div class="li"><div class="ls" style="background:#9aa0a8;border:1px solid #9aa0a8"></div>Corporate holding or parent structure</div>
     <div class="li" style="color:var(--text-muted);font-style:italic">Cluster zone = common-ownership grouping per registry</div>
   </div>
