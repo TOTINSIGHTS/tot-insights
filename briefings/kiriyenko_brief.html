@@ -14,13 +14,13 @@ body{font-family:var(--font-body);background:var(--cream-panel);color:var(--text
 .doc-header{background:transparent;border-bottom:2px solid rgba(181,146,58,0.6);padding:28px 40px 24px;}
 .doc-eyebrow{font-family:var(--mono);font-size:var(--fs-label);letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
 .theme-pill{background:rgba(201,168,76,0.14);color:#8a6d1f;padding:3px 8px;border-radius:2px;font-size:var(--fs-label);letter-spacing:0.12em;}
-.doc-title{font-family:var(--serif);font-size:var(--fs-subheading);font-weight:700;color:#111d30;line-height:1.25;max-width:780px;margin-bottom:14px;}
+.doc-title{font-family:var(--serif);font-size:var(--fs-subheading);font-weight:700;color:var(--navy);line-height:1.25;max-width:780px;margin-bottom:14px;}
 .doc-descriptor{font-family:var(--sans);font-size:var(--fs-label);color:#4a4a57;max-width:680px;line-height:1.7;border-left:3px solid var(--gold);padding-left:14px;}
-.doc-body{max-width:800px;margin:40px auto;padding:40px 48px;background:#f2f0ec;color:#111d30;border-radius:3px;box-shadow:none;}
+.doc-body{max-width:800px;margin:40px auto;padding:40px 48px;background:var(--cream);color:var(--navy);border-radius:3px;box-shadow:none;}
 .doc-content h1{font-family:var(--serif);font-size:var(--fs-body);font-weight:700;color:#1a1a2e;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--gold-lt);}
 .doc-content h2{font-family:var(--serif);font-size:var(--fs-body);font-weight:700;color:#1a1a2e;margin:28px 0 10px;}
 .doc-content h3{font-family:var(--sans);font-size:var(--fs-label);font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin:24px 0 8px;}
-.doc-content p{margin-bottom:24px;font-size:var(--fs-body);line-height:1.8;color:#2a2a3a;max-width:40rem;}
+.doc-content p{margin-bottom:24px;font-size:var(--fs-body);line-height:1.8;color:var(--text);max-width:40rem;}
 .doc-content p:first-child{font-size:var(--fs-subheading);line-height:1.8;color:#222;}
 .doc-content strong{font-weight:700;color:#1a1a2e;}
 .doc-content em{font-style:italic;}
@@ -30,23 +30,23 @@ body{font-family:var(--font-body);background:var(--cream-panel);color:var(--text
 .doc-content th{background:#253545;color:#fff;padding:9px 12px;text-align:left;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;}
 .doc-content td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
 .doc-content tr:nth-child(even) td{background:rgba(26,42,58,0.04);}
-.doc-content a{color:#c9a84c;text-decoration:underline;}
+.doc-content a{color:var(--gold);text-decoration:underline;}
 .doc-content blockquote{border-left:3px solid var(--gold);padding:10px 18px;margin:20px 0;background:rgba(201,168,76,0.07);font-style:italic;color:#3a3a4a;}
 .doc-footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--border);font-family:var(--mono);font-size:var(--fs-label);color:var(--gold);letter-spacing:0.08em;}
-sup{font-size:var(--fs-label);line-height:0;vertical-align:super;}sup a{color:#c9a84c;text-decoration:none;}sup a:hover{text-decoration:underline;}.doc-footnotes{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);}.doc-footnotes h2{font-family:var(--sans);font-size:var(--fs-label);font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}.doc-footnotes ol{margin:0 0 0 20px;padding:0;}.doc-footnotes li{font-family:var(--sans);font-size:var(--fs-label);line-height:1.65;color:#5a5a6a;margin-bottom:5px;}.doc-footnotes li:target{background:var(--gold-lt);padding:2px 4px;margin-left:-4px;border-radius:2px;}
-.key-findings{background:var(--card-bg) !important;border:1px solid rgba(201,168,76,0.3) !important;border-left:3px solid #c9a84c !important;padding:24px 28px !important;border-radius:4px !important;margin-bottom:2rem !important;}
-.key-findings-label{display:block;font-family:var(--font-mono);font-size:var(--fs-body);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#c9a84c !important;margin-bottom:0.9rem;}
+sup{font-size:var(--fs-label);line-height:0;vertical-align:super;}sup a{color:var(--gold);text-decoration:none;}sup a:hover{text-decoration:underline;}.doc-footnotes{margin-top:44px;padding-top:18px;border-top:1px solid var(--border);}.doc-footnotes h2{font-family:var(--sans);font-size:var(--fs-label);font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px;}.doc-footnotes ol{margin:0 0 0 20px;padding:0;}.doc-footnotes li{font-family:var(--sans);font-size:var(--fs-label);line-height:1.65;color:#5a5a6a;margin-bottom:5px;}.doc-footnotes li:target{background:var(--gold-lt);padding:2px 4px;margin-left:-4px;border-radius:2px;}
+.key-findings{background:var(--card-bg) !important;border:1px solid rgba(201,168,76,0.3) !important;border-left:3px solid var(--gold) !important;padding:24px 28px !important;border-radius:4px !important;margin-bottom:2rem !important;}
+.key-findings-label{display:block;font-family:var(--font-mono);font-size:var(--fs-body);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold) !important;margin-bottom:0.9rem;}
 .key-findings ul{list-style:none;margin:0;padding:0;}
-.key-findings li{font-family:var(--font-source);font-size:var(--fs-body);font-weight:400;color:#2a2a3a !important;line-height:1.55;padding-left:0.5rem;margin-bottom:0.5rem;}
+.key-findings li{font-family:var(--font-source);font-size:var(--fs-body);font-weight:400;color:var(--text) !important;line-height:1.55;padding-left:0.5rem;margin-bottom:0.5rem;}
 .key-findings li:last-child{margin-bottom:0;}
-.key-findings li::before{content:"■";color:#c9a84c;font-size:var(--fs-label);margin-right:0.6rem;vertical-align:middle;}
+.key-findings li::before{content:"■";color:var(--gold);font-size:var(--fs-label);margin-right:0.6rem;vertical-align:middle;}
 @media(max-width:600px){.doc-header{padding:20px 20px 18px}.doc-body{padding:28px 20px 60px}.doc-title{font-size:var(--fs-body)}}
   .fn-back{margin-left:.4em;text-decoration:none;font-size:var(--fs-body);opacity:.7;}
   .fn-back:hover{opacity:1;}
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../themes.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#111d30;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../themes.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:var(--navy);text-decoration:none;">&#8592; Back</a></div>
 <header class="doc-header">
   <h1 class="doc-title">Sergey Kiriyenko and Russian-occupied Territories: Architecture of Absorption</h1>
 <div style="background:rgba(61,102,120,0.05);border-left:2px solid rgba(181,146,58,0.35);padding:0.75rem 1rem;margin-bottom:1.5rem;">
@@ -57,12 +57,12 @@ sup{font-size:var(--fs-label);line-height:0;vertical-align:super;}sup a{color:#c
 </header>
 <main class="doc-body">
   <div class="doc-content">
-    <div class="key-findings" style="background:var(--card-bg) !important;border:1px solid rgba(201,168,76,0.3) !important;border-left:3px solid #c9a84c !important;padding:24px 28px !important;border-radius:4px !important;">
-      <span class="key-findings-label" style="color:#c9a84c !important;">Key findings</span>
+    <div class="key-findings" style="background:var(--card-bg) !important;border:1px solid rgba(201,168,76,0.3) !important;border-left:3px solid var(--gold) !important;padding:24px 28px !important;border-radius:4px !important;">
+      <span class="key-findings-label" style="color:var(--gold) !important;">Key findings</span>
       <ul>
-        <li style="color:#2a2a3a !important;">Kiriyenko is the Kremlin's de facto proconsul for occupied Ukraine, operating not as a battlefield commander but as the engineer of annexation - orchestrating sham referenda, installing Kremlin-vetted technocrats via the "Leaders of Russia" pipeline, and replicating Russia's domestic authoritarian toolkit across all four occupied oblasts.</li>
-        <li style="color:#2a2a3a !important;">Russia has transferred over RUB 483 billion in federal subsidies to occupied regions in 2023 alone. Procurement operates without competitive tendering, with systemic corruption deliberately tolerated as a mechanism for binding local elites to the occupation project through shared complicity.</li>
-        <li style="color:#2a2a3a !important;">By 2025 Kiriyenko's remit has expanded beyond Ukraine to Abkhazia, South Ossetia, Transnistria, and Armenia - signalling that the Kremlin views the occupied territories model as a transferable template for its broader strategy in the so-called 'near-abroad'. Any peace framework that leaves his administrative apparatus intact is a framework for continued absorption.</li>
+        <li style="color:var(--text) !important;">Kiriyenko is the Kremlin's de facto proconsul for occupied Ukraine, operating not as a battlefield commander but as the engineer of annexation - orchestrating sham referenda, installing Kremlin-vetted technocrats via the "Leaders of Russia" pipeline, and replicating Russia's domestic authoritarian toolkit across all four occupied oblasts.</li>
+        <li style="color:var(--text) !important;">Russia has transferred over RUB 483 billion in federal subsidies to occupied regions in 2023 alone. Procurement operates without competitive tendering, with systemic corruption deliberately tolerated as a mechanism for binding local elites to the occupation project through shared complicity.</li>
+        <li style="color:var(--text) !important;">By 2025 Kiriyenko's remit has expanded beyond Ukraine to Abkhazia, South Ossetia, Transnistria, and Armenia - signalling that the Kremlin views the occupied territories model as a transferable template for its broader strategy in the so-called 'near-abroad'. Any peace framework that leaves his administrative apparatus intact is a framework for continued absorption.</li>
       </ul>
     </div>
     <a href="../dashboards/kiriyenko.html" style="display:block;text-decoration:none;color:inherit;background:var(--card-bg);border:1px solid rgba(201,168,76,0.3);border-left:3px solid var(--gold);border-radius:4px;padding:16px 20px;margin-bottom:1.5rem;">
@@ -100,7 +100,7 @@ sup{font-size:var(--fs-label);line-height:0;vertical-align:super;}sup a{color:#c
   <div style="position:relative;border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
   <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:var(--fs-body);line-height:1;color:rgba(26,26,46,0.4);padding:2px 4px;">&times;</button>
   <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted-light-bg);margin-bottom:0.4rem;">Research integrity</div>
-  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Sergey%20Kiriyenko%20and%20Russian-occupied%20Territories%3A%20Architecture%20of%20Absorption%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/briefings/kiriyenko_brief.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#c9a84c;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Sergey%20Kiriyenko%20and%20Russian-occupied%20Territories%3A%20Architecture%20of%20Absorption%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/briefings/kiriyenko_brief.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:var(--gold);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
   <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted-light-bg);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
 </div>
 </main>
