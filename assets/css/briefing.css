@@ -81,3 +81,16 @@ sup{ line-height:0; }
 
 /* ── Footer strip ─────────────────────────────────────────────── */
 .doc-footer{ margin-top:48px; padding-top:18px; border-top:1px solid var(--border); font-family:var(--font-mono); font-size:var(--fs-label); color:var(--text-muted); letter-spacing:0.08em; }
+
+/* ── Mobile ───────────────────────────────────────────────────────
+   Header padding tightens to match main.css's mobile .reading-surface /
+   .page-hero (both ~20px horizontal). The .page-title stays at the shared
+   38px hero on mobile — that is the site-wide standard for every .page-title,
+   so no per-page override here. Breakpoint matches main.css (700px). */
+@media (max-width: 700px){
+  .doc-header{ padding:22px 20px 18px; }
+  /* briefing.css sets the desktop .reading-surface padding, so it must set the
+     mobile value too — otherwise main.css's mobile rule is overridden and the
+     surface keeps its 48px side padding on phones. */
+  .reading-surface{ padding:28px 20px 60px; }
+}
