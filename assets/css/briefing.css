@@ -29,7 +29,7 @@ body{ background:var(--cream-panel); }
    sections are H2, sub-sections H3, sub-sub H4. */
 .doc-content h2{ font-family:var(--font-serif); font-size:var(--fs-subheading); font-weight:700; color:var(--navy); line-height:1.25; margin:36px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--gold-lt); }
 .doc-content h3{ font-family:var(--font-serif); font-size:var(--fs-body); font-weight:700; color:var(--navy); margin:28px 0 10px; }
-.doc-content h4{ font-family:var(--font-mono); font-size:var(--fs-label); font-weight:600; color:var(--navy); text-transform:uppercase; letter-spacing:0.1em; margin:24px 0 8px; }
+.doc-content h4{ font-family:var(--font-serif); font-size:var(--fs-body); font-weight:700; font-style:italic; color:var(--navy); margin:22px 0 8px; }
 
 .doc-content p{ margin-bottom:24px; }
 .doc-content > p:first-child, .doc-content .lead{ font-size:var(--reading-lead); color:var(--navy); }
