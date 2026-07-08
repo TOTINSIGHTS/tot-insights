@@ -43,9 +43,9 @@
   // Detect the relative path back to the site root from the existing
   // navigation.css link (every page already loads it with the correct prefix).
   function rootPrefix() {
-    var link = document.querySelector('link[href$="navigation.css"]');
+    var link = document.querySelector('link[href*="navigation.css"]');
     if (link) return link.getAttribute('href').replace(/navigation\.css.*$/, '');
-    var script = document.querySelector('script[src$="navigation.js"], script[src$="site-chrome.js"]');
+    var script = document.querySelector('script[src*="navigation.js"], script[src*="site-chrome.js"]');
     if (script) return script.getAttribute('src').replace(/(navigation|site-chrome)\.js.*$/, '');
     return '';
   }
