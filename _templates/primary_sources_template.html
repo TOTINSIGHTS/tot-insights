@@ -1,4 +1,4 @@
-<!-- TEMPLATE v1.0 — Duplicate, rename, and replace ALL-CAPS placeholders before publishing. See WORKFLOW_GUIDE.md for instructions. -->
+<!-- TEMPLATE v1.1 — Duplicate, rename, and replace ALL-CAPS placeholders before publishing. See WORKFLOW_GUIDE.md for instructions. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,53 +7,45 @@
 <meta name="description" content="SOURCE-COLLECTION-TITLE — TOT Insights / King's College London">
 <title>SOURCE-COLLECTION-TITLE — TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Source+Serif+4:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/main.css?v=8">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=9">
 <style>
 
-body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-size:16px;line-height:1.8;}
-.doc-header{background:var(--navy-deep);border-bottom:2px solid rgba(181,146,58,0.6);padding:28px 40px 24px;}
-.doc-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(181,146,58,0.80);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.theme-pill{padding:3px 8px;border-radius:2px;font-size:8px;letter-spacing:0.12em;}
-.doc-title{font-family:var(--serif);font-size:26px;font-weight:700;color:rgba(232,228,220,0.90);line-height:1.25;max-width:780px;margin-bottom:14px;}
-.doc-descriptor{font-family:var(--sans);font-size:13px;color:rgba(232,228,220,0.75);max-width:680px;line-height:1.7;border-left:3px solid var(--gold);padding-left:14px;}
-.doc-body{max-width:800px;margin:40px auto;padding:40px 48px;background:#f2f0ec;color:#111d30;border-radius:3px;box-shadow:0 2px 20px rgba(0,0,0,0.24),0 0 0 1px rgba(0,0,0,0.10);}
-.doc-content h1{font-family:var(--serif);font-size:20px;font-weight:700;color:#1a1a2e;margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--gold-lt);}
-.doc-content h2{font-family:var(--serif);font-size:17px;font-weight:700;color:#1a1a2e;margin:28px 0 10px;}
-.doc-content h3{font-family:var(--sans);font-size:13px;font-weight:600;color:#1a1a2e;text-transform:uppercase;letter-spacing:0.1em;margin:24px 0 8px;}
-.doc-content p{margin-bottom:16px;font-size:15px;line-height:1.82;color:#2a2a3a;max-width:40rem;}
-.doc-content p:first-child{font-size:16px;line-height:1.78;color:#222;}
-.doc-content strong{font-weight:700;color:#1a1a2e;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text);font-size:var(--fs-body);line-height:1.8;}
+.doc-header{background:transparent;border-bottom:3px solid var(--gold);padding:28px 40px 24px;}
+.doc-title{font-family:var(--font-serif);font-size:var(--fs-section);font-weight:700;color:var(--navy);line-height:1.25;max-width:780px;margin-bottom:14px;}
+.doc-descriptor{font-family:var(--font-mono);font-size:var(--fs-fine);color:var(--text-muted);max-width:680px;line-height:1.7;border-left:3px solid var(--gold);padding-left:14px;}
+.doc-body{max-width:800px;margin:40px auto;padding:40px 48px;background:var(--cream-raised);color:var(--navy);border:1px solid var(--border);border-radius:3px;}
+.doc-content h1{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:var(--navy);margin:36px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--gold);}
+.doc-content h2{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:var(--navy);margin:28px 0 10px;}
+.doc-content h3{font-family:var(--font-mono);font-size:var(--fs-label);font-weight:600;color:var(--navy);text-transform:uppercase;letter-spacing:0.1em;margin:24px 0 8px;}
+.doc-content p{margin-bottom:16px;font-size:var(--fs-body);line-height:1.82;color:var(--text);max-width:40rem;}
+.doc-content p:first-child{font-size:var(--fs-subheading);line-height:1.5;color:var(--navy);}
+.doc-content strong{font-weight:700;color:var(--navy);}
 .doc-content em{font-style:italic;}
 .doc-content ul,.doc-content ol{margin:0 0 18px 22px;padding:0;}
-.doc-content li{margin-bottom:7px;font-size:14.5px;line-height:1.75;}
-.doc-content table{width:100%;border-collapse:collapse;margin:24px 0;font-family:var(--sans);font-size:13px;}
-.doc-content th{background:#253545;color:#fff;padding:9px 12px;text-align:left;font-weight:500;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;}
+.doc-content li{margin-bottom:7px;font-size:var(--fs-body);line-height:1.75;}
+.doc-content table{width:100%;border-collapse:collapse;margin:24px 0;font-family:var(--font-mono);font-size:var(--fs-fine);}
+.doc-content th{padding:9px 12px;text-align:left;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;} /* bg/colour/size from the shared table norm in main.css */
 .doc-content td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
-.doc-content tr:nth-child(even) td{background:rgba(26,42,58,0.04);}
-.doc-content a{color:#c9a84c;text-decoration:underline;}
-.doc-content blockquote{border-left:3px solid var(--gold);padding:10px 18px;margin:20px 0;background:rgba(201,168,76,0.07);font-style:italic;color:#3a3a4a;}
-.doc-footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:rgba(181,146,58,0.55);letter-spacing:0.08em;}
-/* Caveat box */
-.source-caveat{background:#fff3cd;border-left:3px solid #e0a020;border-radius:4px;padding:14px 18px;font-family:var(--sans);font-size:13px;color:#5c4200;line-height:1.7;margin-bottom:24px;}
+.doc-content tr:nth-child(even) td{background:var(--cream);}
+.doc-content a{color:var(--gold);text-decoration:underline;}
+.doc-content blockquote{border-left:3px solid var(--gold);padding:10px 18px;margin:20px 0;background:rgba(201,168,76,0.07);font-style:italic;color:var(--text);}
+.doc-footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.08em;}
+/* Caveat box — amber = source-critical status */
+.source-caveat{background:#fff3cd;border-left:3px solid #e0a020;border-radius:4px;padding:14px 18px;font-family:var(--font-mono);font-size:var(--fs-fine);color:#5c4200;line-height:1.7;margin-bottom:24px;}
 .source-caveat strong{color:#3d2b00;}
-@media(max-width:600px){.doc-header{padding:20px 20px 18px}.doc-body{padding:28px 20px 60px}.doc-title{font-size:20px}}
+.doc-integrity-label{font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;}
+.doc-integrity a{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--navy);text-decoration:none;}
+.doc-integrity p{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.5rem;}
+@media(max-width:600px){.doc-header{padding:20px 20px 18px}.doc-body{padding:28px 20px 60px}.doc-title{font-size:var(--fs-subheading)}}
 </style>
 </head>
 <body>
 
 <header class="doc-header">
-  <div class="doc-eyebrow">
-    <span class="theme-pill" style="background:rgba(255,255,255,0.08);color:rgba(181,146,58,0.75);">THEME-TAG</span>
-    <span>DOC-NUMBER · TOT Insights · Primary Sources</span>
-  </div>
   <h1 class="doc-title">SOURCE-COLLECTION-TITLE — Replace with descriptive title of the document collection</h1>
-  <div style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);border-top:1px solid rgba(26,26,26,0.1);padding-top:0.5rem;margin-bottom:1.5rem;">Last updated: MONTH YEAR</div>
-  <div style="background:rgba(61,102,120,0.05);border-left:2px solid rgba(181,146,58,0.35);padding:0.75rem 1rem;margin-bottom:1.5rem;">
-    <div style="font-family:var(--font-mono);font-size:0.58rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-muted);margin-bottom:0.35rem;">Cite this output</div>
-    <div style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.75);line-height:1.5;">SURNAME, Initials. et al. (YEAR). SOURCE-COLLECTION-TITLE. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/ZENODO-DOI-PLACEHOLDER" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/ZENODO-DOI-PLACEHOLDER</a></div>
-    <button onclick="(function(b){navigator.clipboard.writeText('SURNAME, Initials. et al. (YEAR). SOURCE-COLLECTION-TITLE. TOT Insights / King\'s College London. DOI: https://doi.org/ZENODO-DOI-PLACEHOLDER');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:0.58rem;border:1px solid rgba(181,146,58,0.4);color:var(--text-muted);background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
-  </div>
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);line-height:1.5;margin-bottom:1.5rem;">SURNAME, Initials. et al. (YEAR). SOURCE-COLLECTION-TITLE. TOT Insights / King&#39;s College London. DOI:&#160;<a href="https://doi.org/ZENODO-DOI-PLACEHOLDER" target="_blank" rel="noopener noreferrer" style="color:var(--gold);text-decoration:none;">https://doi.org/ZENODO-DOI-PLACEHOLDER</a></div>
   <p class="doc-descriptor">ONE-LINE DESCRIPTOR — What this source collection is, where it comes from, and what it covers.</p>
 </header>
 
@@ -117,15 +109,12 @@ body{font-family:var(--font-body);background:var(--navy);color:var(--text);font-
   </div><!-- /.doc-content -->
 
   <!-- RESEARCH INTEGRITY -->
-  <div style="position:relative;border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
-    <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:20px;line-height:1;color:rgba(26,26,46,0.4);padding:2px 4px;">&times;</button>
-    <div style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted-light-bg);margin-bottom:0.4rem;">Research integrity</div>
-    <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20SOURCE-COLLECTION-TITLE%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/briefings/FILENAME.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:0.68rem;color:rgba(232,228,220,0.90);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
-    <p style="font-family:var(--font-source);font-size:0.75rem;color:var(--text-muted-light-bg);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  <div class="doc-integrity" style="position:relative;border-top:1px solid var(--border);padding-top:1.25rem;margin-top:2rem;">
+    <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:var(--fs-body);line-height:1;color:var(--text-muted);padding:2px 4px;">&times;</button>
+    <div class="doc-integrity-label">Research integrity</div>
+    <a href="mailto:totinsights@proton.me?subject=Correction%20%E2%80%94%20SOURCE-COLLECTION-TITLE%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/briefings/FILENAME.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+    <p>Corrections are reviewed by the research team and incorporated into the next update.</p>
   </div>
-
-  <!-- FOOTER -->
-  
 
 </main>
 </body>
