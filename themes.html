@@ -538,9 +538,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="briefings/kiriyenko_brief.html">
-            <span class="theme-start-title">Sergey Kiriyenko and Russia's Occupation of Ukrainian Territories: Architecture of Absorption</span>
-            <span class="theme-start-desc">A profile of the Kremlin official who oversees the administrative machinery of occupation.</span>
+          <a class="theme-start-link" href="themes/governance.html">
+            <span class="theme-start-title">Governance: an introduction</span>
+            <span class="theme-start-desc">How Russia administers the territory it has seized &mdash; the bureaucracy, appointments and budgets through which occupation is made to look ordinary.</span>
           </a>
         </div>
 
@@ -581,9 +581,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="briefings/beijing_quiet_stake.html">
-            <span class="theme-start-title">Beijing's Quiet Stake in Occupied Ukraine</span>
-            <span class="theme-start-desc">An essay on how Russia strips value from occupied territory, from grain and property to the shadow economy that moves it.</span>
+          <a class="theme-start-link" href="themes/economics.html">
+            <span class="theme-start-title">Economics: an introduction</span>
+            <span class="theme-start-desc">How Russia turns occupied territory into a source of value &mdash; extraction, property redistribution and integration into the Russian economy.</span>
           </a>
         </div>
 
@@ -667,9 +667,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="https://foreignpolicy.com/2024/04/23/russia-ukraine-cultural-genocide-looting-indoctrination-deporatation/" target="_blank" rel="noopener">
-            <span class="theme-start-title">Russia Is Committing Cultural Genocide in Ukraine</span>
-            <span class="theme-start-desc">An argument that the occupation is a deliberate campaign to erase Ukrainian identity, language and faith.</span>
+          <a class="theme-start-link" href="themes/identity-culture-and-religion.html">
+            <span class="theme-start-title">Identity, Culture and Religion: an introduction</span>
+            <span class="theme-start-desc">How Russia attacks Ukrainian religious, cultural and national life under occupation &mdash; and how people sustain faith, language and memory.</span>
           </a>
         </div>
 
@@ -710,9 +710,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="briefings/voin_generation.html">
-            <span class="theme-start-title">The Voin Generation: Russia's Militarisation of Children in Russian-occupied Ukraine and the Coming Strategic Threat</span>
-            <span class="theme-start-desc">An analysis of how vast numbers of children in occupied Ukraine are being drawn into a military pipeline, and what that cohort means by 2034.</span>
+          <a class="theme-start-link" href="themes/education-and-militarisation.html">
+            <span class="theme-start-title">Education and Militarisation: an introduction</span>
+            <span class="theme-start-desc">How Russia uses schooling, youth programmes and the removal of children to reshape a generation in occupied Ukraine &mdash; with the key figures and the questions this theme asks.</span>
           </a>
         </div>
 
@@ -753,9 +753,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="https://www.csis.org/analysis/thresholds-survival-resistance-occupied-ukraine" target="_blank" rel="noopener">
-            <span class="theme-start-title">Thresholds of Survival: The Resistance in Occupied Ukraine</span>
-            <span class="theme-start-desc">A study of how Ukrainian resistance has adapted to ever-increasing surveillance and repression.</span>
+          <a class="theme-start-link" href="themes/coercion-resistance-and-security.html">
+            <span class="theme-start-title">Coercion, Resistance and Security: an introduction</span>
+            <span class="theme-start-desc">How Russia enforces control over a population that largely refused it, and how Ukrainian resistance has adapted to intensifying repression.</span>
           </a>
         </div>
 
@@ -796,9 +796,9 @@ a.resource-row:hover .resource-title {
 
         <div class="theme-start-here">
           <div class="theme-start-label">Start here</div>
-          <a class="theme-start-link" href="https://www.ssoar.info/ssoar/bitstream/handle/document/101373/ssoar-russanald-2024-313-mcglynn-Russian_Propaganda_Tactics_in_Ukraines.pdf?sequence=1" target="_blank" rel="noopener">
-            <span class="theme-start-title">Russian Propaganda Tactics in Ukraine's Newly Occupied Territories</span>
-            <span class="theme-start-desc">An examination of how the Russians rebuilt the information environment, from the Crimea template to fear-based messaging.</span>
+          <a class="theme-start-link" href="themes/information-space.html">
+            <span class="theme-start-title">Information Space: an introduction</span>
+            <span class="theme-start-desc">How Russia controls what people in the occupied territories can know, say and believe &mdash; and what its own media and teaching materials reveal.</span>
           </a>
         </div>
 
@@ -878,6 +878,7 @@ function docLink(doc) {
   if (doc.dashboardFile) return doc.dashboardFile;
   if (doc.briefingFile) return doc.briefingFile;
   if (doc.gdocs && doc.gdocs !== '' && doc.gdocs.startsWith('http')) return doc.gdocs;
+  if (doc.url && doc.url.startsWith('http')) return doc.url;
   return null;
 }
 
@@ -988,8 +989,8 @@ function renderTheme(config) {
 
 renderTheme({
   theme: 'Governance',
-  startHereId: 'DOC-F1',
-  previewIds: ['DOC-A3', 'DOC-B7'],
+  startHereId: null,
+  previewIds: ['DOC-F1', 'DOC-A3', 'DOC-B7'],
   previewElId: 'gov-preview',
   detailsBodyId: 'gov-details-body',
   extraGroups: [
@@ -1005,8 +1006,8 @@ renderTheme({
 
 renderTheme({
   theme: 'Economics',
-  startHereId: 'DOC-A6',
-  previewIds: ['DOC-A4', 'DOC-A1'],
+  startHereId: null,
+  previewIds: ['DOC-A6', 'DOC-A4', 'DOC-A1'],
   previewElId: 'econ-preview',
   detailsBodyId: 'econ-details-body'
 });
@@ -1022,31 +1023,31 @@ renderTheme({
 renderTheme({
   theme: 'Identity, Culture and Religion',
   startHereId: null,
-  previewIds: ['DOC-B3', 'DOC-D3'],
+  previewIds: ['MED-055', 'DOC-B3', 'DOC-D3'],
   previewElId: 'identity-preview',
   detailsBodyId: 'identity-details-body'
 });
 
 renderTheme({
   theme: 'Education and Militarisation',
-  startHereId: 'DOC-B2',
-  previewIds: ['DOC-B1', 'DOC-084'],
+  startHereId: null,
+  previewIds: ['DOC-B2', 'DOC-B1', 'DOC-084'],
   previewElId: 'edu-preview',
   detailsBodyId: 'edu-details-body'
 });
 
 renderTheme({
   theme: 'Coercion, Resistance and Security',
-  startHereId: 'DOC-085',
-  previewIds: ['DOC-087', 'DOC-F3'],
+  startHereId: null,
+  previewIds: ['DOC-085', 'DOC-087', 'DOC-F3'],
   previewElId: 'coercion-preview',
   detailsBodyId: 'coercion-details-body'
 });
 
 renderTheme({
   theme: 'Information Space',
-  startHereId: 'DOC-088',
-  previewIds: ['DOC-D4'],
+  startHereId: null,
+  previewIds: ['DOC-088', 'DOC-D4'],
   previewElId: 'info-preview',
   detailsBodyId: 'info-details-body'
 });

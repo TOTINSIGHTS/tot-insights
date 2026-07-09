@@ -19,6 +19,8 @@ body{ background:var(--cream-panel); }
 .briefing-cite{ font-family:var(--font-mono); font-size:var(--fs-label); color:var(--text-muted); line-height:1.5; margin:6px 0 1.25rem; }
 .briefing-cite a{ color:var(--gold); text-decoration:none; }
 .doc-descriptor{ font-family:var(--font-mono); font-size:var(--fs-fine); color:var(--grey-700); max-width:680px; line-height:1.7; border-left:3px solid var(--gold); padding-left:14px; }
+/* Byline — author/attribution line under the title (e.g. "By …"). */
+.doc-byline{ font-family:var(--font-serif); font-style:italic; font-size:var(--fs-body); color:var(--text-muted); margin:4px 0 0; }
 
 /* ── Reading panel ────────────────────────────────────────────
    .reading-surface (main.css) supplies the surface, font, body size, line
