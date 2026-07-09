@@ -11,6 +11,12 @@
   function chromeHTML(p) {
     return {
       header:
+        '<style>' +
+          '.csns-mark{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;line-height:1;text-decoration:none;flex-shrink:0;opacity:0.9;}' +
+          '.csns-mark img{height:25px;width:auto;display:block;}' +
+          '.csns-mark .csns-label{font-family:var(--font-mono,\'IBM Plex Mono\',monospace);font-size:9px;font-weight:600;letter-spacing:0.18em;color:var(--navy,#111d30);padding-left:0.18em;}' +
+          '@media (max-width:900px){.csns-mark{display:none;}}' +
+        '</style>' +
         '<header class="site-header">' +
           '<div class="header-inner">' +
             '<div class="site-brand">' +
@@ -18,7 +24,10 @@
                 '<span class="logo-main">TOT Insights</span>' +
               '</a>' +
               '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
-              '<img class="site-crest site-crest-csns" src="' + p + 'assets/logos/csns-logo-dark.png" alt="Centre for Statecraft and National Security, King&#39;s College London">' +
+              '<span class="csns-mark" title="Centre for Statecraft &amp; National Security, King&#39;s College London">' +
+                '<img src="' + p + 'assets/logos/csns-globe.png" alt="Centre for Statecraft and National Security, King&#39;s College London">' +
+                '<span class="csns-label">CSNS</span>' +
+              '</span>' +
             '</div>' +
             '<nav class="header-nav">' +
               '<a href="' + p + 'index.html" data-nav="home">Home</a>' +
