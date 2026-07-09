@@ -542,10 +542,6 @@ fetch('data/officials-data.json')
     populateDropdown('filter-territory', territories);
     populateDropdown('filter-level', levels);
     populateDropdown('filter-origin', origins);
-    // Remap "Local collaborator" display in origin dropdown
-    Array.from(document.getElementById('filter-origin').options).forEach(function(o) {
-      if (o.value === 'Local collaborator') o.textContent = 'Local appointment / occupation-administration role';
-    });
 
     const lm = document.getElementById('loading-msg');
     if (lm) lm.style.display = 'none';
