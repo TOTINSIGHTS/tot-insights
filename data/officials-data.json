@@ -741,6 +741,7 @@
   },
   {
     "Official ID": "OFC-052",
+    "Hidden": "true",
     "Name (Latin)": "Stromousov Yaroslav Kirillovich",
     "Name (Cyrillic)": "Стремоусов Ярослав Кириллович",
     "Territory": "Zaporizhzhia Oblast",
@@ -2341,6 +2342,7 @@
   },
   {
     "Official ID": "OFC-167",
+    "Hidden": "true",
     "Name (Latin)": "Plotnitskaya Oksana Vladimirovna",
     "Name (Cyrillic)": "Плотницкая Оксана Владимировна",
     "Territory": "DPR",
@@ -2401,6 +2403,7 @@
   },
   {
     "Official ID": "OFC-170",
+    "Hidden": "true",
     "Name (Latin)": "Dubinin Igor",
     "Name (Cyrillic)": "Дубинин Игорь",
     "Territory": "DPR",

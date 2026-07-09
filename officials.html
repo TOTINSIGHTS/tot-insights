@@ -519,6 +519,8 @@ document.getElementById('clear-btn').addEventListener('click', () => {
 fetch('data/officials-data.json')
   .then(r => { if (!r.ok) throw new Error('Failed to load data'); return r.json(); })
   .then(data => {
+    // Hide entries flagged pending review (restore: remove "Hidden":"true" in officials-data.json)
+    data = data.filter(r => r['Hidden'] !== 'true');
     DATA = data;
     filtered = data;
 
