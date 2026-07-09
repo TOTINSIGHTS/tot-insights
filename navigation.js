@@ -18,6 +18,7 @@
                 '<span class="logo-main">TOT Insights</span>' +
               '</a>' +
               '<img class="site-crest" src="' + p + 'assets/logos/kcl-logo-dark.svg" alt="King&#39;s College London">' +
+              '<img class="site-crest site-crest-csns" src="' + p + 'assets/logos/csns-logo-dark.png" alt="Centre for Statecraft and National Security, King&#39;s College London">' +
             '</div>' +
             '<nav class="header-nav">' +
               '<a href="' + p + 'index.html" data-nav="home">Home</a>' +
