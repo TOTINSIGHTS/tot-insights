@@ -89,17 +89,20 @@
 .methodology-detail .about-sub{color:var(--gold);margin-top:4px;}
 .methodology-detail .about-what-list li{border-top-color:rgba(17,29,48,0.12);}
 .methodology-detail .about-what-list li:last-child{border-bottom-color:rgba(17,29,48,0.12);}
-/* Team bios — shared inline "Read more" expander (same interaction as the methodology box) */
-details.profile-card>summary{list-style:none;cursor:pointer;outline:none;}
-details.profile-card>summary::-webkit-details-marker{display:none;}
-details.profile-card>summary::marker{content:'';}
-.bio-toggle{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:inline-block;margin-top:0.6rem;}
-.bio-toggle .bio-less{display:none;}
-details.profile-card[open] .bio-toggle .bio-more{display:none;}
-details.profile-card[open] .bio-toggle .bio-less{display:inline;}
-.bio-toggle::after{content:' \25BE';}
-details.profile-card[open] .bio-toggle::after{content:' \25B4';}
-.bio-detail .profile-bio:first-child{margin-top:0;}
+/* Team — expandable name list: click a name and a box opens in place with the bio */
+.team-list{border-top:1px solid rgba(17,29,48,0.14);margin-bottom:52px;}
+details.bio-item{border-bottom:1px solid rgba(17,29,48,0.14);}
+details.bio-item>summary{list-style:none;cursor:pointer;outline:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 6px;}
+details.bio-item>summary::-webkit-details-marker{display:none;}
+details.bio-item>summary::marker{content:'';}
+.bio-name{font-family:var(--font-display);font-size:var(--fs-subheading);font-weight:600;color:var(--navy);line-height:1.2;}
+details.bio-item>summary:hover .bio-name{color:var(--gold);}
+.bio-plus{font-family:var(--font-mono);font-size:var(--fs-body);color:var(--gold);flex:0 0 auto;line-height:1;}
+.bio-plus::after{content:'+';}
+details.bio-item[open] .bio-plus::after{content:'\2013';}
+.bio-box{background:var(--cream-raised);border-left:3px solid var(--gold);border-radius:3px;padding:18px 22px;margin:0 0 18px;}
+.bio-box .profile-title{margin-bottom:0.8rem;}
+.bio-box .profile-bio:last-of-type{margin-bottom:0.7rem;}
 </style>
 </head>
 <body>
@@ -180,103 +183,73 @@ details.profile-card[open] .bio-toggle::after{content:' \25B4';}
   </details>
 
   <div class="section-label">Research team</div>
-  <div class="profile-grid">
-
-    <details class="profile-card">
-      <summary>
-        <!-- Photo placeholder: add <img> here when available -->
-        <div class="profile-name">Dr Jade McGlynn</div>
+  <div class="team-list">
+    <details class="bio-item">
+      <summary><span class="bio-name">Dr Jade McGlynn</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
         <div class="profile-title">Head of the Ukraine and Russia Programme, Centre for Statecraft and National Security, King's College London</div>
-        <p class="profile-bio">Jade McGlynn is Head of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London, and a Leverhulme Early Career Fellow.</p>
-        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
-      </summary>
-      <div class="bio-detail">
-        <p class="profile-bio">Her research centres on Russian-occupied Ukraine: the mechanisms of occupation, civilian entrapment and detention, and resistance in the occupied territories, alongside Russian information operations and memory politics. She conducts regular fieldwork in government-controlled eastern Ukraine (Kyiv, Kharkiv, Dnipro).</p>
+        <p class="profile-bio">Jade McGlynn is Head of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London, and a Leverhulme Early Career Fellow. Her research centres on Russian-occupied Ukraine: the mechanisms of occupation, civilian entrapment and detention, and resistance in the occupied territories, alongside Russian information operations and memory politics. She conducts regular fieldwork in government-controlled eastern Ukraine (Kyiv, Kharkiv, Dnipro).</p>
         <p class="profile-bio">She has worked with Ukraine's Coordination Headquarters on the cases of civilians detained in the Russian Federation, and has advised European militaries and defence ministries on resistance and irregular warfare. Her recent work includes research on resistance in the occupied territories and on the deportation of Ukrainian children.</p>
         <p class="profile-bio">She holds a DPhil from the University of Oxford and is the author of Memory Makers (Bloomsbury, 2023) and Russia's War (Polity, 2023). She holds non-resident fellowships at CSIS in Washington, DC, ICDS in Tallinn, and the Kennan Institute.</p>
         <a class="profile-link" href="https://www.kcl.ac.uk/people/jade-mcglynn" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
       </div>
     </details>
-
-    <details class="profile-card">
-      <summary>
-        <!-- Photo placeholder: add <img> here when available -->
-        <div class="profile-name">Dr Maeve Ryan</div>
+    <details class="bio-item">
+      <summary><span class="bio-name">Dr Maeve Ryan</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
         <div class="profile-title">Reader in History and Foreign Policy, Centre for Statecraft and National Security, King's College London</div>
-        <p class="profile-bio">Dr Maeve Ryan is a Reader in History and Foreign Policy at the Centre for Statecraft and National Security (CSNS), based within the Department of War Studies at King's College London.</p>
-        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
-      </summary>
-      <div class="bio-detail">
-        <p class="profile-bio">She is Director of the Leverhulme Centre for Research on Slavery in War, and Co-Director of the Ax:son Johnson Institute for Statecraft and Diplomacy, the Forum on Future British Strategy, the World Order Study Group, the Engelsberg Programme for Applied History, Grand Strategy and Geopolitics, and the Leverhulme Doctoral Scholarship Programme, &ldquo;Interrogating Visions of a Post-Western World.&rdquo;</p>
+        <p class="profile-bio">Dr Maeve Ryan is a Reader in History and Foreign Policy at the Centre for Statecraft and National Security (CSNS), based within the Department of War Studies at King's College London. She is Director of the Leverhulme Centre for Research on Slavery in War, and Co-Director of the Ax:son Johnson Institute for Statecraft and Diplomacy, the Forum on Future British Strategy, the World Order Study Group, the Engelsberg Programme for Applied History, Grand Strategy and Geopolitics, and the Leverhulme Doctoral Scholarship Programme, &ldquo;Interrogating Visions of a Post-Western World.&rdquo;</p>
         <p class="profile-bio">A former Leverhulme Early Career Fellow, Ryan's research focuses on modern global history; the history of slavery, emancipation, human rights, and humanitarian governance; British foreign policy and diplomatic history; and interdisciplinary approaches to the study of world order in the twenty-first century. She is a Fellow of the Royal Historical Society and a Fellow of the Higher Education Academy.</p>
         <a class="profile-link" href="https://www.kcl.ac.uk/people/maeve-ryan" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
       </div>
     </details>
-
-    <div class="profile-card">
-    <!-- Photo placeholder: add <img> here when available -->
-    <div class="profile-name">Dr Yelyzaveta Monastyrova</div>
-    <div class="profile-title">Research Fellow - Legal Frameworks</div>
-    <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Research Fellow at the Leverhulme Centre for Research on Slavery in War at the University of Nottingham. Leads the platform's work on the legal aspects of the occupation across thematic areas, with focus on forced labour, slavery, forced collaboration and other forms of coercion.</p>
-    <a class="profile-link" href="https://orcid.org/0009-0004-7948-6345" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
-    </div>
-
-    <details class="profile-card">
-      <summary>
-        <!-- Photo placeholder: add <img> here when available -->
-        <div class="profile-name">Vladyslav Havrylov</div>
+    <details class="bio-item">
+      <summary><span class="bio-name">Dr Yelyzaveta Monastyrova</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
+        <div class="profile-title">Research Fellow - Legal Frameworks</div>
+        <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Research Fellow at the Leverhulme Centre for Research on Slavery in War at the University of Nottingham. Leads the platform's work on the legal aspects of the occupation across thematic areas, with focus on forced labour, slavery, forced collaboration and other forms of coercion.</p>
+        <a class="profile-link" href="https://orcid.org/0009-0004-7948-6345" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
+      </div>
+    </details>
+    <details class="bio-item">
+      <summary><span class="bio-name">Vladyslav Havrylov</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
         <div class="profile-title">Research Consultant, Leverhulme Centre for Research on Slavery in War, King's College London</div>
-        <p class="profile-bio">Vladyslav Havrylov is a Ukrainian historian and religious scholar based in Kyiv.</p>
-        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
-      </summary>
-      <div class="bio-detail">
-        <p class="profile-bio">His research interests include investigations of Russian war crimes against Ukrainian children, the history of mass deportations in the Soviet era, and state&ndash;confessional relations. Since October 2025 he has collaborated with King's College London as a research consultant at the Leverhulme Centre for Research on Slavery in War.</p>
+        <p class="profile-bio">Vladyslav Havrylov is a Ukrainian historian and religious scholar based in Kyiv. His research interests include investigations of Russian war crimes against Ukrainian children, the history of mass deportations in the Soviet era, and state&ndash;confessional relations. Since October 2025 he has collaborated with King's College London as a research consultant at the Leverhulme Centre for Research on Slavery in War.</p>
         <p class="profile-bio">Havrylov was an analyst at the Media Initiative for Human Rights (September 2024 &ndash; January 2026), where he focused on crimes committed against prisoners of war and civilian detainees on the territory of the Russian Federation. He is also an invited expert with the charity foundation East-SOS, where from September 2024 to September 2025 he worked on investigations into Russian war crimes against Ukrainian children following the full-scale Russian invasion. He further serves as an adviser to the child-deportation investigative task force at OSINT for Ukraine.</p>
         <p class="profile-bio">Havrylov is a 2026 Global Fellow with the Collaborative on Global Children's Issues at Georgetown University, where he was previously a 2024&ndash;2025 Collaborative Fellow and a 2023&ndash;2024 Research Fellow. His work there has focused on the forcible transfer, deportation, adoption, and re-education of Ukrainian children by Russia.</p>
       </div>
     </details>
-
-    <div class="profile-card">
-    <!-- Photo placeholder: add <img> here when available -->
-    <div class="profile-name">Petro Andriushchenko</div>
-    <div class="profile-title">Mariupol Monitoring Lead</div>
-    <p class="profile-bio">Former adviser to the Mayor of Mariupol. Leads systematic monitoring of occupation administration, civilian conditions, and demographic change in Mariupol and the southern occupied territories.</p>
-    </div>
-
-    <details class="profile-card">
-      <summary>
-        <!-- Photo placeholder: add <img> here when available -->
-        <div class="profile-name">Kimberly Metcalf</div>
-        <div class="profile-title">Research Assistant - TOT Insights Hub</div>
-        <p class="profile-bio">Ph.D. candidate in War Studies at King's College London. Research examines Russian identity production, securitisation, and economic predation in Ukraine's temporarily occupied territories, using political anthropological approaches grounded in fieldwork across the former Soviet space and Middle East.</p>
-        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
-      </summary>
-      <div class="bio-detail">
-        <p class="profile-bio">Former U.S. Army Special Operations Civil Affairs Officer with two decades of operational experience, including the counter-ISIS problem set (2014&ndash;2020), deployment to Kobanî following the liberation of Manbij, and leadership of civilian analytical teams in Erbil and Kyiv. Published in the Texas National Security Review, Small Wars Journal, and War on the Rocks. MA cum laude, European Union and Russian Studies, University of Tartu (2020).</p>
+    <details class="bio-item">
+      <summary><span class="bio-name">Petro Andriushchenko</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
+        <div class="profile-title">Mariupol Monitoring Lead</div>
+        <p class="profile-bio">Former adviser to the Mayor of Mariupol. Leads systematic monitoring of occupation administration, civilian conditions, and demographic change in Mariupol and the southern occupied territories.</p>
       </div>
     </details>
-
-    <div class="profile-card">
-    <!-- Photo placeholder: add <img> here when available -->
-    <div class="profile-name">Oleksandr Kachmar</div>
-    <div class="profile-title">MA Candidate, National Security Studies, King's College London</div>
-    <p class="profile-bio">Oleksandr Kachmar is an MA candidate in National Security Studies at King's College London, following a BA in Politics with Business Management from Queen Mary University of London. He previously supported NATO instructors training Ukrainian forces in the UK under Operation Interflex. His research centres on Russian disinformation strategy and the ideological roots of Russian military culture.</p>
-    </div>
-
-    <details class="profile-card">
-      <summary>
-        <!-- Photo placeholder: add <img> here when available -->
-        <div class="profile-name">Illia Riepin</div>
+    <details class="bio-item">
+      <summary><span class="bio-name">Kimberly Metcalf</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
+        <div class="profile-title">Research Assistant - TOT Insights Hub</div>
+        <p class="profile-bio">Ph.D. candidate in War Studies at King's College London. Research examines Russian identity production, securitisation, and economic predation in Ukraine's temporarily occupied territories, using political anthropological approaches grounded in fieldwork across the former Soviet space and Middle East.</p>
+        <p class="profile-bio">Former U.S. Army Special Operations Civil Affairs Officer with two decades of operational experience, including the counter-ISIS problem set (2014&ndash;2020), deployment to Kobanî following the liberation of Manbij, and leadership of civilian analytical teams in Erbil and Kyiv. Published in the Texas National Security Review, Small Wars Journal, and War on the Rocks. MA cum laude, European Union and Russian Studies, University of Tartu (2020).</p>
+      </div>
+    </details>
+    <details class="bio-item">
+      <summary><span class="bio-name">Oleksandr Kachmar</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
+        <div class="profile-title">MA Candidate, National Security Studies, King's College London</div>
+        <p class="profile-bio">Oleksandr Kachmar is an MA candidate in National Security Studies at King's College London, following a BA in Politics with Business Management from Queen Mary University of London. He previously supported NATO instructors training Ukrainian forces in the UK under Operation Interflex. His research centres on Russian disinformation strategy and the ideological roots of Russian military culture.</p>
+      </div>
+    </details>
+    <details class="bio-item">
+      <summary><span class="bio-name">Illia Riepin</span><span class="bio-plus"></span></summary>
+      <div class="bio-box">
         <div class="profile-title">Research Assistant</div>
-        <p class="profile-bio">Illia Riepin holds a Master's degree in Political Science and works as a columnist and research assistant.</p>
-        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
-      </summary>
-      <div class="bio-detail">
-        <p class="profile-bio">His research examines resistance movements in Ukraine's temporarily occupied territories, with particular attention to the political and structural dynamics of contemporary occupation, and especially to current theoretical approaches to resistance and its violent forms.</p>
+        <p class="profile-bio">Illia Riepin holds a Master's degree in Political Science and works as a columnist and research assistant. His research examines resistance movements in Ukraine's temporarily occupied territories, with particular attention to the political and structural dynamics of contemporary occupation, and especially to current theoretical approaches to resistance and its violent forms.</p>
         <p class="profile-bio">His broader philosophical interests include political philosophy, the intellectual legacy of Carl Schmitt, and theories of political conflict. He also studies the role of artificial intelligence and disinformation in electoral politics, particularly their influence on political communication and democratic processes.</p>
       </div>
     </details>
-
   </div>
 
   <div class="section-label">Research strands</div>
