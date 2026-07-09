@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="navigation.css?v=8">
-<link rel="stylesheet" href="assets/css/main.css?v=8">
+<link rel="stylesheet" href="navigation.css?v=9">
+<link rel="stylesheet" href="assets/css/main.css?v=9">
 <style>
 
 .about-text-block{font-size:var(--fs-body);color:var(--text);line-height:1.8;margin-bottom:52px;}
@@ -72,6 +72,34 @@
 .about-text-block.reading-panel .about-fieldwork-figure{border-color:rgba(17,29,48,0.12);}
 .about-text-block.reading-panel .about-fieldwork-figure figcaption{color:rgba(17,29,48,0.60);}
 .about-text-block.reading-panel a{color:var(--gold);text-decoration:underline;}
+/* Methodology & ethics — inline expandable box on cream (native <details>, no modal) */
+.methodology-box{background:var(--cream-raised);border:1px solid rgba(17,29,48,0.12);border-left:3px solid var(--gold);border-radius:3px;padding:22px 28px;margin-bottom:52px;font-size:var(--fs-body);color:rgba(17,29,48,0.85);line-height:1.8;}
+.methodology-box>summary{list-style:none;cursor:pointer;outline:none;}
+.methodology-box>summary::-webkit-details-marker{display:none;}
+.methodology-box>summary::marker{content:'';}
+.methodology-lead{margin:0 0 12px;}
+.methodology-toggle{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+.methodology-toggle::after{content:' \25BE';}
+.methodology-box[open] .methodology-toggle::after{content:' \25B4';}
+.methodology-box[open] .methodology-toggle .m-open{display:none;}
+.methodology-detail{margin-top:22px;padding-top:22px;border-top:1px solid rgba(17,29,48,0.12);}
+.methodology-detail p{margin-bottom:20px;}
+.methodology-detail p:last-child{margin-bottom:0;}
+.methodology-detail a{color:var(--gold);text-decoration:underline;}
+.methodology-detail .about-sub{color:var(--gold);margin-top:4px;}
+.methodology-detail .about-what-list li{border-top-color:rgba(17,29,48,0.12);}
+.methodology-detail .about-what-list li:last-child{border-bottom-color:rgba(17,29,48,0.12);}
+/* Team bios — shared inline "Read more" expander (same interaction as the methodology box) */
+details.profile-card>summary{list-style:none;cursor:pointer;outline:none;}
+details.profile-card>summary::-webkit-details-marker{display:none;}
+details.profile-card>summary::marker{content:'';}
+.bio-toggle{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:inline-block;margin-top:0.6rem;}
+.bio-toggle .bio-less{display:none;}
+details.profile-card[open] .bio-toggle .bio-more{display:none;}
+details.profile-card[open] .bio-toggle .bio-less{display:inline;}
+.bio-toggle::after{content:' \25BE';}
+details.profile-card[open] .bio-toggle::after{content:' \25B4';}
+.bio-detail .profile-bio:first-child{margin-top:0;}
 </style>
 </head>
 <body>
@@ -87,74 +115,167 @@
 
 <div class="main-content">
 
-  <div class="section-label">About TOT Insights</div>
   <div class="about-text-block reading-panel">
-    <p>TOT Insights is a research platform on Russia's occupation of Ukrainian territory. It builds the knowledge base and turns it into analysis for scholars and decision-makers.</p>
+    <p>TOT Insights is a research platform on Russia&#39;s occupation of Ukrainian territory, based in the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King&#39;s College London. It exists to bring rigorous, evidence-based analysis to a subject that is usually reported from a distance: what is actually happening inside the occupied territories, and how the occupation works.</p>
 
     <figure class="about-fieldwork-figure">
       <img src="images/about-facade.jpeg" alt="A building facade in Mariupol under Russian occupation." loading="lazy">
       <figcaption>Mariupol, under Russian occupation.</figcaption>
     </figure>
 
-    <span class="about-sub">What we do</span>
-    <ol class="about-what-list">
-      <li><strong>Research and the knowledge base.</strong> We build the knowledge base and produce the research. Original fieldwork in Ukraine, occupation administrative records, and open-source monitoring become analytical briefings, structured datasets, primary-source collections, and peer-reviewed scholarship. The aim is a foundation that other researchers can build on.</li>
-      <li><strong>Informing policy and practice.</strong> This knowledge reaches the people who act on it. The platform informs policymakers, analysts, and practitioners working on coercion, child deportation, sanctions evasion, and occupation governance.</li>
-      <li><strong>Working in partnership.</strong> We are a collaborative platform. We share data, pursue joint research, and develop tailored analysis with partners working on a particular question or territory.</li>
-    </ol>
+    <p>We build that analysis with &mdash; and around &mdash; people from the occupied territories themselves. And we address it primarily to audiences outside Ukraine, where understanding of the occupation is thinnest and most consequential: in scholarship, policy, media, and public debate.</p>
+  </div>
 
+  <div class="section-label">Our objectives</div>
+  <div class="about-text-block reading-panel">
+    <ol class="about-what-list">
+      <li><strong>Produce and encourage research.</strong> To carry out original research on the occupied territories and to build the knowledge base that other researchers can draw on.</li>
+      <li><strong>Inform policy.</strong> To broaden and deepen policy-level discussion of the occupied territories with grounded, verifiable analysis.</li>
+      <li><strong>Collaborate &mdash; especially with people from the territories.</strong> To work with others who study the occupied territories, and above all with people from those territories, so that discussion in academia, policy, media, and the wider public outside Ukraine is better informed.</li>
+    </ol>
+  </div>
+
+  <div class="section-label">How the platform works</div>
+  <div class="about-text-block reading-panel">
+    <p>The platform works in three connected ways.</p>
+    <ol class="about-what-list">
+      <li><strong>A public site, to inform.</strong> We publish analytical briefings, selected datasets, cleared primary-source material, and visualisations openly, so that anyone working on the occupied territories can draw on them. This is where our research reaches the scholars, policymakers, journalists, and readers who act on it.</li>
+      <li><strong>Closed repositories, as the research base.</strong> Behind the public analysis sits a fuller body of research material &mdash; datasets, primary-source collections, and monitoring records. These repositories are closed rather than open, chiefly to protect the people and sources behind them, and we share material from them selectively with trusted researchers and partners.</li>
+      <li><strong>A network of partners.</strong> We are a collaborative platform, not a closed one. We work with a network of organisations &mdash; and with experts on the occupied territories, including people from those territories &mdash; to share data, pursue joint research, and connect others to the right expertise. Partner organisations sometimes co-publish their work with us here, credited to them.</li>
+    </ol>
     <p class="about-contact">Correspondence is welcome in English, Ukrainian, or Russian.</p>
     <p>If you would like to get in touch, please email <a href="mailto:jade.mcglynn@kcl.ac.uk">jade.mcglynn@kcl.ac.uk</a>.</p>
   </div>
 
+  <div class="section-label">Methodology &amp; ethics</div>
+  <details class="methodology-box">
+    <summary>
+      <p class="methodology-lead">We work to explicit standards for how we reason and how we source. In short: we represent every position by its strongest form, we separate fact from assessment from opinion, we prefer documents and first-hand witnesses, and we are careful and transparent about the people and sources behind our work.</p>
+      <span class="methodology-toggle">Read our full standards</span>
+    </summary>
+    <div class="methodology-detail">
+      <span class="about-sub">How we reason</span>
+      <ol class="about-what-list">
+        <li><strong>We steelman.</strong> When we represent any actor&#39;s position &mdash; including one we find distasteful &mdash; we give its strongest version and its own best arguments, not a caricature.</li>
+        <li><strong>We separate fact, assessment, and opinion.</strong> A fact can be verified; an assessment is a conclusion drawn from facts and logic; an opinion is a subjective judgement. Our analysis carries facts and reasoned conclusions. Opinion appears only in clearly labelled commentary, never dressed up as analysis.</li>
+        <li><strong>We prefer documents to recollection, and witnesses to hearsay.</strong> Where testimony conflicts with documents, we favour documents. We rely on first-hand accounts and do not repeat rumour, however senior its source.</li>
+        <li><strong>We resist false patterns.</strong> Simultaneity is not coordination; sequence is not causation; a meeting is not a conspiracy; holding a post is not directing every act beneath it; benefiting from an outcome is not proof of causing it. We establish each link before asserting a pattern, rather than &ldquo;connecting the dots.&rdquo;</li>
+        <li><strong>We say when the picture is incomplete.</strong> Where we cannot establish the full picture, we say so plainly and explain what is missing.</li>
+      </ol>
+      <span class="about-sub">How we source, and what we publish</span>
+          <p>The TOT Insights Hub holds King's College London research ethics approval (ref. LRS-25/26-55904); King's College London is the data controller. This section sets out how we gather, source, and present our research.</p>
+
+    <p><strong>Evidence base.</strong> Our research draws on publicly available material and on systematic monitoring, and involves no primary data collection from individual people. Our sources are: publicly available institutional records (Russian government procurement portals, official publications, court records, occupation-administration documents); systematic monitoring of public Telegram channels operated by Russian military and occupation-administration bodies, where we read publicly posted content without interacting with the channels and without monitoring any private communications; data shared by registered Ukrainian NGO and research-organisation partners through secure encrypted transfer; and secondary analysis of existing anonymised datasets. We distinguish documented fact from our own assessment, and label analysis as such.</p>
+
+    <p><strong>What we publish, and what we hold back.</strong> Not everything we hold is published. Each item is either published or kept in our restricted repository and used only to inform analysis. We publish content only where it is verified and sourced, where publishing it creates no risk of identifying any individual (including through the combination of separate data points), and where it adds genuine analytical value. We never publish individual-level data on civilians in occupied territory: survey data, data on children, and citizen-appeals data are published only in aggregated, anonymised form, with re-identification risk assessed before publication.</p>
+
+    <p><strong>How we cite sources.</strong> Every factual claim is attributed. Publicly available sources are cited with a direct link to the specific material. Datasets we have deposited for citation are referenced by their institutional source and a DOI. Material from our closed monitoring is cited by a named, accountable institutional source, either "TOT Insights closed monitoring" or, where it comes from a partner, "Centre for the Study of Occupation monitoring," and is not linked.</p>
+
+    <p><strong>Occupation and Russian state sources.</strong> We cite occupation and Russian state-controlled sources as evidence of what those bodies themselves say and do, never as independent confirmation of fact. In line with our research ethics, we do not provide direct links to occupied-territory occupation sources; we cite them by name and date, without directing readers or traffic to the occupier's own platforms, and link to a preserved archive copy where one exists. Russian national state sources are cited and linked as normal.</p>
+
+    <p><strong>Naming individuals.</strong> We name an individual only where they are a public official acting in an official capacity, or where they are subject to formal sanctions, and we cite the source in each case. When we name a specific living person or company, we attribute allegations to their source rather than state them as settled fact, and we do not describe a named individual as a criminal absent a conviction. We process this data on the basis of the research exemption (Article 89 UK GDPR; Schedule 2, Data Protection Act 2018) and, where relevant, legitimate interests in accountability. UK data protection law applies to everyone regardless of conduct. We publish public-role information (name, position, appointment, and documented official decisions and actions); information beyond the public role is held in our restricted repository and published only where a specific accountability justification is documented. We do not treat listings on non-governmental accountability databases as a basis for naming anyone. Data shared by partner organisations is attributed to the organisation, not to individuals, unless an individual has given explicit written consent.</p>
+
+    <p><strong>Closed monitoring and corrections.</strong> Some material is not published openly, to protect people in occupied territories and those who contribute to our work. We welcome corrections, and data subjects may exercise their rights under UK data protection law, by contacting <a href="mailto:jade.mcglynn@kcl.ac.uk">jade.mcglynn@kcl.ac.uk</a>.</p>
+    </div>
+  </details>
+
   <div class="section-label">Research team</div>
   <div class="profile-grid">
 
-    <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Dr Jade McGlynn</div>
-      <div class="profile-title">Head of Ukraine &amp; Russia Programme; Senior Research Fellow, CSNS, King's College London</div>
-      <p class="profile-bio">Leverhulme Early Career Fellow and specialist in Russian information operations, memory politics, and occupation mechanisms. Author of Memory Makers (Bloomsbury, 2023) and Russia's War (Polity, 2023). Holds non-resident fellowships at CSIS Washington DC, ICDS Tallinn, and the Kennan Institute. Regular fieldwork in eastern Ukraine.</p>
-      <a class="profile-link" href="https://www.kcl.ac.uk/people/jade-mcglynn" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
-    </div>
+    <details class="profile-card">
+      <summary>
+        <!-- Photo placeholder: add <img> here when available -->
+        <div class="profile-name">Dr Jade McGlynn</div>
+        <div class="profile-title">Head of the Ukraine and Russia Programme, Centre for Statecraft and National Security, King's College London</div>
+        <p class="profile-bio">Jade McGlynn is Head of the Ukraine and Russia Programme at the Centre for Statecraft and National Security, King's College London, and a Leverhulme Early Career Fellow.</p>
+        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
+      </summary>
+      <div class="bio-detail">
+        <p class="profile-bio">Her research centres on Russian-occupied Ukraine: the mechanisms of occupation, civilian entrapment and detention, and resistance in the occupied territories, alongside Russian information operations and memory politics. She conducts regular fieldwork in government-controlled eastern Ukraine (Kyiv, Kharkiv, Dnipro).</p>
+        <p class="profile-bio">She has worked with Ukraine's Coordination Headquarters on the cases of civilians detained in the Russian Federation, and has advised European militaries and defence ministries on resistance and irregular warfare. Her recent work includes research on resistance in the occupied territories and on the deportation of Ukrainian children.</p>
+        <p class="profile-bio">She holds a DPhil from the University of Oxford and is the author of Memory Makers (Bloomsbury, 2023) and Russia's War (Polity, 2023). She holds non-resident fellowships at CSIS in Washington, DC, ICDS in Tallinn, and the Kennan Institute.</p>
+        <a class="profile-link" href="https://www.kcl.ac.uk/people/jade-mcglynn" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
+      </div>
+    </details>
+
+    <details class="profile-card">
+      <summary>
+        <!-- Photo placeholder: add <img> here when available -->
+        <div class="profile-name">Dr Maeve Ryan</div>
+        <div class="profile-title">Reader in History and Foreign Policy, Centre for Statecraft and National Security, King's College London</div>
+        <p class="profile-bio">Dr Maeve Ryan is a Reader in History and Foreign Policy at the Centre for Statecraft and National Security (CSNS), based within the Department of War Studies at King's College London.</p>
+        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
+      </summary>
+      <div class="bio-detail">
+        <p class="profile-bio">She is Director of the Leverhulme Centre for Research on Slavery in War, and Co-Director of the Ax:son Johnson Institute for Statecraft and Diplomacy, the Forum on Future British Strategy, the World Order Study Group, the Engelsberg Programme for Applied History, Grand Strategy and Geopolitics, and the Leverhulme Doctoral Scholarship Programme, &ldquo;Interrogating Visions of a Post-Western World.&rdquo;</p>
+        <p class="profile-bio">A former Leverhulme Early Career Fellow, Ryan's research focuses on modern global history; the history of slavery, emancipation, human rights, and humanitarian governance; British foreign policy and diplomatic history; and interdisciplinary approaches to the study of world order in the twenty-first century. She is a Fellow of the Royal Historical Society and a Fellow of the Higher Education Academy.</p>
+        <a class="profile-link" href="https://www.kcl.ac.uk/people/maeve-ryan" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
+      </div>
+    </details>
 
     <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Dr Maeve Ryan</div>
-      <div class="profile-title">Head of Centre; Co-Investigator</div>
-      <p class="profile-bio">Historian of international order, human rights, and British foreign policy. Co-Investigator on the platform's strategic stability research programme.</p>
-      <a class="profile-link" href="https://www.kcl.ac.uk/people/maeve-ryan" target="_blank" rel="noopener noreferrer">King's College London profile ↗</a>
+    <!-- Photo placeholder: add <img> here when available -->
+    <div class="profile-name">Dr Yelyzaveta Monastyrova</div>
+    <div class="profile-title">Research Fellow - Legal Frameworks</div>
+    <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Research Fellow at the Leverhulme Centre for Research on Slavery in War at the University of Nottingham. Leads the platform's work on the legal aspects of the occupation across thematic areas, with focus on forced labour, slavery, forced collaboration and other forms of coercion.</p>
+    <a class="profile-link" href="https://orcid.org/0009-0004-7948-6345" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
     </div>
 
-    <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Dr Yelyzaveta Monastyrova</div>
-      <div class="profile-title">Research Fellow - Legal Frameworks</div>
-      <p class="profile-bio">Specialist in international humanitarian law and occupation legal architecture. Research Fellow at the Leverhulme Centre for Research on Slavery in War at the University of Nottingham. Leads the platform's work on the legal aspects of the occupation across thematic areas, with focus on forced labour, slavery, forced collaboration and other forms of coercion.</p>
-      <a class="profile-link" href="https://orcid.org/0009-0004-7948-6345" target="_blank" rel="noopener noreferrer">ORCID ↗</a>
-    </div>
+    <details class="profile-card">
+      <summary>
+        <!-- Photo placeholder: add <img> here when available -->
+        <div class="profile-name">Vladyslav Havrylov</div>
+        <div class="profile-title">Research Consultant, Leverhulme Centre for Research on Slavery in War, King's College London</div>
+        <p class="profile-bio">Vladyslav Havrylov is a Ukrainian historian and religious scholar based in Kyiv.</p>
+        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
+      </summary>
+      <div class="bio-detail">
+        <p class="profile-bio">His research interests include investigations of Russian war crimes against Ukrainian children, the history of mass deportations in the Soviet era, and state&ndash;confessional relations. Since October 2025 he has collaborated with King's College London as a research consultant at the Leverhulme Centre for Research on Slavery in War.</p>
+        <p class="profile-bio">Havrylov was an analyst at the Media Initiative for Human Rights (September 2024 &ndash; January 2026), where he focused on crimes committed against prisoners of war and civilian detainees on the territory of the Russian Federation. He is also an invited expert with the charity foundation East-SOS, where from September 2024 to September 2025 he worked on investigations into Russian war crimes against Ukrainian children following the full-scale Russian invasion. He further serves as an adviser to the child-deportation investigative task force at OSINT for Ukraine.</p>
+        <p class="profile-bio">Havrylov is a 2026 Global Fellow with the Collaborative on Global Children's Issues at Georgetown University, where he was previously a 2024&ndash;2025 Collaborative Fellow and a 2023&ndash;2024 Research Fellow. His work there has focused on the forcible transfer, deportation, adoption, and re-education of Ukrainian children by Russia.</p>
+      </div>
+    </details>
 
     <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Petro Andriushchenko</div>
-      <div class="profile-title">Mariupol Monitoring Lead</div>
-      <p class="profile-bio">Former adviser to the Mayor of Mariupol. Leads systematic monitoring of occupation administration, civilian conditions, and demographic change in Mariupol and the southern occupied territories.</p>
+    <!-- Photo placeholder: add <img> here when available -->
+    <div class="profile-name">Petro Andriushchenko</div>
+    <div class="profile-title">Mariupol Monitoring Lead</div>
+    <p class="profile-bio">Former adviser to the Mayor of Mariupol. Leads systematic monitoring of occupation administration, civilian conditions, and demographic change in Mariupol and the southern occupied territories.</p>
     </div>
 
-    <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Kimberly Metcalf</div>
-      <div class="profile-title">Research Assistant - TOT Insights Hub</div>
-      <p class="profile-bio">Ph.D. candidate in War Studies at King's College London. Research examines Russian identity production, securitisation, and economic predation in Ukraine's temporarily occupied territories, using political anthropological approaches grounded in fieldwork across the former Soviet space and Middle East.</p>
-      <p class="profile-bio">Former U.S. Army Special Operations Civil Affairs Officer with two decades of operational experience, including the counter-ISIS problem set (2014–2020), deployment to Kobanî following the liberation of Manbij, and leadership of civilian analytical teams in Erbil and Kyiv. Published in the Texas National Security Review, Small Wars Journal, and War on the Rocks. MA cum laude, European Union and Russian Studies, University of Tartu (2020).</p>
-    </div>
+    <details class="profile-card">
+      <summary>
+        <!-- Photo placeholder: add <img> here when available -->
+        <div class="profile-name">Kimberly Metcalf</div>
+        <div class="profile-title">Research Assistant - TOT Insights Hub</div>
+        <p class="profile-bio">Ph.D. candidate in War Studies at King's College London. Research examines Russian identity production, securitisation, and economic predation in Ukraine's temporarily occupied territories, using political anthropological approaches grounded in fieldwork across the former Soviet space and Middle East.</p>
+        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
+      </summary>
+      <div class="bio-detail">
+        <p class="profile-bio">Former U.S. Army Special Operations Civil Affairs Officer with two decades of operational experience, including the counter-ISIS problem set (2014&ndash;2020), deployment to Kobanî following the liberation of Manbij, and leadership of civilian analytical teams in Erbil and Kyiv. Published in the Texas National Security Review, Small Wars Journal, and War on the Rocks. MA cum laude, European Union and Russian Studies, University of Tartu (2020).</p>
+      </div>
+    </details>
 
     <div class="profile-card">
-      <!-- Photo placeholder: add <img> here when available -->
-      <div class="profile-name">Oleksandr Kachmar</div>
-      <div class="profile-title">Research Assistant</div>
-      <p class="profile-bio">Contributes to primary source collection, database maintenance, and analytical support across the platform.</p>
+    <!-- Photo placeholder: add <img> here when available -->
+    <div class="profile-name">Oleksandr Kachmar</div>
+    <div class="profile-title">MA Candidate, National Security Studies, King's College London</div>
+    <p class="profile-bio">Oleksandr Kachmar is an MA candidate in National Security Studies at King's College London, following a BA in Politics with Business Management from Queen Mary University of London. He previously supported NATO instructors training Ukrainian forces in the UK under Operation Interflex. His research centres on Russian disinformation strategy and the ideological roots of Russian military culture.</p>
     </div>
+
+    <details class="profile-card">
+      <summary>
+        <!-- Photo placeholder: add <img> here when available -->
+        <div class="profile-name">Illia Riepin</div>
+        <div class="profile-title">Research Assistant</div>
+        <p class="profile-bio">Illia Riepin holds a Master's degree in Political Science and works as a columnist and research assistant.</p>
+        <span class="bio-toggle"><span class="bio-more">Read more</span><span class="bio-less">Read less</span></span>
+      </summary>
+      <div class="bio-detail">
+        <p class="profile-bio">His research examines resistance movements in Ukraine's temporarily occupied territories, with particular attention to the political and structural dynamics of contemporary occupation, and especially to current theoretical approaches to resistance and its violent forms.</p>
+        <p class="profile-bio">His broader philosophical interests include political philosophy, the intellectual legacy of Carl Schmitt, and theories of political conflict. He also studies the role of artificial intelligence and disinformation in electoral politics, particularly their influence on political communication and democratic processes.</p>
+      </div>
+    </details>
 
   </div>
 
@@ -213,23 +334,6 @@
       </div>
     </div>
 
-  </div>
-
-  <div id="how-we-work" class="section-label">How we work</div>
-  <div class="about-text-block reading-panel">
-    <p>The TOT Insights Hub holds King's College London research ethics approval (ref. LRS-25/26-55904); King's College London is the data controller. This section sets out how we gather, source, and present our research.</p>
-
-    <p><strong>Evidence base.</strong> Our research draws on publicly available material and on systematic monitoring, and involves no primary data collection from individual people. Our sources are: publicly available institutional records (Russian government procurement portals, official publications, court records, occupation-administration documents); systematic monitoring of public Telegram channels operated by Russian military and occupation-administration bodies, where we read publicly posted content without interacting with the channels and without monitoring any private communications; data shared by registered Ukrainian NGO and research-organisation partners through secure encrypted transfer; and secondary analysis of existing anonymised datasets. We distinguish documented fact from our own assessment, and label analysis as such.</p>
-
-    <p><strong>What we publish, and what we hold back.</strong> Not everything we hold is published. Each item is either published or kept in our restricted repository and used only to inform analysis. We publish content only where it is verified and sourced, where publishing it creates no risk of identifying any individual (including through the combination of separate data points), and where it adds genuine analytical value. We never publish individual-level data on civilians in occupied territory: survey data, data on children, and citizen-appeals data are published only in aggregated, anonymised form, with re-identification risk assessed before publication.</p>
-
-    <p><strong>How we cite sources.</strong> Every factual claim is attributed. Publicly available sources are cited with a direct link to the specific material. Datasets we have deposited for citation are referenced by their institutional source and a DOI. Material from our closed monitoring is cited by a named, accountable institutional source, either "TOT Insights closed monitoring" or, where it comes from a partner, "Centre for the Study of Occupation monitoring," and is not linked.</p>
-
-    <p><strong>Occupation and Russian state sources.</strong> We cite occupation and Russian state-controlled sources as evidence of what those bodies themselves say and do, never as independent confirmation of fact. In line with our research ethics, we do not provide direct links to occupied-territory occupation sources; we cite them by name and date, without directing readers or traffic to the occupier's own platforms, and link to a preserved archive copy where one exists. Russian national state sources are cited and linked as normal.</p>
-
-    <p><strong>Naming individuals.</strong> We name an individual only where they are a public official acting in an official capacity, or where they are subject to formal sanctions, and we cite the source in each case. We process this data on the basis of the research exemption (Article 89 UK GDPR; Schedule 2, Data Protection Act 2018) and, where relevant, legitimate interests in accountability. UK data protection law applies to everyone regardless of conduct. We publish public-role information (name, position, appointment, and documented official decisions and actions); information beyond the public role is held in our restricted repository and published only where a specific accountability justification is documented. We do not treat listings on non-governmental accountability databases as a basis for naming anyone. Data shared by partner organisations is attributed to the organisation, not to individuals, unless an individual has given explicit written consent.</p>
-
-    <p><strong>Closed monitoring and corrections.</strong> Some material is not published openly, to protect people in occupied territories and those who contribute to our work. We welcome corrections, and data subjects may exercise their rights under UK data protection law, by contacting <a href="mailto:jade.mcglynn@kcl.ac.uk">jade.mcglynn@kcl.ac.uk</a>.</p>
   </div>
 
 </div>
