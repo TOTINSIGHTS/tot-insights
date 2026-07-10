@@ -53,6 +53,12 @@ body{ background:var(--cream-panel); }
 .doc-content th{ text-align:left; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; }
 .doc-content td{ border-bottom:1px solid var(--border); vertical-align:top; }
 .doc-content tr:nth-child(even) td{ background:rgba(17,29,48,0.04); }
+/* Cell content: mammoth wraps table cells in <p>/lists, which otherwise pick up
+   the 19px reading size. Keep everything inside a cell at the table font-size. */
+.doc-content td p, .doc-content td li, .doc-content td ul, .doc-content td ol, .doc-content th p{ font-size:var(--fs-table); }
+.doc-content td p{ margin:0 0 6px; }
+.doc-content td ul, .doc-content td ol{ margin:6px 0 6px 18px; }
+.doc-content td > :last-child{ margin-bottom:0; }
 
 /* ── Key findings callout (its own look — not the grid card) ──── */
 .key-findings{ background:var(--card-bg); border:1px solid var(--card-border); border-left:3px solid var(--gold); border-radius:4px; padding:24px 28px; margin-bottom:2rem; }
