@@ -213,6 +213,42 @@ Decree amending a co-financed programme for capital repair of 21 apartments dama
 
 ---
 
+### Additional Municipal Decrees (April–June 2026) and Security Services
+
+Ten further primary-source documents, added to the research catalogue and `primary-sources.html`. Nine are decrees of the Administration of the City District of Mariupol (DPR); the tenth is a redacted National Guard (Rosgvardia) security-services contract from Telmanovsky district.
+
+**DOC-123 — Territorial Public Self-Government (TOS) Bodies in Mariupol (Decrees Nos. 1162–1166)** *(Governance)*
+Five decrees of 18 June 2026 establishing Russian-style TOS neighbourhood self-government bodies across Mariupol districts (Ellinsky, Kalmiussky, Krasnoarmeysky, Rodnoy Dom, Magnolia). Bundled entry.
+
+**DOC-124 — War-Damaged Housing Repair Programme: Eligibility Commission (Decree No. 1175)** *(Civilian Life)*
+Amends the resident-co-financed war-damage repair programme (DOC-102), creating a commission to decide which damaged homes qualify for repair.
+
+**DOC-125 — Officials Authorised to Draw Up Administrative-Offence Protocols (Decree No. 1176)** *(Governance, Accountability and Legal)*
+Restates the list of Mariupol officials empowered to issue administrative-offence protocols, including for obstruction of the lawful activity of local self-government (Article 7).
+
+**DOC-126 — Municipal-Servants' Conduct and Conflict-of-Interest Commission (Decree No. 1177)** *(Governance, Accountability and Legal)*
+Approves the regulation and membership of the conduct/conflict-of-interest commission, modelled on the Russian federal template (Presidential Decree No. 821 of 2010).
+
+**DOC-127 — Investor Inquiries and Investment-Project Support Regulations (Decree No. 1178)** *(Economics, Governance)*
+Approves regulations for receiving investor inquiries and accompanying investment projects, modelled on Russia's Regional Investment Standard.
+
+**DOC-128 — Youth Policy Programme Amendment: Youth Centre and Ideological Content (Decree No. 1179)** *(Education and Militarisation, Governance)*
+Amends the 2026–2028 youth-policy programme: a Rosmolodezh-aligned Youth Centre, a 75%-by-2028 enrolment target, and "creation and dissemination of anti-terrorist content".
+
+**DOC-129 — Small and Medium Enterprise Development Programme 2026–2028 (Decree No. 1180)** *(Economics, Governance)*
+Reports 10,744 SMEs as of January 2026 (up 21%, free economic zone); targets 8,865 registered SMEs by 2028.
+
+**DOC-130 — Liquidation of the Municipal Housing Enterprise "Mariupolzhilkompleks" (Decree No. 1181)** *(Governance, Economics)*
+Orders the municipal housing utility wound up within a year and appoints a liquidator, months after subsidising its wage arrears (DOC-097).
+
+**DOC-131 — Commission on Naming and Renaming Streets and Planning Elements (Decree No. 821)** *(Governance, Identity, Culture and Religion)*
+Amends (22 April 2026) the commission that assigns and changes Mariupol's street and planning-element names — the machinery of toponymic control.
+
+**DOC-132 — Russian National Guard (Rosgvardia) Security Services at a Kindergarten, Telmanovsky District (redacted)** *(Coercion, Resistance and Security, Education and Militarisation)*
+Redacted contract addendum: Rosgvardia's "Okhrana" enterprise servicing the security systems of the "Katyusha" kindergarten. Personal and banking data redacted. In `primary-sources/security-services-2026/`.
+
+---
+
 ## 4. Primary Source Documents — Legal Acts and Executive Decrees (2022–2025)
 
 Nineteen primary source documents drawn from five thematic archives: DPR legal acts, LPR legal acts, occupation citizenship decrees, Kherson and Zaporizhzhia legal acts, and Russian federal mobilisation and education legislation. All entries are in `data/documents.js` and searchable on research.html as of June 2026.
