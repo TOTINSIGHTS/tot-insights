@@ -249,6 +249,35 @@ Redacted contract addendum: Rosgvardia's "Okhrana" enterprise servicing the secu
 
 ---
 
+## 3a. Primary Source Documents — Education, Youth and Memory (2020–2026)
+
+Seven original Russian-language publications gathered from occupied territory, kept as their source PDFs in `primary-sources/education-and-memory/` and linked directly from the card. Where a document features children, their names and photographs have been redacted. All entries are in `data/documents.js` and searchable on research.html.
+
+**DOC-133 — A Connection Between Generations: Movement of the First Youth Project, Kherson Oblast** *(Education and Militarisation)*
+Rosmolodezh-funded book by the Kherson branch of the Movement of the First, tying Second World War memory to the narrative of the war on Ukraine. Children's names redacted. May 2025.
+
+**DOC-134 — Lecture Marking the 372nd Anniversary of the Pereyaslav Rada, Zaporizhzhia Oblast Legislative Assembly** *(Identity, Culture and Religion)*
+Occupation-legislature lecture recasting the 1654 Pereyaslav Rada as the reunification of Ukraine with Russia. January 2026.
+
+**DOC-135 — Calendar of the First: Movement of the First Monthly Activity Programme** *(Education and Militarisation)*
+The September 2025 activity calendar of the Movement of the First, setting monthly patriotic-education tasks for children from kindergarten age upward.
+
+**DOC-136 — Magazine of the First, Issue 2: Movement of the First, Kherson Oblast** *(Education and Militarisation)*
+Kherson-branch youth-movement magazine, June 2025, built around Victory Day and the "Year of the Defender". Children's names and photographs redacted.
+
+**DOC-137 — Magazine of the First, Issue 3: Movement of the First, Kherson Oblast** *(Education and Militarisation)*
+Third issue, August 2025, recording the branch's April–July 2025 activity. Children's names and photographs redacted.
+
+**DOC-138 — My Countrymen, Heroes of the Soviet Union: LNR Ministry of Education Reference Book** *(Education and Militarisation)*
+Reference book approved for LNR schools, 315 biographies of Heroes of the Soviet Union from the Luhansk region. Luhansk, 2020.
+
+**DOC-139 — Post-Industrial Park: Development Project for the Azovstal Plant Territory, Mariupol** *(Economics)*
+Agency for the Development of Mariupol project (2024) to convert the former Azovstal steelworks into a 125-hectare industrial-tourism park billed as the principal industrial monument-museum of Russia.
+
+*Note: the Primary sources page (`primary-sources.html`) is now organised by theme rather than by collection/region; each document appears once under its primary theme.*
+
+---
+
 ## 4. Primary Source Documents — Legal Acts and Executive Decrees (2022–2025)
 
 Nineteen primary source documents drawn from five thematic archives: DPR legal acts, LPR legal acts, occupation citizenship decrees, Kherson and Zaporizhzhia legal acts, and Russian federal mobilisation and education legislation. All entries are in `data/documents.js` and searchable on research.html as of June 2026.
