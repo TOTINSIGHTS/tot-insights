@@ -90,6 +90,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
         <button class="filter-btn" data-mfilter="year" data-mvalue="2026">2026</button>
         <button class="filter-btn" data-mfilter="year" data-mvalue="2025">2025</button>
         <button class="filter-btn" data-mfilter="year" data-mvalue="2024">2024</button>
+        <button class="filter-btn" data-mfilter="year" data-mvalue="2023">2023</button>
       </div>
     </div>
     </div>
@@ -102,9 +103,12 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
 
 <div id="site-footer"></div>
 
-<script src="data/documents.js?v=4"></script>
+<script src="data/documents.js?v=5"></script>
 <script>
 const MEDIA_DATA = DOCS.filter(function(d){return d.media;}).map(function(d){return {t:d.title,d:d.date,y:d.year,o:d.outlet,f:d.format,desc:d.desc,url:d.url};});
+const _MMED={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+function _pdMed(s){s=(s||'').toLowerCase();let m=s.match(/(\d{1,2})\s+([a-z]{3})[a-z]*\s+(\d{4})/);if(m)return +m[3]*10000+_MMED[m[2]]*100+ +m[1];m=s.match(/([a-z]{3})[a-z]*\s+(\d{4})/);if(m)return +m[2]*10000+_MMED[m[1]]*100;m=s.match(/(\d{4})/);if(m)return +m[1]*10000;return 0;}
+MEDIA_DATA.sort(function(a,b){return _pdMed(b.d)-_pdMed(a.d);});
 
 const MEDIA_FMT_CLASS={'Podcast':'media-fmt-podcast','Video':'media-fmt-video','Article':'media-fmt-article','Blog':'media-fmt-blog','Report':'media-fmt-report','Journal Article':'media-fmt-journal'};
 let mediaFmtFilter='all',mediaYearFilter='all';
