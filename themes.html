@@ -923,6 +923,7 @@ function renderTheme(config) {
   var previewElId   = config.previewElId;
   var detailsBodyId = config.detailsBodyId;
   var extraGroups   = config.extraGroups || null;
+  var previewExtra  = config.previewExtra || '';
 
   /* Filter theme docs and sort newest first */
   var docs = DOCS.filter(function(d) { return hasTheme(d, theme); });
@@ -938,8 +939,8 @@ function renderTheme(config) {
   }).filter(Boolean);
 
   var previewEl = document.getElementById(previewElId);
-  if (previewEl && previewDocs.length > 0) {
-    previewEl.innerHTML = previewDocs.map(makeResourceRow).join('');
+  if (previewEl && (previewDocs.length > 0 || previewExtra)) {
+    previewEl.innerHTML = previewDocs.map(makeResourceRow).join('') + previewExtra;
   }
 
   /* Remaining theme docs: everything not already shown above */
@@ -990,18 +991,13 @@ function renderTheme(config) {
 renderTheme({
   theme: 'Governance',
   startHereId: null,
-  previewIds: ['DOC-F1', 'DOC-A3', 'DOC-B7'],
+  previewIds: ['DOC-F1', 'DOC-A3'],
   previewElId: 'gov-preview',
   detailsBodyId: 'gov-details-body',
-  extraGroups: [
-    {
-      label: 'Databases',
-      content: '<a href="officials.html" class="resource-row">'
-        + '<span class="resource-format">Database</span>'
-        + '<span class="resource-body"><span class="resource-title">Occupation Officials Database (1,085 individuals)</span>'
-        + '<span class="resource-date"></span></span></a>'
-    }
-  ]
+  previewExtra: '<a href="officials.html" class="resource-row">'
+    + '<span class="resource-format">Database</span>'
+    + '<span class="resource-body"><span class="resource-title">Occupation Officials Database (1,085 individuals)</span>'
+    + '<span class="resource-date"></span></span></a>'
 });
 
 renderTheme({
@@ -1047,9 +1043,13 @@ renderTheme({
 renderTheme({
   theme: 'Information Space',
   startHereId: null,
-  previewIds: ['DOC-140', 'DOC-088', 'DOC-D4'],
+  previewIds: ['DOC-140', 'DOC-D4'],
   previewElId: 'info-preview',
-  detailsBodyId: 'info-details-body'
+  detailsBodyId: 'info-details-body',
+  previewExtra: '<a href="tot-media-database.html" class="resource-row">'
+    + '<span class="resource-format">Database</span>'
+    + '<span class="resource-body"><span class="resource-title">Russian TOT Media Database (22,208 posts)</span>'
+    + '<span class="resource-date"></span></span></a>'
 });
 
 renderTheme({
