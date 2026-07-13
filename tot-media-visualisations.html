@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Russian TOT media - visualisations - TOT Insights Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+:root{
+  --navy:#111d30; --gold:#c9a84c; --cream:#f2f0ec; --paper:#ffffff;
+  --ink:#1a2536; --muted:#6a7180; --line:#d7d2c7; --hair:#e7e3d9;
+  --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  --ui:var(--serif);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+.lab{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+a{color:var(--navy)}
+.guard{background:#2a1318;color:#eedcdc;font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #48232b}
+.guard .wrap{padding:8px 40px;display:flex;gap:9px;align-items:flex-start}
+.guard b{color:#f0c9c9}
+.guard .dot{color:var(--gold)}
+.head{padding:40px 0 6px}
+.head h1{font-size:34px;font-weight:600;color:var(--navy);margin:0 0 8px;letter-spacing:.01em}
+.head p{margin:0;max-width:80ch;color:#3f4654;font-size:17px}
+.head .metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:12px 0 0}
+.privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:16px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
+.viz{background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--gold);padding:22px 24px 26px;margin:26px 0}
+.viz h2{font-size:22px;font-weight:600;color:var(--navy);margin:0 0 4px}
+.viz .cap{margin:0 0 16px;color:#4a5160;font-size:15.5px;max-width:92ch}
+.chartwrap{position:relative;width:100%}
+/* heatmap */
+.hmscroll{overflow-x:auto}
+.heatmap{display:grid;gap:3px;font-family:var(--ui);min-width:540px}
+.heatmap .hh{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:6px 4px;text-align:center;align-self:end}
+.heatmap .rl{font-size:13.5px;color:var(--ink);padding:8px 10px 8px 0;text-align:right;white-space:nowrap}
+.heatmap .cell{padding:10px 6px;text-align:center;font-size:13px;color:var(--navy);font-variant-numeric:tabular-nums;border:1px solid #ece8df}
+.hmnote{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
+/* slope */
+.slopewrap{overflow-x:auto}
+footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:30px}
+@media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
+</style></head><body>
+<div id="site-header"></div>
+
+<div class="guard"><div class="wrap"><span class="dot">&#9679;</span><div><b>Reading rule.</b> These charts measure how Russian media covered the occupied territories, as an object of study. They describe the Russian narrative and do not endorse it; casualty, atrocity and battlefield material is attributed as a Russian claim, not a verified fact. Shares are per quarter and multi-tag, so they exceed 100%.</div></div></div>
+
+<div class="wrap">
+
+<div class="head">
+  <h1>Russian TOT media visualisations</h1>
+  <p>Seven views of how Russian-language media framed the occupied territories across four quarters, drawn from the 22,208-post monitoring corpus. Companion to the <a href="tot-media-database.html">post-level database</a>.</p>
+  <div class="metaline" id="metaLine"></div>
+  <div class="privnote">Public-safe aggregate layer. Charts are built from post metadata and theme or topic tags; the original Russian post texts are not published.</div>
+</div>
+
+<section class="viz"><h2>1. Theme share of coverage by quarter</h2>
+  <p class="cap">Share of coverage given to each of the nine themes, quarter by quarter. Click a theme in the legend to hide or isolate it. Civilian Life and Governance rise across the year; the non-Hub Front/SVO context series falls.</p>
+  <div class="chartwrap" style="height:380px"><canvas id="c1" role="img" aria-label="Line chart of theme share of coverage across four quarters."></canvas></div></section>
+
+<section class="viz"><h2>2. Theme &times; region intensity</h2>
+  <p class="cap">Within each region's coverage, the share of posts touching each theme. Darker cells mean the theme is more prominent in that region. Reveals where, for example, militarisation or governance content concentrates.</p>
+  <div class="chartwrap"><div class="hmscroll"><div id="heatmap" class="heatmap"></div></div><div class="hmnote">Cell = share of that region's posts tagged with the theme (posts are multi-tag).</div></div></section>
+
+<section class="viz"><h2>3. Regions mentioned over time</h2>
+  <p class="cap">Number of posts mentioning each occupied region, by quarter. Shows which regions Russian media foregrounds and how attention shifts.</p>
+  <div class="chartwrap" style="height:360px"><canvas id="c3" role="img" aria-label="Line chart of posts mentioning each region by quarter."></canvas></div></section>
+
+<section class="viz"><h2>4. The loudest channels</h2>
+  <p class="cap">The fifteen channels posting most across the year, by number of posts. Out of 352 channels, a handful carry much of the volume.</p>
+  <div class="chartwrap" style="height:470px"><canvas id="c4" role="img" aria-label="Horizontal bar chart of the top fifteen channels by post count."></canvas></div></section>
+
+<section class="viz"><h2>5. Coverage over time</h2>
+  <p class="cap">Posts per month across the year. A broadly steady drumbeat of coverage, rising to a peak in June 2026.</p>
+  <div class="chartwrap" style="height:340px"><canvas id="c5" role="img" aria-label="Area chart of posts per month."></canvas></div></section>
+
+<section class="viz"><h2>6. Most-featured named figures</h2>
+  <p class="cap">Public figures appearing most often as an on-record speaker (officials, TV hosts, milbloggers), from the posts with a named speaker. One weather-broadcast presenter, whose forecasts were captured by the monitoring, is excluded as not an occupation-narrative figure.</p>
+  <div class="chartwrap" style="height:470px"><canvas id="c6" role="img" aria-label="Horizontal bar chart of the top fifteen named figures by post count."></canvas></div></section>
+
+<section class="viz"><h2>7. Rising vs falling themes</h2>
+  <p class="cap">How each theme's share of coverage changed from the first quarter (Q3 2025) to the last (Q2 2026). Green climbed, red faded.</p>
+  <div class="slopewrap"><div id="slope"></div></div></section>
+
+<footer>Public-safe aggregate layer &middot; frozen 13-theme codebook mapped to eight Hub themes plus Front / SVO &middot; source: quarterly monitoring pipeline &middot; last updated Q2 2026.</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/chart-defaults.js?v=8"></script>
+<script>
+fetch('data/tot-media/tot-media-viz.json',{cache:'no-cache'})
+.then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+.then(function(V){
+var QLBL={'Q3-2025':'Q3 2025','Q4-2025':'Q4 2025','Q1-2026':'Q1 2026','Q2-2026':'Q2 2026'};
+var Q=V.meta.quarters, THEMES=V.meta.themes, REGIONS=V.meta.regions;
+var THEME_C=['#c9a84c','#111d30','#3f7d5a','#b8862b','#a23b34','#2b6a68','#7a5f16','#4a5a6a','#8a8f98'];
+var REGION_C=['#c9a84c','#111d30','#3f7d5a','#b8862b','#a23b34'];
+var NAVY='#111d30', GOLD='#c9a84c', GREEN='#3f7d5a', RED='#a23b34';
+document.getElementById('metaLine').textContent='22,208 posts · 9 themes · 5 regions · Q3 2025 – Q2 2026';
+var totalPlugin={}; // reserved
+
+/* 1. Theme share by quarter (multi-line) */
+(function(){
+  var byTheme={}; V.themeQuarter.forEach(function(x){(byTheme[x.theme]=byTheme[x.theme]||{})[x.quarter]=x.share_pct;});
+  var ds=THEMES.map(function(t,i){return {label:t,data:Q.map(function(q){return byTheme[t]?byTheme[t][q]:0;}),
+    borderColor:THEME_C[i],backgroundColor:THEME_C[i],pointBackgroundColor:THEME_C[i],pointRadius:3,tension:.25,borderWidth:2};});
+  new Chart(document.getElementById('c1'),{type:'line',
+    data:{labels:Q.map(function(q){return QLBL[q];}),datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.y.toFixed(1)+'%';}}}},
+      scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v+'%';}}}}}});
+})();
+
+/* 2. Theme x region heatmap (HTML) */
+(function(){
+  var byTR={}; V.themeRegion.forEach(function(x){byTR[x.theme+'|'+x.region]=x.share;});
+  var max=Math.max.apply(null,V.themeRegion.map(function(x){return x.share;}));
+  var host=document.getElementById('heatmap');
+  host.style.gridTemplateColumns='minmax(150px,1.3fr) repeat('+REGIONS.length+',1fr)';
+  var html='<div></div>'+REGIONS.map(function(r){return '<div class="hh">'+r+'</div>';}).join('');
+  THEMES.forEach(function(t){
+    html+='<div class="rl">'+t+'</div>';
+    REGIONS.forEach(function(r){
+      var s=byTR[t+'|'+r]||0, a=Math.max(0.05,s/max);
+      html+='<div class="cell" style="background:rgba(201,168,76,'+a.toFixed(3)+')">'+s.toFixed(0)+'%</div>';
+    });
+  });
+  host.innerHTML=html;
+})();
+
+/* 3. Regions over time (lines) */
+(function(){
+  var byRegion={}; V.regionQuarter.forEach(function(x){(byRegion[x.region]=byRegion[x.region]||{})[x.quarter]=x.count;});
+  var ds=REGIONS.map(function(r,i){return {label:r,data:Q.map(function(q){return byRegion[r]?byRegion[r][q]:0;}),
+    borderColor:REGION_C[i],backgroundColor:REGION_C[i],pointBackgroundColor:REGION_C[i],pointRadius:3,tension:.25,borderWidth:2};});
+  new Chart(document.getElementById('c3'),{type:'line',
+    data:{labels:Q.map(function(q){return QLBL[q];}),datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.y.toLocaleString()+' posts';}}}},
+      scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}}}}});
+})();
+
+/* 4. Loudest channels (horizontal bar) */
+(function(){
+  var c=V.topChannels;
+  new Chart(document.getElementById('c4'),{type:'bar',
+    data:{labels:c.map(function(x){return x.channel;}),datasets:[{data:c.map(function(x){return x.count;}),backgroundColor:GOLD,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x.toLocaleString()+' posts';}}}},
+      scales:{x:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}},y:{ticks:{font:{size:12}}}}}});
+})();
+
+/* 5. Coverage over time (area) */
+(function(){
+  var m=V.postsByMonth;
+  new Chart(document.getElementById('c5'),{type:'line',
+    data:{labels:m.map(function(x){return x.month;}),datasets:[{data:m.map(function(x){return x.count;}),
+      borderColor:GOLD,backgroundColor:'rgba(201,168,76,0.14)',fill:true,pointBackgroundColor:GOLD,pointRadius:3,tension:.3,borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y.toLocaleString()+' posts';}}}},
+      scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}}}}});
+})();
+
+/* 6. Named figures (horizontal bar) */
+(function(){
+  var f=V.namedFigures;
+  new Chart(document.getElementById('c6'),{type:'bar',
+    data:{labels:f.map(function(x){return x.name;}),datasets:[{data:f.map(function(x){return x.count;}),backgroundColor:NAVY,borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x.toLocaleString()+' posts';}}}},
+      scales:{x:{beginAtZero:true},y:{ticks:{font:{size:12}}}}}});
+})();
+
+/* 7. Rising vs falling themes (SVG slope) */
+(function(){
+  var first=Q[0], last=Q[Q.length-1];
+  var byTheme={}; V.themeQuarter.forEach(function(x){(byTheme[x.theme]=byTheme[x.theme]||{})[x.quarter]=x.share_pct;});
+  var rows=THEMES.map(function(t){return {t:t,a:byTheme[t][first],b:byTheme[t][last]};});
+  var W=680,H=420,padL=210,padR=210,padT=28,padB=28;
+  var maxV=Math.max.apply(null,rows.map(function(r){return Math.max(r.a,r.b);}))*1.05;
+  var y=function(v){return padT+(H-padT-padB)*(1-v/maxV);};
+  var xL=padL, xR=W-padR;
+  function declutter(vals){ // vals: [{y}], keep order, enforce min gap
+    var min=15, sorted=vals.map(function(v,i){return {i:i,y:v};}).sort(function(a,b){return a.y-b.y;});
+    for(var k=1;k<sorted.length;k++){if(sorted[k].y-sorted[k-1].y<min)sorted[k].y=sorted[k-1].y+min;}
+    var out=[]; sorted.forEach(function(s){out[s.i]=s.y;}); return out;
+  }
+  var lyRaw=rows.map(function(r){return y(r.a);}), ryRaw=rows.map(function(r){return y(r.b);});
+  var ly=declutter(lyRaw), ry=declutter(ryRaw);
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="max-width:'+W+'px;font-family:\'EB Garamond\',Georgia,serif" role="img" aria-label="Slope chart of theme share change from Q3 2025 to Q2 2026">';
+  s+='<text x="'+xL+'" y="14" text-anchor="middle" font-size="12" fill="#6a7180" style="letter-spacing:.08em">Q3 2025</text>';
+  s+='<text x="'+xR+'" y="14" text-anchor="middle" font-size="12" fill="#6a7180" style="letter-spacing:.08em">Q2 2026</text>';
+  s+='<line x1="'+xL+'" y1="'+padT+'" x2="'+xL+'" y2="'+(H-padB)+'" stroke="#e7e3d9"/><line x1="'+xR+'" y1="'+padT+'" x2="'+xR+'" y2="'+(H-padB)+'" stroke="#e7e3d9"/>';
+  rows.forEach(function(r,i){
+    var up=r.b>=r.a, col=up?GREEN:RED;
+    s+='<line x1="'+xL+'" y1="'+y(r.a)+'" x2="'+xR+'" y2="'+y(r.b)+'" stroke="'+col+'" stroke-width="2" opacity="0.85"/>';
+    s+='<circle cx="'+xL+'" cy="'+y(r.a)+'" r="3.5" fill="'+col+'"/><circle cx="'+xR+'" cy="'+y(r.b)+'" r="3.5" fill="'+col+'"/>';
+    s+='<text x="'+(xL-10)+'" y="'+(ly[i]+4)+'" text-anchor="end" font-size="13" fill="#1a2536">'+r.t+' <tspan fill="#6a7180">'+r.a.toFixed(1)+'%</tspan></text>';
+    s+='<text x="'+(xR+10)+'" y="'+(ry[i]+4)+'" text-anchor="start" font-size="13" fill="#1a2536"><tspan fill="#6a7180">'+r.b.toFixed(1)+'%</tspan> '+r.t+'</text>';
+  });
+  s+='</svg>';
+  document.getElementById('slope').innerHTML=s;
+})();
+
+})
+.catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
+</script>
+<script src="navigation.js?v=12"></script>
+</body></html>

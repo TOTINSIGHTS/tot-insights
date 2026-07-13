@@ -34,7 +34,8 @@ a{color:var(--navy)}
 .btn{font-family:var(--ui);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:var(--gold);
   background:transparent;border:1px solid var(--gold);padding:13px 20px;cursor:pointer;text-decoration:none;display:inline-block}
 .btn:hover{background:var(--gold);color:#fff}
-.vizlink-off{color:var(--muted);border-bottom:none;cursor:default;font-family:var(--ui);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px}
+.vizlink{font-family:var(--ui);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.vizlink:hover{color:var(--gold)}
 .metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:14px 0 0}
 .privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:14px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
 /* filter bar */
@@ -89,10 +90,7 @@ footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:
 
 <div class="actions">
   <button class="btn" id="csvBtn">Download filtered posts (CSV)</button>
-  <!-- TODO: visualisations page not wired yet. When the visualisations page is ready,
-       restore the link below (and add a matching vis-card to data.html):
-       <a class="vizlink" href="tot_media_visualisations.html">View visualisations &rarr;</a> -->
-  <span class="vizlink-off" role="note" aria-disabled="true">Visualisations coming soon</span>
+  <a class="vizlink" href="tot-media-visualisations.html">View visualisations &rarr;</a>
 </div>
 <div class="metaline" id="metaLine"></div>
 <div class="privnote">Public-safe layer. Each row carries structured metadata and a one-line English summary generated from the Russian post; the original post texts are held in the private research hub and are not published. Summaries attribute Russian claims and do not endorse them. A post may carry several regions, themes or topics.</div>
