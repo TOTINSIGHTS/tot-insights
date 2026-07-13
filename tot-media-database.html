@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Russian TOT media database - TOT Insights Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+:root{
+  --navy:#111d30; --gold:#c9a84c; --cream:#f2f0ec; --paper:#ffffff;
+  --ink:#1a2536; --muted:#6a7180; --line:#d7d2c7; --hair:#e7e3d9;
+  --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+  --ui:var(--serif);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.lab{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+a{color:var(--navy)}
+/* guardrail */
+.guard{background:#2a1318;color:#eedcdc;font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #48232b}
+.guard .wrap{padding:8px 40px;display:flex;gap:9px;align-items:flex-start}
+.guard b{color:#f0c9c9}
+.guard .dot{color:var(--gold)}
+/* stat cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:40px 0 10px}
+.stat{background:transparent;border:1px solid var(--hair);border-left:4px solid var(--gold);padding:20px 22px}
+.stat .n{font-size:34px;font-weight:600;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums}
+.stat .l{margin-top:9px}
+/* action row */
+.actions{display:flex;align-items:center;gap:22px;padding:22px 0 4px;flex-wrap:wrap}
+.btn{font-family:var(--ui);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:var(--gold);
+  background:transparent;border:1px solid var(--gold);padding:13px 20px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--gold);color:#fff}
+.vizlink-off{color:var(--muted);border-bottom:none;cursor:default;font-family:var(--ui);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px}
+.metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:14px 0 0}
+.privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:14px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
+/* filter bar */
+.filters{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;padding:26px 0 6px}
+.fgroup{display:flex;flex-direction:column;gap:7px}
+.search{flex:1;min-width:240px;max-width:360px}
+input[type=search],select{font-family:var(--serif);font-size:16px;padding:10px 12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+select{font-family:var(--ui);font-size:13px;letter-spacing:.02em;min-width:170px;appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236a7180' stroke-width='1.5'/></svg>");
+  background-repeat:no-repeat;background-position:right 12px center;padding-right:30px}
+.clear{font-family:var(--ui);font-size:13px;letter-spacing:.03em;color:var(--muted);text-decoration:underline;background:none;border:none;cursor:pointer;padding-bottom:10px}
+.showing{font-family:var(--ui);font-size:13px;color:var(--muted);letter-spacing:.03em;padding:10px 0 0}
+.showing b{color:var(--navy)}
+/* table */
+.tablecard{margin:20px 0 0;border:1px solid var(--hair);background:var(--paper)}
+.tbl-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+thead th{font-family:var(--ui);text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--muted);
+  text-align:left;padding:15px 15px;border-bottom:1px solid var(--line);white-space:nowrap;background:var(--paper);cursor:pointer;user-select:none;position:sticky;top:0}
+thead th .arw{color:var(--gold);font-size:10px;margin-left:5px}
+thead th.num{text-align:right}
+tbody td{padding:12px 15px;border-bottom:1px solid var(--hair);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#f7f5f0}
+td.name{font-weight:600;color:var(--navy);white-space:nowrap}
+td.nowrap{white-space:nowrap}
+td.tags{color:#3a4552;font-size:14px;min-width:180px}
+td.summary{color:#2f3a48;font-size:15px;min-width:360px;max-width:520px;line-height:1.42}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:#33404f}
+td.mut{color:var(--muted)}
+.empty{padding:40px 16px;color:var(--muted);font-style:italic}
+/* pager */
+.pager{display:flex;align-items:center;gap:14px;font-family:var(--ui);font-size:13px;color:var(--muted);padding:16px 0 60px;flex-wrap:wrap}
+.pager button{font-family:var(--ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:transparent;border:1px solid var(--line);padding:9px 15px;cursor:pointer}
+.pager button:disabled{color:var(--muted);border-color:var(--hair);cursor:default}
+.pager .pg b{color:var(--navy)}
+footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line)}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.wrap{padding:0 22px}.guard .wrap{padding:8px 22px}}
+</style></head><body>
+<div id="site-header"></div>
+
+<div class="guard"><div class="wrap"><span class="dot">&#9679;</span><div><b>Reading rule.</b> This catalogue indexes Russian media posts about the occupied territories by their metadata and a short English summary of each; the original Russian post texts are not published. The summaries and tags describe the Russian narrative as an object of study and are not endorsed; casualty, atrocity and battlefield material is attributed as a Russian claim, not a verified fact.</div></div></div>
+
+<div class="wrap">
+
+<div class="cards">
+  <div class="stat"><div class="n">22,208</div><div class="l lab">Posts catalogued</div></div>
+  <div class="stat"><div class="n" id="cChannels">&ndash;</div><div class="l lab">Channels</div></div>
+  <div class="stat"><div class="n">16</div><div class="l lab">Topics</div></div>
+  <div class="stat"><div class="n">4</div><div class="l lab">Quarters covered</div></div>
+</div>
+
+<div class="actions">
+  <button class="btn" id="csvBtn">Download filtered posts (CSV)</button>
+  <!-- TODO: visualisations page not wired yet. When the visualisations page is ready,
+       restore the link below (and add a matching vis-card to data.html):
+       <a class="vizlink" href="tot_media_visualisations.html">View visualisations &rarr;</a> -->
+  <span class="vizlink-off" role="note" aria-disabled="true">Visualisations coming soon</span>
+</div>
+<div class="metaline" id="metaLine"></div>
+<div class="privnote">Public-safe layer. Each row carries structured metadata and a one-line English summary generated from the Russian post; the original post texts are held in the private research hub and are not published. Summaries attribute Russian claims and do not endorse them. A post may carry several regions, themes or topics.</div>
+
+<div class="filters" id="filters"></div>
+<div class="showing" id="showing"></div>
+
+<div class="tablecard"><div class="tbl-scroll"><table id="tbl"><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div></div>
+<div class="pager" id="pager"></div>
+
+<footer>Public-safe metadata layer &middot; frozen 13-theme codebook mapped to eight Hub themes plus Front / SVO &middot; sixteen-topic vocabulary &middot; source: quarterly monitoring pipeline &middot; last updated Q2 2026.</footer>
+</div>
+
+
+<script>
+fetch('data/tot-media/tot-media-posts.json',{cache:'no-cache'})
+.then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+.then(function(DB){
+const DATA=DB.posts, M=DB.meta, PAGE=100;
+const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const join=a=>Array.isArray(a)?a.join(', '):(a==null?'':a);
+
+document.getElementById('cChannels').textContent=new Set(DATA.map(p=>p.ch).filter(Boolean)).size.toLocaleString();
+
+const COLS=[
+  {h:'Date',key:'d',cls:'nowrap',get:p=>esc(p.d)},
+  {h:'Quarter',key:'q',cls:'nowrap mut',get:p=>esc(p.q)},
+  {h:'Channel',key:'ch',cls:'name',get:p=>esc(p.ch)||'<span class="mut">Unattributed</span>'},
+  {h:'Region',key:'rg',cls:'tags',get:p=>esc(join(p.rg))||'<span class="mut">Unspecified</span>'},
+  {h:'Hub themes',key:'ht',cls:'tags',get:p=>esc(join(p.ht))},
+  {h:'Summary',key:'sm',cls:'summary',get:p=>esc(p.sm)},
+  {h:'Type',key:'mt',cls:'nowrap mut',get:p=>esc(p.mt)},
+];
+const FILTERS=[
+  ['q','Quarter',M.quarters,false],
+  ['rg','Region',M.regions,true],
+  ['ht','Hub theme',M.hub_themes,true],
+  ['tp','Topic',M.topics,true],
+  ['mt','Media type',M.media_types,false],
+];
+
+let sortKey='d', sortDir=-1, filterState={}, searchTerm='', page=1;
+
+function buildFilters(){
+  const host=document.getElementById('filters'); host.innerHTML='';
+  const sg=document.createElement('div');sg.className='fgroup search';
+  sg.innerHTML=`<span class="lab">Search channel or summary</span><input type="search" id="srch" placeholder="Search&hellip;">`;
+  host.appendChild(sg);
+  sg.querySelector('#srch').oninput=e=>{searchTerm=e.target.value.toLowerCase();page=1;render();};
+  FILTERS.forEach(([key,label,vals])=>{
+    const g=document.createElement('div');g.className='fgroup';
+    const sel=document.createElement('select');
+    sel.innerHTML=`<option value="">All ${esc(label.toLowerCase())}s</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');
+    sel.onchange=()=>{filterState[key]=sel.value;page=1;render();};
+    g.innerHTML=`<span class="lab">${esc(label)}</span>`; g.appendChild(sel); host.appendChild(g);
+  });
+  const c=document.createElement('button');c.className='clear';c.textContent='Clear filters';
+  c.onclick=()=>{filterState={};searchTerm='';page=1;buildFilters();render();};
+  host.appendChild(c);
+}
+
+function getRows(){
+  const multi={rg:1,ht:1,tp:1};
+  let rows=DATA.filter(r=>{
+    for(const [k,v] of Object.entries(filterState)){
+      if(!v) continue;
+      if(multi[k]){ if(!(r[k]||[]).includes(v)) return false; }
+      else if(String(r[k])!==v) return false;
+    }
+    if(searchTerm){
+      const hay=((r.ch||'')+' '+(r.sm||'')).toLowerCase();
+      if(!hay.includes(searchTerm)) return false;
+    }
+    return true;
+  });
+  rows.sort((a,b)=>{
+    let x=a[sortKey],y=b[sortKey];
+    if(sortKey==='wc'){x=x==null?-1:x; y=y==null?-1:y; return (x-y)*sortDir;}
+    x=Array.isArray(x)?x.join(', '):(x==null?'':x); y=Array.isArray(y)?y.join(', '):(y==null?'':y);
+    return String(x).localeCompare(String(y))*sortDir;
+  });
+  return rows;
+}
+
+function render(){
+  const rows=getRows();
+  const pages=Math.max(1,Math.ceil(rows.length/PAGE));
+  if(page>pages) page=pages;
+  const start=(page-1)*PAGE, slice=rows.slice(start,start+PAGE);
+  document.getElementById('metaLine').textContent=`22,208 posts · Q3 2025 – Q2 2026 · one row per post, metadata only (no post text)`;
+  const th=document.getElementById('thead');
+  th.innerHTML=COLS.map(c=>{
+    const ar=sortKey===c.key?(sortDir>0?'▲':'▼'):'';
+    return `<th class="${c.num?'num':''}" data-key="${c.key}">${esc(c.h)}<span class="arw">${ar}</span></th>`;
+  }).join('');
+  th.querySelectorAll('th').forEach(el=>el.onclick=()=>{
+    const k=el.dataset.key; if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=1;} page=1; render();
+  });
+  const tb=document.getElementById('tbody');
+  if(!slice.length){tb.innerHTML=`<tr><td colspan="${COLS.length}" class="empty">No posts match these filters.</td></tr>`;}
+  else{tb.innerHTML=slice.map(r=>`<tr>${COLS.map(c=>`<td class="${c.cls||''} ${c.num?'num':''}">${c.get(r)}</td>`).join('')}</tr>`).join('');}
+  const shownTo=start+slice.length;
+  document.getElementById('showing').innerHTML=rows.length
+    ? `Showing <b>${(start+1).toLocaleString()}&ndash;${shownTo.toLocaleString()}</b> of <b>${rows.length.toLocaleString()}</b> posts`+(rows.length!==DATA.length?` (filtered from ${DATA.length.toLocaleString()})`:'')
+    : `No posts match these filters`;
+  const pg=document.getElementById('pager');
+  pg.innerHTML='';
+  const prev=document.createElement('button');prev.textContent='‹ Prev';prev.disabled=page<=1;prev.onclick=()=>{page--;render();window.scrollTo({top:0});};
+  const next=document.createElement('button');next.textContent='Next ›';next.disabled=page>=pages;next.onclick=()=>{page++;render();window.scrollTo({top:0});};
+  const lbl=document.createElement('span');lbl.className='pg';lbl.innerHTML=`Page <b>${page.toLocaleString()}</b> of <b>${pages.toLocaleString()}</b>`;
+  pg.appendChild(prev);pg.appendChild(lbl);pg.appendChild(next);
+}
+
+document.getElementById('csvBtn').onclick=()=>{
+  const rows=getRows();
+  const cols=[['d','date'],['q','quarter'],['ch','channel'],['rg','region_group'],['ht','hub_themes'],['tp','topics'],['sm','summary'],['mt','media_type']];
+  const q=s=>{s=s==null?'':String(s);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s;};
+  const line=r=>cols.map(([k])=>q(Array.isArray(r[k])?r[k].join(';'):r[k])).join(',');
+  const csv=[cols.map(c=>c[1]).join(',')].concat(rows.map(line)).join('\n');
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='tot-media-posts.csv';a.click();
+};
+
+buildFilters(); render();
+})
+.catch(function(err){var tb=document.getElementById('tbody');if(tb)tb.innerHTML='<tr><td class="empty">Could not load data ('+((err&&err.message)||err)+').</td></tr>';var sh=document.getElementById('showing');if(sh)sh.textContent='';});
+</script>
+<script src="navigation.js?v=12"></script>
+</body></html>
