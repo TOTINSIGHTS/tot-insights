@@ -27,12 +27,9 @@
 .hero-titleblock{background:var(--cream-panel);padding:18px 3rem 30px;}
 .hero-titleblock-inner{max-width:var(--content-width);margin:0 auto;}
 .hero-rule{display:block;width:34px;height:2px;background:var(--gold);margin-bottom:14px;}
-.static-hero-title{font-family:var(--font-display);font-size:var(--fs-section);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:11px;}
+.static-hero-title{font-family:var(--font-display);font-size:clamp(1.5rem,2.3vw,var(--fs-section));font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:11px;text-wrap:balance;}
 .static-hero-title abbr{text-decoration:none;border-bottom:none;cursor:help;}
-.static-hero-desc{font-size:var(--fs-body);color:var(--grey-700);line-height:1.55;max-width:660px;}
-.hero-body-row{position:relative;}
-.hero-map-icon{position:absolute;top:50%;left:clamp(680px,72%,825px);transform:translateY(-50%);height:77px;width:auto;}
-@media(max-width:900px){.hero-map-icon{display:none;}}
+.static-hero-desc{font-size:var(--fs-body);color:var(--grey-700);line-height:1.55;}
 
 /* Section label */
 .section-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:10px;}
@@ -182,10 +179,7 @@
   <div class="hero-titleblock-inner">
     <span class="hero-rule"></span>
     <h1 class="static-hero-title">Ukraine&rsquo;s Temporarily Occupied Territories (<abbr title="Temporarily Occupied Territories">TOT</abbr>): research, data, and primary sources</h1>
-    <div class="hero-body-row">
-      <p class="static-hero-desc">TOT Insights maps Russia&rsquo;s occupation of Ukraine as a single interlocking system, rather than a list of separate abuses. We draw on three foundations: primary sources from the occupation itself, first-hand material from inside the occupied territories, and academic analysis that brings it all together. We aim to offer a more integrated account of how the Russian occupation works and of its consequences for the people who live there, Ukraine, and the rest of Europe.</p>
-      <img class="hero-map-icon" src="assets/img/occupied-map-icon.svg" alt="" aria-hidden="true" width="114" height="77">
-    </div>
+    <p class="static-hero-desc">TOT Insights maps Russia&rsquo;s occupation of Ukraine as a single interlocking system, rather than a list of separate abuses. We draw on three foundations: primary sources from the occupation itself, first-hand material from inside the occupied territories, and academic analysis that brings it all together. We aim to offer a more integrated account of how the Russian occupation works and of its consequences for the people who live there, Ukraine, and the rest of Europe.</p>
   </div>
 </div>
 
