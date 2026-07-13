@@ -16,6 +16,8 @@
           '.csns-mark img{height:25px;width:auto;display:block;}' +
           '.csns-mark .csns-label{font-family:var(--font-mono,\'IBM Plex Mono\',monospace);font-size:9px;font-weight:600;letter-spacing:0.18em;color:var(--navy,#111d30);padding-left:0.18em;}' +
           '@media (max-width:900px){.csns-mark{display:none;}}' +
+          '.header-nav a.nav-subscribe{background:#c9a84c;color:var(--navy,#111d30);padding:7px 16px;border-radius:3px;font-weight:600;flex-shrink:0;white-space:nowrap;transition:background 0.15s,color 0.15s;}' +
+          '.header-nav a.nav-subscribe:hover,.header-nav a.nav-subscribe:focus-visible{background:#b8963a;color:var(--navy,#111d30);}' +
         '</style>' +
         '<header class="site-header">' +
           '<div class="header-inner">' +
@@ -37,6 +39,7 @@
               '<a href="' + p + 'media.html" data-nav="media">Media</a>' +
               '<a href="' + p + 'resources.html" data-nav="resources">Resources</a>' +
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
+              '<a class="nav-subscribe" href="https://ukrainerussiaprogramme.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to the Ukraine and Russia Programme newsletter on Substack (opens in a new tab)">Subscribe</a>' +
             '</nav>' +
           '</div>' +
         '</header>',
@@ -44,7 +47,7 @@
         '<footer class="site-footer">' +
           '<div class="footer-inner">' +
             '<span>TOT Insights is part of the <a href="https://csns.uk/programmes/ukraine-and-russia-programme/" target="_blank" rel="noopener noreferrer">Ukraine &amp; Russia Programme</a> at King&#39;s College London&#39;s Centre for Statecraft and National Security. This site was established with seed funding from the Leverhulme Centre for Research on Slavery in War.</span>' +
-            '<span><a href="mailto:TOTInsightsHub@protonmail.com">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
+            '<span><a href="https://ukrainerussiaprogramme.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Sign up for newsletter updates from the Ukraine and Russia Programme on Substack (opens in a new tab)">Sign up for updates from the Ukraine and Russia Programme</a> &nbsp;&middot;&nbsp; <a href="mailto:TOTInsightsHub@protonmail.com">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
           '</div>' +
         '</footer>'
     };
@@ -113,6 +116,8 @@
       if (url.host === location.host) return;
       a.setAttribute('target', '_blank');
       a.setAttribute('rel', 'noopener noreferrer');
+      // The Subscribe nav CTA is a filled button; keep it clean (no ext-icon).
+      if (a.classList.contains('nav-subscribe')) return;
       if (a.querySelector('.ext-icon') || a.textContent.indexOf('↗') !== -1) return;
       var title = a.querySelector('.theme-start-title');
       (title || a).insertAdjacentHTML('beforeend', EXT_ICON);
@@ -180,6 +185,10 @@
           link.href = child.href;
           link.textContent = child.textContent.trim();
           if (child.classList.contains('active')) link.classList.add('active');
+          // Preserve new-tab + rel + accessible label for external links (e.g. Subscribe).
+          if (child.target) link.target = child.target;
+          var relAttr = child.getAttribute('rel'); if (relAttr) link.setAttribute('rel', relAttr);
+          var ariaLabel = child.getAttribute('aria-label'); if (ariaLabel) link.setAttribute('aria-label', ariaLabel);
           overlay.appendChild(link);
         } else if (child.classList.contains('nav-dropdown')) {
           var parentA = child.querySelector('.nav-dropdown-link');
