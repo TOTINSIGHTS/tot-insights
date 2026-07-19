@@ -49,6 +49,22 @@
 .ps-reading .ps-gallery-placeholder{background:rgba(201,168,76,0.07);}
 .ps-reading .ps-ph-title{color:#111d30;}
 .ps-reading .ps-ph-note{color:rgba(17,29,48,0.6);}
+
+/* ---- Image gallery carousel ---- */
+.ps-carousel{position:relative;max-width:820px;margin:4px auto 44px;}
+.ps-carousel-viewport{position:relative;display:flex;align-items:center;justify-content:center;background:#e4dfd5;border:1px solid rgba(17,29,48,0.12);border-radius:4px;overflow:hidden;min-height:360px;}
+.ps-carousel-img{display:none;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto;}
+.ps-carousel-img.active{display:block;}
+.ps-carousel-btn{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:none;border-radius:50%;background:rgba(17,29,48,0.55);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;z-index:2;}
+.ps-carousel-btn:hover{background:rgba(17,29,48,0.82);}
+.ps-carousel-prev{left:12px;}
+.ps-carousel-next{right:12px;}
+.ps-carousel-counter{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#4a4a57;text-align:center;margin-top:11px;}
+.ps-carousel-dots{display:flex;justify-content:center;gap:7px;margin-top:9px;flex-wrap:wrap;}
+.ps-carousel-dot{width:8px;height:8px;border-radius:50%;border:none;background:rgba(17,29,48,0.22);cursor:pointer;padding:0;transition:background 0.15s;}
+.ps-carousel-dot:hover{background:rgba(17,29,48,0.4);}
+.ps-carousel-dot.active{background:var(--gold,#c9a84c);}
+@media(max-width:640px){.ps-carousel-viewport{min-height:260px;}.ps-carousel-img{max-height:72vh;}.ps-carousel-btn{width:36px;height:36px;font-size:20px;}}
 </style>
 </head>
 <body>
@@ -420,15 +436,41 @@
   </div>
 
 
-  <!-- HIDDEN FOR NOW — image galleries / photo carousels. To restore, delete this comment opening line and the matching closing line below.
-  <div class="section-label" id="galleries">Image galleries</div>
+    <div class="section-label" id="galleries">Image galleries</div>
   <p class="section-desc">Photo galleries and image carousels of primary-source imagery.</p>
-  <div class="ps-gallery-placeholder">
-    <span class="ps-ph-badge">Reserved &middot; coming soon</span>
-    <div class="ps-ph-title">Image galleries &amp; photo carousels</div>
-    <p class="ps-ph-note">This area is reserved for image galleries and photo carousels. They will appear here once added &mdash; the layout above (document collections) and this gallery area sit on one page.</p>
+
+  <h3 class="ps-collection-title">Military recruitment advertising, occupied Mariupol</h3>
+  <p class="ps-collection-desc block">Field photographs of Russian military and penitentiary-service recruitment and contract-service advertising posted publicly in occupied Mariupol, March 2026. Federal, regional (including the Republic of Kalmykia), and prison-service (FSIN) campaigns compete to recruit from the occupied population.</p>
+
+  <div class="ps-carousel">
+    <div class="ps-carousel-viewport">
+        <img class="ps-carousel-img active" src="assets/images/mobilisation-2026/mobilisation-01.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 1 of 10)">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-02.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 2 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-03.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 3 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-04.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 4 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-05.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 5 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-06.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 6 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-07.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 7 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-08.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 8 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-09.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 9 of 10)" loading="lazy">
+        <img class="ps-carousel-img" src="assets/images/mobilisation-2026/mobilisation-10.jpg" alt="Russian military recruitment advertising in occupied Mariupol, March 2026 (image 10 of 10)" loading="lazy">
+      <button class="ps-carousel-btn ps-carousel-prev" type="button" aria-label="Previous photo">&#8249;</button>
+      <button class="ps-carousel-btn ps-carousel-next" type="button" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="ps-carousel-counter"><span class="ps-carousel-idx">1</span> / 10</div>
+    <div class="ps-carousel-dots">
+      <button class="ps-carousel-dot active" type="button" aria-label="Go to photo 1"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 2"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 3"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 4"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 5"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 6"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 7"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 8"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 9"></button>
+      <button class="ps-carousel-dot" type="button" aria-label="Go to photo 10"></button>
+    </div>
   </div>
-  END HIDDEN -->
 
   </div>
 </div>
@@ -436,5 +478,26 @@
 <div id="site-footer"></div>
 
 <script src="navigation.js?v=13"></script>
+<script>
+(function(){
+  document.querySelectorAll('.ps-carousel').forEach(function(car){
+    var imgs=[].slice.call(car.querySelectorAll('.ps-carousel-img'));
+    var dots=[].slice.call(car.querySelectorAll('.ps-carousel-dot'));
+    var idxEl=car.querySelector('.ps-carousel-idx');
+    var i=0;
+    function show(n){
+      i=(n+imgs.length)%imgs.length;
+      imgs.forEach(function(im,k){im.classList.toggle('active',k===i);});
+      dots.forEach(function(d,k){d.classList.toggle('active',k===i);});
+      if(idxEl){idxEl.textContent=i+1;}
+    }
+    var p=car.querySelector('.ps-carousel-prev'),nx=car.querySelector('.ps-carousel-next');
+    if(p){p.addEventListener('click',function(){show(i-1);});}
+    if(nx){nx.addEventListener('click',function(){show(i+1);});}
+    dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);});});
+    show(0);
+  });
+})();
+</script>
 </body>
 </html>
