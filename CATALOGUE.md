@@ -181,6 +181,9 @@ Eleven issues of Лисичанський Вісник, the occupation administr
 **DOC-088 — Russian Propaganda Tactics in Ukraine's Newly Occupied Territories** *(Journal Article)*
 Article in Russian Analytical Digest (Issue 313) analysing the evolution of Russian propaganda tactics in Ukrainian territories occupied after 2022. Argues that Russia moved from the Crimea-style information control model to a two-tier messaging system targeting Russian and occupied Ukrainian audiences differently, with a heavier reliance on fear-based narratives and threat construction. Includes analysis of potential counter-strategies. Published May 2024.
 
+**DB-LPR — Luhansk Occupation Press: Theme Dataset & Visualisations (1,102 issues, 2023–2026)** *(Information Space)*
+A derived dataset from 1,102 issues of 25 town newspapers of the Luganmedia holding, the occupation press network for Russian-occupied Luhansk oblast. Records each issue's paper, town, date and page count, and counts seven occupation themes (loyalty to Moscow, passportisation, children's militarisation, recruitment, reconstruction, elections, Ukraine-as-enemy) across time and town. The 2023–2025 back-catalogue was recovered via the Internet Archive after the holding purged it from its own site. Interactive theme visualisations and curated excerpts (each under fifteen words, attributed) are on the Hub; the full newspaper texts and PDFs are held privately. Metadata and counts only.
+
 ---
 
 ## 3. Primary Source Documents — Mariupol Administration (2026)

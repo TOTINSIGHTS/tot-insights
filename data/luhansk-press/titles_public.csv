@@ -1,0 +1,33 @@
+id,title_ru,title_translit,town_uk,raion_or_area,holding,type,status,merged_into,notes,confidence,source
+LH-001,Жизнь Луганска,Zhizn Luganska,Luhansk,Luhansk city,Luganmedia,Regional flagship,Active,,Holding's flagship city weekly,High,Detector Media 2025-03-10
+LH-002,Вестник Северодонецка,Vestnik Severodonetska,Sievierodonetsk,Sievierodonetsk,Luganmedia,Town weekly,Active,,Now also carries Lysychansk / Rubizhne / Kreminna coverage,High,Detector Media 2025-03-10
+LH-003,Антрацитовский вестник,Antratsitovskiy vestnik,Antratsyt,Antratsyt,Luganmedia,Town weekly,Active,,Area occupied since 2014,High,Detector Media 2025-03-10
+LH-004,Беловодский вестник,Belovodskiy vestnik,Bilovodsk,Bilovodsk,Luganmedia,Town weekly,Active,,Replaced Ukrainian title Visti Bilovodshchyny,High,Detector Media 2025-03-10
+LH-005,Белокуракинский вестник,Belokurakinskiy vestnik,Bilokurakyne,Bilokurakyne,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-006,Восточный Донбасс,Vostochnyy Donbass,Dovzhansk,Dovzhansk / Sverdlovsk district,Luganmedia,District weekly,Active,,Covers Dovzhansk (Sverdlovsk) area; occupied since 2014,High,Detector Media 2025-03-10
+LH-007,Вперёд. Ровеньки,Vperyod. Rovenki,Rovenky,Rovenky,Luganmedia,Town weekly,Active,,Occupied since 2014,High,Detector Media 2025-03-10
+LH-008,Кировск сегодня,Kirovsk segodnya,Kadiivka,Kirovsk / Holubivka,Luganmedia,Town weekly,Active,,Kirovsk = Holubivka,High,Detector Media 2025-03-10
+LH-009,Красный Луч,Krasnyy Luch,Khrustalnyi,Krasnyi Luch,Luganmedia,Town weekly,Active,,Krasnyi Luch = Khrustalnyi; occupied since 2014,High,Detector Media 2025-03-10
+LH-010,Марковский вестник,Markovskiy vestnik,Markivka,Markivka,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-011,Меловской вестник,Melovskoy vestnik,Milove,Milove,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-012,Наш Первомайск,Nash Pervomaisk,Pervomaisk,Pervomaisk,Luganmedia,Town weekly,Active,,Former editor Kateryna Bohutska,High,Detector Media 2025-03-10
+LH-013,Новоайдарский вестник,Novoaydarskiy vestnik,Novoaidar,Novoaidar,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-014,Новопсковский вестник,Novopskovskiy vestnik,Novopskov,Novopskov,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-015,Огни,Ogni,Alchevsk,Alchevsk,Luganmedia,Town weekly,Active,,Town confirmed: Alchevsk,High,Detector Media 2025-03-10; town confirmed JM 2026-07
+LH-016,Сватовский вестник,Svatovskiy vestnik,Svatove,Svatove,Luganmedia,Town weekly,Active,,Replaced Ukrainian title Novyny Svativshchyny; editor Serhii Kryvonos,High,Detector Media 2025-03-10
+LH-017,Слава Краснодона,Slava Krasnodona,Sorokyne,Krasnodon,Luganmedia,Town weekly,Active,,Krasnodon = Sorokyne; occupied since 2014,High,Detector Media 2025-03-10
+LH-018,Славяносербские вести,Slavyanoserbskie vesti,Slovianoserbsk,Slovianoserbsk,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-019,Спортивное обозрение,Sportivnoe obozrenie,,Region-wide,Luganmedia,Sports weekly,Active,,Only sports title in the holding,High,Detector Media 2025-03-10
+LH-020,Станично-Луганский вестник,Stanichno-Luganskiy vestnik,Stanytsia Luhanska,Stanytsia Luhanska,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-021,Старобельский вестник,Starobelskiy vestnik,Starobilsk,Starobilsk,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-022,Стахановское знамя,Stakhanovskoe znamya,Kadiivka,Stakhanov,Luganmedia,Town weekly,Active,,Stakhanov = Kadiivka; occupied since 2014,High,Detector Media 2025-03-10
+LH-023,Троицкие вести,Troitskie vesti,Troitske,Troitske,Luganmedia,Town weekly,Active,,,High,Detector Media 2025-03-10
+LH-024,Труд горняка,Trud gornyaka,Bryanka,Bryanka,Luganmedia,Town weekly,Active,,Miner's Labour - town confirmed Bryanka,High,Detector Media 2025-03-10; town confirmed JM 2026-07
+LH-025,Наша трудовая слава,Nasha trudovaya slava,Lutuhyne,Lutuhyne - to confirm,Luganmedia,District weekly,Active,,Town/raion not yet confirmed,Medium,Detector Media 2025-03-10
+LH-026,Лисичанский вестник,Lisichanskiy vestnik,Lysychansk,Lysychansk,Luganmedia,Town weekly,Suspended,Вестник Северодонецка,Suspended after loss of connectivity; coverage folded into Vestnik Severodonetska,High,Detector Media 2025-03-10
+LH-027,Вестник Рубежного,Vestnik Rubezhnogo,Rubizhne,Rubizhne,Luganmedia,Town weekly,Suspended,Вестник Северодонецка,Launched July 2022; later suspended and merged,High,Detector Media 2025-03-10
+LH-028,Кременской вестник,Kremenskoy vestnik,Kreminna,Kreminna,Luganmedia,Town weekly,Suspended,Вестник Северодонецка,Suspended and merged,High,Detector Media 2025-03-10
+LH-029,Перевальские новости,Perevalskie novosti,Perevalsk,Perevalsk,Luganmedia,Town weekly,Stopped,,Publication stopped entirely,High,Detector Media 2025-03-10
+LH-030,Попаснянский вестник,Popasnyanskiy vestnik,Popasna,Popasna,Luganmedia,Town weekly,Removed,,No longer listed in holding; editor Volodymyr Zaruba charged with collaboration,Medium,Detector Media 2025-03-10
+LH-031,Полиция республики,Politsiya respubliki,,Region-wide,Luganmedia,Journal,Active,,Monthly journal of occupation MVD; limited public access,Medium,Detector Media 2025-03-10
+LH-032,Наша Народная Трибуна,Nasha Narodnaya Tribuna,Perevalsk,Perevalsk,Luganmedia,Town weekly,Active,,Publishes at the Perevalsk outlet (site URL slug perevalskienovosti); LH-029 «Перевальские новости» at this outlet is listed as stopped. Recorded as a separate title (research decision 2026-07-19). Town inferred from site URL slug — to confirm.,Medium,"luganmedia.ru archive, collected 2026-07-19"

@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luhansk occupation press - visualisations - TOT Insights Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+:root{--navy:#111d30;--gold:#c9a84c;--cream:#f2f0ec;--paper:#ffffff;--ink:#1a2536;--muted:#6a7180;--line:#d7d2c7;--hair:#e7e3d9;--serif:"EB Garamond",Georgia,"Times New Roman",serif;--ui:var(--serif);--atroink:#7c2d2d;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+a{color:var(--navy)}
+.lab{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+.guard{background:#2a1318;color:#eedcdc;font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #48232b}
+.guard .wrap{padding:8px 40px;display:flex;gap:9px;align-items:flex-start}
+.guard b{color:#f0c9c9}.guard .dot{color:var(--gold)}
+.head{padding:40px 0 6px}
+.head h1{font-size:34px;font-weight:600;color:var(--navy);margin:0 0 8px;letter-spacing:.01em}
+.head p{margin:0;max-width:80ch;color:#3f4654;font-size:17px}
+.head .metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:12px 0 0}
+.privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:16px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
+.viz{background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--gold);padding:22px 24px 26px;margin:26px 0}
+.viz h2{font-size:22px;font-weight:600;color:var(--navy);margin:0 0 4px}
+.viz .cap{margin:0 0 16px;color:#4a5160;font-size:15.5px;max-width:92ch}
+.ctl{margin:0 0 12px}
+.ctl select{font-family:var(--ui);font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:8px 11px}
+.chartwrap{position:relative;width:100%}
+footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--navy)}
+
+@media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
+</style></head><body>
+<div id="site-header"></div>
+
+<div class="guard"><div class="wrap"><span class="dot">&#9679;</span><div><b>Reading rule.</b> These charts measure the language of the Luhansk occupation press as an object of study. Counts are Russian-propaganda keyword frequencies, attributed to those outlets and <b>not endorsed</b>; a high count marks editorial emphasis, not truth.</div></div></div>
+<div class="wrap">
+<div class="head">
+  <h1>Luhansk occupation press: theme intensity</h1>
+  <p>How occupation themes rise and fall across the Luganmedia holding, 2023&ndash;2026. Companion to the <a href="tot-luhansk-press-excerpts.html">curated excerpts</a>.</p>
+  <div class="metaline" id="metaLine"></div>
+  <div class="privnote">Public-safe derived layer. Charts are built from theme keyword counts and issue metadata; the newspaper texts and PDFs are not published.</div>
+  <p class="metaline">Download the data (CSV): <a href="data/luhansk-press/titles_public.csv" download>titles</a> &middot; <a href="data/luhansk-press/issues_public.csv" download>issues index</a> &middot; <a href="data/luhansk-press/theme_frequency.csv" download>theme counts</a> &middot; <a href="data/luhansk-press/theme_summary.csv" download>theme totals</a></p>
+</div>
+<section class="viz"><h2>1. Theme intensity over time</h2>
+  <p class="cap">Mean keyword hits per page, per issue, by month. Click a theme in the legend to hide or isolate it. Choose a town to see one paper&rsquo;s pattern. Gaps mark months with no issues collected.</p>
+  <div class="ctl"><span class="lab">Town</span>&nbsp; <select id="townSel"></select></div>
+  <div class="chartwrap" style="height:420px"><canvas id="cTime" role="img" aria-label="Line chart of theme intensity by month."></canvas></div></section>
+<section class="viz"><h2>2. Theme share across the whole corpus</h2>
+  <p class="cap">Total keyword hits per theme across all 1,102 issues. Loyalty-to-Moscow dwarfs every other theme.</p>
+  <div class="chartwrap" style="height:360px"><canvas id="cTotals" role="img" aria-label="Bar chart of total keyword hits per theme."></canvas></div></section>
+<footer>Public-safe derived layer &middot; 1,102 issues, 23 papers, 2023-03 &ndash; 2026-07 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; derived counts only, no article text. &nbsp;<a href="tot-luhansk-press-excerpts.html">Curated excerpts &rarr;</a></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/chart-defaults.js?v=8"></script>
+<script>
+fetch('data/luhansk-press/luhansk-press-viz.json',{cache:'no-cache'})
+.then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+.then(function(V){
+var M=V.meta;
+document.getElementById('metaLine').textContent=M.issues.toLocaleString()+' issues · '+M.papers+' papers · '+M.themes_n+' themes · '+M.range;
+var sel=document.getElementById('townSel');
+sel.innerHTML=M.towns.map(function(t){return '<option value="'+t+'">'+(t==='ALL'?'All towns':t)+'</option>';}).join('');
+var timeChart;
+function buildTime(town){
+  var S=V.series[town];
+  var ds=M.themes.map(function(t){return {label:t.label,data:S[t.key],borderColor:t.color,backgroundColor:t.color,pointRadius:0,pointHitRadius:6,tension:.25,borderWidth:2,spanGaps:false};});
+  if(timeChart){timeChart.data.datasets=ds;timeChart.update();return;}
+  timeChart=new Chart(document.getElementById('cTime'),{type:'line',
+    data:{labels:V.months,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+(c.parsed.y==null?'n/a':c.parsed.y.toFixed(2));}}}},
+      scales:{y:{beginAtZero:true,title:{display:true,text:'hits per page'}},x:{ticks:{maxTicksLimit:14,autoSkip:true}}}}});
+}
+buildTime('ALL'); sel.onchange=function(){buildTime(sel.value);};
+new Chart(document.getElementById('cTotals'),{type:'bar',
+  data:{labels:M.totals.map(function(x){return x.label;}),datasets:[{data:M.totals.map(function(x){return x.hits;}),backgroundColor:M.totals.map(function(x){return x.color;}),borderRadius:3}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x.toLocaleString()+' hits';}}}},
+    scales:{x:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}}}}});
+})
+.catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
+</script>
+<script src="navigation.js?v=12"></script>
+</body></html>
