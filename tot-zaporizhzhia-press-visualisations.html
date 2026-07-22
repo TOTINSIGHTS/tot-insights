@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaporizhzhia occupation press - visualisations - TOT Insights Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+:root{--navy:#111d30;--gold:#c9a84c;--cream:#f2f0ec;--paper:#ffffff;--ink:#1a2536;--muted:#6a7180;--line:#d7d2c7;--hair:#e7e3d9;--serif:"EB Garamond",Georgia,"Times New Roman",serif;--ui:var(--serif);--atroink:#7c2d2d;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+a{color:var(--navy)}
+.lab{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+.guard{background:#2a1318;color:#eedcdc;font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #48232b}
+.guard .wrap{padding:8px 40px;display:flex;gap:9px;align-items:flex-start}
+.guard b{color:#f0c9c9}.guard .dot{color:var(--gold)}
+.head{padding:40px 0 6px}
+.head h1{font-size:34px;font-weight:600;color:var(--navy);margin:0 0 8px;letter-spacing:.01em}
+.head p{margin:0;max-width:80ch;color:#3f4654;font-size:17px}
+.head .metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:12px 0 0}
+.privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:16px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
+.viz{background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--gold);padding:22px 24px 26px;margin:26px 0}
+.viz h2{font-size:22px;font-weight:600;color:var(--navy);margin:0 0 4px}
+.viz .cap{margin:0 0 16px;color:#4a5160;font-size:15.5px;max-width:92ch}
+.ctl{margin:0 0 12px}
+.ctl select,.ctl input{font-family:var(--ui);font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:8px 11px}
+.chartwrap{position:relative;width:100%}
+footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--navy)}
+.hmscroll{overflow-x:auto}
+.heatmap{display:grid;gap:3px;font-family:var(--ui);min-width:720px}
+.heatmap .hh{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:6px 4px;text-align:center;align-self:end}
+.heatmap .rl{font-size:13px;color:var(--ink);padding:7px 10px 7px 0;text-align:right;white-space:nowrap}
+.heatmap .rl small{color:var(--muted);font-size:11px}
+.heatmap .rl .thin{color:#a23b34}
+.heatmap .cell{padding:8px 6px;text-align:center;font-size:12px;color:var(--navy);font-variant-numeric:tabular-nums;border:1px solid #ece8df}
+.hmnote{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
+@media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
+</style></head><body>
+<div id="site-header"></div>
+<div class="guard"><div class="wrap"><span class="dot">&#9679;</span><div><b>Reading rule.</b> This material is Russian occupation-press output, presented as an object of study and <b>not endorsed</b>. Claims within it are the occupation administration's framing, not verified fact. Counts are keyword frequencies per page; a high count marks editorial emphasis, not truth.</div></div></div>
+<div class="wrap">
+<div class="head">
+  <h1>Zaporizhzhia occupation press: two registers</h1>
+  <p>How the ZaMedia holding divides its work between an official gazette and a flagship newspaper, 2024 to 2026. Companion to the <a href="tot-zaporizhzhia-press-database.html">issue index</a> and the <a href="tot-zaporizhzhia-press-excerpts.html">curated excerpts</a>.</p>
+  <div class="metaline" id="metaLine"></div>
+  <div class="privnote">Public-safe derived layer. Charts are built from keyword counts and issue metadata; the newspaper PDFs and full text are not published. ZaMedia asserts copyright over its content, so only derived counts appear here.</div>
+</div>
+
+<section class="viz"><h2>1. The division of labour</h2>
+  <p class="cap">Mean keyword hits per page for each theme, by masthead. This is the central finding: Запорожская правда carries the legal-administrative load, Запорожский вестник carries the persuasion. Normalised per page, so the different issue counts do not distort it.</p>
+  <div class="chartwrap" style="height:430px"><canvas id="cSplit" role="img" aria-label="Grouped bar chart of theme intensity by masthead."></canvas></div></section>
+
+<section class="viz"><h2>2. Theme intensity over time</h2>
+  <p class="cap">Mean hits per page by month. Choose a masthead. Gaps mark months with no issues collected; the gazette's line stops in February 2025, when official publication moved to a network edition.</p>
+  <div class="ctl"><span class="lab">Masthead</span>&nbsp; <select id="mastSel"></select></div>
+  <div class="chartwrap" style="height:400px"><canvas id="cTime" role="img" aria-label="Line chart of theme intensity by month."></canvas></div></section>
+
+<section class="viz"><h2>3. Themes by municipality</h2>
+  <p class="cap">The gazette is issued as separate per-municipality editions, so the same masthead can be compared town by town. Cell = mean hits per page. Darker is denser.</p>
+  <div class="hmscroll"><div id="heatmap" class="heatmap"></div></div>
+  <div class="hmnote">Based on the 26 gazette issues only. Municipalities marked in red have just one or two issues collected, so their row is indicative, not robust.</div></section>
+
+<section class="viz"><h2>4. Issues collected per month</h2>
+  <p class="cap">Both mastheads. The gazette's contribution ends after February 2025; the flagship continues weekly to July 2026.</p>
+  <div class="chartwrap" style="height:300px"><canvas id="cMonths" role="img" aria-label="Bar chart of issues per month by masthead."></canvas></div></section>
+
+<footer>Public-safe derived layer &middot; 145 issues, 1,212 pages, two mastheads, 2024-02-01 to 2026-07-15 &middot; source: ZaMedia (za-media.ru) public PDF archive &middot; derived counts and metadata only, no article text. &nbsp;<a href="tot-zaporizhzhia-press-visualisations.html">Visualisations</a> &middot; <a href="tot-zaporizhzhia-press-database.html">Issue index</a> &middot; <a href="tot-zaporizhzhia-press-excerpts.html">Excerpts</a></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="assets/js/chart-defaults.js?v=8"></script>
+<script>
+fetch('data/zaporizhzhia-press/zaporizhzhia-press-viz.json',{cache:'no-cache'})
+.then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+.then(function(V){
+var M=V.meta;
+document.getElementById('metaLine').textContent=M.issues+' issues · '+M.pages.toLocaleString()+' pages · 2 mastheads · '+M.themes.length+' themes · '+M.range;
+/* 1. masthead split */
+new Chart(document.getElementById('cSplit'),{type:'bar',
+  data:{labels:M.themes.map(function(t){return t.label;}),
+    datasets:M.mastheads.map(function(m){return {label:m,data:M.themes.map(function(t){return V.split[m][t.key];}),backgroundColor:M.mast_colors[m]||'#626873',borderWidth:0};})},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.x.toFixed(2)+' hits/page';}}}},
+    scales:{x:{beginAtZero:true,title:{display:true,text:'mean hits per page'}}}}});
+/* 2. time series */
+var sel=document.getElementById('mastSel');
+sel.innerHTML=M.mastheads.map(function(m){return '<option value="'+m+'">'+m+'</option>';}).join('');
+var tc;
+function buildTime(m){
+  var S=V.series[m];
+  var ds=M.themes.map(function(t){return {label:t.label,data:S[t.key],borderColor:t.color,backgroundColor:t.color,pointRadius:0,pointHitRadius:6,tension:.25,borderWidth:2,spanGaps:false};});
+  if(tc){tc.data.datasets=ds;tc.update();return;}
+  tc=new Chart(document.getElementById('cTime'),{type:'line',data:{labels:V.months,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+(c.parsed.y==null?'n/a':c.parsed.y.toFixed(2));}}}},
+      scales:{y:{beginAtZero:true,title:{display:true,text:'hits per page'}},x:{ticks:{maxTicksLimit:12,autoSkip:true}}}}});
+}
+buildTime(M.mastheads[0]); sel.onchange=function(){buildTime(sel.value);};
+/* 3. municipality heatmap */
+(function(){
+  var mu=V.muni, ths=M.themes, host=document.getElementById('heatmap'), mx=0;
+  mu.list.forEach(function(p){ths.forEach(function(t){var v=mu.values[p.name][t.key]||0;if(v>mx)mx=v;});});
+  mx=mx||1;
+  host.style.gridTemplateColumns='minmax(190px,1.5fr) repeat('+ths.length+',1fr)';
+  var html='<div></div>'+ths.map(function(t){return '<div class="hh">'+t.short+'</div>';}).join('');
+  mu.list.forEach(function(p){
+    var thin=p.issues<=2?' class="thin"':'';
+    html+='<div class="rl">'+p.name+' <small'+thin+'>('+p.issues+')</small></div>';
+    ths.forEach(function(t){
+      var v=mu.values[p.name][t.key]||0, a=Math.max(0.04,v/mx);
+      html+='<div class="cell" style="background:rgba(201,168,76,'+a.toFixed(3)+')" title="'+p.name+' · '+t.label+': '+v.toFixed(2)+' hits/page">'+v.toFixed(1)+'</div>';
+    });
+  });
+  host.innerHTML=html;
+})();
+/* 4. issues per month */
+new Chart(document.getElementById('cMonths'),{type:'bar',
+  data:{labels:V.months,datasets:M.mastheads.map(function(m){return {label:m,data:V.counts[m],backgroundColor:M.mast_colors[m]||'#626873'};})},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'}},
+    scales:{x:{stacked:true,ticks:{maxTicksLimit:12,autoSkip:true}},y:{stacked:true,beginAtZero:true}}}});
+})
+.catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
+</script>
+<script src="navigation.js?v=12"></script>
+</body></html>
