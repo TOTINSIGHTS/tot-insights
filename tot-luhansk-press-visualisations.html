@@ -29,7 +29,13 @@ a{color:var(--navy)}
 .chartwrap{position:relative;width:100%}
 footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:30px}
 footer a{color:var(--navy)}
-
+.hmscroll{overflow-x:auto}
+.heatmap{display:grid;gap:3px;font-family:var(--ui);min-width:680px}
+.heatmap .hh{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:6px 4px;text-align:center;align-self:end}
+.heatmap .rl{font-size:13px;color:var(--ink);padding:7px 10px 7px 0;text-align:right;white-space:nowrap}
+.heatmap .rl small{color:var(--muted);font-size:11px}
+.heatmap .cell{padding:8px 6px;text-align:center;font-size:12px;color:var(--navy);font-variant-numeric:tabular-nums;border:1px solid #ece8df}
+.hmnote{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
 @media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
 </style></head><body>
 <div id="site-header"></div>
@@ -50,6 +56,13 @@ footer a{color:var(--navy)}
 <section class="viz"><h2>2. Theme share across the whole corpus</h2>
   <p class="cap">Total keyword hits per theme across all 1,102 issues. Loyalty-to-Moscow dwarfs every other theme.</p>
   <div class="chartwrap" style="height:360px"><canvas id="cTotals" role="img" aria-label="Bar chart of total keyword hits per theme."></canvas></div></section>
+<section class="viz"><h2>3. Themes by publication</h2>
+  <p class="cap">Mean keyword hits per page for each theme, paper by paper. Darker means the theme runs denser in that paper. Sorted by number of issues collected; hover a cell for the exact figure.</p>
+  <div class="hmscroll"><div id="heatmap" class="heatmap"></div></div>
+  <div class="hmnote">Cell = mean hits per page across that paper&rsquo;s issues. The strong, near-uniform Loyalty column is the point: the same priorities in every town.</div></section>
+<section class="viz"><h2>4. Issues collected over time</h2>
+  <p class="cap">Number of issues per month across all papers. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it; recent months are what the site still hosts.</p>
+  <div class="chartwrap" style="height:300px"><canvas id="cMonths" role="img" aria-label="Bar chart of issues collected per month."></canvas></div></section>
 <footer>Public-safe derived layer &middot; 1,102 issues, 23 papers, 2023-03 &ndash; 2026-07 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; derived counts only, no article text. &nbsp;<a href="tot-luhansk-press-excerpts.html">Curated excerpts &rarr;</a></footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -79,6 +92,29 @@ new Chart(document.getElementById('cTotals'),{type:'bar',
   options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.x.toLocaleString()+' hits';}}}},
     scales:{x:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}}}}});
+/* 3. Themes by publication (heatmap) */
+(function(){
+  var H=V.heatmap, ths=M.themes, host=document.getElementById('heatmap');
+  var mx=0; H.papers.forEach(function(p){ths.forEach(function(t){var v=H.values[p.name][t.key]||0;if(v>mx)mx=v;});});
+  mx=mx||1;
+  host.style.gridTemplateColumns='minmax(180px,1.6fr) repeat('+ths.length+',1fr)';
+  var html='<div></div>'+ths.map(function(t){return '<div class="hh">'+t.short+'</div>';}).join('');
+  H.papers.forEach(function(p){
+    var town=p.town?(' <small>'+p.town+'</small>'):'';
+    html+='<div class="rl">'+p.name+town+'</div>';
+    ths.forEach(function(t){
+      var v=H.values[p.name][t.key]||0, a=Math.max(0.04,v/mx);
+      html+='<div class="cell" style="background:rgba(201,168,76,'+a.toFixed(3)+')" title="'+p.name+' · '+t.label+': '+v.toFixed(2)+' hits/page">'+v.toFixed(1)+'</div>';
+    });
+  });
+  host.innerHTML=html;
+})();
+/* 4. Issues collected per month */
+new Chart(document.getElementById('cMonths'),{type:'bar',
+  data:{labels:V.months,datasets:[{data:V.counts.ALL,backgroundColor:'#4a5160',borderRadius:2}]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y+' issue'+(c.parsed.y===1?'':'s');}}}},
+    scales:{y:{beginAtZero:true},x:{ticks:{maxTicksLimit:14,autoSkip:true}}}}});
 })
 .catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
 </script>
