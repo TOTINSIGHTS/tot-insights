@@ -36,6 +36,9 @@ footer a{color:var(--navy)}
 .heatmap .rl small{color:var(--muted);font-size:11px}
 .heatmap .cell{padding:8px 6px;text-align:center;font-size:12px;color:var(--navy);font-variant-numeric:tabular-nums;border:1px solid #ece8df}
 .hmnote{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:10px}
+.slopewrap{overflow-x:auto}
+.slopekey{font-family:var(--ui);font-size:12px;color:var(--muted);margin-top:8px}
+.slopekey b{font-weight:600}
 @media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
 </style></head><body>
 <div id="site-header"></div>
@@ -63,6 +66,13 @@ footer a{color:var(--navy)}
 <section class="viz"><h2>4. Issues collected over time</h2>
   <p class="cap">Number of issues per month across all papers. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it; recent months are what the site still hosts.</p>
   <div class="chartwrap" style="height:300px"><canvas id="cMonths" role="img" aria-label="Bar chart of issues collected per month."></canvas></div></section>
+<section class="viz"><h2>5. Theme mix by publication</h2>
+  <p class="cap">Each paper&rsquo;s coverage as a share of its own theme keywords (100% stacked). This shows composition, not volume: what each paper spends its column-inches on. The mix is strikingly similar paper to paper.</p>
+  <div class="chartwrap" style="height:680px"><canvas id="cMix" role="img" aria-label="100 percent stacked bar of theme mix per paper."></canvas></div></section>
+<section class="viz"><h2>6. Rising vs falling themes</h2>
+  <p class="cap">How each theme&rsquo;s intensity (mean hits per page) shifted from 2024 to 2026. Green climbed, red faded.</p>
+  <div class="slopewrap"><div id="slope"></div></div>
+  <div class="slopekey"><b>2024</b> on the left, <b>2026</b> on the right; each line is one theme, numbers are mean hits per page.</div></section>
 <footer>Public-safe derived layer &middot; 1,102 issues, 23 papers, 2023-03 &ndash; 2026-07 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; derived counts only, no article text. &nbsp;<a href="tot-luhansk-press-excerpts.html">Curated excerpts &rarr;</a></footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -115,6 +125,33 @@ new Chart(document.getElementById('cMonths'),{type:'bar',
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return c.parsed.y+' issue'+(c.parsed.y===1?'':'s');}}}},
     scales:{y:{beginAtZero:true},x:{ticks:{maxTicksLimit:14,autoSkip:true}}}}});
+/* 5. Theme mix by publication (100% stacked bar) */
+new Chart(document.getElementById('cMix'),{type:'bar',
+  data:{labels:V.mix.papers,datasets:M.themes.map(function(t){return {label:t.label,data:V.mix.papers.map(function(p){return V.mix.pct[p][t.key];}),backgroundColor:t.color,borderWidth:0};})},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.x.toFixed(1)+'%';}}}},
+    scales:{x:{stacked:true,max:100,ticks:{callback:function(v){return v+'%';}}},y:{stacked:true,ticks:{font:{size:11}}}}}});
+/* 6. Rising vs falling themes (SVG slope) */
+(function(){
+  var R=V.slope, GREEN='#3f7d5a', RED='#a23b34';
+  var W=680,H=430,padL=250,padR=250,padT=28,padB=28;
+  var maxV=(Math.max.apply(null,R.rows.map(function(r){return Math.max(r.a,r.b);}))*1.08)||1;
+  var y=function(v){return padT+(H-padT-padB)*(1-v/maxV);}, xL=padL, xR=W-padR;
+  function declut(vals){var mn=16,s=vals.map(function(v,i){return {i:i,y:v};}).sort(function(a,b){return a.y-b.y;});
+    for(var k=1;k<s.length;k++){if(s[k].y-s[k-1].y<mn)s[k].y=s[k-1].y+mn;}
+    var o=[]; s.forEach(function(z){o[z.i]=z.y;}); return o;}
+  var ly=declut(R.rows.map(function(r){return y(r.a);})), ry=declut(R.rows.map(function(r){return y(r.b);}));
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="max-width:'+W+'px;font-family:var(--serif)" role="img" aria-label="Slope chart of theme intensity change 2024 to 2026">';
+  s+='<line x1="'+xL+'" y1="'+padT+'" x2="'+xL+'" y2="'+(H-padB)+'" stroke="#e7e3d9"/><line x1="'+xR+'" y1="'+padT+'" x2="'+xR+'" y2="'+(H-padB)+'" stroke="#e7e3d9"/>';
+  R.rows.forEach(function(r,i){
+    var col=(r.b>=r.a)?GREEN:RED;
+    s+='<line x1="'+xL+'" y1="'+y(r.a)+'" x2="'+xR+'" y2="'+y(r.b)+'" stroke="'+col+'" stroke-width="2" opacity="0.85"/>';
+    s+='<circle cx="'+xL+'" cy="'+y(r.a)+'" r="3.5" fill="'+col+'"/><circle cx="'+xR+'" cy="'+y(r.b)+'" r="3.5" fill="'+col+'"/>';
+    s+='<text x="'+(xL-10)+'" y="'+(ly[i]+4)+'" text-anchor="end" font-size="13" fill="#1a2536">'+r.label+' <tspan fill="#6a7180">'+r.a.toFixed(2)+'</tspan></text>';
+    s+='<text x="'+(xR+10)+'" y="'+(ry[i]+4)+'" text-anchor="start" font-size="13" fill="#1a2536"><tspan fill="#6a7180">'+r.b.toFixed(2)+'</tspan> '+r.label+'</text>';
+  });
+  s+='</svg>'; document.getElementById('slope').innerHTML=s;
+})();
 })
 .catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
 </script>
