@@ -1,4 +1,4 @@
-id,title_ru,title_translit,town_uk,raion_or_area,holding,type,status,merged_into,notes,confidence,source
+﻿id,title_ru,title_translit,town_uk,raion_or_area,holding,type,status,merged_into,notes,confidence,source
 LH-001,Жизнь Луганска,Zhizn Luganska,Luhansk,Luhansk city,Luganmedia,Regional flagship,Active,,Holding's flagship city weekly,High,Detector Media 2025-03-10
 LH-002,Вестник Северодонецка,Vestnik Severodonetska,Sievierodonetsk,Sievierodonetsk,Luganmedia,Town weekly,Active,,Now also carries Lysychansk / Rubizhne / Kreminna coverage,High,Detector Media 2025-03-10
 LH-003,Антрацитовский вестник,Antratsitovskiy vestnik,Antratsyt,Antratsyt,Luganmedia,Town weekly,Active,,Area occupied since 2014,High,Detector Media 2025-03-10
