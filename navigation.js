@@ -15,7 +15,8 @@
           '.csns-mark{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;line-height:1;text-decoration:none;flex-shrink:0;opacity:0.9;}' +
           '.csns-mark img{height:25px;width:auto;display:block;}' +
           '.csns-mark .csns-label{font-family:var(--font-mono,\'IBM Plex Mono\',monospace);font-size:9px;font-weight:600;letter-spacing:0.18em;color:var(--navy,#111d30);padding-left:0.18em;}' +
-          '@media (max-width:900px){.csns-mark{display:none;}}' +
+          '.crsw-mark{height:42px;width:auto;display:block;flex-shrink:0;opacity:0.9;}' +
+          '@media (max-width:900px){.csns-mark,.crsw-mark{display:none;}}' +
           '.header-nav a.nav-subscribe{background:#c9a84c;color:var(--navy,#111d30);padding:7px 16px;border-radius:3px;font-weight:600;flex-shrink:0;white-space:nowrap;transition:background 0.15s,color 0.15s;}' +
           '.header-nav a.nav-subscribe:hover,.header-nav a.nav-subscribe:focus-visible{background:#b8963a;color:var(--navy,#111d30);}' +
         '</style>' +
@@ -30,6 +31,7 @@
                 '<img src="' + p + 'assets/logos/csns-globe.png" alt="Centre for Statecraft and National Security, King&#39;s College London">' +
                 '<span class="csns-label">CSNS</span>' +
               '</span>' +
+              '<img class="crsw-mark" src="' + p + 'assets/logos/crsw-logo-dark.png" alt="Leverhulme Centre for Research on Slavery in War" title="Leverhulme Centre for Research on Slavery in War">' +
             '</div>' +
             '<nav class="header-nav">' +
               '<a href="' + p + 'index.html" data-nav="home">Home</a>' +

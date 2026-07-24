@@ -65,23 +65,19 @@ footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:
   <p class="cap">Within each region's coverage, the share of posts touching each theme. Darker cells mean the theme is more prominent in that region. Reveals where, for example, militarisation or governance content concentrates.</p>
   <div class="chartwrap"><div class="hmscroll"><div id="heatmap" class="heatmap"></div></div><div class="hmnote">Cell = share of that region's posts tagged with the theme (posts are multi-tag).</div></div></section>
 
-<section class="viz"><h2>3. Regions mentioned over time</h2>
-  <p class="cap">Number of posts mentioning each occupied region, by quarter. Shows which regions Russian media foregrounds and how attention shifts.</p>
-  <div class="chartwrap" style="height:360px"><canvas id="c3" role="img" aria-label="Line chart of posts mentioning each region by quarter."></canvas></div></section>
-
-<section class="viz"><h2>4. The loudest channels</h2>
+<section class="viz"><h2>3. The loudest channels</h2>
   <p class="cap">The fifteen channels posting most across the year, by number of posts. Out of 352 channels, a handful carry much of the volume.</p>
   <div class="chartwrap" style="height:470px"><canvas id="c4" role="img" aria-label="Horizontal bar chart of the top fifteen channels by post count."></canvas></div></section>
 
-<section class="viz"><h2>5. Coverage over time</h2>
+<section class="viz"><h2>4. Coverage over time</h2>
   <p class="cap">Posts per month across the year. A broadly steady drumbeat of coverage, rising to a peak in June 2026.</p>
   <div class="chartwrap" style="height:340px"><canvas id="c5" role="img" aria-label="Area chart of posts per month."></canvas></div></section>
 
-<section class="viz"><h2>6. Most-featured named figures</h2>
+<section class="viz"><h2>5. Most-featured named figures</h2>
   <p class="cap">Public figures appearing most often as an on-record speaker (officials, TV hosts, milbloggers), from the posts with a named speaker. One weather-broadcast presenter, whose forecasts were captured by the monitoring, is excluded as not an occupation-narrative figure.</p>
   <div class="chartwrap" style="height:470px"><canvas id="c6" role="img" aria-label="Horizontal bar chart of the top fifteen named figures by post count."></canvas></div></section>
 
-<section class="viz"><h2>7. Rising vs falling themes</h2>
+<section class="viz"><h2>6. Rising vs falling themes</h2>
   <p class="cap">How each theme's share of coverage changed from the first quarter (Q3 2025) to the last (Q2 2026). Green climbed, red faded.</p>
   <div class="slopewrap"><div id="slope"></div></div></section>
 
@@ -129,18 +125,6 @@ var totalPlugin={}; // reserved
     });
   });
   host.innerHTML=html;
-})();
-
-/* 3. Regions over time (lines) */
-(function(){
-  var byRegion={}; V.regionQuarter.forEach(function(x){(byRegion[x.region]=byRegion[x.region]||{})[x.quarter]=x.count;});
-  var ds=REGIONS.map(function(r,i){return {label:r,data:Q.map(function(q){return byRegion[r]?byRegion[r][q]:0;}),
-    borderColor:REGION_C[i],backgroundColor:REGION_C[i],pointBackgroundColor:REGION_C[i],pointRadius:3,tension:.25,borderWidth:2};});
-  new Chart(document.getElementById('c3'),{type:'line',
-    data:{labels:Q.map(function(q){return QLBL[q];}),datasets:ds},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:function(c){return c.dataset.label+': '+c.parsed.y.toLocaleString()+' posts';}}}},
-      scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v.toLocaleString();}}}}}});
 })();
 
 /* 4. Loudest channels (horizontal bar) */
@@ -208,5 +192,5 @@ var totalPlugin={}; // reserved
 })
 .catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
 </script>
-<script src="navigation.js?v=12"></script>
+<script src="navigation.js?v=14"></script>
 </body></html>
