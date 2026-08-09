@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Occupation Court's Sentencing Record — Occupied Zaporizhzhia — TOT Insights / King’s College London. 300 occupation-court verdicts coded from the court’s own channel; support for Ukraine punished more harshly than murder.">
+<title>The Occupation Court's Sentencing Record — Occupied Zaporizhzhia — TOT Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=9">
+<style>
+  /* ---------- design tokens ---------- */
+    :root{
+    --paper:#f2f0ec; --raised:#f7f5f1; --ink:#2a2a3a; --muted:#6b6b78; --faint:#96938b;
+    --line:#e3e0d9; --surface:#f7f5f1; --surface-2:#ece9e1; --grid:#e0ddd3;
+    --navy:#111d30; --navy-deep:#0a1628; --gold:#c9a84c; --gold-pale:#e8d5a0;
+    --accent:#26405c;
+    --tier-pol:#26405c; --tier-weap:#4a7286; --tier-ord:#95a2ae;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --sans:"EB Garamond",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Consolas,monospace;
+    --wrap:1180px; --read:40rem;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:18px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  .read{max-width:var(--read)}
+  section{padding:clamp(40px,6vw,76px) 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+
+  h1,h2,h3{font-family:var(--serif);font-weight:500;text-wrap:balance;
+    letter-spacing:-.01em;line-height:1.08;margin:0}
+  h2{font-size:clamp(1.5rem,3.2vw,2.15rem);margin-bottom:.5em}
+  h3{font-size:1.18rem;line-height:1.2;margin-bottom:.35em}
+  p{margin:0 0 1.05em}
+  a{color:inherit}
+  strong{font-weight:650}
+  .eyebrow{font-family:var(--mono);text-transform:uppercase;letter-spacing:.16em;
+    font-size:.72rem;color:var(--muted);margin:0 0 1.2em;display:block;border-left:2px solid var(--gold);padding-left:9px}
+  .lead{font-size:1.2rem;line-height:1.55;color:var(--ink)}
+  .muted{color:var(--muted)}
+  .sub{font-size:.9rem;color:var(--muted)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:clamp(38px,6vw,68px)}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.5rem);margin-bottom:.32em;max-width:18ch}
+  .hero .accent{color:var(--accent);text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:3px;text-underline-offset:6px}
+  .hero .dek{max-width:60ch;font-size:1.16rem;color:var(--muted);line-height:1.55}
+  .kicker{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:1.6em}
+  .kicker .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);border:1px solid var(--line);
+    border-radius:2px;padding:4px 8px;background:var(--raised);border-color:var(--gold-pale)}
+
+  /* ---------- stat tiles ---------- */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin:2em 0 0}
+  .tile{background:var(--surface);padding:18px 18px 16px}
+  .tile .n{font-family:var(--serif);font-size:clamp(1.7rem,3.4vw,2.5rem);
+    font-weight:600;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .tile .n.red{color:var(--accent)}
+  .tile .l{font-size:.82rem;color:var(--muted);margin-top:.5em;line-height:1.35}
+  @media(max-width:720px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- chart ---------- */
+  figure{margin:0}
+  .fig-head{margin-bottom:1.1em}
+  .fig-title{font-family:var(--sans);font-weight:650;font-size:1.02rem;margin-bottom:.2em}
+  .chart{width:100%;overflow-x:auto}
+  .barrow{display:grid;grid-template-columns:var(--lab,190px) 1fr;gap:14px;
+    align-items:center;margin:0 0 9px}
+  .barrow .name{font-size:.9rem;text-align:right;line-height:1.15;color:var(--ink)}
+  .barrow .name small{display:block;color:var(--faint);font-size:.74rem;font-family:var(--mono)}
+  .bartrack{position:relative;height:26px;display:flex;align-items:center}
+  .bar{height:22px;border-radius:0 3px 3px 0;transition:width .9s cubic-bezier(.2,.7,.2,1);
+    min-width:2px}
+  .bar-val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.82rem;
+    margin-left:8px;color:var(--ink);white-space:nowrap}
+  @media(max-width:640px){.barrow{--lab:120px;gap:10px}.barrow .name{font-size:.82rem}}
+
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0 0;
+    font-size:.82rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .swatch{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+  /* ---------- callout / method ---------- */
+  .panel{background:var(--surface);border:1px solid var(--line);
+    border-left:3px solid var(--gold);padding:20px 22px;border-radius:2px}
+  .panel h3{font-family:var(--sans);font-size:.95rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7em;color:var(--navy)}
+  .panel ul{margin:0;padding-left:1.1em}
+  .panel li{margin:0 0 .55em;font-size:.95rem;color:var(--ink)}
+  .panel li:last-child{margin-bottom:0}
+
+  .two{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,60px);align-items:start}
+  @media(max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+
+  /* pull number */
+  .pull{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.2rem);
+    line-height:1.2;font-weight:600;margin:.2em 0 .4em}
+  .pull b{color:var(--accent)}
+
+  /* ---------- explorer ---------- */
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .seg button{font-family:var(--mono);font-size:.76rem;letter-spacing:.03em;
+    background:var(--surface);color:var(--muted);border:0;padding:8px 12px;cursor:pointer;
+    border-right:1px solid var(--line)}
+  .seg button:last-child{border-right:0}
+  .seg button[aria-pressed="true"]{background:var(--navy);color:#f4f1e8}
+  .controls input,.controls select{font-family:var(--sans);font-size:.85rem;
+    background:var(--surface);color:var(--ink);border:1px solid var(--line);
+    border-radius:3px;padding:8px 10px}
+  .count{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-left:auto}
+
+  .tablewrap{border:1px solid var(--line);border-radius:2px;overflow:auto;max-height:560px}
+  table{border-collapse:collapse;width:100%;font-size:.85rem}
+  thead th{position:sticky;top:0;background:var(--surface-2);text-align:left;
+    font-family:var(--mono);font-weight:600;font-size:.72rem;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--muted);padding:10px 12px;white-space:nowrap;
+    border-bottom:1px solid var(--line);cursor:pointer;user-select:none}
+  thead th.sortable::after{content:"↕";opacity:.4;margin-left:5px;font-size:.8em}
+  thead th[data-dir="asc"]::after{content:"↑";opacity:1}
+  thead th[data-dir="desc"]::after{content:"↓";opacity:1}
+  tbody td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:hover{background:var(--surface)}
+  td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  td.code{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+  .chip{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.03em;
+    padding:2px 7px;border-radius:2px;white-space:nowrap;border:1px solid transparent}
+  .chip.pol{background:color-mix(in srgb,var(--tier-pol) 16%,transparent);color:var(--tier-pol);
+    border-color:color-mix(in srgb,var(--tier-pol) 35%,transparent)}
+  .chip.weap{background:color-mix(in srgb,var(--tier-weap) 16%,transparent);color:var(--tier-weap);
+    border-color:color-mix(in srgb,var(--tier-weap) 35%,transparent)}
+  .chip.ord{background:color-mix(in srgb,var(--tier-ord) 16%,transparent);color:var(--tier-ord);
+    border-color:color-mix(in srgb,var(--tier-ord) 35%,transparent)}
+
+  /* timeline svg */
+  .spark{width:100%;height:auto;display:block}
+  .tt-tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--paper);
+    font-family:var(--mono);font-size:.72rem;padding:5px 8px;border-radius:3px;
+    opacity:0;transition:opacity .1s;z-index:20;white-space:nowrap}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 66px;color:var(--muted);font-size:.95rem}
+  footer a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--gold);
+    text-decoration-thickness:2px;text-underline-offset:3px}
+  .ri{margin-bottom:22px;max-width:var(--read)}
+  .ri p{margin:0}
+  .meta{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter-spacing:.02em;margin:0}
+  a.src{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-decoration:none;
+    border-bottom:1px dotted var(--faint)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-chrome="footer-only">
+<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#111d30;text-decoration:none;">&#8592; Back</a></div>
+<article>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">TOT Insight Hub · Evidence brief · Occupation courts</span>
+      <div class="kicker">
+        <span class="tag">Source: occupation court press channel</span>
+        <span class="tag">Dec 2024 – Aug 2026</span>
+        <span class="tag">300 criminal cases</span>
+      </div>
+      <h1>In occupied Zaporizhzhia, sending money to Ukraine is punished <span class="accent">more harshly than murder</span>.</h1>
+      <p class="dek">The Russian occupation "regional court" publishes its own verdicts on Telegram. Coded case-by-case, they show a court built for political control: donating to Ukraine, reporting troop positions or posting online draws a median of <strong>14 years</strong> — against <strong>3</strong> for ordinary crime, and <strong>7</strong> even for violent crime.</p>
+
+      <div class="tiles" id="tiles"></div>
+      <p class="sub" style="margin-top:12px">Every figure below is drawn from the occupation authorities' own public announcements — a record of what they <em>claim</em> and how they punish it, not independently verified fact. See <a class="src" href="#method">Method &amp; limitations</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ HERO CHART: inversion ============ -->
+  <section>
+    <div class="wrap">
+      <div class="fig-head read">
+        <h2>The sentencing inversion</h2>
+        <p class="muted">Median custodial sentence by offence type, criminal cases with a clearly stated term. Loyalty to Ukraine is punished on a different scale from crime.</p>
+      </div>
+      <figure>
+        <div class="chart" id="chart-inversion"></div>
+        <div class="legend">
+          <span><i class="swatch" style="background:var(--tier-pol)"></i>Political</span>
+          <span><i class="swatch" style="background:var(--tier-weap)"></i>Weapons &amp; explosives (grey zone)</span>
+          <span><i class="swatch" style="background:var(--tier-ord)"></i>Ordinary crime</span>
+        </div>
+      </figure>
+      <p class="pull read" style="margin-top:1.6em">A resident who donates money to Ukraine is punished <b>roughly twice as harshly</b> as the median convicted murderer in the same court.</p>
+    </div>
+  </section>
+
+  <!-- ============ METHOD (up front for researchers) ============ -->
+  <section>
+    <div class="wrap two">
+      <div class="read">
+        <span class="eyebrow">How to read this</span>
+        <h2>A record of the occupier's own claims</h2>
+        <p>The dataset is built from <strong>1,223 posts</strong> on the court's Telegram channel; 815 carry readable text and 300 are criminal verdicts. Each was coded for charge, articles of the Russian Criminal Code, sentence, place and — where stated — citizenship.</p>
+        <p>This is a documentation exercise, not an endorsement of the charges. "Treason", "espionage" and "sabotage" here are applied to acts that would be lawful civilian behaviour in most of the world: sending money, expressing a view, holding Ukrainian loyalties.</p>
+      </div>
+      <div class="panel">
+        <h3>Read every number as a floor</h3>
+        <ul>
+          <li><strong>Source bias.</strong> Guilt, coerced confessions and the quality of "evidence" cannot be assessed from a press release.</li>
+          <li><strong>A floor, not a census.</strong> ~⅓ of posts (408) are image-only and were discounted; political verdicts are often published as decree images, so the true counts are higher.</li>
+          <li><strong>Conservative coding.</strong> Ambiguous values are excluded from averages; nothing is guessed.</li>
+          <li><strong>Initials only.</strong> No individuals are named; each case links back to the source post by ID.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THREE TIERS ============ -->
+  <section>
+    <div class="wrap">
+      <div class="fig-head read">
+        <span class="eyebrow">The docket</span>
+        <h2>Three tiers of justice</h2>
+        <p class="muted">The 300 criminal cases fall into three bands of severity. Weapons and explosives sit deliberately between the two: in a war zone these often involve front-line materiel, even when charged as ordinary crimes.</p>
+      </div>
+      <div class="two">
+        <figure>
+          <div class="fig-title">Cases by category</div>
+          <div class="chart" id="chart-tiers"></div>
+        </figure>
+        <div class="read">
+          <p>The <strong style="color:var(--tier-ord)">ordinary-crime</strong> docket is unremarkable street crime — theft, traffic, drugs, assault — and is punished mildly; forgery and migration offences are almost never custodial.</p>
+          <p>The <strong style="color:var(--tier-weap)">weapons &amp; explosives</strong> tier is a grey zone worth reading case by case: only a handful explicitly tie the materiel to the front.</p>
+          <p>The <strong style="color:var(--accent)">political</strong> tier — treason, espionage, sabotage, "extremism" — is where the system concentrates its severity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POLITICAL DOCKET ============ -->
+  <section>
+    <div class="wrap">
+      <div class="fig-head read">
+        <span class="eyebrow">Tier 1 · Political</span>
+        <h2>What the "crimes" actually are</h2>
+        <p class="muted">Of 53 distinct political verdicts, the charge is almost always a form of support for Ukraine. The largest single category is simply <strong>sending money</strong>.</p>
+      </div>
+      <div class="two">
+        <figure>
+          <div class="fig-title">Political verdicts by charge</div>
+          <div class="chart" id="chart-political"></div>
+          <p class="sub" style="margin-top:10px">Categories overlap; many defendants carry several articles.</p>
+        </figure>
+        <div class="read">
+          <h3>Sending money → treason</h3>
+          <p>The single largest category — <strong>23 of 53</strong> cases. Typically small transfers through Ukrainian banking apps. Tellingly, <strong>the sentence bears no relation to the amount</strong>: a one-off ~1,000-hryvnia transfer and one of over a million roubles both drew 12 years. The punished act is the loyalty, not the sum.</p>
+          <h3>The citizenship trap</h3>
+          <p><strong>12 of 53</strong> defendants had taken a Russian passport — often to keep a pension or stay in their home — which lets the court charge <em>treason</em> rather than espionage. In all, <strong>20 of 53</strong> carry an explicit Ukraine tie in the text (citizen of Ukraine, naturalised, or born in Ukraine).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORER ============ -->
+  <section>
+    <div class="wrap">
+      <div class="fig-head read">
+        <span class="eyebrow">Explore</span>
+        <h2>The cases</h2>
+        <p class="muted">Every readable criminal verdict, names removed. Filter by tier, search a town, sort by sentence. Each row links to the source post by ID.</p>
+      </div>
+      <div class="controls">
+        <div class="seg" id="tierseg" role="group" aria-label="Filter by tier">
+          <button data-tier="all" aria-pressed="true">All</button>
+          <button data-tier="political">Political</button>
+          <button data-tier="weapons &amp; explosives">Weapons</button>
+          <button data-tier="ordinary">Ordinary</button>
+        </div>
+        <input id="search" type="search" placeholder="Search town…" aria-label="Search town" style="min-width:150px">
+        <label class="sub"><input type="checkbox" id="hidedup"> hide appeal re-announcements</label>
+        <span class="count" id="rowcount"></span>
+      </div>
+      <div class="tablewrap">
+        <table id="tbl">
+          <thead><tr>
+            <th data-key="id" class="sortable">Post</th>
+            <th data-key="date" class="sortable">Date</th>
+            <th data-key="place" class="sortable">Town</th>
+            <th data-key="tier">Tier</th>
+            <th data-key="cat" class="sortable">Category</th>
+            <th data-key="arts">RF articles</th>
+            <th data-key="yrs" class="sortable">Sentence</th>
+            <th data-key="colony">Colony</th>
+            <th data-key="cit" class="sortable">Citizenship</th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <p class="sub" style="margin-top:10px">“Post” is the Telegram message ID within the source channel, for verification against the primary source. Sentences shown in years; blank where non-custodial or not stated.</p>
+    </div>
+  </section>
+
+  <!-- ============ TIMELINE ============ -->
+  <section>
+    <div class="wrap">
+      <div class="fig-head read">
+        <span class="eyebrow">Over time</span>
+        <h2>A steady output</h2>
+        <p class="muted">Criminal verdicts published per month. The channel opened in December 2024 and settled into a routine cadence through 2026.</p>
+      </div>
+      <figure><svg class="spark" id="timeline" viewBox="0 0 1000 240" preserveAspectRatio="none" role="img" aria-label="Criminal cases published per month"></svg></figure>
+    </div>
+  </section>
+
+  <!-- ============ METHOD FULL ============ -->
+  <section id="method">
+    <div class="wrap two">
+      <div class="read">
+        <span class="eyebrow">Method &amp; limitations</span>
+        <h2>How this was built</h2>
+        <p>Posts were parsed from a Telegram Desktop export of the channel. A rule-based script extracted the charge, all cited Criminal-Code articles, sentence length, colony regime, fines, place and citizenship. A case is coded <strong>political</strong> where the charge cites an article Russia uses against pro-Ukrainian conduct (treason 275, espionage 276, sabotage 281, incitement 280, and related), or where the release plainly describes such conduct.</p>
+        <p>Sentence statistics use only clearly stated terms; multi-defendant and ambiguous figures are excluded, not estimated. Appeal confirmations are flagged so a single person is not counted twice. The extraction script and full dataset — with a per-case audit trail — accompany this brief.</p>
+      </div>
+      <div class="panel">
+        <h3>Known caveats</h3>
+        <ul>
+          <li>408 image-only posts were discounted from the analysis; counts are minimums.</li>
+          <li>Citizenship is recorded only when the court states it — "not stated" ≠ Russian.</li>
+          <li>In-absentia trials are under-counted (inconsistent wording).</li>
+          <li>The weapons/explosives tier is a grey zone; read case by case.</li>
+          <li>All content reflects the occupier's claims at the time of publication.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="ri">
+        <span class="eyebrow">Research integrity</span>
+        <p>Corrections are reviewed by the research team and incorporated into the next update. <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Occupation%20Court%20Sentencing%20%28Zaporizhzhia%29&body=Page%20URL%3A%20https%3A//totinsights.org/dashboards/zaporizhzhia_court_sentencing.html%0A%0AError%20or%20correction%3A%0A%0ASource%20or%20evidence%3A%0A">Flag an error or submit a correction →</a></p>
+      </div>
+      <p class="meta">TOT Insights Hub · Data window 6 Dec 2024 – 7 Aug 2026 · August 2026 · DOI to be assigned</p>
+    </div>
+  </footer>
+</article>
+
+<div class="tt-tip" id="tip"></div>
+
+<script>
+/* ============ DATA (names & source text removed at export) ============ */
+const RAW = [{"id": "17", "date": "2024-12-12", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 13.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "56", "date": "2025-02-19", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "62", "date": "2025-02-21", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 19.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 700000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "70", "date": "2025-02-26", "cat": "other", "pol": "NON-POLITICAL", "arts": "221", "yrs": 9.5, "yrs_unclear": false, "colony": "strict-regime", "fine": 300000, "place": "Запорожье", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "84", "date": "2025-03-03", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "109", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "89", "date": "2025-03-05", "cat": "political", "pol": "POLITICAL", "arts": "281.3, 30, 281, 222.1", "yrs": 15.0, "yrs_unclear": false, "colony": "", "fine": 500000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "90", "date": "2025-03-06", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "106", "date": "2025-03-11", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228, 231", "yrs": 3.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "115", "date": "2025-03-14", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "116", "date": "2025-03-14", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "122", "date": "2025-03-19", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "124", "date": "2025-03-20", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "125", "date": "2025-03-20", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "132", "date": "2025-03-25", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "135", "date": "2025-03-26", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "136", "date": "2025-03-27", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 100000, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "137", "date": "2025-03-27", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 1.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "147", "date": "2025-03-31", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 7.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Запорожской", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "152", "date": "2025-04-02", "cat": "environmental", "pol": "NON-POLITICAL", "arts": "256", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "153", "date": "2025-04-03", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 3.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Днепрорудное", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "157", "date": "2025-04-04", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 62500, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "158", "date": "2025-04-04", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "167", "date": "2025-04-07", "cat": "sexual offences", "pol": "NON-POLITICAL", "arts": "131, 132", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Акимовка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "174", "date": "2025-04-08", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "112, 115", "yrs": 2.08, "yrs_unclear": false, "colony": "", "fine": null, "place": "Великая", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "191", "date": "2025-04-10", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 14.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Запорожской", "cit": "", "born_ua": true, "absentia": false, "dup": false}, {"id": "192", "date": "2025-04-11", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "194", "date": "2025-04-11", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 5.0, "yrs_unclear": false, "colony": "general-regime", "fine": 100000, "place": "Днепрорудного", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "202", "date": "2025-04-14", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "203", "date": "2025-04-15", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 200000, "place": "", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "204", "date": "2025-04-15", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158, 285", "yrs": 1.25, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "224", "date": "2025-04-17", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 6.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "225", "date": "2025-04-18", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 80000, "place": "Баку", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "254", "date": "2025-04-24", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 6.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "257", "date": "2025-04-25", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105, 30", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Бежаницкого", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "258", "date": "2025-04-25", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "278", "date": "2025-04-29", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "307", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "283", "date": "2025-05-05", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 2000000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "330", "date": "2025-05-12", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "337", "date": "2025-05-13", "cat": "bribery & official", "pol": "NON-POLITICAL", "arts": "30, 291.2", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "340", "date": "2025-05-15", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 5000, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "368", "date": "2025-05-20", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 222.1", "yrs": 6.5, "yrs_unclear": false, "colony": "", "fine": 50000, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "371", "date": "2025-05-21", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "372", "date": "2025-05-22", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "374", "date": "2025-05-23", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "385", "date": "2025-05-28", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "392", "date": "2025-05-29", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 9.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "399", "date": "2025-05-29", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "403", "date": "2025-05-30", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "411", "date": "2025-06-02", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "109", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "413", "date": "2025-06-04", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "117", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "414", "date": "2025-06-04", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 2.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "416", "date": "2025-06-05", "cat": "political", "pol": "POLITICAL", "arts": "150, 354.1, 329", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "417", "date": "2025-06-06", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "421", "date": "2025-06-09", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "423", "date": "2025-06-10", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "427", "date": "2025-06-11", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "432", "date": "2025-06-16", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "433", "date": "2025-06-17", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "162, 167", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "434", "date": "2025-06-17", "cat": "sexual offences", "pol": "NON-POLITICAL", "arts": "134", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "435", "date": "2025-06-18", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Васильевского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "438", "date": "2025-06-19", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 228.1", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "439", "date": "2025-06-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "441", "date": "2025-06-23", "cat": "other", "pol": "NON-POLITICAL", "arts": "242.2", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "442", "date": "2025-06-24", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 120000, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "448", "date": "2025-06-25", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 222.1", "yrs": null, "yrs_unclear": true, "colony": "", "fine": 100000, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "449", "date": "2025-06-26", "cat": "other", "pol": "NON-POLITICAL", "arts": "216", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 55000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "464", "date": "2025-07-01", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "466", "date": "2025-07-03", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "158, 222, 162, 325", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "467", "date": "2025-07-03", "cat": "political", "pol": "POLITICAL", "arts": "280.4", "yrs": 3.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "471", "date": "2025-07-07", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 1.75, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "480", "date": "2025-07-09", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 7.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "481", "date": "2025-07-09", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 2.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "482", "date": "2025-07-09", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "483", "date": "2025-07-10", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "486", "date": "2025-07-11", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105", "yrs": 8.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Запорожской", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "497", "date": "2025-07-15", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "306", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "499", "date": "2025-07-16", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 2.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "500", "date": "2025-07-16", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 222.1", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": 350000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "501", "date": "2025-07-17", "cat": "other", "pol": "NON-POLITICAL", "arts": "243", "yrs": null, "yrs_unclear": true, "colony": "", "fine": 5000000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "516", "date": "2025-07-22", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "318", "yrs": 1.5, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "518", "date": "2025-07-23", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 200000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "521", "date": "2025-07-24", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 4.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "523", "date": "2025-07-24", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105, 132, 131", "yrs": 13.75, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Гражданин", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "524", "date": "2025-07-25", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "527", "date": "2025-07-29", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "164", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "529", "date": "2025-07-30", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 5.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "530", "date": "2025-07-30", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": 10000, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "533", "date": "2025-08-01", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 2.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "540", "date": "2025-08-04", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "546", "date": "2025-08-05", "cat": "political", "pol": "POLITICAL", "arts": "280", "yrs": 1.5, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "547", "date": "2025-08-06", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "548", "date": "2025-08-06", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 1.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "564", "date": "2025-08-11", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Днепровка", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "568", "date": "2025-08-13", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 100000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "569", "date": "2025-08-13", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222", "yrs": 6.0, "yrs_unclear": false, "colony": "", "fine": 5000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "571", "date": "2025-08-15", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "Пологовского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "580", "date": "2025-08-20", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.1, 171.3, 238", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 2000000, "place": "Краснодарского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "581", "date": "2025-08-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "115", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 10000, "place": "Васильевки", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "582", "date": "2025-08-21", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "583", "date": "2025-08-21", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "584", "date": "2025-08-22", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "231", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "588", "date": "2025-08-27", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 2.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "589", "date": "2025-08-28", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "Приморского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "591", "date": "2025-08-29", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Васильевского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "592", "date": "2025-09-01", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 100000, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "593", "date": "2025-09-02", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "115", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 5000, "place": "Васильевки", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "594", "date": "2025-09-02", "cat": "political", "pol": "POLITICAL", "arts": "275, 280", "yrs": 16.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "595", "date": "2025-09-03", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 1.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "596", "date": "2025-09-03", "cat": "political", "pol": "POLITICAL", "arts": "281.3, 281, 276", "yrs": null, "yrs_unclear": true, "colony": "special-regime", "fine": null, "place": "Токмакского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "599", "date": "2025-09-05", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "319", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 40000, "place": "Ростовской", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "601", "date": "2025-09-09", "cat": "political", "pol": "POLITICAL", "arts": "280", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "602", "date": "2025-09-09", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159, 290", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "611", "date": "2025-09-14", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "614", "date": "2025-09-16", "cat": "environmental", "pol": "NON-POLITICAL", "arts": "256", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "615", "date": "2025-09-16", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "312", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 6000, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "618", "date": "2025-09-18", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228.1, 30", "yrs": 12.5, "yrs_unclear": false, "colony": "general-regime", "fine": 250000, "place": "Приазовского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "619", "date": "2025-09-18", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "621", "date": "2025-09-19", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 15.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "623", "date": "2025-09-22", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 3.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "628", "date": "2025-09-24", "cat": "political", "pol": "POLITICAL", "arts": "281.3, 281, 276", "yrs": 21.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "653", "date": "2025-10-01", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "119", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "662", "date": "2025-10-02", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "663", "date": "2025-10-03", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "30, 228, 158", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": 100000, "place": "Московской", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "669", "date": "2025-10-08", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "158, 222, 318", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "670", "date": "2025-10-08", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "Молочанска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "672", "date": "2025-10-09", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228, 231", "yrs": 4.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "676", "date": "2025-10-13", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.2", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 150000, "place": "Каменско", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "683", "date": "2025-10-14", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 15.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "684", "date": "2025-10-14", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "685", "date": "2025-10-15", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 16.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "RF (naturalised); also noted as Ukrainian", "born_ua": false, "absentia": false, "dup": false}, {"id": "687", "date": "2025-10-15", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "689", "date": "2025-10-16", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.0, "yrs_unclear": false, "colony": "general-regime", "fine": 5000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "690", "date": "2025-10-17", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 5.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "691", "date": "2025-10-17", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 200000, "place": "Малая", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "693", "date": "2025-10-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "Пермского", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "694", "date": "2025-10-20", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "Розовка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "695", "date": "2025-10-21", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.2, 222.1, 222, 223", "yrs": 10.5, "yrs_unclear": false, "colony": "strict-regime", "fine": 120000, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "697", "date": "2025-10-21", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "699", "date": "2025-10-22", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 5.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "Вознесенка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "700", "date": "2025-10-23", "cat": "other", "pol": "NON-POLITICAL", "arts": "202, 157", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "702", "date": "2025-10-24", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "306", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 5000, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "704", "date": "2025-10-27", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 222.1", "yrs": 6.17, "yrs_unclear": false, "colony": "general-regime", "fine": 10000, "place": "Новомлиновка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "707", "date": "2025-10-28", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "709", "date": "2025-10-30", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 222.1", "yrs": 6.5, "yrs_unclear": false, "colony": "general-regime", "fine": 10000, "place": "Черниговского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "710", "date": "2025-10-30", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 1.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "711", "date": "2025-10-31", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "166", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "Чапаевка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "712", "date": "2025-11-01", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Кабардино", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "729", "date": "2025-11-13", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "117", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "740", "date": "2025-11-19", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.0, "yrs_unclear": false, "colony": "general-regime", "fine": 20000, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "743", "date": "2025-11-20", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 11.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "747", "date": "2025-11-21", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "748", "date": "2025-11-24", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 16.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "749", "date": "2025-11-24", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.25, "yrs_unclear": false, "colony": "general-regime", "fine": 10000, "place": "Мирного", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "753", "date": "2025-11-25", "cat": "political", "pol": "POLITICAL", "arts": "280, 207.3", "yrs": 5.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Васильевского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "761", "date": "2025-11-27", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 6.5, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "777", "date": "2025-12-03", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 4.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "787", "date": "2025-12-05", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 12.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Приморска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "790", "date": "2025-12-08", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.0, "yrs_unclear": false, "colony": "general-regime", "fine": 10000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "792", "date": "2025-12-09", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "126, 30, 105", "yrs": 10.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "793", "date": "2025-12-10", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 228.1", "yrs": 11.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Константиновки", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "795", "date": "2025-12-10", "cat": "political", "pol": "POLITICAL", "arts": "276, 275", "yrs": 15.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Акимовского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "797", "date": "2025-12-11", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "803", "date": "2025-12-12", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 12.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "808", "date": "2025-12-17", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159, 162", "yrs": 2.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Ульяновска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "813", "date": "2025-12-19", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "826", "date": "2025-12-25", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": null, "yrs_unclear": false, "colony": "strict-regime", "fine": 500000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "827", "date": "2025-12-25", "cat": "bribery & official", "pol": "NON-POLITICAL", "arts": "286", "yrs": 3.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "828", "date": "2025-12-26", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "202, 158, 222.1", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": 30000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "832", "date": "2025-12-30", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "838", "date": "2026-01-16", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "111, 158", "yrs": 4.08, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "839", "date": "2026-01-19", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "840", "date": "2026-01-19", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 228", "yrs": 3.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "842", "date": "2026-01-20", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 2.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "857", "date": "2026-01-23", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "858", "date": "2026-01-24", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "859", "date": "2026-01-26", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "860", "date": "2026-01-26", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": true}, {"id": "861", "date": "2026-01-27", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "210, 159", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "863", "date": "2026-01-28", "cat": "bribery & official", "pol": "NON-POLITICAL", "arts": "30, 291", "yrs": 2.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "874", "date": "2026-01-29", "cat": "political", "pol": "POLITICAL", "arts": "222, 222.1, 222.2, 281, 281.2, 281.3", "yrs": 15.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 1000000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "878", "date": "2026-02-02", "cat": "other", "pol": "NON-POLITICAL", "arts": "201", "yrs": 3.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Республики", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "884", "date": "2026-02-04", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": null, "yrs_unclear": true, "colony": "juvenile colony", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "890", "date": "2026-02-05", "cat": "political", "pol": "POLITICAL", "arts": "222.1, 222.2, 222, 281, 281.3", "yrs": 12.42, "yrs_unclear": false, "colony": "strict-regime", "fine": 1000000, "place": "Запорожья", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "891", "date": "2026-02-05", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 15.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "897", "date": "2026-02-09", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 7.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "898", "date": "2026-02-09", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 100000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "902", "date": "2026-02-10", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 15.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "RF (naturalised); also noted as Ukrainian", "born_ua": false, "absentia": false, "dup": false}, {"id": "912", "date": "2026-02-12", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "916", "date": "2026-02-13", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 2.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "917", "date": "2026-02-13", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 2.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "921", "date": "2026-02-18", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "223, 222, 222.1, 222.2", "yrs": 10.5, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Бердянского", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": true}, {"id": "923", "date": "2026-02-19", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "318", "yrs": 1.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "924", "date": "2026-02-19", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "158, 166, 131, 132, 159, 222, 222.1", "yrs": 10.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "928", "date": "2026-02-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 4.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "939", "date": "2026-02-25", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": 100000, "place": "Черниговского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "940", "date": "2026-02-26", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 2.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "947", "date": "2026-02-27", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.4", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 50000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "951", "date": "2026-03-03", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 5.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "Вознесенки", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "953", "date": "2026-03-04", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 2.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "959", "date": "2026-03-05", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105, 119", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "960", "date": "2026-03-05", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 11.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Запорожской", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "962", "date": "2026-03-06", "cat": "political", "pol": "POLITICAL", "arts": "276.1", "yrs": 10.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Азовское", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "966", "date": "2026-03-11", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "968", "date": "2026-03-11", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 13.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": true}, {"id": "970", "date": "2026-03-12", "cat": "political", "pol": "POLITICAL", "arts": "281.3, 281, 276", "yrs": null, "yrs_unclear": true, "colony": "special-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "976", "date": "2026-03-13", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222, 105, 109", "yrs": 7.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "977", "date": "2026-03-16", "cat": "other", "pol": "NON-POLITICAL", "arts": "157", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "978", "date": "2026-03-16", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "982", "date": "2026-03-18", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.3", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "983", "date": "2026-03-19", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "987", "date": "2026-03-23", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159, 264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 15000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "989", "date": "2026-03-24", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "187", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "990", "date": "2026-03-24", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 1.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "995", "date": "2026-03-26", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "Токмакского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "997", "date": "2026-03-27", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 2.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "999", "date": "2026-03-30", "cat": "political", "pol": "POLITICAL", "arts": "280", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1001", "date": "2026-03-31", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "160", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1006", "date": "2026-04-02", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 6.5, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1012", "date": "2026-04-07", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 228.1", "yrs": 6.5, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1013", "date": "2026-04-07", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 4.0, "yrs_unclear": false, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1014", "date": "2026-04-08", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "166", "yrs": 3.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Куйбышевского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1018", "date": "2026-04-10", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 13.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "1019", "date": "2026-04-10", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 12.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Токмака", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1034", "date": "2026-04-14", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1035", "date": "2026-04-14", "cat": "bribery & official", "pol": "NON-POLITICAL", "arts": "30, 291.2", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 40000, "place": "Приморска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1036", "date": "2026-04-15", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 14.75, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Запорожской", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "1039", "date": "2026-04-16", "cat": "political", "pol": "POLITICAL", "arts": "", "yrs": 13.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": true}, {"id": "1042", "date": "2026-04-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 4.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1043", "date": "2026-04-20", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 1.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1051", "date": "2026-04-21", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1052", "date": "2026-04-22", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1054", "date": "2026-04-23", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Энергодара", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1055", "date": "2026-04-23", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "1057", "date": "2026-04-24", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228.1, 30, 228", "yrs": 10.08, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1061", "date": "2026-04-27", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мурманской", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1062", "date": "2026-04-27", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 80000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1068", "date": "2026-04-28", "cat": "political", "pol": "POLITICAL", "arts": "281.3, 222.1", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": 500000, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1069", "date": "2026-04-29", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 10.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 500000, "place": "Кирилловка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1071", "date": "2026-04-30", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 100000, "place": "Михайловки", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1077", "date": "2026-05-04", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228", "yrs": 8.5, "yrs_unclear": false, "colony": "strict-regime", "fine": 6000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1078", "date": "2026-05-04", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 7.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1081", "date": "2026-05-05", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "119", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "Приморска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1083", "date": "2026-05-06", "cat": "against justice/authority", "pol": "NON-POLITICAL", "arts": "306", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мирного", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1084", "date": "2026-05-06", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "171.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 120000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1085", "date": "2026-05-06", "cat": "other", "pol": "NON-POLITICAL", "arts": "236", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1086", "date": "2026-05-07", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "327", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Радивоновка", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "1114", "date": "2026-05-14", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "105, 119", "yrs": 10.08, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1115", "date": "2026-05-15", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 8.5, "yrs_unclear": false, "colony": "strict-regime", "fine": 130000, "place": "Куйбышево", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1136", "date": "2026-05-20", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 8.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1137", "date": "2026-05-20", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 3.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "Широкое", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1138", "date": "2026-05-21", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "322.2", "yrs": 1.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянского", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}, {"id": "1143", "date": "2026-05-25", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "30, 105", "yrs": 8.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Михайловского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1144", "date": "2026-05-25", "cat": "other", "pol": "NON-POLITICAL", "arts": "156", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1145", "date": "2026-05-26", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 291, 228", "yrs": 3.75, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1147", "date": "2026-05-26", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 13.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1149", "date": "2026-05-27", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 14.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Бердянского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1151", "date": "2026-05-28", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1157", "date": "2026-06-01", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 8.0, "yrs_unclear": false, "colony": "strict-regime", "fine": 100000, "place": "Спасское", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1159", "date": "2026-06-02", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 30000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1161", "date": "2026-06-03", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1162", "date": "2026-06-03", "cat": "other", "pol": "NON-POLITICAL", "arts": "194", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 120000, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1163", "date": "2026-06-04", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 1.5, "yrs_unclear": false, "colony": "juvenile colony", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1164", "date": "2026-06-04", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222", "yrs": 5.0, "yrs_unclear": false, "colony": "general-regime", "fine": 20000, "place": "Черниговского", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1178", "date": "2026-06-11", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 1.67, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1179", "date": "2026-06-15", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1181", "date": "2026-06-16", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": 2.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1183", "date": "2026-06-17", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "119", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1186", "date": "2026-06-18", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 13.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1189", "date": "2026-06-22", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "111", "yrs": 6.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1196", "date": "2026-06-23", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264.1, 30, 291.2", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1203", "date": "2026-06-25", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.1", "yrs": 6.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Луганское", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "1204", "date": "2026-06-25", "cat": "political", "pol": "POLITICAL", "arts": "276.1", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "Бердянска", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "1205", "date": "2026-06-26", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "30, 228.1", "yrs": 8.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "Мелитополя", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1206", "date": "2026-06-29", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": 1.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "Кишинева", "cit": "", "born_ua": false, "absentia": true, "dup": false}, {"id": "1208", "date": "2026-06-30", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 1.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Константиновка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1210", "date": "2026-06-30", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1211", "date": "2026-07-01", "cat": "political", "pol": "POLITICAL", "arts": "276", "yrs": 15.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "1212", "date": "2026-07-01", "cat": "environmental", "pol": "NON-POLITICAL", "arts": "256", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Чкалово", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1217", "date": "2026-07-02", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "126, 127, 139, 158", "yrs": 7.5, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1220", "date": "2026-07-06", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": 2.0, "yrs_unclear": false, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1225", "date": "2026-07-07", "cat": "traffic", "pol": "NON-POLITICAL", "arts": "264", "yrs": null, "yrs_unclear": true, "colony": "colony-settlement", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1226", "date": "2026-07-08", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 1.5, "yrs_unclear": false, "colony": "", "fine": null, "place": "Мирное", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1230", "date": "2026-07-10", "cat": "violence against person", "pol": "NON-POLITICAL", "arts": "119", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Розовка", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1234", "date": "2026-07-14", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "158", "yrs": null, "yrs_unclear": false, "colony": "", "fine": 160000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1235", "date": "2026-07-15", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "228.1, 30, 228", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1236", "date": "2026-07-15", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "Запорожской", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1238", "date": "2026-07-16", "cat": "political", "pol": "POLITICAL", "arts": "276, 280", "yrs": 13.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Мелитополя", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1239", "date": "2026-07-17", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": null, "place": "Токмака", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1242", "date": "2026-07-21", "cat": "unclassified (no article)", "pol": "", "arts": "", "yrs": null, "yrs_unclear": true, "colony": "strict-regime", "fine": 520000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1243", "date": "2026-07-21", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "261, 168", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1244", "date": "2026-07-22", "cat": "weapons & explosives", "pol": "NON-POLITICAL", "arts": "222.2", "yrs": 7.0, "yrs_unclear": false, "colony": "general-regime", "fine": 250000, "place": "Высокое", "cit": "", "born_ua": false, "absentia": false, "dup": true}, {"id": "1245", "date": "2026-07-22", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 2.75, "yrs_unclear": false, "colony": "general-regime", "fine": 75000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1246", "date": "2026-07-22", "cat": "political", "pol": "POLITICAL", "arts": "276.1", "yrs": 12.0, "yrs_unclear": false, "colony": "strict-regime", "fine": null, "place": "Приазовского", "cit": "Ukraine", "born_ua": false, "absentia": false, "dup": false}, {"id": "1249", "date": "2026-07-24", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": 50000, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1253", "date": "2026-07-28", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "159", "yrs": 1.5, "yrs_unclear": false, "colony": "juvenile colony", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1256", "date": "2026-07-30", "cat": "theft & property", "pol": "NON-POLITICAL", "arts": "166", "yrs": null, "yrs_unclear": false, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1257", "date": "2026-07-30", "cat": "drugs", "pol": "NON-POLITICAL", "arts": "33, 228", "yrs": null, "yrs_unclear": true, "colony": "general-regime", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1270", "date": "2026-08-06", "cat": "forgery/ID/migration", "pol": "NON-POLITICAL", "arts": "30, 186", "yrs": null, "yrs_unclear": true, "colony": "", "fine": null, "place": "", "cit": "", "born_ua": false, "absentia": false, "dup": false}, {"id": "1271", "date": "2026-08-06", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 14.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Бердянска", "cit": "RF (naturalised)", "born_ua": false, "absentia": false, "dup": false}, {"id": "1272", "date": "2026-08-07", "cat": "political", "pol": "POLITICAL", "arts": "275", "yrs": 12.0, "yrs_unclear": false, "colony": "", "fine": null, "place": "Токмака", "cit": "RF", "born_ua": false, "absentia": false, "dup": false}];
+
+/* ============ helpers ============ */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const tierOf = c => c==="political" ? "political"
+  : c==="weapons & explosives" ? "weapons & explosives" : "ordinary";
+const tierColor = {political:"var(--tier-pol)","weapons & explosives":"var(--tier-weap)",ordinary:"var(--tier-ord)"};
+const CAT_LABEL = {
+  "political":"Political","weapons & explosives":"Weapons & explosives",
+  "theft & property":"Theft & property","violence against person":"Violence (incl. murder)",
+  "traffic":"Traffic","drugs":"Drugs","forgery/ID/migration":"Forgery / ID / migration",
+  "against justice/authority":"Against justice / authority","bribery & official":"Bribery & official",
+  "sexual offences":"Sexual offences","environmental":"Environmental","other":"Other",
+  "unclassified (no article)":"Unclassified"};
+const median = a => { if(!a.length) return null; const s=[...a].sort((x,y)=>x-y),m=s.length>>1;
+  return s.length%2 ? s[m] : (s[m-1]+s[m])/2; };
+const yrsClean = r => (r.yrs!=null && !r.yrs_unclear) ? r.yrs : null;
+
+const rows = RAW.map(r=>({...r, tier: tierOf(r.cat)}));
+const crim = rows;                                   // all rows are criminal
+const distinctPolitical = crim.filter(r=>r.pol==="POLITICAL" && !r.dup);
+
+/* ============ hero tiles ============ */
+(function(){
+  const polYrs = distinctPolitical.map(yrsClean).filter(v=>v!=null);
+  const ordYrs = crim.filter(r=>r.tier==="ordinary").map(yrsClean).filter(v=>v!=null);
+  const t = [
+    {n: crim.length, l:"criminal verdicts coded", red:false},
+    {n: distinctPolitical.length, l:"political cases (treason, espionage, sabotage, speech)", red:true},
+    {n: median(polYrs)+" yrs", l:"median political sentence", red:true},
+    {n: median(ordYrs)+" yrs", l:"median ordinary-crime sentence", red:false},
+  ];
+  $("#tiles").innerHTML = t.map(x=>
+    `<div class="tile"><div class="n ${x.red?'red':''}">${x.n}</div><div class="l">${x.l}</div></div>`).join("");
+})();
+
+/* ============ horizontal bar chart ============ */
+function barChart(el, data, {labelW=190, unit="", fmt=v=>v}={}){
+  const max = Math.max(...data.map(d=>d.value))||1;
+  el.style.setProperty("--lab", labelW+"px");
+  el.innerHTML = data.map(d=>{
+    const w = Math.max(2,(d.value/max)*100);
+    return `<div class="barrow">
+      <div class="name">${d.label}${d.sub?`<small>${d.sub}</small>`:""}</div>
+      <div class="bartrack">
+        <div class="bar" data-tip="${d.tip||d.label+': '+fmt(d.value)+unit}"
+             style="width:0;background:${d.color}"></div>
+        <span class="bar-val">${fmt(d.value)}${unit}</span>
+      </div></div>`;
+  }).join("");
+  // animate widths after paint
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    $$(".bar",el).forEach((b,i)=>{ b.style.width = Math.max(2,(data[i].value/max)*100)+"%"; });
+  }));
+  attachTips(el);
+}
+
+/* ---- inversion chart (median years by category) ---- */
+(function(){
+  const cats = ["political","violence against person","weapons & explosives","drugs",
+    "theft & property","traffic","forgery/ID/migration"];
+  const data = cats.map(c=>{
+    const src = c==="political" ? distinctPolitical : crim.filter(r=>r.cat===c);
+    const m = median(src.map(yrsClean).filter(v=>v!=null));
+    const mr = m?Math.round(m*10)/10:0;
+    return {label:CAT_LABEL[c], value:mr, color:tierColor[tierOf(c)],
+      tip:`${CAT_LABEL[c]} — median ${mr} yrs (n=${src.filter(r=>yrsClean(r)!=null).length})`};
+  }).sort((a,b)=>b.value-a.value);
+  barChart($("#chart-inversion"), data, {unit:" yrs", fmt:v=>v});
+})();
+
+/* ---- tiers chart (case counts) ---- */
+(function(){
+  const order = ["political","theft & property","violence against person","weapons & explosives",
+    "traffic","drugs","forgery/ID/migration","against justice/authority","bribery & official",
+    "sexual offences","environmental","other","unclassified (no article)"];
+  const counts = {};
+  crim.forEach(r=>counts[r.cat]=(counts[r.cat]||0)+1);
+  const data = order.filter(c=>counts[c]).map(c=>({
+    label:CAT_LABEL[c], value:counts[c], color:tierColor[tierOf(c)],
+    tip:`${CAT_LABEL[c]}: ${counts[c]} cases`}));
+  barChart($("#chart-tiers"), data, {labelW:170, unit:"", fmt:v=>v});
+})();
+
+/* ---- political breakdown ---- */
+(function(){
+  const hit = (r,re)=>re.test(r.arts);
+  const defs = [
+    ["Treason (275)", /(^|,\s*)275(\.|,|$|\s)/],
+    ["Espionage (276)", /(^|,\s*)276/],
+    ["Sabotage (281)", /(^|,\s*)281/],
+    ["Incitement / “extremism” (280)", /(^|,\s*)280/],
+  ];
+  const P = distinctPolitical;
+  const data = defs.map(([lab,re])=>({label:lab, value:P.filter(r=>re.test(r.arts)).length,
+    color:"var(--tier-pol)"})).sort((a,b)=>b.value-a.value);
+  barChart($("#chart-political"), data, {labelW:210, fmt:v=>v});
+})();
+
+/* ============ timeline ============ */
+(function(){
+  const by={};
+  crim.forEach(r=>{ const m=(r.date||"").slice(0,7); if(m) by[m]=(by[m]||0)+1; });
+  const keys=Object.keys(by).sort();
+  const pts=keys.map(k=>({k,v:by[k]}));
+  const svg=$("#timeline"), W=1000,H=240,pad=28,padB=34;
+  const max=Math.max(...pts.map(p=>p.v))||1;
+  const x=i=>pad+(i/(pts.length-1))*(W-pad*2);
+  const y=v=>H-padB-(v/max)*(H-pad-padB);
+  let g="";
+  // gridlines
+  [0,.5,1].forEach(f=>{const yy=H-padB-f*(H-pad-padB);
+    g+=`<line x1="${pad}" y1="${yy}" x2="${W-pad}" y2="${yy}" stroke="var(--grid)" stroke-width="1"/>`;
+    g+=`<text x="${pad-6}" y="${yy+4}" text-anchor="end" font-family="var(--mono)" font-size="11" fill="var(--faint)">${Math.round(f*max)}</text>`;});
+  const area=`M ${x(0)} ${H-padB} `+pts.map((p,i)=>`L ${x(i)} ${y(p.v)}`).join(" ")+` L ${x(pts.length-1)} ${H-padB} Z`;
+  const line="M "+pts.map((p,i)=>`${x(i)} ${y(p.v)}`).join(" L ");
+  g+=`<path d="${area}" fill="var(--accent)" opacity=".08"/>`;
+  g+=`<path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>`;
+  pts.forEach((p,i)=>{ if(i%3===0||i===pts.length-1)
+    g+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle" font-family="var(--mono)" font-size="10.5" fill="var(--faint)">${p.k}</text>`;
+    g+=`<circle cx="${x(i)}" cy="${y(p.v)}" r="8" fill="transparent"><title>${p.k}: ${p.v} cases</title></circle>`;
+    g+=`<circle cx="${x(i)}" cy="${y(p.v)}" r="2.5" fill="var(--accent)"/>`;});
+  svg.innerHTML=g;
+})();
+
+/* ============ explorer table ============ */
+const tbody=$("#tbody");
+let state={tier:"all", q:"", hidedup:false, sort:"yrs", dir:"desc"};
+const chipClass = t => t==="political"?"pol":t==="weapons & explosives"?"weap":"ord";
+const tierShort = t => t==="political"?"Political":t==="weapons & explosives"?"Weapons":"Ordinary";
+
+function render(){
+  let d=crim.filter(r=>{
+    if(state.tier!=="all" && r.tier!==state.tier) return false;
+    if(state.hidedup && r.dup) return false;
+    if(state.q && !(r.place||"").toLowerCase().includes(state.q.toLowerCase())) return false;
+    return true;
+  });
+  const k=state.sort, dir=state.dir==="asc"?1:-1;
+  d.sort((a,b)=>{
+    let x=a[k], y=b[k];
+    if(k==="yrs"){ x=yrsClean(a)??-1; y=yrsClean(b)??-1; }
+    if(x==null)x=""; if(y==null)y="";
+    return (x>y?1:x<y?-1:0)*dir;
+  });
+  tbody.innerHTML=d.map(r=>{
+    const yv=yrsClean(r); const yl = yv!=null ? yv : (r.yrs_unclear?"—<span class='sub'> ?</span>":"");
+    return `<tr>
+      <td class="code">#${r.id}</td>
+      <td class="code">${r.date||""}</td>
+      <td>${r.place||""}</td>
+      <td><span class="chip ${chipClass(r.tier)}">${tierShort(r.tier)}</span></td>
+      <td>${CAT_LABEL[r.cat]||r.cat}</td>
+      <td class="code">${r.arts||""}</td>
+      <td class="num">${yl}</td>
+      <td>${(r.colony||"").replace("-regime","")}</td>
+      <td>${r.cit||""}</td>
+    </tr>`;
+  }).join("");
+  $("#rowcount").textContent = d.length+" of "+crim.length+" cases";
+}
+$("#tierseg").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  $$("#tierseg button").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  state.tier=b.dataset.tier; render();
+});
+$("#search").addEventListener("input",e=>{state.q=e.target.value;render();});
+$("#hidedup").addEventListener("change",e=>{state.hidedup=e.target.checked;render();});
+$$("#tbl thead th.sortable").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.key;
+    if(state.sort===k) state.dir=state.dir==="asc"?"desc":"asc";
+    else {state.sort=k; state.dir = k==="yrs"?"desc":"asc";}
+    $$("#tbl thead th").forEach(x=>x.removeAttribute("data-dir"));
+    th.setAttribute("data-dir",state.dir);
+    render();
+  });
+});
+$('#tbl thead th[data-key="yrs"]').setAttribute("data-dir","desc");
+render();
+
+/* ============ tooltips for bars ============ */
+function attachTips(el){
+  const tip=$("#tip");
+  $$(".bar",el).forEach(b=>{
+    b.addEventListener("mousemove",e=>{ tip.textContent=b.dataset.tip;
+      tip.style.opacity=1; tip.style.left=(e.clientX+12)+"px"; tip.style.top=(e.clientY+12)+"px"; });
+    b.addEventListener("mouseleave",()=>tip.style.opacity=0);
+  });
+}
+</script>
+
+<script src="../navigation.js?v=14"></script>
+</body>
+</html>
