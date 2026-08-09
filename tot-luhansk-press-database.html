@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luhansk occupation press - issue index - TOT Insights Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+:root{--navy:#111d30;--gold:#c9a84c;--cream:#f2f0ec;--paper:#ffffff;--ink:#1a2536;--muted:#6a7180;--line:#d7d2c7;--hair:#e7e3d9;--serif:"EB Garamond",Georgia,"Times New Roman",serif;--ui:var(--serif);--atroink:#7c2d2d;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.5}
+.wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+a{color:var(--navy)}
+.lab{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted)}
+.guard{background:#2a1318;color:#eedcdc;font-family:var(--ui);font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #48232b}
+.guard .wrap{padding:8px 40px;display:flex;gap:9px;align-items:flex-start}
+.guard b{color:#f0c9c9}.guard .dot{color:var(--gold)}
+.head{padding:40px 0 6px}
+.head h1{font-size:34px;font-weight:600;color:var(--navy);margin:0 0 8px;letter-spacing:.01em}
+.head p{margin:0;max-width:80ch;color:#3f4654;font-size:17px}
+.head .metaline{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.04em;padding:12px 0 0}
+.privnote{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:16px 0 0;font-size:15px;color:#4a4a44;max-width:100ch}
+.viz{background:var(--paper);border:1px solid var(--hair);border-left:4px solid var(--gold);padding:22px 24px 26px;margin:26px 0}
+.viz h2{font-size:22px;font-weight:600;color:var(--navy);margin:0 0 4px}
+.viz .cap{margin:0 0 16px;color:#4a5160;font-size:15.5px;max-width:92ch}
+.ctl{margin:0 0 12px}
+.ctl select{font-family:var(--ui);font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:8px 11px}
+.chartwrap{position:relative;width:100%}
+footer{font-family:var(--ui);font-size:12.5px;color:var(--muted);letter-spacing:.03em;padding:30px 0 60px;border-top:1px solid var(--line);margin-top:30px}
+footer a{color:var(--navy)}
+table{border-collapse:collapse;width:100%;font-family:var(--ui);font-size:15px;margin-top:10px}
+th,td{border-bottom:1px solid var(--hair);padding:7px 10px;text-align:left;vertical-align:top}
+thead th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);background:var(--paper);position:sticky;top:0;cursor:pointer}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:hover{background:#f7f5f0}
+.tblwrap{max-height:640px;overflow:auto;border:1px solid var(--hair);background:var(--paper)}
+.showing{font-family:var(--ui);font-size:13px;color:var(--muted);padding:8px 0 0}
+.filters{display:flex;flex-wrap:wrap;gap:14px;align-items:end;margin:6px 0 0}
+.filters select,.filters input{font-family:var(--ui);font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:8px 11px}
+.dl{font-family:var(--ui);font-size:12.5px;color:var(--muted);padding:14px 0 0}
+@media(max-width:820px){.wrap{padding:0 20px}.guard .wrap{padding:8px 20px}.viz{padding:18px 16px 20px}.head h1{font-size:27px}}
+</style></head><body>
+<div id="site-header"></div>
+
+<div class="guard"><div class="wrap"><span class="dot">&#9679;</span><div><b>Reading rule.</b> This index records what the Luhansk occupation press published and where each file came from. It contains issue metadata only, no article text, and does not endorse the content.</div></div></div>
+<div class="wrap">
+<div class="head">
+  <h1>Luhansk occupation press: issue index</h1>
+  <p>Every issue collected from the Luganmedia archive, with paper, town, date, page count and source link. Companion to the <a href="tot-luhansk-press-visualisations.html">theme visualisations</a> and <a href="tot-luhansk-press-excerpts.html">curated excerpts</a>.</p>
+  <div class="metaline" id="metaLine"></div>
+  <div class="privnote">Public-safe derived layer. Issue metadata only; the PDFs and full text are held in the private research hub. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it from its own site.</div>
+  <div class="filters">
+    <div><span class="lab">Paper</span><br><select id="fPap"><option value="">All</option></select></div>
+    <div><span class="lab">Town</span><br><select id="fTown"><option value="">All</option></select></div>
+    <div><span class="lab">Search</span><br><input id="fText" type="search" placeholder="paper, town, date"></div>
+  </div>
+  <div class="showing" id="showing"></div>
+  <div class="dl">Download: <a href="data/luhansk-press/issues_public.csv" download>issue index</a> &middot; <a href="data/luhansk-press/titles_public.csv" download>catalogue</a> &middot; <a href="data/luhansk-press/theme_frequency.csv" download>theme counts</a> (CSV)</div>
+</div>
+<div class="tblwrap"><table id="tbl"><thead><tr>
+  <th data-k="m">Paper</th><th data-k="t">Town</th><th data-k="d">Date</th><th data-k="p">Pages</th><th>Source</th>
+</tr></thead><tbody id="tb"></tbody></table></div>
+<footer>Public-safe derived layer &middot; 1,102 issues, 23 papers, 2023-03 &ndash; 2026-07 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; metadata only, no article text. &nbsp;<a href="tot-luhansk-press-visualisations.html">Theme visualisations</a> &middot; <a href="tot-luhansk-press-excerpts.html">Curated excerpts</a></footer>
+</div>
+<script>
+fetch('data/luhansk-press/luhansk-press-viz.json',{cache:'no-cache'})
+.then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(function(V){
+var rows=V.issues, M=V.meta;
+document.getElementById('metaLine').textContent=M.issues.toLocaleString()+' issues · '+M.papers+' papers · '+M.range;
+var fp=document.getElementById('fPap'), ftw=document.getElementById('fTown'), ft=document.getElementById('fText');
+var ps={},ts={};
+rows.forEach(function(r){ if(r.m)ps[r.m]=1; if(r.t)ts[r.t]=1; });
+Object.keys(ps).sort().forEach(function(p){fp.innerHTML+='<option>'+p+'</option>';});
+Object.keys(ts).sort().forEach(function(t){ftw.innerHTML+='<option>'+t+'</option>';});
+var sortK='d',sortDir=1;
+function render(){
+  var q=(ft.value||'').toLowerCase(), p=fp.value, tw=ftw.value;
+  var out=rows.filter(function(r){
+    if(p&&r.m!==p) return false;
+    if(tw&&r.t!==tw) return false;
+    if(q&&((r.m+' '+(r.t||'')+' '+r.d).toLowerCase().indexOf(q)<0)) return false;
+    return true;});
+  out.sort(function(a,b){var x=a[sortK]||'',y=b[sortK]||''; if(sortK==='p'){x=+x||0;y=+y||0;} return (x>y?1:x<y?-1:0)*sortDir;});
+  document.getElementById('tb').innerHTML=out.map(function(r){
+    return '<tr><td>'+r.m+'</td><td>'+(r.t||'')+'</td><td>'+r.d+'</td><td class="num">'+r.p+'</td><td><a href="'+r.u+'" rel="nofollow noopener" target="_blank">PDF</a></td></tr>';}).join('');
+  document.getElementById('showing').textContent='Showing '+out.length+' of '+rows.length+' issues';
+}
+document.querySelectorAll('th[data-k]').forEach(function(th){th.onclick=function(){var k=th.dataset.k; sortDir=(sortK===k)?-sortDir:1; sortK=k; render();};});
+fp.onchange=render; ftw.onchange=render; ft.oninput=render; render();
+})
+.catch(function(err){var h=document.getElementById('metaLine');if(h)h.textContent='Could not load data ('+((err&&err.message)||err)+').';});
+</script>
+<script src="navigation.js?v=12"></script>
+</body></html>
