@@ -125,6 +125,7 @@ svg#occMap circle.pt:hover{r:7;}
 <div class="tabs">
   <div class="tab active" onclick="switchTab('map')">Map</div>
   <div class="tab" onclick="switchTab('delivery')">Delivery Scorecard</div>
+  <div class="tab" onclick="switchTab('children')">Children's Programmes</div>
   <div class="tab" onclick="switchTab('timeline')">Programme Timeline</div>
   <div class="tab" onclick="switchTab('corruption')">Corruption Tracker</div>
   <div class="tab" onclick="switchTab('note')">Briefing</div>
@@ -166,6 +167,18 @@ svg#occMap circle.pt:hover{r:7;}
       <div class="sbox su"><div class="sicon">?</div><div><div class="scount" id="sc-unclear">0</div><div class="sdesc">Unclear /<br>Unconfirmed</div></div></div>
     </div>
     <div class="dgrid" id="deliveryGrid"></div>
+  </div>
+</div>
+
+<!-- CHILDREN'S PROGRAMMES (companion evidence layer) -->
+<div id="panel-children" class="panel">
+  <div class="pcontent">
+    <div class="ptitle">Patronage evidenced through children's programmes &ndash; occupied Luhansk</div>
+    <p class="np">The same donor&rarr;recipient patronage, seen through a wholly independent evidence stream: children's camps, &ldquo;health&rdquo; trips, school twinning and gifts reported in the occupation press, 2023&ndash;2026. This records <em>activity</em>, not a delivery score.</p>
+    <div class="npull">Delivery is sector-specific. The Delivery Scorecard marks <strong>Vologda&nbsp;&rarr;&nbsp;Alchevsk</strong> and <strong>Komi&nbsp;&rarr;&nbsp;Rovenky</strong> as &ldquo;&#10007; not delivered&rdquo; and names both regions among the worst performers &ndash; yet both were demonstrably active in the children's channel over the same period (Vologda ran camp shifts for 700+ Alchevsk children in 2024; Komi supplied counsellors for Rovenky). The patron relationship is live and spending, but on children rather than infrastructure. &ldquo;Not delivered&rdquo; is delivery measured on a single sector.</div>
+    <div class="sumrow" id="childrenSummary"></div>
+    <div class="dgrid" id="childrenGrid"></div>
+    <p class="np" style="margin-top:1.4rem;font-size:var(--fs-label);color:var(--muted);">A coloured left bar marks a pairing that also appears in the Delivery Scorecard, coloured by its reconstruction status there (red = not delivered, amber = partial, grey = unclear) &ndash; independent corroboration of the pairing from the children's evidence. Cards with no bar are pairings the reconstruction scorecard does not list. Source: occupied-Luhansk press (Luganmedia holding); passage ids refer to the private research corpus. These are reported programmes, not independently verified outcomes.</p>
   </div>
 </div>
 
@@ -222,10 +235,11 @@ svg#occMap circle.pt:hover{r:7;}
 
 <!-- Delivery Scorecard data — single source of truth (see ../data/guardianship-deliveries.js) -->
 <script src="../data/guardianship-deliveries.js"></script>
+<script src="../data/guardianship-children.js"></script>
 <script>
 // TAB SWITCHING
 function switchTab(n){
-  const ns=['map','delivery','timeline','corruption','note'];
+  const ns=['map','delivery','children','timeline','corruption','note'];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',ns[i]===n));
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+n).classList.add('active');
@@ -247,6 +261,28 @@ deliveries.forEach(d=>{
   set('sc-notdelivered',by('✗')); set('sc-unclear',by('?'));
   const donors=new Set(deliveries.map(d=>d.donor)).size;
   set('deliveryTitle',`Donor Region Delivery Assessment — ${donors} Donor Regions with Documentary Record`);
+})();
+
+// CHILDREN'S PROGRAMMES — companion evidence layer (see ../data/guardianship-children.js)
+(function(){
+  const kids = (typeof GUARDIANSHIP_CHILDREN !== 'undefined') ? GUARDIANSHIP_CHILDREN : [];
+  const cg = document.getElementById('childrenGrid');
+  if(cg){
+    kids.forEach(d=>{
+      const overlap = d.scorecard && d.scorecard !== 'not scored';
+      const sym = overlap ? (d.scorecard.match(/[✓~✗?]/)||[])[0] : '';
+      const c = overlap ? (scls[sym]||'') : '';
+      const xref = overlap ? `<div class="dcsec" style="color:var(--accent);margin-top:.18rem;">&#8596; reconstruction: ${d.scorecard}</div>` : '';
+      cg.innerHTML += `<div class="dc ${c}"><div class="dcdonor">${d.donor}</div><div class="dcterr">&rarr; ${d.recipient}</div><div class="dcsec">${d.evidence} &middot; ${d.years}</div>${xref}</div>`;
+    });
+  }
+  const cs = document.getElementById('childrenSummary');
+  if(cs){
+    const total = kids.length;
+    const corr = kids.filter(d=>d.scorecard && d.scorecard !== 'not scored').length;
+    const box = (n,d)=>`<div class="sbox"><div><div class="scount">${n}</div><div class="sdesc">${d}</div></div></div>`;
+    cs.innerHTML = box(total,'Town-level<br>pairings') + box(total-corr,'New to the<br>dataset') + box(corr,'Corroborate the<br>scorecard');
+  }
 })();
 
 // TIMELINE
