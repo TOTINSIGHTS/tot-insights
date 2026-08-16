@@ -419,6 +419,7 @@ function openDetail(idx) {
   }
 
   document.getElementById('detail-body').innerHTML = html;
+  setUrlId(String(r['Reference ID'] || '').trim() || null);
   document.getElementById('detail-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 
@@ -430,7 +431,42 @@ function closeDetail() {
   document.getElementById('detail-overlay').classList.remove('open');
   document.body.style.overflow = '';
   activeRowIndex = -1;
+  setUrlId(null);
   render();
+}
+
+// ── Shareable URLs ──
+// ?id=7662     opens the entry with that Reference ID on load
+// ?q=donetsk   pre-fills the search box and applies it on load
+// Opening an entry also writes its Reference ID into the address bar, so the
+// address can be copied and shared. Site search links here (assets/js/search.js).
+
+function setUrlId(id) {
+  if (!window.history || !history.replaceState) return;
+  const url = new URL(location.href);
+  if (id) url.searchParams.set('id', id);
+  else url.searchParams.delete('id');
+  history.replaceState(null, '', url);
+}
+
+function applyUrlParams() {
+  const params = new URLSearchParams(location.search);
+  const q = params.get('q');
+  const id = params.get('id');
+
+  if (q) {
+    document.getElementById('search-input').value = q;
+    applyFilters();   // resets `filtered` to the matching rows
+  }
+
+  if (id) {
+    const i = filtered.findIndex(r => String(r['Reference ID'] || '').trim() === id.trim());
+    if (i !== -1) {
+      currentPage = Math.floor(i / PAGE_SIZE) + 1;
+      render();
+      openDetail(i);
+    }
+  }
 }
 
 function handleOverlayClick(e) {
@@ -484,6 +520,7 @@ fetch('data/sanctions-data.json')
 
     document.getElementById('loading-msg') && (document.getElementById('loading-msg').style.display='none');
     render();
+    applyUrlParams();
   })
   .catch(err => {
     const c = document.getElementById('table-container');

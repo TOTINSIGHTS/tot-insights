@@ -1,0 +1,320 @@
+/* TOT Insights — search.css
+   Styling for the site-wide search box in the shared header and its results
+   panel. Uses the site's existing design tokens from main.css; no new colours
+   or font sizes are introduced. See docs/SEARCH.md. */
+
+/* ─── The box in the header ──────────────────────────────────────────────── */
+
+.site-search {
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.site-search-form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--grey-200, #e3e0d9);
+  border-radius: 3px;
+  padding: 0 8px;
+  height: 30px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.site-search-form:focus-within {
+  border-color: var(--gold, #c9a84c);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.18);
+}
+
+.site-search-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  color: var(--grey-500, #6b6b78);
+}
+
+.site-search-input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 14px;
+  color: var(--grey-900, #2a2a3a);
+  width: 150px;
+  padding: 0;
+  transition: width 0.18s ease;
+}
+
+.site-search-input::placeholder {
+  color: var(--grey-500, #6b6b78);
+  opacity: 0.85;
+}
+
+.site-search-form:focus-within .site-search-input { width: 210px; }
+
+/* Hide the browser's own clear button; we render our own affordances. */
+.site-search-input::-webkit-search-cancel-button { display: none; }
+
+/* Visually hidden but still read by screen readers. */
+.site-search .visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Compact variant, used in the thin "← Back" bar on briefings and dashboards
+   (which keep their own top nav and never receive the site header). */
+.site-search-compact { margin-left: 0; }
+.site-search-compact .site-search-form { height: 24px; padding: 0 7px; }
+.site-search-compact .site-search-icon { width: 12px; height: 12px; }
+.site-search-compact .site-search-input { font-size: 13px; width: 128px; }
+.site-search-compact .site-search-form:focus-within .site-search-input { width: 186px; }
+
+@media (max-width: 640px) {
+  .site-search-compact .site-search-input { width: 92px; }
+  .site-search-compact .site-search-form:focus-within .site-search-input { width: 124px; }
+}
+
+/* ─── The results panel ──────────────────────────────────────────────────── */
+
+.site-search-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 460px;
+  max-width: calc(100vw - 32px);
+  max-height: min(70vh, 560px);
+  overflow-y: auto;
+  background: var(--cream-panel, #f2f0ec);
+  border: 1px solid var(--card-border, #e0e4ed);
+  border-radius: 3px;
+  box-shadow: 0 10px 34px rgba(17, 29, 48, 0.16);
+  z-index: 1200;
+  padding: 4px 0 6px;
+}
+
+.site-search-panel[hidden] { display: none; }
+
+/* Section heading: "Pages and documents" / "Database records" */
+.ss-section-title {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--grey-500, #6b6b78);
+  padding: 12px 16px 6px;
+  border-top: 1px solid var(--grey-200, #e3e0d9);
+  margin-top: 4px;
+}
+
+.ss-section:first-child .ss-section-title {
+  border-top: 0;
+  margin-top: 0;
+}
+
+/* ─── A prose result ─────────────────────────────────────────────────────── */
+
+.ss-result {
+  display: block;
+  padding: 9px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-left: 2px solid transparent;
+}
+
+.ss-result:hover,
+.ss-result:focus-visible,
+.ss-result.ss-active {
+  background: rgba(201, 168, 76, 0.10);
+  border-left-color: var(--gold, #c9a84c);
+  outline: none;
+}
+
+.ss-result-title {
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy, #111d30);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.ss-result-snippet {
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--grey-700, #4a4a57);
+}
+
+/* Pagefind wraps matched terms in <mark>. */
+.ss-result-snippet mark {
+  background: rgba(201, 168, 76, 0.30);
+  color: inherit;
+  font-weight: 600;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.ss-result-meta {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey-500, #6b6b78);
+  margin-top: 3px;
+}
+
+/* ─── A database record group ────────────────────────────────────────────── */
+
+.ss-group { padding: 2px 0 4px; }
+
+.ss-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 16px 3px;
+  text-decoration: none;
+}
+
+.ss-group-head:hover .ss-group-name,
+.ss-group-head:focus-visible .ss-group-name {
+  color: var(--gold-hover, #b8963a);
+  text-decoration: underline;
+}
+
+.ss-group-name {
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy, #111d30);
+}
+
+.ss-group-count {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 11px;
+  color: var(--grey-500, #6b6b78);
+  white-space: nowrap;
+}
+
+/* Individual records listed under a group heading, indented and quieter than
+   prose results so the visual hierarchy matches the search ranking. */
+.ss-record {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 4px 16px 4px 26px;
+  text-decoration: none;
+  color: inherit;
+  border-left: 2px solid transparent;
+}
+
+.ss-record:hover,
+.ss-record:focus-visible,
+.ss-record.ss-active {
+  background: rgba(201, 168, 76, 0.10);
+  border-left-color: var(--gold, #c9a84c);
+  outline: none;
+}
+
+.ss-record-name {
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 13.5px;
+  color: var(--grey-900, #2a2a3a);
+  flex-shrink: 0;
+}
+
+.ss-record-sub {
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 12px;
+  color: var(--grey-500, #6b6b78);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ss-group-more {
+  display: block;
+  padding: 3px 16px 6px 26px;
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--grey-500, #6b6b78);
+  text-decoration: none;
+}
+
+.ss-group-more:hover,
+.ss-group-more:focus-visible { color: var(--gold-hover, #b8963a); text-decoration: underline; }
+
+/* ─── States ─────────────────────────────────────────────────────────────── */
+
+.ss-state {
+  padding: 16px;
+  font-family: var(--font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 13.5px;
+  color: var(--grey-500, #6b6b78);
+  text-align: center;
+}
+
+.ss-state strong { color: var(--grey-900, #2a2a3a); font-weight: 600; }
+
+.ss-footer {
+  padding: 9px 16px 4px;
+  margin-top: 4px;
+  border-top: 1px solid var(--grey-200, #e3e0d9);
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--grey-500, #6b6b78);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ss-footer kbd {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 9.5px;
+  background: #ffffff;
+  border: 1px solid var(--grey-200, #e3e0d9);
+  border-radius: 2px;
+  padding: 1px 4px;
+  color: var(--grey-700, #4a4a57);
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────── */
+
+/* The header nav collapses into a hamburger at 900px (navigation.css). Keep the
+   search box visible there, but let it shrink and drop the panel to full width. */
+@media (max-width: 900px) {
+  .site-search { margin-left: auto; margin-right: 6px; }
+  .site-search-input { width: 100px; }
+  .site-search-form:focus-within .site-search-input { width: 140px; }
+  .site-search-panel {
+    position: fixed;
+    top: 62px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+    max-height: 72vh;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-search-input { width: 74px; }
+  .site-search-form:focus-within .site-search-input { width: 108px; }
+}
+
+/* Respect users who ask for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .site-search-input,
+  .site-search-form { transition: none; }
+}

@@ -472,6 +472,8 @@ function openDetail(idx) {
   document.getElementById('dp-footer').innerHTML =
     `Compiled from open sources. Entry ID: ${esc(id)}. If this entry contains an error, please <a href="mailto:TOTInsightsHub@protonmail.com?subject=TOT%20Insights%20%E2%80%94%20Officials%20correction%20${esc(id)}">contact us</a>.`;
 
+  setUrlId(id);
+
   const panel = document.getElementById('detail-panel');
   panel.classList.add('open');
   panel.scrollIntoView({behavior:'smooth', block:'start'});
@@ -482,7 +484,44 @@ function openDetail(idx) {
 function closeDetail(scroll) {
   document.getElementById('detail-panel').classList.remove('open');
   activeIdx = -1;
+  setUrlId(null);
   if (scroll !== false) render();
+}
+
+// ── Shareable URLs ──
+// ?id=OFC-002  opens that official's detail panel on load
+// ?q=donetsk   pre-fills the search box and applies it on load
+// Opening a record also writes its id into the address bar, so the address can
+// be copied and shared. Site search links here (see assets/js/search.js).
+
+function setUrlId(id) {
+  if (!window.history || !history.replaceState) return;
+  const url = new URL(location.href);
+  if (id) url.searchParams.set('id', id);
+  else url.searchParams.delete('id');
+  history.replaceState(null, '', url);
+}
+
+function applyUrlParams() {
+  const params = new URLSearchParams(location.search);
+  const q = params.get('q');
+  const id = params.get('id');
+
+  if (q) {
+    document.getElementById('search-input').value = q;
+    applyFilters();   // resets `filtered` to the matching rows
+  }
+
+  if (id) {
+    const i = filtered.findIndex(r => String(r['Official ID'] || '').trim() === id.trim());
+    if (i !== -1) {
+      // openDetail works on the current page of results, so jump to the page
+      // holding this row first.
+      currentPage = Math.floor(i / PAGE_SIZE) + 1;
+      render();
+      openDetail(i);
+    }
+  }
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
@@ -546,6 +585,7 @@ fetch('data/officials-data.json')
     const lm = document.getElementById('loading-msg');
     if (lm) lm.style.display = 'none';
     render();
+    applyUrlParams();
   })
   .catch(err => {
     document.getElementById('table-container').innerHTML =
