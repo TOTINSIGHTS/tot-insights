@@ -8,6 +8,25 @@
   // `p` is the relative path prefix to the site root ("" for top-level pages,
   // "../../" for pages nested two folders deep). It is detected automatically.
   // ─────────────────────────────────────────────────────────────────────
+  // Site-wide search box. The behaviour lives in assets/js/search.js, which is
+  // loaded on demand below; the search indexes themselves are only fetched once
+  // the visitor actually types. See docs/SEARCH.md.
+  function searchHTML(compact) {
+    return '' +
+      '<div class="site-search' + (compact ? ' site-search-compact' : '') + '">' +
+        '<form class="site-search-form" role="search" autocomplete="off">' +
+          '<svg class="site-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">' +
+            '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>' +
+          '</svg>' +
+          '<label class="visually-hidden" for="site-search-input">Search the site</label>' +
+          '<input type="search" id="site-search-input" class="site-search-input" placeholder="Search the site" ' +
+            'autocomplete="off" aria-label="Search the site" ' +
+            'aria-controls="site-search-panel" aria-expanded="false">' +
+        '</form>' +
+        '<div class="site-search-panel" id="site-search-panel" role="region" aria-label="Search results" aria-live="polite" hidden></div>' +
+      '</div>';
+  }
+
   function chromeHTML(p) {
     return {
       header:
@@ -43,6 +62,7 @@
               '<a href="' + p + 'about.html" data-nav="about">About</a>' +
               '<a class="nav-subscribe" href="https://ukrainerussiaprogramme.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to the Ukraine and Russia Programme newsletter on Substack (opens in a new tab)">Subscribe</a>' +
             '</nav>' +
+            searchHTML() +
           '</div>' +
         '</header>',
       footer:
@@ -89,10 +109,51 @@
     }
   }
 
+  // Load the search stylesheet and behaviour. Both are small; the search
+  // indexes themselves are only fetched once the visitor types.
+  function loadSearchAssets(p) {
+    if (document.getElementById('site-search-css')) return;
+
+    var css = document.createElement('link');
+    css.id = 'site-search-css';
+    css.rel = 'stylesheet';
+    css.href = p + 'assets/css/search.css';
+    document.head.appendChild(css);
+
+    var js = document.createElement('script');
+    js.src = p + 'assets/js/search.js?v=1';
+    js.onload = function () { if (window.initSiteSearch) window.initSiteSearch(); };
+    document.body.appendChild(js);
+  }
+
+  // Footer-only pages (briefings, dashboards) keep their own top nav, so they
+  // never receive the site header. They all begin with a thin "← Back" bar,
+  // which is the natural place to give them the same search box.
+  function injectSearchIntoBackBar() {
+    var bars = document.querySelectorAll('body > div');
+    for (var i = 0; i < bars.length; i++) {
+      var bar = bars[i];
+      if (!bar.querySelector('a[href]')) continue;
+      if (bar.textContent.replace(/\s+/g, ' ').indexOf('Back') === -1) continue;
+      if (bar.querySelector('.site-search')) return true;
+      bar.style.display = 'flex';
+      bar.style.alignItems = 'center';
+      bar.style.justifyContent = 'space-between';
+      bar.style.gap = '12px';
+      bar.insertAdjacentHTML('beforeend', searchHTML(true));
+      return true;
+    }
+    return false;
+  }
+
   // Replace the page's existing header/footer (or fill a placeholder) with the
   // single canonical version.
   function injectChrome() {
-    var html = chromeHTML(rootPrefix());
+    var p = rootPrefix();
+    // search.js needs the same root prefix to resolve the index and result links.
+    window.__SITE_ROOT_PREFIX = p;
+
+    var html = chromeHTML(p);
     // Pages that opt into data-chrome="footer-only" (e.g. dashboards/briefings that
     // keep their own top nav) receive ONLY the shared footer, not the site header.
     var footerOnly = document.body.getAttribute('data-chrome') === 'footer-only';
@@ -100,11 +161,14 @@
       var header = document.querySelector('header.site-header') || document.getElementById('site-header');
       if (header) header.outerHTML = html.header;
       else document.body.insertAdjacentHTML('afterbegin', html.header);
+    } else {
+      injectSearchIntoBackBar();
     }
     var footer = document.querySelector('footer.site-footer') || document.getElementById('site-footer');
     if (footer) footer.outerHTML = html.footer;
     else document.body.insertAdjacentHTML('beforeend', html.footer);
     setActive(document);
+    loadSearchAssets(p);
   }
 
   // Mark links to other domains: open them in a new tab and append a small

@@ -22,6 +22,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Build the site search index. This runs on every push, so the index can
+      # never go stale: add a briefing or update a database JSON, push, and the
+      # search picks it up automatically. Nothing to remember, nothing to commit.
+      #
+      # The script also deletes its temporary snapshot files before finishing,
+      # so they are never uploaded to the published site. See docs/SEARCH.md.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build search index
+        run: node scripts/build-search.js
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -353,7 +353,19 @@ buildCards();
     btn.classList.add('active');
   }
 })();
+// ?q=<term> pre-fills the catalogue search box; ?id=DOC-A1 opens that entry.
+// Site search links here (see assets/js/search.js).
+(function(){
+  var q=new URLSearchParams(location.search).get('q');
+  if(!q)return;
+  document.getElementById('browse-search').value=q;
+  browseSearch=q.trim();   // applyFilters() reads this, not the input
+})();
 applyFilters();
+(function(){
+  var id=new URLSearchParams(location.search).get('id');
+  if(id&&DOCS.some(function(d){return d.id===id;}))openModal(id);
+})();
 </script>
 <script src="navigation.js?v=14"></script>
 </body>

@@ -105,7 +105,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
 
 <script src="data/documents.js?v=6"></script>
 <script>
-const MEDIA_DATA = DOCS.filter(function(d){return d.media;}).map(function(d){return {t:d.title,d:d.date,y:d.year,o:d.outlet,f:d.format,desc:d.desc,url:d.url};});
+const MEDIA_DATA = DOCS.filter(function(d){return d.media;}).map(function(d){return {id:d.id,t:d.title,d:d.date,y:d.year,o:d.outlet,f:d.format,desc:d.desc,url:d.url};});
 const _MMED={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 function _pdMed(s){s=(s||'').toLowerCase();let m=s.match(/(\d{1,2})\s+([a-z]{3})[a-z]*\s+(\d{4})/);if(m)return +m[3]*10000+_MMED[m[2]]*100+ +m[1];m=s.match(/([a-z]{3})[a-z]*\s+(\d{4})/);if(m)return +m[2]*10000+_MMED[m[1]]*100;m=s.match(/(\d{4})/);if(m)return +m[1]*10000;return 0;}
 MEDIA_DATA.sort(function(a,b){return _pdMed(b.d)-_pdMed(a.d);});
@@ -120,11 +120,24 @@ function renderMedia(){
   document.getElementById('media-count-num').textContent=filtered.length;
   let cards='';
   filtered.forEach((m,i)=>{
-    cards+=`<div class="media-card"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`;
+    cards+=`<div class="media-card" data-media-id="${m.id}"><div class="media-card-top"><span class="media-fmt ${MEDIA_FMT_CLASS[m.f]||'media-fmt-report'}">${m.f}</span><span class="media-date">${m.d}</span></div><div class="media-title">${m.t}</div><div class="media-outlet">${m.o}</div><div class="media-desc">${m.desc}</div><div class="media-card-footer"><a class="media-link" href="${m.url}" target="_blank" rel="noopener">View <span class="media-link-arrow">&rarr;</span></a></div></div>`;
   });
   [...grid.children].forEach(c=>{if(c.id!=='media-no-results')c.remove();});
   grid.insertAdjacentHTML('afterbegin',cards);
   noRes.classList.toggle('visible',filtered.length===0);
+}
+
+// ?id=MED-056 scrolls to that press appearance and highlights it briefly.
+// Site search links here (see assets/js/search.js).
+function highlightMediaFromUrl(){
+  const id=new URLSearchParams(location.search).get('id');
+  if(!id)return;
+  const card=document.querySelector('.media-card[data-media-id="'+id.replace(/["\\<>]/g,'')+'"]');
+  if(!card)return;
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+  card.style.transition='box-shadow 0.3s, border-color 0.3s';
+  card.style.boxShadow='0 0 0 2px var(--gold, #c9a84c)';
+  setTimeout(function(){card.style.boxShadow='';},4000);
 }
 
 document.querySelectorAll('[data-mfilter]').forEach(btn=>{
@@ -139,6 +152,10 @@ document.querySelectorAll('[data-mfilter]').forEach(btn=>{
 });
 
 renderMedia();
+// Wait for load so fonts and images have settled; scrolling before that lands
+// on the wrong card.
+if(document.readyState==='complete')setTimeout(highlightMediaFromUrl,80);
+else window.addEventListener('load',function(){setTimeout(highlightMediaFromUrl,80);});
 </script>
 <script src="navigation.js?v=14"></script>
 </body>
