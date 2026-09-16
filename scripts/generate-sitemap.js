@@ -34,6 +34,7 @@ const standalone = [
   'privacy.html',
   'sanctions.html',
   'officials.html',
+  'youth-militarisation.html',
   // resources detail pages (linked from resources.html)
   'resources-academic.html',
   'resources-bibliography.html',

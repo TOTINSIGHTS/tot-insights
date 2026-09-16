@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth Militarisation and Patriotic Education Dataset - TOT Insights</title>
+<meta name="description" content="Searchable dataset of 66 organisations, curriculum programmes, camps and structures through which Russia militarises children in the occupied territories of Ukraine, with sources, confidence ratings and downloads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=8">
+<style>
+.page-desc{font-size:var(--fs-body);color:#3a3a4a;max-width:720px;line-height:1.6;border-left:3px solid #e3e0d9;padding-left:14px;}
+.stats-strip{background:transparent;border-bottom:1px solid #e3e0d9;padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 22px;flex:1;min-width:150px;}
+.stat-val{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#3a3a4a;}
+.main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
+.db-download-wrap{margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.7rem 1.4rem;text-decoration:none;}
+.db-download-btn:hover{background:rgba(232,184,75,0.1);}
+.db-download-sub{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.04em;flex-basis:100%;}
+.db-panel{background:#f2f0ec;border-radius:3px;padding:26px 28px;margin-bottom:20px;}
+.db-h2{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#111d30;margin:0 0 10px;}
+.db-h3{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#111d30;margin:20px 0 8px;}
+.db-p{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;}
+.db-ul{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;padding-left:20px;}
+.db-ul li{margin-bottom:4px;}
+.db-panel a{color:var(--gold);text-decoration:none;}
+.db-panel a:hover{text-decoration:underline;}
+.db-note{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.03em;line-height:1.6;margin-top:16px;}
+/* filters + table */
+.ym-controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;margin:0 0 10px;}
+.ym-controls label{display:block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#4a4a57;margin-bottom:4px;}
+.ym-controls select,.ym-controls input{font-family:var(--font-sans);font-size:var(--fs-table);color:#1a1a2e;background:#fff;border:1px solid rgba(17,29,48,0.22);border-radius:2px;padding:7px 10px;min-width:180px;}
+.ym-controls input{min-width:260px;}
+.ym-showing{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;margin:6px 0 10px;}
+.ym-tblwrap{overflow:auto;max-height:720px;border:1px solid #e0e4ed;background:#fff;border-radius:3px;}
+.ym-tbl{width:100%;border-collapse:collapse;}
+.ym-tbl thead th{position:sticky;top:0;background:#f7f5f0;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;text-align:left;padding:9px 10px;border-bottom:1px solid #d7d2c7;cursor:pointer;white-space:nowrap;}
+.ym-tbl td{font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.4;color:#1a1a2e;padding:8px 10px;border-bottom:1px solid #ece9e2;vertical-align:top;}
+.ym-tbl tr.ym-row{cursor:pointer;}
+.ym-tbl tr.ym-row:hover{background:#faf8f3;}
+.ym-tbl tr.ym-row.open{background:#f4f1ea;}
+.ym-tbl td.ym-id{font-family:var(--font-mono);color:#4a4a57;white-space:nowrap;}
+.ym-tbl td.ym-name{font-weight:500;min-width:220px;}
+.ym-badge{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid rgba(17,29,48,0.18);color:#1a1a2e;white-space:nowrap;}
+.ym-badge.c-confirmed{border-color:#3f6b3f;color:#3f6b3f;}
+.ym-badge.c-likely{border-color:#8a6f35;color:#8a6f35;}
+.ym-badge.c-needs{border-color:#8a2a2a;color:#8a2a2a;}
+.ym-detail td{background:#fbfaf7;padding:12px 16px 16px 40px;}
+.ym-dl{display:grid;grid-template-columns:200px 1fr;gap:6px 14px;margin:0;font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.45;}
+.ym-dl dt{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;padding-top:2px;}
+.ym-dl dd{margin:0;color:#1a1a2e;overflow-wrap:anywhere;}
+.ym-dl dd a{color:var(--navy);}
+.ym-toggle{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;white-space:nowrap;}
+.ym-guard{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:0 0 18px;font-family:var(--font-serif);font-size:var(--fs-table);color:#3a3a44;line-height:1.5;max-width:100ch;}
+@media(max-width:700px){.main-content{padding:20px 16px 60px;}.stats-strip{padding:16px;}.ym-dl{grid-template-columns:1fr;}.ym-detail td{padding-left:16px;}.ym-controls select,.ym-controls input{min-width:0;width:100%;}.ym-tbl .ym-hide-m{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Education and Militarisation</div>
+    <h1 class="page-title">Youth Militarisation and Patriotic Education Dataset</h1>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Compiled by Vladyslav Havrylov &nbsp;·&nbsp; working file 26 August 2026 &nbsp;·&nbsp; English edition September 2026</div>
+    <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">Havrylov, V. (2026). Youth Militarisation and Patriotic Education Dataset: Occupied Territories of Ukraine. TOT Insights / King&#39;s College London. https://totinsights.org/youth-militarisation.html</div>
+      <button onclick="(function(b){navigator.clipboard.writeText('Havrylov, V. (2026). Youth Militarisation and Patriotic Education Dataset: Occupied Territories of Ukraine. TOT Insights / King\'s College London. https://totinsights.org/youth-militarisation.html');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+    </div>
+    <p class="page-desc">Sixty-six organisations, curriculum programmes, camps and structures through which Russia draws children in the occupied territories of Ukraine into military training and patriotic indoctrination, from Crimea and Sevastopol since 2014 to the four mainland oblasts since 2022. Each entry records affiliation, location, founding date, legal status, funding, activity, participant numbers, sources and a confidence rating.</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-card"><div class="stat-val" id="st-total">66</div><div class="stat-lbl">Entries</div></div>
+    <div class="stat-card"><div class="stat-val">6</div><div class="stat-lbl">Territories</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-cat">5</div><div class="stat-lbl">Object types</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-conf">43</div><div class="stat-lbl">Confirmed by open sources</div></div>
+    <div class="stat-card"><div class="stat-val">2014 to 2026</div><div class="stat-lbl">Period covered</div></div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="db-download-wrap">
+    <a class="db-download-btn" href="data/youth-militarisation/tot_youth_militarisation_dataset_en.xlsx" download>Download dataset (XLSX)</a>
+    <a class="db-download-btn" href="data/youth-militarisation/tot_youth_militarisation_dataset_en.csv" download>Download dataset (CSV)</a>
+    <div class="db-download-sub">66 entries &middot; 18 fields &middot; English edition with field definitions and the original Ukrainian working sheet &middot; UTF-8</div>
+  </div>
+
+  <div class="db-panel">
+    <h2 class="db-h2">About this dataset</h2>
+    <p class="db-p">The dataset maps the pipeline described in the hub's <a href="themes/education-and-militarisation.html">Education and Militarisation</a> theme: from curriculum programmes taught to every pupil, through military-patriotic clubs, cadet classes and field camps inside the territories, to the federal structures (Yunarmiya, the Movement of the First, DOSAAF, the Voin centres) that exist to prepare children for service in the Russian armed forces. The unit of analysis is the organisation, programme, camp or structure, recorded against a uniform schema.</p>
+
+    <h3 class="db-h3">Five object types</h3>
+    <ul class="db-ul">
+      <li><strong>Youth movements and federal structures</strong>: Yunarmiya, the Movement of the First, DOSAAF, Rosmolodyozh, the Voin and Avangard networks and the regional movements that feed them.</li>
+      <li><strong>Clubs, cadet and Cossack corps, and field camps operating inside the territories</strong>: the largest group, including a historical section on Donbas in 2014 to 2019.</li>
+      <li><strong>Curriculum programmes</strong>: Orlyata Rossii, Luhansk Character, OBZR, Zarnitsa 2.0, Conversations about What Matters and others. These have no membership or premises of their own and cannot be mapped the way Yunarmiya can.</li>
+      <li><strong>Veterans' organisations</strong>: included only where there is an evidenced, recurring presence; one-off school visits are not given separate entries.</li>
+      <li><strong>Camps and centres that move children out of their territory of origin</strong>: Artek, Smena, Gudermes, Snegiri, Sirius and the Kherson-to-Yevpatoria transfers. These carry an Accountability and Legal cross-tag so that the deportation dimension is not buried in a file built to surface militarisation.</li>
+    </ul>
+
+    <h3 class="db-h3">Confidence ratings and known gaps</h3>
+    <p class="db-p">Each entry is rated <em>Confirmed</em> (independent, open source), <em>Likely</em> (single source or the hub's own monitoring) or <em>Needs verification</em> (evidence incomplete or conflicting). Low-confidence entries are retained and flagged rather than dropped. Fifteen entries rest wholly or partly on Centre for the Study of Occupation monitoring held in the hub's private repository. Participant numbers, funding sources and precise addresses are missing for a significant share of entries and are recorded as "Not stated" or "Not established" rather than estimated. The veterans' sector is systematically under-counted relative to the real frequency of one-off school visits, and the 2014 to 2019 section on Donbas relies substantially on a single academic source.</p>
+
+    <h3 class="db-h3">Named individuals</h3>
+    <p class="db-p">Leaders and curators are named only where the cited public source names them: sanctions designations, court decisions, notices of suspicion or published investigations. A claim resting on a single unofficial source is marked as such. Individuals identified during the mapping were routed to the <a href="officials.html">Occupation Officials Database</a> rather than expanded here.</p>
+
+    <div class="db-note">Related outputs: <a href="briefings/voin.html">Voin: The Architecture of Child Soldier Training</a> &middot; <a href="briefings/voin_generation.html">The Voin Generation</a> &middot; <a href="briefings/two_hundred_thousand_rubles.html">Two Hundred Thousand Rubles, and Not a Hint of Coercion</a></div>
+  </div>
+
+  <div class="ym-guard"><strong>Reading rule.</strong> Names, affiliations and activities are recorded as documented by the cited sources. Inclusion records a documented role in the militarisation or patriotic indoctrination of children; it is not a legal finding. Click a row to see the full record.</div>
+
+  <div class="ym-controls">
+    <div><label for="f-terr">Territory</label><select id="f-terr"><option value="">All territories</option></select></div>
+    <div><label for="f-cat">Object type</label><select id="f-cat"><option value="">All types</option></select></div>
+    <div><label for="f-conf">Confidence</label><select id="f-conf"><option value="">All ratings</option></select></div>
+    <div><label for="f-q">Search</label><input id="f-q" type="search" placeholder="name, locality, affiliation, activity" autocomplete="off"></div>
+  </div>
+  <div class="ym-showing" id="showing"></div>
+
+  <div class="ym-tblwrap">
+    <table class="ym-tbl" id="tbl">
+      <thead><tr>
+        <th data-k="id">#</th>
+        <th data-k="name">Name</th>
+        <th data-k="category" class="ym-hide-m">Object type</th>
+        <th data-k="territory">Territory</th>
+        <th data-k="locality" class="ym-hide-m">Locality</th>
+        <th data-k="founded" class="ym-hide-m">Founded / first recorded</th>
+        <th data-k="confidence">Confidence</th>
+        <th></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Youth%20Militarisation%20Dataset%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/youth-militarisation.html%0A%0AEntry number:%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &rarr;</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update. Please quote the entry number.</p>
+</div></div>
+
+<div id="site-footer"></div>
+
+<script>
+(function(){
+var TERR=["Crimea","Sevastopol","Donetsk oblast","Luhansk oblast","Zaporizhzhia oblast","Kherson oblast"];
+var CATS=["Youth movement or federal structure","Club, cadet corps or camp inside the territory","Curriculum programme","Veterans' organisation","Camp or centre moving children out of their territory","Adult formation recruiting youth"];
+var CONF=["Confirmed","Likely","Needs verification"];
+var LABELS={affiliation:"Federal affiliation",type:"Type",address:"Address",legal_status:"Legal status",funding:"Funding",activity:"Activity",participants:"Participants",sources:"Sources",confidence_note:"Confidence note",notes:"Notes and cross-tags"};
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function linkify(s){return esc(s).replace(/https?:\/\/[^\s;,)]+/g,function(u){return '<a href="'+u+'" target="_blank" rel="noopener nofollow">'+u+'</a>';});}
+function badge(c){var k=c==="Confirmed"?"c-confirmed":c==="Likely"?"c-likely":"c-needs";return '<span class="ym-badge '+k+'">'+esc(c)+'</span>';}
+var fT=document.getElementById("f-terr"),fC=document.getElementById("f-cat"),fF=document.getElementById("f-conf"),fQ=document.getElementById("f-q"),tb=document.getElementById("tb"),sh=document.getElementById("showing");
+TERR.forEach(function(t){fT.innerHTML+='<option>'+t+'</option>';});
+CATS.forEach(function(t){fC.innerHTML+='<option>'+t+'</option>';});
+CONF.forEach(function(t){fF.innerHTML+='<option>'+t+'</option>';});
+fetch("data/youth-militarisation/youth_militarisation_dataset.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(rows){
+  document.getElementById("st-total").textContent=rows.length;
+  document.getElementById("st-conf").textContent=rows.filter(function(r){return r.confidence==="Confirmed";}).length;
+  var open={}, sortK="id", sortDir=1;
+  function render(){
+    var q=(fQ.value||"").toLowerCase(), t=fT.value, c=fC.value, f=fF.value;
+    var out=rows.filter(function(r){
+      if(t&&r.territory_tags.indexOf(t)<0)return false;
+      if(c&&r.category!==c)return false;
+      if(f&&r.confidence!==f)return false;
+      if(q){var hay=[r.name,r.type,r.affiliation,r.territory,r.locality,r.activity,r.notes,r.legal_status,r.funding].join(" ").toLowerCase();if(hay.indexOf(q)<0)return false;}
+      return true;});
+    out.sort(function(a,b){var x=a[sortK],y=b[sortK];if(sortK==="id"){x=+x;y=+y;}else{x=String(x).toLowerCase();y=String(y).toLowerCase();}return (x>y?1:x<y?-1:0)*sortDir;});
+    tb.innerHTML=out.map(function(r){
+      var o=open[r.id]?" open":"";
+      var main='<tr class="ym-row'+o+'" data-id="'+r.id+'"><td class="ym-id">'+r.id+'</td><td class="ym-name">'+esc(r.name)+'</td><td class="ym-hide-m">'+esc(r.category)+'</td><td>'+esc(r.territory)+'</td><td class="ym-hide-m">'+esc(r.locality)+'</td><td class="ym-hide-m">'+esc(r.founded)+'</td><td>'+badge(r.confidence)+'</td><td class="ym-toggle">'+(open[r.id]?"&#8722;":"+")+'</td></tr>';
+      if(!open[r.id])return main;
+      var dl='<dl class="ym-dl">';
+      ["type","affiliation","address","legal_status","funding","activity","participants","sources","confidence_note","notes"].forEach(function(k){if(r[k]){dl+='<dt>'+LABELS[k]+'</dt><dd>'+(k==="sources"?linkify(r[k]):esc(r[k]))+'</dd>';}});
+      dl+='</dl>';
+      return main+'<tr class="ym-detail"><td colspan="8">'+dl+'</td></tr>';
+    }).join("");
+    sh.textContent="Showing "+out.length+" of "+rows.length+" entries";
+  }
+  tb.addEventListener("click",function(e){var tr=e.target.closest("tr.ym-row");if(!tr)return;if(e.target.tagName==="A")return;var id=tr.getAttribute("data-id");open[id]=!open[id];render();});
+  document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var k=th.getAttribute("data-k");sortDir=(sortK===k)?-sortDir:1;sortK=k;render();});});
+  [fT,fC,fF].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
+  render();
+}).catch(function(err){sh.textContent="Could not load the dataset ("+((err&&err.message)||err)+").";});
+})();
+</script>
+<script src="navigation.js?v=14"></script>
+</body>
+</html>
