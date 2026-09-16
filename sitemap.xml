@@ -30,7 +30,11 @@
   </url>
   <url>
     <loc>https://totinsights.org/briefings/grain_briefing.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://totinsights.org/briefings/grain_purchase_prices.html</loc>
+    <lastmod>2026-09-16</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/kiriyenko_brief.html</loc>
@@ -41,12 +45,16 @@
     <lastmod>2026-07-24</lastmod>
   </url>
   <url>
+    <loc>https://totinsights.org/briefings/mariupol_housing_queue.html</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+  <url>
     <loc>https://totinsights.org/briefings/mariupol_housing.html</loc>
     <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/mariupol_living_standards.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-16</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/nouveaux_riches_novorossiya.html</loc>
@@ -78,7 +86,7 @@
   </url>
   <url>
     <loc>https://totinsights.org/briefings/taking_homes.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-16</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/two_hundred_thousand_rubles.html</loc>
@@ -174,6 +182,7 @@
   </url>
   <url>
     <loc>https://totinsights.org/dashboards/prices_july_2026.html</loc>
+    <lastmod>2026-09-16</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/dashboards/religious_persecution.html</loc>
