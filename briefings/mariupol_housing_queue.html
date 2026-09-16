@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Gets a Home? Queue Order and Selection in Mariupol's Housing Distributions, May to July 2026 - TOT Insights</title>
+<meta name="description" content="A full matching of Mariupol's 5,822-household compensation queue against the May and July 2026 housing distributions: 82.6% covered, the first 386 applicants in neither list, and selection by regulatory and address block rather than queue order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css?v=9">
+<link rel="stylesheet" href="../assets/css/briefing.css?v=4">
+<style>
+  .mhq-chart{margin:0.5rem 0 2rem;}
+  .mhq-chart svg{width:100%;height:auto;display:block;}
+  .mhq-chart .mhq-caption{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted-light-bg);margin-top:8px;}
+  .mhq-tablewrap{overflow-x:auto;margin:0 0 1rem;}
+  .doc-content table td.mhq-num{font-family:var(--font-mono);white-space:nowrap;}
+  .doc-content table td.mhq-flag{font-family:var(--font-mono);white-space:nowrap;color:#8a2a2a;}
+  .mhq-caveat{background:var(--cream-panel);border:1px solid var(--grey-200);border-left:3px solid var(--gold);padding:14px 18px;margin:0 0 1.75rem;font-size:var(--fs-body);line-height:1.55;}
+  .mhq-caveat .mhq-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+  .mhq-stats{list-style:none;margin:0 0 1.5rem;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+  .mhq-stats li{flex:1 1 150px;background:#fff;border:1px solid var(--grey-200);border-left:4px solid var(--gold);padding:10px 12px;margin:0;line-height:1.3;}
+  .mhq-stats b{display:block;font-family:var(--font-mono);font-size:var(--fs-subheading);color:var(--navy);margin-bottom:2px;}
+  .mhq-stats span{font-size:var(--fs-table);color:var(--text-muted);}
+</style>
+</head>
+<body data-chrome="footer-only">
+<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../themes.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:var(--navy);text-decoration:none;">&#8592; Back</a></div>
+
+<header class="doc-header">
+  <h1 class="page-title">Who Gets a Home? Queue Order and Selection in Mariupol's Housing Distributions, May to July 2026</h1>
+  <div class="briefing-cite">TOT Insights and the Centre for the Study of Occupation. September 2026.</div>
+</header>
+
+<main class="reading-surface">
+  <div class="doc-content">
+
+    <div class="key-findings">
+      <span class="key-findings-label">Key findings</span>
+      <ul>
+        <li>The queue is not worked in order. Matching all 5,822 households in Mariupol's compensation queue against the May and July 2026 housing distributions shows only 19.8% of the first 500 queue numbers reached, against 95.6% of numbers 3,501 to 4,000. Not one of the first 386 applicants appears in either list.</li>
+        <li>Membership in a block, not position in the queue, decides who is housed. May closed out cases under one resolution and worked the front and middle of the registry; July switched to a different resolution, opened a third, and covered the second half of the queue in bulk. Within each district the lists are sorted almost perfectly by queue number, but sorting happened after selection, not before it.</li>
+        <li>The published figures cannot verify how many families have been housed. The two lists print 5,223 rows but cover 4,810 unique applicants; 406 IDs recur in both with no status field, seven July IDs are not in the queue at all, and neither list records the address of the housing actually given.</li>
+      </ul>
+    </div>
+
+    <a class="related-output" href="taking_homes.html">
+      <div class="related-output-kicker">Read first</div>
+      <div class="related-output-title">Taking Homes, Giving Homes: Property Seizure and Redistribution in Occupied Mariupol &#8594;</div>
+      <div class="related-output-desc">How absent owners' flats become an "ownerless" municipal fund, and where the compensation housing comes from. This briefing follows the queue that the fund is meant to serve.</div>
+    </a>
+
+    <p>In July 2026 TOT Insights showed how the occupation administration in Mariupol converts the homes of absent owners into a municipal fund and redistributes them: to residents who lost their housing, to imported Russian personnel, and to developers. At that point the compensation queue stood at 5,822 households and the first distribution had reached 1,890 apartments. On 21 July the administration published a second distribution of 3,334 records. This briefing takes the queue as published on 27 May and matches every one of its 5,822 numbers against both distributions, to answer a simple question the administration's own communications never do: who is being housed, in what order, and by what rule?</p>
+
+    <h2>What the documents show, and what they leave out</h2>
+
+    <p>Three occupation documents underlie the analysis. The queue, as published on 27 May 2026, lists each applicant's queue number, an identifier, the regulatory basis for the claim and, for some entries, the number of rooms sought. The May distribution lists 1,889 identifiers. The July distribution, dated 21 July, lists 3,334 identifiers with the address and district of the housing each applicant lost. Neither distribution contains the address of the housing actually provided, so none of what follows can say which buildings people are being moved into. The documents establish who was selected and in what sequence, not where they went.</p>
+
+    <p>Three regulatory bases appear in the queue. Resolution No. 175 covers 2,422 applicants, Resolution No. 61-1 covers 2,659 and Resolution No. 141 covers 741. The three occupy almost non-overlapping ranges of the queue: No. 175 runs from about number 388 to 2,637, No. 61-1 from 2,639 to 5,563 and No. 141 from 4,694 to 5,656. The queue is therefore already stratified by category before any distribution takes place.</p>
+
+    <h2>Coverage: 82.6% is not the first 82.6% of the queue</h2>
+
+    <ul class="mhq-stats">
+      <li><b>5,822</b><span>households in the queue, 27 May 2026</span></li>
+      <li><b>4,810</b><span>unique applicants reached by May and July combined (82.6%)</span></li>
+      <li><b>1,012</b><span>applicants in neither list (17.4%)</span></li>
+      <li><b>1 to 386</b><span>queue numbers that appear in neither distribution</span></li>
+    </ul>
+
+    <p>Each of the 5,822 queue numbers was assigned one of four statuses: present in both distributions, in May only, in July only, or absent from both.</p>
+
+    <div class="mhq-tablewrap">
+    <table>
+      <thead>
+        <tr><th>Applicant status</th><th>Households</th><th>Share of queue</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>In both the May and July distributions</td><td class="mhq-num">406</td><td class="mhq-num">7.0%</td></tr>
+        <tr><td>May distribution only</td><td class="mhq-num">1,483</td><td class="mhq-num">25.5%</td></tr>
+        <tr><td>July distribution only</td><td class="mhq-num">2,921</td><td class="mhq-num">50.2%</td></tr>
+        <tr><td>Absent from both</td><td class="mhq-num">1,012</td><td class="mhq-num">17.4%</td></tr>
+        <tr><td>Total queue</td><td class="mhq-num">5,822</td><td class="mhq-num">100%</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>Taken as a headline, 82.6% coverage looks like an almost complete programme. Broken down by queue position it looks like something else. The share of applicants reached climbs to 86.7% across numbers 1 to 5,000 and then falls back, because the final block of the registry, numbers 5,657 to 5,822, is untouched. At the other end, the first 500 numbers are covered at only 19.8%, and the first 386 not at all. The range from 3,501 to 4,000, by contrast, is covered at 95.6%.</p>
+
+    <div class="mhq-chart" role="img" aria-label="Bar chart of the share of applicants reached by the May and July distributions combined, by queue segment: numbers 1 to 386, 0%; numbers 1 to 500, 19.8%; numbers 3,501 to 4,000, 95.6%; numbers 5,657 to 5,822, 0%; whole queue, 82.6%.">
+      <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="'EB Garamond', Georgia, serif">
+        <!-- scale: 4.6 px per percentage point from x=230; 100% at x=690 -->
+        <line x1="230" y1="10" x2="230" y2="222" stroke="#c8cdd4" stroke-width="1"/>
+        <line x1="690" y1="10" x2="690" y2="222" stroke="#c8cdd4" stroke-width="1" stroke-dasharray="3 4"/>
+        <text x="690" y="240" text-anchor="middle" font-size="13" fill="#5a5248" font-family="'IBM Plex Mono', monospace">100%</text>
+        <text x="230" y="240" text-anchor="middle" font-size="13" fill="#5a5248" font-family="'IBM Plex Mono', monospace">0%</text>
+
+        <text x="220" y="36" text-anchor="end" font-size="16" fill="#1a1a2e">Queue numbers 1 to 386</text>
+        <rect x="230" y="22" width="2" height="20" fill="#8a2a2a"/>
+        <text x="240" y="37" font-size="15" fill="#8a2a2a" font-family="'IBM Plex Mono', monospace">0% (none reached)</text>
+
+        <text x="220" y="78" text-anchor="end" font-size="16" fill="#1a1a2e">Queue numbers 1 to 500</text>
+        <rect x="230" y="64" width="91" height="20" fill="#1a1a2e"/>
+        <text x="329" y="79" font-size="15" fill="#1a1a2e" font-family="'IBM Plex Mono', monospace">19.8%</text>
+
+        <text x="220" y="120" text-anchor="end" font-size="16" fill="#1a1a2e">Queue numbers 3,501 to 4,000</text>
+        <rect x="230" y="106" width="440" height="20" fill="#1a1a2e"/>
+        <text x="662" y="121" text-anchor="end" font-size="15" fill="#ffffff" font-family="'IBM Plex Mono', monospace">95.6%</text>
+
+        <text x="220" y="162" text-anchor="end" font-size="16" fill="#1a1a2e">Queue numbers 5,657 to 5,822</text>
+        <rect x="230" y="148" width="2" height="20" fill="#8a2a2a"/>
+        <text x="240" y="163" font-size="15" fill="#8a2a2a" font-family="'IBM Plex Mono', monospace">0% (none reached)</text>
+
+        <text x="220" y="204" text-anchor="end" font-size="16" fill="#1a1a2e">Whole queue</text>
+        <rect x="230" y="190" width="380" height="20" fill="#8c8c99"/>
+        <text x="618" y="205" font-size="15" fill="#1a1a2e" font-family="'IBM Plex Mono', monospace">82.6%</text>
+      </svg>
+      <div class="mhq-caption">Share of applicants in each queue segment who appear in the May or July 2026 distribution. Source: Centre for the Study of Occupation matching of the 27 May 2026 queue against both distributions.</div>
+    </div>
+
+    <h2>The missing first 386</h2>
+
+    <p>No applicant numbered 1 to 386 appears in either distribution. The first queue number to appear anywhere is 387, and the first in the July list is 388. The first hundred positions are the clearest case: all are absent, and they include claims under both Resolution No. 175 and No. 61-1 and applicants seeking two-, three- and four-room housing as well as some with no room count recorded. The gap therefore cannot be explained by a single resolution or by a shortage of one type of apartment. It is the longest unbroken run of unhoused applicants in the registry, followed by the 166 consecutive numbers at its end, 5,657 to 5,822. The distributions cover mainly the central part of the queue and leave both its beginning and its final block almost untouched.</p>
+
+    <div class="mhq-caveat">
+      <span class="mhq-label">What the gap does and does not prove</span>
+      The documents do not say why numbers 1 to 386 are absent. Innocent explanations exist and cannot be excluded from the published lists alone: the earliest applicants may have been dealt with under a separate procedure that was never published, may have accepted repair or cash compensation instead, or may have withdrawn or been struck off. What can be said is that the administration has published no status for them, that the same applicants sat at the front of a queue it describes as the basis for allocation, and that applicants numbered above 5,000 were housed while they were not. The burden of explanation sits with the administration.
+    </div>
+
+    <h2>May and July did different jobs</h2>
+
+    <p>The July distribution did not pick up where May left off. May was concentrated between about number 387 and 3,570 and contains nothing beyond number 4,000. July is shifted to the second half of the registry: only 23 people from the first 500 numbers, but 467 from the range 3,501 to 4,000, 461 from 4,001 to 4,500, 455 from 4,501 to 5,000 and 429 from 5,001 to 5,500. Seen by resolution, the two waves served different categories.</p>
+
+    <div class="mhq-tablewrap">
+    <table>
+      <thead>
+        <tr><th>Resolution</th><th>In queue</th><th>In both lists</th><th>May only</th><th>July only</th><th>In neither</th><th>Reached</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>No. 175</td><td class="mhq-num">2,422</td><td class="mhq-num">271</td><td class="mhq-num">1,146</td><td class="mhq-num">705</td><td class="mhq-num">300</td><td class="mhq-num">87.6%</td></tr>
+        <tr><td>No. 61-1</td><td class="mhq-num">2,659</td><td class="mhq-num">135</td><td class="mhq-num">337</td><td class="mhq-num">1,839</td><td class="mhq-num">348</td><td class="mhq-num">86.9%</td></tr>
+        <tr><td>No. 141</td><td class="mhq-num">741</td><td class="mhq-num">0</td><td class="mhq-num">0</td><td class="mhq-num">377</td><td class="mhq-num">364</td><td class="mhq-num">50.9%</td></tr>
+        <tr><td>Total</td><td class="mhq-num">5,822</td><td class="mhq-num">406</td><td class="mhq-num">1,483</td><td class="mhq-num">2,921</td><td class="mhq-num">1,012</td><td class="mhq-num">82.6%</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>May was the main wave for Resolution No. 175. July was the main wave for No. 61-1 and the first wave of any kind for No. 141, which had been ignored in May and was still only half covered afterwards. Room count does not explain the pattern: the field is recorded mainly for No. 175 cases and is missing for 3,400 records, and the largest block of unhoused applicants, 712 people, has no room count at all. In practice the administration drew simultaneously on the late part of No. 175, the body of No. 61-1 and roughly half of No. 141, so that an applicant above number 5,000 could be housed in July while an applicant in the first few hundred was not.</p>
+
+    <h2>Sorted by queue number, but not selected by it</h2>
+
+    <p>Within each district block of the July list, applicants are ordered by queue number almost perfectly: the rank correlation between an applicant's position in the block and their queue number is 0.996 to 1.000. That is what makes the list look procedurally correct at first sight. But sorting a list is not the same as selecting it. The ordering organises a group that had already been chosen, and each district shows sharp breaks in the sequence, such as a case with queue number 5,512 appearing before case 452 in the central district, that resemble records added by hand to an already-sorted array.</p>
+
+    <p>The July list is built from district and address packages. The central and left-bank districts together account for 2,690 recipients, 80.7% of the list, drawn from 581 buildings across 187 streets. The fifteen largest buildings alone account for 436 people, 13.1% of the July distribution, and none of them belongs to a single resolution: the administration combined residents of the same building from different regulatory categories. Three thoroughfares, Metalurhiv avenue, Shevchenka boulevard and Morskyi boulevard, supply 717 recipients, 21.5% of the list.</p>
+
+    <div class="mhq-tablewrap">
+    <table>
+      <thead>
+        <tr><th>District (occupation name)</th><th>July recipients</th><th>Share</th><th>Distinct buildings</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tsentralnyi (Zhovtnevyi)</td><td class="mhq-num">1,590</td><td class="mhq-num">47.7%</td><td class="mhq-num">206</td></tr>
+        <tr><td>Livoberezhnyi (Ordzhonikidzevskyi)</td><td class="mhq-num">1,100</td><td class="mhq-num">33.0%</td><td class="mhq-num">211</td></tr>
+        <tr><td>Prymorskyi</td><td class="mhq-num">447</td><td class="mhq-num">13.4%</td><td class="mhq-num">92</td></tr>
+        <tr><td>Kalmiuskyi (Illichivskyi)</td><td class="mhq-num">197</td><td class="mhq-num">5.9%</td><td class="mhq-num">72</td></tr>
+        <tr><td>Total</td><td class="mhq-num">3,334</td><td class="mhq-num">100%</td><td class="mhq-num">581</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>The largest single building on the July list, Shevchenka boulevard 74, shows how this works. Its 38 recipients are all in the May queue, but their positions run from number 1,310 to 5,652, a spread of more than 4,300 places, and span all three regulatory categories. The most plausible reading is that the administration processed the building's residents as one case package and then listed the approved applications in queue order. The queue number sorted the cases; it did not select them.</p>
+
+    <h2>What the lists cannot tell us</h2>
+
+    <p>Four features of the documents mean their row counts should not be read as the number of apartments handed over.</p>
+    <ul>
+      <li><strong>406 identifiers appear in both distributions</strong>, 271 under Resolution No. 175 and 135 under No. 61-1, scattered across the range 401 to 3,534 rather than clustered. The documents carry no status field, so it cannot be established whether a repeat is a republished decision, an unfinished case, a substituted apartment, a second approval, a duplication or inclusion in a cumulative list.</li>
+      <li><strong>Seven July identifiers are not in the 27 May queue</strong>, five in the central district and two on the left bank, all sitting outside the normal sequence of their district blocks, and one in a different format from the rest. They may have been added after 27 May, corrected, omitted from the public queue or inserted by hand.</li>
+      <li><strong>Neither list records where anyone was housed.</strong> The address given is that of the housing lost, so the buildings into which people are being moved, and whether they are new-builds, repaired stock or flats seized from absent owners, cannot be determined from these sources.</li>
+      <li><strong>The row count overstates the outcome.</strong> The two lists print 5,223 rows for 4,810 unique applicants, and no public status exists for the 1,012 who are in neither.</li>
+    </ul>
+
+    <h2>Why it matters</h2>
+
+    <p>The compensation queue is the administration's public proof that Mariupol's rebuilding is for Mariupol's residents. The July 2026 briefing showed where the housing comes from: a fund fed in part by flats reclassified as ownerless when their owners are absent, and a share of it reserved for imported Russian personnel. This analysis shows how the other end of the pipeline works. The system operates on at least three levels, the general registry, a regulatory sub-queue by resolution, and a district, address and case-file selection within it, so that an applicant's number in the general queue does not tell them when, or whether, they will be housed. What determines inclusion in the next distribution is membership in a block that the administration has chosen to open.</p>
+
+    <p>That structure has consequences. It gives officials discretion over who is housed while presenting the outcome as the mechanical working of a queue. It leaves the earliest applicants, who by definition lost their homes first, without any published status. It makes the headline figures unverifiable, because rows, unique applicants and apartments are three different numbers and only the first is published. And it turns a place in the queue into something to be negotiated rather than awaited, which is the condition under which informal payment and political loyalty become the currency of access. None of that can be proven from the lists alone. What the lists prove is that the queue is not being closed from top to bottom, and that the administration has not explained why.</p>
+
+    <h2>Sources and method</h2>
+
+    <p>This briefing is based on two analytical notes by the Centre for the Study of Occupation: one on the housing distribution published by the occupation administration of Mariupol on 21 July 2026, and one matching every number in the compensation queue, as published on 27 May 2026, against the May and July distributions. All figures originate in those three occupation documents and are presented as the administration's own claims rather than as independently verified fact, consistent with the Centre's methodology. Applicant identifiers and individual addresses are not reproduced. Coverage percentages are the share of queue numbers in a given range that appear in at least one distribution. The underlying documents and matching tables are held in the hub's private repository under its closed-monitoring policy and are not published alongside this briefing.</p>
+
+  </div><!-- /.doc-content -->
+
+  <div style="position:relative;border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+    <button onclick="this.parentElement.style.display='none'" aria-label="Dismiss" style="position:absolute;top:0;right:0;background:none;border:none;cursor:pointer;font-size:var(--fs-body);line-height:1;color:rgba(26,26,46,0.4);padding:2px 4px;">&times;</button>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted-light-bg);margin-bottom:0.4rem;">Research integrity</div>
+    <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Who%20Gets%20a%20Home%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/briefings/mariupol_housing_queue.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:var(--gold);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction →</a>
+    <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted-light-bg);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update.</p>
+  </div>
+
+</main>
+<script src="../navigation.js?v=14"></script>
+</body>
+</html>
