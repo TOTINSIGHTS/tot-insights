@@ -276,13 +276,13 @@
               Report:'Read report','Journal Article':'Read article',Podcast:'Listen'};
 
   /* Normalise documents.js entries */
-  var combined = DOCS.map(function (d) {
-    return { title:d.title, date:d.date, dateSort:parseDate(d.date),
+  var combined = DOCS.map(function (d, i) {
+    return { title:d.title, date:d.date, dateSort:parseDate(d.date), idx:i,
              format:d.format, desc:d.desc, link:getLink(d), outlet:d.outlet || null };
   });
 
-  /* Sort newest first; stable sort preserves documents.js order within same month */
-  combined.sort(function (a, b) { return b.dateSort - a.dateSort; });
+  /* Sort newest first; within the same month, later catalogue entries (added more recently) come first */
+  combined.sort(function (a, b) { return (b.dateSort - a.dateSort) || (b.idx - a.idx); });
 
   var grid = document.getElementById('latest-outputs-grid');
   if (!grid) return;
