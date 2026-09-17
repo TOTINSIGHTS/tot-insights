@@ -260,6 +260,7 @@
 
   /* Best internal link for a DOCS item */
   function getLink(d) {
+    if (d.externalUrl) return d.externalUrl;
     if (d.briefingFile) return d.briefingFile;
     if (d.dashboardFile) return d.dashboardFile;
     if (d.gdocs && d.gdocs.indexOf('http') === 0) return d.gdocs;

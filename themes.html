@@ -875,6 +875,7 @@ function hasTheme(doc, theme) {
 }
 
 function docLink(doc) {
+  if (doc.externalUrl) return doc.externalUrl;
   if (doc.dashboardFile) return doc.dashboardFile;
   if (doc.briefingFile) return doc.briefingFile;
   if (doc.gdocs && doc.gdocs !== '' && doc.gdocs.startsWith('http')) return doc.gdocs;
@@ -991,19 +992,19 @@ function renderTheme(config) {
 renderTheme({
   theme: 'Governance',
   startHereId: null,
-  previewIds: ['DOC-F1', 'DOC-A3'],
+  previewIds: ['DOC-151', 'DOC-147', 'DOC-F1'],
   previewElId: 'gov-preview',
   detailsBodyId: 'gov-details-body',
   previewExtra: '<a href="officials.html" class="resource-row">'
     + '<span class="resource-format">Database</span>'
-    + '<span class="resource-body"><span class="resource-title">Occupation Officials Database (1,085 individuals)</span>'
+    + '<span class="resource-body"><span class="resource-title">Occupation Officials Database (1,166 individuals)</span>'
     + '<span class="resource-date"></span></span></a>'
 });
 
 renderTheme({
   theme: 'Economics',
   startHereId: null,
-  previewIds: ['DOC-A6', 'DOC-A4', 'DOC-A1'],
+  previewIds: ['DOC-151', 'DOC-146', 'DOC-144'],
   previewElId: 'econ-preview',
   detailsBodyId: 'econ-details-body'
 });
@@ -1011,7 +1012,7 @@ renderTheme({
 renderTheme({
   theme: 'Civilian Life',
   startHereId: null,
-  previewIds: ['MED-012', 'DOC-B6', 'DOC-A10'],
+  previewIds: ['DOC-147', 'DOC-141', 'DOC-143'],
   previewElId: 'civil-preview',
   detailsBodyId: 'civil-details-body',
   previewExtra: '<a href="idp-survey.html" class="resource-row">'
@@ -1023,7 +1024,7 @@ renderTheme({
 renderTheme({
   theme: 'Identity, Culture and Religion',
   startHereId: null,
-  previewIds: ['MED-055', 'DOC-B3', 'DOC-D3'],
+  previewIds: ['DOC-150', 'DOC-148', 'DOC-B3'],
   previewElId: 'identity-preview',
   detailsBodyId: 'identity-details-body'
 });
@@ -1031,7 +1032,7 @@ renderTheme({
 renderTheme({
   theme: 'Education and Militarisation',
   startHereId: null,
-  previewIds: ['DOC-B2', 'DOC-B1', 'DOC-084'],
+  previewIds: ['DOC-152', 'DOC-149', 'DOC-B2'],
   previewElId: 'edu-preview',
   detailsBodyId: 'edu-details-body'
 });
@@ -1039,7 +1040,7 @@ renderTheme({
 renderTheme({
   theme: 'Coercion, Resistance and Security',
   startHereId: null,
-  previewIds: ['DOC-085', 'DOC-087', 'DOC-F3'],
+  previewIds: ['DOC-D5', 'DOC-085', 'DOC-F3'],
   previewElId: 'coercion-preview',
   detailsBodyId: 'coercion-details-body',
   previewExtra: '<a href="idp-survey.html" class="resource-row">'
@@ -1063,7 +1064,7 @@ renderTheme({
 renderTheme({
   theme: 'Accountability and Legal',
   startHereId: 'DOC-D2',
-  previewIds: ['DOC-122', 'DOC-083', 'DOC-084'],
+  previewIds: ['DOC-D5', 'DOC-146', 'DOC-083'],
   previewElId: 'acc-preview',
   detailsBodyId: 'acc-details-body',
   extraGroups: [
