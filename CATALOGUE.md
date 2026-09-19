@@ -359,7 +359,7 @@ Introduces Foundations of Security and Defence of the Motherland (OBZR) as a man
 
 ## 4a. Primary Source Documents: Federal Legal Architecture of Settlement and Integration (2019 to 2026)
 
-Fourteen primary source entries (26 documents) reproduced from the official Russian legal information portal and the TOT Insights source collection, published September 2026. Each has a standalone page under `primary-sources/` with the original PDF(s) and key provisions in English, and an entry in `data/documents.js`.
+Fifteen primary source entries (27 documents) reproduced from the official Russian legal information portal and the TOT Insights source collection, published September 2026. Each has a standalone page under `primary-sources/` with the original PDF(s) and key provisions in English, and an entry in `data/documents.js`.
 
 **DOC-153: Zemsky Relocation Programmes: Government Resolutions Extending "Zemsky Teacher", "Zemsky Doctor", "Zemsky Culture Worker" and "Zemsky Coach" to the Occupied Territories (2019 to 2025)** *(Civilian Life · Economics · Education and Militarisation)*
 Six government resolutions establishing the Zemsky Teacher, Doctor, Culture Worker and Coach programmes and doubling the relocation payment to two million roubles for the four occupied regions, against a five-year service bond.
@@ -402,6 +402,9 @@ The federal youth agency's manual for the occupied regions: Ukrainian nationalis
 
 **DOC-166: Regulation on the VIII International Contest of the Multi-Genre Culture of Peoples "Palette of Cultures", 2026 to 2027 School Year (Fund for the Support of Native Languages "Language of the Ancestors", approved 3 September 2026)** *(Identity, Culture and Religion · Education and Militarisation)*
 The rules of a national "native languages" contest for which children in occupied Mariupol were reportedly entered; the 2026 form does list Ukrainian, so the document corrects an earlier claim of exclusion.
+
+**DOC-167: Ministry of Education Order No. 370: Federal Educational Programme for Basic General Education, Section 166, the Federal Work Programme of Upbringing (18 May 2023)** *(Education and Militarisation · Identity, Culture and Religion)*
+The federal upbringing programme every school must follow: patriotism and "respect for the memory of the defenders of the Fatherland" as aims, military-patriotic courses among extracurricular activities. Extract of section 166 from the 5,683-page act.
 
 
 ## 5. Media & Public Engagement
