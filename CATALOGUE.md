@@ -357,6 +357,53 @@ Introduces Foundations of Security and Defence of the Motherland (OBZR) as a man
 
 ---
 
+## 4a. Primary Source Documents: Federal Legal Architecture of Settlement and Integration (2019 to 2026)
+
+Fourteen primary source entries (26 documents) reproduced from the official Russian legal information portal and the TOT Insights source collection, published September 2026. Each has a standalone page under `primary-sources/` with the original PDF(s) and key provisions in English, and an entry in `data/documents.js`.
+
+**DOC-153: Zemsky Relocation Programmes: Government Resolutions Extending "Zemsky Teacher", "Zemsky Doctor", "Zemsky Culture Worker" and "Zemsky Coach" to the Occupied Territories (2019 to 2025)** *(Civilian Life · Economics · Education and Militarisation)*
+Six government resolutions establishing the Zemsky Teacher, Doctor, Culture Worker and Coach programmes and doubling the relocation payment to two million roubles for the four occupied regions, against a five-year service bond.
+
+**DOC-154: Federal Constitutional Law No. 5-FKZ on the Admission of the "Donetsk People's Republic" to the Russian Federation, with Presidential Decree No. 705 Appointing its Acting Head (4 October 2022)** *(Governance · Accountability and Legal · Civilian Life)*
+The admission law for the "DPR": citizenship by recognition (art. 5), presidential appointment of the acting Head (art. 8, exercised in Decree 705) and recognition of pre-annexation documents only (art. 12).
+
+**DOC-155: Federal Constitutional Law No. 8-FKZ on the Admission of Kherson Oblast to the Russian Federation (4 October 2022)** *(Governance · Accountability and Legal)*
+The Kherson counterpart of Law 5-FKZ: admission of the whole oblast, citizenship by recognition, a Moscow-appointed acting governor and a transition regime to 2026.
+
+**DOC-156: Government Resolution No. 2565: Rules for Subsidising Mortgages Issued to Citizens of the Russian Federation for Housing in the Occupied Territories, the "2 Per Cent Mortgage" (31 December 2022)** *(Economics · Civilian Life)*
+The "2 per cent mortgage" for the occupied regions: federal subsidies through DOM.RF for housing loans available only to citizens of the Russian Federation.
+
+**DOC-157: Federal Laws No. 266-FZ on the Free Economic Zone in the Occupied Territories and No. 268-FZ Amending the Tax Code for its Participants (24 June 2023)** *(Economics · Governance)*
+The free economic zone covering all four occupied regions, with tax and customs preferences for businesses that register under Russian law.
+
+**DOC-158: Government Resolution No. 2559 on Measures to Ensure the Martial Law Regime and Special Procurement Rules for the Occupied Territories (31 December 2022)** *(Governance · Economics · Accountability and Legal)*
+Single-supplier procurement without tender or publication for all state and municipal purchasing in the four occupied regions under martial law.
+
+**DOC-159: Federal Law No. 17-FZ on the Specifics of Pension and Additional Social Provision for Citizens Living in the Occupied Territories (17 February 2023)** *(Civilian Life · Governance)*
+Russian pensions and social payments for residents of the occupied regions, available to citizens of the Russian Federation: the fiscal counterpart of passportisation.
+
+**DOC-160: "Ownerless" Housing: Federal Constitutional Law No. 4-FKZ (15 December 2025) and Law of the "Donetsk People's Republic" No. 66-RZ (21 March 2024) on Identifying and Taking Dwellings with Signs of Ownerless Property into Public Ownership** *(Civilian Life · Accountability and Legal · Economics)*
+The dispossession regime: the DPR law defining "signs of ownerless property" (2024) and the federal law vesting such homes in the occupation authorities for reallocation (2025).
+
+**DOC-161: Presidential Decree No. 809 on Traditional Russian Spiritual and Moral Values (9 November 2022) and Ministry of Education Order No. 808 Introducing the Compulsory Course "Spiritual and Moral Culture of Russia" (10 November 2025)** *(Education and Militarisation · Identity, Culture and Religion)*
+The values decree of 2022 and the 2025 order that turns it into a compulsory school subject from September 2026, with "heroes of the special military operation" as exemplars.
+
+**DOC-162: The Federal Textbook List and Federal Literature List: Ministry of Education Orders No. 769 (5 November 2024), No. 258 (1 April 2025) and No. 495 (26 June 2025), with the List of Literary Works in the Federal Programmes** *(Education and Militarisation · Identity, Culture and Religion)*
+The lists that define what occupation schools may teach: native-language textbooks for Bashkir, Tatar and Adyghe, none for Ukrainian, and a federal literature canon with no Ukrainian work.
+
+**DOC-163: Ministry of Education Order No. 171 Amending the School Admission Procedure: Russian-Language Testing and Status Checks for Children Who Are Foreign Citizens (4 March 2025)** *(Education and Militarisation · Civilian Life)*
+School admission conditioned on legal status and a Russian-language test for children who are foreign citizens, which in the occupied territories includes families that refused Russian passports.
+
+**DOC-164: Presidential Decree No. 474 Approving the Foundations of State Language Policy of the Russian Federation (11 July 2025)** *(Identity, Culture and Religion · Governance)*
+The state language doctrine: Russian mandatory in administration, courts, schools and media, with protection reserved for the languages of the peoples of Russia, a category that excludes Ukrainian.
+
+**DOC-165: Rosmolodezh Methodological Recommendations on Preventing the Spread of the Ideology of Terrorism, Extremism and Neo-Nazism among Young People from the Occupied Territories (28 February 2025)** *(Coercion, Resistance and Security · Education and Militarisation · Identity, Culture and Religion)*
+The federal youth agency's manual for the occupied regions: Ukrainian nationalism as "the historical basis" of extremism, and the FSB, Rosgvardia, police and prison service as partners in youth work.
+
+**DOC-166: Regulation on the VIII International Contest of the Multi-Genre Culture of Peoples "Palette of Cultures", 2026 to 2027 School Year (Fund for the Support of Native Languages "Language of the Ancestors", approved 3 September 2026)** *(Identity, Culture and Religion · Education and Militarisation)*
+The rules of a national "native languages" contest for which children in occupied Mariupol were reportedly entered; the 2026 form does list Ukrainian, so the document corrects an earlier claim of exclusion.
+
+
 ## 5. Media & Public Engagement
 
 *49 items. Sorted by date, most recent first.*
