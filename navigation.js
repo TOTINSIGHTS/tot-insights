@@ -196,10 +196,10 @@
   var THEME_DOT_COLORS = {
     'Governance': 'var(--theme-governance)',
     'Economics': 'var(--theme-economics)',
-    'Civilian Life': 'var(--theme-civilian-life)',
+    'Civilian Life and Resistance': 'var(--theme-civilian-life)',
     'Identity, Culture and Religion': 'var(--theme-identity)',
     'Education and Militarisation': 'var(--theme-education)',
-    'Coercion, Resistance and Security': 'var(--theme-coercion)',
+    'Slavery and Entrapment': 'var(--theme-slavery)',
     'Information Space': 'var(--theme-information)',
     'Accountability and Legal': 'var(--theme-accountability)'
   };

@@ -63,7 +63,7 @@ Interactive D3 force-directed network map of 26 entities operating in or around 
 **DOC-094 — Market Prices, Occupied DPR Territory — April 2026, First Decade** *(Visual)*
 Fieldwork price-monitoring document collecting shelf price data directly photographed in a supermarket in occupied DPR territory on 6 April 2026. 150+ goods across six categories: fresh produce and eggs; staples; cereals, grains and pasta; dairy; canned meat and fish; condiments, sauces and oils. Prices denominated in Russian roubles, with approximate GBP and USD equivalents. Also includes a district heating invoice. First instalment of a quarterly price-monitoring series.
 
-**DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
+**DOC-A1 — Ghost Pensioners: Pension Fraud and Demographic Coercion in Mariupol** *(Briefing & Paper)* *(also: Slavery and Entrapment)*
 Russia's occupation administration claims pension payments for approximately 134,600 individuals no longer present in Mariupol — generating an estimated 1.68 billion rubles per month in fraudulent federal budget expenditure via DPR banks outside standard treasury oversight. Documents the fraud mechanism and a second coercion function: the deliberate use of citizenship-stripping provisions to threaten remaining pensioners. Two accountability pathways: fraud against the Russian federal budget and potential IHL violations.
 
 ---
@@ -103,18 +103,18 @@ Co-authored with Anastasia Romaniuk. Analyses Russia's deportation of Ukrainian 
 
 ---
 
-### Civilian Life
+### Civilian Life and Resistance
 
-**DOC-B5 — Mariupol Property Seizure Programme: Interactive Dashboard** *(Dashboard)* *(also: Coercion, Resistance and Security)*
+**DOC-B5 — Mariupol Property Seizure Programme: Interactive Dashboard** *(Dashboard)* *(also: Slavery and Entrapment)*
 Interactive HTML dashboard presenting occupation administrative records on property seizure in Mariupol. Residential programme: 8,526 properties, 90.7% ownerless. Commercial programme: ~460 unique properties across 20 monthly snapshots, October 2024–June 2025. Companion to DOC-B6.
 
-**DOC-B6 — Mariupol Property Seizure Programme: Evidence from Occupation Administrative Records** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
+**DOC-B6 — Mariupol Property Seizure Programme: Evidence from Occupation Administrative Records** *(Briefing & Paper)* *(also: Slavery and Entrapment)*
 Uses occupation administration's own registry data to document systematic property classification and transfer under the Russian beskhozyanost (ownerlessness) mechanism. Residential programme: 8,526 properties, 90.7% ownerless, 2,220 reclaimed. Commercial programme: ~460 unique properties, including systematic targeting of Ukrainian chain brands.
 
-**DOC-C5 — IDP Attitudes Survey: Raw Dataset (n=1,001)** *(Data)* *(also: Coercion, Resistance and Security)*
+**DOC-C5 — IDP Attitudes Survey: Raw Dataset (n=1,001)** *(Data)* *(also: Slavery and Entrapment)*
 Full cleaned dataset from a survey of 1,001 IDPs from Russian-occupied Ukrainian territories. Variables cover displacement status, IDP self-identification, demographics, institutional effectiveness ratings, contact with Russian-occupied territories, attitudes toward Russian rule, and assessments of non-violent resistance actions. Data in Ukrainian. Source for DOC-C7.
 
-**DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)* *(also: Coercion, Resistance and Security)*
+**DOC-C7 — IDP Attitudes Survey: Interactive Dashboard (v2)** *(Dashboard)* *(also: Slavery and Entrapment)*
 Interactive dashboard presenting findings from a survey of 1,001 IDPs from Russian-occupied territories. Key findings: 76.4% rate Ukrainian government ineffective vs 48.9% for international humanitarian organisations; 58.5% disagree that people who stayed are satisfied with Russian rule; 61.6% believe hidden resistance exists. Top resistance actions: evacuation (46.5%), medicine (42.8%), essential goods (41.5%).
 
 **DOC-G1 — DPR Ombudswoman: Social-Humanitarian Situation Reports (Primary Source Collection)** *(Primary Sources)*
@@ -126,6 +126,16 @@ Four official reports from the Mariupol occupation city administration covering 
 **DOC-089 — Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025** *(Visual)*
 TOT Insights visual showing the distribution of recorded population displacement flows from occupied Zaporizhzhia Oblast: evacuation to Ukrainian-controlled territory (40%), EU migration (30%), departure to Russia (25%), return in spring 2025 (5%). The low return share is consistent with entrapment dynamics. Russia-bound departures exceeding EU migration suggests coerced or semi-coerced relocation as a significant displacement component.
 
+**DOC-F3 — Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)** *(Dashboard)*
+Interactive monitoring dashboard for verified violent resistance incidents in Russian-occupied Ukrainian territory and Russian Federation territory, December 2024 to February 2026. 387 total incidents across 30 biweekly periods. Occupied territory breakdown: 246 incidents (vehicle attacks 26%, sabotage 35%); RF-territory breakdown: 141 incidents (railway sabotage 33%). Documents escalation of RF-territory operations from Q4 2025.
+
+**DOC-085 — Thresholds of Survival: The Resistance in Occupied Ukraine** *(Report)*
+CSIS report documenting the evolution of Ukrainian resistance activity in occupied territories through 2024–25. Finds that intensified Russian surveillance and control have pushed resistance further underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility. Based on field research, interviews across free Ukraine, and open-source analysis. Companion to DOC-087.
+
+**DOC-087 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** *(Report)*
+CSIS report presenting fieldwork and interview-based research on Ukrainian resistance activity in territories subsequently de-occupied. Examines the operational role of resistance in undermining Russia's war effort, documents the personal realities faced by participants, and draws on testimony to assess the costs and achievements of resistance under occupation. Includes policy recommendations for Ukraine and Western supporters.
+
+
 ---
 
 ### Identity, Culture and Religion
@@ -136,7 +146,7 @@ Between 2014 and 2025, Russia eliminated the plural religious landscape of Russi
 **DOC-B4 — Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation** *(Visual)*
 Interactive React/Recharts visualisation presenting quantitative data from the religious persecution analytical paper. Covers denomination-level suppression rates, destruction of religious structures, displacement figures, and ROC expansion. Companion to DOC-B3.
 
-**DOC-D3 — Russia Is Ethnically Cleansing Mariupol** *(Briefing & Paper)* *(also: Coercion, Resistance and Security)*
+**DOC-D3 — Russia Is Ethnically Cleansing Mariupol** *(Briefing & Paper)* *(also: Slavery and Entrapment)*
 Data-driven analytical essay making the explicit case for ethnic cleansing in Mariupol. Combined attrition of 710 pre-war residents/month through death, departure, and collapsed birth rates. Russian settler inflows ~2,200/month, with Russians projected to outnumber pre-war residents before end of 2026. Documents the federal Zemsky resettlement infrastructure and ISW assessment of a ten-year repopulation plan. Pre-war population: 450,000. Remaining: ~100,000, of whom 70% are pensioners over 60.
 
 **DOC-H1 — Russia's Settler Colonial Programme in Occupied Ukrainian Territories** *(Briefing & Paper)*
@@ -147,16 +157,9 @@ Compilation of settler profiles based on publicly available sources. Profiles gr
 
 ---
 
-### Coercion, Resistance and Security
+### Slavery and Entrapment
 
-**DOC-F3 — Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Feb 2026)** *(Dashboard)*
-Interactive monitoring dashboard for verified violent resistance incidents in Russian-occupied Ukrainian territory and Russian Federation territory, December 2024 to February 2026. 387 total incidents across 30 biweekly periods. Occupied territory breakdown: 246 incidents (vehicle attacks 26%, sabotage 35%); RF-territory breakdown: 141 incidents (railway sabotage 33%). Documents escalation of RF-territory operations from Q4 2025.
-
-**DOC-085 — Thresholds of Survival: The Resistance in Occupied Ukraine** *(Report)*
-CSIS report documenting the evolution of Ukrainian resistance activity in occupied territories through 2024–25. Finds that intensified Russian surveillance and control have pushed resistance further underground, with a shift toward compartmentation, trust-based networks, and survivability over visibility. Based on field research, interviews across free Ukraine, and open-source analysis. Companion to DOC-087.
-
-**DOC-087 — Crossing Thresholds: Ukrainian Resistance to Russian Occupation** *(Report)*
-CSIS report presenting fieldwork and interview-based research on Ukrainian resistance activity in territories subsequently de-occupied. Examines the operational role of resistance in undermining Russia's war effort, documents the personal realities faced by participants, and draws on testimony to assess the costs and achievements of resistance under occupation. Includes policy recommendations for Ukraine and Western supporters.
+*Theme created September 2026, replacing "Slavery and Entrapment". Resistance outputs moved to Civilian Life and Resistance; surveillance and denunciation sources to Information Space. Tagging in `data/documents.js` is the source of truth; outputs now carrying this tag include DOC-A1, DOC-B5, DOC-B6, DOC-B7, DOC-D2, DOC-D3, DOC-D5, DOC-083, DOC-084, DOC-120, DOC-122, DOC-141, DOC-142, DOC-160, DOC-E2 and DOC-A5b.*
 
 ---
 
@@ -211,10 +214,10 @@ Full text of the occupation administration's three-year education programme. Tot
 **DOC-100 — Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)** *(Governance)*
 Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.
 
-**DOC-101 — Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026** *(Civilian Life)*
+**DOC-101 — Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026** *(Civilian Life and Resistance)*
 Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.
 
-**DOC-102 — Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol** *(Civilian Life)*
+**DOC-102 — Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol** *(Civilian Life and Resistance)*
 Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.
 
 ---
@@ -226,7 +229,7 @@ Ten further primary-source documents, added to the research catalogue and `prima
 **DOC-123 — Territorial Public Self-Government (TOS) Bodies in Mariupol (Decrees Nos. 1162–1166)** *(Governance)*
 Five decrees of 18 June 2026 establishing Russian-style TOS neighbourhood self-government bodies across Mariupol districts (Ellinsky, Kalmiussky, Krasnoarmeysky, Rodnoy Dom, Magnolia). Bundled entry.
 
-**DOC-124 — War-Damaged Housing Repair Programme: Eligibility Commission (Decree No. 1175)** *(Civilian Life)*
+**DOC-124 — War-Damaged Housing Repair Programme: Eligibility Commission (Decree No. 1175)** *(Civilian Life and Resistance)*
 Amends the resident-co-financed war-damage repair programme (DOC-102), creating a commission to decide which damaged homes qualify for repair.
 
 **DOC-125 — Officials Authorised to Draw Up Administrative-Offence Protocols (Decree No. 1176)** *(Governance, Accountability and Legal)*
@@ -250,7 +253,7 @@ Orders the municipal housing utility wound up within a year and appoints a liqui
 **DOC-131 — Commission on Naming and Renaming Streets and Planning Elements (Decree No. 821)** *(Governance, Identity, Culture and Religion)*
 Amends (22 April 2026) the commission that assigns and changes Mariupol's street and planning-element names — the machinery of toponymic control.
 
-**DOC-132 — Russian National Guard (Rosgvardia) Security Services at a Kindergarten, Telmanovsky District (redacted)** *(Coercion, Resistance and Security, Education and Militarisation)*
+**DOC-132 — Russian National Guard (Rosgvardia) Security Services at a Kindergarten, Telmanovsky District (redacted)** *(Slavery and Entrapment, Education and Militarisation)*
 Redacted contract addendum: Rosgvardia's "Okhrana" enterprise servicing the security systems of the "Katyusha" kindergarten. Personal and banking data redacted. In `primary-sources/security-services-2026/`.
 
 ---
@@ -352,7 +355,7 @@ Spring 2025 call-up targeting citizens born 1995 to 2007. The youngest cohort (b
 
 ### Mobilisation and Martial Law
 
-**DOC-121 — Russian Federation Federal Law No. 423-FZ — Mandatory Military Training in Schools (4 August 2023)** *(Governance, Education and Militarisation, Coercion, Resistance and Security)*
+**DOC-121 — Russian Federation Federal Law No. 423-FZ — Mandatory Military Training in Schools (4 August 2023)** *(Governance, Education and Militarisation, Slavery and Entrapment)*
 Introduces Foundations of Security and Defence of the Motherland (OBZR) as a mandatory school subject from September 2024, including weapons handling, drone operation, and combat first aid. Applies in occupied Ukrainian territories via formal annexation. The most direct legislative expression of education militarisation in the collection.
 
 ---
@@ -361,7 +364,7 @@ Introduces Foundations of Security and Defence of the Motherland (OBZR) as a man
 
 Fifteen primary source entries (27 documents) reproduced from the official Russian legal information portal and the TOT Insights source collection, published September 2026. Each has a standalone page under `primary-sources/` with the original PDF(s) and key provisions in English, and an entry in `data/documents.js`.
 
-**DOC-153: Zemsky Relocation Programmes: Government Resolutions Extending "Zemsky Teacher", "Zemsky Doctor", "Zemsky Culture Worker" and "Zemsky Coach" to the Occupied Territories (2019 to 2025)** *(Civilian Life · Economics · Education and Militarisation)*
+**DOC-153: Zemsky Relocation Programmes: Government Resolutions Extending "Zemsky Teacher", "Zemsky Doctor", "Zemsky Culture Worker" and "Zemsky Coach" to the Occupied Territories (2019 to 2025)** *(Civilian Life and Resistance · Economics · Education and Militarisation)*
 Six government resolutions establishing the Zemsky Teacher, Doctor, Culture Worker and Coach programmes and doubling the relocation payment to two million roubles for the four occupied regions, against a five-year service bond.
 
 **DOC-154: Federal Constitutional Law No. 5-FKZ on the Admission of the "Donetsk People's Republic" to the Russian Federation, with Presidential Decree No. 705 Appointing its Acting Head (4 October 2022)** *(Governance · Accountability and Legal · Civilian Life)*
@@ -379,10 +382,10 @@ The free economic zone covering all four occupied regions, with tax and customs 
 **DOC-158: Government Resolution No. 2559 on Measures to Ensure the Martial Law Regime and Special Procurement Rules for the Occupied Territories (31 December 2022)** *(Governance · Economics · Accountability and Legal)*
 Single-supplier procurement without tender or publication for all state and municipal purchasing in the four occupied regions under martial law.
 
-**DOC-159: Federal Law No. 17-FZ on the Specifics of Pension and Additional Social Provision for Citizens Living in the Occupied Territories (17 February 2023)** *(Civilian Life · Governance)*
+**DOC-159: Federal Law No. 17-FZ on the Specifics of Pension and Additional Social Provision for Citizens Living in the Occupied Territories (17 February 2023)** *(Civilian Life and Resistance · Governance)*
 Russian pensions and social payments for residents of the occupied regions, available to citizens of the Russian Federation: the fiscal counterpart of passportisation.
 
-**DOC-160: "Ownerless" Housing: Federal Constitutional Law No. 4-FKZ (15 December 2025) and Law of the "Donetsk People's Republic" No. 66-RZ (21 March 2024) on Identifying and Taking Dwellings with Signs of Ownerless Property into Public Ownership** *(Civilian Life · Accountability and Legal · Economics)*
+**DOC-160: "Ownerless" Housing: Federal Constitutional Law No. 4-FKZ (15 December 2025) and Law of the "Donetsk People's Republic" No. 66-RZ (21 March 2024) on Identifying and Taking Dwellings with Signs of Ownerless Property into Public Ownership** *(Civilian Life and Resistance · Accountability and Legal · Economics)*
 The dispossession regime: the DPR law defining "signs of ownerless property" (2024) and the federal law vesting such homes in the occupation authorities for reallocation (2025).
 
 **DOC-161: Presidential Decree No. 809 on Traditional Russian Spiritual and Moral Values (9 November 2022) and Ministry of Education Order No. 808 Introducing the Compulsory Course "Spiritual and Moral Culture of Russia" (10 November 2025)** *(Education and Militarisation · Identity, Culture and Religion)*
@@ -397,7 +400,7 @@ School admission conditioned on legal status and a Russian-language test for chi
 **DOC-164: Presidential Decree No. 474 Approving the Foundations of State Language Policy of the Russian Federation (11 July 2025)** *(Identity, Culture and Religion · Governance)*
 The state language doctrine: Russian mandatory in administration, courts, schools and media, with protection reserved for the languages of the peoples of Russia, a category that excludes Ukrainian.
 
-**DOC-165: Rosmolodezh Methodological Recommendations on Preventing the Spread of the Ideology of Terrorism, Extremism and Neo-Nazism among Young People from the Occupied Territories (28 February 2025)** *(Coercion, Resistance and Security · Education and Militarisation · Identity, Culture and Religion)*
+**DOC-165: Rosmolodezh Methodological Recommendations on Preventing the Spread of the Ideology of Terrorism, Extremism and Neo-Nazism among Young People from the Occupied Territories (28 February 2025)** *(Slavery and Entrapment · Education and Militarisation · Identity, Culture and Religion)*
 The federal youth agency's manual for the occupied regions: Ukrainian nationalism as "the historical basis" of extremism, and the FSB, Rosgvardia, police and prison service as partners in youth work.
 
 **DOC-166: Regulation on the VIII International Contest of the Multi-Genre Culture of Peoples "Palette of Cultures", 2026 to 2027 School Year (Fund for the Support of Native Languages "Language of the Ancestors", approved 3 September 2026)** *(Identity, Culture and Religion · Education and Militarisation)*

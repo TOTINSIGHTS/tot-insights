@@ -55,6 +55,7 @@ const standalone = [
 // --- 2. Theme intros under /themes/ ---
 const themeIntros = fs.readdirSync('themes')
   .filter(f => f.endsWith('.html'))
+  .filter(f => f !== 'coercion-resistance-and-security.html') // redirect stub to slavery-and-entrapment.html
   .sort()
   .map(f => 'themes/' + f);
 

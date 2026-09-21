@@ -132,10 +132,10 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#2a2a3a;fo
         <button class="filter-btn active" data-filter="theme" data-value="all">All themes</button>
         <button class="filter-btn theme-gov" data-filter="theme" data-value="Governance">Governance</button>
         <button class="filter-btn theme-econ" data-filter="theme" data-value="Economics">Economics</button>
-        <button class="filter-btn theme-civ" data-filter="theme" data-value="Civilian Life">Civilian Life</button>
+        <button class="filter-btn theme-civ" data-filter="theme" data-value="Civilian Life and Resistance">Civilian Life and Resistance</button>
         <button class="filter-btn theme-idr" data-filter="theme" data-value="Identity, Culture and Religion">Identity, Culture and Religion</button>
         <button class="filter-btn theme-eml" data-filter="theme" data-value="Education and Militarisation">Education and Militarisation</button>
-        <button class="filter-btn theme-crs" data-filter="theme" data-value="Coercion, Resistance and Security">Coercion, Resistance and Security</button>
+        <button class="filter-btn theme-crs" data-filter="theme" data-value="Slavery and Entrapment">Slavery and Entrapment</button>
         <button class="filter-btn theme-inf" data-filter="theme" data-value="Information Space">Information Space</button>
         <button class="filter-btn theme-acc" data-filter="theme" data-value="Accountability and Legal">Accountability and Legal</button>
       </div>
@@ -204,7 +204,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#2a2a3a;fo
 <script>
 const BROWSE_DEFAULT=100;
 let activeTheme="all",activeFormat="all",browseSearch="",browseExpanded=false;
-const THEME_DOT={'Governance':'var(--theme-governance)','Economics':'var(--theme-economics)','Civilian Life':'var(--theme-civilian-life)','Identity, Culture and Religion':'var(--theme-identity)','Education and Militarisation':'var(--theme-education)','Coercion, Resistance and Security':'var(--theme-coercion)','Information Space':'var(--theme-information)','Accountability and Legal':'var(--theme-accountability)'};
+const THEME_DOT={'Governance':'var(--theme-governance)','Economics':'var(--theme-economics)','Civilian Life and Resistance':'var(--theme-civilian-life)','Identity, Culture and Religion':'var(--theme-identity)','Education and Militarisation':'var(--theme-education)','Slavery and Entrapment':'var(--theme-slavery)','Information Space':'var(--theme-information)','Accountability and Legal':'var(--theme-accountability)'};
 
 function buildCards(){
   const SEG=[
