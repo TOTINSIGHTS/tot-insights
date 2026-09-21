@@ -161,6 +161,9 @@ Compilation of settler profiles based on publicly available sources. Profiles gr
 
 *Theme created September 2026, replacing "Coercion, Entrapment and Slavery". Resistance outputs moved to Civilian Life and Resistance; surveillance and denunciation sources to Information Space. Tagging in `data/documents.js` is the source of truth; outputs now carrying this tag include DOC-A1, DOC-B5, DOC-B6, DOC-B7, DOC-D2, DOC-D3, DOC-D5, DOC-083, DOC-084, DOC-120, DOC-122, DOC-141, DOC-142, DOC-160, DOC-E2 and DOC-A5b.*
 
+**DOC-168 — Wage Arrears Register: Occupied Territories of Ukraine** *(Data)* *(also: Civilian Life and Resistance, Economics)*
+213 wage-arrears cases announced by the occupation prosecutors of the four mainland oblasts, April 2024 to September 2026, with employer, sector, workers, sum, pay period, measures and reported outcome. Landing page wage-arrears.html; files in data/wage-arrears/. Added 21 September 2026.
+
 ---
 
 ### Education and Militarisation

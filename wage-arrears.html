@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wage Arrears Register - TOT Insights</title>
+<meta name="description" content="Register of wage-arrears cases in Russian-occupied Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts, compiled from the occupation prosecutors' own announcements: employer, sector, workers owed, sum, pay period, enforcement measure and reported outcome.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=10">
+<style>
+.page-desc{font-size:var(--fs-body);color:#3a3a4a;max-width:720px;line-height:1.6;border-left:3px solid #e3e0d9;padding-left:14px;}
+.stats-strip{background:transparent;border-bottom:1px solid #e3e0d9;padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 22px;flex:1;min-width:150px;}
+.stat-val{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#3a3a4a;}
+.main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
+.db-download-wrap{margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.7rem 1.2rem;text-decoration:none;border-radius:2px;}
+.db-download-btn:hover{background:rgba(232,184,75,0.1);}
+.db-download-sub{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.04em;flex-basis:100%;}
+.db-panel{background:#f2f0ec;border-radius:3px;padding:26px 28px;margin-bottom:20px;}
+.db-h2{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#111d30;margin:0 0 10px;}
+.db-h3{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#111d30;margin:20px 0 8px;}
+.db-p{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;}
+.db-ul{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;padding-left:20px;}
+.db-ul li{margin-bottom:4px;}
+.db-panel a{color:var(--gold);text-decoration:none;}
+.db-panel a:hover{text-decoration:underline;}
+.db-note{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.03em;line-height:1.6;margin-top:16px;}
+.ym-controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;margin:0 0 10px;}
+.ym-controls label{display:block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#4a4a57;margin-bottom:4px;}
+.ym-controls select,.ym-controls input{font-family:var(--font-sans);font-size:var(--fs-table);color:#1a1a2e;background:#fff;border:1px solid rgba(17,29,48,0.22);border-radius:2px;padding:7px 10px;min-width:170px;}
+.ym-controls input{min-width:240px;}
+.ym-showing{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;margin:6px 0 10px;}
+.ym-tblwrap{overflow:auto;max-height:720px;border:1px solid #e0e4ed;background:#fff;border-radius:3px;}
+.ym-tbl{width:100%;border-collapse:collapse;}
+.ym-tbl thead th{position:sticky;top:0;background:#f7f5f0;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;text-align:left;padding:9px 10px;border-bottom:1px solid #e0e4ed;cursor:pointer;white-space:nowrap;}
+.ym-tbl td{font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.4;color:#1a1a2e;padding:8px 10px;border-bottom:1px solid #ece9e2;vertical-align:top;}
+.ym-tbl td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.ym-tbl tr.ym-row{cursor:pointer;}
+.ym-tbl tr.ym-row:hover{background:#faf8f3;}
+.ym-tbl tr.ym-row.open{background:#f4f1ea;}
+.ym-tbl td.ym-id{font-family:var(--font-mono);color:#4a4a57;white-space:nowrap;}
+.ym-tbl td.ym-name{min-width:200px;}
+.ym-badge{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid rgba(17,29,48,0.18);color:#1a1a2e;white-space:nowrap;}
+.ym-badge.o-paid{border-color:#3f6b3f;color:#3f6b3f;}
+.ym-badge.o-open{border-color:#8a2a2a;color:#8a2a2a;}
+.ym-badge.o-partial{border-color:#8a6f35;color:#8a6f35;}
+.ym-badge.o-agg{border-color:#45508A;color:#45508A;}
+.ym-detail td{background:#fbfaf7;padding:12px 16px 16px 40px;}
+.ym-dl{display:grid;grid-template-columns:200px 1fr;gap:6px 14px;margin:0;font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.45;}
+.ym-dl dt{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;padding-top:2px;}
+.ym-dl dd{margin:0;color:#1a1a2e;overflow-wrap:anywhere;}
+.ym-dl dd a{color:var(--navy);}
+.ym-toggle{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;white-space:nowrap;}
+.ym-guard{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:0 0 18px;font-family:var(--font-serif);font-size:var(--fs-table);color:#3a3a44;line-height:1.5;max-width:100ch;}
+@media(max-width:700px){.main-content{padding:20px 16px 60px;}.stats-strip{padding:16px;}.ym-dl{grid-template-columns:1fr;}.ym-detail td{padding-left:16px;}.ym-controls select,.ym-controls input{min-width:0;width:100%;}.ym-tbl .ym-hide-m{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Coercion, Entrapment and Slavery</div>
+    <h1 class="page-title">Wage Arrears Register: Occupied Territories of Ukraine</h1>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Compiled by TOT Insights &nbsp;·&nbsp; first edition 21 September 2026 &nbsp;·&nbsp; source: occupation prosecutor announcements, April 2024 to September 2026</div>
+    <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">TOT Insights (2026). Wage Arrears Register: Occupied Territories of Ukraine. King&#39;s College London. https://totinsights.org/wage-arrears.html</div>
+      <button onclick="(function(b){navigator.clipboard.writeText('TOT Insights (2026). Wage Arrears Register: Occupied Territories of Ukraine. King\'s College London. https://totinsights.org/wage-arrears.html');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+    </div>
+    <p class="page-desc">Every wage-arrears case that the occupation prosecutors of Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts have announced on the Russian Prosecutor General's portal since spring 2024: the employer, the sector, how many workers were owed, how much, for which months, what the prosecutor did about it and what outcome was claimed. Unpaid work is one of the quieter mechanisms by which the occupation holds people in place, and this register is the occupation's own record of it.</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-card"><div class="stat-val" id="st-cases">213</div><div class="stat-lbl">Cases</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-workers">50,667</div><div class="stat-lbl">Workers owed wages</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-rub">RUB 3.6bn</div><div class="stat-lbl">Arrears stated</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-crim">10</div><div class="stat-lbl">Criminal cases opened</div></div>
+    <div class="stat-card"><div class="stat-val">Apr 2024 to Sep 2026</div><div class="stat-lbl">Period covered</div></div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="db-download-wrap">
+    <a class="db-download-btn" href="data/wage-arrears/tot_wage_arrears_register.xlsx" download>Download register (XLSX)</a>
+    <a class="db-download-btn" href="data/wage-arrears/tot_wage_arrears_register.csv" download>Download register (CSV)</a>
+    <div class="db-download-sub">216 entries &middot; 19 fields &middot; field definitions and method note in the workbook &middot; UTF-8</div>
+  </div>
+
+  <div class="db-panel">
+    <h2 class="db-h2">About this register</h2>
+    <p class="db-p">The register belongs to the hub's <a href="themes/coercion-entrapment-and-slavery.html">Coercion, Entrapment and Slavery</a> theme. Its premise is simple: people who are not paid but keep working, because they cannot leave and there is no other employer, are held in place by their wages as surely as by a checkpoint. The occupation does not publish arrears statistics for the territories it holds. What it does publish, through the regional prosecutor offices, is a stream of announcements that a debt at a named or unnamed employer has been "repaid after the intervention of the prosecutor". Read one at a time they are good-news items. Read together they are the most complete public record of where, in what sectors and on what scale wages go unpaid under occupation.</p>
+
+    <h3 class="db-h3">How it was built</h3>
+    <p class="db-p">The Donetsk, Luhansk, Zaporizhzhia and Kherson sections of the Prosecutor General of the Russian Federation's portal were searched with eight Russian query strings covering wage arrears, non-payment of wages, arrears of pay and workers' labour rights. Every result whose title referred to wages, arrears, workers or payments was downloaded, and every announcement whose text states a wage-arrears case was kept. Employer, sector, workers, sum, pay period, measures and outcome were extracted from the announcement text and checked against the source sentence, which is reproduced in each entry. Nothing is estimated: where the prosecutor did not state a figure, the field is blank.</p>
+
+    <h3 class="db-h3">What the register shows</h3>
+    <ul class="db-ul">
+      <li><strong>Where the arrears are.</strong> Luhansk accounts for nearly half of all cases. Across the four oblasts, utilities, housing services and municipal or state enterprises make up more than half of the register: water and heat utilities, housing management companies, municipal transport, cultural institutions and district administrations. The occupation's own public sector is its largest wage debtor.</li>
+      <li><strong>How big the cases are.</strong> The median case involves about seventy workers. The largest are structural: five coal enterprises under the Luhansk fuel ministry owing more than 1 billion roubles to more than 2,000 miners (September 2025); the Kherson education ministry and its institutions owing 300 million roubles for a single month to 7,700 staff (April 2024); three Donetsk coal enterprises owing 261 million roubles to 6,032 workers (November to December 2024); and the Dniprorudne iron-ore combine in Zaporizhzhia oblast owing 93 million roubles to 3,552 workers (March 2026).</li>
+      <li><strong>How long people wait.</strong> Where the pay period is stated, most cases cover one or two months, but more than a quarter cover three months or longer, and the register includes arrears running to ten, twelve and fifteen months.</li>
+      <li><strong>What enforcement looks like.</strong> The standard instrument is a representation to management, recorded in 181 entries. Administrative cases under Article 5.27 of the Code of Administrative Offences appear in 39, court claims on behalf of workers in 20, and criminal cases under Article 145.1 of the Criminal Code in only 10. In 168 entries the prosecutor reports that the debt was paid in full.</li>
+    </ul>
+
+    <h3 class="db-h3">What it is not</h3>
+    <p class="db-p">The register records what the occupation prosecutors chose to announce. It is a floor, not a measure of arrears in the territories. It omits cases the prosecutors did not act on or did not publicise, arrears at enterprises outside their reach, and unpaid or in-kind labour for the Russian armed forces, which the hub's monitoring reports separately. The claim that a debt was "paid in full" is the prosecutor's and is recorded as the reported outcome, not verified. Three entries are aggregate statements, such as an annual total of arrears recovered, and are flagged so that they are not summed with the cases. One entry is flagged as a possible duplicate announcement.</p>
+
+    <h3 class="db-h3">Place names</h3>
+    <p class="db-p">Localities are given in Ukrainian transliteration. Where the occupation authorities use a Soviet-era name that Ukraine changed after 2016, the Ukrainian name follows in brackets, so Torez (Chystiakove), Krasnodon (Sorokyne), Stakhanov (Kadiivka). Employer names and the key sentence are reproduced in the original Russian so that each entry can be checked against its source.</p>
+
+    <div class="db-note">Related outputs: <a href="themes/coercion-entrapment-and-slavery.html">Coercion, Entrapment and Slavery: an introduction</a> &middot; <a href="briefings/working_for_the_occupier.html">Working for the Occupier</a> &middot; <a href="briefings/ghost_pensioners.html">Ghost Pensioners</a></div>
+  </div>
+
+  <div class="ym-guard"><strong>Reading rule.</strong> Figures are those stated by the occupation prosecutor in the cited announcement. Inclusion records a publicly announced arrears case; it is not an independent finding about the employer. Click a row to see the full record and the source sentence.</div>
+
+  <div class="ym-controls">
+    <div><label for="f-reg">Oblast</label><select id="f-reg"><option value="">All oblasts</option></select></div>
+    <div><label for="f-sec">Sector</label><select id="f-sec"><option value="">All sectors</option></select></div>
+    <div><label for="f-year">Year announced</label><select id="f-year"><option value="">All years</option></select></div>
+    <div><label for="f-meas">Measure</label><select id="f-meas"><option value="">All measures</option></select></div>
+    <div><label for="f-q">Search</label><input id="f-q" type="search" placeholder="employer, locality, prosecutor office" autocomplete="off"></div>
+  </div>
+  <div class="ym-showing" id="showing"></div>
+
+  <div class="ym-tblwrap">
+    <table class="ym-tbl" id="tbl">
+      <thead><tr>
+        <th data-k="id">#</th>
+        <th data-k="date">Date</th>
+        <th data-k="region">Oblast</th>
+        <th data-k="locality" class="ym-hide-m">Locality</th>
+        <th data-k="enterprise">Employer</th>
+        <th data-k="sector" class="ym-hide-m">Sector</th>
+        <th data-k="workers_affected">Workers</th>
+        <th data-k="amount_rub">Arrears, RUB m</th>
+        <th data-k="period_unpaid" class="ym-hide-m">Pay period</th>
+        <th data-k="outcome">Outcome</th>
+        <th></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Wage%20Arrears%20Register%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/wage-arrears.html%0A%0AEntry number:%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &rarr;</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update. Please quote the entry number.</p>
+</div></div>
+
+<div id="site-footer"></div>
+
+<script>
+(function(){
+var REG=["Donetsk","Luhansk","Zaporizhzhia","Kherson"];
+var MEAS=["Prosecutor representation","Administrative case (Art. 5.27 CAO)","Court claims on behalf of workers","Criminal case (Art. 145.1 CC)","Official warning","Disciplinary action"];
+var LABELS={record_type:"Record type",prosecutor_office:"Prosecutor office",months_unpaid:"Months unpaid",compensation_rub:"Compensation stated (RUB)",measures:"Measures reported",title_ru:"Announcement title",key_sentence_ru:"Source sentence",source_url:"Source",possible_duplicate:"Possible duplicate announcement"};
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function fmtN(n){return n==null?"":Number(n).toLocaleString("en-GB");}
+function fmtM(n){if(n==null)return "";var m=n/1e6;return m>=100?m.toFixed(0):m>=10?m.toFixed(1):m.toFixed(2);}
+function badge(r){if(r.record_type!=="Case")return '<span class="ym-badge o-agg">Aggregate</span>';var o=r.outcome||"";var k=o.indexOf("Paid in full")===0?"o-paid":o.indexOf("Partially")===0?"o-partial":o.indexOf("Under")===0?"o-open":"";var t=o.indexOf("Paid in full")===0?"Paid in full (reported)":o.indexOf("Partially")===0?"Partially paid":o.indexOf("Under")===0?"Unpaid at report":"Not stated";return '<span class="ym-badge '+k+'">'+t+'</span>';}
+var fR=document.getElementById("f-reg"),fS=document.getElementById("f-sec"),fY=document.getElementById("f-year"),fM=document.getElementById("f-meas"),fQ=document.getElementById("f-q"),tb=document.getElementById("tb"),sh=document.getElementById("showing");
+REG.forEach(function(t){fR.innerHTML+='<option>'+t+'</option>';});
+MEAS.forEach(function(t){fM.innerHTML+='<option>'+t+'</option>';});
+fetch("data/wage-arrears/wage_arrears_register.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(rows){
+  var cases=rows.filter(function(r){return r.record_type==="Case";});
+  document.getElementById("st-cases").textContent=fmtN(cases.length);
+  document.getElementById("st-workers").textContent=fmtN(cases.reduce(function(a,r){return a+(r.workers_affected||0);},0));
+  document.getElementById("st-rub").textContent="RUB "+(cases.reduce(function(a,r){return a+(r.amount_rub||0);},0)/1e9).toFixed(1)+"bn";
+  document.getElementById("st-crim").textContent=cases.filter(function(r){return (r.measures||"").indexOf("145.1")>=0;}).length;
+  var secs={},yrs={};rows.forEach(function(r){secs[r.sector]=1;yrs[r.date.slice(0,4)]=1;});
+  Object.keys(secs).sort().forEach(function(t){fS.innerHTML+='<option>'+esc(t)+'</option>';});
+  Object.keys(yrs).sort().forEach(function(t){fY.innerHTML+='<option>'+t+'</option>';});
+  var open={}, sortK="date", sortDir=-1;
+  function render(){
+    var q=(fQ.value||"").toLowerCase(), g=fR.value, s=fS.value, y=fY.value, m=fM.value;
+    var out=rows.filter(function(r){
+      if(g&&r.region!==g)return false;
+      if(s&&r.sector!==s)return false;
+      if(y&&r.date.slice(0,4)!==y)return false;
+      if(m&&(r.measures||"").indexOf(m)<0)return false;
+      if(q){var hay=[r.enterprise,r.locality,r.prosecutor_office,r.sector,r.title_ru,r.period_unpaid,r.outcome].join(" ").toLowerCase();if(hay.indexOf(q)<0)return false;}
+      return true;});
+    out.sort(function(a,b){var x=a[sortK],y2=b[sortK];if(sortK==="id"||sortK==="workers_affected"||sortK==="amount_rub"){x=x==null?-1:+x;y2=y2==null?-1:+y2;}else{x=String(x==null?"":x).toLowerCase();y2=String(y2==null?"":y2).toLowerCase();}return (x>y2?1:x<y2?-1:0)*sortDir;});
+    tb.innerHTML=out.map(function(r){
+      var o=open[r.id]?" open":"";
+      var main='<tr class="ym-row'+o+'" data-id="'+r.id+'"><td class="ym-id">'+r.id+'</td><td class="ym-id">'+esc(r.date)+'</td><td>'+esc(r.region)+'</td><td class="ym-hide-m">'+esc(r.locality||"Not stated")+'</td><td class="ym-name">'+esc(r.enterprise)+'</td><td class="ym-hide-m">'+esc(r.sector)+'</td><td class="num">'+fmtN(r.workers_affected)+'</td><td class="num">'+fmtM(r.amount_rub)+'</td><td class="ym-hide-m">'+esc(r.period_unpaid)+'</td><td>'+badge(r)+'</td><td class="ym-toggle">'+(open[r.id]?"&#8722;":"+")+'</td></tr>';
+      if(!open[r.id])return main;
+      var dl='<dl class="ym-dl">';
+      dl+='<dt>Record type</dt><dd>'+esc(r.record_type)+'</dd>';
+      if(r.prosecutor_office)dl+='<dt>Prosecutor office</dt><dd>'+esc(r.prosecutor_office)+'</dd>';
+      if(r.months_unpaid)dl+='<dt>Months unpaid</dt><dd>'+esc(r.months_unpaid)+'</dd>';
+      if(r.compensation_rub)dl+='<dt>Compensation stated</dt><dd>RUB '+fmtN(r.compensation_rub)+'</dd>';
+      if(r.measures)dl+='<dt>Measures reported</dt><dd>'+esc(r.measures)+'</dd>';
+      dl+='<dt>Outcome as reported</dt><dd>'+esc(r.outcome)+'</dd>';
+      dl+='<dt>Announcement title</dt><dd>'+esc(r.title_ru)+'</dd>';
+      dl+='<dt>Source sentence</dt><dd>'+esc(r.key_sentence_ru)+'</dd>';
+      dl+='<dt>Source</dt><dd><a href="'+esc(r.source_url)+'" target="_blank" rel="noopener nofollow">'+esc(r.source_url)+'</a></dd>';
+      if(r.possible_duplicate)dl+='<dt>Note</dt><dd>Possible duplicate of another announcement in the same oblast and month.</dd>';
+      dl+='</dl>';
+      return main+'<tr class="ym-detail"><td colspan="11">'+dl+'</td></tr>';
+    }).join("");
+    sh.textContent="Showing "+out.length+" of "+rows.length+" entries";
+  }
+  tb.addEventListener("click",function(e){var tr=e.target.closest("tr.ym-row");if(!tr)return;if(e.target.tagName==="A")return;var id=tr.getAttribute("data-id");open[id]=!open[id];render();});
+  document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var k=th.getAttribute("data-k");sortDir=(sortK===k)?-sortDir:(k==="date"?-1:1);sortK=k;render();});});
+  [fR,fS,fY,fM].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
+  render();
+}).catch(function(err){sh.textContent="Could not load the register ("+((err&&err.message)||err)+").";});
+})();
+</script>
+<script src="navigation.js?v=15"></script>
+</body>
+</html>
