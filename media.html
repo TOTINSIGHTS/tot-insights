@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="navigation.css?v=8">
-<link rel="stylesheet" href="assets/css/main.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=10">
 <style>
 
 body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;font-size:var(--fs-body);line-height:1.6;}
@@ -103,7 +103,7 @@ body{font-family:var(--font-sans);background:var(--cream-panel);color:#6b6b78;fo
 
 <div id="site-footer"></div>
 
-<script src="data/documents.js?v=6"></script>
+<script src="data/documents.js?v=7"></script>
 <script>
 const MEDIA_DATA = DOCS.filter(function(d){return d.media;}).map(function(d){return {id:d.id,t:d.title,d:d.date,y:d.year,o:d.outlet,f:d.format,desc:d.desc,url:d.url};});
 const _MMED={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
@@ -157,6 +157,6 @@ renderMedia();
 if(document.readyState==='complete')setTimeout(highlightMediaFromUrl,80);
 else window.addEventListener('load',function(){setTimeout(highlightMediaFromUrl,80);});
 </script>
-<script src="navigation.js?v=14"></script>
+<script src="navigation.js?v=15"></script>
 </body>
 </html>
