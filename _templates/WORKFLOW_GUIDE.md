@@ -34,7 +34,7 @@ When a new briefing, paper, dashboard, or dataset is published, you need to add 
 3. Gather the following information before editing:
    - **Title** — exact title of the document
    - **Date** — month and year of publication (e.g. `"June 2026"`)
-   - **Theme** — one of: `"Economics"`, `"Governance"`, `"Education and Militarisation"`, `"Identity, Culture and Religion"`, `"Accountability and Legal"`, `"Civilian Life and Resistance"`, `"Slavery and Entrapment"`, `"Information Space"` (can be an array of two: `["Economics","Governance"]`)
+   - **Theme** — one of: `"Economics"`, `"Governance"`, `"Education and Militarisation"`, `"Identity, Culture and Religion"`, `"Accountability and Legal"`, `"Civilian Life and Resistance"`, `"Coercion, Entrapment and Slavery"`, `"Information Space"` (can be an array of two: `["Economics","Governance"]`)
    - **Format** — one of: `"Briefing"`, `"Paper"`, `"Dashboard"`, `"Visual"`, `"Data"`, `"Primary Sources"`
    - **DOI** — the Zenodo DOI in full format: `https://doi.org/10.5281/zenodo.XXXXXXXX`
    - **desc** — one or two sentences (the card description — what is unique or headline about this output)

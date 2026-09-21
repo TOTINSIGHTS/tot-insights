@@ -199,7 +199,7 @@
     'Civilian Life and Resistance': 'var(--theme-civilian-life)',
     'Identity, Culture and Religion': 'var(--theme-identity)',
     'Education and Militarisation': 'var(--theme-education)',
-    'Slavery and Entrapment': 'var(--theme-slavery)',
+    'Coercion, Entrapment and Slavery': 'var(--theme-slavery)',
     'Information Space': 'var(--theme-information)',
     'Accountability and Legal': 'var(--theme-accountability)'
   };
