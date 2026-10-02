@@ -1,0 +1,3252 @@
+{
+ "meta": {
+  "title": "IDP Attitudes Survey 2026",
+  "fieldwork": "September 2026",
+  "method": "CATI (computer-assisted telephone interviewing)",
+  "pollster": "Operativna Sotsiolohiya",
+  "n": 1007,
+  "nComparable": 725,
+  "moe": {
+   "50": 3.1,
+   "25/75": 2.7,
+   "5/95": 1.4,
+   "1/99": 0.6
+  },
+  "comparison": "September 2025 wave, n=1,001 (corrected figures)."
+ },
+ "sections": [
+  {
+   "id": "profile",
+   "title": "Sample and displacement",
+   "questions": [
+    {
+     "code": "sex",
+     "num": "",
+     "text": "Sex",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q2",
+     "rows": [
+      {
+       "label": "Female",
+       "n": 738,
+       "pct": 73.3,
+       "pct2025": 63.9,
+       "pctComparable": 69.4
+      },
+      {
+       "label": "Male",
+       "n": 269,
+       "pct": 26.7,
+       "pct2025": 36.1,
+       "pctComparable": 30.6
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "age_category",
+     "num": "",
+     "text": "Age group",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q1",
+     "rows": [
+      {
+       "label": "18–24",
+       "n": 32,
+       "pct": 3.2,
+       "pct2025": 4.1,
+       "pctComparable": 3.4
+      },
+      {
+       "label": "25–34",
+       "n": 110,
+       "pct": 10.9,
+       "pct2025": 14.0,
+       "pctComparable": 12.1
+      },
+      {
+       "label": "35–49",
+       "n": 301,
+       "pct": 29.9,
+       "pct2025": 32.0,
+       "pctComparable": 29.5
+      },
+      {
+       "label": "50–59",
+       "n": 226,
+       "pct": 22.4,
+       "pct2025": 21.5,
+       "pctComparable": 23.9
+      },
+      {
+       "label": "60+",
+       "n": 338,
+       "pct": 33.6,
+       "pct2025": 28.5,
+       "pctComparable": 31.0
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "region",
+     "num": "",
+     "text": "Oblast of current residence",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Dnipropetrovsk",
+       "n": 160,
+       "pct": 15.9
+      },
+      {
+       "label": "Kyiv oblast",
+       "n": 148,
+       "pct": 14.7
+      },
+      {
+       "label": "Kharkiv",
+       "n": 129,
+       "pct": 12.8
+      },
+      {
+       "label": "Kyiv city",
+       "n": 82,
+       "pct": 8.1
+      },
+      {
+       "label": "Poltava",
+       "n": 64,
+       "pct": 6.4
+      },
+      {
+       "label": "Odesa",
+       "n": 57,
+       "pct": 5.7
+      },
+      {
+       "label": "Lviv",
+       "n": 45,
+       "pct": 4.5
+      },
+      {
+       "label": "Zaporizhzhia",
+       "n": 38,
+       "pct": 3.8
+      },
+      {
+       "label": "Ivano-Frankivsk",
+       "n": 29,
+       "pct": 2.9
+      },
+      {
+       "label": "Cherkasy",
+       "n": 28,
+       "pct": 2.8
+      },
+      {
+       "label": "Kirovohrad",
+       "n": 27,
+       "pct": 2.7
+      },
+      {
+       "label": "I live abroad",
+       "n": 26,
+       "pct": 2.6
+      },
+      {
+       "label": "Khmelnytskyi",
+       "n": 25,
+       "pct": 2.5
+      },
+      {
+       "label": "Mykolaiv",
+       "n": 23,
+       "pct": 2.3
+      },
+      {
+       "label": "Zhytomyr",
+       "n": 22,
+       "pct": 2.2
+      },
+      {
+       "label": "Vinnytsia",
+       "n": 19,
+       "pct": 1.9
+      },
+      {
+       "label": "Ternopil",
+       "n": 15,
+       "pct": 1.5
+      },
+      {
+       "label": "Zakarpattia",
+       "n": 14,
+       "pct": 1.4
+      },
+      {
+       "label": "Chernivtsi",
+       "n": 13,
+       "pct": 1.3
+      },
+      {
+       "label": "Volyn",
+       "n": 12,
+       "pct": 1.2
+      },
+      {
+       "label": "Chernihiv",
+       "n": 8,
+       "pct": 0.8
+      },
+      {
+       "label": "Rivne",
+       "n": 6,
+       "pct": 0.6
+      },
+      {
+       "label": "Sumy",
+       "n": 6,
+       "pct": 0.6
+      },
+      {
+       "label": "Donetsk",
+       "n": 5,
+       "pct": 0.5
+      },
+      {
+       "label": "Kherson",
+       "n": 4,
+       "pct": 0.4
+      },
+      {
+       "label": "Hard to say",
+       "n": 2,
+       "pct": 0.2
+      }
+     ]
+    },
+    {
+     "code": "type_of_settlement",
+     "num": "",
+     "text": "Type of settlement of current residence",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Oblast centre",
+       "n": 517,
+       "pct": 51.3
+      },
+      {
+       "label": "Village/settlement",
+       "n": 213,
+       "pct": 21.2
+      },
+      {
+       "label": "Other city",
+       "n": 274,
+       "pct": 27.2
+      },
+      {
+       "label": "Hard to say",
+       "n": 3,
+       "pct": 0.3
+      }
+     ]
+    },
+    {
+     "code": "q3",
+     "num": "",
+     "text": "Oblast of the settlement where the respondent lived from 2014 until 24 February 2022",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Donetsk",
+       "n": 571,
+       "pct": 56.7
+      },
+      {
+       "label": "Kharkiv",
+       "n": 147,
+       "pct": 14.6
+      },
+      {
+       "label": "Kherson",
+       "n": 111,
+       "pct": 11.0
+      },
+      {
+       "label": "Zaporizhzhia",
+       "n": 69,
+       "pct": 6.9
+      },
+      {
+       "label": "Luhansk",
+       "n": 69,
+       "pct": 6.9
+      },
+      {
+       "label": "Dnipropetrovsk",
+       "n": 11,
+       "pct": 1.1
+      },
+      {
+       "label": "Mykolaiv",
+       "n": 9,
+       "pct": 0.9
+      },
+      {
+       "label": "Sumy",
+       "n": 5,
+       "pct": 0.5
+      },
+      {
+       "label": "AR Crimea / Sevastopol",
+       "n": 3,
+       "pct": 0.3
+      },
+      {
+       "label": "Odesa",
+       "n": 3,
+       "pct": 0.3
+      },
+      {
+       "label": "Chernihiv",
+       "n": 3,
+       "pct": 0.3
+      },
+      {
+       "label": "Zakarpattia",
+       "n": 2,
+       "pct": 0.2
+      },
+      {
+       "label": "Zhytomyr",
+       "n": 1,
+       "pct": 0.1
+      },
+      {
+       "label": "Kyiv oblast",
+       "n": 1,
+       "pct": 0.1
+      },
+      {
+       "label": "Poltava",
+       "n": 1,
+       "pct": 0.1
+      },
+      {
+       "label": "Hard to say",
+       "n": 1,
+       "pct": 0.1
+      }
+     ]
+    },
+    {
+     "code": "q4",
+     "num": "",
+     "text": "When the respondent left that settlement",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Before 24 February 2022",
+       "n": 81,
+       "pct": 8.0
+      },
+      {
+       "label": "February – April 2022",
+       "n": 425,
+       "pct": 42.2
+      },
+      {
+       "label": "May – December 2022",
+       "n": 210,
+       "pct": 20.9
+      },
+      {
+       "label": "2023",
+       "n": 66,
+       "pct": 6.6
+      },
+      {
+       "label": "2024",
+       "n": 72,
+       "pct": 7.1
+      },
+      {
+       "label": "2025",
+       "n": 45,
+       "pct": 4.5
+      },
+      {
+       "label": "2026",
+       "n": 95,
+       "pct": 9.4
+      },
+      {
+       "label": "Did not leave: the settlement was de-occupied",
+       "n": 4,
+       "pct": 0.4
+      },
+      {
+       "label": "Hard to say",
+       "n": 8,
+       "pct": 0.8
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 1,
+       "pct": 0.1
+      }
+     ]
+    },
+    {
+     "code": "q5",
+     "num": "Q5",
+     "text": "Please tell us, which statement suits you best?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q3",
+     "rows": [
+      {
+       "label": "The settlement where I lived before the full-scale invasion was occupied and remains occupied",
+       "n": 346,
+       "pct": 34.4,
+       "pct2025": 87.5
+      },
+      {
+       "label": "The settlement where I lived was not occupied, but is now occupied",
+       "n": 281,
+       "pct": 27.9,
+       "pct2025": null
+      },
+      {
+       "label": "The settlement where I lived was not occupied and remains unoccupied",
+       "n": 246,
+       "pct": 24.4,
+       "pct2025": null
+      },
+      {
+       "label": "The settlement where I lived before the full-scale invasion was occupied, but has now been de-occupied",
+       "n": 98,
+       "pct": 9.7,
+       "pct2025": 12.5
+      },
+      {
+       "label": "Hard to say",
+       "n": 36,
+       "pct": 3.6,
+       "pct2025": null
+      }
+     ],
+     "note": "The 2025 questionnaire offered only the two \"was occupied\" options; the other 2026 options were not asked in 2025."
+    },
+    {
+     "code": "q6",
+     "num": "Q6",
+     "text": "Please tell us, do you consider yourself an internally displaced person?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q4",
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 0,
+       "pct": 0.0,
+       "pct2025": 9.3,
+       "pctComparable": 0.0
+      },
+      {
+       "label": "Rather no",
+       "n": 0,
+       "pct": 0.0,
+       "pct2025": 2.9,
+       "pctComparable": 0.0
+      },
+      {
+       "label": "Rather yes",
+       "n": 113,
+       "pct": 11.2,
+       "pct2025": 7.0,
+       "pctComparable": 11.4
+      },
+      {
+       "label": "Definitely yes",
+       "n": 894,
+       "pct": 88.8,
+       "pct2025": 80.4,
+       "pctComparable": 88.6
+      },
+      {
+       "label": "Hard to say",
+       "n": 0,
+       "pct": 0.0,
+       "pct2025": 0.4,
+       "pctComparable": 0.0
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0,
+       "pct2025": 0.0,
+       "pctComparable": 0.0
+      }
+     ],
+     "baseComparable": 725,
+     "note": "In 2026 only respondents who consider themselves displaced were interviewed."
+    }
+   ]
+  },
+  {
+   "id": "support",
+   "title": "Support for displaced people",
+   "questions": [
+    {
+     "code": "q7",
+     "num": "Q7",
+     "text": "Please rate how effectively the government supports internally displaced persons.",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q5",
+     "rows": [
+      {
+       "label": "Completely ineffective",
+       "n": 357,
+       "pct": 35.5,
+       "pct2025": 42.7,
+       "pctComparable": 38.5
+      },
+      {
+       "label": "Rather ineffective",
+       "n": 373,
+       "pct": 37.0,
+       "pct2025": 33.7,
+       "pctComparable": 38.1
+      },
+      {
+       "label": "Rather effective",
+       "n": 172,
+       "pct": 17.1,
+       "pct2025": 14.8,
+       "pctComparable": 15.2
+      },
+      {
+       "label": "Completely effective",
+       "n": 43,
+       "pct": 4.3,
+       "pct2025": 4.9,
+       "pctComparable": 3.7
+      },
+      {
+       "label": "Hard to say",
+       "n": 61,
+       "pct": 6.1,
+       "pct2025": 4.0,
+       "pctComparable": 4.4
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 1,
+       "pct": 0.1,
+       "pct2025": 0.0,
+       "pctComparable": 0.1
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "q8",
+     "num": "Q8",
+     "text": "Have you personally or your family received any support in the last 12 months?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Yes, regularly",
+       "n": 302,
+       "pct": 30.0
+      },
+      {
+       "label": "Yes, once",
+       "n": 216,
+       "pct": 21.4
+      },
+      {
+       "label": "No, but I applied",
+       "n": 193,
+       "pct": 19.2
+      },
+      {
+       "label": "No, and I did not apply",
+       "n": 271,
+       "pct": 26.9
+      },
+      {
+       "label": "Hard to say",
+       "n": 25,
+       "pct": 2.5
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0
+      }
+     ]
+    },
+    {
+     "code": "q9",
+     "num": "Q9",
+     "text": "Please rate how effectively international humanitarian organisations support internally displaced persons in Ukraine.",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q6",
+     "rows": [
+      {
+       "label": "Completely ineffective",
+       "n": 179,
+       "pct": 17.8,
+       "pct2025": 17.3,
+       "pctComparable": 18.8
+      },
+      {
+       "label": "Rather ineffective",
+       "n": 247,
+       "pct": 24.5,
+       "pct2025": 31.6,
+       "pctComparable": 25.1
+      },
+      {
+       "label": "Rather effective",
+       "n": 321,
+       "pct": 31.9,
+       "pct2025": 33.8,
+       "pctComparable": 31.3
+      },
+      {
+       "label": "Completely effective",
+       "n": 80,
+       "pct": 7.9,
+       "pct2025": 7.3,
+       "pctComparable": 6.6
+      },
+      {
+       "label": "Hard to say",
+       "n": 180,
+       "pct": 17.9,
+       "pct2025": 10.0,
+       "pctComparable": 18.2
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0,
+       "pct2025": 0.1,
+       "pctComparable": 0.0
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "q10",
+     "num": "Q10",
+     "text": "Have you personally or your family received assistance from international humanitarian organisations in the last 12 months?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Yes, regularly",
+       "n": 49,
+       "pct": 4.9
+      },
+      {
+       "label": "Yes, once",
+       "n": 251,
+       "pct": 24.9
+      },
+      {
+       "label": "No, but I applied",
+       "n": 206,
+       "pct": 20.5
+      },
+      {
+       "label": "No, and I did not apply",
+       "n": 486,
+       "pct": 48.3
+      },
+      {
+       "label": "Hard to say",
+       "n": 15,
+       "pct": 1.5
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "occupation",
+   "title": "Views on occupation, risk and resistance",
+   "questions": [
+    {
+     "code": "q11",
+     "num": "Q11",
+     "text": "Do you agree with the statement: \"most of the population remaining in the occupied territories is satisfied with the Russian authorities\"?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q8",
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 314,
+       "pct": 31.2,
+       "pct2025": 26.2,
+       "pctComparable": 28.3
+      },
+      {
+       "label": "Rather no",
+       "n": 325,
+       "pct": 32.3,
+       "pct2025": 32.4,
+       "pctComparable": 33.2
+      },
+      {
+       "label": "Rather yes",
+       "n": 124,
+       "pct": 12.3,
+       "pct2025": 19.8,
+       "pctComparable": 15.0
+      },
+      {
+       "label": "Definitely yes",
+       "n": 33,
+       "pct": 3.3,
+       "pct2025": 7.6,
+       "pctComparable": 4.0
+      },
+      {
+       "label": "Hard to say",
+       "n": 209,
+       "pct": 20.8,
+       "pct2025": 13.8,
+       "pctComparable": 19.3
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.2,
+       "pct2025": 0.2,
+       "pctComparable": 0.1
+      }
+     ],
+     "baseComparable": 725,
+     "note": "The 2025 figures shown here are corrected. The table originally published in 2025 repeated the distribution for the hidden-resistance question by mistake."
+    },
+    {
+     "code": "q12",
+     "num": "Q12",
+     "text": "Do you agree with the statement that \"there is hidden resistance to the occupiers in the occupied territories\"?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q9",
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 46,
+       "pct": 4.6,
+       "pct2025": 3.6,
+       "pctComparable": 4.1
+      },
+      {
+       "label": "Rather no",
+       "n": 154,
+       "pct": 15.3,
+       "pct2025": 14.3,
+       "pctComparable": 15.0
+      },
+      {
+       "label": "Rather yes",
+       "n": 338,
+       "pct": 33.6,
+       "pct2025": 36.5,
+       "pctComparable": 34.9
+      },
+      {
+       "label": "Definitely yes",
+       "n": 183,
+       "pct": 18.2,
+       "pct2025": 25.1,
+       "pctComparable": 20.3
+      },
+      {
+       "label": "Hard to say",
+       "n": 284,
+       "pct": 28.2,
+       "pct2025": 20.4,
+       "pctComparable": 25.4
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.2,
+       "pct2025": 0.1,
+       "pctComparable": 0.3
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "q13",
+     "num": "Q13",
+     "text": "Please tell us, can certain behaviour in the occupied territories lead to violent actions by the Russian authorities?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q10",
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 13,
+       "pct": 1.3,
+       "pct2025": 1.5,
+       "pctComparable": 1.1
+      },
+      {
+       "label": "Rather no",
+       "n": 41,
+       "pct": 4.1,
+       "pct2025": 4.5,
+       "pctComparable": 3.2
+      },
+      {
+       "label": "Rather yes",
+       "n": 292,
+       "pct": 29.0,
+       "pct2025": 28.3,
+       "pctComparable": 27.6
+      },
+      {
+       "label": "Definitely yes",
+       "n": 473,
+       "pct": 47.0,
+       "pct2025": 51.9,
+       "pctComparable": 53.2
+      },
+      {
+       "label": "Hard to say",
+       "n": 187,
+       "pct": 18.6,
+       "pct2025": 13.6,
+       "pctComparable": 14.9
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 1,
+       "pct": 0.1,
+       "pct2025": 0.2,
+       "pctComparable": 0.0
+      }
+     ],
+     "baseComparable": 725
+    },
+    {
+     "code": "q14",
+     "num": "Q14",
+     "text": "What types of behaviour in the occupied territories may create a risk of violent actions by the Russian authorities?",
+     "base": 1007,
+     "multi": true,
+     "baseNote": "All respondents.",
+     "q2025": "Q11",
+     "rows": [
+      {
+       "label": "Using Ukrainian symbols",
+       "n": 553,
+       "pct": 54.9,
+       "pct2025": null,
+       "pctComparable": 59.4
+      },
+      {
+       "label": "Taking or publishing photos",
+       "n": 518,
+       "pct": 51.4,
+       "pct2025": 51.7,
+       "pctComparable": 54.9
+      },
+      {
+       "label": "Refusing to obtain a Russian passport",
+       "n": 507,
+       "pct": 50.3,
+       "pct2025": null,
+       "pctComparable": 55.6
+      },
+      {
+       "label": "Subscribing to Ukraine-related channels",
+       "n": 487,
+       "pct": 48.4,
+       "pct2025": 53.4,
+       "pctComparable": 51.4
+      },
+      {
+       "label": "Using Ukrainian in public communication",
+       "n": 476,
+       "pct": 47.3,
+       "pct2025": null,
+       "pctComparable": 50.2
+      },
+      {
+       "label": "Communicating with people in Government-controlled territory of Ukraine (GCA)",
+       "n": 400,
+       "pct": 39.7,
+       "pct2025": 49.0,
+       "pctComparable": 43.0
+      },
+      {
+       "label": "Receiving money transfers from Ukraine",
+       "n": 348,
+       "pct": 34.6,
+       "pct2025": 35.5,
+       "pctComparable": 36.7
+      },
+      {
+       "label": "Using Telegram",
+       "n": 341,
+       "pct": 33.9,
+       "pct2025": 37.6,
+       "pctComparable": 34.8
+      },
+      {
+       "label": "Installing privacy software (e.g. VPN)",
+       "n": 330,
+       "pct": 32.8,
+       "pct2025": 37.9,
+       "pctComparable": 36.6
+      },
+      {
+       "label": "Having two phones",
+       "n": 316,
+       "pct": 31.4,
+       "pct2025": 35.7,
+       "pctComparable": 34.1
+      },
+      {
+       "label": "Other",
+       "n": 115,
+       "pct": 11.4,
+       "pct2025": 14.9,
+       "pctComparable": 12.3
+      },
+      {
+       "label": "Hard to say",
+       "n": 202,
+       "pct": 20.1,
+       "pct2025": 21.2,
+       "pctComparable": 17.0
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 11,
+       "pct": 1.1,
+       "pct2025": 0.4,
+       "pctComparable": 1.1
+      }
+     ],
+     "baseComparable": 725,
+     "note": "Options marked with no 2025 figure were added in 2026."
+    },
+    {
+     "code": "q15",
+     "num": "Q15",
+     "text": "Which of the listed non-violent actions, in your personal opinion, are useful and worth the risk in the temporarily occupied territories?",
+     "base": 1007,
+     "multi": true,
+     "baseNote": "All respondents.",
+     "q2025": "Q12",
+     "rows": [
+      {
+       "label": "Helping people evacuate safely from the TOT (temporarily occupied territories) to Government-controlled territory of Ukraine (GCA)",
+       "n": 446,
+       "pct": 44.3,
+       "pct2025": 46.5,
+       "pctComparable": 45.4
+      },
+      {
+       "label": "Supplying medicines to civilians",
+       "n": 399,
+       "pct": 39.6,
+       "pct2025": 42.8,
+       "pctComparable": 39.7
+      },
+      {
+       "label": "Providing essential goods that are in short supply (e.g. water purification tablets, hygiene products, baby formula)",
+       "n": 344,
+       "pct": 34.2,
+       "pct2025": 41.5,
+       "pctComparable": 34.3
+      },
+      {
+       "label": "Providing legal support to civil resistance participants imprisoned by the Russian authorities",
+       "n": 276,
+       "pct": 27.4,
+       "pct2025": 35.9,
+       "pctComparable": 28.6
+      },
+      {
+       "label": "Providing secure means of communication for tracking Russian troop movements",
+       "n": 227,
+       "pct": 22.5,
+       "pct2025": 31.6,
+       "pctComparable": 24.6
+      },
+      {
+       "label": "Organising passive resistance (e.g. boycotting Russian-organised events, refusing Russian passports)",
+       "n": 201,
+       "pct": 20.0,
+       "pct2025": 26.0,
+       "pctComparable": 20.4
+      },
+      {
+       "label": "Publishing or distributing public lists of collaborators",
+       "n": 195,
+       "pct": 19.4,
+       "pct2025": 29.2,
+       "pctComparable": 21.1
+      },
+      {
+       "label": "Spreading pro-Ukrainian or anti-occupation content on Telegram, TikTok or other platforms",
+       "n": 191,
+       "pct": 19.0,
+       "pct2025": 29.5,
+       "pctComparable": 20.4
+      },
+      {
+       "label": "Supporting local cyber awareness (e.g. running basic offline digital security trainings)",
+       "n": 184,
+       "pct": 18.3,
+       "pct2025": 23.1,
+       "pctComparable": 20.0
+      },
+      {
+       "label": "Taking photos with Ukrainian symbols (ribbons, posters) and publishing them online",
+       "n": 164,
+       "pct": 16.3,
+       "pct2025": 25.5,
+       "pctComparable": 17.7
+      },
+      {
+       "label": "None of the above",
+       "n": 120,
+       "pct": 11.9,
+       "pct2025": null,
+       "pctComparable": 11.9
+      },
+      {
+       "label": "Other",
+       "n": 62,
+       "pct": 6.2,
+       "pct2025": 8.8,
+       "pctComparable": 6.1
+      },
+      {
+       "label": "Hard to say",
+       "n": 221,
+       "pct": 21.9,
+       "pct2025": 24.6,
+       "pctComparable": 21.2
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 19,
+       "pct": 1.9,
+       "pct2025": 1.8,
+       "pctComparable": 2.1
+      }
+     ],
+     "baseComparable": 725,
+     "note": "Options marked with no 2025 figure were added in 2026."
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "title": "Contact with the occupied territories",
+   "questions": [
+    {
+     "code": "q16",
+     "num": "Q16",
+     "text": "Please tell us, do you keep in touch with acquaintances in the temporarily occupied territories?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": "Q7",
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 495,
+       "pct": 49.2,
+       "pct2025": 37.6,
+       "pctComparable": 38.2
+      },
+      {
+       "label": "Rather no",
+       "n": 121,
+       "pct": 12.0,
+       "pct2025": 12.6,
+       "pctComparable": 12.7
+      },
+      {
+       "label": "Rather yes",
+       "n": 142,
+       "pct": 14.1,
+       "pct2025": 15.2,
+       "pctComparable": 17.5
+      },
+      {
+       "label": "Definitely yes",
+       "n": 237,
+       "pct": 23.5,
+       "pct2025": 33.4,
+       "pctComparable": 30.3
+      },
+      {
+       "label": "Hard to say",
+       "n": 10,
+       "pct": 1.0,
+       "pct2025": 0.8,
+       "pctComparable": 1.1
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.2,
+       "pct2025": 0.5,
+       "pctComparable": 0.1
+      }
+     ],
+     "baseComparable": 725,
+     "note": "The 2025 \"hard to say\" and \"prefer not to answer\" figures are corrected; they were transposed in the table originally published in 2025."
+    },
+    {
+     "code": "q17",
+     "num": "Q17",
+     "text": "How often do you communicate with acquaintances who are currently in the temporarily occupied territories?",
+     "base": 379,
+     "multi": false,
+     "baseNote": "Asked of respondents who keep in touch with acquaintances in the occupied territories (Q16: rather or definitely yes).",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Every day or almost every day",
+       "n": 50,
+       "pct": 13.2
+      },
+      {
+       "label": "Several times a week",
+       "n": 58,
+       "pct": 15.3
+      },
+      {
+       "label": "Several times a month",
+       "n": 119,
+       "pct": 31.4
+      },
+      {
+       "label": "Less often",
+       "n": 144,
+       "pct": 38.0
+      },
+      {
+       "label": "Never",
+       "n": 5,
+       "pct": 1.3
+      },
+      {
+       "label": "Hard to say",
+       "n": 3,
+       "pct": 0.8
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0
+      }
+     ]
+    },
+    {
+     "code": "q18",
+     "num": "Q18",
+     "text": "How do you mainly maintain this contact?",
+     "base": 371,
+     "multi": true,
+     "baseNote": "Asked of respondents in contact with acquaintances in the occupied territories, excluding those who answered \"never\" or \"hard to say\" at Q17.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Telegram",
+       "n": 243,
+       "pct": 65.5
+      },
+      {
+       "label": "WhatsApp",
+       "n": 82,
+       "pct": 22.1
+      },
+      {
+       "label": "Other social media",
+       "n": 41,
+       "pct": 11.1
+      },
+      {
+       "label": "Phone calls",
+       "n": 38,
+       "pct": 10.2
+      },
+      {
+       "label": "Viber",
+       "n": 33,
+       "pct": 8.9
+      },
+      {
+       "label": "Through third parties",
+       "n": 20,
+       "pct": 5.4
+      },
+      {
+       "label": "Instagram",
+       "n": 19,
+       "pct": 5.1
+      },
+      {
+       "label": "Facebook",
+       "n": 16,
+       "pct": 4.3
+      },
+      {
+       "label": "Signal",
+       "n": 4,
+       "pct": 1.1
+      },
+      {
+       "label": "In-person meetings (in third countries)",
+       "n": 4,
+       "pct": 1.1
+      },
+      {
+       "label": "Other",
+       "n": 26,
+       "pct": 7.0
+      },
+      {
+       "label": "Hard to say",
+       "n": 3,
+       "pct": 0.8
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 7,
+       "pct": 1.9
+      }
+     ]
+    },
+    {
+     "code": "q19",
+     "num": "Q19",
+     "text": "How much do you trust Ukrainian media coverage of the situation in the occupied territories?",
+     "base": 371,
+     "multi": false,
+     "baseNote": "Same base as Q18. As fielded, Q19 to Q25 were asked only of respondents in regular contact with acquaintances in the occupied territories.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Completely distrust",
+       "n": 31,
+       "pct": 8.4
+      },
+      {
+       "label": "Rather distrust",
+       "n": 70,
+       "pct": 18.9
+      },
+      {
+       "label": "Rather trust",
+       "n": 165,
+       "pct": 44.5
+      },
+      {
+       "label": "Fully trust",
+       "n": 65,
+       "pct": 17.5
+      },
+      {
+       "label": "Hard to say",
+       "n": 38,
+       "pct": 10.2
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.5
+      }
+     ]
+    },
+    {
+     "code": "q20",
+     "num": "Q20",
+     "text": "How do you assess the financial situation of your acquaintances in the TOT compared to pre-war times?",
+     "base": 371,
+     "multi": false,
+     "baseNote": "Same base as Q18.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Significantly improved",
+       "n": 17,
+       "pct": 4.6
+      },
+      {
+       "label": "Somewhat improved",
+       "n": 34,
+       "pct": 9.2
+      },
+      {
+       "label": "Somewhat worsened",
+       "n": 60,
+       "pct": 16.2
+      },
+      {
+       "label": "Significantly worsened",
+       "n": 152,
+       "pct": 41.0
+      },
+      {
+       "label": "Don't know",
+       "n": 98,
+       "pct": 26.4
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 10,
+       "pct": 2.7
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "property",
+   "title": "Housing and property",
+   "questions": [
+    {
+     "code": "q21",
+     "num": "Q21",
+     "text": "Did you or your family have housing or other real estate in the territory that is now occupied?",
+     "base": 371,
+     "multi": false,
+     "baseNote": "Same base as Q18.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Yes, own housing",
+       "n": 205,
+       "pct": 55.3
+      },
+      {
+       "label": "Yes, housing and other property (land, business, vehicles)",
+       "n": 146,
+       "pct": 39.4
+      },
+      {
+       "label": "No",
+       "n": 20,
+       "pct": 5.4
+      }
+     ]
+    },
+    {
+     "code": "q22",
+     "num": "Q22",
+     "text": "What, as far as you know, has happened to this property?",
+     "base": 351,
+     "multi": true,
+     "baseNote": "Asked of respondents whose family had housing or other property in the now-occupied territory (Q21).",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Destroyed or damaged as a result of hostilities",
+       "n": 158,
+       "pct": 45.0
+      },
+      {
+       "label": "Nothing happened, as far as I know",
+       "n": 76,
+       "pct": 21.7
+      },
+      {
+       "label": "I don't know what happened to it",
+       "n": 56,
+       "pct": 16.0
+      },
+      {
+       "label": "Occupied by other people",
+       "n": 52,
+       "pct": 14.8
+      },
+      {
+       "label": "Declared \"ownerless\" and transferred to the occupation authorities",
+       "n": 36,
+       "pct": 10.3
+      },
+      {
+       "label": "Occupied by Russian military",
+       "n": 31,
+       "pct": 8.8
+      },
+      {
+       "label": "Seized due to the absence of a Russian passport or Russian registration of ownership",
+       "n": 9,
+       "pct": 2.6
+      },
+      {
+       "label": "Sold under pressure or for next to nothing",
+       "n": 2,
+       "pct": 0.6
+      },
+      {
+       "label": "Other",
+       "n": 22,
+       "pct": 6.3
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.6
+      }
+     ]
+    },
+    {
+     "code": "q23",
+     "num": "Q23",
+     "text": "Do you know of such cases among your relatives or acquaintances, where their housing…",
+     "base": 371,
+     "multi": true,
+     "baseNote": "Same base as Q18.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Destroyed or damaged as a result of hostilities",
+       "n": 201,
+       "pct": 54.2
+      },
+      {
+       "label": "Occupied by Russian military",
+       "n": 122,
+       "pct": 32.9
+      },
+      {
+       "label": "Occupied by other people",
+       "n": 113,
+       "pct": 30.5
+      },
+      {
+       "label": "Declared \"ownerless\" and transferred to the occupation authorities",
+       "n": 105,
+       "pct": 28.3
+      },
+      {
+       "label": "I don't know what happened to it",
+       "n": 63,
+       "pct": 17.0
+      },
+      {
+       "label": "Nothing happened, as far as I know",
+       "n": 49,
+       "pct": 13.2
+      },
+      {
+       "label": "Seized due to the absence of a Russian passport or Russian registration of ownership",
+       "n": 46,
+       "pct": 12.4
+      },
+      {
+       "label": "Sold under pressure or for next to nothing",
+       "n": 26,
+       "pct": 7.0
+      },
+      {
+       "label": "Other",
+       "n": 10,
+       "pct": 2.7
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 2,
+       "pct": 0.5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conditions",
+   "title": "Conditions and information in the occupied territories",
+   "questions": [
+    {
+     "code": "q24",
+     "num": "Q24",
+     "text": "What do people in the TOT lack most?",
+     "base": 371,
+     "multi": true,
+     "baseNote": "Same base as Q18.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Quality healthcare",
+       "n": 210,
+       "pct": 56.6
+      },
+      {
+       "label": "Communications and internet",
+       "n": 189,
+       "pct": 50.9
+      },
+      {
+       "label": "Medicines",
+       "n": 185,
+       "pct": 49.9
+      },
+      {
+       "label": "Drinking water",
+       "n": 172,
+       "pct": 46.4
+      },
+      {
+       "label": "Fuel",
+       "n": 132,
+       "pct": 35.6
+      },
+      {
+       "label": "Money",
+       "n": 116,
+       "pct": 31.3
+      },
+      {
+       "label": "Food",
+       "n": 106,
+       "pct": 28.6
+      },
+      {
+       "label": "Hygiene products",
+       "n": 75,
+       "pct": 20.2
+      },
+      {
+       "label": "Don't know",
+       "n": 57,
+       "pct": 15.4
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 4,
+       "pct": 1.1
+      }
+     ]
+    },
+    {
+     "code": "q25",
+     "num": "Q25",
+     "text": "What sources of information, as far as you know, do your acquaintances in the TOT use?",
+     "base": 371,
+     "multi": true,
+     "baseNote": "Same base as Q18.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Ukrainian Telegram channels via VPN",
+       "n": 127,
+       "pct": 34.2
+      },
+      {
+       "label": "Don't know",
+       "n": 121,
+       "pct": 32.6
+      },
+      {
+       "label": "Rumours and personal communication",
+       "n": 103,
+       "pct": 27.8
+      },
+      {
+       "label": "Russian TV",
+       "n": 101,
+       "pct": 27.2
+      },
+      {
+       "label": "Social media",
+       "n": 88,
+       "pct": 23.7
+      },
+      {
+       "label": "Local occupation Telegram channels",
+       "n": 59,
+       "pct": 15.9
+      },
+      {
+       "label": "Ukrainian TV via satellite",
+       "n": 37,
+       "pct": 10.0
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 4,
+       "pct": 1.1
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "strikes",
+   "title": "Strikes on targets in the occupied territories",
+   "questions": [
+    {
+     "code": "q26",
+     "num": "Q26",
+     "text": "In general, do you consider strikes by the Defence Forces of Ukraine on targets in the temporarily occupied territories justified?",
+     "base": 1004,
+     "multi": false,
+     "baseNote": "All respondents; answer not recorded for 3.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 40,
+       "pct": 4.0
+      },
+      {
+       "label": "Rather no",
+       "n": 64,
+       "pct": 6.4
+      },
+      {
+       "label": "Rather yes",
+       "n": 215,
+       "pct": 21.4
+      },
+      {
+       "label": "Definitely yes",
+       "n": 538,
+       "pct": 53.6
+      },
+      {
+       "label": "Hard to say",
+       "n": 126,
+       "pct": 12.5
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 21,
+       "pct": 2.1
+      }
+     ]
+    },
+    {
+     "code": "q27",
+     "num": "Q27",
+     "text": "Choose the three targets you consider the highest priority.",
+     "base": 916,
+     "multi": true,
+     "baseNote": "Asked of 916 respondents. Up to three targets could be chosen.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Military bases and Russian troop deployment sites",
+       "n": 475,
+       "pct": 51.9
+      },
+      {
+       "label": "Ammunition and fuel depots",
+       "n": 456,
+       "pct": 49.8
+      },
+      {
+       "label": "Enterprises working for the Russian army",
+       "n": 246,
+       "pct": 26.9
+      },
+      {
+       "label": "Don't know",
+       "n": 186,
+       "pct": 20.3
+      },
+      {
+       "label": "Bridges, railways and other logistics facilities",
+       "n": 180,
+       "pct": 19.7
+      },
+      {
+       "label": "Occupation administration buildings",
+       "n": 134,
+       "pct": 14.6
+      },
+      {
+       "label": "Energy facilities also used by civilians",
+       "n": 109,
+       "pct": 11.9
+      },
+      {
+       "label": "Facilities located within residential areas",
+       "n": 14,
+       "pct": 1.5
+      },
+      {
+       "label": "Other",
+       "n": 71,
+       "pct": 7.8
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 26,
+       "pct": 2.8
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "return",
+   "title": "Staying, leaving and returning",
+   "questions": [
+    {
+     "code": "q28",
+     "num": "Q28",
+     "text": "If your settlement is de-occupied, do you plan to return?",
+     "base": 345,
+     "multi": false,
+     "baseNote": "Asked of respondents whose pre-invasion settlement was occupied and remains occupied (Q5).",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Definitely no",
+       "n": 47,
+       "pct": 13.6
+      },
+      {
+       "label": "Rather no",
+       "n": 72,
+       "pct": 20.9
+      },
+      {
+       "label": "Rather yes",
+       "n": 82,
+       "pct": 23.8
+      },
+      {
+       "label": "Definitely yes",
+       "n": 110,
+       "pct": 31.9
+      },
+      {
+       "label": "Hard to say",
+       "n": 34,
+       "pct": 9.9
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0
+      }
+     ]
+    },
+    {
+     "code": "q29",
+     "num": "Q29",
+     "text": "Why, in your opinion, do people stay in the occupied territories?",
+     "base": 1007,
+     "multi": true,
+     "baseNote": "All respondents. Up to three answers could be chosen.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "Lack of money to relocate",
+       "n": 427,
+       "pct": 42.4
+      },
+      {
+       "label": "Unwillingness to leave their home and property",
+       "n": 425,
+       "pct": 42.2
+      },
+      {
+       "label": "Nowhere to go",
+       "n": 409,
+       "pct": 40.6
+      },
+      {
+       "label": "Old age or poor health",
+       "n": 346,
+       "pct": 34.4
+      },
+      {
+       "label": "Caring for elderly relatives or people with disabilities",
+       "n": 317,
+       "pct": 31.5
+      },
+      {
+       "label": "Pro-Russian views",
+       "n": 131,
+       "pct": 13.0
+      },
+      {
+       "label": "Don't believe they are welcome in Ukraine",
+       "n": 119,
+       "pct": 11.8
+      },
+      {
+       "label": "Fear of a dangerous journey",
+       "n": 116,
+       "pct": 11.5
+      },
+      {
+       "label": "Don't see occupation as a problem for themselves",
+       "n": 31,
+       "pct": 3.1
+      },
+      {
+       "label": "Other",
+       "n": 85,
+       "pct": 8.4
+      },
+      {
+       "label": "Hard to say",
+       "n": 23,
+       "pct": 2.3
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 6,
+       "pct": 0.6
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "prejudice",
+   "title": "Prejudice against displaced people",
+   "questions": [
+    {
+     "code": "q30",
+     "num": "Q30",
+     "text": "Have you personally faced prejudice because you are a displaced person?",
+     "base": 1007,
+     "multi": false,
+     "baseNote": "All respondents.",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "No",
+       "n": 546,
+       "pct": 54.2
+      },
+      {
+       "label": "Yes, sometimes",
+       "n": 328,
+       "pct": 32.6
+      },
+      {
+       "label": "Yes, often",
+       "n": 125,
+       "pct": 12.4
+      },
+      {
+       "label": "Hard to say",
+       "n": 5,
+       "pct": 0.5
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 3,
+       "pct": 0.3
+      }
+     ]
+    },
+    {
+     "code": "q31",
+     "num": "Q31",
+     "text": "In which situations?",
+     "base": 453,
+     "multi": true,
+     "baseNote": "Asked of respondents who have faced prejudice (Q30: yes, sometimes or often).",
+     "q2025": null,
+     "rows": [
+      {
+       "label": "In everyday communication",
+       "n": 303,
+       "pct": 66.9
+      },
+      {
+       "label": "Renting housing",
+       "n": 197,
+       "pct": 43.5
+      },
+      {
+       "label": "Employment",
+       "n": 83,
+       "pct": 18.3
+      },
+      {
+       "label": "On social media",
+       "n": 82,
+       "pct": 18.1
+      },
+      {
+       "label": "In government institutions",
+       "n": 81,
+       "pct": 17.9
+      },
+      {
+       "label": "In healthcare facilities",
+       "n": 61,
+       "pct": 13.5
+      },
+      {
+       "label": "At my child's school or kindergarten",
+       "n": 53,
+       "pct": 11.7
+      },
+      {
+       "label": "Hard to say",
+       "n": 6,
+       "pct": 1.3
+      },
+      {
+       "label": "Prefer not to answer",
+       "n": 0,
+       "pct": 0.0
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "other": {
+  "q14": [
+   [
+    13,
+    "everything listed"
+   ],
+   [
+    11,
+    "dont know"
+   ],
+   [
+    4,
+    "doesn't know"
+   ],
+   [
+    3,
+    "all"
+   ],
+   [
+    2,
+    "don't know"
+   ],
+   [
+    1,
+    "all actions, you can't do anything against the occupiers"
+   ],
+   [
+    1,
+    "all apply"
+   ],
+   [
+    1,
+    "all of it"
+   ],
+   [
+    1,
+    "all of it together"
+   ],
+   [
+    1,
+    "all options, Ukrainian language in everyday life"
+   ],
+   [
+    1,
+    "all these options are dangerous"
+   ],
+   [
+    1,
+    "and just ordinary curiosity..."
+   ],
+   [
+    1,
+    "any actions carry a threat"
+   ],
+   [
+    1,
+    "any actions provoke it"
+   ],
+   [
+    1,
+    "any expression of love for anything Ukrainian"
+   ],
+   [
+    1,
+    "anything at all, you can do nothing and they still shell you"
+   ],
+   [
+    1,
+    "anything can provoke aggression"
+   ],
+   [
+    1,
+    "Anything that can provoke their aggression"
+   ],
+   [
+    1,
+    "anything, everyone has their own situation"
+   ],
+   [
+    1,
+    "Books, phones"
+   ],
+   [
+    1,
+    "calls"
+   ],
+   [
+    1,
+    "communication before 2022"
+   ],
+   [
+    1,
+    "communication with the government-controlled territory, phone checks"
+   ],
+   [
+    1,
+    "Criticising the authorities if someone's relative is in Ukraine or in the Armed Forces of Ukraine"
+   ],
+   [
+    1,
+    "discussing the actions of the Russian authorities"
+   ],
+   [
+    1,
+    "disobedience and a wrong word towards the occupiers"
+   ],
+   [
+    1,
+    "Don't know"
+   ],
+   [
+    1,
+    "don't know this"
+   ],
+   [
+    1,
+    "donations to the Ukrainian army"
+   ],
+   [
+    1,
+    "downloading Ukrainian apps"
+   ],
+   [
+    1,
+    "Even looking at them"
+   ],
+   [
+    1,
+    "even the wrong look, anything provokes aggression"
+   ],
+   [
+    1,
+    "everything"
+   ],
+   [
+    1,
+    "everything is subject to it"
+   ],
+   [
+    1,
+    "expressing an active position in favour of Ukraine and against the occupation authorities"
+   ],
+   [
+    1,
+    "expressing any position that does not coincide with the occupiers' position"
+   ],
+   [
+    1,
+    "for no reason"
+   ],
+   [
+    1,
+    "full support for the Armed Forces of Ukraine"
+   ],
+   [
+    1,
+    "getting a Ukrainian education"
+   ],
+   [
+    1,
+    "having a tattoo"
+   ],
+   [
+    1,
+    "having relatives serving in the Armed Forces of Ukraine"
+   ],
+   [
+    1,
+    "I can't say for sure because we don't communicate with anyone there"
+   ],
+   [
+    1,
+    "I don't know what's there or how it is"
+   ],
+   [
+    1,
+    "I haven't experienced it, I don't know; acquaintances said being under occupation there is horrible"
+   ],
+   [
+    1,
+    "if a person speaks out in favour of Ukraine"
+   ],
+   [
+    1,
+    "If you don't open the door immediately when they knock"
+   ],
+   [
+    1,
+    "If you get into an argument"
+   ],
+   [
+    1,
+    "If you hang around the military, any refusals"
+   ],
+   [
+    1,
+    "If you say you are from Ukraine"
+   ],
+   [
+    1,
+    "impossible to harvest crops from the fields normally because Russia launches drones"
+   ],
+   [
+    1,
+    "in direct confrontation with the occupiers"
+   ],
+   [
+    1,
+    "Just violence"
+   ],
+   [
+    1,
+    "Literature"
+   ],
+   [
+    1,
+    "looked at them the wrong way and ended up in a basement where they abuse people"
+   ],
+   [
+    1,
+    "military families are under close surveillance"
+   ],
+   [
+    1,
+    "Military service of someone close"
+   ],
+   [
+    1,
+    "monitoring the movements of Russian troops"
+   ],
+   [
+    1,
+    "movement of Russian troops"
+   ],
+   [
+    1,
+    "no answer"
+   ],
+   [
+    1,
+    "no information"
+   ],
+   [
+    1,
+    "no internet"
+   ],
+   [
+    1,
+    "none of the above"
+   ],
+   [
+    1,
+    "not obeying their orders"
+   ],
+   [
+    1,
+    "nothing"
+   ],
+   [
+    1,
+    "one look is enough and you're already suspected, they can hit you and do anything, they consider themselves the masters"
+   ],
+   [
+    1,
+    "open propaganda"
+   ],
+   [
+    1,
+    "people can't tell everything when communicating with Ukraine"
+   ],
+   [
+    1,
+    "People you used to trust have become pro-Russian"
+   ],
+   [
+    1,
+    "public speaking"
+   ],
+   [
+    1,
+    "received Russian passports at gunpoint, I handed mine in to the SBU. life is unbearable"
+   ],
+   [
+    1,
+    "relatives serving in the Armed Forces of Ukraine"
+   ],
+   [
+    1,
+    "Social media, journalism and channels"
+   ],
+   [
+    1,
+    "Speaking out against the occupiers"
+   ],
+   [
+    1,
+    "staying silent in response to Russians' patriotic calls"
+   ],
+   [
+    1,
+    "support Ukraine"
+   ],
+   [
+    1,
+    "supporting Ukraine and informing"
+   ],
+   [
+    1,
+    "the FSB listens to everything"
+   ],
+   [
+    1,
+    "there are informers reporting on every action"
+   ],
+   [
+    1,
+    "There is no freedom of speech"
+   ],
+   [
+    1,
+    "there is nothing"
+   ],
+   [
+    1,
+    "there was no connection"
+   ],
+   [
+    1,
+    "they can shoot you even without a reason, I saw it myself"
+   ],
+   [
+    1,
+    "they searched for those who had been in the ATO"
+   ],
+   [
+    1,
+    "they shoot people"
+   ],
+   [
+    1,
+    "Using social media"
+   ],
+   [
+    1,
+    "you can't go outside during curfew"
+   ],
+   [
+    1,
+    "you can't go outside during the day"
+   ]
+  ],
+  "q15": [
+   [
+    5,
+    "don't know"
+   ],
+   [
+    5,
+    "dont know"
+   ],
+   [
+    4,
+    "doesn't know"
+   ],
+   [
+    3,
+    "food"
+   ],
+   [
+    2,
+    "all"
+   ],
+   [
+    2,
+    "everything listed"
+   ],
+   [
+    1,
+    "access to social media is limited there, there is nothing"
+   ],
+   [
+    1,
+    "against Russia, against everything"
+   ],
+   [
+    1,
+    "all actions on the list"
+   ],
+   [
+    1,
+    "all are risky and everything listed"
+   ],
+   [
+    1,
+    "all are worth the risk"
+   ],
+   [
+    1,
+    "all of the above"
+   ],
+   [
+    1,
+    "all people must be evacuated at once"
+   ],
+   [
+    1,
+    "anything related to Ukraine irritates them"
+   ],
+   [
+    1,
+    "Armed resistance"
+   ],
+   [
+    1,
+    "assisting the resistance"
+   ],
+   [
+    1,
+    "contact with parents and relatives"
+   ],
+   [
+    1,
+    "cutting off the occupiers' communications"
+   ],
+   [
+    1,
+    "delivery of humanitarian aid"
+   ],
+   [
+    1,
+    "evacuation and information"
+   ],
+   [
+    1,
+    "Everything applies"
+   ],
+   [
+    1,
+    "everything is risky"
+   ],
+   [
+    1,
+    "hardly anything will help"
+   ],
+   [
+    1,
+    "have not been in the occupied territories"
+   ],
+   [
+    1,
+    "Helping elderly people"
+   ],
+   [
+    1,
+    "helping elderly people and people with disabilities"
+   ],
+   [
+    1,
+    "humanitarian aid"
+   ],
+   [
+    1,
+    "I can't say"
+   ],
+   [
+    1,
+    "I don't know what is happening there"
+   ],
+   [
+    1,
+    "I don't know what pro-Ukrainian things you can do without being condemned"
+   ],
+   [
+    1,
+    "I wouldn't do anything like that"
+   ],
+   [
+    1,
+    "It is worth risking for what helps our soldiers"
+   ],
+   [
+    1,
+    "it's very hard there, no healthcare, if you said something, they shoot you dead"
+   ],
+   [
+    1,
+    "Leaving for government-controlled territory of Ukraine"
+   ],
+   [
+    1,
+    "only if completely safe, can't answer"
+   ],
+   [
+    1,
+    "our government should have carried out the evacuation without asking them; the evacuation should have been done immediately, people would have been saved"
+   ],
+   [
+    1,
+    "people decide for themselves whether to take risks or not, at their own discretion"
+   ],
+   [
+    1,
+    "Photographing the occupiers' military equipment"
+   ],
+   [
+    1,
+    "refusing a Russian passport"
+   ],
+   [
+    1,
+    "running elective classes on in-depth Ukrainian history"
+   ],
+   [
+    1,
+    "Social media"
+   ],
+   [
+    1,
+    "Supporting people"
+   ],
+   [
+    1,
+    "the Russians will beat you up (derogatory)"
+   ],
+   [
+    1,
+    "they shoot without talking"
+   ],
+   [
+    1,
+    "those who wanted to leave have left"
+   ],
+   [
+    1,
+    "visiting prohibited places"
+   ],
+   [
+    1,
+    "you can end up in a basement"
+   ]
+  ],
+  "q18": [
+   [
+    10,
+    "imo"
+   ],
+   [
+    2,
+    "IMO"
+   ],
+   [
+    1,
+    "Immo"
+   ],
+   [
+    1,
+    "Imo"
+   ],
+   [
+    1,
+    "IMO messenger"
+   ],
+   [
+    1,
+    "Max"
+   ],
+   [
+    1,
+    "messenger"
+   ],
+   [
+    1,
+    "messengers"
+   ],
+   [
+    1,
+    "via \"IMO\""
+   ],
+   [
+    1,
+    "via a camera in the apartment"
+   ],
+   [
+    1,
+    "via VPN"
+   ],
+   [
+    1,
+    "Yola"
+   ],
+   [
+    1,
+    "yolla"
+   ],
+   [
+    1,
+    "yolo"
+   ],
+   [
+    1,
+    "Zoom"
+   ],
+   [
+    1,
+    "Zoom conference"
+   ]
+  ],
+  "q22": [
+   [
+    2,
+    "acquaintances live there"
+   ],
+   [
+    1,
+    "a wrecked car was left"
+   ],
+   [
+    1,
+    "attempts to declare housing ownerless have begun"
+   ],
+   [
+    1,
+    "cars were seized"
+   ],
+   [
+    1,
+    "families"
+   ],
+   [
+    1,
+    "I don't know for sure, but most likely everything will be handed over to the occupiers"
+   ],
+   [
+    1,
+    "it stands empty"
+   ],
+   [
+    1,
+    "It stands empty, I don't know whether it was taken or not"
+   ],
+   [
+    1,
+    "it was looted"
+   ],
+   [
+    1,
+    "locals looted the apartment"
+   ],
+   [
+    1,
+    "looted"
+   ],
+   [
+    1,
+    "mother lives in the housing"
+   ],
+   [
+    1,
+    "Mother lives there"
+   ],
+   [
+    1,
+    "mother lives there"
+   ],
+   [
+    1,
+    "my mother lives there"
+   ],
+   [
+    1,
+    "not damaged, but I don't know what happened to it"
+   ],
+   [
+    1,
+    "Nothing happened to one apartment, the other is occupied by the military"
+   ],
+   [
+    1,
+    "On the lists"
+   ],
+   [
+    1,
+    "other people look after it"
+   ],
+   [
+    1,
+    "ownerless"
+   ],
+   [
+    1,
+    "re-registered to relatives"
+   ]
+  ],
+  "q23": [
+   [
+    1,
+    "don't know"
+   ],
+   [
+    1,
+    "housing built in place of the destroyed one"
+   ],
+   [
+    1,
+    "housing damaged and looted"
+   ],
+   [
+    1,
+    "I don't know anything"
+   ],
+   [
+    1,
+    "it varies there"
+   ],
+   [
+    1,
+    "nationalisation"
+   ],
+   [
+    1,
+    "seized from people who did not re-register it"
+   ],
+   [
+    1,
+    "simply ownerless"
+   ],
+   [
+    1,
+    "that happened"
+   ],
+   [
+    1,
+    "the housing is there, they are forcing re-registration under Russian law"
+   ]
+  ],
+  "q27": [
+   [
+    8,
+    "everything"
+   ],
+   [
+    6,
+    "all"
+   ],
+   [
+    2,
+    "against"
+   ],
+   [
+    2,
+    "none"
+   ],
+   [
+    1,
+    "absolutely everything"
+   ],
+   [
+    1,
+    "against the war"
+   ],
+   [
+    1,
+    "all except 1"
+   ],
+   [
+    1,
+    "all except residential areas"
+   ],
+   [
+    1,
+    "All of the above"
+   ],
+   [
+    1,
+    "all options apply"
+   ],
+   [
+    1,
+    "all options are correct"
+   ],
+   [
+    1,
+    "all options except residential areas"
+   ],
+   [
+    1,
+    "all strikes are justified"
+   ],
+   [
+    1,
+    "as the General Staff decides"
+   ],
+   [
+    1,
+    "as they are with us"
+   ],
+   [
+    1,
+    "civilians must not be hit (answer in Russian)"
+   ],
+   [
+    1,
+    "cut off logistics completely"
+   ],
+   [
+    1,
+    "destroying Russian military personnel"
+   ],
+   [
+    1,
+    "doesn't want to answer"
+   ],
+   [
+    1,
+    "Enterprises working for the Russian army and occupation administration buildings"
+   ],
+   [
+    1,
+    "everyone suffers from this too"
+   ],
+   [
+    1,
+    "everything at once"
+   ],
+   [
+    1,
+    "everything except residential buildings"
+   ],
+   [
+    1,
+    "everything except the population"
+   ],
+   [
+    1,
+    "everything I listed is a priority"
+   ],
+   [
+    1,
+    "everything is a priority"
+   ],
+   [
+    1,
+    "everything listed"
+   ],
+   [
+    1,
+    "everything related to the Russian army"
+   ],
+   [
+    1,
+    "everything that has military value"
+   ],
+   [
+    1,
+    "everything the Armed Forces of Ukraine consider"
+   ],
+   [
+    1,
+    "everything the Armed Forces of Ukraine consider necessary"
+   ],
+   [
+    1,
+    "Everything the Armed Forces of Ukraine need"
+   ],
+   [
+    1,
+    "everywhere"
+   ],
+   [
+    1,
+    "Farms"
+   ],
+   [
+    1,
+    "I can't answer"
+   ],
+   [
+    1,
+    "I can't comment on this"
+   ],
+   [
+    1,
+    "I won't answer"
+   ],
+   [
+    1,
+    "If the targets are expedient, the military knows"
+   ],
+   [
+    1,
+    "Moscow"
+   ],
+   [
+    1,
+    "not needed, everything is destroyed anyway"
+   ],
+   [
+    1,
+    "Oil refineries"
+   ],
+   [
+    1,
+    "plants that produce ammunition"
+   ],
+   [
+    1,
+    "prefer not to answer"
+   ],
+   [
+    1,
+    "Putin and his team"
+   ],
+   [
+    1,
+    "railway stations"
+   ],
+   [
+    1,
+    "The Armed Forces of Ukraine know better than we do"
+   ],
+   [
+    1,
+    "The guys are working and know where to strike"
+   ],
+   [
+    1,
+    "The Kremlin"
+   ],
+   [
+    1,
+    "the military decides"
+   ],
+   [
+    1,
+    "The military knows better"
+   ],
+   [
+    1,
+    "the response strikes back three times harder"
+   ],
+   [
+    1,
+    "They should also feel it"
+   ],
+   [
+    1,
+    "troop deployment sites"
+   ],
+   [
+    1,
+    "where the occupiers hide"
+   ],
+   [
+    1,
+    "Where the occupiers live"
+   ],
+   [
+    1,
+    "where the Russians are (derogatory)"
+   ],
+   [
+    1,
+    "Wherever they are, they must be destroyed"
+   ]
+  ],
+  "q29": [
+   [
+    4,
+    "everything listed"
+   ],
+   [
+    2,
+    "Don't know"
+   ],
+   [
+    1,
+    "All answers for different categories"
+   ],
+   [
+    1,
+    "all except 1"
+   ],
+   [
+    1,
+    "all except pro-Russian views and don't believe they are welcome in Ukraine"
+   ],
+   [
+    1,
+    "all items"
+   ],
+   [
+    1,
+    "all options"
+   ],
+   [
+    1,
+    "all options are correct"
+   ],
+   [
+    1,
+    "almost everything, but in different ways"
+   ],
+   [
+    1,
+    "an elderly person won't leave"
+   ],
+   [
+    1,
+    "because of animals"
+   ],
+   [
+    1,
+    "because of expensive housing and low salaries"
+   ],
+   [
+    1,
+    "because they're fools"
+   ],
+   [
+    1,
+    "caring for someone"
+   ],
+   [
+    1,
+    "Distrust of the Ukrainian authorities"
+   ],
+   [
+    1,
+    "doesn't want to answer"
+   ],
+   [
+    1,
+    "doing nothing because it's easier to live that way"
+   ],
+   [
+    1,
+    "dont know"
+   ],
+   [
+    1,
+    "Doubts that the situation will get worse"
+   ],
+   [
+    1,
+    "elderly people"
+   ],
+   [
+    1,
+    "everyone has different circumstances"
+   ],
+   [
+    1,
+    "everyone has their own reason"
+   ],
+   [
+    1,
+    "everything listed, but everyone has their own"
+   ],
+   [
+    1,
+    "family and loved ones"
+   ],
+   [
+    1,
+    "fear of change"
+   ],
+   [
+    1,
+    "fear of going nowhere"
+   ],
+   [
+    1,
+    "fear of leaving"
+   ],
+   [
+    1,
+    "fear of living in a new place"
+   ],
+   [
+    1,
+    "fear of the future"
+   ],
+   [
+    1,
+    "fear that there is nowhere to go..."
+   ],
+   [
+    1,
+    "fled out of fear"
+   ],
+   [
+    1,
+    "greed for money"
+   ],
+   [
+    1,
+    "hopelessness, they will then live like beggars"
+   ],
+   [
+    1,
+    "hoping for de-occupation"
+   ],
+   [
+    1,
+    "impossible to leave"
+   ],
+   [
+    1,
+    "it was impossible to stay there, horror"
+   ],
+   [
+    1,
+    "it's already hard to leave"
+   ],
+   [
+    1,
+    "lack of a clear understanding of how people are evacuated"
+   ],
+   [
+    1,
+    "Lack of money for living"
+   ],
+   [
+    1,
+    "Lack of support from Ukraine"
+   ],
+   [
+    1,
+    "legal policy on IDP support"
+   ],
+   [
+    1,
+    "negative experience of those who returned, too little support for IDPs"
+   ],
+   [
+    1,
+    "neither compensation nor housing"
+   ],
+   [
+    1,
+    "no conditions to leave"
+   ],
+   [
+    1,
+    "no money to rent housing in another city"
+   ],
+   [
+    1,
+    "no money to rent housing in non-occupied territories"
+   ],
+   [
+    1,
+    "No opportunity to leave"
+   ],
+   [
+    1,
+    "no opportunity to leave, they shoot, hoped it would end quickly"
+   ],
+   [
+    1,
+    "no relatives to go to"
+   ],
+   [
+    1,
+    "no support from our government"
+   ],
+   [
+    1,
+    "no support from the authorities, no housing"
+   ],
+   [
+    1,
+    "no support from the state"
+   ],
+   [
+    1,
+    "not knowing foreign languages"
+   ],
+   [
+    1,
+    "not strong enough"
+   ],
+   [
+    1,
+    "Nowhere to live"
+   ],
+   [
+    1,
+    "people are waiting for Ukraine to return"
+   ],
+   [
+    1,
+    "people don't trust the Ukrainian authorities"
+   ],
+   [
+    1,
+    "people went to work in Russia after the collapse of the USSR"
+   ],
+   [
+    1,
+    "problems with evacuation"
+   ],
+   [
+    1,
+    "PROPAGANDA BRAINWASHED THEM"
+   ],
+   [
+    1,
+    "relocation is expensive – about 500 dollars, and fear that they will find out someone among the evacuees serves in the Armed Forces of Ukraine"
+   ],
+   [
+    1,
+    "stupid people"
+   ],
+   [
+    1,
+    "the state does not help people at all"
+   ],
+   [
+    1,
+    "the state helps little and they don't want to leave their homes without money"
+   ],
+   [
+    1,
+    "there are no conditions for IDPs, that's why people stay"
+   ],
+   [
+    1,
+    "there is hunger there"
+   ],
+   [
+    1,
+    "they are afraid of the TCC (military recruitment centres), they ask to protect men, not to take them immediately but give the family time to settle"
+   ],
+   [
+    1,
+    "They are not allowed to leave"
+   ],
+   [
+    1,
+    "they are not allowed to leave"
+   ],
+   [
+    1,
+    "they believe the lies and hate us"
+   ],
+   [
+    1,
+    "they can't rent an apartment"
+   ],
+   [
+    1,
+    "they don't believe in help from the state"
+   ],
+   [
+    1,
+    "they don't help displaced people"
+   ],
+   [
+    1,
+    "they think everything will get better"
+   ],
+   [
+    1,
+    "They think we will win"
+   ],
+   [
+    1,
+    "too little support from the Ukrainian government"
+   ],
+   [
+    1,
+    "Ukraine does not support IDPs"
+   ],
+   [
+    1,
+    "uncertainty about what awaits them elsewhere"
+   ],
+   [
+    1,
+    "uncertainty whether wages will cover rent, whether there will be enough money to live..."
+   ],
+   [
+    1,
+    "waiting for de-occupation"
+   ],
+   [
+    1,
+    "waiting to be liberated"
+   ]
+  ]
+ }
+}
