@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://totinsights.org/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/about.html</loc>
@@ -19,6 +19,10 @@
   <url>
     <loc>https://totinsights.org/briefings/confiscation_religious_property.html</loc>
     <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://totinsights.org/briefings/donbass_novorossiya_textbooks.html</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/donetsk_water_crisis.html</loc>
@@ -103,6 +107,10 @@
   <url>
     <loc>https://totinsights.org/briefings/two_hundred_thousand_rubles.html</loc>
     <lastmod>2026-09-21</lastmod>
+  </url>
+  <url>
+    <loc>https://totinsights.org/briefings/upbringing_budget_2027_2029.html</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/briefings/voin_generation.html</loc>
@@ -270,7 +278,7 @@
   </url>
   <url>
     <loc>https://totinsights.org/media.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/officials.html</loc>
@@ -331,6 +339,10 @@
   <url>
     <loc>https://totinsights.org/primary-sources/education-and-memory/connection-between-generations.pdf</loc>
     <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://totinsights.org/primary-sources/education-and-memory/doc-171.html</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/primary-sources/education-and-memory/magazine-of-the-first-issue-2.pdf</loc>
@@ -526,7 +538,7 @@
   </url>
   <url>
     <loc>https://totinsights.org/research.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/resources-academic.html</loc>
@@ -594,7 +606,7 @@
   </url>
   <url>
     <loc>https://totinsights.org/themes.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://totinsights.org/themes/accountability-and-legal.html</loc>
