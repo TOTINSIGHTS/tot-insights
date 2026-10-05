@@ -174,6 +174,8 @@ details.bio-item[open] .bio-plus::after{content:'\2013';}
     <p><strong>Naming individuals.</strong> We name an individual only where they are a public official acting in an official capacity, or where they are subject to formal sanctions, and we cite the source in each case. When we name a specific living person or company, we attribute allegations to their source rather than state them as settled fact, and we do not describe a named individual as a criminal absent a conviction. We process this data on the basis of the research exemption (Article 89 UK GDPR; Schedule 2, Data Protection Act 2018) and, where relevant, legitimate interests in accountability. UK data protection law applies to everyone regardless of conduct. We publish public-role information (name, position, appointment, and documented official decisions and actions); information beyond the public role is held in our restricted repository and published only where a specific accountability justification is documented. We do not treat listings on non-governmental accountability databases as a basis for naming anyone. Data shared by partner organisations is attributed to the organisation, not to individuals, unless an individual has given explicit written consent.</p>
 
     <p><strong>Closed monitoring and corrections.</strong> Some material is not published openly, to protect people in occupied territories and those who contribute to our work. We welcome corrections, and data subjects may exercise their rights under UK data protection law, by contacting <a href="mailto:jade.mcglynn@kcl.ac.uk">jade.mcglynn@kcl.ac.uk</a>.</p>
+
+    <p id="using-our-research"><strong>Using our research.</strong> Unless otherwise stated, the research published on TOT Insights (briefings, analyses, datasets, dashboards and translations) is available under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution 4.0 licence (CC BY 4.0)</a>. You may quote, republish and adapt it, including for commercial purposes, provided you credit &ldquo;TOT Insights, CSNS&rdquo;, link to the page on totinsights.org you are drawing on (or cite its DOI where one is given), and say if you have changed it. Work produced with the Centre for the Study of Occupation should be credited to &ldquo;TOT Insights, CSNS and the Centre for the Study of Occupation&rdquo;. The licence does not cover material that is not ours: primary sources, the occupation press and other occupation materials, and partner reports hosted with permission are reproduced as evidence, and should be cited to their original authors or issuing bodies.</p>
     </div>
   </details>
 
@@ -348,6 +350,10 @@ details.bio-item[open] .bio-plus::after{content:'\2013';}
 
 <div id="site-footer"></div>
 
-<script src="navigation.js?v=15"></script>
+<script>
+(function(){function openHash(){var el=location.hash&&document.getElementById(location.hash.slice(1));if(!el)return;var d=el.closest('details');if(d){d.open=true;}setTimeout(function(){el.scrollIntoView();},100);}
+window.addEventListener('hashchange',openHash);if(document.readyState!=='loading')openHash();else document.addEventListener('DOMContentLoaded',openHash);})();
+</script>
+<script src="navigation.js?v=16"></script>
 </body>
 </html>

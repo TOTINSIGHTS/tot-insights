@@ -70,6 +70,7 @@
           '<div class="footer-inner">' +
             '<span>TOT Insights is part of the <a href="https://csns.uk/programmes/ukraine-and-russia-programme/" target="_blank" rel="noopener noreferrer">Ukraine &amp; Russia Programme</a> at King&#39;s College London&#39;s Centre for Statecraft and National Security. This site was established with seed funding from the Leverhulme Centre for Research on Slavery in War.</span>' +
             '<span><a href="https://ukrainerussiaprogramme.substack.com/" target="_blank" rel="noopener noreferrer" aria-label="Sign up for newsletter updates from the Ukraine and Russia Programme on Substack (opens in a new tab)">Sign up for updates from the Ukraine and Russia Programme</a> &nbsp;&middot;&nbsp; <a href="mailto:TOTInsightsHub@protonmail.com">Contact</a> &nbsp;&middot;&nbsp; <a href="' + p + 'privacy.html">Privacy Notice</a></span>' +
+            '<span class="footer-reuse" style="flex-basis:100%">Unless otherwise stated, TOT Insights research is published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. If you use it, credit &ldquo;TOT Insights, CSNS&rdquo; and link to the page on totinsights.org. <a href="' + p + 'about.html#using-our-research">Using our research</a></span>' +
           '</div>' +
         '</footer>'
     };
