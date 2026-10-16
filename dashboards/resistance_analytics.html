@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Violent Resistance Activity: Monitoring Dashboard - TOT Insights</title>
+<title>Resistance Activity: Monitoring Dashboard - TOT Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,25 +25,6 @@ body {
   padding: 14px 32px 18px;
   border-bottom: 3px solid var(--gold);
 }
-.back-link {
-  display: inline-block;
-  color: var(--gold);
-  font-family: var(--font-mono);
-  font-size:var(--fs-label);
-  font-variant: small-caps;
-  text-decoration: none;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
-}
-.back-link:hover { text-decoration: underline; }
-.page-eyebrow {
-  font-family: var(--font-mono);
-  font-size:var(--fs-label);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
-}
 .page-title {
   font-family: var(--font-body);
   font-size:var(--fs-body);
@@ -55,7 +36,7 @@ body {
 .page-subtitle {
   font-family: var(--font-mono);
   font-size:var(--fs-label);
-  color: #9CA3AF;
+  color: var(--grey-700);
 }
 
 /* ─── Content area ───────────────────────────────────────────── */
@@ -77,7 +58,7 @@ body {
   margin-bottom: 24px;
 }
 @media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 400px) { .stat-grid { grid-template-columns: 1fr; } }
+@media (max-width: 340px) { .stat-grid { grid-template-columns: 1fr; } }
 
 .stat-card {
   background: #f2f0ec;
@@ -109,6 +90,7 @@ body {
 /* ─── Tabs ───────────────────────────────────────────────────── */
 .tab-bar {
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid rgba(17,29,48,0.12);
   margin-bottom: 24px;
 }
@@ -116,10 +98,11 @@ body {
   font-family: var(--font-sans);
   font-size:var(--fs-label);
   font-weight: 600;
-  padding: 10px 22px;
+  padding: 10px 18px;
+  min-height: 40px;
   border: none;
   background: transparent;
-  color: rgba(17,29,48,0.50);
+  color: rgba(17,29,48,0.62);
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
@@ -127,11 +110,13 @@ body {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
-.tab-btn:hover { color: rgba(17,29,48,0.80); }
+.tab-btn:hover { color: rgba(17,29,48,0.85); }
+.tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
 .tab-btn.active {
   color: #111d30;
   border-bottom-color: var(--gold);
 }
+@media (max-width: 700px) { .tab-btn { padding: 10px 12px; } }
 
 .viz-panel {
   background: #f2f0ec;
@@ -139,6 +124,7 @@ body {
   padding: 20px 22px 22px;
   box-shadow:none;
 }
+@media (max-width: 700px) { .viz-panel { padding: 16px 12px 18px; } }
 
 /* ─── Section heading ────────────────────────────────────────── */
 .section-heading {
@@ -148,6 +134,13 @@ body {
   color: #a67c1a;
   margin-bottom: 14px;
 }
+.viz-panel p.chart-note {
+  font-family: var(--font-sans);
+  font-size: var(--fs-fine);
+  color: var(--grey-700);
+  margin: -6px 0 14px;
+  line-height: 1.6;
+}
 
 /* ─── Chart cards ────────────────────────────────────────────── */
 .chart-card {
@@ -156,43 +149,10 @@ body {
   border-radius: 4px;
   padding: 20px 24px;
 }
+@media (max-width: 700px) { .chart-card { padding: 14px 10px; } }
+.chart-card + .section-heading { margin-top: 28px; }
 .chart-wrap {
   position: relative;
-}
-
-/* ─── Donut layout ───────────────────────────────────────────── */
-.donut-layout {
-  display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 32px;
-  align-items: center;
-}
-@media (max-width: 640px) { .donut-layout { grid-template-columns: 1fr; } }
-
-.donut-legend { display: flex; flex-direction: column; gap: 10px; }
-.legend-item { display: flex; align-items: center; gap: 10px; }
-.legend-swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-.legend-label {
-  font-family: var(--font-sans);
-  font-size:var(--fs-label);
-  color: #334155;
-  flex: 1;
-}
-.legend-val {
-  font-family: var(--font-mono);
-  font-size:var(--fs-label);
-  color: #111d30;
-  font-weight: 700;
-  white-space: nowrap;
-}
-.legend-pct {
-  color: #6B7280;
-  font-weight: 400;
 }
 
 /* ─── Callout box ────────────────────────────────────────────── */
@@ -213,10 +173,11 @@ body {
   font-size:var(--fs-label);
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #8a6715;
   margin-bottom: 8px;
 }
 .callout strong { color: #111d30; }
+.callout p + p { margin-top: 8px; }
 
 /* ─── Research integrity ─────────────────────────────────────── */
 .research-integrity {
@@ -250,15 +211,6 @@ body {
   color: rgba(107,107,120,1);
   margin-top: 6px;
 }
-
-/* ─── Footer ─────────────────────────────────────────────────── */
-.page-footer {
-  padding: 12px 32px;
-  border-top: 1px solid rgba(17,29,48,0.10);
-  font-family: var(--font-mono);
-  font-size:var(--fs-label);
-  color: rgba(17,29,48,0.50);
-}
 </style>
   <link rel="stylesheet" href="../assets/css/main.css?v=10">
   <link rel="stylesheet" href="../assets/css/viz.css?v=8">
@@ -268,8 +220,8 @@ body {
 <div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#111d30;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="page-header">
-  <div class="page-title">Violent Resistance Activity: Monitoring Dashboard</div>
-  <div class="page-subtitle">Dec 2024 – May 2026 · 464 verified incidents · Occupied territories and Russian Federation</div>
+  <div class="page-title">Resistance Activity: Monitoring Dashboard</div>
+  <div class="page-subtitle">25 Dec 2024 – 8 Oct 2026 · 555 violent incidents · 909 non-violent acts · Occupied territories and Russian Federation</div>
 </div>
 
 <div class="content">
@@ -277,75 +229,115 @@ body {
   <!-- ── Methodology note ── -->
   <div class="callout" style="margin-top:0;margin-bottom:24px;">
     <div class="callout-label">Methodology</div>
-    These incidents are gathered by monitoring a selection of 46 separate online Ukrainian and Russian sources to identify violent resistance acts committed by Ukrainian partisans inside the occupied territories or Russia, or committed by Ukrainian-connected or Ukrainian-run partisans inside Russia. The sources are not shared, so as not to draw attention to them, some of which have small reach or are private. We triangulate the events identified against occupation sourcing and/or other Ukrainian sources before including them. Nevertheless, these cases must be treated with caution, and as indicative rather than representative.
+    <p>These incidents are gathered by monitoring more than 40 online Ukrainian and Russian sources to identify violent resistance acts committed by Ukrainian partisans inside the occupied territories or Russia, or by Ukrainian-connected or Ukrainian-run partisan groups inside Russia. The sources are not shared, so as not to draw attention to them; some have small reach or are private. We triangulate the events identified against occupation sourcing and/or other Ukrainian sources before including them. Nevertheless, these cases must be treated with caution, and as indicative rather than representative.</p>
+    <p>Incidents are logged in fortnightly reports. For this edition every incident was re-coded by location, type and claiming group, and eight incidents that had been logged in two consecutive fortnights were counted once. Group attribution is as claimed by the group or the reporting channel.</p>
   </div>
 
   <!-- ── Stat cards ── -->
   <div class="stat-grid">
     <div class="stat-card">
-      <div class="stat-val">464</div>
-      <div class="stat-label">Total verified incidents</div>
-      <div class="stat-sub">Dec 2024 – May 2026</div>
+      <div class="stat-val">555</div>
+      <div class="stat-label">Violent incidents</div>
+      <div class="stat-sub">46 fortnights, Dec 2024 – Oct 2026</div>
     </div>
     <div class="stat-card">
       <div class="stat-val">271</div>
-      <div class="stat-label">Occupied territory incidents</div>
-      <div class="stat-sub">All monitored oblasts</div>
+      <div class="stat-label">In occupied Ukraine</div>
+      <div class="stat-sub">Including Crimea</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">193</div>
-      <div class="stat-label">Russian Federation incidents</div>
-      <div class="stat-sub">Within RF territory</div>
+      <div class="stat-val">277</div>
+      <div class="stat-label">In Russia</div>
+      <div class="stat-sub">7 more with no location</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">23</div>
-      <div class="stat-label">Peak fortnight</div>
-      <div class="stat-sub">14–27 Aug 2025</div>
+      <div class="stat-val">909</div>
+      <div class="stat-label">Non-violent acts</div>
+      <div class="stat-sub">Logged from mid-2025</div>
     </div>
   </div>
 
   <div class="viz-panel">
   <!-- ── Tabs ── -->
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('overview',this)">Overview</button>
-    <button class="tab-btn" onclick="switchTab('trend',this)">Trend</button>
-    <button class="tab-btn" onclick="switchTab('geography',this)">Geography</button>
+  <div class="tab-bar" role="tablist" aria-label="Dashboard views">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-shift" id="tab-shift" onclick="switchTab('shift',this)">Occupied vs Russia</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-types" id="tab-types" onclick="switchTab('types',this)">Types</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-geography" id="tab-geography" onclick="switchTab('geography',this)">Geography</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-groups" id="tab-groups" onclick="switchTab('groups',this)">Groups</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-nonviolent" id="tab-nonviolent" onclick="switchTab('nonviolent',this)">Non-violent</button>
   </div>
 
-  <!-- ── Overview panel ── -->
-  <div id="panel-overview" class="tab-panel">
-    <div class="section-heading">Incidents by Type</div>
+  <!-- ── Occupied vs Russia ── -->
+  <div id="panel-shift" class="tab-panel" role="tabpanel" aria-labelledby="tab-shift">
+    <div class="section-heading">Violent incidents per fortnight, occupied Ukraine and Russia</div>
     <div class="chart-card">
-      <div class="chart-wrap" style="height:260px;">
-        <canvas id="barChart"></canvas>
+      <div class="chart-wrap" style="height:340px;">
+        <canvas id="shiftChart" role="img" aria-label="Stacked bar chart of violent resistance incidents per fortnight from December 2024 to October 2026, split between occupied Ukraine and Russia. Occupied-territory incidents fall from about 7 to 9 per fortnight in 2025 to 1 to 5 since May 2026, while incidents in Russia rise to 7 to 11 per fortnight."></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">What changed</div>
+      <p><strong>Violent resistance has moved out of the occupied territories and into Russia.</strong> Recorded incidents in occupied Ukraine averaged about 7 per fortnight in the first half of 2025 and 9 in the second half, then fell to about 3.5 per fortnight in 2026 and to between 1 and 5 since May 2026. Incidents in Russia rose from about 3 per fortnight in early 2025 to between 7 and 11 for most of 2026, and have outnumbered occupied-territory incidents in every fortnight since late December 2025 bar one.</p>
+      <p>Total activity dipped in June to August 2026 (7 to 11 incidents a fortnight) and recovered to 12 to 15 in September and early October, mostly in Russia.</p>
+    </div>
+  </div>
+
+  <!-- ── Types ── -->
+  <div id="panel-types" class="tab-panel" role="tabpanel" aria-labelledby="tab-types" style="display:none;">
+    <div class="section-heading">Violent incidents by type</div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:300px;">
+        <canvas id="typeChart" role="img" aria-label="Horizontal bar chart of violent incidents by type: rail and transport sabotage 198, attacks on critical and military infrastructure 108, attacks on vehicles and equipment 101, assassinations and attacks on personnel 88, other 50, targeting intelligence for strikes 10."></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Reading the types</div>
+      Each incident is given one type from its description. Rail sabotage (relay cabinets, locomotives, fuel tank wagons) is the largest category and dominates activity inside Russia. "Other" covers arson against buildings, offices and volunteer collection points, symbolic attacks and incidents whose target is not described.
+    </div>
+  </div>
+
+  <!-- ── Geography ── -->
+  <div id="panel-geography" class="tab-panel" role="tabpanel" aria-labelledby="tab-geography" style="display:none;">
+    <div class="section-heading">Violent incidents by region</div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:280px;">
+        <canvas id="geoChart" role="img" aria-label="Horizontal bar chart of violent incidents by region: Russian Federation 277, South (Zaporizhzhia and Kherson oblasts) 136, East (Donetsk, Luhansk and occupied Kharkiv oblasts) 80, Crimea 51, occupied territory with no location given 4, location unknown 7."></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Groups ── -->
+  <div id="panel-groups" class="tab-panel" role="tabpanel" aria-labelledby="tab-groups" style="display:none;">
+    <div class="section-heading">Violent incidents by claiming group</div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:440px;">
+        <canvas id="groupChart" role="img" aria-label="Stacked horizontal bar chart of violent incidents by claiming group, split between occupied Ukraine and Russia. ATESH and OTPOR 149, of which 93 in Russia; Freedom of Russia Legion resistance 102, almost all in Russia; Mariupol Resistance 58; Antismersh 45, all in occupied Ukraine; S.R.O.K. 42, all in occupied Ukraine."></canvas>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Who operates where</div>
+      ATESH (with OTPOR) claims the most incidents, and nearly two thirds of its claims are in Russia. The Freedom of Russia Legion's resistance network, Black Spark and Rospartizan operate almost only inside Russia. Antismersh and S.R.O.K. operate only in the occupied south and east, and Mariupol Resistance mostly in occupied Donetsk oblast. "Unattributed" covers incidents reported by news or regional channels without a group claim.
+    </div>
+  </div>
+
+  <!-- ── Non-violent ── -->
+  <div id="panel-nonviolent" class="tab-panel" role="tabpanel" aria-labelledby="tab-nonviolent" style="display:none;">
+    <div class="section-heading">Non-violent resistance acts per quarter</div>
+    <p class="chart-note">Leafleting, graffiti, ribbons and flags, symbolic actions, leaks of occupation documents and public defiance, logged from June 2025. Quarters are approximate: the log records each act's report, and dates were reconstructed from the order in which reports were published.</p>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:280px;">
+        <canvas id="nvTrendChart" role="img" aria-label="Bar chart of non-violent resistance acts per quarter: about 180 per quarter in the second half of 2025, a peak of 216 in the first quarter of 2026, then 170 and 130 in the second and third quarters of 2026."></canvas>
+      </div>
+    </div>
+    <div class="section-heading">Non-violent acts by reporting group</div>
+    <div class="chart-card">
+      <div class="chart-wrap" style="height:340px;">
+        <canvas id="nvGroupChart" role="img" aria-label="Horizontal bar chart of non-violent resistance acts by reporting group: ATESH and OTPOR 419, news and regional channels 189, Mariupol Resistance 128, Crimean Partisans 39, Antismersh 37."></canvas>
       </div>
     </div>
     <div class="callout">
       <div class="callout-label">Non-violent resistance</div>
-      <strong>711 documented non-violent resistance acts</strong> recorded in the same period - leafleting, symbolic acts, database breaches, and acts of public defiance. These are tracked separately from violent incidents.
-    </div>
-  </div>
-
-  <!-- ── Trend panel ── -->
-  <div id="panel-trend" class="tab-panel" style="display:none;">
-    <div class="section-heading">Incidents Over Time - Biweekly Totals</div>
-    <div class="chart-card">
-      <div class="chart-wrap" style="height:310px;">
-        <canvas id="lineChart"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Geography panel ── -->
-  <div id="panel-geography" class="tab-panel" style="display:none;">
-    <div class="section-heading">Geographic Distribution of All Incidents</div>
-    <div class="chart-card">
-      <div class="donut-layout">
-        <div class="chart-wrap" style="height:300px;">
-          <canvas id="donutChart"></canvas>
-        </div>
-        <div class="donut-legend" id="donutLegend"></div>
-      </div>
+      Non-violent acts outnumber violent incidents by about two to one over the same months. They rose through late 2025 to a peak in early 2026 and have fallen since, by about 40% from the first to the third quarter of 2026. ATESH reports almost half of all recorded acts.
     </div>
   </div>
 
@@ -357,220 +349,250 @@ body {
 <div class="research-integrity">
   <div class="integrity-inner">
     <div class="integrity-label">Research integrity</div>
-    <a class="integrity-link" href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Violent%20Resistance%20Activity%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/resistance_analytics.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
+    <a class="integrity-link" href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Resistance%20Activity%20Dashboard%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/dashboards/resistance_analytics.html%0A%0AError or correction:%0A%0ASource or evidence:%0A" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &#8594;</a>
     <p class="integrity-note">Corrections are reviewed by the research team and incorporated into the next update.</p>
   </div>
 </div>
 
 
 <script>
-/* ── Data ──────────────────────────────────────────────────────── */
-var typeLabels = [
-  'Attacks on vehicles',
-  'Critical infrastructure attacks',
-  'Transport infrastructure sabotage',
-  'Assassination attempts on officials',
-  'Other'
-];
-var typeValues = [138, 123, 118, 35, 50];
+/* ── Data (aggregates only; built from the incident-level log, 8 Oct 2026) ── */
+var periods = ["25 Dec 24 – 13 Jan 25","14 Jan 25 – 30 Jan 25","31 Jan 25 – 13 Feb 25","13 Feb 25 – 27 Feb 25","28 Feb 25 – 13 Mar 25","14 Mar 25 – 27 Mar 25","28 Mar 25 – 10 Apr 25","11 Apr 25 – 24 Apr 25","25 Apr 25 – 8 May 25","9 May 25 – 22 May 25","22 May 25 – 5 Jun 25","5 Jun 25 – 18 Jun 25","18 Jun 25 – 2 Jul 25","3 Jul 25 – 16 Jul 25","17 Jul 25 – 30 Jul 25","31 Jul 25 – 13 Aug 25","14 Aug 25 – 27 Aug 25","28 Aug 25 – 11 Sep 25","11 Sep 25 – 24 Sep 25","25 Sep 25 – 9 Oct 25","10 Oct 25 – 23 Oct 25","23 Oct 25 – 6 Nov 25","6 Nov 25 – 19 Nov 25","19 Nov 25 – 4 Dec 25","4 Dec 25 – 18 Dec 25","18 Dec 25 – 31 Dec 25","31 Dec 25 – 14 Jan 26","14 Jan 26 – 28 Jan 26","29 Jan 26 – 12 Feb 26","12 Feb 26 – 25 Feb 26","25 Feb 26 – 12 Mar 26","12 Mar 26 – 25 Mar 26","25 Mar 26 – 9 Apr 26","9 Apr 26 – 22 Apr 26","22 Apr 26 – 7 May 26","7 May 26 – 21 May 26","21 May 26 – 4 Jun 26","4 Jun 26 – 18 Jun 26","18 Jun 26 – 1 Jul 26","1 Jul 26 – 16 Jul 26","16 Jul 26 – 30 Jul 26","30 Jul 26 – 12 Aug 26","12 Aug 26 – 26 Aug 26","26 Aug 26 – 9 Sep 26","9 Sep 26 – 24 Sep 26","24 Sep 26 – 8 Oct 26"];
+var occCounts = [7,2,3,6,5,10,6,6,6,8,10,8,12,8,4,12,14,10,7,12,10,7,6,7,9,7,4,3,4,6,4,6,3,6,4,2,1,2,5,2,1,2,4,2,3,5];
+var rfCounts  = [4,3,1,2,2,3,6,2,8,2,4,4,2,3,2,3,9,2,5,4,5,5,10,9,6,8,8,11,11,9,7,8,10,9,9,9,7,5,3,8,9,8,7,6,9,10];
+var unkCounts = [0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-var biweeklyLabels = [
-  "Dec '24","Jan '25a","Jan '25b","Feb '25a","Feb '25b","Mar '25a","Mar '25b",
-  "Apr '25a","Apr '25b","May '25a","May '25b","Jun '25a","Jun '25b","Jul '25a",
-  "Jul '25b","Aug '25a","Aug '25b","Sep '25a","Sep '25b","Oct '25a","Oct '25b",
-  "Nov '25a","Nov '25b","Dec '25a","Dec '25b","Dec '25c","Jan '26a","Jan '26b",
-  "Feb '26a","Feb '26b","Mar '26a","Mar '26b","Apr '26a","Apr '26b","May '26a","May '26b"
-];
-var biweeklyValues = [
-  11,5,4,9,7,13,12,9,14,11,14,12,14,11,6,15,23,12,13,16,17,12,18,17,15,15,12,16,16,15,11,14,14,15,14,12
+var types = [
+  ['Rail and transport sabotage', 198],
+  ['Attacks on critical and military infrastructure', 108],
+  ['Attacks on vehicles and equipment', 101],
+  ['Assassinations and attacks on personnel', 88],
+  ['Other', 50],
+  ['Targeting intelligence for strikes', 10]
 ];
 
-var geoData = [
-  {label:"Russian Federation territory", value:216, color:"#a67c1a"},
-  {label:"South occupied oblasts",       value:126, color:"#4B9E9E"},
-  {label:"East occupied oblasts",        value:75,  color:"#5B7DB8"},
-  {label:"Crimea",                       value:42,  color:"#2D5A8A"},
-  {label:"Unknown",                      value:5,   color:"#6B7280"}
+var regions = [
+  ['Russian Federation', 277],
+  ['South: Zaporizhzhia and Kherson oblasts', 136],
+  ['East: Donetsk, Luhansk, occupied Kharkiv', 80],
+  ['Crimea', 51],
+  ['Occupied territory, place not given', 4],
+  ['Location unknown', 7]
 ];
 
-/* ── Chart.js globals: font + text colour inherited from chart-defaults.js (Garamond, dark) ── */
+/* [group, occupied Ukraine, Russia, unknown] */
+var groups = [
+  ['ATESH / OTPOR', 55, 93, 1],
+  ['Freedom of Russia Legion resistance', 4, 98, 0],
+  ['Mariupol Resistance', 37, 19, 2],
+  ['Antismersh', 45, 0, 0],
+  ['S.R.O.K.', 38, 0, 4],
+  ['Crimean Partisans', 20, 6, 0],
+  ['Black Spark', 0, 17, 0],
+  ['Rospartizan', 0, 17, 0],
+  ['National Resistance Center', 10, 6, 0],
+  ['Free Kherson Region', 10, 1, 0],
+  ['Other named groups', 7, 4, 0],
+  ['Unattributed', 45, 16, 0]
+];
+
+var nvQuarters = [
+  ['Q2 2025 (from June)', 26],
+  ['Q3 2025', 179],
+  ['Q4 2025', 180],
+  ['Q1 2026', 216],
+  ['Q2 2026', 170],
+  ['Q3 2026', 130],
+  ['Q4 2026 (to 8 Oct)', 8]
+];
+
+var nvGroups = [
+  ['ATESH / OTPOR', 419],
+  ['News and regional channels', 189],
+  ['Mariupol Resistance', 128],
+  ['Crimean Partisans', 39],
+  ['Antismersh', 37],
+  ['Luhansk partisans', 25],
+  ['S.R.O.K.', 25],
+  ['Freedom of Russia Legion resistance', 25],
+  ['National Resistance Center', 14],
+  ['Other named groups', 8]
+];
+
+/* ── Colours: navy = occupied Ukraine, gold = Russia (house palette) ── */
+var NAVY = (window.TOT && TOT.chartColors) ? TOT.chartColors[1] : '#111d30';
+var GOLD = (window.TOT && TOT.chartColors) ? TOT.chartColors[0] : '#c9a84c';
+var GREY = '#9a98a0';
+var TIP = {
+  backgroundColor: '#0F1F3D',
+  borderColor: 'rgba(255,255,255,0.12)',
+  borderWidth: 1,
+  titleColor: '#e8eaf0',
+  bodyColor: '#e8d5a0'
+};
+function small() { return window.innerWidth < 640; }
 
 /* ── Tab state ─────────────────────────────────────────────────── */
 var initialized = {};
+var inits = {
+  shift: initShift, types: initTypes, geography: initGeo,
+  groups: initGroups, nonviolent: initNonviolent
+};
 
 function switchTab(name, btn) {
   document.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) {
+    b.classList.remove('active'); b.setAttribute('aria-selected', 'false');
+  });
   document.getElementById('panel-' + name).style.display = 'block';
   btn.classList.add('active');
-  if (!initialized[name]) {
-    initialized[name] = true;
-    if (name === 'overview') initBarChart();
-    else if (name === 'trend') initLineChart();
-    else if (name === 'geography') initDonutChart();
-  }
+  btn.setAttribute('aria-selected', 'true');
+  if (!initialized[name]) { initialized[name] = true; inits[name](); }
 }
 
-/* ── Bar chart ─────────────────────────────────────────────────── */
-function initBarChart() {
-  var ctx = document.getElementById('barChart').getContext('2d');
-  new Chart(ctx, {
+/* ── Helpers ───────────────────────────────────────────────────── */
+function hbar(id, rows, label) {
+  new Chart(document.getElementById(id).getContext('2d'), {
     type: 'bar',
     data: {
-      labels: typeLabels,
-      datasets: [{
-        data: typeValues,
-        backgroundColor: '#a67c1a',
-        hoverBackgroundColor: '#8a6715',
-        borderRadius: 3,
-        borderSkipped: false
-      }]
+      labels: rows.map(function(r) { return r[0]; }),
+      datasets: [{ data: rows.map(function(r) { return r[1]; }), backgroundColor: GOLD, borderRadius: 2 }]
     },
     options: {
       indexAxis: 'y',
       maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0F1F3D',
-          borderColor: 'rgba(255,255,255,0.12)',
-          borderWidth: 1,
-          titleColor: '#e8eaf0',
-          bodyColor: '#c9a84c',
-          callbacks: {
-            label: function(ctx) { return '  ' + ctx.raw + ' incidents'; }
-          }
-        }
+        tooltip: Object.assign({}, TIP, { callbacks: { label: function(c) { return '  ' + c.raw + ' ' + label; } } })
       },
       scales: {
-        x: {
-          grid: { color: 'rgba(166,124,26,0.12)' },
-          ticks: { color: '#64748b', font: { size: 11 } }
-        },
-        y: {
-          grid: { display: false },
-          ticks: { color: '#334155', font: { size: 12 } }
-        }
+        x: { beginAtZero: true },
+        y: { grid: { display: false }, ticks: { autoSkip: false, font: { size: small() ? 11 : 13 } } }
       }
     }
   });
 }
 
-/* ── Line chart ────────────────────────────────────────────────── */
-function initLineChart() {
-  var ctx = document.getElementById('lineChart').getContext('2d');
-  var gradient = ctx.createLinearGradient(0, 0, 0, 310);
-  gradient.addColorStop(0, 'rgba(166,124,26,0.28)');
-  gradient.addColorStop(1, 'rgba(166,124,26,0.02)');
-
-  new Chart(ctx, {
-    type: 'line',
+/* ── Occupied vs Russia ────────────────────────────────────────── */
+function initShift() {
+  new Chart(document.getElementById('shiftChart').getContext('2d'), {
+    type: 'bar',
     data: {
-      labels: biweeklyLabels,
-      datasets: [{
-        data: biweeklyValues,
-        borderColor: '#a67c1a',
-        backgroundColor: gradient,
-        fill: true,
-        tension: 0.35,
-        pointRadius: 3,
-        pointBackgroundColor: '#a67c1a',
-        pointBorderColor: '#ffffff',
-        pointBorderWidth: 1.5,
-        pointHoverRadius: 5
-      }]
+      labels: periods,
+      datasets: [
+        { label: 'Occupied Ukraine', data: occCounts, backgroundColor: NAVY, stack: 's' },
+        { label: 'Russia', data: rfCounts, backgroundColor: GOLD, stack: 's' },
+        { label: 'Location unknown', data: unkCounts, backgroundColor: GREY, stack: 's' }
+      ]
     },
     options: {
       maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0F1F3D',
-          borderColor: 'rgba(255,255,255,0.12)',
-          borderWidth: 1,
-          titleColor: '#e8eaf0',
-          bodyColor: '#c9a84c',
+        legend: { position: 'top', align: 'start', labels: { filter: function(i) { return i.text !== 'Location unknown'; } } },
+        tooltip: Object.assign({}, TIP, {
+          filter: function(i) { return i.raw > 0 || i.datasetIndex < 2; },
           callbacks: {
-            label: function(ctx) { return '  ' + ctx.raw + ' incidents'; }
-          }
-        }
-      },
-      scales: {
-        x: {
-          grid: { color: 'rgba(166,124,26,0.12)' },
-          ticks: {
-            color: '#64748b',
-            font: { size: 10 },
-            maxRotation: 45,
-            minRotation: 30
-          }
-        },
-        y: {
-          grid: { color: 'rgba(166,124,26,0.12)' },
-          ticks: { color: '#64748b', font: { size: 11 } },
-          beginAtZero: true
-        }
-      }
-    }
-  });
-}
-
-/* ── Donut chart ───────────────────────────────────────────────── */
-function initDonutChart() {
-  var total = geoData.reduce(function(s, d) { return s + d.value; }, 0);
-
-  var legendEl = document.getElementById('donutLegend');
-  geoData.forEach(function(d) {
-    var pct = ((d.value / total) * 100).toFixed(1);
-    var item = document.createElement('div');
-    item.className = 'legend-item';
-    item.innerHTML =
-      '<div class="legend-swatch" style="background:' + d.color + ';"></div>' +
-      '<div class="legend-label">' + d.label + '</div>' +
-      '<div class="legend-val">' + d.value + '&thinsp;<span class="legend-pct">(' + pct + '%)</span></div>';
-    legendEl.appendChild(item);
-  });
-
-  var ctx = document.getElementById('donutChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-      labels: geoData.map(function(d) { return d.label; }),
-      datasets: [{
-        data: geoData.map(function(d) { return d.value; }),
-        backgroundColor: geoData.map(function(d) { return d.color; }),
-        borderColor: '#ffffff',
-        borderWidth: 2,
-        hoverOffset: 8
-      }]
-    },
-    options: {
-      maintainAspectRatio: false,
-      cutout: '62%',
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0F1F3D',
-          borderColor: 'rgba(255,255,255,0.12)',
-          borderWidth: 1,
-          titleColor: '#e8eaf0',
-          bodyColor: '#c9a84c',
-          callbacks: {
-            label: function(ctx) {
-              var pct = ((ctx.raw / total) * 100).toFixed(1);
-              return '  ' + ctx.raw + ' incidents (' + pct + '%)';
+            label: function(c) { return '  ' + c.dataset.label + ': ' + c.raw; },
+            footer: function(items) {
+              var i = items[0].dataIndex;
+              return 'Total: ' + (occCounts[i] + rfCounts[i] + unkCounts[i]);
             }
           }
-        }
+        })
+      },
+      scales: {
+        x: {
+          stacked: true,
+          grid: { display: false },
+          ticks: {
+            maxRotation: 0,
+            autoSkip: false,
+            font: { size: small() ? 10 : 12 },
+            callback: function(v, i) {
+              /* label the first fortnight of each quarter with its month and year */
+              var start = periods[i].split(' – ')[0].split(' ');
+              var m = start[1], y = start[2];
+              var prev = i > 0 ? periods[i - 1].split(' – ')[0].split(' ')[1] : null;
+              var qStart = { Jan: 1, Apr: 1, Jul: 1, Oct: 1 };
+              if (qStart[m] && m !== prev) return small() ? m : m + ' ' + y;
+              return '';
+            }
+          }
+        },
+        y: { stacked: true, beginAtZero: true, title: { display: !small(), text: 'Incidents per fortnight' } }
       }
     }
   });
 }
 
-/* ── Init overview on load ─────────────────────────────────────── */
+/* ── Types / Geography ─────────────────────────────────────────── */
+function initTypes() { hbar('typeChart', types, 'incidents'); }
+function initGeo() { hbar('geoChart', regions, 'incidents'); }
+
+/* ── Groups ────────────────────────────────────────────────────── */
+function initGroups() {
+  new Chart(document.getElementById('groupChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: groups.map(function(g) { return g[0]; }),
+      datasets: [
+        { label: 'Occupied Ukraine', data: groups.map(function(g) { return g[1]; }), backgroundColor: NAVY, stack: 's' },
+        { label: 'Russia', data: groups.map(function(g) { return g[2]; }), backgroundColor: GOLD, stack: 's' },
+        { label: 'Location unknown', data: groups.map(function(g) { return g[3]; }), backgroundColor: GREY, stack: 's' }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', align: 'start', labels: { filter: function(i) { return i.text !== 'Location unknown'; } } },
+        tooltip: Object.assign({}, TIP, {
+          filter: function(i) { return i.raw > 0; },
+          callbacks: { label: function(c) { return '  ' + c.dataset.label + ': ' + c.raw; } }
+        })
+      },
+      scales: {
+        x: { stacked: true, beginAtZero: true },
+        y: { stacked: true, grid: { display: false }, ticks: { autoSkip: false, font: { size: small() ? 11 : 13 } } }
+      }
+    }
+  });
+}
+
+/* ── Non-violent ───────────────────────────────────────────────── */
+function initNonviolent() {
+  new Chart(document.getElementById('nvTrendChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: nvQuarters.map(function(q) { return q[0]; }),
+      datasets: [{
+        data: nvQuarters.map(function(q) { return q[1]; }),
+        /* partial quarters shown in grey so they are not read as a fall */
+        backgroundColor: nvQuarters.map(function(q) { return /\(/.test(q[0]) ? GREY : GOLD; }),
+        borderRadius: 2
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: Object.assign({}, TIP, { callbacks: { label: function(c) { return '  about ' + c.raw + ' acts'; } } })
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { autoSkip: false, maxRotation: small() ? 45 : 0, font: { size: small() ? 10 : 13 } } },
+        y: { beginAtZero: true }
+      }
+    }
+  });
+  hbar('nvGroupChart', nvGroups, 'acts');
+}
+
+/* ── Init first tab on load ────────────────────────────────────── */
 window.addEventListener('load', function() {
-  initialized['overview'] = true;
-  initBarChart();
+  initialized['shift'] = true;
+  initShift();
 });
 </script>
 <script src="../navigation.js?v=16"></script>
