@@ -394,7 +394,7 @@ The dispossession regime: the DPR law defining "signs of ownerless property" (20
 **DOC-161: Presidential Decree No. 809 on Traditional Russian Spiritual and Moral Values (9 November 2022) and Ministry of Education Order No. 808 Introducing the Compulsory Course "Spiritual and Moral Culture of Russia" (10 November 2025)** *(Education and Militarisation · Identity, Culture and Religion)*
 The values decree of 2022 and the 2025 order that turns it into a compulsory school subject from September 2026, with "heroes of the special military operation" as exemplars.
 
-**DOC-162: The Federal Textbook List and Federal Literature List: Ministry of Education Orders No. 769 (5 November 2024), No. 258 (1 April 2025) and No. 495 (26 June 2025), with the List of Literary Works in the Federal Programmes** *(Education and Militarisation · Identity, Culture and Religion)*
+**DOC-162: The Federal Textbook List and Federal Literature List: Ministry of Education Orders No. 436 (22 June 2026), No. 495 (26 June 2025), No. 769 (5 November 2024) and No. 258 (1 April 2025), with the List of Literary Works in the Federal Programmes** *(Education and Militarisation · Identity, Culture and Religion)*
 The lists that define what occupation schools may teach: native-language textbooks for Bashkir, Tatar and Adyghe, none for Ukrainian, and a federal literature canon with no Ukrainian work.
 
 **DOC-163: Ministry of Education Order No. 171 Amending the School Admission Procedure: Russian-Language Testing and Status Checks for Children Who Are Foreign Citizens (4 March 2025)** *(Education and Militarisation · Civilian Life)*
