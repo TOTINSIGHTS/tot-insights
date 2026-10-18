@@ -286,6 +286,12 @@ Reference book approved for LNR schools, 315 biographies of Heroes of the Soviet
 **DOC-139 — Post-Industrial Park: Development Project for the Azovstal Plant Territory, Mariupol** *(Economics)*
 Agency for the Development of Mariupol project (2024) to convert the former Azovstal steelworks into a 125-hectare industrial-tourism park billed as the principal industrial monument-museum of Russia.
 
+**DOC-171 — "Donbass and Novorossiya: History of Our Region": regional history textbooks for Years 5 and 6 to 7** *(Education and Militarisation · Identity, Culture and Religion)*
+The federal textbooks for the compulsory regional history course in the occupied mainland regions, in full, with an English table of key passages. Moscow, 2026; admitted by Ministry of Education Order No. 436 of 22 June 2026. Analysis: DOC-170.
+
+**DOC-173 — "History of Our Region" for Crimea: programme of the compulsory regional history course for Years 5 to 7** *(Education and Militarisation · Identity, Culture and Religion)*
+KRIPPO programme approved August 2025 and recommended to all Crimean schools by the occupation education ministry's collegium (22 October 2025): the 1954 transfer called illegitimate, 1991 to 2014 left out, the deportation in one undated line, a project lesson on "Crimeans, heroes of the SVO". Document metadata removed.
+
 *Note: the Primary sources page (`primary-sources.html`) is now organised by theme rather than by collection/region; each document appears once under its primary theme.*
 
 ---
