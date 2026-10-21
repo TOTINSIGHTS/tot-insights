@@ -418,6 +418,12 @@ The rules of a national "native languages" contest for which children in occupie
 **DOC-167: Ministry of Education Order No. 370: Federal Educational Programme for Basic General Education, Section 166, the Federal Work Programme of Upbringing (18 May 2023)** *(Education and Militarisation · Identity, Culture and Religion)*
 The federal upbringing programme every school must follow: patriotism and "respect for the memory of the defenders of the Fatherland" as aims, military-patriotic courses among extracurricular activities. Extract of section 166 from the 5,683-page act.
 
+**DOC-174: "Historical Enlightenment" in Schools: Concept (15 April 2026), 2026–2027 guidance and letter No. OK-1984/03 on extracurricular activities (9 July 2026)** *(Education and Militarisation · Identity, Culture and Religion)*
+The new federal system of school "historical enlightenment": SVO veterans in schools, an openly "ideological" function, vetting of online history, a points rating for every school, and basic military training in Years 8 and 10. Document metadata removed.
+
+**DOC-175: Ministry of Education letter No. OK-1799/03 of 22 June 2026 sending reading lists, with the "patriotic" list and its section «Zа наших»** *(Education and Militarisation · Identity, Culture and Religion)*
+Reading lists for every school library: a "patriotic" list that ends, for teenagers, with a section headed in the war's Latin "Z", «Zа наших», of books on Donbas and the SVO, and no Ukrainian author in any list. Document metadata removed.
+
 
 ## 5. Media & Public Engagement
 
