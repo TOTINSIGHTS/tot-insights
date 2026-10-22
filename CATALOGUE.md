@@ -256,6 +256,9 @@ Orders the municipal housing utility wound up within a year and appoints a liqui
 **DOC-131 — Commission on Naming and Renaming Streets and Planning Elements (Decree No. 821)** *(Governance, Identity, Culture and Religion)*
 Amends (22 April 2026) the commission that assigns and changes Mariupol's street and planning-element names — the machinery of toponymic control.
 
+**DOC-176 — Lists of Property with "Signs of Ownerless Property", Mariupol: Annexes to Orders Nos. 243, 244 and 245 of 19 August 2026** *(Civilian Life and Resistance, Accountability and Legal, Economics)*
+345 flats in eleven blocks on two streets (60 let SSSR, bracketed as Hrushevskoho; Uritskogo, bracketed as Pylypa Orlyka), ten houses and 89 non-residential buildings listed as "ownerless", the first step to municipal seizure under DOC-160. Published in full so owners can identify their property. Document metadata removed.
+
 **DOC-132 — Russian National Guard (Rosgvardia) Security Services at a Kindergarten, Telmanovsky District (redacted)** *(Coercion, Entrapment and Slavery, Education and Militarisation)*
 Redacted contract addendum: Rosgvardia's "Okhrana" enterprise servicing the security systems of the "Katyusha" kindergarten. Personal and banking data redacted. In `primary-sources/security-services-2026/`.
 
@@ -320,6 +323,12 @@ Amendment narrowing conscription exemption grounds under Article 23 of Law No. 0
 **DOC-108 — Decree of the Head of the Donetsk People's Republic No. 29 — On the Conduct of General Mobilisation (19 February 2022)** *(Governance, Education and Militarisation, Accountability and Legal)*
 Signed by Denis Pushilin five days before Russia's full-scale invasion, declaring general mobilisation across DPR territory and ordering all conscription-age men to report to military commissariats. Issued simultaneously with a parallel LPR decree.
 
+**DOC-177 — Compensation for Homes Lost or Damaged in the War: DPR Government Resolution No. 61-1 (7 August 2023) and Amending Resolution No. 38-7 (11 April 2024)** *(Civilian Life and Resistance, Accountability and Legal, Economics)*
+Payments for destroyed and damaged homes open only to Russian citizens and refused to anyone who served the Ukrainian state after May 2014; federally financed; rates raised and replacement flats ended in 2024. Resolution 61-1 summarised from OCR of the scan. Document metadata removed.
+
+**DOC-180 — Decree of the Acting Head of the Donetsk People's Republic No. 54 on the Commissions for the Initial Military Registration of Citizens in 2023 (18 February 2023)** *(Education and Militarisation, Governance, Accountability and Legal)*
+Pushilin applies Russian military law to register boys born in 2006, with medical examinations organised at schools and 23 commissions covering every district including Mariupol, Volnovakha and Manhush. Decree translated in full from OCR of the scan. Document metadata removed.
+
 ### Citizenship
 
 **DOC-109 — Russian Federation Presidential Decree No. 304 (25 May 2022) — Extension of Simplified Citizenship to Kherson Oblast and Occupied Zaporizhzhia** *(Governance, Identity, Culture and Religion)*
@@ -348,6 +357,9 @@ Regulatory act setting out the composition of the Zaporizhzhia occupation govern
 **DOC-116 — Zaporizhzhia Oblast (Occupied): Regulations on the Organisation and Activity of the Ministry of Education** *(Governance, Education and Militarisation)*
 Regulations establishing the Ministry of Education of Zaporizhzhia Oblast under the Russian federal framework, providing the institutional and legal basis for replacing Ukrainian-language schooling with Russian federal curriculum standards.
 
+**DOC-179 — Zaporizhzhia Oblast (Occupied): Ministry of Education Order No. 23 "On the Protection of Information" (27 October 2022)** *(Information Space, Education and Militarisation, Governance)*
+Eight days after the martial-law decree, the occupation education ministry bans its staff from using Ukrainian mobile numbers, or messengers registered to them, for work. Full English translation; document metadata removed.
+
 ### LPR Legal Acts
 
 **DOC-117 — Luhansk People's Republic: Law Amending Article 53 of the Law on Military Duty and Military Service** *(Governance, Accountability and Legal)*
@@ -361,6 +373,9 @@ Kremlin instructions extending the veterans' welfare and ideological foundation 
 
 **DOC-120 — Luhansk Oblast (Occupied): Conscription Decree No. UG-341/25 — Spring 2025 Call-Up (28 March 2025)** *(Governance, Accountability and Legal)*
 Spring 2025 call-up targeting citizens born 1995 to 2007. The youngest cohort (born 2007, aged 17 to 18) are the first generation schooled entirely under the Russian occupation curriculum. Raises questions under the Optional Protocol to the CRC on children in armed conflict.
+
+**DOC-178 — Luhansk Oblast (Occupied): Ministry of Education and Science Order on All-Russian Verification Tests (VPR) in 2025, with Procedure and Municipal Coordinators** *(Education and Militarisation, Governance)*
+Every school in occupied Luhansk Oblast put through Russia's federal knowledge tests via Rosobrnadzor's FIS OKO system, with independent observers and 23 municipal coordinators. Date and number blank in the copy held. Document metadata removed.
 
 ### Mobilisation and Martial Law
 
