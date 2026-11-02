@@ -37,7 +37,7 @@ When a new briefing, paper, dashboard, or dataset is published, you need to add 
    - **Theme** — one of: `"Economics"`, `"Governance"`, `"Education and Militarisation"`, `"Identity, Culture and Religion"`, `"Accountability and Legal"`, `"Civilian Life and Resistance"`, `"Coercion, Entrapment and Slavery"`, `"Information Space"` (can be an array of two: `["Economics","Governance"]`)
    - **Format** — one of: `"Briefing"`, `"Paper"`, `"Dashboard"`, `"Visual"`, `"Data"`, `"Primary Sources"`
    - **DOI** — the Zenodo DOI in full format: `https://doi.org/10.5281/zenodo.XXXXXXXX`
-   - **desc** — one or two sentences (the card description — what is unique or headline about this output)
+   - **desc** — one or two sentences (the card description). State the finding, with the number in it where there is one ("Since the June strikes the port has published no ship calls"), not what the output is ("Briefing on the port"). A reader should know from the card alone whether it is worth clicking.
    - **descriptor** — a single punchy sentence starting with a verb or noun phrase (the pull-quote)
    - **summary** — two to four sentences (shown in the detail modal)
    - **briefingFile** — path to the HTML page, e.g. `"briefings/my_new_briefing.html"` (leave out if not yet created)
@@ -99,6 +99,8 @@ Use this when publishing a new written output (briefing, paper, or policy brief)
 4. Replace the three Key Findings placeholders (`KEY FINDING — Replace this text`) with the actual findings.
 
 5. Once the HTML file is saved, go back to `data/documents.js` and set the `briefingFile` field to the correct path (e.g. `"briefings/settler_colonialism.html"`).
+
+6. Run `node scripts/build-related.js` from the repo root. It writes the "Keep reading" links at the foot of every briefing, dashboard and theme introduction from the catalogue, so the new page gets links out and the pages closest to it get a link in. Rerun it whenever an output is added or retagged; it only rewrites the block between the `related:start` and `related:end` markers. To make a briefing point at its dataset or dashboard, cite the DOC id in either entry's summary ("Companion to DOC-A2").
 
 ### Exact Claude Code prompt
 
