@@ -13,58 +13,84 @@
 <link rel="stylesheet" href="assets/css/main.css?v=10">
 <script>var _h=location.hash;if(_h==='#primary-sources')location.replace('primary-sources.html#mariupol-admin');else if(_h==='#primary-sources-legal-acts')location.replace('primary-sources.html#legal-acts');</script>
 <style>
-
+/* Data finder: search + question tiles, a filter rail, and one row per data
+   collection carrying every way into it. Content comes from data/datasets.js. */
 .page-desc{font-size:var(--fs-body);color:#4a4a57;max-width:680px;line-height:1.75;}
+.df-search{position:relative;display:block;max-width:720px;margin:26px auto 0;text-align:left;}
+.df-search input{width:100%;font-family:var(--font-body);font-size:var(--fs-body);padding:13px 16px 13px 46px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;color:var(--navy);}
+.df-search input::placeholder{color:#6b6b78;}
+.df-search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:#4a4a57;fill:none;stroke-width:2;}
+.df-search input:focus-visible,.df-task:focus-visible,.df-btn:focus-visible,.df-chip:focus-visible,.df-more:focus-visible,.df-facet input:focus-visible,#df-sort:focus-visible{outline:2px solid var(--theme-governance);outline-offset:2px;}
 
-.section-gap{margin-bottom:52px;}
-/* Database cards */
-.db-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:52px;}
-@media(max-width:640px){.db-grid{grid-template-columns:1fr;}}
-.db-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:26px 28px;display:flex;flex-direction:column;cursor:pointer;transition:all 0.2s ease;text-decoration:none;color:inherit;}
-.db-card:hover{box-shadow:none;transform:translateY(-2px);}
-.db-tag{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.14em;text-transform:uppercase;color:#3a3a4a;margin-bottom:10px;}
-.db-title{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#1a1a2e;line-height:1.25;margin-bottom:10px;}
-.db-desc{font-size:var(--fs-body);color:#3a3a4a;line-height:1.65;flex:1;margin-bottom:18px;}
-.db-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid #e0e4ed;}
-.db-stat{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;letter-spacing:0.06em;}
-.db-arrow{font-size:var(--fs-body);color:var(--border);transition:color 0.12s,transform 0.12s;}
-.db-card:hover .db-arrow{color:var(--steel);transform:translateX(3px);}
-.db-dl-link{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);color:rgba(181,146,58,0.80);text-decoration:none;margin-top:8px;letter-spacing:0.04em;transition:opacity 0.12s;}
-.db-dl-link:hover{opacity:0.75;}
-/* Primary source cards */
-.ps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-@media(max-width:640px){.ps-grid{grid-template-columns:1fr;}}
-.ps-card{background:var(--card-bg);border:1px solid rgba(26,26,46,0.12);border-left:3px solid #c9a84c;border-radius:3px;padding:18px 20px;display:flex;flex-direction:column;cursor:pointer;transition:all 0.2s ease;text-decoration:none;color:inherit;}
-.ps-card:hover{box-shadow:none;transform:translateY(-2px);}
-.ps-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px;}
-.ps-id{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--gold);letter-spacing:0.08em;}
-.ps-tag{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;background:rgba(61,102,120,0.25);color:rgba(181,146,58,0.75);white-space:nowrap;flex-shrink:0;}
-.ps-title{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:600;color:#1a1a2e;line-height:1.35;margin-bottom:7px;}
-.ps-desc{font-size:var(--fs-label);color:#3a3a4a;line-height:1.6;flex:1;margin-bottom:10px;}
-.ps-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid rgba(26,26,46,0.10);}
-.ps-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#3a3a4a;}
-.ps-translation{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--gold);letter-spacing:0.06em;}
-.ps-arrow{font-size:var(--fs-body);color:rgba(26,26,46,0.25);transition:color 0.12s,transform 0.12s;}
-.ps-card:hover .ps-arrow{color:var(--steel);transform:translateX(3px);}
-/* Vis cards */
-.vis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:52px;}
-@media(max-width:900px){.vis-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:580px){.vis-grid{grid-template-columns:1fr;}}
-.vis-card{background:var(--card-bg);border:1px solid rgba(26,26,46,0.12);border-left:3px solid #c9a84c;border-radius:3px;padding:16px 18px 14px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:all 0.2s ease;}
-.vis-card:hover{box-shadow:none;transform:translateY(-2px);}
-.vis-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px;}
-.vis-tag{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;padding:3px 7px;border-radius:2px;background:rgba(122,92,13,0.15);color:#7a5c0d;white-space:nowrap;}
-.vis-id{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--gold);letter-spacing:0.08em;}
-.vis-title{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:600;color:#1a1a2e;line-height:1.35;margin-bottom:7px;}
-.vis-desc{font-size:var(--fs-label);color:#3a3a4a;line-height:1.6;flex:1;margin-bottom:10px;}
-.vis-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;border-top:1px solid rgba(26,26,46,0.10);}
-.vis-label{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:#3a3a4a;}
-.vis-arrow{font-size:var(--fs-body);color:rgba(26,26,46,0.25);transition:color 0.12s,transform 0.12s;}
-.vis-card:hover .vis-arrow{color:var(--steel);transform:translateX(3px);}
-/* Clear vertical space above each gold section label so each section announces itself */
-.section-label{margin-top:72px;}
-.main-content>.section-label:first-child{margin-top:0;}
-.section-desc{font-family:var(--font-body);font-size:var(--fs-body);color:#4a4a57;line-height:1.6;max-width:660px;margin:6px 0 30px;}
+/* Question tiles */
+.df-tasks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 44px;}
+@media(max-width:960px){.df-tasks{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:520px){.df-tasks{grid-template-columns:1fr;}}
+.df-task{appearance:none;font:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border:1px solid rgba(17,29,48,0.28);border-left:3px solid var(--gold);border-radius:3px;background:#f7f5f1;color:inherit;box-shadow:0 1px 2px rgba(17,29,48,0.08);transition:border-color .15s,background .15s;}
+.df-task:hover{border-color:var(--gold);}
+.df-task[aria-pressed="true"]{background:rgba(201,168,76,0.15);border-color:var(--gold);}
+.df-task-q{font-family:var(--font-serif);font-size:var(--fs-card-title);font-weight:600;color:var(--navy);line-height:1.2;}
+.df-task-d{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;}
+
+/* Two-column body */
+.df-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:40px;align-items:start;}
+@media(max-width:860px){.df-layout{grid-template-columns:minmax(0,1fr);gap:20px;}}
+@media(min-width:861px){.df-filters{position:sticky;top:16px;}}
+.df-filters>summary{display:none;}
+@media(max-width:860px){
+  .df-filters>summary{display:block;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.1em;text-transform:uppercase;color:var(--navy);padding:11px 14px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;}
+  .df-filters[open]>summary{margin-bottom:18px;}
+}
+.df-facets{display:grid;gap:24px;}
+.df-facet h2{font-family:var(--font-mono);font-size:var(--fs-label);font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 8px;}
+.df-facet ul{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
+.df-facet label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:var(--fs-table);color:var(--text);padding:3px 0;line-height:1.35;}
+.df-facet input{accent-color:var(--gold);width:16px;height:16px;margin:0;flex:none;}
+.df-facet .theme-dot{margin-right:0;}
+.df-facet .df-n{margin-left:auto;font-family:var(--font-mono);font-size:var(--fs-label);color:#6b6b78;font-variant-numeric:tabular-nums;}
+.df-facet label.df-zero{color:#9a9aa3;}
+
+/* Results */
+.df-bar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid #e0e4ed;}
+.df-count{font-family:var(--font-serif);font-size:var(--fs-subheading);color:var(--navy);}
+.df-count span{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;margin-left:8px;letter-spacing:.04em;}
+.df-sort{display:flex;gap:8px;align-items:center;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.1em;text-transform:uppercase;color:#4a4a57;}
+#df-sort{font-family:var(--font-body);font-size:var(--fs-table);padding:5px 8px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;color:var(--navy);}
+.df-chips{display:flex;flex-wrap:wrap;gap:6px;}
+.df-chips:not(:empty){margin-top:12px;}
+.df-chip{appearance:none;border:0;cursor:pointer;font-family:var(--font-mono);font-size:var(--fs-label);padding:4px 10px;border-radius:999px;background:rgba(201,168,76,0.18);color:var(--navy);}
+.df-chip.df-clear{background:none;text-decoration:underline;color:#4a4a57;}
+.df-results{list-style:none;margin:0;padding:0;}
+.df-row{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:10px 30px;padding:22px 0 22px 22px;border-bottom:1px solid #e0e4ed;border-left:3px solid var(--gold);}
+.df-row+.df-row{margin-top:-1px;}
+@media(max-width:640px){.df-row{grid-template-columns:minmax(0,1fr);padding-left:16px;}}
+.df-kind{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.12em;text-transform:uppercase;color:#4a4a57;}
+.df-live{display:inline-flex;align-items:center;gap:6px;color:var(--navy);}
+.df-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.df-row h3{font-family:var(--font-serif);font-size:var(--fs-card-title);font-weight:600;line-height:1.25;color:var(--navy);margin:6px 0 6px;text-wrap:balance;}
+.df-finding{font-size:var(--fs-card);line-height:1.6;color:#3a3a4a;margin:0 0 10px;max-width:68ch;}
+.df-meta{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:var(--fs-table);color:#4a4a57;line-height:1.5;}
+.df-meta .df-k{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.1em;text-transform:uppercase;margin-right:6px;color:#6b6b78;}
+.df-meta .df-t{display:inline-flex;align-items:center;}
+.df-more{appearance:none;background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-body);font-size:var(--fs-table);color:#4a4a57;text-decoration:underline;text-underline-offset:3px;margin-top:10px;}
+.df-detail{margin-top:10px;padding:12px 16px;background:#f7f5f1;border-radius:3px;font-size:var(--fs-card);line-height:1.6;color:#3a3a4a;max-width:72ch;}
+.df-actions{display:grid;gap:7px;align-content:start;}
+@media(max-width:640px){.df-actions{display:flex;flex-wrap:wrap;}}
+.df-btn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;color:var(--navy);transition:border-color .15s,background .15s;}
+.df-btn:hover{border-color:var(--gold);}
+.df-btn.df-primary{background:var(--gold);border-color:var(--gold);font-weight:500;}
+.df-btn.df-primary:hover{background:var(--gold-hover);border-color:var(--gold-hover);}
+.df-dl{display:flex;flex-direction:column;gap:2px;}
+.df-btn .df-f{text-transform:none;letter-spacing:.02em;color:#4a4a57;}
+.df-empty{padding:40px 0;font-size:var(--fs-body);color:#4a4a57;}
+
+/* Footer strip */
+.df-foot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:56px;padding-top:26px;border-top:1px solid #e0e4ed;}
+@media(max-width:860px){.df-foot{grid-template-columns:minmax(0,1fr);}}
+.df-foot h2{font-family:var(--font-serif);font-size:var(--fs-card-title);color:var(--navy);margin:0 0 6px;font-weight:600;}
+.df-foot p{margin:0;font-size:var(--fs-card);line-height:1.6;color:#3a3a4a;}
+.df-foot a{color:var(--navy);}
+@media (prefers-reduced-motion:reduce){.df-task,.df-btn{transition:none;}}
 </style>
 </head>
 <body>
@@ -73,331 +99,240 @@
 
 <div class="page-hero centered">
   <div class="page-hero-inner">
-    
     <h1 class="page-title">Data</h1>
-    <p class="page-desc">Structured databases and data visualisations compiled by the TOT Insights team. Primary source documents published in the original language, with machine translation.</p>
+    <p class="page-desc">Searchable databases, monitoring dashboards and charts built by the TOT Insights team. Each entry brings together every way into one dataset: search the records, see the charts, read the excerpts, download the file.</p>
+    <label class="df-search" for="df-q">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="df-q" type="search" placeholder="Search by person, place, topic or source, e.g. Mariupol, grain, Kherson" autocomplete="off" aria-label="Search the data">
+    </label>
   </div>
 </div>
 
 <div class="main-content">
 
-  <div class="section-label" id="databases">Databases</div>
-  <div class="db-grid">
+  <div class="df-tasks" id="df-tasks" role="group" aria-label="Start with a question"></div>
 
-    <div>
-      <a class="db-card" href="officials.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-OFF</div>
-        <div class="db-title">Occupation Officials Database</div>
-        <div class="db-desc">1,166 individuals serving in administrative and governmental roles across Russian-occupied Ukrainian territories, searchable by name, territory, level, status, and origin.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">1,166 entries &nbsp;·&nbsp; Accountability and Legal</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="assets/downloads/tot-officials-database-september2026.csv" download>↓ Download CSV - September 2026</a>
-    </div>
+  <div class="df-layout">
+    <details class="df-filters" id="df-filters">
+      <summary>Filter by type, theme, territory</summary>
+      <div class="df-facets" id="df-facets" aria-label="Filters"></div>
+    </details>
 
-    <div>
-      <a class="db-card" href="sanctions.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-SAN</div>
-        <div class="db-title">Sanctions Database</div>
-        <div class="db-desc">2,306 sanctioned individuals and entities across seven jurisdictions - Australia, EU, Japan, Switzerland, UK, US, and Ukraine - searchable by name, type, territory, and jurisdiction.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">2,306 entries &nbsp;·&nbsp; 7 jurisdictions</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="assets/downloads/tot-sanctions-database-may2026.csv" download>↓ Download CSV - May 2026</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="tot-media-database.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-MED</div>
-        <div class="db-title">Russian TOT Media Database</div>
-        <div class="db-desc">A catalogue of 22,208 Russian media posts about the occupied territories across four quarters (Q3 2025 to Q2 2026), one row per post: date, channel, region, hub theme and topic tags, and a short English summary of each. The original post texts are not published; the summaries attribute the Russian narrative and are not endorsed.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">22,208 posts &nbsp;·&nbsp; 16 topics &nbsp;·&nbsp; 4 quarters</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="assets/downloads/tot-media-posts-2025H2-2026H1.csv" download>↓ Download all posts (CSV)</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="tot-zaporizhzhia-press-database.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-ZAP</div>
-        <div class="db-title">Zaporizhzhia Occupation Press: Issue Index</div>
-        <div class="db-desc">Every issue collected from the ZaMedia public archive: masthead, date, issue number, page count, municipality edition and source link. Covers the regional flagship «Запорожский вестник» and the official gazette «Запорожская правда», which is issued as separate per-municipality editions across thirteen municipalities. Metadata and theme counts only; no article text is published.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">145 issues &nbsp;·&nbsp; 1,212 pages &nbsp;·&nbsp; 13 municipalities</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/zaporizhzhia-press/issues_public.csv" download>↓ Download issue index (CSV)</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="tot-luhansk-press-database.html">
-        <div class="db-tag">Database &nbsp;·&nbsp; DB-LPR</div>
-        <div class="db-title">Luhansk Occupation Press: Issue Index</div>
-        <div class="db-desc">Every issue collected from the Luganmedia archive: paper, town, date, page count and source link, across 1,102 issues of 25 town newspapers registered to the holding. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it from its own site. Metadata and theme counts only; no article text is published.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">1,102 issues &nbsp;·&nbsp; 25 town papers &nbsp;·&nbsp; 2023–2026</span>
-          <span class="db-arrow">→</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/luhansk-press/issues_public.csv" download>↓ Download issue index (CSV)</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="idp-survey-2026.html">
-        <div class="db-tag">Database &nbsp;&middot;&nbsp; DB-IDP</div>
-        <div class="db-title">IDP Attitudes Survey 2026</div>
-        <div class="db-desc">Second wave of the survey of internally displaced persons, fielded by OPERSO - Operatyvna Sotsiolohiia: 31 questions on occupation and resistance, contact with the occupied territories, property, shortages, strikes, return and prejudice, every one published as a table with 2025 comparison where asked.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">1,007 respondents &nbsp;&middot;&nbsp; aggregated results &nbsp;&middot;&nbsp; Sept 2026</span>
-          <span class="db-arrow">&#8594;</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/idp-survey/idp_survey_2026.xlsx" download>&#8595; Download results (XLSX)</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="idp-survey.html">
-        <div class="db-tag">Database &nbsp;&middot;&nbsp; DB-IDP</div>
-        <div class="db-title">IDP Attitudes Survey 2025</div>
-        <div class="db-desc">A cleaned survey of 1,001 internally displaced persons from Russian-occupied Ukraine, recording displacement status, attitudes to occupation and Russian rule, trust in institutions, and assessments of non-violent resistance. Responses in Ukrainian. Corrected October 2026.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">1,001 respondents &nbsp;&middot;&nbsp; aggregated results &nbsp;&middot;&nbsp; Sept 2025</span>
-          <span class="db-arrow">&#8594;</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/tot_idp_polling.xlsx" download>&#8595; Download full database (XLSX)</a>
-    </div>
-
-    <div>
-      <a class="db-card" href="youth-militarisation.html">
-        <div class="db-tag">Database &nbsp;&middot;&nbsp; DB-YOU</div>
-        <div class="db-title">Youth Militarisation and Patriotic Education Dataset</div>
-        <div class="db-desc">66 organisations, curriculum programmes, camps and structures through which Russia militarises children in the occupied territories, 2014 to 2026: affiliation, locality, founding date, legal status, funding, activity, participant numbers, sources and a confidence rating for each. Searchable by territory, object type and confidence.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">66 entries &nbsp;&middot;&nbsp; 6 territories &nbsp;&middot;&nbsp; Education and Militarisation</span>
-          <span class="db-arrow">&#8594;</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/youth-militarisation/tot_youth_militarisation_dataset_en.xlsx" download>&#8595; Download dataset (XLSX)</a>
-    </div>
-    <div>
-      <a class="db-card" href="civilian-detainees.html">
-        <div class="db-tag">Database &nbsp;&middot;&nbsp; DB-DET</div>
-        <div class="db-title">Civilian Detainees Database</div>
-        <div class="db-desc">Ukrainian civilians detained, charged and sentenced by Russian and Russian-installed courts, person by person: home town and oblast, court, charge and articles, alleged act, sentence, and every source that reported them, with each version where sources disagree. Searchable by oblast, crime type, stage and month. Updated monthly.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">101 people &nbsp;&middot;&nbsp; from October 2026 &nbsp;&middot;&nbsp; Accountability and Legal</span>
-          <span class="db-arrow">&#8594;</span>
-        </div>
-      </a>
-      <a class="db-dl-link" href="data/civilian-detainees/detainees.xlsx" download>&#8595; Download database (XLSX)</a>
-    </div>
-    <div>
-      <a class="db-card" href="wage-arrears.html">
-        <div class="db-tag">Database &nbsp;&middot;&nbsp; DB-WAG</div>
-        <div class="db-title">Wage Arrears Register</div>
-        <div class="db-desc">Every wage-arrears case announced by the occupation prosecutors of Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts since April 2024: employer, sector, workers owed, sum, pay period, enforcement measure and reported outcome, with the source sentence and link.</div>
-        <div class="db-card-footer">
-          <span class="db-stat">213 cases &nbsp;&middot;&nbsp; 4 oblasts &nbsp;&middot;&nbsp; Coercion, Entrapment and Slavery</span>
-          <span class="db-arrow">&#8594;</span>
-        </div>
-      </a>
-    </div>
-
+    <section aria-live="polite" aria-label="Data collections">
+      <div class="df-bar">
+        <div class="df-count" id="df-count"></div>
+        <label class="df-sort" for="df-sort">Sort
+          <select id="df-sort">
+            <option value="suggested">Suggested</option>
+            <option value="size">Most records</option>
+            <option value="az">A to Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="df-chips" id="df-chips"></div>
+      <ol class="df-results" id="df-results"></ol>
+      <noscript><p class="df-empty">This list needs JavaScript. Every dataset is also listed in the <a href="research.html">research catalogue</a>.</p></noscript>
+    </section>
   </div>
 
-
-  <div class="section-label" id="dashboards">Interactive dashboards</div>
-  <div class="vis-grid">
-
-    <a class="vis-card" href="tot-media-visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DB-MED</span></div>
-      <div class="vis-title">Russian TOT Media: Visualisations</div>
-      <p class="vis-desc">Seven views of how Russian media framed the occupied territories across four quarters: theme share by quarter, theme by region, regions over time, the loudest channels, coverage over time, most-featured figures, and rising vs falling themes. Companion to the media database.</p>
-      <div class="vis-card-footer"><span class="vis-label">Media</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="tot-luhansk-press-visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DB-LPR</span></div>
-      <div class="vis-title">Luhansk Occupation Press: Theme Visualisations</div>
-      <p class="vis-desc">How occupation themes (loyalty to Moscow, passportisation, children's militarisation, recruitment) rise and fall across 1,102 issues of 25 Luhansk occupation papers, 2023–2026. Theme intensity by month, filterable by town. Derived counts only; no article text.</p>
-      <div class="vis-card-footer"><span class="vis-label">Information Space</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="tot-luhansk-press-excerpts.html">
-      <div class="vis-card-top"><span class="vis-tag">Reading &nbsp;·&nbsp; Excerpts</span><span class="vis-id">DB-LPR</span></div>
-      <div class="vis-title">Luhansk Occupation Press: Curated Excerpts</div>
-      <p class="vis-desc">Short attributed excerpts (each under fifteen words, with English glosses) showing what the propaganda says and how uniformly, led by one war report printed verbatim in sixteen town papers in a single week. Companion to the theme visualisations.</p>
-      <div class="vis-card-footer"><span class="vis-label">Information Space</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="tot-zaporizhzhia-press-visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DB-ZAP</span></div>
-      <div class="vis-title">Zaporizhzhia Occupation Press: Two Registers</div>
-      <p class="vis-desc">How the ZaMedia holding splits its work between an official gazette and a flagship paper: the gazette carries the legal-administrative load (60 legal-register hits per page), the flagship carries the persuasion. Theme intensity over time, by masthead and by municipality, across 145 issues.</p>
-      <div class="vis-card-footer"><span class="vis-label">Information Space</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="tot-zaporizhzhia-press-excerpts.html">
-      <div class="vis-card-top"><span class="vis-tag">Reading &nbsp;·&nbsp; Excerpts</span><span class="vis-id">DB-ZAP</span></div>
-      <div class="vis-title">Zaporizhzhia Occupation Press: One Holding, Two Registers</div>
-      <p class="vis-desc">Verbatim excerpts from the two ZaMedia mastheads set side by side, each under fifteen words with English glosses. One phrase appears on 73 gazette pages and never once in the flagship; another on 27 flagship pages and never in the gazette.</p>
-      <div class="vis-card-footer"><span class="vis-label">Information Space</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/dzo.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A5</span></div>
-      <div class="vis-title">State Grain Operator (DZO): Interactive Research Dashboard</div>
-      <p class="vis-desc">DZO structure, finances, export flows, personnel network, and accountability indicators in a tabbed dashboard. Companion to the grain expropriation briefing.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/shadow_fleet_v2.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A7</span></div>
-      <div class="vis-title">Shadow Fleet at Mariupol Port: Interactive Visual</div>
-      <p class="vis-desc">Operational timeline with vessel counts and tonnage, Autumn 2024 to Spring 2026. Preferred version for platform display. Companion to the shadow fleet briefing.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-
-    <a class="vis-card" href="dashboards/znpp.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-A8</span></div>
-      <div class="vis-title">ZNPP Under Occupation: Interactive Safety and Licensing Visual</div>
-      <p class="vis-desc">Rostekhnadzor licensing trajectory and safety incident log, including the two critical Dniprovska line disconnections, with severity indicators and expandable details.</p>
-      <div class="vis-card-footer"><span class="vis-label">Governance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/religious_persecution.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-B4</span></div>
-      <div class="vis-title">Religious Persecution in Russian-occupied Ukraine: Interactive Data Visualisation</div>
-      <p class="vis-desc">Denomination-level suppression rates, structural destruction, displacement figures, and ROC expansion data. Companion to the religious persecution briefing.</p>
-      <div class="vis-card-footer"><span class="vis-label">Identity, Culture and Religion</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/mariupol_property.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-B5</span></div>
-      <div class="vis-title">Mariupol Property Seizure Programme: Interactive Dashboard</div>
-      <p class="vis-desc">8,526 residential and ~460 commercial properties drawn from occupation administrative records. 20 monthly snapshots. Companion to the property seizure briefing.</p>
-      <div class="vis-card-footer"><span class="vis-label">Civilian Life and Resistance &nbsp;·&nbsp; Coercion, Entrapment and Slavery</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/guardianship.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C2</span></div>
-      <div class="vis-title">Russia's Guardianship Programme: Interactive Research Dashboard</div>
-      <p class="vis-desc">City-twinning pairings, promised versus delivered commitments, corruption cases, and analytical patterns. Key finding: corruption is the operating mode, not an exception.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/mariupol_economy.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C6</span></div>
-      <div class="vis-title">Mariupol Occupation Economy: Interactive Dashboard</div>
-      <p class="vis-desc">Five charts on the structure of Mariupol's registered economy - 73% ООО entities, zero state/municipal entities filed financial data.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/idp_polling.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-C7</span></div>
-      <div class="vis-title">IDP Attitudes Survey: Interactive Dashboard</div>
-      <p class="vis-desc">Findings from 1,001 IDPs: 76.4% rate Ukrainian government ineffective; 61.6% believe hidden resistance exists. Top resistance actions: evacuation, medicine, essential goods.</p>
-      <div class="vis-card-footer"><span class="vis-label">Civilian Life and Resistance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/kiriyenko.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-F2</span></div>
-      <div class="vis-title">Kiriyenko and Russia's Occupation: Interactive Data Visualisation</div>
-      <p class="vis-desc">Five tabs: career and TOT timeline, federal transfers by region (RUB 223 billion by Sep 2024), domains of control, reconstruction projects, youth and russification budget.</p>
-      <div class="vis-card-footer"><span class="vis-label">Governance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/resistance_analytics.html">
-      <div class="vis-card-top"><span class="vis-tag">Dashboard &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-F3</span></div>
-      <div class="vis-title">Violent Resistance Activity: Monitoring Dashboard (Dec 2024 – Oct 2026)</div>
-      <p class="vis-desc">555 violent incidents across 46 fortnights, occupied Ukraine and Russia. Three tabs: the shift from the occupied territories into Russia, incident type, and region.</p>
-      <div class="vis-card-footer"><span class="vis-label">Civilian Life and Resistance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/zaporizhzhia_movement_trends.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-089</span></div>
-      <div class="vis-title">Departure and Return Trends, Occupied Zaporizhzhia Oblast, 2022–Spring 2025</div>
-      <p class="vis-desc">Population displacement flows: 40% evacuation to Ukrainian-controlled territory, 30% EU migration, 25% departure to Russia, 5% return in spring 2025.</p>
-      <div class="vis-card-footer"><span class="vis-label">Civilian Life and Resistance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/mariupol_utility_tariffs.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-090</span></div>
-      <div class="vis-title">Utility Tariff Increases in Occupied Mariupol, 2023–2025</div>
-      <p class="vis-desc">Cumulative percentage increases across 13 utility services from 2023 baseline to July 2025. Sewerage up 71.4%; waste collection 65–68%; cold water 52.7%.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/mariupol_budget_dynamics.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-091</span></div>
-      <div class="vis-title">Budget Dynamics of Occupied Mariupol, 2024–Q1 2025</div>
-      <p class="vis-desc">Multi-series line chart of total income, own-source income, expenditure, and federal transfers. Own-source income covers ~29%; 71% derives from Russian federal transfers.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/mariupol_port_network.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-092</span></div>
-      <div class="vis-title">Corporate and Personal Connections Around Mariupol Port, 2023–2025</div>
-      <p class="vis-desc">D3 force-directed network map of 26 entities and 24 links. ZAT PETROTRANS and Yulia Maksimova (Pakreeva) identified in the network analysis as primary hubs. Filterable by category.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/prices_april_2026.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-094</span></div>
-      <div class="vis-title">Market Prices, Occupied DPR Territory - April 2026, First Decade</div>
-      <p class="vis-desc">Fieldwork-collected supermarket price survey from occupied DPR territory, 6 April 2026: 150+ items across six categories, denominated in Russian roubles.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/china_road_visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-K1</span></div>
-      <div class="vis-title">Sanctions in Plain Sight: Western Road Machinery in Occupied Zaporizhzhia</div>
-      <p class="vis-desc">Three sanctioned EU/NATO machines identified on site, and the spare parts evasion network - China, Turkey, Kazakhstan - keeping them operational on the Azov military corridor.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Accountability</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <!-- HIDDEN PENDING REVIEW: george_oil_visualisations taken down pre-launch
-         (unsourced sanctions-circumvention framing). To un-hide, remove this
-         opening comment marker line and the closing comment marker line below.
-    <a class="vis-card" href="dashboards/george_oil_visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-J1</span></div>
-      <div class="vis-title">Resource Extraction from Occupied Donbas: The Mariupol Coal Export Scheme - George Oil Visualisations</div>
-      <p class="vis-desc">The George Oil deal sequence, Mariupol port transformation into a bulk export terminal, and the scheme routing extracted coal from occupied territory through a Georgian intermediary.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Accountability</span><span class="vis-arrow">→</span></div>
-    </a>
-    -->
-
-    <a class="vis-card" href="dashboards/bri_visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-I1</span></div>
-      <div class="vis-title">Chinese Belt and Road Expansion into Occupied Ukraine: Network Analysis Visualisations</div>
-      <p class="vis-desc">BRI paradiplomacy architecture reaching Mariupol State University (March 2026), engagement timeline 2018–2026, and the Karansky quarry supply chain to Russian military logistics.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Governance</span><span class="vis-arrow">→</span></div>
-    </a>
-
-    <a class="vis-card" href="dashboards/developer_network_visualisations.html">
-      <div class="vis-card-top"><span class="vis-tag">Visual &nbsp;·&nbsp; Interactive</span><span class="vis-id">DOC-L1</span></div>
-      <div class="vis-title">Russian Developer Networks in Occupied Ukraine: Corporate Ownership Map</div>
-      <p class="vis-desc">Four ownership clusters linking construction companies in occupied Donetsk and Zaporizhzhia to their beneficial owners. Etalon Group's layered subsidiary structure, assessed from open-source corporate records, is the analytical centrepiece.</p>
-      <div class="vis-card-footer"><span class="vis-label">Economics &nbsp;·&nbsp; Governance</span><span class="vis-arrow">→</span></div>
-    </a>
-
+  <div class="df-foot">
+    <div>
+      <h2>Using this data</h2>
+      <p>Our research data is published under CC BY 4.0. Credit “TOT Insights, CSNS” and link to the page. Each database page carries its own method note. <a href="about.html#using-our-research">How to reuse our research</a>.</p>
+    </div>
+    <div>
+      <h2>Primary sources</h2>
+      <p>Occupation documents in the original language, with translation, are in <a href="primary-sources.html">Primary sources</a>.</p>
+    </div>
+    <div>
+      <h2>Written analysis</h2>
+      <p>The briefings and papers built on these data are in the <a href="research.html">research catalogue</a>.</p>
+    </div>
   </div>
-
-
 
 </div>
 
 <div id="site-footer"></div>
 
 <script src="navigation.js?v=16"></script>
+<script src="data/datasets.js?v=1"></script>
+<script>
+(function () {
+  var D = window.TOT_DATASETS || [];
+  var THEMES = {
+    'Governance': 'var(--theme-governance)',
+    'Economics': 'var(--theme-economics)',
+    'Civilian Life and Resistance': 'var(--theme-civilian-life)',
+    'Identity, Culture and Religion': 'var(--theme-identity)',
+    'Education and Militarisation': 'var(--theme-education)',
+    'Coercion, Entrapment and Slavery': 'var(--theme-slavery)',
+    'Information Space': 'var(--theme-information)',
+    'Accountability and Legal': 'var(--theme-accountability)'
+  };
+  var KINDS = { database: 'Searchable database', dashboard: 'Dashboard', chart: 'Chart or map' };
+  var TERR = ['Donetsk', 'Luhansk', 'Zaporizhzhia', 'Kherson', 'Crimea'];
+  var TASKS = [
+    { k: 'who', q: 'Look up a person or company', d: 'Officials, sanctions, detainees, ownership networks' },
+    { k: 'trend', q: 'Follow a trend over time', d: 'Monthly, quarterly and yearly series' },
+    { k: 'words', q: 'Read what the occupation says', d: 'Russian media and the occupation press' },
+    { k: 'voices', q: 'Hear from displaced Ukrainians', d: 'IDP surveys, 2025 and 2026' }
+  ];
+
+  D.forEach(function (d, i) {
+    d._i = i;
+    d._hay = [d.title, d.finding, d.details || '', d.territories.join(' '), d.place || '', d.themes.join(' '), d.covers || '']
+      .join(' ').toLowerCase();
+  });
+
+  var st = { q: '', task: null, kind: [], theme: [], ter: [], sort: 'suggested', open: {} };
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var fmt = function (n) { return n.toLocaleString('en-GB'); };
+  var has = function (arr, v) { return arr.indexOf(v) !== -1; };
+  var any = function (a, b) { return a.some(function (x) { return has(b, x); }); };
+
+  // ── State <-> URL (so a filtered view can be linked) ─────────────────────
+  function readUrl() {
+    var p = new URLSearchParams(location.search);
+    st.q = (p.get('q') || '').toLowerCase();
+    st.task = p.get('ask') || null;
+    st.kind = p.getAll('type');
+    st.theme = p.getAll('theme');
+    st.ter = p.getAll('territory');
+    st.sort = p.get('sort') || 'suggested';
+    // Old section anchors
+    if (location.hash === '#databases' && !st.kind.length) st.kind = ['database'];
+    if (location.hash === '#dashboards' && !st.kind.length) st.kind = ['dashboard', 'chart'];
+  }
+  function writeUrl() {
+    var p = new URLSearchParams();
+    if (st.q) p.set('q', st.q);
+    if (st.task) p.set('ask', st.task);
+    st.kind.forEach(function (v) { p.append('type', v); });
+    st.theme.forEach(function (v) { p.append('theme', v); });
+    st.ter.forEach(function (v) { p.append('territory', v); });
+    if (st.sort !== 'suggested') p.set('sort', st.sort);
+    var s = p.toString();
+    try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '')); } catch (e) {}
+  }
+
+  function match(d, skip) {
+    if (st.q && !st.q.split(/\s+/).every(function (w) { return d._hay.indexOf(w) !== -1; })) return false;
+    if (skip !== 'task' && st.task && !has(d.tasks, st.task)) return false;
+    if (skip !== 'kind' && st.kind.length && !has(st.kind, d.kind)) return false;
+    if (skip !== 'theme' && st.theme.length && !any(d.themes, st.theme)) return false;
+    if (skip !== 'ter' && st.ter.length && !any(d.territories, st.ter)) return false;
+    return true;
+  }
+
+  function renderTasks() {
+    $('df-tasks').innerHTML = TASKS.map(function (t) {
+      var n = D.filter(function (d) { return has(d.tasks, t.k); }).length;
+      return '<button type="button" class="df-task" data-task="' + t.k + '" aria-pressed="' + (st.task === t.k) + '">' +
+        '<span class="df-task-q">' + t.q + '</span><span class="df-task-d">' + t.d + ' &middot; ' + n + '</span></button>';
+    }).join('');
+  }
+
+  function facet(title, key, items) {
+    return '<div class="df-facet"><h2>' + title + '</h2><ul>' + items.map(function (it) {
+      var v = it[0], label = it[1], dot = it[2];
+      var n = D.filter(function (d) {
+        if (!match(d, key)) return false;
+        return key === 'kind' ? d.kind === v : key === 'theme' ? has(d.themes, v) : has(d.territories, v);
+      }).length;
+      var id = 'df-f-' + key + '-' + v.replace(/[^a-z0-9]+/gi, '-').toLowerCase();
+      var on = has(st[key], v);
+      return '<li><label for="' + id + '"' + (n || on ? '' : ' class="df-zero"') + '>' +
+        '<input type="checkbox" id="' + id + '" data-facet="' + key + '" value="' + esc(v) + '"' + (on ? ' checked' : '') + '>' +
+        (dot ? '<span class="theme-dot" style="background:' + dot + '"></span>' : '') +
+        esc(label) + '<span class="df-n">' + n + '</span></label></li>';
+    }).join('') + '</ul></div>';
+  }
+
+  function renderFacets() {
+    $('df-facets').innerHTML =
+      facet('Type', 'kind', Object.keys(KINDS).map(function (k) { return [k, KINDS[k]]; })) +
+      facet('Theme', 'theme', Object.keys(THEMES).map(function (k) { return [k, k, THEMES[k]]; })) +
+      facet('Territory', 'ter', TERR.map(function (t) { return [t, t]; }));
+  }
+
+  function renderChips() {
+    var c = [];
+    if (st.task) c.push(['task', st.task, TASKS.filter(function (t) { return t.k === st.task; })[0].q]);
+    st.kind.forEach(function (v) { c.push(['kind', v, KINDS[v] || v]); });
+    st.theme.forEach(function (v) { c.push(['theme', v, v]); });
+    st.ter.forEach(function (v) { c.push(['ter', v, v]); });
+    $('df-chips').innerHTML = c.map(function (x) {
+      return '<button type="button" class="df-chip" data-k="' + x[0] + '" data-v="' + esc(x[1]) + '" aria-label="Remove filter: ' + esc(x[2]) + '">' + esc(x[2]) + ' &times;</button>';
+    }).join('') + (c.length || st.q ? '<button type="button" class="df-chip df-clear" id="df-clear">Clear all</button>' : '');
+  }
+
+  function row(d) {
+    var where = d.territories.length === 5 ? 'All occupied territories' : (d.place ? d.place + ', ' : '') + d.territories.join(', ');
+    var themes = d.themes.map(function (t) {
+      return '<span class="df-t"><span class="theme-dot" style="background:' + (THEMES[t] || 'var(--gold)') + '"></span>' + esc(t) + '</span>';
+    }).join('');
+    var meta = (d.size ? '<span><span class="df-k">Size</span>' + fmt(d.size.n) + ' ' + esc(d.size.unit) + '</span>' : '') +
+      (d.covers ? '<span><span class="df-k">Covers</span>' + esc(d.covers) + '</span>' : '') +
+      '<span><span class="df-k">Where</span>' + esc(where) + '</span>' + themes;
+    var views = d.views.map(function (v, i) {
+      return '<a class="df-btn' + (i === 0 ? ' df-primary' : '') + '" href="' + esc(v[1]) + '">' + esc(v[0]) + '<span aria-hidden="true">&rarr;</span></a>';
+    }).join('');
+    var dl = d.download ? '<a class="df-btn" href="' + esc(d.download[1]) + '" download><span class="df-dl">Download ' +
+      esc(d.download[0]) + (d.download[2] ? '<span class="df-f">' + esc(d.download[2]) + '</span>' : '') + '</span><span aria-hidden="true">&darr;</span></a>' : '';
+    var open = !!st.open[d._i];
+    var more = d.details ? '<button type="button" class="df-more" data-open="' + d._i + '" aria-expanded="' + open + '">' +
+      (open ? 'Less' : 'What&rsquo;s in it') + '</button>' + (open ? '<div class="df-detail">' + esc(d.details) + '</div>' : '') : '';
+    return '<li class="df-row"><div style="min-width:0">' +
+      '<div class="df-kind">' + KINDS[d.kind] + (d.views.length > 1 ? ' &middot; ' + d.views.length + ' views' : '') +
+      (d.updated ? '<span class="df-live">' + esc(d.updated) + '</span>' : '') + '</div>' +
+      '<h3>' + esc(d.title) + '</h3><p class="df-finding">' + esc(d.finding) + '</p>' +
+      '<div class="df-meta">' + meta + '</div>' + more +
+      '</div><div class="df-actions">' + views + dl + '</div></li>';
+  }
+
+  function render() {
+    var r = D.filter(function (d) { return match(d); });
+    if (st.sort === 'size') r = r.slice().sort(function (a, b) { return (b.size ? b.size.n : 0) - (a.size ? a.size.n : 0); });
+    if (st.sort === 'az') r = r.slice().sort(function (a, b) { return a.title.localeCompare(b.title); });
+    var pages = r.reduce(function (s, d) { return s + d.views.length; }, 0);
+    $('df-count').innerHTML = r.length + (r.length === 1 ? ' collection' : ' collections') + '<span>' + pages + ' pages to explore</span>';
+    $('df-results').innerHTML = r.length ? r.map(row).join('') :
+      '<li class="df-empty">Nothing matches those filters. Remove one, or try the <a href="research.html">research catalogue</a>.</li>';
+    renderTasks(); renderFacets(); renderChips(); writeUrl();
+  }
+
+  readUrl();
+  $('df-q').value = st.q;
+  $('df-sort').value = st.sort;
+  if (window.matchMedia('(min-width: 861px)').matches || st.kind.length || st.theme.length || st.ter.length) $('df-filters').open = true;
+
+  $('df-q').addEventListener('input', function (e) { st.q = e.target.value.trim().toLowerCase(); render(); });
+  $('df-sort').addEventListener('change', function (e) { st.sort = e.target.value; render(); });
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('.df-task');
+    if (t) { st.task = st.task === t.dataset.task ? null : t.dataset.task; render(); return; }
+    var m = e.target.closest('.df-more');
+    if (m) { var i = m.dataset.open; st.open[i] = !st.open[i]; render(); var b = document.querySelector('[data-open="' + i + '"]'); if (b) b.focus(); return; }
+    var c = e.target.closest('.df-chip');
+    if (c) {
+      if (c.id === 'df-clear') { st.q = ''; $('df-q').value = ''; st.task = null; st.kind = []; st.theme = []; st.ter = []; }
+      else if (c.dataset.k === 'task') st.task = null;
+      else st[c.dataset.k] = st[c.dataset.k].filter(function (v) { return v !== c.dataset.v; });
+      render();
+    }
+  });
+  document.addEventListener('change', function (e) {
+    var f = e.target.dataset && e.target.dataset.facet;
+    if (!f) return;
+    var v = e.target.value, id = e.target.id;
+    st[f] = e.target.checked ? st[f].concat([v]) : st[f].filter(function (x) { return x !== v; });
+    render();
+    var el = document.getElementById(id); if (el) el.focus();
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
