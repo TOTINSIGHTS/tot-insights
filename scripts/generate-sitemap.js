@@ -35,6 +35,7 @@ const standalone = [
   'sanctions.html',
   'officials.html',
   'youth-militarisation.html',
+  'civilian-detainees.html',
   'idp-survey.html',
   'idp-survey-2026.html',
   'wage-arrears.html',

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civilian Detainees Database - TOT Insights</title>
+<meta name="description" content="Searchable database of Ukrainian civilians detained, charged and sentenced by Russian and Russian-installed courts, with every source for every person. Filter by oblast, crime type, stage and month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="navigation.css?v=8">
+<link rel="stylesheet" href="assets/css/main.css?v=10">
+<style>
+.page-desc{font-size:var(--fs-body);color:#3a3a4a;max-width:720px;line-height:1.6;border-left:3px solid #e3e0d9;padding-left:14px;}
+.stats-strip{background:transparent;border-bottom:1px solid #e3e0d9;padding:20px 40px;}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.stat-card{background:var(--card-bg);border:1px solid #e0e4ed;border-left:3px solid #c9a84c;border-radius:3px;padding:16px 22px;flex:1;min-width:150px;}
+.stat-val{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#1a1a2e;line-height:1;margin-bottom:4px;}
+.stat-lbl{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#3a3a4a;}
+.main-content{max-width:1200px;margin:0 auto;padding:28px 40px 80px;}
+.db-download-wrap{margin-bottom:24px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;}
+.db-download-btn{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);border:1px solid var(--gold);background:transparent;padding:0.7rem 1.4rem;text-decoration:none;}
+.db-download-btn:hover{background:rgba(232,184,75,0.1);}
+.db-download-sub{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.04em;flex-basis:100%;}
+.db-panel{background:#f2f0ec;border-radius:3px;padding:26px 28px;margin-bottom:20px;}
+.db-h2{font-family:var(--font-serif);font-size:var(--fs-subheading);font-weight:700;color:#111d30;margin:0 0 10px;}
+.db-h3{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#111d30;margin:20px 0 8px;}
+.db-p{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;}
+.db-ul{font-family:var(--font-body);font-size:var(--fs-body);color:#3a3a4a;line-height:1.7;max-width:820px;margin:0 0 8px;padding-left:20px;}
+.db-ul li{margin-bottom:4px;}
+.db-panel a{color:var(--gold);text-decoration:none;}
+.db-panel a:hover{text-decoration:underline;}
+.db-note{font-family:var(--font-mono);font-size:var(--fs-label);color:var(--text-muted);letter-spacing:0.03em;line-height:1.6;margin-top:16px;}
+.db-panel details summary{cursor:pointer;font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#111d30;margin:14px 0 6px;}
+/* filters + table (cd- prefix) */
+.cd-controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end;margin:0 0 10px;}
+.cd-controls label{display:block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.12em;text-transform:uppercase;color:#4a4a57;margin-bottom:4px;}
+.cd-controls select,.cd-controls input[type=search]{font-family:var(--font-sans);font-size:var(--fs-table);color:#1a1a2e;background:#fff;border:1px solid rgba(17,29,48,0.22);border-radius:2px;padding:7px 10px;min-width:170px;}
+.cd-controls input[type=search]{min-width:240px;}
+.cd-reset{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;background:transparent;border:1px solid rgba(17,29,48,0.22);border-radius:2px;padding:8px 12px;cursor:pointer;}
+.cd-showing{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;margin:6px 0 10px;line-height:1.6;}
+.cd-showing b{color:#1a1a2e;}
+.cd-tblwrap{overflow:auto;max-height:760px;border:1px solid #e0e4ed;background:#fff;border-radius:3px;}
+.cd-tbl{width:100%;border-collapse:collapse;}
+.cd-tbl thead th{position:sticky;top:0;z-index:1;background:#f7f5f0;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;text-align:left;padding:9px 10px;border-bottom:1px solid #d7d2c7;cursor:pointer;white-space:nowrap;}
+.cd-tbl td{font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.4;color:#1a1a2e;padding:8px 10px;border-bottom:1px solid #ece9e2;vertical-align:top;}
+.cd-tbl tr.cd-row{cursor:pointer;}
+.cd-tbl tr.cd-row:hover{background:#faf8f3;}
+.cd-tbl tr.cd-row.open{background:#f4f1ea;}
+.cd-tbl td.cd-id{font-family:var(--font-mono);color:#4a4a57;white-space:nowrap;}
+.cd-tbl td.cd-name{font-weight:500;min-width:180px;}
+.cd-tbl td.cd-name .cd-flag{color:var(--gold);font-weight:700;margin-left:4px;}
+.cd-badge{display:inline-block;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;border:1px solid rgba(17,29,48,0.18);color:#1a1a2e;white-space:nowrap;}
+.cd-badge.s-sentenced{border-color:#8a2a2a;color:#8a2a2a;}
+.cd-badge.s-charged{border-color:#8a6f35;color:#8a6f35;}
+.cd-badge.s-detained{border-color:#4a4a57;color:#4a4a57;}
+.cd-chip{display:inline-block;font-family:var(--font-sans);font-size:var(--fs-label);color:#3a3a4a;background:#f2f0ec;border-radius:2px;padding:1px 6px;margin:0 4px 3px 0;white-space:nowrap;}
+.cd-detail td{background:#fbfaf7;padding:12px 16px 16px 40px;}
+.cd-dl{display:grid;grid-template-columns:190px 1fr;gap:6px 14px;margin:0;font-family:var(--font-serif);font-size:var(--fs-table);line-height:1.45;}
+.cd-dl dt{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;padding-top:2px;}
+.cd-dl dd{margin:0;color:#1a1a2e;overflow-wrap:anywhere;}
+.cd-dl dd a{color:var(--navy);}
+.cd-dl dd.cd-caution{border-left:3px solid var(--gold);padding-left:8px;}
+.cd-dl ul{margin:0;padding-left:18px;}
+.cd-toggle{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;white-space:nowrap;}
+.cd-guard{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:0 0 18px;font-family:var(--font-serif);font-size:var(--fs-table);color:#3a3a44;line-height:1.5;max-width:100ch;}
+@media(max-width:700px){.main-content{padding:20px 16px 60px;}.stats-strip{padding:16px;}.cd-dl{grid-template-columns:1fr;}.cd-detail td{padding-left:16px;}.cd-controls>div{flex:1 1 100%;}.cd-controls select,.cd-controls input[type=search]{min-width:0;width:100%;}.cd-tbl .cd-hide-m{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">TOT Insights &nbsp;·&nbsp; Accountability and Legal</div>
+    <h1 class="page-title">Civilian Detainees Database</h1>
+    <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.1em;color:#4a4a57;border-top:1px solid rgba(17,29,48,0.08);padding-top:0.5rem;margin-bottom:1.5rem;">Ukrainian civilians prosecuted by Russian and Russian-installed courts &nbsp;·&nbsp; first release November 2026 &nbsp;·&nbsp; updated <span id="st-updated">monthly</span></div>
+    <div style="background:rgba(255,255,255,0.02);border-left:2px solid rgba(232,184,75,0.3);padding:0.75rem 1rem;margin-bottom:1.5rem;">
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.15em;color:#4a4a57;margin-bottom:0.35rem;">Cite this output</div>
+      <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">TOT Insights (2026). Civilian Detainees Database: Ukrainian civilians prosecuted by Russian and Russian-installed courts. TOT Insights, CSNS. https://totinsights.org/civilian-detainees.html</div>
+      <button onclick="(function(b){navigator.clipboard.writeText('TOT Insights (2026). Civilian Detainees Database: Ukrainian civilians prosecuted by Russian and Russian-installed courts. TOT Insights, CSNS. https://totinsights.org/civilian-detainees.html');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
+    </div>
+    <p class="page-desc">Every Ukrainian civilian we can document being detained, charged or sentenced by Russian or Russian-installed courts: who they are, where they are from, what they are accused of, what sentence they received, and every source that reported them. Where sources disagree, each version is recorded. The database grows each month and is being extended back in time.</p>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-card"><div class="stat-val" id="st-total">&nbsp;</div><div class="stat-lbl">People</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-sent">&nbsp;</div><div class="stat-lbl">Sentenced</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-years">&nbsp;</div><div class="stat-lbl">Years in prison</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-life">&nbsp;</div><div class="stat-lbl">Life sentences</div></div>
+    <div class="stat-card"><div class="stat-val" id="st-women">&nbsp;</div><div class="stat-lbl">Women</div></div>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="db-download-wrap">
+    <a class="db-download-btn" href="data/civilian-detainees/detainees.xlsx" download>Download database (XLSX)</a>
+    <a class="db-download-btn" href="data/civilian-detainees/detainees.csv" download>Download database (CSV)</a>
+    <div class="db-download-sub" id="dl-sub">One row per person, with a separate sheet of every court event, field definitions and coverage notes &middot; UTF-8</div>
+  </div>
+
+  <div class="db-panel">
+    <h2 class="db-h2">About this database</h2>
+    <p class="db-p">The database records Ukrainian civilians prosecuted by Russia's courts and by the courts Russia has installed in the occupied territories. Each person has a stable ID and a record of every known court event: detention, charge or trial, and sentence. When a person appears in later months, for an appeal or a verdict, the new event is added to the same record.</p>
+
+    <h3 class="db-h3">Coverage</h3>
+    <p class="db-p" id="coverage-text">October 2026 is covered systematically. Cases from other months are those reported between 1 October and 12 November 2026, and are incomplete for those months. New months are added as they are compiled, and earlier cases are being added from the archives of the sources below. Totals for any month are minimum figures: they count only cases that became public.</p>
+
+    <h3 class="db-h3">Who is included</h3>
+    <ul class="db-ul">
+      <li>Civilians from occupied Crimea, Sevastopol, and the occupied parts of Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts, wherever they were tried, including courts inside Russia such as the Southern District Military Court in Rostov-on-Don.</li>
+      <li>Ukrainian citizens tried in Russia on politically motivated charges.</li>
+      <li>Excluded: prisoners of war and serving soldiers, verdicts by Ukrainian courts, and in-absentia verdicts. Where civilian status is in doubt, the person is included and marked.</li>
+    </ul>
+
+    <h3 class="db-h3">Sources</h3>
+    <p class="db-p">Kharkiv Human Rights Protection Group (KHPG), ZMINA, the Crimean Human Rights Group, the Media Initiative for Human Rights (MIHR), Memorial's political-prisoner support project, OVD-Info and Perviy Otdel; and three Telegram channels: the Centre for the Study of Occupation, which monitors occupation announcements, and two occupation-side channels, the Russian-installed Zaporizhzhia regional court's press channel and Krymsky SMERSH, which repeats FSB statements. Claims from occupation-side channels are the prosecution's version.</p>
+
+    <details>
+      <summary>Crime types</summary>
+      <ul class="db-ul">
+        <li><strong>Treason or espionage</strong>: Russian Criminal Code art. 275, 275.1, 276.</li>
+        <li><strong>Terrorism</strong>: art. 205, 205.1, 205.3, 205.4, or an alleged bombing or attack.</li>
+        <li><strong>Hizb ut-Tahrir</strong>: art. 205.5 and 278 in Hizb ut-Tahrir cases, a movement that is legal in Ukraine.</li>
+        <li><strong>Explosives or weapons</strong>: art. 222, 222.1, 223, 223.1.</li>
+        <li><strong>Sabotage</strong>: art. 281 and related articles, including arson of railway equipment.</li>
+        <li><strong>Online posts or comments</strong>: art. 205.2, 207.3, 280, 280.3, 280.4, 282, or charges over comments and posts.</li>
+        <li><strong>Financing Ukraine's forces</strong>: cases over donations or money transfers to Ukraine's armed forces, usually prosecuted as treason.</li>
+      </ul>
+      <p class="db-p">Crime types are a TOT Insights classification from the articles and charges reported. A person can have several.</p>
+    </details>
+
+    <h3 class="db-h3">Names and personal details</h3>
+    <p class="db-p">People are listed by first name and the initial of their surname, and the same applies wherever another detainee, relative or co-defendant is mentioned in a record. Judges, prosecutors and occupation officials are named in full. People the sources did not name are recorded as unnamed. Where the authorities did not name someone and a rights group has identified them from the details, the entry carries a caution. Only year of birth is published here. The linked sources give the details as they published them.</p>
+
+    <div class="db-note">Related: <a href="briefings/occupation_courts_october_2026.html">Russia's occupation courts in October 2026: who was sentenced, charged and detained</a> &middot; <a href="dashboards/zaporizhzhia_court_sentencing.html">The occupation court's sentencing record: occupied Zaporizhzhia</a></div>
+  </div>
+
+  <div class="cd-guard"><strong>Reading rule.</strong> Charges and alleged acts are recorded as described by the prosecution or the sources. Several defendants say their confessions were obtained under torture. Inclusion records a prosecution; it is not a finding that the person did what is alleged. Click a row to see the full record and every source.</div>
+
+  <div class="cd-controls">
+    <div><label for="f-obl">Oblast</label><select id="f-obl"><option value="">All oblasts</option></select></div>
+    <div><label for="f-crime">Crime type</label><select id="f-crime"><option value="">All crime types</option></select></div>
+    <div><label for="f-stage">Stage</label><select id="f-stage"><option value="">All stages</option></select></div>
+    <div><label for="f-month">Month</label><select id="f-month"><option value="">All months</option></select></div>
+    <div><label for="f-q">Search</label><input id="f-q" type="search" placeholder="first name, town, court, act" autocomplete="off"></div>
+    <div><button class="cd-reset" id="f-reset" type="button">Clear filters</button></div>
+  </div>
+  <div class="cd-showing" id="showing"></div>
+
+  <div class="cd-tblwrap">
+    <table class="cd-tbl" id="tbl">
+      <thead><tr>
+        <th data-k="id" class="cd-hide-m">ID</th>
+        <th data-k="name">Name</th>
+        <th data-k="oblast" class="cd-hide-m">Oblast</th>
+        <th data-k="stage">Stage</th>
+        <th data-k="years">Sentence</th>
+        <th data-k="sortdate" class="cd-hide-m">Date</th>
+        <th data-k="crimes" class="cd-hide-m">Crime type</th>
+        <th></th>
+      </tr></thead>
+      <tbody id="tb"></tbody>
+    </table>
+  </div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 40px;">
+<div style="border-top:1px solid rgba(26,26,26,0.1);padding-top:1.25rem;margin-top:2rem;">
+  <div style="font-family:var(--font-mono);font-size:var(--fs-label);text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-bottom:0.4rem;">Research integrity</div>
+  <a href="mailto:TOTInsightsHub@protonmail.com?subject=Correction%20%E2%80%94%20Civilian%20Detainees%20Database%20%E2%80%94%20TOT%20Insights&body=Page URL: https://totinsights.org/civilian-detainees.html%0A%0ADatabase ID:%0A%0AError or correction:%0A%0ASource or evidence:%0A" style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Flag an error or submit a correction &rarr;</a>
+  <p style="font-family:var(--font-source);font-size:var(--fs-label);color:var(--text-muted);margin-top:0.5rem;">Corrections are reviewed by the research team and incorporated into the next update. Please quote the database ID.</p>
+</div></div>
+
+<div id="site-footer"></div>
+
+<script>
+(function(){
+var OBL=["Crimea","Sevastopol","Donetsk","Luhansk","Zaporizhzhia","Kherson","Kharkiv","Russia or elsewhere","Not stated"];
+var CRIMES=["Treason or espionage","Terrorism","Hizb ut-Tahrir","Explosives or weapons","Sabotage","Online posts or comments","Financing Ukraine's forces","Administrative case","Not stated"];
+var STAGES=["Sentenced","Charged or on trial","Detained"];
+var MON=["January","February","March","April","May","June","July","August","September","October","November","December"];
+function monthLabel(m){if(!m)return "Not stated";var p=m.split("-");return MON[+p[1]-1]+" "+p[0];}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function badge(s){var k=s==="Sentenced"?"s-sentenced":s==="Detained"?"s-detained":"s-charged";return '<span class="cd-badge '+k+'">'+esc(s)+'</span>';}
+function shortSentence(r){if(r.stage!=="Sentenced")return "";if(r.years===99)return "Life";if(r.years)return (Math.round(r.years*10)/10)+" years";if(/suspend|умовн/i.test(r.sentence))return "Suspended";return esc((r.sentence||"").slice(0,30));}
+function srcList(srcs){return '<ul>'+srcs.map(function(s){return '<li>'+(s.url?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener nofollow">'+esc(s.label)+'</a>':esc(s.label)+(s.ref?' ('+esc(s.ref.replace(/^telegram:[^/]*\//,"post "))+')':''))+'</li>';}).join("")+'</ul>';}
+var fO=document.getElementById("f-obl"),fC=document.getElementById("f-crime"),fS=document.getElementById("f-stage"),fM=document.getElementById("f-month"),fQ=document.getElementById("f-q"),tb=document.getElementById("tb"),sh=document.getElementById("showing");
+function opt(el,v,l){var o=document.createElement("option");o.value=v;o.textContent=l||v;el.appendChild(o);}
+fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(data){
+  var rows=data.rows;
+  if(data.meta&&data.meta.coverage)document.getElementById("coverage-text").firstChild.textContent=data.meta.coverage+" New months are added as they are compiled, and earlier cases are being added from the archives of the sources below. Totals for any month are minimum figures: they count only cases that became public.";
+  if(data.meta&&data.meta.updated){var u=data.meta.updated.split("-");document.getElementById("st-updated").textContent=+u[2]+" "+MON[+u[1]-1]+" "+u[0];}
+  rows.forEach(function(r){r.sortdate=r.date||r.month||"";});
+  var present=function(k){var s={};rows.forEach(function(r){[].concat(r[k]).forEach(function(v){s[v]=1;});});return s;};
+  var po=present("oblast"),pc=present("crimes");
+  OBL.forEach(function(o){if(po[o])opt(fO,o);});
+  CRIMES.forEach(function(c){if(pc[c])opt(fC,c);});
+  STAGES.forEach(function(s){opt(fS,s);});
+  Object.keys(present("month")).filter(Boolean).sort().reverse().forEach(function(m){opt(fM,m,monthLabel(m));});
+  var P=new URLSearchParams(location.search);
+  if(P.get("oblast"))fO.value=P.get("oblast");if(P.get("crime"))fC.value=P.get("crime");if(P.get("stage"))fS.value=P.get("stage");if(P.get("month"))fM.value=P.get("month");if(P.get("q"))fQ.value=P.get("q");
+  var open={}, sortK="sortdate", sortDir=-1;
+  function stats(list){
+    var sent=list.filter(function(r){return r.stage==="Sentenced";});
+    var yrs=sent.reduce(function(a,r){return a+(r.years&&r.years!==99?r.years:0);},0);
+    document.getElementById("st-total").textContent=list.length;
+    document.getElementById("st-sent").textContent=sent.length;
+    document.getElementById("st-years").textContent=Math.round(yrs).toLocaleString("en-GB");
+    document.getElementById("st-life").textContent=sent.filter(function(r){return r.years===99;}).length;
+    document.getElementById("st-women").textContent=list.filter(function(r){return r.sex==="Female";}).length;
+  }
+  function render(){
+    var q=(fQ.value||"").toLowerCase(), o=fO.value, c=fC.value, s=fS.value, m=fM.value;
+    var out=rows.filter(function(r){
+      if(o&&r.oblast!==o)return false;
+      if(c&&r.crimes.indexOf(c)<0)return false;
+      if(s&&r.stage!==s)return false;
+      if(m&&r.month!==m)return false;
+      if(q){var hay=[r.id,r.name,(r.other_names||[]).join(" "),r.home_town,r.oblast,r.court,r.charge,r.alleged_act,r.sentence,r.articles].join(" ").toLowerCase();if(hay.indexOf(q)<0)return false;}
+      return true;});
+    out.sort(function(a,b){var x=a[sortK],y=b[sortK];
+      if(sortK==="years"){x=x==null?-1:x;y=y==null?-1:y;}
+      else if(sortK==="crimes"){x=a.crimes.join(",");y=b.crimes.join(",");}
+      else{x=String(x||"").toLowerCase();y=String(y||"").toLowerCase();}
+      return (x>y?1:x<y?-1:0)*sortDir;});
+    tb.innerHTML=out.map(function(r){
+      var isOpen=open[r.id], flag=(r.caution||r.status_uncertain)?'<span class="cd-flag" title="See caution">*</span>':'';
+      var when=r.date||(r.month?monthLabel(r.month)+(r.date_published?"":" (date not published)"):"");
+      var main='<tr class="cd-row'+(isOpen?" open":"")+'" data-id="'+r.id+'"><td class="cd-id cd-hide-m">'+r.id+'</td><td class="cd-name">'+esc(r.name)+flag+'</td><td class="cd-hide-m">'+esc(r.oblast)+'</td><td>'+badge(r.stage)+'</td><td style="white-space:nowrap;">'+shortSentence(r)+'</td><td class="cd-hide-m" style="white-space:nowrap;">'+esc(when)+'</td><td class="cd-hide-m">'+r.crimes.map(function(c){return '<span class="cd-chip">'+esc(c)+'</span>';}).join("")+'</td><td class="cd-toggle">'+(isOpen?"&#8722;":"+")+'</td></tr>';
+      if(!isOpen)return main;
+      var d=[];
+      function add(l,v,cls){if(v&&!/^(not stated|unknown|none|n\/a)\.?$/i.test(String(v).trim()))d.push('<dt>'+l+'</dt><dd'+(cls?' class="'+cls+'"':'')+'>'+v+'</dd>');}
+      add("Database ID",esc(r.id));
+      add("Other spellings",esc((r.other_names||[]).join("; ")));
+      add("Born",esc(r.birth_year));
+      add("Home town",esc([r.home_town,r.oblast].filter(Boolean).join(", ")));
+      add("Detained",esc(r.date_detained));
+      add("Latest stage",esc(r.stage)+(when?", "+esc(when):""));
+      add("Court",esc(r.court)+(r.judge&&!/not stated|unknown/i.test(r.judge)?" (judge: "+esc(r.judge)+")":""));
+      add("Charge",esc(r.charge)+(r.articles?" (Russian Criminal Code art. "+esc(r.articles)+")":""));
+      add("Alleged",esc(r.alleged_act));
+      add("Sentence",esc(r.sentence)+(r.fine?"; fine "+esc(r.fine):"")+(r.regime?"; "+esc(r.regime):""));
+      add("Crime type",esc(r.crimes.join("; ")));
+      add("Sources differ",esc(r.sources_differ));
+      add("Caution",esc(r.caution),"cd-caution");
+      if(r.status_uncertain&&!r.caution)add("Caution","Civilian status uncertain.","cd-caution");
+      if(r.recognised_by_Memorial==="yes")add("Memorial","Recognised as a political prisoner");
+      if(r.events&&r.events.length>1)add("All events",'<ul>'+r.events.map(function(e){return '<li>'+esc(e.stage)+', '+esc(e.date||monthLabel(e.month))+(e.sentence?': '+esc(e.sentence):'')+'</li>';}).join("")+'</ul>');
+      add("Sources ("+r.sources.length+")",srcList(r.sources));
+      return main+'<tr class="cd-detail"><td colspan="8"><dl class="cd-dl">'+d.join("")+'</dl></td></tr>';
+    }).join("");
+    sh.innerHTML="Showing <b>"+out.length+"</b> of "+rows.length+" people"+(m?" &middot; "+monthLabel(m):"")+(o?" &middot; "+esc(o):"")+(c?" &middot; "+esc(c):"")+(s?" &middot; "+esc(s):"");
+    stats(out);
+    var p=new URLSearchParams();if(o)p.set("oblast",o);if(c)p.set("crime",c);if(s)p.set("stage",s);if(m)p.set("month",m);if(q)p.set("q",fQ.value);
+    history.replaceState(null,"",location.pathname+(p.toString()?"?"+p.toString():""));
+  }
+  tb.addEventListener("click",function(e){var tr=e.target.closest("tr.cd-row");if(!tr)return;if(e.target.tagName==="A")return;var id=tr.getAttribute("data-id");open[id]=!open[id];render();});
+  document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var k=th.getAttribute("data-k");sortDir=(sortK===k)?-sortDir:1;sortK=k;render();});});
+  [fO,fC,fS,fM].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
+  document.getElementById("f-reset").addEventListener("click",function(){fO.value=fC.value=fS.value=fM.value="";fQ.value="";render();});
+  render();
+}).catch(function(err){sh.textContent="Could not load the database ("+((err&&err.message)||err)+").";});
+})();
+</script>
+<script src="navigation.js?v=16"></script>
+</body>
+</html>

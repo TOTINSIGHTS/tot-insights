@@ -12,6 +12,9 @@ Interactive searchable database of 1,198 individuals serving in administrative a
 **DB-SAN — Sanctions Database**
 Interactive searchable database of 2,306 sanctioned individuals and entities across seven jurisdictions — Australia, EU, Japan, Switzerland, UK, US, and Ukraine. Searchable by name, type, territory, and jurisdiction. Theme: Accountability and Legal.
 
+**DB-DET (DOC-182) — Civilian Detainees Database**
+Ukrainian civilians detained, charged and sentenced by Russian and Russian-installed courts, one record per person with every court event and every source. First release November 2026: 101 people, October 2026 covered systematically. Searchable by oblast, crime type, stage and month; updated monthly and being extended back in time. Theme: Accountability and Legal. Companion to DOC-181.
+
 ---
 
 ## 2. Research Outputs
@@ -91,6 +94,9 @@ Interactive React visualisation accompanying the Kiriyenko analytical briefing. 
 ---
 
 ### Accountability and Legal
+
+**DOC-181 — Russia's occupation courts in October 2026: who was sentenced, charged and detained** *(Briefing)* *(also: Civilian Life and Resistance)*
+At least 62 Ukrainians from the occupied territories had a known court event in October 2026: 37 sentenced (612 years in prison for 34 people, one life sentence, two suspended), 16 charged or on trial, 9 detained. 25 of the sentences came from the Southern District Military Court in Rostov-on-Don. Every person listed with every source and, where sources disagree, each version. Companion to DOC-D5.
 
 **DOC-D2 — Russia's Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Russian-occupied Ukraine** *(Briefing & Paper)*
 Argues that Russia's treatment of Ukrainian civilians constitutes a pipeline of seven interlocking crimes against humanity under the Rome Statute. Scale: over 20,000 civilians estimated in Russian custody, 168 released by September 2025. Five categories of recommendation including a UK-initiated UN Contact Group. Co-authored with Scott Martin (international criminal law).
