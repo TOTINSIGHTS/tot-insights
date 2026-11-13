@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Civilian Detainees Database - TOT Insights</title>
-<meta name="description" content="Searchable database of Ukrainian civilians detained, charged and sentenced by Russian and Russian-installed courts, with every source for every person. Filter by oblast, crime type, stage and month.">
+<meta name="description" content="Searchable database of Ukrainian civilians detained by Russian forces and occupation authorities, or charged and sentenced by Russian and Russian-installed courts, with every source for every person. Filter by oblast, crime type, stage and month.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -82,7 +82,7 @@
       <div style="font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;line-height:1.5;">TOT Insights (2026). Civilian Detainees Database: Ukrainian civilians prosecuted by Russian and Russian-installed courts. TOT Insights, CSNS. https://totinsights.org/civilian-detainees.html</div>
       <button onclick="(function(b){navigator.clipboard.writeText('TOT Insights (2026). Civilian Detainees Database: Ukrainian civilians prosecuted by Russian and Russian-installed courts. TOT Insights, CSNS. https://totinsights.org/civilian-detainees.html');b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy citation';},2000);})(this)" style="font-family:var(--font-mono);font-size:var(--fs-label);border:1px solid rgba(17,29,48,0.08);color:#4a4a57;background:transparent;padding:0.25rem 0.6rem;cursor:pointer;margin-top:0.4rem;">Copy citation</button>
     </div>
-    <p class="page-desc">Every Ukrainian civilian we can document being detained, charged or sentenced by Russian or Russian-installed courts: who they are, where they are from, what they are accused of, what sentence they received, and every source that reported them. Where sources disagree, each version is recorded. The database grows each month and is being extended back in time.</p>
+    <p class="page-desc">Every Ukrainian civilian we can document being detained by Russian forces or occupation authorities, or charged or sentenced by Russian or Russian-installed courts: who they are, where they are from, what they are accused of, what sentence they received, what happened to them where a source says (release, exchange, deportation, death in custody), and every source that reported them. Where sources disagree, each version is recorded. The database grows each month and is being extended back in time.</p>
   </div>
 </div>
 
@@ -108,17 +108,19 @@
     <p class="db-p">The database records Ukrainian civilians prosecuted by Russia's courts and by the courts Russia has installed in the occupied territories. Each person has a stable ID and a record of every known court event: detention, charge or trial, and sentence. When a person appears in later months, for an appeal or a verdict, the new event is added to the same record.</p>
 
     <h3 class="db-h3">Coverage</h3>
-    <p class="db-p" id="coverage-text">October 2026 is covered systematically. Cases from other months are those reported between 1 October and 12 November 2026, and are incomplete for those months. New months are added as they are compiled, and earlier cases are being added from the archives of the sources below. Totals for any month are minimum figures: they count only cases that became public.</p>
+    <p class="db-p" id="coverage-text">October 2026 is covered systematically. Earlier cases, from 2015 to September 2026, were added on 12 November 2026 from Memorial's case cards for Ukrainians prosecuted by Russia, MIHR's monthly reviews of convicted civilians (April 2024 to October 2026) and verdicts posted by the occupation Zaporizhzhia regional court; no month before October 2026 is complete. New months are added as they are compiled. Totals for any month are minimum figures: they count only cases that became public.</p>
 
     <h3 class="db-h3">Who is included</h3>
     <ul class="db-ul">
       <li>Civilians from occupied Crimea, Sevastopol, and the occupied parts of Donetsk, Luhansk, Zaporizhzhia and Kherson oblasts, wherever they were tried, including courts inside Russia such as the Southern District Military Court in Rostov-on-Don.</li>
       <li>Ukrainian citizens tried in Russia on politically motivated charges.</li>
+      <li>Civilians detained without charge by Russian forces or occupation authorities (abduction, 'filtration', incommunicado detention), since 2014, including in areas occupied in 2022 and since liberated, and including people later released, exchanged, deported or killed.</li>
       <li>Excluded: prisoners of war and serving soldiers, verdicts by Ukrainian courts, and in-absentia verdicts. Where civilian status is in doubt, the person is included and marked.</li>
     </ul>
 
     <h3 class="db-h3">Sources</h3>
     <p class="db-p">Kharkiv Human Rights Protection Group (KHPG), ZMINA, the Crimean Human Rights Group, the Media Initiative for Human Rights (MIHR), Memorial's political-prisoner support project, OVD-Info and Perviy Otdel; and three Telegram channels: the Centre for the Study of Occupation, which monitors occupation announcements, and two occupation-side channels, the Russian-installed Zaporizhzhia regional court's press channel and Krymsky SMERSH, which repeats FSB statements. Claims from occupation-side channels are the prosecution's version.</p>
+    <p class="db-p">Earlier cases also come from published reports and monitored media held in the TOT Insights research archive: reports by OHCHR, the UN Commission of Inquiry, Human Rights Watch, the Ukrainian Parliament Commissioner for Human Rights, the Ukrainian Helsinki Human Rights Union, the Coalition 'Justice for Peace in Donbas', the Raphael Lemkin Centre, Almenda and others, cited by title and page; and pro-Russian Telegram and TV announcements of detentions recorded in TOT Insights' media monitoring, cited by channel and date. Testimony given to researchers in confidence is not included.</p>
 
     <details>
       <summary>Crime types</summary>
@@ -180,8 +182,8 @@
 
 <script>
 (function(){
-var OBL=["Crimea","Sevastopol","Donetsk","Luhansk","Zaporizhzhia","Kherson","Kharkiv","Russia or elsewhere","Not stated"];
-var CRIMES=["Treason or espionage","Terrorism","Hizb ut-Tahrir","Explosives or weapons","Sabotage","Online posts or comments","Financing Ukraine's forces","Administrative case","Not stated"];
+var OBL=["Crimea","Sevastopol","Donetsk","Luhansk","Zaporizhzhia","Kherson","Kharkiv","Elsewhere in Ukraine","Russia or elsewhere","Not stated"];
+var CRIMES=["Treason or espionage","Terrorism","Hizb ut-Tahrir","Banned religious or extremist organisation","Explosives or weapons","Sabotage","Online posts or comments","Financing Ukraine's forces","Administrative case","Not stated"];
 var STAGES=["Sentenced","Charged or on trial","Detained"];
 var MON=["January","February","March","April","May","June","July","August","September","October","November","December"];
 function monthLabel(m){if(!m)return "Not stated";var p=m.split("-");return MON[+p[1]-1]+" "+p[0];}
@@ -246,6 +248,7 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
       add("Alleged",esc(r.alleged_act));
       add("Sentence",esc(r.sentence)+(r.fine?"; fine "+esc(r.fine):"")+(r.regime?"; "+esc(r.regime):""));
       add("Crime type",esc(r.crimes.join("; ")));
+      add("What happened",esc(r.outcome));
       add("Sources differ",esc(r.sources_differ));
       add("Caution",esc(r.caution),"cd-caution");
       if(r.status_uncertain&&!r.caution)add("Caution","Civilian status uncertain.","cd-caution");
