@@ -73,11 +73,11 @@ window.TOT_DATASETS = [
     title: "Luhansk Occupation Press", kind: "database",
     themes: ["Information Space"],
     territories: ["Luhansk"],
-    size: { n: 1102, unit: "issues" }, covers: "2023 to 2026",
+    size: { n: 1102, unit: "issues" }, covers: "January 2024 to June 2026",
     finding: "One war report printed verbatim in sixteen town papers in a single week: 1,102 issues of 25 Luhansk occupation papers, indexed.",
-    details: "Paper, town, date, page count and source link for every issue. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it from its own site. Theme intensity by month, filterable by town, and short attributed excerpts with English glosses. Metadata and theme counts only; no article text is published.",
+    details: "Paper, town, date, page count and source link for every issue. The 2024 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it from its own site. Theme intensity by month, filterable by town, and short attributed excerpts with English glosses. Metadata and theme counts only; no article text is published.",
     tasks: ["words", "trend"],
-    views: [["Issue index", "tot-luhansk-press-database.html"], ["Charts", "tot-luhansk-press-visualisations.html"], ["Excerpts", "tot-luhansk-press-excerpts.html"]],
+    views: [["Issue index", "tot-luhansk-press-database.html"], ["Charts", "tot-luhansk-press-visualisations.html"], ["Excerpts", "tot-luhansk-press-excerpts.html"], ["Lysychansk issues (2023)", "dashboards/lysychansk_press_archive.html"]],
     download: ["CSV", "data/luhansk-press/issues_public.csv"]
   },
   {
@@ -198,10 +198,30 @@ window.TOT_DATASETS = [
     title: "Market Prices, Occupied Donetsk", kind: "chart",
     themes: ["Economics", "Civilian Life and Resistance"],
     territories: ["Donetsk"],
-    size: { n: 150, unit: "items" }, covers: "April 2026",
-    finding: "A fieldwork supermarket price survey of 150+ items across six categories, priced in roubles.",
+    size: { n: 150, unit: "items" }, covers: "April and July 2026",
+    finding: "A fieldwork supermarket price survey of 150+ items across six categories, priced in roubles, and a July follow-up in Mariupol: milk about 75% dearer than in Ukraine.",
+    details: "April 2026: 150+ items in occupied Donetsk across six categories. July 2026: nine everyday items in one Mariupol supermarket set against Ukrainian and EU retail prices; branded coffee and biscuits a quarter to a third dearer than in Ukraine, only seasonal vegetables at or below Ukrainian prices.",
+    tasks: ["trend"],
+    views: [["April 2026 survey", "dashboards/prices_april_2026.html"], ["July 2026, Mariupol", "dashboards/prices_july_2026.html"]]
+  },
+  {
+    title: "Occupation Court Sentencing, Zaporizhzhia", kind: "dashboard",
+    themes: ["Accountability and Legal", "Civilian Life and Resistance", "Coercion, Entrapment and Slavery"],
+    territories: ["Zaporizhzhia"],
+    size: { n: 300, unit: "verdicts" },
+    finding: "300 verdicts coded from the occupation court's own channel: political cases draw a median of 14 years against about 3 for ordinary crime.",
+    details: "Treason, espionage, sabotage and 'extremism' cases compared with ordinary crime. Sending money to Ukraine draws 10 to 16 years regardless of the amount. Companion to the Civilian Detainees Database, which lists the people.",
+    tasks: ["who", "trend"],
+    views: [["Open the dashboard", "dashboards/zaporizhzhia_court_sentencing.html"], ["Civilian Detainees Database", "civilian-detainees.html"]]
+  },
+  {
+    title: "Ghost Pensioners, Mariupol", kind: "chart",
+    themes: ["Economics", "Coercion, Entrapment and Slavery", "Civilian Life and Resistance"],
+    territories: ["Donetsk"], place: "Mariupol",
+    finding: "About 134,600 ghost pensioners generating an estimated RUB 1.68bn a month in federal pension payments for people no longer in Mariupol.",
+    details: "Pensioner population chart, key events timeline and the accountability angle. Companion to the ghost pensioners briefing.",
     tasks: [],
-    views: [["Open the chart", "dashboards/prices_april_2026.html"]]
+    views: [["Open the chart", "dashboards/ghost_pensioners_visual.html"]]
   },
   {
     title: "Departure and Return, Zaporizhzhia", kind: "chart",

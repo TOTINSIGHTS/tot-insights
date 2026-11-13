@@ -47,10 +47,10 @@ footer a{color:var(--navy)}
 <div class="wrap">
 <div class="head">
   <h1>Luhansk occupation press: theme intensity</h1>
-  <p>How occupation themes rise and fall across the Luganmedia holding, 2023&ndash;2026. Companion to the <a href="tot-luhansk-press-database.html">issue index</a> and the <a href="tot-luhansk-press-excerpts.html">curated excerpts</a>.</p>
+  <p>How occupation themes rise and fall across the Luganmedia holding, 2024&ndash;2026. Companion to the <a href="tot-luhansk-press-database.html">issue index</a> and the <a href="tot-luhansk-press-excerpts.html">curated excerpts</a>.</p>
   <div class="metaline" id="metaLine"></div>
   <div class="privnote">Public-safe derived layer. Charts are built from theme keyword counts and issue metadata; the newspaper texts and PDFs are not published.</div>
-  <p class="metaline">Provenance: newspaper title list from Detector Media (10 March 2025) and the Centre for Information Resilience mapping; issue-level and theme data from our own collection run (July 2026); the 2023 to 2025 back-catalogue was recovered from the Internet Archive.</p>
+  <p class="metaline">Provenance: newspaper title list from Detector Media (10 March 2025) and the Centre for Information Resilience mapping; issue-level and theme data from our own collection run (July 2026); the 2024 to 2025 back-catalogue was recovered from the Internet Archive.</p>
   <p class="metaline">Download the data (CSV): <a href="data/luhansk-press/titles_public.csv" download>titles</a> &middot; <a href="data/luhansk-press/issues_public.csv" download>issues index</a> &middot; <a href="data/luhansk-press/theme_frequency.csv" download>theme counts</a> &middot; <a href="data/luhansk-press/theme_summary.csv" download>theme totals</a></p>
 </div>
 <section class="viz"><h2>1. Theme intensity over time</h2>
@@ -65,7 +65,7 @@ footer a{color:var(--navy)}
   <div class="hmscroll"><div id="heatmap" class="heatmap"></div></div>
   <div class="hmnote">Cell = mean hits per page across that paper&rsquo;s issues. The strong, near-uniform Loyalty column is the point: the same priorities in every town.</div></section>
 <section class="viz"><h2>4. Issues collected over time</h2>
-  <p class="cap">Number of issues per month across all papers. The 2023 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it; recent months are what the site still hosts.</p>
+  <p class="cap">Number of issues per month across all papers. The 2024 to 2025 back-catalogue was recovered from the Internet Archive after the holding purged it; recent months are what the site still hosts.</p>
   <div class="chartwrap" style="height:300px"><canvas id="cMonths" role="img" aria-label="Bar chart of issues collected per month."></canvas></div></section>
 <section class="viz"><h2>5. Theme mix by publication</h2>
   <p class="cap">Each paper&rsquo;s coverage as a share of its own theme keywords (100% stacked). This shows composition, not volume: what each paper spends its column-inches on. The mix is strikingly similar paper to paper.</p>
@@ -74,7 +74,7 @@ footer a{color:var(--navy)}
   <p class="cap">How each theme&rsquo;s intensity (mean hits per page) shifted from 2024 to 2026. Green climbed, red faded.</p>
   <div class="slopewrap"><div id="slope"></div></div>
   <div class="slopekey"><b>2024</b> on the left, <b>2026</b> on the right; each line is one theme, numbers are mean hits per page.</div></section>
-<footer>Public-safe derived layer &middot; 1,102 issues, 23 papers, 2023-03 &ndash; 2026-07 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; derived counts only, no article text. &nbsp;<a href="tot-luhansk-press-excerpts.html">Curated excerpts &rarr;</a></footer>
+<footer>Public-safe derived layer &middot; 1,102 issues, 25 papers, 2024-01 &ndash; 2026-06 &middot; source: Luganmedia holding, collected via scrape + Internet Archive recovery &middot; derived counts only, no article text. &nbsp;<a href="tot-luhansk-press-excerpts.html">Curated excerpts &rarr;</a></footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="assets/js/chart-defaults.js?v=8"></script>
@@ -83,7 +83,7 @@ fetch('data/luhansk-press/luhansk-press-viz.json',{cache:'no-cache'})
 .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
 .then(function(V){
 var M=V.meta;
-document.getElementById('metaLine').textContent=M.issues.toLocaleString()+' issues · '+M.papers+' papers · '+M.themes_n+' themes · '+M.range;
+document.getElementById('metaLine').textContent=M.issues.toLocaleString()+' issues · '+(V.heatmap?V.heatmap.papers.length:M.papers)+' papers · '+M.themes_n+' themes · '+M.range;
 var sel=document.getElementById('townSel');
 sel.innerHTML=M.towns.map(function(t){return '<option value="'+t+'">'+(t==='ALL'?'All towns':t)+'</option>';}).join('');
 var timeChart;
