@@ -64,6 +64,13 @@
 .cd-dl dd.cd-caution{border-left:3px solid var(--gold);padding-left:8px;}
 .cd-dl ul{margin:0;padding-left:18px;}
 .cd-toggle{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;white-space:nowrap;}
+.cd-inc{display:inline-block;font-family:var(--font-mono);font-size:10px;letter-spacing:0.05em;text-transform:uppercase;padding:1px 6px;margin-left:7px;border-radius:2px;white-space:nowrap;vertical-align:1px;font-weight:500;}
+.cd-inc.reported{background:#5b1f4a;color:#fff;border:1px solid #5b1f4a;}
+.cd-inc.possible{background:#fff;color:#7b5b8c;border:1px dashed #a88bb8;}
+.cd-dl dd.cd-inc-r{border-left:3px solid #5b1f4a;padding-left:8px;}
+.cd-dl dd.cd-inc-p{border-left:3px dashed #a88bb8;padding-left:8px;}
+.cd-key{font-family:var(--font-sans);font-size:var(--fs-label);color:#4a4a57;margin:0 0 10px;line-height:1.8;}
+.cd-key .cd-inc{margin-left:0;margin-right:5px;}
 .cd-guard{border-left:3px solid var(--gold);background:rgba(201,168,76,.09);padding:11px 15px;margin:0 0 18px;font-family:var(--font-serif);font-size:var(--fs-table);color:#3a3a44;line-height:1.5;max-width:100ch;}
 @media(max-width:700px){.main-content{padding:20px 16px 60px;}.stats-strip{padding:16px;}.cd-dl{grid-template-columns:1fr;}.cd-detail td{padding-left:16px;}.cd-controls>div{flex:1 1 100%;}.cd-controls select,.cd-controls input[type=search]{min-width:0;width:100%;}.cd-tbl .cd-hide-m{display:none;}}
 </style>
@@ -138,6 +145,14 @@
       <p class="db-p">Crime types are a TOT Insights classification from the articles and charges reported. A person can have several.</p>
     </details>
 
+    <h3 class="db-h3">Held incommunicado</h3>
+    <p class="db-p">Two marks show people held incommunicado, that is, held with no contact with family or a lawyer and with no official word on where they were. They differ in how certain they are.</p>
+    <ul class="db-ul">
+      <li><span class="cd-inc reported">Incommunicado</span> <strong>Reported.</strong> A source says the person was held incommunicado, disappeared after detention, or that their whereabouts were unknown. The person may later have been released, or have reappeared in a detention centre or a court.</li>
+      <li><span class="cd-inc possible">Possibly incommunicado</span> <strong>Not confirmed.</strong> The person was seized by Russian forces (abducted, taken hostage or taken captive) and no charge, no place of detention and nothing about what happened next has been recorded. Many of these people were probably held incommunicado, but a record with nothing after the detention can also mean that no one reported what happened next. These are a lead for further checking, not a finding.</li>
+    </ul>
+    <p class="db-p">People detained for a few hours for an administrative offence are not marked. Both marks rest on what the sources record, so the real number held incommunicado is higher.</p>
+
     <h3 class="db-h3">Names and personal details</h3>
     <p class="db-p">People are listed by first name and the initial of their surname, and the same applies wherever another detainee, relative or co-defendant is mentioned in a record. Judges, prosecutors and occupation officials are named in full. People the sources did not name are recorded as unnamed. Where the authorities did not name someone and a rights group has identified them from the details, the entry carries a caution. Only year of birth is published here. The linked sources give the details as they published them.</p>
 
@@ -151,9 +166,11 @@
     <div><label for="f-crime">Crime type</label><select id="f-crime"><option value="">All crime types</option></select></div>
     <div><label for="f-stage">Stage</label><select id="f-stage"><option value="">All stages</option></select></div>
     <div><label for="f-month">Month</label><select id="f-month"><option value="">All months</option></select></div>
+    <div><label for="f-inc">Held incommunicado</label><select id="f-inc"><option value="">All people</option><option value="any">Reported or possible</option><option value="reported">Reported</option><option value="possible">Possible (not confirmed)</option></select></div>
     <div><label for="f-q">Search</label><input id="f-q" type="search" placeholder="first name, town, court, act" autocomplete="off"></div>
     <div><button class="cd-reset" id="f-reset" type="button">Clear filters</button></div>
   </div>
+  <div class="cd-key"><span class="cd-inc reported">Incommunicado</span>reported by a source &nbsp; <span class="cd-inc possible">Possibly incommunicado</span>not confirmed: seized, with nothing recorded afterwards (see "Held incommunicado" in About this database)</div>
   <div class="cd-showing" id="showing"></div>
 
   <div class="cd-tblwrap">
@@ -192,8 +209,9 @@ function monthLabel(m){if(!m)return "Not stated";var p=m.split("-");return MON[+
 function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
 function badge(s){var k=s==="Sentenced"?"s-sentenced":s==="Detained"?"s-detained":"s-charged";return '<span class="cd-badge '+k+'">'+esc(s)+'</span>';}
 function shortSentence(r){if(r.stage!=="Sentenced")return "";if(r.years===99)return "Life";if(r.years)return (Math.round(r.years*10)/10)+" years";if(/suspend|умовн/i.test(r.sentence))return "Suspended";return esc((r.sentence||"").slice(0,30));}
+function incTag(r){return r.incommunicado==="reported"?'<span class="cd-inc reported" title="A source reports this person was held incommunicado">Incommunicado</span>':r.incommunicado==="possible"?'<span class="cd-inc possible" title="Not confirmed: seized, with nothing recorded afterwards">Possibly incommunicado</span>':"";}
 function srcList(srcs){return '<ul>'+srcs.map(function(s){return '<li>'+(s.url?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener nofollow">'+esc(s.label)+'</a>':esc(s.label)+(s.ref?' ('+esc(s.ref.replace(/^telegram:[^/]*\//,"post "))+')':''))+'</li>';}).join("")+'</ul>';}
-var fO=document.getElementById("f-obl"),fC=document.getElementById("f-crime"),fS=document.getElementById("f-stage"),fM=document.getElementById("f-month"),fQ=document.getElementById("f-q"),tb=document.getElementById("tb"),sh=document.getElementById("showing");
+var fO=document.getElementById("f-obl"),fC=document.getElementById("f-crime"),fS=document.getElementById("f-stage"),fM=document.getElementById("f-month"),fI=document.getElementById("f-inc"),fQ=document.getElementById("f-q"),tb=document.getElementById("tb"),sh=document.getElementById("showing");
 function opt(el,v,l){var o=document.createElement("option");o.value=v;o.textContent=l||v;el.appendChild(o);}
 fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(function(data){
   var rows=data.rows;
@@ -207,7 +225,7 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
   STAGES.forEach(function(s){opt(fS,s);});
   Object.keys(present("month")).filter(Boolean).sort().reverse().forEach(function(m){opt(fM,m,monthLabel(m));});
   var P=new URLSearchParams(location.search);
-  if(P.get("oblast"))fO.value=P.get("oblast");if(P.get("crime"))fC.value=P.get("crime");if(P.get("stage"))fS.value=P.get("stage");if(P.get("month"))fM.value=P.get("month");if(P.get("q"))fQ.value=P.get("q");
+  if(P.get("oblast"))fO.value=P.get("oblast");if(P.get("crime"))fC.value=P.get("crime");if(P.get("stage"))fS.value=P.get("stage");if(P.get("month"))fM.value=P.get("month");if(P.get("q"))fQ.value=P.get("q");if(P.get("inc"))fI.value=P.get("inc");
   var open={}, sortK="sortdate", sortDir=-1;
   function stats(list){
     var sent=list.filter(function(r){return r.stage==="Sentenced";});
@@ -219,12 +237,14 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
     document.getElementById("st-women").textContent=list.filter(function(r){return r.sex==="Female";}).length;
   }
   function render(){
-    var q=(fQ.value||"").toLowerCase(), o=fO.value, c=fC.value, s=fS.value, m=fM.value;
+    var q=(fQ.value||"").toLowerCase(), o=fO.value, c=fC.value, s=fS.value, m=fM.value, inc=fI.value;
     var out=rows.filter(function(r){
       if(o&&r.oblast!==o)return false;
       if(c&&r.crimes.indexOf(c)<0)return false;
       if(s&&r.stage!==s)return false;
       if(m&&r.month!==m)return false;
+      if(inc==="any"&&!r.incommunicado)return false;
+      if((inc==="reported"||inc==="possible")&&r.incommunicado!==inc)return false;
       if(q){var hay=[r.id,r.name,(r.other_names||[]).join(" "),r.home_town,r.oblast,r.court,r.charge,r.alleged_act,r.sentence,r.articles].join(" ").toLowerCase();if(hay.indexOf(q)<0)return false;}
       return true;});
     out.sort(function(a,b){var x=a[sortK],y=b[sortK];
@@ -235,7 +255,7 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
     tb.innerHTML=out.map(function(r){
       var isOpen=open[r.id], flag=(r.caution||r.status_uncertain)?'<span class="cd-flag" title="See caution">*</span>':'';
       var when=r.date||(r.month?monthLabel(r.month)+(r.date_published?"":" (date not published)"):"");
-      var main='<tr class="cd-row'+(isOpen?" open":"")+'" data-id="'+r.id+'"><td class="cd-id cd-hide-m">'+r.id+'</td><td class="cd-name">'+esc(r.name)+flag+'</td><td class="cd-hide-m">'+esc(r.oblast)+'</td><td>'+badge(r.stage)+'</td><td style="white-space:nowrap;">'+shortSentence(r)+'</td><td class="cd-hide-m" style="white-space:nowrap;">'+esc(when)+'</td><td class="cd-hide-m">'+r.crimes.map(function(c){return '<span class="cd-chip">'+esc(c)+'</span>';}).join("")+'</td><td class="cd-toggle">'+(isOpen?"&#8722;":"+")+'</td></tr>';
+      var main='<tr class="cd-row'+(isOpen?" open":"")+'" data-id="'+r.id+'"><td class="cd-id cd-hide-m">'+r.id+'</td><td class="cd-name">'+esc(r.name)+flag+incTag(r)+'</td><td class="cd-hide-m">'+esc(r.oblast)+'</td><td>'+badge(r.stage)+'</td><td style="white-space:nowrap;">'+shortSentence(r)+'</td><td class="cd-hide-m" style="white-space:nowrap;">'+esc(when)+'</td><td class="cd-hide-m">'+r.crimes.map(function(c){return '<span class="cd-chip">'+esc(c)+'</span>';}).join("")+'</td><td class="cd-toggle">'+(isOpen?"&#8722;":"+")+'</td></tr>';
       if(!isOpen)return main;
       var d=[];
       function add(l,v,cls){if(v&&!/^(not stated|unknown|none|n\/a)\.?$/i.test(String(v).trim()))d.push('<dt>'+l+'</dt><dd'+(cls?' class="'+cls+'"':'')+'>'+v+'</dd>');}
@@ -251,6 +271,8 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
       add("Sentence",esc(r.sentence)+(r.fine?"; fine "+esc(r.fine):"")+(r.regime?"; "+esc(r.regime):""));
       add("Crime type",esc(r.crimes.join("; ")));
       add("What happened",esc(r.outcome));
+      if(r.incommunicado==="reported")add("Held incommunicado","Reported: a source says this person was held incommunicado, disappeared after detention or that their whereabouts were unknown.","cd-inc-r");
+      if(r.incommunicado==="possible")add("Held incommunicado","Possible, not confirmed: seized by Russian forces, with no charge, place of detention or later news recorded. This may also reflect gaps in reporting.","cd-inc-p");
       add("Sources differ",esc(r.sources_differ));
       add("Caution",esc(r.caution),"cd-caution");
       if(r.status_uncertain&&!r.caution)add("Caution","Civilian status uncertain.","cd-caution");
@@ -259,15 +281,15 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
       add("Sources ("+r.sources.length+")",srcList(r.sources));
       return main+'<tr class="cd-detail"><td colspan="8"><dl class="cd-dl">'+d.join("")+'</dl></td></tr>';
     }).join("");
-    sh.innerHTML="Showing <b>"+out.length+"</b> of "+rows.length+" people"+(m?" &middot; "+monthLabel(m):"")+(o?" &middot; "+esc(o):"")+(c?" &middot; "+esc(c):"")+(s?" &middot; "+esc(s):"");
+    sh.innerHTML="Showing <b>"+out.length+"</b> of "+rows.length+" people"+(m?" &middot; "+monthLabel(m):"")+(o?" &middot; "+esc(o):"")+(c?" &middot; "+esc(c):"")+(s?" &middot; "+esc(s):"")+(inc?" &middot; incommunicado: "+(inc==="any"?"reported or possible":inc==="possible"?"possible (not confirmed)":"reported"):"");
     stats(out);
-    var p=new URLSearchParams();if(o)p.set("oblast",o);if(c)p.set("crime",c);if(s)p.set("stage",s);if(m)p.set("month",m);if(q)p.set("q",fQ.value);
+    var p=new URLSearchParams();if(o)p.set("oblast",o);if(c)p.set("crime",c);if(s)p.set("stage",s);if(m)p.set("month",m);if(inc)p.set("inc",inc);if(q)p.set("q",fQ.value);
     history.replaceState(null,"",location.pathname+(p.toString()?"?"+p.toString():""));
   }
   tb.addEventListener("click",function(e){var tr=e.target.closest("tr.cd-row");if(!tr)return;if(e.target.tagName==="A")return;var id=tr.getAttribute("data-id");open[id]=!open[id];render();});
   document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var k=th.getAttribute("data-k");sortDir=(sortK===k)?-sortDir:1;sortK=k;render();});});
-  [fO,fC,fS,fM].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
-  document.getElementById("f-reset").addEventListener("click",function(){fO.value=fC.value=fS.value=fM.value="";fQ.value="";render();});
+  [fO,fC,fS,fM,fI].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
+  document.getElementById("f-reset").addEventListener("click",function(){fO.value=fC.value=fS.value=fM.value=fI.value="";fQ.value="";render();});
   render();
 }).catch(function(err){sh.textContent="Could not load the database ("+((err&&err.message)||err)+").";});
 })();
