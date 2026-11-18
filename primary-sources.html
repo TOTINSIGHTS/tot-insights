@@ -65,6 +65,63 @@
 .ps-carousel-dot:hover{background:rgba(17,29,48,0.4);}
 .ps-carousel-dot.active{background:var(--gold,#c9a84c);}
 @media(max-width:640px){.ps-carousel-viewport{min-height:260px;}.ps-carousel-img{max-height:72vh;}.ps-carousel-btn{width:36px;height:36px;font-size:20px;}}
+
+/* ---- Primary sources finder (psf) ---- */
+.psf-h{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;color:#111d30;margin:30px 0 12px;}
+.psf-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+@media(max-width:900px){.psf-tiles{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:560px){.psf-tiles{grid-template-columns:1fr;}}
+.psf-tile{display:grid;gap:6px;text-align:left;background:#f7f5f1;color:var(--navy);border:1px solid rgba(17,29,48,0.28);border-left:3px solid var(--gold);border-radius:3px;padding:16px 18px;cursor:pointer;font:inherit;box-shadow:0 1px 2px rgba(17,29,48,0.08);transition:border-color .15s,background .15s;}
+.psf-tile:hover{border-color:var(--navy);border-left-color:var(--gold);}
+.psf-tile[aria-pressed="true"]{background:rgba(201,168,76,0.15);border-color:var(--gold);}
+.psf-tile-q{font-family:var(--font-serif);font-size:var(--fs-body);font-weight:700;line-height:1.3;}
+.psf-tile-sub{font-size:var(--fs-fine);line-height:1.5;color:#4a4a57;}
+.psf-tile-n{font-family:var(--font-mono);font-size:var(--fs-label);color:#4a4a57;}
+
+.psf-finder{background:var(--cream-panel,#f2f0ec);border:1px solid rgba(17,29,48,0.28);border-radius:3px;padding:16px;display:grid;gap:14px;}
+.psf-lab{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;text-transform:uppercase;color:#4a4a57;}
+.psf-search{width:100%;box-sizing:border-box;font:inherit;font-size:var(--fs-body);padding:12px 15px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;color:var(--navy);}
+.psf-filters{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;}
+@media(max-width:1000px){.psf-filters{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:560px){.psf-filters{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.psf-filters label{display:grid;gap:4px;font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;color:#4a4a57;min-width:0;}
+.psf-filters select,.psf-bar select{font:inherit;font-size:var(--fs-label);text-transform:none;letter-spacing:0;padding:7px 8px;border:1px solid rgba(17,29,48,0.28);border-radius:3px;background:#f7f5f1;color:var(--navy);width:100%;min-width:0;}
+.psf-bar select{width:auto;padding:4px 6px;}
+.psf-chips{display:flex;gap:6px;flex-wrap:wrap;}
+.psf-chips:empty{display:none;}
+.psf-chip{font-family:var(--font-mono);font-size:var(--fs-label);background:rgba(201,168,76,0.18);color:var(--navy);border:0;border-radius:999px;padding:4px 10px;cursor:pointer;}
+.psf-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid rgba(17,29,48,0.15);padding-top:12px;}
+.psf-count{font-family:var(--font-mono);font-size:var(--fs-label);color:#111d30;display:flex;gap:6px;align-items:center;}
+.psf-bar-r{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.psf-seg{display:inline-flex;border:1px solid rgba(17,29,48,0.28);border-radius:3px;overflow:hidden;}
+.psf-seg button{font-family:var(--font-mono);font-size:var(--fs-label);padding:6px 11px;border:0;background:#f7f5f1;color:var(--navy);cursor:pointer;}
+.psf-seg button[aria-pressed="true"]{background:var(--gold);color:var(--navy);}
+.psf-link{font-family:var(--font-mono);font-size:var(--fs-label);background:none;border:0;color:#111d30;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;}
+#psf-results .ps-grid{margin-top:16px;}
+.ps-card:focus-visible,.psf-tile:focus-visible,.psf-row:focus-visible{outline:3px solid #c9a84c;outline-offset:2px;}
+.psf-meta{font-family:var(--font-mono);font-size:var(--fs-label);color:#5a5f6c;display:flex;flex-wrap:wrap;gap:2px 8px;margin-bottom:8px;}
+.psf-meta b{font-weight:500;color:#111d30;}
+.psf-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.psf-eng{font-family:var(--font-mono);font-size:var(--fs-label);padding:3px 7px;border-radius:2px;}
+.psf-eng.full{background:rgba(201,168,76,0.30);color:var(--navy);}.psf-eng.key{background:rgba(201,168,76,0.13);color:var(--navy);}.psf-eng.sum{background:none;border:1px solid rgba(17,29,48,0.2);color:#4a4a57;}
+.psf-ai{font-family:var(--font-mono);font-size:var(--fs-label);padding:2px 6px;border:1px solid rgba(17,29,48,0.2);border-radius:2px;color:#4a4a57;}
+.psf-list{margin-top:16px;border-top:1px solid rgba(17,29,48,0.28);}
+.psf-row{display:grid;grid-template-columns:70px minmax(0,1fr) 180px 170px;gap:14px;padding:11px 4px;border-bottom:1px solid rgba(17,29,48,0.12);text-decoration:none;color:inherit;align-items:start;}
+.psf-row:hover{background:#f7f5f1;}
+@media(max-width:820px){.psf-row{grid-template-columns:60px minmax(0,1fr);}.psf-row .psf-c3,.psf-row .psf-c4{grid-column:2;}}
+.psf-yr{font-family:var(--font-mono);font-size:var(--fs-label);}
+.psf-t{font-weight:600;color:#111d30;}
+.psf-off{font-size:var(--fs-label);color:#5a5f6c;margin-top:2px;}
+.psf-c3{font-family:var(--font-mono);font-size:var(--fs-label);color:#3a3a4a;}
+.psf-empty{padding:24px 4px;color:#3a3a4a;}
+.psf-read{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;margin-bottom:40px;}
+@media(max-width:820px){.psf-read{grid-template-columns:1fr;}}
+.psf-panel{background:#f7f5f1;border:1px solid rgba(17,29,48,0.15);border-radius:3px;padding:16px 18px;}
+.psf-panel h4{font-family:var(--font-serif);font-size:var(--fs-body);margin:0 0 8px;color:#111d30;}
+.psf-panel dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 14px;font-size:var(--fs-label);}
+.psf-panel dt{font-family:var(--font-mono);color:var(--navy);font-weight:500;}
+.psf-panel dd{margin:0;color:#3a3a4a;}
+.psf-panel p{margin:0 0 8px;font-size:var(--fs-label);color:#3a3a4a;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -75,674 +132,66 @@
   <div class="page-hero-inner">
     
     <h1 class="page-title">Primary sources</h1>
-    <p class="page-desc">Original documents from Russian-occupied Ukraine, with machine translations where available.</p>
+    <p class="page-desc">Original documents from Russian-occupied Ukraine, with English translations, key provisions or summaries.</p>
   </div>
 </div>
 
 <div class="main-content">
   <div class="reading-panel ps-reading">
 
+<!-- psf:start -->
   <div class="section-label" id="documents">Document collections</div>
+  <p class="section-desc">Laws, decrees, orders, textbooks and records issued by Russia and its occupation authorities in Ukraine. Each has an English translation, key provisions in English, or an English summary.</p>
 
+  <h3 class="psf-h">Start with a question</h3>
+  <div class="psf-tiles" id="psf-tiles" role="group" aria-label="Research questions"></div>
 
-  <h3 class="ps-collection-title" id="theme-governance">Governance</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-    <a class="ps-card" href="primary-sources/rf-annexation-laws/doc-154.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-154</span></div>
-      <div class="ps-title">Federal Constitutional Law No. 5-FKZ on the Admission of the &quot;Donetsk People&#x27;s Republic&quot; to the Russian Federation, with Presidential Decree No. 705 Appointing its Acting Head (4 October 2022)</div>
-      <div class="ps-desc">The admission law for the &quot;DPR&quot;: citizenship by recognition (art. 5), presidential appointment of the acting Head (art. 8, exercised in Decree 705) and recognition of pre-annexation documents only (art. 12).</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal · Civilian Life</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
+  <h3 class="psf-h" id="find">Find a document</h3>
+  <div class="psf-finder" role="search" aria-label="Find a primary source">
+    <label for="psf-q" class="psf-lab">Search titles and summaries</label>
+    <input id="psf-q" class="psf-search" type="search" placeholder="For example: mobilisation, Mariupol, 423-FZ, textbook" autocomplete="off">
+    <div class="psf-filters">
+      <label>Territory<select id="psf-te"></select></label>
+      <label>Who issued it<select id="psf-iss"></select></label>
+      <label>Kind of document<select id="psf-kind"></select></label>
+      <label>English available<select id="psf-eng"></select></label>
+      <label>Theme<select id="psf-th"></select></label>
+      <label>Year<select id="psf-y"></select></label>
+    </div>
+    <div class="psf-chips" id="psf-chips"></div>
+    <div class="psf-bar">
+      <div class="psf-count" id="psf-count" aria-live="polite"></div>
+      <div class="psf-bar-r">
+        <label class="psf-count" for="psf-sort">Order <select id="psf-sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="az">A to Z</option></select></label>
+        <div class="psf-seg" role="group" aria-label="View"><button type="button" id="psf-vc" aria-pressed="true">Cards</button><button type="button" id="psf-vl" aria-pressed="false">List</button></div>
+        <button type="button" class="psf-link" id="psf-clear">Clear all</button>
+      </div>
+    </div>
+  </div>
+  <div id="psf-results"><noscript><p>The document list needs JavaScript. Every document is also listed in the <a href="research.html">research catalogue</a>.</p></noscript></div>
 
-    <a class="ps-card" href="primary-sources/rf-annexation-laws/doc-155.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-155</span></div>
-      <div class="ps-title">Federal Constitutional Law No. 8-FKZ on the Admission of Kherson Oblast to the Russian Federation (4 October 2022)</div>
-      <div class="ps-desc">The Kherson counterpart of Law 5-FKZ: admission of the whole oblast, citizenship by recognition, a Moscow-appointed acting governor and a transition regime to 2026.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-economic-integration/doc-158.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-158</span></div>
-      <div class="ps-title">Government Resolution No. 2559 on Measures to Ensure the Martial Law Regime and Special Procurement Rules for the Occupied Territories (31 December 2022)</div>
-      <div class="ps-desc">Single-supplier procurement without tender or publication for all state and municipal purchasing in the four occupied regions under martial law.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Economics · Accountability and Legal</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-103.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-103</span></div>
-      <div class="ps-title">Donetsk People's Republic: Constitution (Consolidated Text, March 2020)</div>
-      <div class="ps-desc">Constitutional foundation for the entire DPR legal order, adopted 2014 and revised through March 2020. Underpins every legislative act and executive decree in this collection.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-112.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-112</span></div>
-      <div class="ps-title">Treaty on the Accession of Kherson Oblast to the Russian Federation (30 September 2022)</div>
-      <div class="ps-desc">Annexation treaty purporting to incorporate Kherson Oblast into the Russian Federation. Not recognised by Ukraine, the UN General Assembly (143 to 5), the EU, or the US.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-113.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-113</span></div>
-      <div class="ps-title">RF Federal Constitutional Law: Ratification of the Treaty on the Accession of Kherson Oblast (4 October 2022)</div>
-      <div class="ps-desc">Ratification law making the Kherson annexation enter the Russian legal order. Article 3 declares Kherson's borders to be the state border of the Russian Federation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-114.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-114</span></div>
-      <div class="ps-title">RF Presidential Decree No. 708 — Appointment of Acting Governor of Kherson Oblast (4 October 2022)</div>
-      <div class="ps-desc">Decree appointing Vladimir Saldo as Acting Governor on the same day as the ratification law, integrating the occupation administration into the Russian federal executive hierarchy.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">Full AI translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-115.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-115</span></div>
-      <div class="ps-title">Zaporizhzhia Oblast (Occupied): Government Composition Amendment (2024)</div>
-      <div class="ps-desc">Government composition document showing the occupation administration restructured to mirror a standard Russian federal subject, operating from Melitopol while Zaporizhzhia city remains under Ukrainian control.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-123.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-123</span></div>
-      <div class="ps-title">Territorial Public Self-Government (TOS) Bodies in Mariupol (Decrees Nos. 1162–1166)</div>
-      <div class="ps-desc">Five decrees (18 June 2026) rolling out Russian-style "territorial public self-government" bodies across Mariupol districts — approving territory boundaries and registering a charter.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-125.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-125</span></div>
-      <div class="ps-title">Officials Authorised to Draw Up Administrative-Offence Protocols (Decree No. 1176)</div>
-      <div class="ps-desc">Restates the list of Mariupol officials empowered to issue administrative-offence protocols — including for "obstruction of the lawful activity of local self-government".</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-126.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-126</span></div>
-      <div class="ps-title">Municipal-Servants' Conduct and Conflict-of-Interest Commission (Decree No. 1177)</div>
-      <div class="ps-desc">Approves the regulation and membership of the commission on municipal servants' official conduct and conflicts of interest, modelled on the Russian federal template.</div>
-      <div class="ps-card-footer"><span class="ps-label">Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
+  <h3 class="psf-h">How to read these documents</h3>
+  <div class="psf-read">
+    <div class="psf-panel">
+      <h4>Russian act types</h4>
+      <dl>
+        <dt>FKZ</dt><dd>Federal constitutional law. Used to admit territory to the Russian Federation.</dd>
+        <dt>FZ</dt><dd>Federal law, passed by the Duma and signed by the President.</dd>
+        <dt>Ukaz</dt><dd>Presidential decree.</dd>
+        <dt>Postanovlenie</dt><dd>Government resolution, or a decree of a regional or city administration.</dd>
+        <dt>Rasporyazhenie</dt><dd>Order of a government or administration, usually on a single matter.</dd>
+        <dt>Prikaz</dt><dd>Ministry or agency order.</dd>
+        <dt>Pismo</dt><dd>Ministry letter: guidance sent to regions or schools.</dd>
+      </dl>
+    </div>
+    <div class="psf-panel">
+      <h4>Names and translations</h4>
+      <p>Occupation bodies are listed under the names they use for themselves, such as the "DPR" or the "Ministry of Education of Zaporizhzhia Oblast". That describes the source. It does not recognise it.</p>
+      <p><strong>Full translation</strong>: the whole text is in English. <strong>Key provisions</strong>: the operative parts are translated and the rest summarised. <strong>English summary</strong>: the document is in Russian with an English description. <strong>AI-assisted</strong>: a machine translation checked by the team; the Russian original is the authoritative text.</p>
+    </div>
   </div>
 
-
-  <h3 class="ps-collection-title" id="theme-economics">Economics</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-    <a class="ps-card" href="primary-sources/rf-economic-integration/doc-156.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-156</span></div>
-      <div class="ps-title">Government Resolution No. 2565: Rules for Subsidising Mortgages Issued to Citizens of the Russian Federation for Housing in the Occupied Territories, the &quot;2 Per Cent Mortgage&quot; (31 December 2022)</div>
-      <div class="ps-desc">The &quot;2 per cent mortgage&quot; for the occupied regions: federal subsidies through DOM.RF for housing loans available only to citizens of the Russian Federation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Civilian Life</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-economic-integration/doc-157.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-157</span></div>
-      <div class="ps-title">Federal Laws No. 266-FZ on the Free Economic Zone in the Occupied Territories and No. 268-FZ Amending the Tax Code for its Participants (24 June 2023)</div>
-      <div class="ps-desc">The free economic zone covering all four occupied regions, with tax and customs preferences for businesses that register under Russian law.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-095.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-095</span></div>
-      <div class="ps-title">Official Market Valuation of Residential Property in Mariupol, 2026</div>
-      <div class="ps-desc">Decree setting the official average market price per square metre of residential property in Russian-occupied Mariupol for 2026: 146,212 rubles (primary market) and 80,695 rubles (secondary market).</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Civilian Life</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-096.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-096</span></div>
-      <div class="ps-title">Auction Decree: Municipal Property Lease, Lenin Prospekt &amp; Metallurgov Prospekt, Mariupol</div>
-      <div class="ps-desc">Decree authorising the electronic auction of two non-residential municipal properties on five-year leases under Russian federal competition law.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-097.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-097</span></div>
-      <div class="ps-title">Subsidy Amendment: MUP Mariupolzhilkompleks Wage Arrears, January–February 2026</div>
-      <div class="ps-desc">Decree amending a subsidy scheme to cover wage debt owed to employees of the municipal housing utility enterprise MUP "Mariupolzhilkompleks" for January–February 2026.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-098.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-098</span></div>
-      <div class="ps-title">Auction Decree: Municipal Property Lease, Stroiteley Prospekt &amp; Lenin Prospekt, Mariupol</div>
-      <div class="ps-desc">Decree authorising the electronic auction of two further non-residential municipal properties on five-year leases under Russian federal competition law.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-100.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-100</span></div>
-      <div class="ps-title">Full Auction Documentation: Municipal Property Leases, Mariupol (April–May 2026)</div>
-      <div class="ps-desc">Complete auction documentation package for the electronic tender of two Mariupol municipal properties via the Russian federal RTS-Tender platform. Application window 15 April–5 May 2026; auction date 7 May 2026.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-127.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-127</span></div>
-      <div class="ps-title">Investor Inquiries and Investment-Project Support Regulations (Decree No. 1178)</div>
-      <div class="ps-desc">Approves regulations for receiving investor inquiries and "accompanying" investment projects in Mariupol, modelled on Russia's Regional Investment Standard.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-129.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-129</span></div>
-      <div class="ps-title">Small and Medium Enterprise Development Programme 2026–2028 (Decree No. 1180)</div>
-      <div class="ps-desc">Approves the SME programme: 10,744 SMEs as of Jan 2026 (up 21%, attributed partly to the "free economic zone"), targeting 8,865 registered SMEs by 2028.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-130.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-130</span></div>
-      <div class="ps-title">Liquidation of the Municipal Housing Enterprise "Mariupolzhilkompleks" (Decree No. 1181)</div>
-      <div class="ps-desc">Orders the municipal housing-maintenance enterprise "Mariupolzhilkompleks" wound up within a year and appoints a liquidator — months after the administration subsidised its wage arrears (DOC-097).</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Governance</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/azovstal-post-industrial-park.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-139</span></div>
-      <div class="ps-title">Post-Industrial Park: Development Project for the Azovstal Plant Territory, Mariupol</div>
-      <div class="ps-desc">A 2024 Agency for the Development of Mariupol project to convert the former Azovstal steelworks into a 125-hectare industrial-tourism park billed as the principal industrial monument-museum of Russia.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-reconstruction/residence-collection-house-mariupol.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-140</span></div>
-      <div class="ps-title">"Residence" Collection House: Elite Housing Sales Brochure, Mariupol (YugStroyInvest)</div>
-      <div class="ps-desc">A private developer's marketing brochure for a premium residential complex on occupied Mariupol's Primorsky seafront. It sells the city as a future Russian resort "alongside Sochi, Kislovodsk and Gelendzhik," invites buyers to open a business "in the new territories of the RF among the first" under free-economic-zone tax breaks, and quotes Deputy Prime Minister Marat Khusnullin calling the "new regions" Russia's biggest construction project.</div>
-      <div class="ps-card-footer"><span class="ps-label">Economics · Identity, Culture and Religion</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-  </div>
-
-
-  <h3 class="ps-collection-title" id="theme-education-and-militarisation">Education and Militarisation</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-180.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-180</span></div>
-      <div class="ps-title">Decree of the Acting Head of the &quot;Donetsk People&#x27;s Republic&quot; No. 54 on the Commissions for the Initial Military Registration of Citizens in 2023 (18 February 2023): Boys Born in 2006 Registered through Schools</div>
-      <div class="ps-desc">Pushilin&#x27;s decree setting up 23 commissions to put boys born in 2006 on the Russian military register across occupied Donetsk Oblast, Mariupol included, with medical examinations organised at their schools.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">Decree in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/lnr-legal-acts/doc-178.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-178</span></div>
-      <div class="ps-title">Luhansk Oblast (Occupied): Ministry of Education and Science Order &quot;On Conducting All-Russian Verification Tests in General Education Organisations of the Luhansk People&#x27;s Republic in 2025&quot;, with the Testing Procedure and List of Municipal Coordinators</div>
-      <div class="ps-desc">The occupation education ministry puts every school in occupied Luhansk Oblast through Russia&#x27;s federal knowledge tests (VPR), run through Rosobrnadzor&#x27;s online system, with independent observers and 23 municipal coordinators.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-179.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-179</span></div>
-      <div class="ps-title">Zaporizhzhia Oblast (Occupied): Ministry of Education Order No. 23 &quot;On the Protection of Information&quot;, Banning Staff from Using Ukrainian Mobile Numbers (27 October 2022)</div>
-      <div class="ps-desc">Eight days after Russia&#x27;s martial-law decree, the occupation education ministry in Melitopol bans its staff from using Ukrainian mobile numbers, or messengers registered to them, for work.</div>
-      <div class="ps-card-footer"><span class="ps-label">Information Space · Education and Militarisation · Governance</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-174.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-174</span></div>
-      <div class="ps-title">"Historical Enlightenment" in Schools: the Ministry of Education's Concept (approved 15 April 2026), Guidance for the 2026–2027 School Year, and Letter No. OK-1984/03 on Extracurricular Activities (9 July 2026)</div>
-      <div class="ps-desc">The new federal system of school "historical enlightenment": SVO veterans in schools, an openly "ideological" function, vetting of online history, a points rating for every school, and basic military training in Years 8 and 10.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-175.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-175</span></div>
-      <div class="ps-title">Ministry of Education Letter No. OK-1799/03 of 22 June 2026 Sending Reading Lists to Schools, with a List of "Patriotic" Works by Contemporary Writers Including the Section «Zа наших» ("For Our Guys")</div>
-      <div class="ps-desc">Reading lists for every school library: a "patriotic" list that ends, for teenagers, with a section headed in the war's Latin "Z", «Zа наших», of books on Donbas and the SVO, and no Ukrainian author in any list.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/doc-173.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-173</span></div>
-      <div class="ps-title">"History of Our Region" for Crimea: The Programme of the Compulsory Regional History Course for Years 5 to 7 in Occupied Crimea (Simferopol, 2025)</div>
-      <div class="ps-desc">The occupation authorities' programme for the compulsory regional history course in Crimean schools: the 1954 transfer called illegitimate, 1991 to 2014 left out, the 1944 deportation in one undated line, and a project lesson on "Crimeans, heroes of the SVO".</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key passages in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/doc-171.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-171</span></div>
-      <div class="ps-title">"Donbass and Novorossiya: History of Our Region": The Regional History Textbooks for Years 5 and 6 to 7 in Occupation Schools (Moscow, 2026)</div>
-      <div class="ps-desc">The full Russian textbooks of the regional history course written for schools in the occupied territories, 249 and 281 pages, with an English table of key passages.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key passages in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/counter-extremism/doc-165.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-165</span></div>
-      <div class="ps-title">Rosmolodezh Methodological Recommendations on Preventing the Spread of the Ideology of Terrorism, Extremism and Neo-Nazism among Young People from the Occupied Territories (28 February 2025)</div>
-      <div class="ps-desc">The federal youth agency&#x27;s manual for the occupied regions: Ukrainian nationalism as &quot;the historical basis&quot; of extremism, and the FSB, Rosgvardia, police and prison service as partners in youth work.</div>
-      <div class="ps-card-footer"><span class="ps-label">Information Space · Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/security-services-2026/doc-132.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-132</span></div>
-      <div class="ps-title">Russian National Guard (Rosgvardia) Security Services at a Kindergarten, Telmanovsky District</div>
-      <div class="ps-desc">A redacted contract addendum showing the Russian National Guard (Rosgvardia) contracted to service the security systems of the "Katyusha" kindergarten in occupied Telmanovsky district.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation (redacted)</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-167.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-167</span></div>
-      <div class="ps-title">Ministry of Education Order No. 370: Federal Educational Programme for Basic General Education, Section 166, the Federal Work Programme of Upbringing (18 May 2023)</div>
-      <div class="ps-desc">The federal upbringing programme every school must follow: patriotism and &quot;respect for the memory of the defenders of the Fatherland&quot; as aims, military-patriotic courses among extracurricular activities. Extract of section 166 from the 5,683-page act.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-161.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-161</span></div>
-      <div class="ps-title">Presidential Decree No. 809 on Traditional Russian Spiritual and Moral Values (9 November 2022) and Ministry of Education Order No. 808 Introducing the Compulsory Course &quot;Spiritual and Moral Culture of Russia&quot; (10 November 2025)</div>
-      <div class="ps-desc">The values decree of 2022 and the 2025 order that turns it into a compulsory school subject from September 2026, with &quot;heroes of the special military operation&quot; as exemplars.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-162.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-162</span></div>
-      <div class="ps-title">The Federal Textbook List and Federal Literature List: Ministry of Education Orders No. 436 (22 June 2026), No. 495 (26 June 2025), No. 769 (5 November 2024) and No. 258 (1 April 2025), with the List of Literary Works in the Federal Programmes</div>
-      <div class="ps-desc">The lists that define what occupation schools may teach: native-language textbooks for Bashkir, Tatar and Adyghe, none for Ukrainian, and a federal literature canon with no Ukrainian work.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-163.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-163</span></div>
-      <div class="ps-title">Ministry of Education Order No. 171 Amending the School Admission Procedure: Russian-Language Testing and Status Checks for Children Who Are Foreign Citizens (4 March 2025)</div>
-      <div class="ps-desc">School admission conditioned on legal status and a Russian-language test for children who are foreign citizens, which in the occupied territories includes families that refused Russian passports.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Civilian Life</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-099.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-099</span></div>
-      <div class="ps-title">"Development of Education in Mariupol" Municipal Programme, 2026–2028</div>
-      <div class="ps-desc">Full text of the occupation administration's three-year education programme. Total budget RUB 8.76 billion. Objectives explicitly include "patriotic upbringing" and "formation of traditional Russian spiritual-moral values."</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Identity, Culture and Religion</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-104.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-104</span></div>
-      <div class="ps-title">Donetsk People's Republic: Law on Education (Consolidated Text, December 2021)</div>
-      <div class="ps-desc">DPR education law modelled on Russian Federal Law No. 273-FZ, replacing the Ukrainian curriculum with Russian federal standards and mandating Russian-language instruction.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-105.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-105</span></div>
-      <div class="ps-title">Donetsk People's Republic: Law on Military Duty and Military Service (Law No. 08-INs, Consolidated March 2020)</div>
-      <div class="ps-desc">Foundational DPR conscription statute defining who must serve, grounds for exemption (Article 23, amended by DOC-107), and obligations during mobilisation. Direct statutory basis for DOC-108.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-106.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-106</span></div>
-      <div class="ps-title">Donetsk People's Republic: Law on Mobilisation Preparation and Mobilisation (Law No. 10-INs, 22 September 2021)</div>
-      <div class="ps-desc">Governs the full cycle of DPR mobilisation planning. Adopted five months before the general mobilisation decree; the direct statutory basis for Decree No. 29 (DOC-108).</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-107.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-107</span></div>
-      <div class="ps-title">Donetsk People's Republic: Law No. 376-IINs — Amendment to Article 23, Law on Military Duty</div>
-      <div class="ps-desc">Amendment narrowing conscription exemption grounds in the period before the February 2022 general mobilisation. Part of the stepwise pre-invasion tightening of the DPR military duty framework.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-108.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-108</span></div>
-      <div class="ps-title">Decree of the Head of the DPR No. 29 — On the Conduct of General Mobilisation (19 February 2022)</div>
-      <div class="ps-desc">Signed by Denis Pushilin five days before Russia's full-scale invasion, declaring general mobilisation and ordering all conscription-age men to report to military commissariats.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">Full AI translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/ko-zo-legal-acts/doc-116.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-116</span></div>
-      <div class="ps-title">Zaporizhzhia Oblast (Occupied): Regulations on the Organisation and Activity of the Ministry of Education</div>
-      <div class="ps-desc">Regulations establishing the ZO Ministry of Education under the Russian federal framework: the institutional and legal basis for replacing Ukrainian-language schooling with Russian federal curriculum standards.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/lnr-legal-acts/doc-117.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-117</span></div>
-      <div class="ps-title">Luhansk People's Republic: Law Amending Article 53 of the Law on Military Duty and Military Service</div>
-      <div class="ps-desc">LPR counterpart to the DPR conscription amendment (DOC-107): exemption grounds narrowed in the same pre-invasion period, reflecting coordinated Russian oversight of both entities' legislation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/lnr-legal-acts/doc-118.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-118</span></div>
-      <div class="ps-title">Luhansk People's Republic: Decree on Restrictions on Departure of Citizens Subject to Military Duty During General Mobilisation</div>
-      <div class="ps-desc">Travel ban preventing conscription-age men from leaving LPR-controlled territory without military commissariat permission. The enforcement corollary of the February 2022 general mobilisation declaration.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/lnr-legal-acts/doc-119.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-119</span></div>
-      <div class="ps-title">Presidential Instructions: Expansion of the Defenders of the Fatherland Foundation to Occupied Ukrainian Oblasts (2025)</div>
-      <div class="ps-desc">Kremlin instructions extending the veterans' welfare and ideological foundation to the four occupied oblasts, running patriotic school programmes and normalising military service across occupied territory.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/lnr-legal-acts/doc-120.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-120</span></div>
-      <div class="ps-title">Luhansk Oblast (Occupied): Conscription Decree No. UG-341/25 — Spring 2025 Call-Up (28 March 2025)</div>
-      <div class="ps-desc">Spring 2025 call-up targeting citizens born 1995 to 2007. The youngest cohort (born 2007, aged 17–18) are the first generation schooled entirely under the Russian occupation curriculum.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance · Accountability and Legal</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mobilisation-martial-law/doc-121.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-121</span></div>
-      <div class="ps-title">RF Federal Law No. 423-FZ — Mandatory Military Training in Schools (4 August 2023)</div>
-      <div class="ps-desc">Introduces Foundations of Security and Defence of the Motherland (weapons handling, drone operation, combat first aid) as a mandatory school subject from September 2024. Applies in occupied territories via formal annexation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-128.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-128</span></div>
-      <div class="ps-title">Youth Policy Programme Amendment: Youth Centre and Ideological Content (Decree No. 1179)</div>
-      <div class="ps-desc">Amends the 2026–2028 youth-policy programme: a Rosmolodezh-aligned "Youth Centre", a 75%-by-2028 enrolment target, and "creation and dissemination of anti-terrorist content".</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/connection-between-generations.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-133</span></div>
-      <div class="ps-title">A Connection Between Generations: Movement of the First Youth Project, Kherson Oblast</div>
-      <div class="ps-desc">A Rosmolodezh-funded book by the Kherson Oblast branch of Russia's state youth movement, Movement of the First, tying Second World War memory to the narrative of the war on Ukraine.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original · redacted</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/calendar-of-the-first-sep2025.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-135</span></div>
-      <div class="ps-title">Calendar of the First: Movement of the First Monthly Activity Programme (September 2025)</div>
-      <div class="ps-desc">The September 2025 activity calendar of Russia's state children and youth movement, Movement of the First, setting monthly tasks for children from kindergarten age upward.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/magazine-of-the-first-issue-2.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-136</span></div>
-      <div class="ps-title">Magazine of the First, Issue 2: Movement of the First, Kherson Oblast</div>
-      <div class="ps-desc">The second issue of the Kherson Oblast branch magazine of Russia's state youth movement, distributed free in schools and youth centres, themed on Victory Day and the 'Year of the Defender'.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original · redacted</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/magazine-of-the-first-issue-3.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-137</span></div>
-      <div class="ps-title">Magazine of the First, Issue 3: Movement of the First, Kherson Oblast</div>
-      <div class="ps-desc">The third issue of the Kherson Oblast branch magazine of Russia's state youth movement, recording its activity from April to July 2025.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original · redacted</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/my-countrymen-heroes-soviet-union.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-138</span></div>
-      <div class="ps-title">My Countrymen, Heroes of the Soviet Union: LNR Ministry of Education Reference Book</div>
-      <div class="ps-desc">A reference book approved for schools of the self-proclaimed Luhansk People's Republic, containing 315 biographies of Heroes of the Soviet Union from the Luhansk region.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_reading_list_youth_library.xlsx">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-1</span></div>
-      <div class="ps-title">Youth Library Recommended Reading List</div>
-      <div class="ps-desc">Official reading list issued by a Russian state youth library, specifying titles recommended for young people in occupied territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_reading_list_rgdb.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-2</span></div>
-      <div class="ps-title">Russian State Children's Library (RGDB) Recommended Reading List</div>
-      <div class="ps-desc">Recommended reading list issued by the federal Russian State Children's Library for children in Russian-controlled territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_reading_list_minpros.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-3</span></div>
-      <div class="ps-title">Ministry of Education Recommended Reading List</div>
-      <div class="ps-desc">Recommended reading list issued by the Russian Ministry of Education for schools in occupied territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_god_semi.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-4</span></div>
-      <div class="ps-title">Year of the Family: Methodological Guide</div>
-      <div class="ps-desc">Operational guide for running Year of the Family programme activities, a federally designated ideological campaign, in educational and community settings.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_oovo_2025.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-5</span></div>
-      <div class="ps-title">OOVO Higher Education Competition: Methodological Recommendations 2025</div>
-      <div class="ps-desc">Methodological recommendations for higher education institutions participating in the 2025 OOVO competition, a state-sanctioned patriotic activity programme for universities.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_rosmolodezh.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-6</span></div>
-      <div class="ps-title">Rosmolodezh: Preventing Extremism, Terrorism, and Neo-Nazism Among Youth (DPR, LPR, Zaporizhzhia, Kherson)</div>
-      <div class="ps-desc">Federal guidance document specifically targeting occupied-territory youth populations, framing pro-Ukrainian sentiment under the criminalised categories of 'extremism, terrorism, and neo-Nazism'.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_student_work.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-7</span></div>
-      <div class="ps-title">Organising Student Work: Methodological Materials</div>
-      <div class="ps-desc">Methodological materials for organising student activities within Russian administrative and ideological frameworks in higher education settings in occupied territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_ukrainian_crimes.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-8</span></div>
-      <div class="ps-title">Ukrainian Crimes (2022&#8211;2023)</div>
-      <div class="ps-desc">A compilation of alleged Ukrainian conduct distributed in educational and administrative settings, an instrument of anti-Ukrainian narrative construction produced for use across occupied territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation &middot; Information Space</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_tsipso.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-9</span></div>
-      <div class="ps-title">Methods of TsIPsO (ed. 11.01.2024)</div>
-      <div class="ps-desc">Russian state manual framing Ukrainian information and psychological operations as threats, distributed as a guide for occupation-era educators and administrators to identify and counter pro-Ukrainian messaging.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation &middot; Information Space</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="data/manuals_mgimo.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-D4-10</span></div>
-      <div class="ps-title">Ukraine: History, Culture, and the Russian World &#8211; MGIMO Monograph (English-language)</div>
-      <div class="ps-desc">An English-language academic monograph by MGIMO authors constructing a historical and cultural narrative hostile to Ukrainian sovereignty, evidence of systematic narrative production for international academic audiences.</div>
-      <div class="ps-card-footer"><span class="ps-label">Education and Militarisation &middot; Information Space</span><span class="ps-translation">English original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-  </div>
-
-
-  <h3 class="ps-collection-title" id="theme-identity-culture-and-religion">Identity, Culture and Religion</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-    <a class="ps-card" href="primary-sources/occupied-museums/doc-183.html">
-      <div class="ps-card-top"><span class="ps-tag">Collection · 180 acts</span><span class="ps-id">DOC-183</span></div>
-      <div class="ps-title">Official Acts on the Museums of Occupied Ukraine, 2014 to 2026 (compiled by CURIA Lab, University of Virginia)</div>
-      <div class="ps-desc">178 federal and occupation-authority acts that took Ukrainian state property, set up occupation culture ministries and brought the museums of Crimea, Donetsk, Luhansk, Zaporizhzhia and Kherson regions into Russia's Museum Fund. Searchable by title, number, issuer, topic and year.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">English titles · Russian texts</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/nationalities-policy/doc-133.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-133</span></div>
-      <div class="ps-title">State National Policy Strategy of the Russian Federation to 2036 (Presidential Decree No. 858, 25 November 2025)</div>
-      <div class="ps-desc">Russia's master doctrine on ethnic, linguistic and religious policy, in force 1 January 2026. Makes counter-extremism a headline priority and ties it directly to the four occupied Ukrainian regions &mdash; imposing Russian, "countering falsification of history," and setting a target of 2.56 million occupied-region residents in all-Russian events by 2036.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Information Space</span><span class="ps-translation">Key provisions (English)</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-education-policy/doc-164.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-164</span></div>
-      <div class="ps-title">Presidential Decree No. 474 Approving the Foundations of State Language Policy of the Russian Federation (11 July 2025)</div>
-      <div class="ps-desc">The state language doctrine: Russian mandatory in administration, courts, schools and media, with protection reserved for the languages of the peoples of Russia, a category that excludes Ukrainian.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/identity-culture/doc-166.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-166</span></div>
-      <div class="ps-title">Regulation on the VIII International Contest of the Multi-Genre Culture of Peoples &quot;Palette of Cultures&quot;, 2026 to 2027 School Year (Fund for the Support of Native Languages &quot;Language of the Ancestors&quot;, approved 3 September 2026)</div>
-      <div class="ps-desc">The rules of a national &quot;native languages&quot; contest for which children in occupied Mariupol were reportedly entered; the 2026 form does list Ukrainian, so the document corrects an earlier claim of exclusion.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Education and Militarisation</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-
-    <a class="ps-card" href="primary-sources/citizenship/doc-109.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-109</span></div>
-      <div class="ps-title">RF Presidential Decree No. 304 (25 May 2022) — Simplified Citizenship Extended to Kherson and Occupied Zaporizhzhia</div>
-      <div class="ps-desc">Step 5 of 10 in the passportisation sequence: simplified citizenship extended to Kherson and Zaporizhzhia residents three months after military seizure and five months before formal annexation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/citizenship/doc-110.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-110</span></div>
-      <div class="ps-title">RF Regulatory Reference: Admission to Citizenship in Simplified Procedure for Foreign Nationals and Stateless Persons</div>
-      <div class="ps-desc">Procedural framework through which passportisation applications were processed, including the three-month processing timeline and biometric data requirements for applicants from occupied territories.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/citizenship/doc-111.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-111</span></div>
-      <div class="ps-title">RF Regulatory Reference: Admission to Citizenship for Residents of Transnistria (Transnistrian Moldovan Republic)</div>
-      <div class="ps-desc">Russia's Transnistrian passportisation model (operational since the early 2000s): the earliest instance of the policy, used here as a comparator for the Ukraine passportisation sequence.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-131.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-131</span></div>
-      <div class="ps-title">Commission on Naming and Renaming Streets and Planning Elements (Decree No. 821)</div>
-      <div class="ps-desc">Amends (22 April 2026) the commission that assigns and changes the names of Mariupol's streets and planning-structure elements — the administrative machinery of toponymic control.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion · Governance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/education-and-memory/pereyaslav-rada-lecture-2026.pdf">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-134</span></div>
-      <div class="ps-title">Lecture Marking the 372nd Anniversary of the Pereyaslav Rada, Zaporizhzhia Oblast Legislative Assembly</div>
-      <div class="ps-desc">A record of an occupation-legislature lecture recasting the 1654 Pereyaslav Rada as the reunification of Ukraine with Russia.</div>
-      <div class="ps-card-footer"><span class="ps-label">Identity, Culture and Religion</span><span class="ps-translation">Russian original</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-  </div>
-
-
-  <h3 class="ps-collection-title" id="theme-civilian-life">Civilian Life and Resistance</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-    <a class="ps-card" href="primary-sources/dnr-legal-acts/doc-177.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-177</span></div>
-      <div class="ps-title">Compensation for Homes Lost or Damaged in the War, &quot;Donetsk People&#x27;s Republic&quot;: Government Resolution No. 61-1 (7 August 2023) and Amending Resolution No. 38-7 (11 April 2024)</div>
-      <div class="ps-desc">The occupation scheme for paying people whose homes were destroyed or damaged in the fighting: open only to Russian citizens, closed to anyone who served the Ukrainian state after May 2014, and financed from the federal budget.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Accountability and Legal · Economics</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-176.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-176</span></div>
-      <div class="ps-title">Lists of Property with &quot;Signs of Ownerless Property&quot;, Mariupol: Annexes to Orders Nos. 243, 244 and 245 of 19 August 2026 (345 Flats, 10 Houses, 89 Non-Residential Buildings)</div>
-      <div class="ps-desc">Three Mariupol lists of homes and buildings declared to show &quot;signs of ownerless property&quot;, the first step to taking them into municipal ownership: 345 flats in eleven blocks, ten houses and 89 non-residential buildings, with every address and cadastral number.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Accountability and Legal · Economics</span><span class="ps-translation">Contents in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/zemsky-programmes/doc-153.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-153</span></div>
-      <div class="ps-title">Zemsky Relocation Programmes: Government Resolutions Extending &quot;Zemsky Teacher&quot;, &quot;Zemsky Doctor&quot;, &quot;Zemsky Culture Worker&quot; and &quot;Zemsky Coach&quot; to the Occupied Territories (2019 to 2025)</div>
-      <div class="ps-desc">Six government resolutions establishing the Zemsky Teacher, Doctor, Culture Worker and Coach programmes and doubling the relocation payment to two million roubles for the four occupied regions, against a five-year service bond.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Economics · Education and Militarisation</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-economic-integration/doc-159.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-159</span></div>
-      <div class="ps-title">Federal Law No. 17-FZ on the Specifics of Pension and Additional Social Provision for Citizens Living in the Occupied Territories (17 February 2023)</div>
-      <div class="ps-desc">Russian pensions and social payments for residents of the occupied regions, available to citizens of the Russian Federation: the fiscal counterpart of passportisation.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Governance</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-property-regime/doc-160.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-160</span></div>
-      <div class="ps-title">&quot;Ownerless&quot; Housing: Federal Constitutional Law No. 4-FKZ (15 December 2025) and Law of the &quot;Donetsk People&#x27;s Republic&quot; No. 66-RZ (21 March 2024) on Identifying and Taking Dwellings with Signs of Ownerless Property into Public Ownership</div>
-      <div class="ps-desc">The dispossession regime: the DPR law defining &quot;signs of ownerless property&quot; (2024) and the federal law vesting such homes in the occupation authorities for reallocation (2025).</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Accountability and Legal · Economics</span><span class="ps-translation">Key provisions in English</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-
-    <a class="ps-card" href="dashboards/obzor_dnr.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-G1</span></div>
-      <div class="ps-title">DPR Ombudswoman: Social-Humanitarian Situation Reports</div>
-      <div class="ps-desc">Five socio-humanitarian situation reports by the Ombudswoman of the self-proclaimed Donetsk People's Republic, presented as a searchable dashboard. Read critically: their value lies in the grievances the occupation administration considered permissible to record, not as independent accounts of conditions in occupied Donetsk.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Governance</span><span class="ps-translation">Dashboard · Russian originals</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-101.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-101</span></div>
-      <div class="ps-title">Official Sports Facility Tariffs: Municipal Sports Complex "Lider," Mariupol, 2026</div>
-      <div class="ps-desc">Decree approving ruble-denominated tariffs for paid services at the occupation administration's municipal sports complex operating across two former Mariupol stadiums.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Economics</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-102.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-102</span></div>
-      <div class="ps-title">Housing Repair Programme Amendment: War-Damaged Residential Properties, Mariupol</div>
-      <div class="ps-desc">Decree amending a co-financed programme for capital repair of 21 apartments damaged in what the occupation administration terms "military actions," requiring residents to co-finance their own war damage repairs.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance · Accountability and Legal</span><span class="ps-translation">Machine translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/mariupol-admin-2026/doc-124.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-124</span></div>
-      <div class="ps-title">War-Damaged Housing Repair Programme: Eligibility Commission (Decree No. 1175)</div>
-      <div class="ps-desc">Amends the resident-co-financed war-damage repair programme (see DOC-102), creating a commission to decide which damaged homes qualify for repair.</div>
-      <div class="ps-card-footer"><span class="ps-label">Civilian Life and Resistance</span><span class="ps-translation">AI translation available</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-  </div>
-
-
-  <h3 class="ps-collection-title" id="theme-coercion-entrapment-and-slavery">Coercion, Entrapment and Slavery</h3>
-  <div class="ps-grid" style="margin-bottom:40px;">
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-134.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-134</span></div>
-      <div class="ps-title">Russian Criminal Code Article 275 &mdash; High Treason</div>
-      <div class="ps-desc">Criminalises high treason by a citizen of the Russian Federation &mdash; espionage, handing over state secrets, "going over to the enemy's side," or providing assistance to a foreign state against Russian security. 12&ndash;20 years or life. The pivotal charge once passportisation is factored in: taking a Russian passport is what makes contact with Ukraine chargeable as treason.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-135.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-135</span></div>
-      <div class="ps-title">Russian Criminal Code Article 275.1 &mdash; Confidential Cooperation with a Foreign State or Organisation</div>
-      <div class="ps-desc">The catch-all (added July 2022). Criminalises merely "establishing and maintaining" a confidential relationship with a foreign state or organisation to assist activity against Russian security &mdash; no transfer of secrets required. Reaches both Russian citizens and non-citizens, closing the gaps left by Articles 275, 276 and 276.1. 3&ndash;8 years.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-136.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-136</span></div>
-      <div class="ps-title">Russian Criminal Code Article 276 &mdash; Espionage</div>
-      <div class="ps-desc">Espionage by a foreign citizen or stateless person. A 2022 amendment added the transfer or gathering, in armed conflict, of information usable against the Russian Armed Forces &mdash; covering the passing of coordinates or troop positions to Ukraine. The non-citizen counterpart to treason: passport status changes the article, not the exposure. 10&ndash;20 years.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-137.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-137</span></div>
-      <div class="ps-title">Russian Criminal Code Article 276.1 &mdash; Providing Assistance to the Enemy</div>
-      <div class="ps-desc">The newest addition (December 2024) and cleanest "aiding the enemy" offence: financial, material, consultative or "other" assistance to the enemy by a non-citizen, with no transfer of information required. Completes the non-citizen half of the scheme and marks how the collaboration net tightened in late 2024. 10&ndash;15 years.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-138.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-138</span></div>
-      <div class="ps-title">Russian Criminal Code Article 280.4 &mdash; Public Calls to Activity Directed Against State Security</div>
-      <div class="ps-desc">A speech offence (introduced 2023). Criminalises public calls against Russian security or to obstruct the authorities &mdash; reaching pro-Ukrainian statements, calls for liberation and encouragement of resistance, especially online. Sits above the administrative discrediting charge as the criminal escalation. Fine or 2&ndash;4 years, up to 6&ndash;7 for organised forms.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-139.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-139</span></div>
-      <div class="ps-title">Russian Code of Administrative Offences Article 20.3 &mdash; Public Display of Banned Symbols</div>
-      <div class="ps-desc">The everyday tool for policing Ukrainian identity. Penalises display of "banned" symbols; the phrase "or other symbols whose display is banned by federal law" sweeps in the Azov, UPA and Right Sector emblems &mdash; and in practice the Ukrainian trident and flag. Fine with confiscation or up to 15 days' arrest; routinely stacked with CoAP 20.3.3.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-    <a class="ps-card" href="primary-sources/rf-security-law/doc-140.html">
-      <div class="ps-card-top"><span class="ps-tag">Primary Source</span><span class="ps-id">DOC-140</span></div>
-      <div class="ps-title">Russian Code of Administrative Offences Article 20.3.3 &mdash; Discrediting the Use of the Russian Armed Forces</div>
-      <div class="ps-desc">The workhorse administrative charge for dissent (introduced March 2022). Captures any public criticism of the war, support for Ukraine or objection to mobilisation. A first offence is administrative; a repeat within a year escalates to Criminal Code Art. 280.3. Court practice already runs in occupied Crimea.</div>
-      <div class="ps-card-footer"><span class="ps-label">Coercion, Entrapment and Slavery · Accountability and Legal</span><span class="ps-translation">Full English translation</span><span class="ps-arrow">&#8594;</span></div>
-    </a>
-
-  </div>
-
+<!-- psf:end -->
 
     <div class="section-label" id="galleries">Image galleries</div>
   <p class="section-desc">Photo galleries and image carousels of primary-source imagery.</p>
@@ -836,6 +285,78 @@
 
 <div id="site-footer"></div>
 
+<!-- psf:script -->
+<script src="data/primary-sources.js?v=1"></script>
+<script>
+(function(){
+var DATA=(window.TOT_PRIMARY_SOURCES||[]).slice();
+var TE={rf:'Russia-wide',four:'All four regions annexed in 2022',cri:'Crimea and Sevastopol',don:'Donetsk region',mar:'Mariupol (city)',lug:'Luhansk region',zap:'Zaporizhzhia region',khe:'Kherson region'};
+var TES={rf:'Russia-wide',four:'Four regions',cri:'Crimea',don:'Donetsk',mar:'Mariupol',lug:'Luhansk',zap:'Zaporizhzhia',khe:'Kherson'};
+var ISS={fed:'Kremlin and federal bodies',occ:'Occupation authorities',muni:'Mariupol city administration',non:'Movements, firms and others'};
+var ISSS={fed:'Federal',occ:'Occupation authority',muni:'City administration',non:'Non-state'};
+var KIND={law:'Laws, codes and treaties',decree:'Decrees and resolutions',order:'Ministry orders and letters',teach:'Teaching and youth materials',record:'Records, reports and plans'};
+var ENG={full:'Full translation',key:'Key provisions',sum:'English summary'};
+var TILES=[
+ ['annex','How was annexation written into law?','Treaties, admission laws, citizenship and the economic rules that followed'],
+ ['children','What are children taught, and by whom?','Textbooks, school orders, reading lists and youth movements'],
+ ['property','How is property taken and redistributed?','"Ownerless" lists, auctions, compensation and housing'],
+ ['military','How are men and boys mobilised?','Conscription laws, call-ups, travel bans and school military training'],
+ ['dissent','How is dissent criminalised?','Treason, "discrediting" the army, banned symbols and extremism manuals'],
+ ['identity','How are identity and memory rewritten?','Language and nationalities policy, history courses, museums and street names']];
+DATA.forEach(function(x,i){x._i=i;x._h=(x.short+' '+x.title+' '+x.desc+' '+x.id+' '+x.territory.map(function(k){return TE[k];}).join(' ')).toLowerCase();});
+var KEYS=['q','tp','te','iss','kind','eng','th','y','sort'];
+var st={q:'',tp:'',te:'',iss:'',kind:'',eng:'',th:'',y:'',sort:'new',view:'cards'};
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function yr(x){return x.year||x.undated||'Undated';}
+function terr(x,v){if(!v)return true;if(v==='don')return x.territory.indexOf('don')>-1||x.territory.indexOf('mar')>-1;return x.territory.indexOf(v)>-1;}
+function has(x,key,v){
+  if(key==='te')return terr(x,v);if(key==='iss')return x.issuer.indexOf(v)>-1;if(key==='th')return x.themes.indexOf(v)>-1;
+  if(key==='tp')return x.questions.indexOf(v)>-1;if(key==='y')return v==='nd'?!x.year:x.year===v;if(key==='kind')return x.kind===v;if(key==='eng')return x.english===v;return true;}
+function match(x,skip){
+  var ks=['tp','te','iss','kind','eng','th','y'];
+  for(var i=0;i<ks.length;i++){var k=ks[i];if(k!==skip&&st[k]&&!has(x,k,st[k]))return false;}
+  if(st.q){var w=st.q.toLowerCase().split(/\s+/);for(var j=0;j<w.length;j++)if(w[j]&&x._h.indexOf(w[j])<0)return false;}
+  return true;}
+var THEMES={};DATA.forEach(function(x){x.themes.forEach(function(t){THEMES[t]=t;});});
+var YEARS={};DATA.map(function(x){return x.year;}).filter(Boolean).sort().reverse().forEach(function(y){YEARS[y]=y;});YEARS.nd='No date';
+function opts(id,map,key,all){
+  var o='<option value="">'+all+' ('+DATA.filter(function(x){return match(x,key);}).length+')</option>';
+  Object.keys(map).forEach(function(k){var n=DATA.filter(function(x){return match(x,key)&&has(x,key,k);}).length;
+    o+='<option value="'+esc(k)+'"'+(n||st[key]===k?'':' disabled')+'>'+esc(map[k])+' ('+n+')</option>';});
+  $(id).innerHTML=o;$(id).value=st[key];}
+function badges(x){return '<span class="psf-badges"><span class="psf-eng '+x.english+'">'+ENG[x.english]+'</span>'+(x.ai?'<span class="psf-ai">AI-assisted</span>':'')+'</span>';}
+function meta(x){return '<div class="psf-meta"><span><b>'+esc(yr(x))+'</b></span><span>'+x.territory.map(function(k){return TES[k];}).join(', ')+'</span><span>'+x.issuer.map(function(k){return ISSS[k];}).join(' and ')+'</span></div>';}
+function card(x){return '<a class="ps-card" href="'+esc(x.url)+'" title="'+esc(x.title)+'">'+meta(x)+'<div class="ps-title">'+esc(x.short)+'</div><div class="ps-desc">'+esc(x.desc)+'</div><div class="ps-card-footer">'+badges(x)+'<span class="ps-id">'+esc(x.id)+'</span></div></a>';}
+function row(x){return '<a class="psf-row" href="'+esc(x.url)+'"><span class="psf-yr">'+esc(yr(x))+'</span><span><div class="psf-t">'+esc(x.short)+'</div><div class="psf-off">'+esc(x.title)+'</div></span><span class="psf-c3">'+x.territory.map(function(k){return TES[k];}).join(', ')+'<br>'+KIND[x.kind]+'</span><span class="psf-c4">'+badges(x)+'</span></a>';}
+function readURL(){try{var u=new URLSearchParams(location.search);KEYS.forEach(function(k){var v=u.get(k==='kind'?'type':k);if(v)st[k]=v;});var t=u.get('theme');if(t)st.th=t;}catch(e){}}
+function writeURL(){try{var u=new URLSearchParams(location.search);KEYS.forEach(function(k){var n=k==='kind'?'type':k;u.delete(n);if(st[k]&&!(k==='sort'&&st[k]==='new'))u.set(n,st[k]);});var s=u.toString();history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);}catch(e){}}
+function render(){
+  $('psf-tiles').innerHTML=TILES.map(function(t){var n=DATA.filter(function(x){return x.questions.indexOf(t[0])>-1;}).length;
+    return '<button type="button" class="psf-tile" data-tp="'+t[0]+'" aria-pressed="'+(st.tp===t[0])+'"><span class="psf-tile-q">'+t[1]+'</span><span class="psf-tile-sub">'+t[2]+'</span><span class="psf-tile-n">'+n+' documents</span></button>';}).join('');
+  opts('psf-te',TE,'te','All territories');opts('psf-iss',ISS,'iss','Anyone');opts('psf-kind',KIND,'kind','All kinds');opts('psf-eng',ENG,'eng','Any');opts('psf-th',THEMES,'th','All themes');opts('psf-y',YEARS,'y','Any year');
+  $('psf-sort').value=st.sort;
+  var r=DATA.filter(function(x){return match(x);});
+  r.sort(function(a,b){if(st.sort==='az')return a.short.localeCompare(b.short);var ya=a.year||'0',yb=b.year||'0';return st.sort==='new'?(yb.localeCompare(ya)||a._i-b._i):(ya.localeCompare(yb)||a._i-b._i);});
+  $('psf-count').textContent=r.length+' of '+DATA.length+' documents';
+  var lab={q:function(v){return '"'+v+'"';},tp:function(v){var t=TILES.filter(function(t){return t[0]===v;})[0];return t?t[1]:v;},te:function(v){return TE[v]||v;},iss:function(v){return ISS[v]||v;},kind:function(v){return KIND[v]||v;},eng:function(v){return ENG[v]||v;},th:function(v){return v;},y:function(v){return YEARS[v]||v;}};
+  $('psf-chips').innerHTML=Object.keys(lab).filter(function(k){return st[k];}).map(function(k){var l=esc(lab[k](st[k]));return '<button type="button" class="psf-chip" data-k="'+k+'" aria-label="Remove filter: '+l+'">'+l+' &times;</button>';}).join('');
+  $('psf-results').innerHTML=!r.length?'<div class="psf-empty">No documents match. Remove a filter or try a shorter search.</div>':(st.view==='cards'?'<div class="ps-grid">'+r.map(card).join('')+'</div>':'<div class="psf-list">'+r.map(row).join('')+'</div>');
+  $('psf-vc').setAttribute('aria-pressed',st.view==='cards');$('psf-vl').setAttribute('aria-pressed',st.view==='list');
+  writeURL();}
+$('psf-tiles').addEventListener('click',function(e){var b=e.target.closest('.psf-tile');if(!b)return;var v=b.getAttribute('data-tp');st.tp=st.tp===v?'':v;render();$('find').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
+$('psf-chips').addEventListener('click',function(e){var b=e.target.closest('.psf-chip');if(!b)return;var k=b.getAttribute('data-k');st[k]='';if(k==='q')$('psf-q').value='';render();});
+[['psf-te','te'],['psf-iss','iss'],['psf-kind','kind'],['psf-eng','eng'],['psf-th','th'],['psf-y','y'],['psf-sort','sort']].forEach(function(p){$(p[0]).addEventListener('change',function(){st[p[1]]=this.value;render();});});
+var tm;$('psf-q').addEventListener('input',function(){var v=this.value.trim();clearTimeout(tm);tm=setTimeout(function(){st.q=v;render();},150);});
+$('psf-vc').onclick=function(){st.view='cards';try{localStorage.setItem('psf-view','cards');}catch(e){}render();};
+$('psf-vl').onclick=function(){st.view='list';try{localStorage.setItem('psf-view','list');}catch(e){}render();};
+$('psf-clear').onclick=function(){KEYS.forEach(function(k){if(k!=='sort')st[k]='';});$('psf-q').value='';render();};
+try{var v=localStorage.getItem('psf-view');if(v==='list'||v==='cards')st.view=v;}catch(e){}
+readURL();$('psf-q').value=st.q;render();
+})();
+
+</script>
+<!-- /psf:script -->
 <script src="navigation.js?v=16"></script>
 <script>
 (function(){
