@@ -1023,7 +1023,7 @@ window.TOT_PRIMARY_SOURCES = [
  {
 "id": "DOC-107",
 "short": "\"DPR\" mobilisation deferral for students (Law 376-IINs)",
-"title": "Donetsk People's Republic: Law No. 376-IINs,  Amendment to Article 23, Law on Military Duty",
+"title": "Donetsk People's Republic: Law No. 376-IINs of 20 May 2022 on Mobilisation Deferral for Students and Graduates (Amending Article 23 of the Law on Military Duty and Article 17 of the Law on Mobilisation)",
 "desc": "Adopted 20 May 2022, three months into the general mobilisation: gives full-time students at schools, colleges and universities a deferral from mobilisation call-up and sets a deferral for new graduates.",
 "year": "2022",
 "undated": "",
@@ -1100,7 +1100,7 @@ window.TOT_PRIMARY_SOURCES = [
  {
 "id": "DOC-117",
 "short": "\"LPR\" amendment on contract service in Russia's army (Law 390-III)",
-"title": "Luhansk People's Republic: Law Amending Article 53 of the Law on Military Duty and Military Service",
+"title": "Luhansk People's Republic: Law No. 390-III of 22 June 2022 Amending Article 53 of the Law on Military Duty and Military Service (Contract Service in the Armed Forces of the Russian Federation)",
 "desc": "Signed 22 June 2022: adds a new ground to Article 53 of the LPR military duty law, \"entering military service voluntarily (by contract) in the Armed Forces of the Russian Federation\".",
 "year": "2022",
 "undated": "",
