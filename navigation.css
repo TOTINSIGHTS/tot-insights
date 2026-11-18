@@ -150,7 +150,7 @@ header.site-header {
 .nav-hamburger{display:none;}
 .nav-mobile-menu{display:none;}
 
-@media(max-width:767px){
+@media(max-width:1023px){
   .logo-sub{display:none;}
   .header-nav{display:none !important;}
   .nav-hamburger{
@@ -177,4 +177,14 @@ header.site-header {
   }
   .nav-mobile-menu a:hover,.nav-mobile-menu a.active{color:var(--navy);}
   .nav-mobile-menu a:last-child{border-bottom:none;}
+}
+
+/* Mid-width desktops (1024px to 1240px; below 1024px the menu collapses to the hamburger): the brand, eight nav links and the
+   search box need ~1100px in one row, so tighten the spacing here rather than
+   let the header push the page sideways. Phones and wide screens unchanged. */
+@media (min-width: 1024px) and (max-width: 1240px) {
+  header.site-header { padding-left: 24px; padding-right: 24px; }
+  .header-nav { gap: 14px; min-width: 0; }
+  .site-search-input { width: 104px; }
+  .site-search-form:focus-within .site-search-input { width: 140px; }
 }
