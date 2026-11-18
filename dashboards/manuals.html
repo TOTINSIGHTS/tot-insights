@@ -88,7 +88,7 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
 </style>
 </head>
 <body data-chrome="footer-only">
-<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../data.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#111d30;text-decoration:none;">&#8592; Back</a></div>
+<div style="background:var(--cream-panel);padding:6px 36px;border-bottom:1px solid var(--grey-200);"><a href="../primary-sources.html" onclick="if(document.referrer&&new URL(document.referrer).host===location.host&&history.length>1){history.back();return false;}" style="font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;color:#111d30;text-decoration:none;">&#8592; Back</a></div>
 
 <div class="page-header">
   <h1>Russian Occupation Education and Propaganda Manuals</h1>
@@ -102,14 +102,14 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
 </div>
 
 <div class="caveat-bar">
-  <strong>Source note:</strong> These documents were produced by Russian state bodies, federal agencies, and occupation authorities. They are primary sources - working materials actually used within occupied territories - not third-party reports. They include documents specifically targeting occupied territory populations (DPR, LPR, Zaporizhzhia, Kherson) and an English-language academic monograph by MGIMO authors, evidence of narrative production for international audiences. Read critically and in conjunction with Hub analytical entries on education capture, identity replacement, and the administrative architecture of annexation.
+  <strong>Source note:</strong> Ten documents gathered by TOT Insights in April 2026, nine in Russian and one in English. Three come from bodies operating in occupied territory or address it directly: the Crimean "House of Friendship of Peoples" (D4-4), Rosmolodezh's manual for the four annexed regions (D4-6) and the occupation Ministry of Youth Policy of Zaporizhzhia Oblast (D4-7). The reading lists and the competition guide are federal and apply across Russia, and the three books were published in Moscow. The copies rarely say where or how they were used, so each description below states what the document says about itself.<br><br><strong>Correction, 18 November 2026.</strong> Earlier versions of this page attributed D4-4 to a federal body, described D4-1 as a recommended list for occupied territories, called D4-9 a state manual and gave D4-10 a different title, publisher and year. TOT Insights corrected these entries against the documents.
 </div>
 
 <div class="filter-bar">
   <button class="filter-btn active" data-col="all" onclick="filterCol('all')">All</button>
-  <button class="filter-btn" data-col="reading" onclick="filterCol('reading')">State Reading Lists</button>
-  <button class="filter-btn" data-col="method" onclick="filterCol('method')">Methodological Manuals</button>
-  <button class="filter-btn" data-col="anti" onclick="filterCol('anti')">Anti-Ukrainian Narratives</button>
+  <button class="filter-btn" data-col="reading" onclick="filterCol('reading')">Reading lists</button>
+  <button class="filter-btn" data-col="method" onclick="filterCol('method')">Youth and education guidance</button>
+  <button class="filter-btn" data-col="anti" onclick="filterCol('anti')">Books on Ukraine and the war</button>
 </div>
 
 <div class="main-content">
@@ -118,10 +118,10 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
   <!-- SUB-COLLECTION 1: State Reading Lists -->
   <div class="subcol-section" id="sec-reading">
     <div class="subcol-header">
-      <div class="subcol-title">State Reading Lists</div>
+      <div class="subcol-title">Reading lists</div>
       <div class="subcol-badge badge-reading">3 documents</div>
     </div>
-    <div class="subcol-desc">Official reading lists issued by Russian state institutions controlling what children and young people in occupied territories read.</div>
+    <div class="subcol-desc">A federal school literature list, a children's reading list and a youth library's list of the most-requested books. All three apply across Russia, including the occupied territories.</div>
     <div class="subcol-divider divider-reading"></div>
     <div class="doc-grid" id="grid-reading"></div>
   </div>
@@ -129,10 +129,10 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
   <!-- SUB-COLLECTION 2: Methodological Manuals -->
   <div class="subcol-section" id="sec-method">
     <div class="subcol-header">
-      <div class="subcol-title">Methodological Manuals</div>
+      <div class="subcol-title">Youth and education guidance</div>
       <div class="subcol-badge badge-method">4 documents</div>
     </div>
-    <div class="subcol-desc">How-to manuals for running state-sanctioned patriotic and ideological activities, including documents specifically targeting occupied territory populations.</div>
+    <div class="subcol-desc">Guidance for teachers, cultural workers and youth officials. Three of the four come from or for the occupied territories: occupied Crimea (D4-4), the four regions annexed in 2022 (D4-6) and occupied Zaporizhzhia Oblast (D4-7).</div>
     <div class="subcol-divider divider-method"></div>
     <div class="doc-grid" id="grid-method"></div>
   </div>
@@ -140,10 +140,10 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
   <!-- SUB-COLLECTION 3: Anti-Ukrainian Narrative Documents -->
   <div class="subcol-section" id="sec-anti">
     <div class="subcol-header">
-      <div class="subcol-title">Anti-Ukrainian Narrative Documents</div>
+      <div class="subcol-title">Books on Ukraine and the war</div>
       <div class="subcol-badge badge-anti">3 documents</div>
     </div>
-    <div class="subcol-desc">Documents constructing and disseminating hostile narratives about Ukraine. Includes an English-language academic monograph by MGIMO authors - evidence of systematic narrative production for international audiences.</div>
+    <div class="subcol-desc">Three books published in Russia: allegations against Ukrainian forces (D4-8), a guide to Ukrainian information operations as its author describes them (D4-9) and an English-language history of Ukraine for foreign readers whose authors include a former LPR foreign minister (D4-10).</div>
     <div class="subcol-divider divider-anti"></div>
     <div class="doc-grid" id="grid-anti"></div>
   </div>
@@ -179,105 +179,22 @@ body{font-family:var(--font-body);background: var(--cream-panel);color:var(--tex
 
 <script>
 const DOCS = [
-  // ── State Reading Lists ──────────────────────────────────────────────
-  {
-    id:"D4-1", col:"reading",
-    title:"Youth Library Recommended Reading List",
-    originalTitle:"Список. Молодёжная библиотека",
-    issuer:"Youth Library (state institution)",
-    lang:"Russian", fmt:"xlsx",
-    file:"../data/manuals_reading_list_youth_library.xlsx",
-    desc:"Official reading list issued by a Russian state youth library, specifying titles recommended for young people in occupied territories."
-  },
-  {
-    id:"D4-2", col:"reading",
-    title:"Russian State Children's Library (RGDB) Recommended Reading List",
-    originalTitle:"Список РГДБ",
-    issuer:"Russian State Children's Library (RGDB)",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_reading_list_rgdb.pdf",
-    desc:"Recommended reading list issued by the federal Russian State Children's Library for children in Russian-controlled territories."
-  },
-  {
-    id:"D4-3", col:"reading",
-    title:"Ministry of Education Recommended Reading List",
-    originalTitle:"Список Минпрос",
-    issuer:"Ministry of Education (Минпросвещения)",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_reading_list_minpros.pdf",
-    desc:"Recommended reading list issued by the Russian Ministry of Education for schools in occupied territories."
-  },
-  // ── Methodological Manuals ───────────────────────────────────────────
-  {
-    id:"D4-4", col:"method",
-    title:"Year of the Family: Methodological Guide",
-    originalTitle:"Методическое пособие Год Семьи",
-    issuer:"Russian federal programme authority",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_god_semi.pdf",
-    desc:"Operational guide for running Year of the Family programme activities - a federally designated ideological campaign - in educational and community settings."
-  },
-  {
-    id:"D4-5", col:"method",
-    title:"OOVO Higher Education Competition: Methodological Recommendations 2025",
-    originalTitle:"Методические рекомендации Конкурса ООВО 2025",
-    issuer:"Federal education authority",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_oovo_2025.pdf",
-    desc:"Methodological recommendations for higher education institutions participating in the 2025 OOVO competition - a state-sanctioned patriotic activity programme for universities."
-  },
-  {
-    id:"D4-6", col:"method",
-    title:"Rosmolodezh: Preventing Extremism, Terrorism, and Neo-Nazism Among Youth (DPR, LPR, Zaporizhzhia, Kherson)",
-    originalTitle:"Методические рекомендации (Росмолодёжь)",
-    issuer:"Rosmolodezh - Federal Agency for Youth Affairs",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_rosmolodezh.pdf",
-    desc:"Federal guidance document specifically targeting occupied territory youth populations, framing pro-Ukrainian sentiment under the criminalised categories of 'extremism, terrorism, and neo-Nazism'."
-  },
-  {
-    id:"D4-7", col:"method",
-    title:"Organising Student Work: Methodological Materials",
-    originalTitle:"Материал об организации студенческой работы",
-    issuer:"Russian education authority",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_student_work.pdf",
-    desc:"Methodological materials for organising student activities within Russian administrative and ideological frameworks in higher education settings in occupied territories."
-  },
-  // ── Anti-Ukrainian Narrative Documents ──────────────────────────────
-  {
-    id:"D4-8", col:"anti",
-    title:"Ukrainian Crimes (2022–2023)",
-    originalTitle:"Украинские преступления (2022–2023)",
-    issuer:"Russian state compilation",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_ukrainian_crimes.pdf",
-    desc:"A compilation of alleged Ukrainian conduct distributed in educational and administrative settings - an instrument of anti-Ukrainian narrative construction produced for use across occupied territories."
-  },
-  {
-    id:"D4-9", col:"anti",
-    title:"Methods of TsIPsO (ed. 11.01.2024)",
-    originalTitle:"Методы ЦИПсО (ред. 11.01.24)",
-    issuer:"Russian state authority",
-    lang:"Russian", fmt:"pdf",
-    file:"../data/manuals_tsipso.pdf",
-    desc:"Russian state manual framing Ukrainian information and psychological operations as threats - distributed as a guide for occupation-era educators and administrators to identify and counter pro-Ukrainian messaging."
-  },
-  {
-    id:"D4-10", col:"anti",
-    title:"Ukraine: History, Culture, and the Russian World - MGIMO Monograph (English-language)",
-    originalTitle:"MGIMO monograph on Ukraine (English)",
-    issuer:"MGIMO - Moscow State Institute of International Relations",
-    lang:"English", fmt:"pdf",
-    file:"../data/manuals_mgimo.pdf",
-    desc:"An English-language academic monograph by MGIMO authors constructing a historical and cultural narrative hostile to Ukrainian sovereignty - evidence of systematic narrative production for international academic audiences."
-  }
+  {"id": "D4-1", "col": "reading", "title": "Leaders of Reader Demand and New Releases of 2022: A Youth Library's Reading Spreadsheet", "originalTitle": "«Лидеры читательского спроса в Р…» / «Готово – Новинки 2022»", "issuer": "A Russian youth library (the sheet title is cut off after \"in R…\")", "date": "2022", "pages": "2 sheets", "lang": "Russian", "fmt": "xlsx", "file": "../data/manuals_reading_list_youth_library.xlsx", "desc": "Two sheets: 961 titles listed as \"leaders of reader demand\", with author, translator, year and publisher, and 155 new releases of 2022. The list mixes Russian and translated foreign fiction, from Narine Abgaryan to Aravind Adiga and Chimamanda Ngozi Adichie. The file does not name the library in full or say how the list was used in occupied territories."},
+  {"id": "D4-2", "col": "reading", "title": "Recommended Children's Reading List in Seven Sections (attributed to the Russian State Children's Library)", "originalTitle": "«Отечественная классика для дошкольников» … (список РГДБ)", "issuer": "Attributed to the Russian State Children's Library (RGDB); no issuer on the pages", "date": "Undated", "pages": "32 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_reading_list_rgdb.pdf", "desc": "About 990 numbered children's books in seven sections, from Russian and foreign classics for preschoolers to popular science and contemporary literature for primary and middle school, with illustrators named for picture books. The copy carries no date, issuer or reference to occupied territories."},
+  {"id": "D4-3", "col": "reading", "title": "List of Literary Works Included in the Federal Educational Programmes of Primary, Basic and Secondary General Education (Annex)", "originalTitle": "«Список литературных произведений, включенных в федеральные образовательные программы начального общего, основного общего и среднего общего образования»", "issuer": "Ministry of Education of the Russian Federation (Minprosveshcheniya)", "date": "Undated", "pages": "8 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_reading_list_minpros.pdf", "desc": "The annex naming 219 authors and the works set in Russia's federal educational programmes for primary, basic and secondary schools, from Abramov to Yakovlev. The same federal programmes apply in schools in the occupied territories. The same list appears with the federal textbook and literature orders in DOC-162."},
+  {"id": "D4-4", "col": "method", "title": "Methodological Recommendations \"2024: the Year of the Family in Russia\" (House of Friendship of Peoples, Simferopol)", "originalTitle": "Методические рекомендации «2024 год – год семьи в России»", "issuer": "T. S. Kirichenko, methodologist, State Budgetary Institution of the \"Republic of Crimea\" House of Friendship of Peoples, Simferopol", "date": "2024", "pages": "13 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_god_semi.pdf", "desc": "A guide for cultural workers in occupied Crimea on marking Putin's \"Year of the Family\": main lines of work, a family calendar, a script for a republican contest \"The Best Mum\" and internet resources. It opens with Putin's statement that the family is \"the basis of morality\"."},
+  {"id": "D4-5", "col": "method", "title": "Methodological Recommendations for Participants in the All-Russian Competition of Youth Projects among Higher Education Institutions in 2025 (Rosmolodezh)", "originalTitle": "Методические рекомендации участникам Всероссийского конкурса молодёжных проектов среди образовательных организаций высшего образования в 2025 году", "issuer": "Federal Agency for Youth Affairs (Rosmolodezh), Moscow", "date": "2025", "pages": "53 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_oovo_2025.pdf", "desc": "Rules for universities applying to Rosmolodezh's 2025 grant competition for youth projects, run under Government Resolutions 1780 and 1781 of 25 October 2023. Universities in the occupied territories compete in the same federal programme."},
+  {"id": "D4-6", "col": "method", "title": "Rosmolodezh Methodological Recommendations on Preventing Terrorism, Extremism and Neo-Nazism among Young People in the Four Annexed Regions", "originalTitle": "Методические рекомендации (Росмолодёжь)", "issuer": "Federal Agency for Youth Affairs (Rosmolodezh)", "date": "February 2025", "pages": "see DOC-165", "lang": "Russian", "fmt": "page", "file": "../primary-sources/counter-extremism/doc-165.html", "desc": "The federal youth agency's manual for the DPR, LPR, Zaporizhzhia and Kherson regions. TOT Insights publishes it with English key provisions as DOC-165; this entry opens that page."},
+  {"id": "D4-7", "col": "method", "title": "Methodological Materials on Organising Work with Student Youth (Ministry of Youth Policy of Zaporizhzhia Oblast with Rosmolodezh)", "originalTitle": "Методические материалы об организации работы со студенческой молодежью", "issuer": "Ministry of Youth Policy of Zaporizhzhia Oblast (occupation authority), \"together with Rosmolodezh\"", "date": "Undated", "pages": "144 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_student_work.pdf", "desc": "A handbook for college and university staff in occupied Zaporizhzhia Oblast: a portrait of students, the region's youth movements, the legal basis and running of student councils, building a team of student activists and \"forming an opinion leader\". The explanatory note sets the aim of developing students' \"civic position\" and patriotism."},
+  {"id": "D4-8", "col": "anti", "title": "Ukrainian Crimes against Humanity (2022 to 2023), by M. S. Grigoriev and D. V. Sablin", "originalTitle": "М. С. Григорьев, Д. В. Саблин. «Украинские преступления против человечности (2022–2023)»", "issuer": "M. S. Grigoriev and D. V. Sablin; Mezhdunarodnye otnosheniya (International Relations), Moscow", "date": "Covers 2022 to 2023", "pages": "391 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_ukrainian_crimes.pdf", "desc": "A book of allegations against Ukrainian forces, in chapters on the shelling of civilians, \"human shields\", hostage-taking, firing from residential areas and torture by the Armed Forces and the SBU. M. S. Grigoriev is also the lead author of D4-10. The copy held does not say where the book was distributed."},
+  {"id": "D4-9", "col": "anti", "title": "Methods of Information-Psychological Influence Used by Ukrainian Information-Psychological Operations Units against Participants in the SVO, Their Relatives and Other Citizens, by D. V. Bezsonov", "originalTitle": "Д. В. Безсонов. «Методы информационно-психологического влияния, применяемые украинскими подразделениями информационно-психологических операций против участников СВО, их родственников и других граждан»", "issuer": "D. V. Bezsonov (no publisher in the copy)", "date": "January 2024 (date in the file name, not in the copy)", "pages": "57 pp.", "lang": "Russian", "fmt": "pdf", "file": "../data/manuals_tsipso.pdf", "desc": "A booklet on the methods it attributes to Ukrainian information-psychological operations units (TsIPsO) against Russian soldiers in the \"special military operation\", their relatives and other citizens, with chapters on staged \"fake\" videos, how to recognise fake material and the \"Overton window\"."},
+  {"id": "D4-10", "col": "anti", "title": "History of Ukraine. Monograph, by M. S. Grigoriev, V. N. Deynego, A. R. Dyukov, S. A. Zasorin, A. A. Malkevich, S. A. Manko and V. L. Shapovalov (English edition)", "originalTitle": "History of Ukraine. Monograph", "issuer": "M. S. Grigoriev and six co-authors; International Relations, Moscow, 2023", "date": "2023", "pages": "582 pp.", "lang": "English", "fmt": "pdf", "file": "../data/manuals_mgimo.pdf", "desc": "An English-language history of Ukraine for foreign readers. The book's own credentials page lists among its authors the LPR's foreign minister of 2017 to 2022 (V. N. Deynego), members of Russia's Civic Chamber and the Presidential Council's Commission on Inter-Ethnic Relations, and the head of journalism at Kherson State University (A. A. Malkevich)."}
 ];
 
 const COL_CLASS = {reading:"reading", method:"method", anti:"anti"};
 const PILL_CLASS = {reading:"pill-reading", method:"pill-method", anti:"pill-anti"};
-const COL_LABEL = {reading:"State Reading Lists", method:"Methodological Manuals", anti:"Anti-Ukrainian Narratives"};
-const FMT_LABEL = {pdf:"PDF", xlsx:"XLSX"};
+const COL_LABEL = {reading:"Reading lists", method:"Youth and education guidance", anti:"Books on Ukraine and the war"};
+const FMT_LABEL = {pdf:"PDF", xlsx:"XLSX", page:"TOT Insights page"};
 
 function renderCards(){
   ["reading","method","anti"].forEach(col=>{
@@ -293,10 +210,10 @@ function renderCards(){
           <span class="card-id">${doc.id}</span>
         </div>
         <div class="card-title">${doc.title}</div>
-        <div class="card-issuer">${doc.issuer}</div>
+        <div class="card-issuer">${doc.issuer} · ${doc.date}</div>
         <div class="card-desc">${doc.desc}</div>
         <div class="card-footer">
-          <span class="card-format">${FMT_LABEL[doc.fmt]||doc.fmt} · ${doc.lang}</span>
+          <span class="card-format">${FMT_LABEL[doc.fmt]||doc.fmt} · ${doc.pages} · ${doc.lang}</span>
           <span class="card-arrow">→</span>
         </div>`;
       grid.appendChild(card);
@@ -313,6 +230,7 @@ function filterCol(col){
 }
 
 function openDoc(doc){
+  if(doc.fmt==='page'){ window.location.href = doc.file; return; }
   if(doc.fmt==='xlsx'){
     document.getElementById('download-title').textContent = doc.title;
     document.getElementById('download-link').href = doc.file;
@@ -360,15 +278,15 @@ renderCards();
 </style>
   <div class="tot-next-label">Keep reading</div>
   <div class="tot-next-grid">
-    <a class="tot-next-card" href="../data/manuals_reading_list_youth_library.xlsx">
+    <a class="tot-next-card" href="../data/manuals_reading_list_rgdb.pdf">
       <span class="tot-next-kicker">Companion primary source</span>
-      <span class="tot-next-title">Youth Library Recommended Reading List</span>
-      <span class="tot-next-desc">Official reading list issued by a Russian state youth library, specifying titles recommended for young people in occupied territories. Part of the Russian Occupation Education and Propaganda Manuals collection (DOC-D4).</span>
+      <span class="tot-next-title">Recommended Children's Reading List in Seven Sections (attributed to the Russian State Children's Library)</span>
+      <span class="tot-next-desc">About 990 numbered children's books in seven sections, from Russian and foreign classics for preschoolers to popular science and contemporary literature for primary and middle school, with illustrators named for picture books. The copy carries no date, issuer or reference to occupied territories. Part of the education and propaganda manuals collection (DOC-D4).</span>
     </a>
-    <a class="tot-next-card" href="../briefings/pipeline_persecution.html">
-      <span class="tot-next-kicker">Next in Accountability and Legal</span>
-      <span class="tot-next-title">Russia’s Pipeline of Persecution: A Systematic Campaign of Crimes Against Humanity in Russian-occupied Ukraine</span>
-      <span class="tot-next-desc">Seven interlocking crimes against humanity. Over 20,000 civilians estimated in Russian custody. 168 released in exchanges by September 2025.</span>
+    <a class="tot-next-card" href="../briefings/donbass_novorossiya_textbooks.html">
+      <span class="tot-next-kicker">Next in Education and Militarisation</span>
+      <span class="tot-next-title">History Written Backwards: The &quot;Donbass and Novorossiya&quot; Textbooks for Occupation Schools</span>
+      <span class="tot-next-desc">Russia's new regional history course for Years 5 to 7 in the occupied territories, read as one three-year programme: Kyivan Rus handed to Moscow, the Cossacks made Russian, the destruction of the Sich left out, 'Ukraine' introduced as a Polish insult, and the region's history ending with its 'return to Russia' in 2022.</span>
     </a>
     <div class="tot-next-theme">
       <span class="tot-next-kicker">Theme: Information Space</span>

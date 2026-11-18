@@ -97,7 +97,8 @@
 .psf-seg button{font-family:var(--font-mono);font-size:var(--fs-label);padding:6px 11px;border:0;background:#f7f5f1;color:var(--navy);cursor:pointer;}
 .psf-seg button[aria-pressed="true"]{background:var(--gold);color:var(--navy);}
 .psf-link{font-family:var(--font-mono);font-size:var(--fs-label);background:none;border:0;color:#111d30;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;}
-.psf-colls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.psf-colls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+@media(max-width:1100px){.psf-colls{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:820px){.psf-colls{grid-template-columns:1fr;}}
 .psf-coll{display:grid;align-content:start;gap:6px;text-decoration:none;color:var(--navy);background:#f7f5f1;border:1px solid rgba(17,29,48,0.28);border-left:3px solid var(--gold);border-radius:3px;padding:16px 18px;box-shadow:0 1px 2px rgba(17,29,48,0.08);}
 .psf-coll:hover{border-color:var(--navy);border-left-color:var(--gold);}
@@ -165,6 +166,12 @@
     <span class="psf-coll-k">DOC-192 · Collection · 18 documents · Mariupol city administration</span>
     <span class="psf-coll-t">Mariupol city administration acts, April to August 2026</span>
     <span class="psf-coll-d">Decrees and orders of the occupation administration of Mariupol: territorial self-government, lease auctions, war-damaged housing, "ownerless" property lists, business support and school programmes. Each with the Russian original and an English translation or key provisions.</span>
+    <span class="psf-coll-go">Open the collection &rarr;</span>
+  </a>
+  <a class="psf-coll" href="dashboards/manuals.html">
+    <span class="psf-coll-k">DOC-D4 · Collection · 10 documents · reading lists, youth guidance and books</span>
+    <span class="psf-coll-t">Education and propaganda manuals</span>
+    <span class="psf-coll-d">A federal school literature list and library reading lists; guidance for youth and education work from occupied Crimea, occupied Zaporizhzhia Oblast and Rosmolodezh; and three Moscow-published books on Ukraine and the war. Each described from the document itself.</span>
     <span class="psf-coll-go">Open the collection &rarr;</span>
   </a>
   </div>
@@ -313,7 +320,7 @@
 <div id="site-footer"></div>
 
 <!-- psf:script -->
-<script src="data/primary-sources.js?v=3"></script>
+<script src="data/primary-sources.js?v=4"></script>
 <script>
 (function(){
 var DATA=(window.TOT_PRIMARY_SOURCES||[]).slice();
@@ -342,7 +349,7 @@ function has(x,key,v){
   if(key==='tp')return x.questions.indexOf(v)>-1;if(key==='y')return v==='nd'?!x.year:x.year===v;if(key==='kind')return x.kind===v;if(key==='eng')return x.english===v;return true;}
 function match(x,skip){
   if(x.collection&&!st.q&&!st.tp&&!st.te&&!st.iss&&!st.kind&&!st.eng&&!st.th&&!st.y)return false;
-  if(x.id==='DOC-192'&&(st.q||st.te||st.iss||st.kind||st.eng||st.th||st.y))return false;
+  if(x.isCollection&&(st.q||st.te||st.iss||st.kind||st.eng||st.th||st.y))return false;
   var ks=['tp','te','iss','kind','eng','th','y'];
   for(var i=0;i<ks.length;i++){var k=ks[i];if(k!==skip&&st[k]&&!has(x,k,st[k]))return false;}
   if(st.q){var w=st.q.toLowerCase().split(/\s+/);for(var j=0;j<w.length;j++)if(w[j]&&x._h.indexOf(w[j])<0)return false;}
@@ -376,7 +383,7 @@ function render(){
   r.sort(function(a,b){if(st.sort==='az')return a.short.localeCompare(b.short);var ya=a.year||'0',yb=b.year||'0';return st.sort==='new'?(yb.localeCompare(ya)||a._i-b._i):(ya.localeCompare(yb)||a._i-b._i);});
   var grouped=DATA.filter(function(x){return x.collection&&!match(x);}).length;
   var idle=!st.q&&!st.tp&&!st.te&&!st.iss&&!st.kind&&!st.eng&&!st.th&&!st.y;
-  $('psf-count').textContent=idle?(r.length+' entries · '+grouped+' Mariupol acts grouped in DOC-192'):(r.length+' of '+(DATA.length-1)+' documents');
+  $('psf-count').textContent=idle?(r.length+' entries · '+grouped+' more grouped in the collections above'):(r.length+' of '+DATA.filter(function(x){return !x.isCollection;}).length+' documents');
   var lab={q:function(v){return '"'+v+'"';},tp:function(v){var t=TILES.filter(function(t){return t[0]===v;})[0];return t?t[1]:v;},te:function(v){return TE[v]||v;},iss:function(v){return ISS[v]||v;},kind:function(v){return KIND[v]||v;},eng:function(v){return ENG[v]||v;},th:function(v){return v;},y:function(v){return YEARS[v]||v;}};
   $('psf-chips').innerHTML=Object.keys(lab).filter(function(k){return st[k];}).map(function(k){var l=esc(lab[k](st[k]));return '<button type="button" class="psf-chip" data-k="'+k+'" aria-label="Remove filter: '+l+'">'+l+' &times;</button>';}).join('');
   $('psf-results').innerHTML=!r.length?'<div class="psf-empty">No documents match. Remove a filter or try a shorter search.</div>':(st.view==='cards'?'<div class="ps-grid">'+r.map(card).join('')+'</div>':'<div class="psf-list">'+r.map(row).join('')+'</div>');
