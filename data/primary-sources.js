@@ -2108,7 +2108,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-134.html"
+"url": "primary-sources/rf-security-law/doc-134.html",
+"collection": "security"
 },
  {
 "id": "DOC-186",
@@ -2133,7 +2134,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-135.html"
+"url": "primary-sources/rf-security-law/doc-135.html",
+"collection": "security"
 },
  {
 "id": "DOC-187",
@@ -2158,7 +2160,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-136.html"
+"url": "primary-sources/rf-security-law/doc-136.html",
+"collection": "security"
 },
  {
 "id": "DOC-188",
@@ -2183,7 +2186,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-137.html"
+"url": "primary-sources/rf-security-law/doc-137.html",
+"collection": "security"
 },
  {
 "id": "DOC-189",
@@ -2208,7 +2212,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-138.html"
+"url": "primary-sources/rf-security-law/doc-138.html",
+"collection": "security"
 },
  {
 "id": "DOC-190",
@@ -2233,7 +2238,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-139.html"
+"url": "primary-sources/rf-security-law/doc-139.html",
+"collection": "security"
 },
  {
 "id": "DOC-191",
@@ -2258,7 +2264,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/rf-security-law/doc-140.html"
+"url": "primary-sources/rf-security-law/doc-140.html",
+"collection": "security"
 },
  {
 "id": "DOC-192",
@@ -2318,5 +2325,34 @@ window.TOT_PRIMARY_SOURCES = [
 "children"
 ],
 "url": "dashboards/manuals.html"
+},
+ {
+"id": "DOC-193",
+"short": "Russian security law in the occupied territories (7 articles, with cases)",
+"title": "Russian Security Law in the Occupied Territories: Seven Articles of the Criminal and Administrative Codes and the Cases Brought under Them",
+"desc": "Treason, espionage, confidential cooperation, assisting the enemy, calls against state security, banned symbols and \"discrediting\" the army: each article in Russian and English, linked to the people charged under it in the Civilian Detainees Database.",
+"year": "",
+"undated": "In force",
+"territory": [
+"rf",
+"cri",
+"four"
+],
+"issuer": [
+"fed"
+],
+"kind": "law",
+"english": "full",
+"ai": false,
+"isCollection": true,
+"themes": [
+"Accountability and Legal",
+"Coercion, Entrapment and Slavery",
+"Civilian Life and Resistance"
+],
+"questions": [
+"dissent"
+],
+"url": "primary-sources/rf-security-law/doc-193.html"
 }
 ];

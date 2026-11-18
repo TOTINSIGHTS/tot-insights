@@ -226,6 +226,8 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
   Object.keys(present("month")).filter(Boolean).sort().reverse().forEach(function(m){opt(fM,m,monthLabel(m));});
   var P=new URLSearchParams(location.search);
   if(P.get("oblast"))fO.value=P.get("oblast");if(P.get("crime"))fC.value=P.get("crime");if(P.get("stage"))fS.value=P.get("stage");if(P.get("month"))fM.value=P.get("month");if(P.get("q"))fQ.value=P.get("q");if(P.get("inc"))fI.value=P.get("inc");
+  var ART=(P.get("art")||"").trim();
+  function artToks(a){return String(a||"").split(";").map(function(t){t=t.replace(/\(.*?\)/g,"").replace(/\s+via\s+.*/,"").trim();return t.replace(/^(CoAO|CAO|KoAP)\s*/i,"CoAO ").toLowerCase();}).filter(Boolean);}
   var open={}, sortK="sortdate", sortDir=-1;
   function stats(list){
     var sent=list.filter(function(r){return r.stage==="Sentenced";});
@@ -245,6 +247,7 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
       if(m&&r.month!==m)return false;
       if(inc==="any"&&!r.incommunicado)return false;
       if((inc==="reported"||inc==="possible")&&r.incommunicado!==inc)return false;
+      if(ART&&artToks(r.articles).indexOf(ART.toLowerCase())<0)return false;
       if(q){var hay=[r.id,r.name,(r.other_names||[]).join(" "),r.home_town,r.oblast,r.court,r.charge,r.alleged_act,r.sentence,r.articles].join(" ").toLowerCase();if(hay.indexOf(q)<0)return false;}
       return true;});
     out.sort(function(a,b){var x=a[sortK],y=b[sortK];
@@ -281,15 +284,16 @@ fetch("data/civilian-detainees/detainees.json",{cache:"no-cache"}).then(function
       add("Sources ("+r.sources.length+")",srcList(r.sources));
       return main+'<tr class="cd-detail"><td colspan="8"><dl class="cd-dl">'+d.join("")+'</dl></td></tr>';
     }).join("");
-    sh.innerHTML="Showing <b>"+out.length+"</b> of "+rows.length+" people"+(m?" &middot; "+monthLabel(m):"")+(o?" &middot; "+esc(o):"")+(c?" &middot; "+esc(c):"")+(s?" &middot; "+esc(s):"")+(inc?" &middot; incommunicado: "+(inc==="any"?"reported or possible":inc==="possible"?"possible (not confirmed)":"reported"):"");
+    sh.innerHTML="Showing <b>"+out.length+"</b> of "+rows.length+" people"+(m?" &middot; "+monthLabel(m):"")+(o?" &middot; "+esc(o):"")+(c?" &middot; "+esc(c):"")+(s?" &middot; "+esc(s):"")+(inc?" &middot; incommunicado: "+(inc==="any"?"reported or possible":inc==="possible"?"possible (not confirmed)":"reported"):"")+(ART?" &middot; charged under art. "+esc(ART)+" (<a href=\"#\" id=\"art-clear\">show all</a>)":"");
+    var ac=document.getElementById("art-clear");if(ac)ac.onclick=function(e){e.preventDefault();ART="";render();};
     stats(out);
-    var p=new URLSearchParams();if(o)p.set("oblast",o);if(c)p.set("crime",c);if(s)p.set("stage",s);if(m)p.set("month",m);if(inc)p.set("inc",inc);if(q)p.set("q",fQ.value);
+    var p=new URLSearchParams();if(o)p.set("oblast",o);if(c)p.set("crime",c);if(s)p.set("stage",s);if(m)p.set("month",m);if(inc)p.set("inc",inc);if(q)p.set("q",fQ.value);if(ART)p.set("art",ART);
     history.replaceState(null,"",location.pathname+(p.toString()?"?"+p.toString():""));
   }
   tb.addEventListener("click",function(e){var tr=e.target.closest("tr.cd-row");if(!tr)return;if(e.target.tagName==="A")return;var id=tr.getAttribute("data-id");open[id]=!open[id];render();});
   document.querySelectorAll("th[data-k]").forEach(function(th){th.addEventListener("click",function(){var k=th.getAttribute("data-k");sortDir=(sortK===k)?-sortDir:1;sortK=k;render();});});
   [fO,fC,fS,fM,fI].forEach(function(el){el.addEventListener("change",render);}); fQ.addEventListener("input",render);
-  document.getElementById("f-reset").addEventListener("click",function(){fO.value=fC.value=fS.value=fM.value=fI.value="";fQ.value="";render();});
+  document.getElementById("f-reset").addEventListener("click",function(){fO.value=fC.value=fS.value=fM.value=fI.value="";fQ.value="";ART="";render();});
   render();
 }).catch(function(err){sh.textContent="Could not load the database ("+((err&&err.message)||err)+").";});
 })();
