@@ -28,7 +28,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "law",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Governance",
 "Accountability and Legal",
@@ -54,7 +54,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "law",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Governance",
 "Accountability and Legal"
@@ -79,7 +79,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Governance",
 "Economics",
@@ -104,7 +104,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -129,7 +129,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -154,7 +154,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -204,7 +204,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "record",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -229,7 +229,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance"
@@ -237,7 +237,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "identity"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-123.html"
+"url": "primary-sources/mariupol-admin-2026/doc-123.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-125",
@@ -253,7 +254,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -262,7 +263,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "dissent"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-125.html"
+"url": "primary-sources/mariupol-admin-2026/doc-125.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-126",
@@ -278,7 +280,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Governance",
@@ -287,7 +289,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "identity"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-126.html"
+"url": "primary-sources/mariupol-admin-2026/doc-126.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-156",
@@ -304,7 +307,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Economics",
 "Civilian Life and Resistance"
@@ -330,7 +333,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "law",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Economics",
 "Governance"
@@ -363,7 +366,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-095.html"
+"url": "primary-sources/mariupol-admin-2026/doc-095.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-096",
@@ -388,7 +392,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-096.html"
+"url": "primary-sources/mariupol-admin-2026/doc-096.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-097",
@@ -413,7 +418,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-097.html"
+"url": "primary-sources/mariupol-admin-2026/doc-097.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-098",
@@ -438,7 +444,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-098.html"
+"url": "primary-sources/mariupol-admin-2026/doc-098.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-100",
@@ -463,7 +470,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-100.html"
+"url": "primary-sources/mariupol-admin-2026/doc-100.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-127",
@@ -479,14 +487,15 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Economics",
 "Governance"
 ],
 "questions": [],
-"url": "primary-sources/mariupol-admin-2026/doc-127.html"
+"url": "primary-sources/mariupol-admin-2026/doc-127.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-129",
@@ -502,14 +511,15 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Economics",
 "Governance"
 ],
 "questions": [],
-"url": "primary-sources/mariupol-admin-2026/doc-129.html"
+"url": "primary-sources/mariupol-admin-2026/doc-129.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-130",
@@ -534,7 +544,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-130.html"
+"url": "primary-sources/mariupol-admin-2026/doc-130.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-139",
@@ -599,8 +610,8 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "decree",
-"english": "full",
-"ai": false,
+"english": "key",
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Governance",
@@ -627,7 +638,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Governance"
@@ -652,7 +663,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "full",
-"ai": false,
+"ai": true,
 "themes": [
 "Information Space",
 "Education and Militarisation",
@@ -679,7 +690,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -704,7 +715,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -729,7 +740,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "teach",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -781,7 +792,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "teach",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Information Space",
 "Education and Militarisation",
@@ -807,7 +818,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "record",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -833,7 +844,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -858,7 +869,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -883,7 +894,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Identity, Culture and Religion"
@@ -908,7 +919,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "order",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Education and Militarisation",
 "Civilian Life and Resistance"
@@ -941,7 +952,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "children"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-099.html"
+"url": "primary-sources/mariupol-admin-2026/doc-099.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-104",
@@ -957,7 +969,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -982,7 +994,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1008,7 +1020,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1034,7 +1046,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1086,7 +1098,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1137,7 +1149,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1163,7 +1175,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "order",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1189,7 +1201,7 @@ window.TOT_PRIMARY_SOURCES = [
 "occ"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1215,7 +1227,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "law",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1241,7 +1253,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Education and Militarisation",
@@ -1250,7 +1262,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "children"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-128.html"
+"url": "primary-sources/mariupol-admin-2026/doc-128.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-133",
@@ -1644,7 +1657,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Identity, Culture and Religion",
 "Information Space"
@@ -1669,7 +1682,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Identity, Culture and Religion",
 "Governance"
@@ -1694,7 +1707,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "record",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Identity, Culture and Religion",
 "Education and Militarisation"
@@ -1719,7 +1732,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Identity, Culture and Religion",
@@ -1744,7 +1757,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "record",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Identity, Culture and Religion",
@@ -1769,7 +1782,7 @@ window.TOT_PRIMARY_SOURCES = [
 "fed"
 ],
 "kind": "record",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Identity, Culture and Religion",
@@ -1794,7 +1807,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Identity, Culture and Religion",
@@ -1803,7 +1816,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "identity"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-131.html"
+"url": "primary-sources/mariupol-admin-2026/doc-131.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-134",
@@ -1845,7 +1859,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Civilian Life and Resistance",
 "Accountability and Legal",
@@ -1871,7 +1885,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "record",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Civilian Life and Resistance",
 "Accountability and Legal",
@@ -1880,7 +1894,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-176.html"
+"url": "primary-sources/mariupol-admin-2026/doc-176.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-153",
@@ -1897,7 +1912,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "decree",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Civilian Life and Resistance",
 "Economics",
@@ -1923,7 +1938,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "law",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Civilian Life and Resistance",
 "Governance"
@@ -1949,7 +1964,7 @@ window.TOT_PRIMARY_SOURCES = [
 ],
 "kind": "law",
 "english": "key",
-"ai": false,
+"ai": true,
 "themes": [
 "Civilian Life and Resistance",
 "Accountability and Legal",
@@ -2006,7 +2021,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-101.html"
+"url": "primary-sources/mariupol-admin-2026/doc-101.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-102",
@@ -2031,7 +2047,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-102.html"
+"url": "primary-sources/mariupol-admin-2026/doc-102.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-124",
@@ -2047,7 +2064,7 @@ window.TOT_PRIMARY_SOURCES = [
 "muni"
 ],
 "kind": "decree",
-"english": "full",
+"english": "key",
 "ai": true,
 "themes": [
 "Civilian Life and Resistance"
@@ -2055,7 +2072,8 @@ window.TOT_PRIMARY_SOURCES = [
 "questions": [
 "property"
 ],
-"url": "primary-sources/mariupol-admin-2026/doc-124.html"
+"url": "primary-sources/mariupol-admin-2026/doc-124.html",
+"collection": "mariupol"
 },
  {
 "id": "DOC-185",
@@ -2231,5 +2249,32 @@ window.TOT_PRIMARY_SOURCES = [
 "dissent"
 ],
 "url": "primary-sources/rf-security-law/doc-140.html"
+},
+ {
+"id": "DOC-192",
+"short": "Mariupol city administration acts, 2026 (18 documents)",
+"title": "Mariupol City Administration Acts, April to August 2026: 18 Decrees and Orders of the Occupation Administration",
+"desc": "25 decrees and orders of the occupation administration of Mariupol, grouped by city government, property and housing, business, and schools; each with the Russian original and English.",
+"year": "2026",
+"undated": "",
+"territory": [
+"mar"
+],
+"issuer": [
+"muni"
+],
+"kind": "decree",
+"english": "key",
+"ai": true,
+"themes": [
+"Governance",
+"Economics",
+"Civilian Life and Resistance",
+"Education and Militarisation"
+],
+"questions": [
+"property"
+],
+"url": "primary-sources/mariupol-admin-2026/doc-192.html"
 }
 ];
