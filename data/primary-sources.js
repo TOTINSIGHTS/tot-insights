@@ -1598,7 +1598,7 @@ window.TOT_PRIMARY_SOURCES = [
 },
  {
 "id": "DOC-183",
-"short": "Official acts on the museums of occupied Ukraine (180 acts)",
+"short": "Museum acts of occupied Ukraine, 2014 to 2026 (CURIA Lab, 180 acts)",
 "title": "Official Acts on the Museums of Occupied Ukraine, 2014 to 2026 (compiled by CURIA Lab, University of Virginia)",
 "desc": "178 federal and occupation-authority acts that took Ukrainian state property, set up occupation culture ministries and brought the museums of Crimea, Donetsk, Luhansk, Zaporizhzhia and Kherson regions into Russia's Museum Fund. Searchable by title, number, issuer, topic and year.",
 "year": "2026",

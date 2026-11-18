@@ -97,6 +97,14 @@
 .psf-seg button{font-family:var(--font-mono);font-size:var(--fs-label);padding:6px 11px;border:0;background:#f7f5f1;color:var(--navy);cursor:pointer;}
 .psf-seg button[aria-pressed="true"]{background:var(--gold);color:var(--navy);}
 .psf-link{font-family:var(--font-mono);font-size:var(--fs-label);background:none;border:0;color:#111d30;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;}
+.psf-coll{display:grid;gap:6px;text-decoration:none;color:var(--navy);background:#f7f5f1;border:1px solid rgba(17,29,48,0.28);border-left:3px solid var(--gold);border-radius:3px;padding:16px 18px;box-shadow:0 1px 2px rgba(17,29,48,0.08);}
+.psf-coll:hover{border-color:var(--navy);border-left-color:var(--gold);}
+.psf-coll-k{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;color:#4a4a57;}
+.psf-coll-t{font-family:var(--font-serif);font-size:var(--fs-card-title,22px);font-weight:700;line-height:1.25;}
+.psf-coll-d{font-size:var(--fs-fine);line-height:1.6;color:#3a3a4a;max-width:80ch;}
+.psf-coll-go{font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;text-transform:uppercase;}
+.psf-also{margin-top:14px;padding:10px 14px;background:rgba(201,168,76,0.15);border-left:3px solid var(--gold);border-radius:3px;font-size:var(--fs-fine);color:var(--navy);}
+.psf-also a{color:var(--navy);font-weight:600;}
 #psf-results .ps-grid{margin-top:16px;}
 .ps-card:focus-visible,.psf-tile:focus-visible,.psf-row:focus-visible{outline:3px solid #c9a84c;outline-offset:2px;}
 .psf-meta{font-family:var(--font-mono);font-size:var(--fs-label);color:#5a5f6c;display:flex;flex-wrap:wrap;gap:2px 8px;margin-bottom:8px;}
@@ -143,6 +151,14 @@
   <div class="section-label" id="documents">Document collections</div>
   <p class="section-desc">Laws, decrees, orders, textbooks and records issued by Russia and its occupation authorities in Ukraine. Each has an English translation, key provisions in English, or an English summary.</p>
 
+  <h3 class="psf-h">Collections</h3>
+  <a class="psf-coll" href="primary-sources/occupied-museums/doc-183.html">
+    <span class="psf-coll-k">DOC-183 · Collection · 180 acts · compiled by CURIA Lab, University of Virginia</span>
+    <span class="psf-coll-t">Official acts on the museums of occupied Ukraine, 2014 to 2026</span>
+    <span class="psf-coll-d">Federal and occupation-authority laws, decrees, orders and letters that took Ukrainian state property, set up occupation culture ministries and brought the museums of Crimea, Donetsk, Luhansk, Zaporizhzhia and Kherson regions into Russia's Museum Fund. Russian texts with English titles; search, filter and read each act.</span>
+    <span class="psf-coll-go">Open the collection &rarr;</span>
+  </a>
+
   <h3 class="psf-h">Start with a question</h3>
   <div class="psf-tiles" id="psf-tiles" role="group" aria-label="Research questions"></div>
 
@@ -168,6 +184,7 @@
       </div>
     </div>
   </div>
+  <div id="psf-also" class="psf-also" hidden></div>
   <div id="psf-results"><noscript><p>The document list needs JavaScript. Every document is also listed in the <a href="research.html">research catalogue</a>.</p></noscript></div>
 
   <h3 class="psf-h">How to read these documents</h3>
@@ -286,7 +303,7 @@
 <div id="site-footer"></div>
 
 <!-- psf:script -->
-<script src="data/primary-sources.js?v=1"></script>
+<script src="data/primary-sources.js?v=2"></script>
 <script>
 (function(){
 var DATA=(window.TOT_PRIMARY_SOURCES||[]).slice();
@@ -331,6 +348,13 @@ function card(x){return '<a class="ps-card" href="'+esc(x.url)+'" title="'+esc(x
 function row(x){return '<a class="psf-row" href="'+esc(x.url)+'"><span class="psf-yr">'+esc(yr(x))+'</span><span><div class="psf-t">'+esc(x.short)+'</div><div class="psf-off">'+esc(x.title)+'</div></span><span class="psf-c3">'+x.territory.map(function(k){return TES[k];}).join(', ')+'<br>'+KIND[x.kind]+'</span><span class="psf-c4">'+badges(x)+'</span></a>';}
 function readURL(){try{var u=new URLSearchParams(location.search);KEYS.forEach(function(k){var v=u.get(k==='kind'?'type':k);if(v)st[k]=v;});var t=u.get('theme');if(t)st.th=t;}catch(e){}}
 function writeURL(){try{var u=new URLSearchParams(location.search);KEYS.forEach(function(k){var n=k==='kind'?'type':k;u.delete(n);if(st[k]&&!(k==='sort'&&st[k]==='new'))u.set(n,st[k]);});var s=u.toString();history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash);}catch(e){}}
+var ACTS=null;
+function loadActs(){if(ACTS!==null)return;ACTS=[];fetch('data/occupied-museums/acts.json').then(function(r){return r.json();}).then(function(d){ACTS=d.map(function(a){return (a.en+' '+a.ru+' '+a.n+' '+a.k+' '+a.d).toLowerCase().replace(/\u0451/g,'\u0435');});also();}).catch(function(){ACTS=[];});}
+function also(){var el=$('psf-also');if(!el)return;if(!st.q||!ACTS||!ACTS.length){el.hidden=true;return;}
+  var w=st.q.toLowerCase().replace(/\u0451/g,'\u0435').split(/\s+/).filter(Boolean);
+  var n=ACTS.filter(function(h){return w.every(function(x){return h.indexOf(x)>-1;});}).length;
+  if(!n){el.hidden=true;return;}
+  el.innerHTML='Also: <a href="primary-sources/occupied-museums/doc-183.html?q='+encodeURIComponent(st.q)+'">'+n+' act'+(n===1?'':'s')+' in the museum acts collection (DOC-183, CURIA Lab)</a> match &ldquo;'+esc(st.q)+'&rdquo;.';el.hidden=false;}
 function render(){
   $('psf-tiles').innerHTML=TILES.map(function(t){var n=DATA.filter(function(x){return x.questions.indexOf(t[0])>-1;}).length;
     return '<button type="button" class="psf-tile" data-tp="'+t[0]+'" aria-pressed="'+(st.tp===t[0])+'"><span class="psf-tile-q">'+t[1]+'</span><span class="psf-tile-sub">'+t[2]+'</span><span class="psf-tile-n">'+n+' documents</span></button>';}).join('');
@@ -343,6 +367,7 @@ function render(){
   $('psf-chips').innerHTML=Object.keys(lab).filter(function(k){return st[k];}).map(function(k){var l=esc(lab[k](st[k]));return '<button type="button" class="psf-chip" data-k="'+k+'" aria-label="Remove filter: '+l+'">'+l+' &times;</button>';}).join('');
   $('psf-results').innerHTML=!r.length?'<div class="psf-empty">No documents match. Remove a filter or try a shorter search.</div>':(st.view==='cards'?'<div class="ps-grid">'+r.map(card).join('')+'</div>':'<div class="psf-list">'+r.map(row).join('')+'</div>');
   $('psf-vc').setAttribute('aria-pressed',st.view==='cards');$('psf-vl').setAttribute('aria-pressed',st.view==='list');
+  if(st.q)loadActs();also();
   writeURL();}
 $('psf-tiles').addEventListener('click',function(e){var b=e.target.closest('.psf-tile');if(!b)return;var v=b.getAttribute('data-tp');st.tp=st.tp===v?'':v;render();$('find').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
 $('psf-chips').addEventListener('click',function(e){var b=e.target.closest('.psf-chip');if(!b)return;var k=b.getAttribute('data-k');st[k]='';if(k==='q')$('psf-q').value='';render();});
