@@ -2355,9 +2355,9 @@ window.TOT_PRIMARY_SOURCES = [
 },
  {
 "id": "DOC-193",
-"short": "Russian security law in the occupied territories (7 articles, 22 acts)",
+"short": "Russian security law in the occupied territories (7 articles, 59 acts)",
 "title": "Russian Security Law in the Occupied Territories: Seven Articles of the Criminal and Administrative Codes and the Cases Brought under Them",
-"desc": "Seven Criminal and Administrative Code articles linked to the people charged under them, and 22 martial-law and security acts: curfews, expulsion, resettlement, seizures and bans in the occupied territories.",
+"desc": "Seven Criminal and Administrative Code articles linked to the people charged under them, and 59 martial-law, security and property acts: curfews, expulsion, resettlement, seizures, \"ownerless\" property and bans in the occupied territories.",
 "year": "",
 "undated": "In force",
 "territory": [
