@@ -2268,10 +2268,37 @@ window.TOT_PRIMARY_SOURCES = [
 "collection": "security"
 },
  {
+"id": "DOC-194",
+"short": "Mariupol decrees of May 2026: lease auctions and 11 blocks set for demolition",
+"title": "Mariupol City Administration Decrees, 8 to 20 May 2026 (Nos. 918 to 960): Lease Auctions, Demolition Orders and Administrative Measures",
+"desc": "Nine decrees: five-year leases on two bath complexes and city-centre premises put up for auction at up to 14 million roubles a year, 11 apartment blocks declared \"unsafe and subject to demolition\", and rules on signboards, advertising and paid municipal services.",
+"year": "2026",
+"undated": "",
+"territory": [
+"mar"
+],
+"issuer": [
+"muni"
+],
+"kind": "decree",
+"english": "key",
+"ai": false,
+"themes": [
+"Governance",
+"Economics",
+"Civilian Life and Resistance"
+],
+"questions": [
+"property"
+],
+"url": "primary-sources/mariupol-admin-2026/doc-194.html",
+"collection": "mariupol"
+},
+ {
 "id": "DOC-192",
-"short": "Mariupol city administration acts, 2026 (18 documents)",
+"short": "Mariupol city administration acts, 2026 (34 decrees and orders)",
 "title": "Mariupol City Administration Acts, April to August 2026: 18 Decrees and Orders of the Occupation Administration",
-"desc": "25 decrees and orders of the occupation administration of Mariupol, grouped by city government, property and housing, business, and schools; each with the Russian original and English.",
+"desc": "34 decrees and orders of the occupation administration of Mariupol, grouped by city government, property and housing, business, and schools; each with the Russian original and English.",
 "year": "2026",
 "undated": "",
 "territory": [
