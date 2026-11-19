@@ -2328,9 +2328,9 @@ window.TOT_PRIMARY_SOURCES = [
 },
  {
 "id": "DOC-193",
-"short": "Russian security law in the occupied territories (7 articles, with cases)",
+"short": "Russian security law in the occupied territories (7 articles, 22 acts)",
 "title": "Russian Security Law in the Occupied Territories: Seven Articles of the Criminal and Administrative Codes and the Cases Brought under Them",
-"desc": "Treason, espionage, confidential cooperation, assisting the enemy, calls against state security, banned symbols and \"discrediting\" the army: each article in Russian and English, linked to the people charged under it in the Civilian Detainees Database.",
+"desc": "Seven Criminal and Administrative Code articles linked to the people charged under them, and 22 martial-law and security acts: curfews, expulsion, resettlement, seizures and bans in the occupied territories.",
 "year": "",
 "undated": "In force",
 "territory": [
@@ -2348,10 +2348,13 @@ window.TOT_PRIMARY_SOURCES = [
 "themes": [
 "Accountability and Legal",
 "Coercion, Entrapment and Slavery",
-"Civilian Life and Resistance"
+"Civilian Life and Resistance",
+"Governance"
 ],
 "questions": [
-"dissent"
+"dissent",
+"annex",
+"property"
 ],
 "url": "primary-sources/rf-security-law/doc-193.html"
 }
